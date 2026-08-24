@@ -29,7 +29,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from build import cargar, RAIZ  # noqa: E402
 
 SALIDA = RAIZ / "build"
-BASE = "https://alcyedmundo281.github.io/farmacosemiotics/"
+BASE = "https://powersemiotics.com/farmacosemiotics/"
 REPO = "https://github.com/alcyedmundo281/farmacosemiotics"
 AUTOR_POR_DEFECTO = [{"nombre": "Alcy Torres"}]
 

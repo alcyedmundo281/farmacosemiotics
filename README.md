@@ -2,7 +2,9 @@
 
 **Uso racional de medicamentos, en fuente abierta y verificable.** Fichas
 terapéuticas en YAML, cada enunciado de eficacia o seguridad anclado a un PMID
-que resuelve. Motor en Python. Índice JSON-LD. Sitio en GitHub Pages.
+que resuelve. Motor en Python. Índice JSON-LD.
+
+→ **[powersemiotics.com/farmacosemiotics](https://powersemiotics.com/farmacosemiotics/)**
 
 Parte del ecosistema **Powersemiotics**, junto a
 [medsemiotics-db](https://github.com/alcyedmundo281/medsemiotics-db) (índice

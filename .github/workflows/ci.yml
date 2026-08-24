@@ -1,0 +1,57 @@
+name: contrato
+
+# El mismo contrato que corre en local. Si build.py falla aquí, el registro que
+# lo rompió no entra: la regla de oro no admite excepciones por prisa.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'farmacos/**'
+      - 'fichas/**'
+      - 'referencias/**'
+      - 'catalogo/**'
+      - 'costos/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/ci.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Validar los registros
+        run: python scripts/build.py
+
+      - name: Generar índice, reto y sitio
+        run: |
+          python scripts/indice.py
+          python scripts/reto.py
+          python scripts/sitio.py
+
+      - name: Pruebas del contrato
+        run: python -m unittest discover -s tests -v
+
+      - name: Cobertura frente a la Lista Modelo de la OMS
+        run: python scripts/eml.py
+
+      - name: Guardar las salidas
+        uses: actions/upload-artifact@v4
+        with:
+          name: salidas
+          path: |
+            build/index.json
+            build/reto.json
+            build/jsonld/
+            build/jats/
+          retention-days: 30

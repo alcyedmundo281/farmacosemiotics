@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: Si utiliza este repositorio, por favor cítelo así.
+title: >-
+  farmacosemiotics: fichas de terapéutica racional en fuente abierta,
+  ancladas a PubMed
+abstract: >-
+  Banco de fichas de uso racional de medicamentos en YAML, con cada enunciado
+  de eficacia y seguridad anclado a un PMID verificado. Motor en Python que
+  deriva un índice JSON-LD, un depósito JATS y un sitio estático. La meta de
+  contenido es la Lista Modelo de Medicamentos Esenciales de la OMS.
+type: dataset
+authors:
+  - family-names: Torres
+    given-names: Alcy
+    alias: alcyedmundo281
+repository-code: https://github.com/alcyedmundo281/farmacosemiotics
+license: CC-BY-SA-4.0
+keywords:
+  - uso racional de medicamentos
+  - terapéutica
+  - farmacología clínica
+  - medicamentos esenciales
+  - GRADE
+  - datos abiertos

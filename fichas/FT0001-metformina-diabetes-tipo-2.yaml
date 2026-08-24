@@ -1,0 +1,220 @@
+# Ficha: fármaco × indicación. Lo que SÍ depende de la indicación.
+#
+# Cada cifra de este fichero se transcribió del resumen que PubMed publica para
+# el estudio citado, no de una fuente secundaria ni de memoria. Cuando la fuente
+# da una reducción del riesgo y no un cociente, aquí figura una reducción del
+# riesgo: convertirla sería reescribir el resultado.
+
+id: 'FT:0001'
+tipo: ficha
+farmaco: 'FS:0001'
+
+titulo: Metformina en la diabetes mellitus tipo 2 del adulto
+titulo_en: Metformin in type 2 diabetes mellitus in adults
+indicacion: Diabetes mellitus tipo 2
+indicacion_en: Type 2 diabetes mellitus
+poblacion: >-
+  Adultos con diabetes mellitus tipo 2 de diagnóstico reciente, con sobrepeso,
+  sin síntomas de hiperglucemia tras un periodo inicial de dieta.
+poblacion_en: >-
+  Overweight adults with newly diagnosed type 2 diabetes without hyperglycaemic
+  symptoms after initial dietary treatment.
+cie11: 5A11
+
+estado: borrador
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+autores:
+  - nombre: Alcy Torres
+licencia: CC BY-SA 4.0
+
+# ── Pregunta ────────────────────────────────────────────────────────────
+pico:
+  p: Adultos con sobrepeso y diabetes mellitus tipo 2 de diagnóstico reciente
+  i: Control glucémico intensivo con metformina
+  c: Política convencional, fundamentalmente dieta sola
+  o: >-
+    Mortalidad por cualquier causa, muerte relacionada con la diabetes,
+    cualquier desenlace clínico relacionado con la diabetes, hipoglucemia,
+    ganancia de peso
+
+estrategia:
+  - base: PubMed
+    consulta: 'metformin[MeSH] AND "diabetes mellitus, type 2"[MeSH] AND randomized controlled trial[pt]'
+    fecha: '2026-08-24'
+    nota: >-
+      La ficha se ancla en el ensayo pivotal y en la revisión sistemática del
+      daño que más pesa en la decisión. No pretende ser una revisión de novo.
+
+# ── Posología ───────────────────────────────────────────────────────────
+posologia:
+  inicio: 500 mg una o dos veces al día, con las comidas
+  escalado: >-
+    Subir de 500 en 500 mg cada una o dos semanas. El escalado lento no es una
+    formalidad: es lo que decide si el paciente tolera el fármaco o lo abandona
+    en la primera semana.
+  maxima: 2550 mg al día repartidos
+  ajuste_renal: >-
+    Contraindicada con filtrado glomerular estimado inferior a 30 mL/min/1,73 m².
+    Entre 30 y 45 no se recomienda iniciarla, y si ya se estaba tomando conviene
+    reevaluar el beneficio frente al riesgo.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014f2a32-8440-4d0c-8f5d-c4b3a49e0dec
+  consultado: '2026-08-24'
+
+# ── Evidencia ───────────────────────────────────────────────────────────
+# `certeza` es GRADE. Cualquier valor distinto de `alta` exige
+# `razones_descenso`: un juicio de certeza sin argumento no es un juicio.
+evidencia:
+  - desenlace: Mortalidad por cualquier causa
+    criticidad: critico
+    diseno: eca
+    estudio: UKPDS 34
+    comparador: política convencional, fundamentalmente dieta sola
+    n: 753
+    seguimiento: mediana de 10,7 años
+    efecto: reducción del riesgo del 36 % (IC95 % 9–55), p = 0,011
+    certeza: moderada
+    razones_descenso:
+      - riesgo_de_sesgo   # ensayo abierto, sin enmascaramiento
+    ref: 'pmid:9742977'
+
+  - desenlace: Muerte relacionada con la diabetes
+    criticidad: critico
+    diseno: eca
+    estudio: UKPDS 34
+    comparador: política convencional, fundamentalmente dieta sola
+    n: 753
+    seguimiento: mediana de 10,7 años
+    efecto: reducción del riesgo del 42 % (IC95 % 9–63), p = 0,017
+    certeza: moderada
+    razones_descenso:
+      - riesgo_de_sesgo
+    ref: 'pmid:9742977'
+
+  - desenlace: Cualquier desenlace clínico relacionado con la diabetes
+    criticidad: importante
+    diseno: eca
+    estudio: UKPDS 34
+    comparador: política convencional, fundamentalmente dieta sola
+    n: 753
+    seguimiento: mediana de 10,7 años
+    efecto: reducción del riesgo del 32 % (IC95 % 13–47), p = 0,002
+    certeza: moderada
+    razones_descenso:
+      - riesgo_de_sesgo
+    ref: 'pmid:9742977'
+
+  - desenlace: >-
+      Muerte relacionada con la diabetes al añadir metformina precozmente a una
+      sulfonilurea ya a dosis máxima
+    criticidad: critico
+    diseno: eca
+    estudio: UKPDS 34, ensayo suplementario
+    comparador: continuar solo con la sulfonilurea
+    n: 537
+    efecto: aumento del riesgo del 96 % (IC95 % 2–275), p = 0,039
+    direccion_del_efecto: desfavorable
+    certeza: baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - imprecision          # intervalo amplísimo, límite inferior casi en la nulidad
+      - caracter_secundario  # análisis suplementario, no la comparación principal
+    nota: >-
+      Se incluye porque es el resultado incómodo del mismo ensayo que sostiene
+      todo lo anterior. El análisis epidemiológico de 4416 pacientes del propio
+      estudio no confirmó ese exceso de muertes con la combinación (reducción
+      del riesgo del 5 %, IC95 % −33 a 32, p = 0,78). Omitirlo dejaría la ficha
+      más limpia y menos honesta.
+    ref: 'pmid:9742977'
+
+  - desenlace: Acidosis láctica
+    criticidad: critico
+    diseno: revision_sistematica
+    estudio: revisión Cochrane de 347 estudios comparativos y de cohortes
+    comparador: otros antihiperglucemiantes
+    n: 70490
+    unidad_n: años-paciente con metformina
+    efecto: >-
+      ningún caso, mortal ni no mortal; límite superior de la incidencia real
+      4,3 casos por 100 000 años-paciente frente a 5,4 sin metformina
+    certeza: moderada
+    razones_descenso:
+      - imprecision   # la ausencia de eventos solo acota el techo, no estima el riesgo
+    ref: 'pmid:20393934'
+
+# ── Balance ─────────────────────────────────────────────────────────────
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: moderada
+  valores_preferencias: >-
+    Poca variabilidad esperable: pocos pacientes rechazarían un fármaco oral que
+    reduce la mortalidad, no provoca hipoglucemia en monoterapia y no hace ganar
+    peso. La intolerancia digestiva es el punto donde sí varía la preferencia, y
+    es manejable con el escalado.
+  equidad: >-
+    Favorable. Genérico, de administración oral y en la lista básica de la OMS
+    desde hace décadas, lo que lo hace accesible donde los antidiabéticos más
+    nuevos no llegan.
+  aceptabilidad: alta
+  factibilidad: >-
+    Alta, con una condición que no es trivial donde escasea el laboratorio:
+    exige conocer el filtrado glomerular antes de iniciar y vigilarlo después.
+
+# ── Recomendación ───────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda la metformina como tratamiento farmacológico inicial en el
+    adulto con diabetes mellitus tipo 2 y sobrepeso, salvo contraindicación por
+    función renal o acidosis metabólica.
+  enunciado_en: >-
+    Metformin is recommended as initial pharmacological therapy in overweight
+    adults with type 2 diabetes mellitus, unless contraindicated by renal
+    function or metabolic acidosis.
+  ref: 'pmid:36151309'
+  nota_consenso: >-
+    El consenso ADA/EASD de 2022 sitúa la elección del primer fármaco en función
+    del riesgo cardiovascular y renal, y ya no como una escalera fija que empieza
+    siempre en metformina. La recomendación de esta ficha sigue siendo fuerte en
+    su población —adulto con sobrepeso, sin enfermedad cardiovascular o renal
+    establecida—, y esa acotación es la que la mantiene en pie.
+
+alternativas:
+  - dci: Gliclazida
+    atc: A10BB09
+    lme: true
+    lme_seccion: '18.5.2'
+    nota: >-
+      Sulfonilurea del núcleo de la LME. Provoca hipoglucemia y ganancia de peso,
+      los dos desenlaces donde la metformina salió mejor parada en UKPDS 34.
+  - dci: Empagliflozina
+    atc: A10BK03
+    lme: true
+    lme_seccion: '18.5.2'
+    nota: >-
+      Incorporada a la Lista Modelo con el peso de sus desenlaces
+      cardiovasculares y renales. No tiene ficha propia aquí todavía.
+  - dci: Insulina humana
+    atc: A10AB01
+    lme: true
+    lme_seccion: '18.5.1'
+    nota: >-
+      En UKPDS 34 la metformina superó a la insulina en desenlaces relacionados
+      con la diabetes, mortalidad total e ictus dentro del brazo intensivo.
+
+conclusion: >-
+  En el adulto con sobrepeso y diabetes tipo 2 de diagnóstico reciente, la
+  metformina redujo la mortalidad total, la muerte relacionada con la diabetes y
+  los desenlaces clínicos de la enfermedad frente a la política convencional, con
+  menos hipoglucemias y menos ganancia de peso que la insulina y las
+  sulfonilureas. La acidosis láctica, que motiva la advertencia con recuadro de
+  la FDA, no pudo medirse en 70 490 años-paciente porque no aparecieron casos.
+  Lo que de verdad limita su uso no es ese riesgo, sino el filtrado glomerular.
+
+refs:
+  - 'pmid:9742977'
+  - 'pmid:20393934'
+  - 'pmid:36151309'

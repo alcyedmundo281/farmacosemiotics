@@ -1,0 +1,44 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:36151309"
+clave_bibtex: davies2022
+tipo: revision
+titulo: "Management of hyperglycaemia in type 2 diabetes, 2022. A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD)"
+autores:
+  - "Davies MJ"
+  - "Aroda VR"
+  - "Collins BS"
+  - "Gabbay RA"
+  - "Green J"
+  - "Maruthur NM"
+  - "Rosas SE"
+  - "Del Prato S"
+  - "Mathieu C"
+  - "Mingrone G"
+  - "Rossing P"
+  - "Tankova T"
+  - "Tsapas A"
+  - "Buse JB"
+publicacion: "Diabetologia"
+anio: 2022
+volumen: "65"
+numero: "12"
+paginas: "1925-1966"
+
+identificadores:
+  pmid: 36151309
+  doi: "10.1007/s00125-022-05787-2"
+  pmc: "PMC9510507"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Review"
+  - "Research Support, Non-U.S. Gov't"
+  - "Consensus Statement"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

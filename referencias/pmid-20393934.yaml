@@ -1,0 +1,32 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:20393934"
+clave_bibtex: salpeter2010
+tipo: revision_sistematica
+titulo: "Risk of fatal and nonfatal lactic acidosis with metformin use in type 2 diabetes mellitus"
+autores:
+  - "Salpeter SR"
+  - "Greyber E"
+  - "Pasternak GA"
+  - "Salpeter EE"
+publicacion: "Cochrane Database Syst Rev"
+anio: 2010
+volumen: "2010"
+numero: "4"
+paginas: "CD002967"
+
+identificadores:
+  pmid: 20393934
+  doi: "10.1002/14651858.CD002967.pub4"
+  pmc: "PMC7138050"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Systematic Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

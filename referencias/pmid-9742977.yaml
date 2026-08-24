@@ -1,0 +1,32 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:9742977"
+clave_bibtex: ukpds1998
+tipo: eca
+titulo: "Effect of intensive blood-glucose control with metformin on complications in overweight patients with type 2 diabetes (UKPDS 34). UK Prospective Diabetes Study (UKPDS) Group"
+autores:
+  - "Anónimo"
+publicacion: "Lancet"
+anio: 1998
+volumen: "352"
+numero: "9131"
+paginas: "854-65"
+
+identificadores:
+  pmid: 9742977
+  doi: null
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+  - "Research Support, U.S. Gov't, P.H.S."
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: null   # sin DOI que comprobar

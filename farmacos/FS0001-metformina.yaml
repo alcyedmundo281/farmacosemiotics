@@ -1,0 +1,163 @@
+# Principio activo. Lo que NO depende de la indicación.
+#
+# El código FS: es permanente: no se renumera, no se reutiliza, no se reasigna.
+# La evidencia de eficacia no vive aquí, sino en las fichas que lo citan.
+
+id: 'FS:0001'
+tipo: farmaco
+dci: Metformina
+dci_en: Metformin
+sinonimos:
+  - dimetilbiguanida
+  - clorhidrato de metformina
+  - metformin hydrochloride
+
+atc: A10BA02
+clase_farmacologica: Biguanida
+clase_farmacologica_en: Biguanide
+
+codigos:
+  rxcui: '6809'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-08-24'
+  snomed: null
+  unii: null
+
+# ── Lista Modelo de la OMS ──────────────────────────────────────────────
+# Los dos listados no coinciden, y la diferencia importa: en el adulto la
+# metformina es del núcleo; en la lista pediátrica es complementaria. Una
+# ficha que dijera solo «está en la LME» perdería esa distinción.
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '18.5.2'
+  seccion_titulo_en: Hypoglycaemic agents
+  categoria: core
+  formulaciones:
+    - 'Tablet: 500 mg (hydrochloride)'
+  emlc:
+    presente: true
+    edicion: 10
+    anio: 2025
+    seccion: '18.5.2'
+    seccion_titulo_en: Oral hypoglycaemic agents
+    categoria: complementary
+  fuente: 'who:eml24'
+  fuente_detalle: >-
+    The selection and use of essential medicines 2025. WHO Technical Report
+    Series No. 1064, anexo con la 24.ª Lista Modelo y la 10.ª LME para niños.
+  url: https://www.who.int/publications/i/item/B09474
+  consultado: '2026-08-24'
+
+# ── Farmacología ────────────────────────────────────────────────────────
+mecanismo: >-
+  Reduce la producción hepática de glucosa, disminuye su absorción intestinal y
+  mejora la sensibilidad a la insulina aumentando la captación y utilización
+  periférica. No estimula la secreción de insulina: la insulinemia basal no sube
+  y la respuesta a lo largo del día puede incluso descender. De ahí que no
+  provoque hipoglucemia en monoterapia, que es su rasgo clínico distintivo.
+mecanismo_en: >-
+  Decreases hepatic glucose production, decreases intestinal absorption of
+  glucose, and improves insulin sensitivity by increasing peripheral glucose
+  uptake and utilization; insulin secretion remains unchanged.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: renal, sin metabolismo hepático
+  implicacion: >-
+    Por eliminarse íntegra por el riñón, el filtrado glomerular no es un detalle
+    de precaución sino el determinante de si el fármaco puede usarse.
+  ref: 'fda:label'
+
+formas:
+  - forma: comprimido
+    concentraciones: ['500 mg', '850 mg', '1000 mg']
+    via: oral
+  - forma: comprimido de liberación prolongada
+    concentraciones: ['500 mg', '750 mg', '1000 mg']
+    via: oral
+
+# ── Seguridad ───────────────────────────────────────────────────────────
+seguridad:
+  reacciones:
+    - evento: Intolerancia digestiva (diarrea, náuseas, dolor abdominal)
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Es la causa habitual de abandono. Se atenúa escalonando la dosis y
+        tomándola con las comidas.
+      ref: 'fda:label'
+    - evento: Déficit de vitamina B12
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: Dependiente de la duración del tratamiento.
+      ref: 'fda:label'
+    - evento: Acidosis láctica asociada a metformina
+      frecuencia: muy_rara
+      gravedad: mortal
+      nota: >-
+        La revisión sistemática de 347 estudios comparativos y de cohortes no
+        halló ningún caso, mortal ni no mortal, en 70 490 años-paciente de uso
+        de metformina, ni en 55 451 años-paciente sin ella. El límite superior
+        de la incidencia real, por estadística de Poisson, quedó en 4,3 casos
+        por cada 100 000 años-paciente con metformina y 5,4 sin ella.
+      ref: 'pmid:20393934'
+
+  contraindicaciones:
+    - motivo: Filtrado glomerular estimado inferior a 30 mL/min/1,73 m²
+      ref: 'fda:label'
+    - motivo: Acidosis metabólica aguda o crónica, incluida la cetoacidosis diabética
+      ref: 'fda:label'
+    - motivo: Hipersensibilidad a la metformina
+      ref: 'fda:label'
+
+alertas:
+  - agencia: FDA
+    tipo: recuadro
+    asunto: >-
+      Acidosis láctica asociada a metformina, con casos poscomercialización
+      mortales. El riesgo aumenta con la insuficiencia renal, la sepsis, la
+      deshidratación, el exceso de alcohol, la insuficiencia hepática y el
+      contraste yodado intravascular.
+    url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014f2a32-8440-4d0c-8f5d-c4b3a49e0dec
+    fuente: 'openfda:label'
+    consultado: '2026-08-24'
+    tension_con_la_evidencia: >-
+      El recuadro y pmid:20393934 no dicen lo mismo, y la ficha no lo disimula:
+      la advertencia describe un daño real pero rarísimo, y la revisión no logró
+      medir su incidencia porque no encontró casos. Lo que sostiene el recuadro
+      es la vigilancia poscomercialización, no la evidencia comparativa.
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1995-03-03'
+    solicitud: NDA020357
+    marca_original: GLUCOPHAGE
+    primera_aprobacion_nota: >-
+      Derivada de la submission ORIG/AP más antigua que openFDA expone para
+      NDA020357, no de un campo oficial de «primera aprobación». Para moléculas
+      anteriores a los años noventa esta derivación puede quedarse corta.
+    solicitudes:
+      nda: 16
+      anda: 66
+      bla: 0
+    fuente: 'openfda:drugsfda'
+    consulta: 'products.brand_name:"GLUCOPHAGE"'
+    consultado: '2026-08-24'
+
+etiqueta_fda:
+  set_id: '014f2a32-8440-4d0c-8f5d-c4b3a49e0dec'
+  vigencia: '2026-05-05'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014f2a32-8440-4d0c-8f5d-c4b3a49e0dec
+  nota: >-
+    Etiqueta de un producto de metformina sola. openFDA indexa las
+    combinaciones bajo el mismo nombre genérico, así que buscar «metformin»
+    devuelve también sitagliptina + metformina y compañía.
+  fuente: 'openfda:label'
+  consultado: '2026-08-24'
+
+fichas: ['FT:0001']

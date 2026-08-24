@@ -1,0 +1,410 @@
+# Catálogo: Lista Modelo de Medicamentos Esenciales de la OMS.
+#
+# Es la META DE CONTENIDO del repositorio, no un registro clínico. Dice QUÉ
+# hay que cubrir; `scripts/eml.py` compara esta meta contra farmacos/ y
+# fichas/ y reporta el hueco.
+#
+# Las 30 secciones de primer nivel están verificadas una a una contra el anexo
+# del informe oficial. Las subsecciones se extrajeron del mismo PDF y llevan el
+# título en inglés TAL CUAL aparece en la fuente: no se traducen, porque el
+# título de sección es la clave con la que se cita la LME.
+#
+# `completo: false` no es un descuido: el anexo viene maquetado a dos columnas
+# y unas pocas subsecciones no sobrevivieron la extracción. Se completan a mano
+# contra la fuente, oleada por oleada, nunca de memoria.
+
+lista: EML
+edicion: 24
+anio: 2025
+emlc:
+  edicion: 10
+  anio: 2025
+fuente:
+  titulo: >-
+    The selection and use of essential medicines 2025: report of the 25th WHO
+    Expert Committee on the Selection and Use of Essential Medicines
+  serie: WHO Technical Report Series, No. 1064
+  organismo: Organización Mundial de la Salud
+  url: https://www.who.int/publications/i/item/B09474
+  consultado: '2026-08-24'
+completo: false
+
+secciones:
+  - numero: 1
+    titulo_en: 'ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES'
+    titulo: 'Anestésicos, medicamentos preoperatorios y gases medicinales'
+    subsecciones:
+      - codigo: '1.1'
+        titulo_en: 'General anaesthetics and oxygen'
+      - codigo: '1.3'
+        titulo_en: 'Preoperative medication and sedation for short-term procedures'
+  - numero: 2
+    titulo_en: 'MEDICINES FOR PAIN AND PALLIATIVE CARE'
+    titulo: 'Medicamentos para el dolor y los cuidados paliativos'
+    subsecciones:
+      - codigo: '2.1'
+        titulo_en: 'Non-opioids and non-steroidal anti-inflammatory medicines (NSAIMs)'
+      - codigo: '2.2'
+        titulo_en: 'Opioid analgesics'
+      - codigo: '2.3'
+        titulo_en: 'Medicines for other common symptoms in palliative care'
+  - numero: 3
+    titulo_en: 'ANTIALLERGICS AND MEDICINES USED IN ANAPHYLAXIS'
+    titulo: 'Antialérgicos y medicamentos usados en la anafilaxia'
+    subsecciones: []
+  - numero: 4
+    titulo_en: 'ANTIDOTES AND OTHER SUBSTANCES USED IN POISONINGS'
+    titulo: 'Antídotos y otras sustancias usadas en las intoxicaciones'
+    subsecciones: []
+  - numero: 5
+    titulo_en: 'MEDICINES FOR NEUROLOGICAL DISORDERS'
+    titulo: 'Medicamentos para trastornos neurológicos'
+    subsecciones:
+      - codigo: '5.1'
+        titulo_en: 'Medicines for central nervous system disorders'
+      - codigo: '5.1.1'
+        titulo_en: 'Antiseizure medicines'
+      - codigo: '5.1.2'
+        titulo_en: 'Medicines for multiple sclerosis'
+      - codigo: '5.1.3'
+        titulo_en: 'Medicines for parkinsonism'
+      - codigo: '5.1.4'
+        titulo_en: 'Medicines for cerebral palsy'
+      - codigo: '5.1.5'
+        titulo_en: 'Medicines for headache disorders'
+      - codigo: '5.1.5.1'
+        titulo_en: 'Medicines for acute migraine attacks'
+      - codigo: '5.1.5.2'
+        titulo_en: 'Medicines for migraine prophylaxis'
+      - codigo: '5.1.5.3'
+        titulo_en: 'Medicines for cluster headache'
+      - codigo: '5.1.6'
+        titulo_en: 'Medicines for central nervous system infections'
+      - codigo: '5.1.6.1'
+        titulo_en: 'Medicines for bacterial central nervous system infections'
+      - codigo: '5.1.6.2'
+        titulo_en: 'Medicines for viral central nervous system infections'
+      - codigo: '5.2'
+        titulo_en: 'Medicines for peripheral nervous system disorders'
+      - codigo: '5.2.1'
+        titulo_en: 'Medicines for Guillain-Barré syndrome'
+      - codigo: '5.2.2'
+        titulo_en: 'Medicines for myasthenia gravis'
+  - numero: 6
+    titulo_en: 'ANTI-INFECTIVE MEDICINES'
+    titulo: 'Antiinfecciosos'
+    subsecciones:
+      - codigo: '6.1.1'
+        titulo_en: 'Intestinal anthelminthics'
+      - codigo: '6.1.3'
+        titulo_en: 'Antischistosomals and other antitrematode medicines'
+      - codigo: '6.2.1'
+        titulo_en: 'Access group antibiotics'
+      - codigo: '6.2.2'
+        titulo_en: 'Watch group antibiotics'
+      - codigo: '6.2.3'
+        titulo_en: 'Reserve group antibiotics'
+      - codigo: '6.2.4'
+        titulo_en: 'Antileprosy medicines'
+      - codigo: '6.2.5'
+        titulo_en: 'Antituberculosis medicines'
+      - codigo: '6.4'
+        titulo_en: 'Antiviral medicines'
+      - codigo: '6.4.1'
+        titulo_en: 'Antiherpes medicines'
+      - codigo: '6.4.2'
+        titulo_en: 'Antiretrovirals'
+      - codigo: '6.4.2.1'
+        titulo_en: 'Nucleoside/Nucleotide reverse transcriptase inhibitors'
+      - codigo: '6.4.2.2'
+        titulo_en: 'Non-nucleoside reverse transcriptase inhibitors'
+      - codigo: '6.4.2.3'
+        titulo_en: 'Protease inhibitors'
+      - codigo: '6.4.2.4'
+        titulo_en: 'Integrase inhibitors'
+      - codigo: '6.4.2.5'
+        titulo_en: 'Fixed-dose combinations of antiretroviral medicines'
+      - codigo: '6.4.2.6'
+        titulo_en: 'Medicines for prevention of HIV-related opportunistic infections'
+      - codigo: '6.4.4'
+        titulo_en: 'Antihepatitis medicines'
+      - codigo: '6.4.4.1'
+        titulo_en: 'Medicines for hepatitis B'
+      - codigo: '6.4.4.2'
+        titulo_en: 'Medicines for hepatitis C'
+      - codigo: '6.5'
+        titulo_en: 'Antiprotozoal medicines'
+      - codigo: '6.5.1'
+        titulo_en: 'Antiamoebic and antigiardiasis medicines'
+      - codigo: '6.5.2'
+        titulo_en: 'Antileishmaniasis medicines'
+      - codigo: '6.5.3'
+        titulo_en: 'Antimalarial medicines'
+      - codigo: '6.5.3.1'
+        titulo_en: 'Medicines for curative treatment'
+      - codigo: '6.5.3.2'
+        titulo_en: 'Medicines for chemoprevention'
+      - codigo: '6.5.3.3'
+        titulo_en: 'Medicines for chemoprophylaxis in travellers'
+      - codigo: '6.5.4'
+        titulo_en: 'Antipneumocystosis and antitoxoplasmosis medicines'
+      - codigo: '6.5.5'
+        titulo_en: 'Antitrypanosomal medicines'
+      - codigo: '6.5.5.1'
+        titulo_en: 'African trypanosomiasis'
+      - codigo: '6.5.5.2'
+        titulo_en: 'American trypanosomiasis'
+      - codigo: '6.6'
+        titulo_en: 'Medicines for ectoparasitic infections'
+      - codigo: '6.7'
+        titulo_en: 'Medicines for Ebola virus disease'
+      - codigo: '6.8'
+        titulo_en: 'Medicines for COVID-19'
+  - numero: 7
+    titulo_en: 'MEDICINES FOR CYSTIC FIBROSIS'
+    titulo: 'Medicamentos para la fibrosis quística'
+    subsecciones: []
+  - numero: 8
+    titulo_en: 'IMMUNOMODULATORS AND ANTINEOPLASTICS'
+    titulo: 'Inmunomoduladores y antineoplásicos'
+    subsecciones:
+      - codigo: '8.1'
+        titulo_en: 'Immunomodulators for non-malignant disease'
+      - codigo: '8.2'
+        titulo_en: 'Antineoplastics and supportive medicines'
+      - codigo: '8.2.2'
+        titulo_en: 'Targeted therapies'
+      - codigo: '8.2.3'
+        titulo_en: 'Immunomodulators'
+      - codigo: '8.2.4'
+        titulo_en: 'Hormones and antihormones'
+      - codigo: '8.2.5'
+        titulo_en: 'Supportive medicines'
+  - numero: 9
+    titulo_en: 'THERAPEUTIC FOODS'
+    titulo: 'Alimentos terapéuticos'
+    subsecciones: []
+  - numero: 10
+    titulo_en: 'MEDICINES AFFECTING THE BLOOD'
+    titulo: 'Medicamentos que actúan sobre la sangre'
+    subsecciones:
+      - codigo: '10.1'
+        titulo_en: 'Antianaemia medicines'
+      - codigo: '10.2'
+        titulo_en: 'Medicines affecting coagulation'
+      - codigo: '10.3'
+        titulo_en: 'Medicines for haemoglobinopathies'
+      - codigo: '10.3.1'
+        titulo_en: 'Medicines for sickle-cell disease'
+      - codigo: '10.3.2'
+        titulo_en: 'Medicines for thalassaemias'
+  - numero: 11
+    titulo_en: 'BLOOD PRODUCTS, COAGULATION FACTORS, AND PLASMA SUBSTITUTES'
+    titulo: 'Hemoderivados, factores de la coagulación y sustitutos del plasma'
+    subsecciones:
+      - codigo: '11.1'
+        titulo_en: 'Blood and blood components'
+      - codigo: '11.2'
+        titulo_en: 'Human immunoglobulins'
+      - codigo: '11.3'
+        titulo_en: 'Coagulation factors'
+  - numero: 12
+    titulo_en: 'CARDIOVASCULAR MEDICINES'
+    titulo: 'Medicamentos cardiovasculares'
+    subsecciones:
+      - codigo: '12.1'
+        titulo_en: 'Antianginal medicines'
+      - codigo: '12.2'
+        titulo_en: 'Antiarrhythmic medicines'
+      - codigo: '12.3'
+        titulo_en: 'Antihypertensive medicines'
+      - codigo: '12.4'
+        titulo_en: 'Medicines used in heart failure'
+      - codigo: '12.5'
+        titulo_en: 'Antithrombotic medicines'
+      - codigo: '12.5.1'
+        titulo_en: 'Anti-platelet medicines'
+      - codigo: '12.5.2'
+        titulo_en: 'Thrombolytic medicines'
+      - codigo: '12.6'
+        titulo_en: 'Lipid-lowering agents'
+      - codigo: '12.7'
+        titulo_en: 'Fixed-dose combinations for prevention of atherosclerotic cardiovascular disease'
+  - numero: 13
+    titulo_en: 'DERMATOLOGICAL MEDICINES'
+    titulo: 'Medicamentos dermatológicos'
+    subsecciones:
+      - codigo: '13.1'
+        titulo_en: 'Antifungal medicines'
+      - codigo: '13.2'
+        titulo_en: 'Anti-infective medicines'
+      - codigo: '13.3'
+        titulo_en: 'Anti-inflammatory and antipruritic medicines'
+      - codigo: '13.4'
+        titulo_en: 'Medicines affecting skin differentiation and proliferation'
+      - codigo: '13.5'
+        titulo_en: 'Scabicides and pediculicides'
+  - numero: 14
+    titulo_en: 'DIAGNOSTIC AGENTS'
+    titulo: 'Agentes diagnósticos'
+    subsecciones:
+      - codigo: '14.1'
+        titulo_en: 'Ophthalmic medicines'
+      - codigo: '14.2'
+        titulo_en: 'Radiocontrast media'
+  - numero: 15
+    titulo_en: 'ANTISEPTICS AND DISINFECTANTS'
+    titulo: 'Antisépticos y desinfectantes'
+    subsecciones: []
+  - numero: 16
+    titulo_en: 'DIURETICS'
+    titulo: 'Diuréticos'
+    subsecciones: []
+  - numero: 17
+    titulo_en: 'GASTROINTESTINAL MEDICINES'
+    titulo: 'Medicamentos gastrointestinales'
+    subsecciones:
+      - codigo: '17.1'
+        titulo_en: 'Antiulcer medicines'
+      - codigo: '17.2'
+        titulo_en: 'Antiemetic medicines'
+      - codigo: '17.3'
+        titulo_en: 'Anti-inflammatory medicines'
+      - codigo: '17.5'
+        titulo_en: 'Medicines used in diarrhoea'
+  - numero: 18
+    titulo_en: 'MEDICINES FOR ENDOCRINE DISORDERS'
+    titulo: 'Medicamentos para trastornos endocrinos'
+    subsecciones:
+      - codigo: '18.1'
+        titulo_en: 'Adrenal hormones and synthetic substitutes'
+      - codigo: '18.2'
+        titulo_en: 'Androgens'
+      - codigo: '18.3'
+        titulo_en: 'Estrogens'
+      - codigo: '18.4'
+        titulo_en: 'Progestogens'
+      - codigo: '18.5'
+        titulo_en: 'Medicines for diabetes'
+      - codigo: '18.5.1'
+        titulo_en: 'Insulins'
+      - codigo: '18.5.2'
+        titulo_en: 'Hypoglycaemic agents'
+      - codigo: '18.6'
+        titulo_en: 'Medicines for hypoglycaemia'
+      - codigo: '18.7'
+        titulo_en: 'Thyroid hormones and antithyroid medicines'
+      - codigo: '18.8'
+        titulo_en: 'Medicines for disorders of the pituitary hormone system'
+  - numero: 19
+    titulo_en: 'IMMUNOLOGICALS'
+    titulo: 'Inmunológicos'
+    subsecciones:
+      - codigo: '19.1'
+        titulo_en: 'Diagnostic agents'
+      - codigo: '19.2'
+        titulo_en: 'Sera, immunoglobulins and monoclonal antibodies'
+  - numero: 20
+    titulo_en: 'MUSCLE RELAXANTS (PERIPHERALLY-ACTING) AND CHOLINESTERASE INHIBITORS'
+    titulo: 'Relajantes musculares (de acción periférica) e inhibidores de la colinesterasa'
+    subsecciones: []
+  - numero: 21
+    titulo_en: 'OPHTHALMOLOGICAL PREPARATIONS'
+    titulo: 'Preparaciones oftalmológicas'
+    subsecciones:
+      - codigo: '21.1'
+        titulo_en: 'Anti-infective agents'
+      - codigo: '21.2'
+        titulo_en: 'Anti-inflammatory agents'
+      - codigo: '21.3'
+        titulo_en: 'Local anaesthetics'
+      - codigo: '21.4'
+        titulo_en: 'Miotics and antiglaucoma medicines'
+      - codigo: '21.6'
+        titulo_en: 'Anti-vascular endothelial growth factor (VEGF) preparations'
+  - numero: 22
+    titulo_en: 'MEDICINES FOR REPRODUCTIVE HEALTH AND PERINATAL CARE'
+    titulo: 'Medicamentos para la salud reproductiva y la atención perinatal'
+    subsecciones:
+      - codigo: '22.1'
+        titulo_en: 'Contraceptives'
+      - codigo: '22.1.1'
+        titulo_en: 'Oral hormonal contraceptives'
+      - codigo: '22.1.2'
+        titulo_en: 'Injectable hormonal contraceptives'
+      - codigo: '22.1.5'
+        titulo_en: 'Implantable contraceptives'
+      - codigo: '22.1.6'
+        titulo_en: 'Intravaginal contraceptives'
+      - codigo: '22.2'
+        titulo_en: 'Ovulation inducers'
+      - codigo: '22.3'
+        titulo_en: 'Uterotonics'
+      - codigo: '22.4'
+        titulo_en: 'Medicines for medical abortion'
+      - codigo: '22.5'
+        titulo_en: 'Antioxytocics (tocolytics)'
+      - codigo: '22.6'
+        titulo_en: 'Other medicines administered to the mother'
+      - codigo: '22.7'
+        titulo_en: 'Medicines administered to the neonate'
+  - numero: 23
+    titulo_en: 'PERITONEAL DIALYSIS SOLUTION'
+    titulo: 'Solución para diálisis peritoneal'
+    subsecciones: []
+  - numero: 24
+    titulo_en: 'MEDICINES FOR MENTAL AND BEHAVIOURAL DISORDERS'
+    titulo: 'Medicamentos para trastornos mentales y del comportamiento'
+    subsecciones:
+      - codigo: '24.1'
+        titulo_en: 'Medicines for psychotic disorders'
+      - codigo: '24.2'
+        titulo_en: 'Medicines for mood disorders'
+      - codigo: '24.2.1'
+        titulo_en: 'Medicines for depressive disorders'
+      - codigo: '24.2.2'
+        titulo_en: 'Medicines used in bipolar disorders'
+      - codigo: '24.3'
+        titulo_en: 'Medicines for anxiety disorders'
+      - codigo: '24.4'
+        titulo_en: 'Medicines for obsessive compulsive disorders'
+      - codigo: '24.5'
+        titulo_en: 'Medicines for disorders due to psychoactive substance use'
+      - codigo: '24.5.1'
+        titulo_en: 'Medicines for alcohol use disorders'
+      - codigo: '24.5.2'
+        titulo_en: 'Medicines for nicotine use disorders'
+      - codigo: '24.5.3'
+        titulo_en: 'Medicines for opioid use disorders'
+  - numero: 25
+    titulo_en: 'MEDICINES ACTING ON THE RESPIRATORY TRACT'
+    titulo: 'Medicamentos que actúan sobre el aparato respiratorio'
+    subsecciones:
+      - codigo: '25.1'
+        titulo_en: 'Antiasthmatic medicines and medicines for chronic obstructive pulmonary disease'
+  - numero: 26
+    titulo_en: 'SOLUTIONS CORRECTING WATER, ELECTROLYTE AND ACID-BASE DISTURBANCES'
+    titulo: 'Soluciones correctoras de alteraciones hidroelectrolíticas y del equilibrio ácido-base'
+    subsecciones: []
+  - numero: 27
+    titulo_en: 'VITAMINS AND MINERALS'
+    titulo: 'Vitaminas y minerales'
+    subsecciones: []
+  - numero: 28
+    titulo_en: 'EAR, NOSE AND THROAT MEDICINES'
+    titulo: 'Medicamentos otorrinolaringológicos'
+    subsecciones: []
+  - numero: 29
+    titulo_en: 'MEDICINES FOR DISEASES OF JOINTS'
+    titulo: 'Medicamentos para enfermedades articulares'
+    subsecciones:
+      - codigo: '29.1'
+        titulo_en: 'Medicines used to treat gout'
+      - codigo: '29.2'
+        titulo_en: 'Disease-modifying anti-rheumatic drugs (DMARDs)'
+      - codigo: '29.3'
+        titulo_en: 'Medicines for juvenile joint diseases'
+  - numero: 30
+    titulo_en: 'DENTAL MEDICINES AND PREPARATIONS'
+    titulo: 'Medicamentos y preparaciones dentales'
+    subsecciones: []

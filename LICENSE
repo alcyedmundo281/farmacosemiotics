@@ -1,0 +1,32 @@
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+Copyright (c) 2026 Alcy Torres
+
+El CONTENIDO de este repositorio —los registros de `farmacos/`, `fichas/`,
+`referencias/`, `catalogo/` y `costos/`, y las salidas derivadas de ellos— se
+distribuye bajo la licencia Creative Commons Reconocimiento-CompartirIgual 4.0
+Internacional.
+
+Usted es libre de:
+  - Compartir: copiar y redistribuir el material en cualquier medio o formato.
+  - Adaptar: remezclar, transformar y construir a partir del material para
+    cualquier finalidad, incluso comercial.
+
+Bajo las siguientes condiciones:
+  - Reconocimiento: debe reconocer adecuadamente la autoría, proporcionar un
+    enlace a la licencia e indicar si se han realizado cambios.
+  - CompartirIgual: si remezcla, transforma o crea a partir del material,
+    deberá difundir sus contribuciones bajo la misma licencia que el original.
+  - No hay restricciones adicionales.
+
+Texto legal completo:
+  https://creativecommons.org/licenses/by-sa/4.0/legalcode.es
+Resumen:
+  https://creativecommons.org/licenses/by-sa/4.0/deed.es
+
+El CÓDIGO de `scripts/`, `sitio/` y `tests/` se distribuye bajo la licencia MIT.
+Ver LICENSE-CODIGO.
+
+AVISO: este material es educativo. No sustituye el juicio clínico ni la ficha
+técnica aprobada por la agencia reguladora que corresponda al lugar de uso.
+Se ofrece sin garantía de ningún tipo.

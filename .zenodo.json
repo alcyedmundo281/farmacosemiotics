@@ -1,0 +1,20 @@
+{
+  "title": "farmacosemiotics: fichas de terapéutica racional ancladas a PubMed",
+  "description": "Banco de fichas de uso racional de medicamentos en YAML, con cada enunciado de eficacia y seguridad anclado a un PMID verificado. Motor en Python que deriva un índice JSON-LD, un depósito JATS y un sitio estático. La meta de contenido es la Lista Modelo de Medicamentos Esenciales de la OMS, 24.a lista (2025).",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "cc-by-sa-4.0",
+  "language": "spa",
+  "creators": [
+    { "name": "Torres, Alcy" }
+  ],
+  "keywords": [
+    "uso racional de medicamentos",
+    "terapeutica",
+    "farmacologia clinica",
+    "medicamentos esenciales",
+    "GRADE",
+    "PubMed",
+    "openFDA"
+  ]
+}

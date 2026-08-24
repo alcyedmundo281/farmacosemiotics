@@ -1,0 +1,57 @@
+name: pages
+
+# El sitio se genera en cada push y se despliega desde el artefacto: `build/`
+# no se versiona nunca. Así el repositorio guarda solo la fuente —los YAML— y
+# lo publicado no puede divergir de ella.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue a la vez. No se cancela el que está en curso: preferimos que
+# termine de publicar a dejar Pages a medias.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # No se publica un sitio que no valida. Es el mismo portero que en local.
+      - run: python scripts/build.py
+
+      - run: |
+          python scripts/indice.py
+          python scripts/reto.py
+          python scripts/sitio.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/sitio
+
+  desplegar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - id: despliegue
+        uses: actions/deploy-pages@v4

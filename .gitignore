@@ -1,0 +1,12 @@
+# GENERADO. Una fuente (los YAML), muchas salidas. Nada de esto se versiona.
+build/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.DS_Store
+Thumbs.db
+
+# Cache de consultas a APIs externas (openFDA, PubMed). Reproducible, no fuente.
+.cache/

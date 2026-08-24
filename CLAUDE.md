@@ -128,6 +128,33 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
 - No hagas que el sitio consulte APIs en tiempo de ejecución. Todo se resuelve
   en el build, como en biosemiotics: el frontend solo lee `index.json`.
 
+## El dominio: se hereda, no se pide
+
+El sitio se publica en **https://powersemiotics.com/farmacosemiotics/**.
+
+No porque este repositorio lo configure, sino porque el sitio de usuario
+`alcyedmundo281.github.io` tiene `powersemiotics.com` como dominio propio, y
+**todos los sitios de proyecto de la cuenta lo heredan** como
+`powersemiotics.com/<repo>/`. Por eso `gh api repos/.../pages` devuelve
+`cname: null` para este repositorio: es lo correcto, no un olvido.
+
+> **Nunca generes ni versiones un fichero `CNAME` aquí.** Un `CNAME` con
+> `powersemiotics.com` en un sitio de proyecto reclama el vértice del dominio
+> para ese proyecto y tumba el sitio principal —y con él a biosemiotics y a
+> medsemiotics, que cuelgan del mismo dominio—. Es el error que parece un
+> arreglo: alguien ve `cname: null`, lo toma por un fallo y lo «corrige».
+
+Lo que sí pertenece a este repositorio:
+
+- `BASE` en `scripts/indice.py`, que es el prefijo de las URL absolutas del
+  JSON-LD. Debe coincidir con el dominio publicado; hay una prueba que lo
+  comprueba.
+- Todo lo demás es relativo, y por eso el mismo build funciona en Pages, en un
+  dominio distinto y abierto desde el disco.
+
+La cuenta tiene HTTPS forzado en el vértice y en este repositorio, y el
+certificado cubre `powersemiotics.com` y `www.powersemiotics.com`.
+
 ## La asimetría con el resto del ecosistema
 
 farmacosemiotics **lee** identidad clínica de medsemiotics-db cuando le hace

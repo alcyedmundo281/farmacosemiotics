@@ -6,12 +6,19 @@ que resuelve. Motor en Python. Índice JSON-LD.
 
 → **[powersemiotics.com/farmacosemiotics](https://powersemiotics.com/farmacosemiotics/)**
 
-Parte del ecosistema **Powersemiotics**, junto a
+Parte de **[Powersemiotics](https://powersemiotics.com/)**, del que también
+cuelgan [biosemiotics](https://powersemiotics.com/biosemiotics/) (atlas POCUS) y
+[medsemiotics](https://powersemiotics.com/medsemiotics/) (plataforma educativa).
+Fuera del dominio, el ecosistema lo completan
 [medsemiotics-db](https://github.com/alcyedmundo281/medsemiotics-db) (índice
-clínico), [biosemiotics](https://github.com/alcyedmundo281/biosemiotics) (atlas
-POCUS), [medsemiotics](https://github.com/alcyedmundo281/medsemiotics)
-(plataforma educativa) y
-[holonmed](https://github.com/alcyedmundo281/holonmed) (razonamiento local).
+clínico) y [holonmed](https://github.com/alcyedmundo281/holonmed)
+(razonamiento local).
+
+El dominio **se hereda**: `powersemiotics.com` está configurado en el sitio de
+usuario de la cuenta, y cada repositorio de proyecto se sirve bajo
+`powersemiotics.com/<repo>/`. Por eso este repositorio **no lleva ni genera un
+fichero `CNAME`** —un `CNAME` en un sitio de proyecto reclamaría el vértice del
+dominio y tumbaría el sitio principal—. Hay una prueba que lo vigila.
 
 La meta de contenido es la **Lista Modelo de Medicamentos Esenciales de la OMS**
 —24.ª lista, 2025, y la 10.ª LME para niños—. No es un catálogo nacional: es

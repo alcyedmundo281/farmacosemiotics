@@ -40,6 +40,17 @@ import indice as mod_indice  # noqa: E402
 AVISO = ("Material educativo. No sustituye el juicio clínico ni la ficha "
          "técnica aprobada por la agencia reguladora del lugar de uso.")
 
+# La casa. farmacosemiotics es un sitio de PROYECTO dentro de este dominio, no
+# el dominio: vive en powersemiotics.com/farmacosemiotics/ porque el sitio de
+# usuario (alcyedmundo281.github.io) tiene powersemiotics.com como dominio
+# propio y todos los proyectos de la cuenta lo heredan.
+#
+# De ahí la regla que NO se rompe: este repositorio nunca genera un fichero
+# CNAME. Un CNAME con `powersemiotics.com` aquí reclamaría el vértice del
+# dominio para farmacosemiotics y tumbaría el sitio principal y, con él, al
+# resto del ecosistema. El dominio se hereda; no se pide.
+COMUNIDAD = "https://powersemiotics.com/"
+
 ETI = {
     "alta": "alta", "moderada": "moderada", "baja": "baja", "muy_baja": "muy baja",
     "a_favor": "a favor", "en_contra": "en contra", "ninguna": "sin recomendación",
@@ -234,11 +245,17 @@ def pie(prefijo):
         "CC BY-SA 4.0</a>. Generado desde los YAML de "
         '<a href="https://github.com/alcyedmundo281/farmacosemiotics">'
         "farmacosemiotics</a>; cada cifra lleva su PMID en el propio registro.</p>\n"
+        '<p>Parte de <a href="' + COMUNIDAD + '">Powersemiotics</a>, junto a '
+        '<a href="' + COMUNIDAD + 'biosemiotics/">biosemiotics</a> y '
+        '<a href="' + COMUNIDAD + 'medsemiotics/">medsemiotics</a>.</p>\n'
         "</div>\n</div>\n</body>\n</html>\n")
 
 
 def migas(prefijo, actual):
-    return ('<nav class="migas"><a href="' + prefijo + 'index.html">Buscar</a> · '
+    """El rastro empieza fuera del repositorio, en la comunidad que lo aloja.
+    Ese primer enlace es absoluto a propósito: sale del subdirectorio."""
+    return ('<nav class="migas"><a href="' + COMUNIDAD + '">Powersemiotics</a> · '
+            '<a href="' + prefijo + 'index.html">Buscar</a> · '
             '<a href="' + prefijo + 'reto.html">Reto</a> · ' + e(actual) + "</nav>\n")
 
 
@@ -609,8 +626,8 @@ fetch('index.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 def pagina_buscador(total):
     return (cabeza("Buscar", "", None,
                    "Buscador de fichas de terapéutica racional ancladas a PubMed.")
-            + '<nav class="migas">farmacosemiotics · '
-              '<a href="reto.html">Reto</a></nav>\n'
+            + '<nav class="migas"><a href="' + COMUNIDAD + '">Powersemiotics</a>'
+              ' · farmacosemiotics · <a href="reto.html">Reto</a></nav>\n'
             + "<h1>farmacosemiotics</h1>\n"
             + '<p class="sub">Fichas de uso racional de medicamentos. Cada cifra '
               "de eficacia o seguridad lleva su PMID. La meta de contenido es la "
@@ -673,7 +690,8 @@ fetch('reto.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 def pagina_reto():
     return (cabeza("Reto", "", None,
                    "Preguntas derivadas de las fichas, con enlace a la fuente.")
-            + '<nav class="migas"><a href="index.html">Buscar</a> · Reto</nav>\n'
+            + '<nav class="migas"><a href="' + COMUNIDAD + '">Powersemiotics</a>'
+              ' · <a href="index.html">Buscar</a> · Reto</nav>\n'
             + "<h1>Reto</h1>\n"
             + '<p class="sub">Las preguntas se derivan de las fichas: ningún '
               "distractor está inventado. Cada respuesta enlaza con el registro "

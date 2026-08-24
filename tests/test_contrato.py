@@ -114,6 +114,22 @@ class LasSalidas(unittest.TestCase):
         for x in (RAIZ / "build" / "jats").glob("*.xml"):
             ET.parse(x)
 
+    def test_el_sitio_no_lleva_cname(self):
+        # Un CNAME en un sitio de PROYECTO reclama el vértice del dominio y
+        # tumbaría powersemiotics.com y todo lo que cuelga de él. El dominio se
+        # hereda del sitio de usuario; aquí no se pide.
+        self.assertEqual(list(self.sitio.rglob("CNAME")), [],
+                         "el sitio generó un CNAME: eso secuestra el dominio")
+
+    def test_la_base_del_jsonld_es_el_dominio_publicado(self):
+        import indice
+        self.assertEqual(indice.BASE,
+                         "https://powersemiotics.com/farmacosemiotics/",
+                         "las URL absolutas del JSON-LD apuntarían fuera del sitio")
+        for j in (RAIZ / "build" / "jsonld").glob("*.json"):
+            ld = json.loads(j.read_text(encoding="utf-8"))
+            self.assertTrue(str(ld.get("url", "")).startswith(indice.BASE), j.name)
+
     def test_el_jsonld_declara_contexto_y_tipo(self):
         for j in (RAIZ / "build" / "jsonld").glob("*.json"):
             ld = json.loads(j.read_text(encoding="utf-8"))

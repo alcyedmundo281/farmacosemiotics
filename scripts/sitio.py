@@ -86,133 +86,213 @@ def eti(x):
 
 CSS = """
 :root{
-  --tinta:#15191C; --suave:#5C646B; --linea:#E0E4E7; --papel:#FBFCFC;
-  --fondo:#FFFFFF; --acento:#1F5C4D; --alerta:#8A3A1F; --aviso:#8A4B00;
-  --enlace:#2E5A87; --realce:#F4F7F6;
+  --tinta:#0F172A; --suave:#475569; --tenue:#94A3B8; --linea:#E2E8F0;
+  --papel:#F8FAFC; --fondo:#FFFFFF; --acento:#0D9488; --acento-suave:#CCFBF1;
+  --alerta:#E11D48; --aviso:#D97706; --enlace:#0284C7; --realce:#F1F5F9;
+  --verde:#10B981; --verde-bg:#ECFDF5; --verde-txt:#065F46;
+  --amarillo:#F59E0B; --amarillo-bg:#FFFBEB; --amarillo-txt:#92400E;
+  --rojo:#EF4444; --rojo-bg:#FEF2F2; --rojo-txt:#991B1B;
   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-  --serif:'Literata',Georgia,'Times New Roman',serif;
-  --sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:'Literata',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --tinta:#E8EBED; --suave:#9AA3AA; --linea:#2A3035; --papel:#14181B;
-    --fondo:#0F1316; --acento:#6FBFA6; --alerta:#E0906F; --aviso:#D9A24A;
-    --enlace:#7FAFD9; --realce:#1A2024;
+    --tinta:#F1F5F9; --suave:#94A3B8; --tenue:#64748B; --linea:#334155;
+    --papel:#0B0F17; --fondo:#151D28; --acento:#2DD4BF; --acento-suave:#134E48;
+    --alerta:#F43F5E; --aviso:#FBBF24; --enlace:#38BDF8; --realce:#1E293B;
+    --verde:#10B981; --verde-bg:#064E3B; --verde-txt:#6EE7B7;
+    --amarillo:#F59E0B; --amarillo-bg:#78350F; --amarillo-txt:#FDE68A;
+    --rojo:#EF4444; --rojo-bg:#7F1D1D; --rojo-txt:#FCA5A5;
   }
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--papel);color:var(--tinta);
-  font-family:var(--serif);line-height:1.65;font-size:17px;
+  font-family:var(--sans);line-height:1.65;font-size:16px;
 }
-.envoltorio{max-width:820px;margin:0 auto;padding:28px 18px 72px}
-a{color:var(--enlace)}
-a:hover{text-decoration-thickness:2px}
+.envoltorio{max-width:1080px;margin:0 auto;padding:24px 20px 80px}
+a{color:var(--enlace);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── Encabezado Ghost ── */
+.ghost-header{
+  padding:32px 0 24px;border-bottom:1px solid var(--linea);margin-bottom:32px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.ghost-brand h1{
+  font-family:var(--sans);font-size:28px;font-weight:800;letter-spacing:-.03em;
+  margin-bottom:4px;
+}
+.ghost-brand p{
+  font-size:15px;color:var(--suave);
+}
+.ghost-nav{
+  display:flex;align-items:center;gap:12px;
+}
+.ghost-nav-link{
+  font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:20px;
+  background:var(--fondo);border:1px solid var(--linea);color:var(--suave);
+}
+.ghost-nav-link.active{
+  background:var(--acento);color:#fff;border-color:var(--acento);
+}
 
 .migas{
-  font-family:var(--mono);font-size:11px;text-transform:uppercase;
-  letter-spacing:.08em;color:var(--suave);margin-bottom:14px;
+  font-family:var(--mono);font-size:11.5px;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--suave);margin-bottom:16px;
 }
 .migas a{color:var(--suave)}
-h1{font-family:var(--sans);font-weight:600;font-size:29px;line-height:1.2;
-   letter-spacing:-.015em;margin:0 0 8px}
-h2{font-family:var(--sans);font-weight:600;font-size:15px;text-transform:uppercase;
-   letter-spacing:.07em;color:var(--suave);margin:38px 0 12px;
-   padding-bottom:7px;border-bottom:1px solid var(--linea)}
-h3{font-family:var(--sans);font-weight:600;font-size:17px;margin:24px 0 6px}
+h1{font-family:var(--sans);font-weight:800;font-size:32px;line-height:1.2;
+   letter-spacing:-.02em;margin:0 0 10px}
+h2{font-family:var(--sans);font-weight:700;font-size:19px;
+   letter-spacing:-.01em;color:var(--tinta);margin:40px 0 16px;
+   padding-bottom:8px;border-bottom:2px solid var(--linea)}
+h3{font-family:var(--sans);font-weight:700;font-size:18px;margin:20px 0 8px}
 p{margin:0 0 14px}
-.sub{color:var(--suave);font-size:16px;margin:0 0 18px}
+.sub{color:var(--suave);font-size:16px;margin:0 0 22px}
 
 .etiquetas{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 22px}
 .etiqueta{
-  font-family:var(--mono);font-size:10.5px;text-transform:uppercase;
-  letter-spacing:.06em;padding:4px 9px;border:1px solid var(--linea);
+  font-family:var(--mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.06em;padding:4px 10px;border:1px solid var(--linea);
   border-radius:20px;color:var(--suave);background:var(--fondo);white-space:nowrap;
 }
-.etiqueta.fuerte{border-color:var(--acento);color:var(--acento)}
+.etiqueta.fuerte{border-color:var(--acento);color:var(--acento);background:var(--acento-suave)}
 .etiqueta.peligro{border-color:var(--alerta);color:var(--alerta)}
 .etiqueta.borrador{border-color:var(--aviso);color:var(--aviso)}
 
 .recuadro{
-  border-left:3px solid var(--acento);background:var(--realce);
-  padding:16px 18px;margin:0 0 24px;border-radius:0 4px 4px 0;
+  border-left:4px solid var(--acento);background:var(--realce);
+  padding:18px 20px;margin:0 0 26px;border-radius:0 8px 8px 0;
 }
-.recuadro.peligro{border-left-color:var(--alerta)}
-.recuadro.aviso{border-left-color:var(--aviso)}
+.recuadro.fuerte{border-left-color:var(--verde);background:var(--verde-bg);color:var(--verde-txt)}
+.recuadro.peligro{border-left-color:var(--rojo);background:var(--rojo-bg);color:var(--rojo-txt)}
+.recuadro.aviso{border-left-color:var(--amarillo);background:var(--amarillo-bg);color:var(--amarillo-txt)}
 .recuadro p:last-child{margin-bottom:0}
 .recuadro .rotulo{
-  font-family:var(--mono);font-size:10.5px;text-transform:uppercase;
-  letter-spacing:.08em;color:var(--suave);margin-bottom:6px;display:block;
+  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:8px;display:block;
 }
 
-.tabla-scroll{overflow-x:auto;margin:0 0 22px;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;font-size:15px;min-width:560px}
-th,td{text-align:left;vertical-align:top;padding:9px 11px;
+.tabla-scroll{overflow-x:auto;margin:0 0 26px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px;background:var(--fondo);border:1px solid var(--linea);border-radius:8px;overflow:hidden}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;
       border-bottom:1px solid var(--linea)}
-th{font-family:var(--sans);font-size:12px;text-transform:uppercase;
-   letter-spacing:.05em;color:var(--suave);font-weight:600}
-td.num{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+th{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;
+   letter-spacing:.05em;color:var(--suave);font-weight:700;background:var(--papel)}
+td.num{font-family:var(--mono);font-size:13.5px}
 
-dl.pares{display:grid;grid-template-columns:auto 1fr;gap:5px 18px;margin:0 0 22px}
+dl.pares{display:grid;grid-template-columns:140px 1fr;gap:8px 20px;margin:0 0 26px;background:var(--fondo);padding:18px;border:1px solid var(--linea);border-radius:10px}
 dl.pares dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;
-            letter-spacing:.05em;color:var(--suave);padding-top:3px}
+            letter-spacing:.05em;color:var(--suave);padding-top:2px}
 dl.pares dd{margin:0}
-@media (max-width:560px){
-  dl.pares{grid-template-columns:1fr;gap:0 0}
-  dl.pares dd{margin:0 0 12px}
+@media (max-width:640px){
+  dl.pares{grid-template-columns:1fr;gap:4px 0}
+  dl.pares dd{margin:0 0 14px}
 }
 
 ul.limpia{list-style:none;padding:0;margin:0 0 20px}
-ul.limpia li{padding:9px 0;border-bottom:1px solid var(--linea)}
+ul.limpia li{padding:10px 0;border-bottom:1px solid var(--linea)}
 ul.limpia li:last-child{border-bottom:none}
 
-.ref{font-family:var(--mono);font-size:12px}
-.pie{margin-top:52px;padding-top:18px;border-top:1px solid var(--linea);
-     font-size:13.5px;color:var(--suave)}
+.ref{font-family:var(--mono);font-size:11.5px}
+.pie{margin-top:60px;padding-top:24px;border-top:1px solid var(--linea);
+     font-size:13.5px;color:var(--suave);text-align:center}
 
-/* ── buscador ── */
+/* ── Ghost Cards Feed & Layout ── */
+.ghost-feed{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:24px;margin-top:28px;
+}
+.ghost-card{
+  background:var(--fondo);border:1px solid var(--linea);border-radius:14px;
+  padding:22px;display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 2px 8px rgba(0,0,0,0.02);transition:all .2s ease;
+  position:relative;overflow:hidden;
+}
+.ghost-card:hover{
+  transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.06);border-color:var(--tenue);
+}
+.ghost-card-top{margin-bottom:12px}
+.ghost-badge-row{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:6px;
+}
+.ghost-tag{
+  font-family:var(--mono);font-size:10.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;padding:3px 8px;border-radius:6px;background:var(--realce);color:var(--suave);
+}
+.semaforo-pill{
+  font-family:var(--mono);font-size:10.5px;font-weight:700;text-transform:uppercase;
+  padding:3px 9px;border-radius:12px;
+}
+.semaforo-pill.verde{background:var(--verde-bg);color:var(--verde-txt);border:1px solid var(--verde)}
+.semaforo-pill.amarillo{background:var(--amarillo-bg);color:var(--amarillo-txt);border:1px solid var(--amarillo)}
+.semaforo-pill.rojo{background:var(--rojo-bg);color:var(--rojo-txt);border:1px solid var(--rojo)}
+
+.ghost-card h3{
+  font-size:19px;font-weight:700;line-height:1.3;margin:0 0 10px;
+}
+.ghost-card h3 a{color:var(--tinta);text-decoration:none}
+.ghost-card h3 a:hover{color:var(--acento);text-decoration:none}
+.ghost-excerpt{
+  font-size:14.5px;color:var(--suave);line-height:1.5;margin-bottom:16px;
+}
+.ghost-perla{
+  background:var(--papel);border-left:3px solid var(--acento);padding:10px 12px;
+  border-radius:0 6px 6px 0;font-size:13.5px;margin-bottom:16px;font-style:italic;
+}
+.ghost-nnt-box{
+  display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;
+  font-weight:700;color:var(--acento);background:var(--acento-suave);padding:4px 10px;border-radius:8px;margin-bottom:16px;
+}
+.ghost-byline{
+  border-top:1px solid var(--linea);padding-top:12px;margin-top:auto;
+  display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--suave);
+}
+.ghost-author{
+  display:flex;align-items:center;gap:8px;font-weight:600;color:var(--tinta);
+}
+.ghost-avatar{
+  width:26px;height:26px;border-radius:50%;background:var(--acento);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;
+}
+
+/* ── Buscador ── */
 #q{
-  width:100%;font-family:var(--serif);font-size:19px;padding:13px 15px;
-  border:1px solid var(--linea);border-radius:6px;background:var(--fondo);
-  color:var(--tinta);
+  width:100%;font-family:var(--sans);font-size:16px;padding:14px 18px;
+  border:1px solid var(--linea);border-radius:10px;background:var(--fondo);
+  color:var(--tinta);box-shadow:0 2px 6px rgba(0,0,0,0.02);
 }
-#q:focus{outline:2px solid var(--acento);outline-offset:-1px;border-color:var(--acento)}
-.grupo{margin:16px 0}
-.rotulo-f{font-family:var(--mono);font-size:10px;text-transform:uppercase;
-          letter-spacing:.08em;color:var(--suave);margin-bottom:6px}
-.chips{display:flex;gap:5px;flex-wrap:wrap}
+#q:focus{outline:2px solid var(--acento);border-color:var(--acento)}
+.grupo{margin:18px 0 10px}
+.rotulo-f{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;
+          letter-spacing:.08em;color:var(--suave);margin-bottom:8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
 .chips button{
-  font-family:var(--mono);font-size:11px;text-transform:uppercase;
-  letter-spacing:.05em;padding:5px 11px;border:1px solid var(--linea);
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  padding:6px 14px;border:1px solid var(--linea);
   border-radius:20px;background:var(--fondo);color:var(--suave);cursor:pointer;
+  transition:all .15s ease;
 }
-.chips button:hover{border-color:var(--suave)}
+.chips button:hover{border-color:var(--suave);color:var(--tinta)}
 .chips button[aria-pressed="true"]{background:var(--acento);border-color:var(--acento);color:#fff}
-#cuenta{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;
-        letter-spacing:.07em;color:var(--suave);margin:22px 0 10px}
-.resultado{padding:15px 0;border-bottom:1px solid var(--linea)}
-.resultado h3{margin:0 0 4px;font-size:18px}
-.resultado h3 a{text-decoration:none}
-.resultado h3 a:hover{text-decoration:underline}
-.resultado .meta{font-family:var(--mono);font-size:11px;text-transform:uppercase;
-                 letter-spacing:.05em;color:var(--suave);margin-bottom:6px}
-.resultado p{margin:0;font-size:15px;color:var(--suave)}
-mark{background:rgba(111,191,166,.28);color:inherit;padding:0 1px}
+#cuenta{font-family:var(--mono);font-size:12px;text-transform:uppercase;
+        letter-spacing:.07em;color:var(--suave);margin:24px 0 12px}
 
 /* ── reto ── */
 .opcion{
-  display:block;width:100%;text-align:left;font-family:var(--serif);
-  font-size:16px;padding:12px 14px;margin:0 0 8px;border:1px solid var(--linea);
-  border-radius:5px;background:var(--fondo);color:var(--tinta);cursor:pointer;
+  display:block;width:100%;text-align:left;font-family:var(--sans);
+  font-size:15.5px;padding:14px 16px;margin:0 0 10px;border:1px solid var(--linea);
+  border-radius:8px;background:var(--fondo);color:var(--tinta);cursor:pointer;
 }
-.opcion:hover:not(:disabled){border-color:var(--suave)}
-.opcion.bien{border-color:var(--acento);background:var(--realce)}
-.opcion.mal{border-color:var(--alerta)}
+.opcion:hover:not(:disabled){border-color:var(--suave);background:var(--realce)}
+.opcion.bien{border-color:var(--verde);background:var(--verde-bg);color:var(--verde-txt)}
+.opcion.mal{border-color:var(--rojo);background:var(--rojo-bg);color:var(--rojo-txt)}
 .opcion:disabled{cursor:default}
 .boton{
-  font-family:var(--sans);font-weight:600;font-size:15px;padding:11px 22px;
-  border:none;border-radius:6px;background:var(--acento);color:#fff;cursor:pointer;
+  font-family:var(--sans);font-weight:600;font-size:14.5px;padding:12px 24px;
+  border:none;border-radius:8px;background:var(--acento);color:#fff;cursor:pointer;
 }
 """
 
@@ -582,6 +662,7 @@ def pagina_farmaco(reg, fichas, jsonld):
 
 BUSCADOR_JS = """
 const NADA=[];let DATOS=[],F={};
+const e=s=>(s==null?'':String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'));
 const norm=s=>(s||'').toString().toLowerCase()
   .normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');
 const ETI={alta:'alta',moderada:'moderada',baja:'baja',muy_baja:'muy baja',
@@ -628,14 +709,43 @@ function pintar(res,q){
   document.getElementById('cuenta').textContent=
     res.length+(res.length===1?' registro':' registros');
   document.getElementById('res').innerHTML=res.map(r=>{
-    const meta=[eti(r.tipo),r.atc,r.lme?('LME '+r.lme_seccion):null,
-      r.certeza_global?('certeza '+eti(r.certeza_global)):null,
-      r.recomendacion_fuerza?eti(r.recomendacion_fuerza):null]
-      .filter(Boolean).join(' · ');
-    return '<article class="resultado"><div class="meta">'+meta+'</div>'+
-      '<h3><a href="'+r.url+'">'+realzar(r.titulo,q)+'</a></h3>'+
-      '<p>'+realzar((r.recomendacion||r.resumen||'').slice(0,230),q)+'</p></article>';
-  }).join('')||'<p class="sub">Nada coincide. Prueba con la DCI o el código ATC.</p>';
+    const esFicha = r.tipo === 'ficha';
+    const tagClase = r.atc ? r.atc : (r.clase || eti(r.tipo));
+    const sem = r.semaforo || (r.recomendacion_direccion === 'a_favor' ? 'verde' : 'amarillo');
+    const semPill = esFicha ? ('<span class="semaforo-pill ' + sem + '">● ' + sem.toUpperCase() + '</span>') : ('<span class="ghost-tag">FÁRMACO</span>');
+    
+    let nntHtml = '';
+    if(r.nnt){
+      nntHtml = '<div class="ghost-nnt-box"><span>NNT ' + e(r.nnt) + '</span><span style="font-size:10.5px;font-weight:normal;color:var(--suave)">· ' + e(r.nnt_desenlace||'') + '</span></div>';
+    }
+
+    let perlaHtml = '';
+    if(r.perla){
+      perlaHtml = '<div class="ghost-perla">💊 ' + realzar(r.perla, q) + '</div>';
+    } else if(r.resumen || r.recomendacion){
+      perlaHtml = '<p class="ghost-excerpt">' + realzar((r.recomendacion||r.resumen||'').slice(0,210), q) + '…</p>';
+    }
+
+    return '<article class="ghost-card">' +
+      '<div class="ghost-card-top">' +
+        '<div class="ghost-badge-row">' +
+          '<span class="ghost-tag">' + e(tagClase) + '</span>' +
+          semPill +
+        '</div>' +
+        '<h3><a href="' + r.url + '">' + realzar(r.titulo, q) + '</a></h3>' +
+        (r.indicacion ? '<div style="font-size:13px;color:var(--suave);margin-bottom:10px">' + e(r.indicacion) + '</div>' : '') +
+        nntHtml +
+        perlaHtml +
+      '</div>' +
+      '<div class="ghost-byline">' +
+        '<div class="ghost-author">' +
+          '<div class="ghost-avatar">AT</div>' +
+          '<span>Dr. Alcy Torres</span>' +
+        '</div>' +
+        '<span>' + (r.actualizado || r.fecha || '2026') + ' · 3 min</span>' +
+      '</div>' +
+    '</article>';
+  }).join('')||'<p class="sub" style="grid-column:1/-1;text-align:center;padding:40px 0">Nada coincide con la búsqueda. Prueba con otro término clínico o código ATC.</p>';
 }
 function chips(facetas){
   const cont=document.getElementById('facetas');
@@ -666,20 +776,27 @@ fetch('index.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 
 
 def pagina_buscador(total):
-    return (cabeza("Buscar", "", None,
-                   "Buscador de fichas de terapéutica racional ancladas a PubMed.")
-            + '<nav class="migas"><a href="' + COMUNIDAD + '">Powersemiotics</a>'
-              ' · farmacosemiotics · <a href="reto.html">Reto</a></nav>\n'
-            + "<h1>farmacosemiotics</h1>\n"
-            + '<p class="sub">Fichas de uso racional de medicamentos. Cada cifra '
-              "de eficacia o seguridad lleva su PMID. La meta de contenido es la "
-              "Lista Modelo de Medicamentos Esenciales de la OMS.</p>\n"
-            + '<input id="q" type="search" autocomplete="off" '
-              'placeholder="Principio activo, indicación, clase o código ATC…" '
-              'aria-label="Buscar">\n'
+    return (cabeza("Farmacosemiotics — Revista de Terapéutica Racional", "", None,
+                   "Publicación médica independiente: Fichas de terapéutica racional, balanza NNT/NNH y evidencia GRADE anclada a PubMed.")
+            + '<header class="ghost-header">'
+              '<div class="ghost-brand">'
+                '<h1>Farmacosemiotics</h1>'
+                '<p>Uso Racional de Medicamentos · Balanza NNT/NNH · Trazabilidad PubMed Central</p>'
+              '</div>'
+              '<nav class="ghost-nav">'
+                '<a href="index.html" class="ghost-nav-link active">Revista</a>'
+                '<a href="reto.html" class="ghost-nav-link">🎯 Reto Clínico</a>'
+                '<a href="' + COMUNIDAD + '" class="ghost-nav-link">Powersemiotics ↗</a>'
+              '</nav>'
+            '</header>\n'
+            + '<div style="margin-bottom: 24px;">'
+              '<input id="q" type="search" autocomplete="off" '
+              'placeholder="Buscar por principio activo, indicación clínica, ATC, o palabra clave…" '
+              'aria-label="Buscar">'
+            '</div>\n'
             + '<div id="facetas"></div>\n'
-            + '<div id="cuenta">' + str(total) + " registros</div>\n"
-            + '<div id="res"></div>\n'
+            + '<div id="cuenta" style="font-weight:700;color:var(--suave)">' + str(total) + " publicaciones</div>\n"
+            + '<div id="res" class="ghost-feed"></div>\n'
             + "<script>" + BUSCADOR_JS + "</script>\n"
             + pie(""))
 

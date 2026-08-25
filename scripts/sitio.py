@@ -112,27 +112,27 @@ body{
   margin:0;background:var(--papel);color:var(--tinta);
   font-family:var(--sans);line-height:1.65;font-size:16px;
 }
-.envoltorio{max-width:1080px;margin:0 auto;padding:24px 20px 80px}
+.envoltorio{max-width:1240px;margin:0 auto;padding:28px 24px 96px}
 a{color:var(--enlace);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* ── Encabezado Ghost ── */
 .ghost-header{
-  padding:32px 0 24px;border-bottom:1px solid var(--linea);margin-bottom:32px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  padding:36px 0 28px;border-bottom:1px solid var(--linea);margin-bottom:36px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
 }
 .ghost-brand h1{
-  font-family:var(--sans);font-size:28px;font-weight:800;letter-spacing:-.03em;
-  margin-bottom:4px;
+  font-family:var(--sans);font-size:32px;font-weight:800;letter-spacing:-.03em;
+  margin-bottom:6px;
 }
 .ghost-brand p{
-  font-size:15px;color:var(--suave);
+  font-size:16px;color:var(--suave);
 }
 .ghost-nav{
-  display:flex;align-items:center;gap:12px;
+  display:flex;align-items:center;gap:14px;
 }
 .ghost-nav-link{
-  font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:20px;
+  font-size:14px;font-weight:600;padding:9px 18px;border-radius:22px;
   background:var(--fondo);border:1px solid var(--linea);color:var(--suave);
 }
 .ghost-nav-link.active{
@@ -144,19 +144,19 @@ a:hover{text-decoration:underline}
   letter-spacing:.06em;color:var(--suave);margin-bottom:16px;
 }
 .migas a{color:var(--suave)}
-h1{font-family:var(--sans);font-weight:800;font-size:32px;line-height:1.2;
-   letter-spacing:-.02em;margin:0 0 10px}
-h2{font-family:var(--sans);font-weight:700;font-size:19px;
-   letter-spacing:-.01em;color:var(--tinta);margin:40px 0 16px;
-   padding-bottom:8px;border-bottom:2px solid var(--linea)}
-h3{font-family:var(--sans);font-weight:700;font-size:18px;margin:20px 0 8px}
-p{margin:0 0 14px}
-.sub{color:var(--suave);font-size:16px;margin:0 0 22px}
+h1{font-family:var(--sans);font-weight:800;font-size:34px;line-height:1.2;
+   letter-spacing:-.02em;margin:0 0 12px}
+h2{font-family:var(--sans);font-weight:700;font-size:20px;
+   letter-spacing:-.01em;color:var(--tinta);margin:42px 0 18px;
+   padding-bottom:10px;border-bottom:2px solid var(--linea)}
+h3{font-family:var(--sans);font-weight:700;font-size:19px;margin:22px 0 10px}
+p{margin:0 0 16px}
+.sub{color:var(--suave);font-size:16.5px;margin:0 0 24px}
 
-.etiquetas{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 22px}
+.etiquetas{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}
 .etiqueta{
   font-family:var(--mono);font-size:11px;text-transform:uppercase;
-  letter-spacing:.06em;padding:4px 10px;border:1px solid var(--linea);
+  letter-spacing:.06em;padding:5px 12px;border:1px solid var(--linea);
   border-radius:20px;color:var(--suave);background:var(--fondo);white-space:nowrap;
 }
 .etiqueta.fuerte{border-color:var(--acento);color:var(--acento);background:var(--acento-suave)}
@@ -165,7 +165,7 @@ p{margin:0 0 14px}
 
 .recuadro{
   border-left:4px solid var(--acento);background:var(--realce);
-  padding:18px 20px;margin:0 0 26px;border-radius:0 8px 8px 0;
+  padding:20px 24px;margin:0 0 28px;border-radius:0 10px 10px 0;
 }
 .recuadro.fuerte{border-left-color:var(--verde);background:var(--verde-bg);color:var(--verde-txt)}
 .recuadro.peligro{border-left-color:var(--rojo);background:var(--rojo-bg);color:var(--rojo-txt)}
@@ -176,15 +176,15 @@ p{margin:0 0 14px}
   letter-spacing:.08em;margin-bottom:8px;display:block;
 }
 
-.tabla-scroll{overflow-x:auto;margin:0 0 26px;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px;background:var(--fondo);border:1px solid var(--linea);border-radius:8px;overflow:hidden}
-th,td{text-align:left;vertical-align:top;padding:12px 14px;
+.tabla-scroll{overflow-x:auto;margin:0 0 28px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:600px;background:var(--fondo);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+th,td{text-align:left;vertical-align:top;padding:13px 16px;
       border-bottom:1px solid var(--linea)}
 th{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;
    letter-spacing:.05em;color:var(--suave);font-weight:700;background:var(--papel)}
 td.num{font-family:var(--mono);font-size:13.5px}
 
-dl.pares{display:grid;grid-template-columns:140px 1fr;gap:8px 20px;margin:0 0 26px;background:var(--fondo);padding:18px;border:1px solid var(--linea);border-radius:10px}
+dl.pares{display:grid;grid-template-columns:160px 1fr;gap:10px 24px;margin:0 0 28px;background:var(--fondo);padding:20px;border:1px solid var(--linea);border-radius:12px}
 dl.pares dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;
             letter-spacing:.05em;color:var(--suave);padding-top:2px}
 dl.pares dd{margin:0}
@@ -193,69 +193,69 @@ dl.pares dd{margin:0}
   dl.pares dd{margin:0 0 14px}
 }
 
-ul.limpia{list-style:none;padding:0;margin:0 0 20px}
-ul.limpia li{padding:10px 0;border-bottom:1px solid var(--linea)}
+ul.limpia{list-style:none;padding:0;margin:0 0 24px}
+ul.limpia li{padding:12px 0;border-bottom:1px solid var(--linea)}
 ul.limpia li:last-child{border-bottom:none}
 
 .ref{font-family:var(--mono);font-size:11.5px}
-.pie{margin-top:60px;padding-top:24px;border-top:1px solid var(--linea);
-     font-size:13.5px;color:var(--suave);text-align:center}
+.pie{margin-top:64px;padding-top:28px;border-top:1px solid var(--linea);
+     font-size:14px;color:var(--suave);text-align:center}
 
 /* ── Ghost Cards Feed & Layout ── */
 .ghost-feed{
-  display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:24px;margin-top:28px;
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));gap:28px;margin-top:32px;
 }
 .ghost-card{
-  background:var(--fondo);border:1px solid var(--linea);border-radius:14px;
-  padding:22px;display:flex;flex-direction:column;justify-content:space-between;
-  box-shadow:0 2px 8px rgba(0,0,0,0.02);transition:all .2s ease;
+  background:var(--fondo);border:1px solid var(--linea);border-radius:16px;
+  padding:26px;display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 2px 10px rgba(0,0,0,0.02);transition:all .2s ease;
   position:relative;overflow:hidden;
 }
 .ghost-card:hover{
-  transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.06);border-color:var(--tenue);
+  transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.07);border-color:var(--tenue);
 }
-.ghost-card-top{margin-bottom:12px}
+.ghost-card-top{margin-bottom:14px}
 .ghost-badge-row{
-  display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:6px;
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px;
 }
 .ghost-tag{
-  font-family:var(--mono);font-size:10.5px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.06em;padding:3px 8px;border-radius:6px;background:var(--realce);color:var(--suave);
+  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;padding:4px 10px;border-radius:6px;background:var(--realce);color:var(--suave);
 }
 .semaforo-pill{
-  font-family:var(--mono);font-size:10.5px;font-weight:700;text-transform:uppercase;
-  padding:3px 9px;border-radius:12px;
+  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
+  padding:4px 10px;border-radius:14px;
 }
 .semaforo-pill.verde{background:var(--verde-bg);color:var(--verde-txt);border:1px solid var(--verde)}
 .semaforo-pill.amarillo{background:var(--amarillo-bg);color:var(--amarillo-txt);border:1px solid var(--amarillo)}
 .semaforo-pill.rojo{background:var(--rojo-bg);color:var(--rojo-txt);border:1px solid var(--rojo)}
 
 .ghost-card h3{
-  font-size:19px;font-weight:700;line-height:1.3;margin:0 0 10px;
+  font-size:20px;font-weight:700;line-height:1.35;margin:0 0 12px;
 }
 .ghost-card h3 a{color:var(--tinta);text-decoration:none}
 .ghost-card h3 a:hover{color:var(--acento);text-decoration:none}
 .ghost-excerpt{
-  font-size:14.5px;color:var(--suave);line-height:1.5;margin-bottom:16px;
+  font-size:14.5px;color:var(--suave);line-height:1.55;margin-bottom:18px;
 }
 .ghost-perla{
-  background:var(--papel);border-left:3px solid var(--acento);padding:10px 12px;
-  border-radius:0 6px 6px 0;font-size:13.5px;margin-bottom:16px;font-style:italic;
+  background:var(--papel);border-left:3px solid var(--acento);padding:12px 14px;
+  border-radius:0 8px 8px 0;font-size:14px;margin-bottom:18px;font-style:italic;line-height:1.5;
 }
 .ghost-nnt-box{
-  display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;
-  font-weight:700;color:var(--acento);background:var(--acento-suave);padding:4px 10px;border-radius:8px;margin-bottom:16px;
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;
+  font-weight:700;color:var(--acento);background:var(--acento-suave);padding:5px 12px;border-radius:8px;margin-bottom:18px;
 }
 .ghost-byline{
-  border-top:1px solid var(--linea);padding-top:12px;margin-top:auto;
-  display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--suave);
+  border-top:1px solid var(--linea);padding-top:14px;margin-top:auto;
+  display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--suave);
 }
 .ghost-author{
-  display:flex;align-items:center;gap:8px;font-weight:600;color:var(--tinta);
+  display:flex;align-items:center;gap:10px;font-weight:600;color:var(--tinta);
 }
 .ghost-avatar{
-  width:26px;height:26px;border-radius:50%;background:var(--acento);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;
+  width:30px;height:30px;border-radius:50%;background:var(--acento);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:-.05em;
 }
 
 /* ── Buscador ── */
@@ -740,8 +740,8 @@ function pintar(res,q){
       '</div>' +
       '<div class="ghost-byline">' +
         '<div class="ghost-author">' +
-          '<div class="ghost-avatar">AT</div>' +
-          '<span>Dr. Alcy Torres</span>' +
+          '<div class="ghost-avatar">AETG</div>' +
+          '<span>Dr. Alcy Edmundo Torres Guerrero</span>' +
         '</div>' +
         '<span>' + (r.actualizado || r.fecha || '2026') + ' · 3 min</span>' +
       '</div>' +

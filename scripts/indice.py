@@ -31,7 +31,7 @@ from build import cargar, RAIZ  # noqa: E402
 SALIDA = RAIZ / "build"
 BASE = "https://powersemiotics.com/farmacosemiotics/"
 REPO = "https://github.com/alcyedmundo281/farmacosemiotics"
-AUTOR_POR_DEFECTO = [{"nombre": "Alcy Torres"}]
+AUTOR_POR_DEFECTO = [{"nombre": "Dr. Alcy Edmundo Torres Guerrero"}]
 
 
 def ruta_relativa(reg):

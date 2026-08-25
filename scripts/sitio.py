@@ -622,7 +622,7 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
           '<div class="ghost-avatar" style="width:48px;height:48px;font-size:16px">AETG</div>'
           '<div>'
             '<div style="font-weight:700;font-size:16px;color:var(--tinta)">Dr. Alcy Edmundo Torres Guerrero</div>'
-            '<div style="font-size:13px;color:var(--suave)">Editor & Fundador de PowerSemiotics · Especialista en Semiología Médica</div>'
+            '<div style="font-size:13px;color:var(--suave)"><a href="https://powersemiotics.com/" style="color:inherit">powersemiotics.com</a></div>'
           '</div>'
         '</div>'
         '<div style="display:flex;gap:10px">'

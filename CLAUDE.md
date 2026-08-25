@@ -15,7 +15,7 @@ el equivalente a PMC; `build/index.json` es el equivalente a PubMed.
 Alcance **internacional**. Lo que dependa de un país va en `costos/`, nunca en
 `farmacos/` ni en `fichas/`.
 
-Autor y responsable clínico: Dr. Alcy Torres. Toda decisión clínica final es
+Autor y responsable clínico: **Dr. Alcy Edmundo Torres Guerrero** ([powersemiotics.com](https://powersemiotics.com/)). Toda decisión clínica final es
 suya.
 
 ## Regla de oro
@@ -42,16 +42,17 @@ farmacosemiotics/
 ├── CLAUDE.md                          ← este archivo
 ├── mapa-maestro-farmacosemiotics.md   ← QUÉ poblar y en qué orden (léelo siempre)
 ├── farmacos/*.yaml                    ← principio activo: identidad, ATC, LME, seguridad
-├── fichas/*.yaml                      ← fármaco × indicación: PICO, evidencia, GRADE
+├── fichas/*.yaml                      ← fármaco × indicación: Semáforo, NNT, NNH, GRADE
 ├── referencias/*.yaml                 ← artículos con PMID y DOI verificados
 ├── catalogo/lme-oms-2025.yaml         ← la meta de contenido
 ├── costos/<pais>.yaml                 ← overlay opcional, fuera del núcleo
+├── scripts/nuevo.py                   ← crea plantillas estandarizadas de fármaco o ficha
 ├── scripts/build.py                   ← valida; NO modifica nada
 ├── scripts/pubmed.py                  ← crea referencias/ desde un PMID
 ├── scripts/openfda.py                 ← bloque regulatorio desde openFDA
 ├── scripts/eml.py                     ← cobertura frente a la LME
 ├── scripts/indice.py                  ← build/index.json + jsonld/ + jats/
-├── scripts/sitio.py                   ← build/sitio/ para GitHub Pages
+├── scripts/sitio.py                   ← build/sitio/ (Ghost Casper: index, blog/Indice, reto)
 ├── scripts/reto.py                    ← build/reto.json, URL relativas
 └── build/                             ← GENERADO, no se versiona
 ```
@@ -64,11 +65,13 @@ pregúntate **si el dato cambia según la indicación**:
 | dato | dónde va | ¿depende de la indicación? |
 |---|---|---|
 | ATC, RxCUI, mecanismo de acción | `farmacos/` | no |
-| contraindicación por TFGe | `farmacos/` | no |
+| contraindicación general por TFGe | `farmacos/` · `seguridad` | no |
 | aprobación FDA/EMA de la molécula | `farmacos/` · `regulatorio` | no |
+| Semáforo, perla de prescripción | `fichas/` · `decision_clinica` | **sí** |
 | HR de mortalidad, NNT, certeza GRADE | `fichas/` · `evidencia` | **sí** |
-| posología | `fichas/` | **sí** |
-| fuerza de la recomendación | `fichas/` · `recomendacion` | **sí** |
+| NNH, toxicidad e incidencia | `fichas/` · `seguridad_cuantitativa` | **sí** |
+| posología y ajuste renal específico | `fichas/` · `posologia` | **sí** |
+| fuerza y dirección de recomendación | `fichas/` · `recomendacion` | **sí** |
 
 Un mismo fármaco tiene tantas fichas como indicaciones evaluadas.
 `FS:0001` (metformina) puede sostener `FT:0001` (DM2) y una futura ficha de

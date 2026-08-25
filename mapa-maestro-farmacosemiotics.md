@@ -5,104 +5,112 @@ alta qué oleada toca antes de escribir nada.
 
 La meta es la **Lista Modelo de Medicamentos Esenciales de la OMS, 24.ª lista
 (2025)**, sembrada en [`catalogo/lme-oms-2025.yaml`](catalogo/lme-oms-2025.yaml)
-con sus 30 secciones. `python scripts/eml.py` dice en cualquier momento cuánto
-falta.
+con sus 30 secciones, complementada con el catálogo de terapias dirigidas e
+inmunooncología de alto impacto. `python scripts/eml.py` mide la cobertura
+frente a la LME.
 
 ---
 
-## El criterio de orden
+## El Modelo Editorial Ghost & Estándar de Contenido
 
-No se puebla por orden de número de sección. Se puebla por **densidad de
-decisión**: primero los fármacos que un clínico prescribe muchas veces al día y
-sobre los que la evidencia manda de verdad. Un antihipertensivo mal usado hace
-más daño acumulado que un antineoplásico de nicho, porque se usa mil veces más.
+Cada ficha terapéutica (`fichas/FTxxxx.yaml`) se compila como un **artículo de blog editorial Ghost completo** (`build/sitio/fichas/FTxxxx.html`) y se indexa en el portal principal (`index.html`), revista/catálogo (`blog.html`) y banco de autoevaluación (`reto.html`).
 
-Dentro de cada oleada, primero los **Access** de la clasificación AWaRe y los
-del *core list*; los *complementary* después.
-
----
-
-## Oleada 0 — el piloto (en curso)
-
-Un fármaco y una ficha, para fijar el esquema con un caso que ejercita casi
-todos los campos.
-
-| registro | qué prueba |
-|---|---|
-| `FS:0001` metformina | LME core, EMLc, ATC, contraindicación por función renal, alerta con recuadro de la FDA |
-| `FT:0001` metformina en DM2 | evidencia de desenlaces duros, certeza GRADE con descenso razonado, comparador activo |
-
-**Criterio de cierre**: `build.py` limpio, `indice.py` produce JSON-LD válido,
-el sitio renderiza y el reto genera al menos una pregunta con URL relativa.
-
-## Oleada 1 — cardiometabólico
-
-Sección 12 (cardiovasculares) y 18.5 (diabetes). Es donde más se prescribe y
-donde la evidencia de desenlaces duros es más sólida.
-
-- 12.3 antihipertensivos: enalapril, amlodipino, hidroclorotiazida, losartán
-- 12.6 hipolipemiantes: simvastatina, atorvastatina
-- 12.5.1 antiagregantes: ácido acetilsalicílico
-- 18.5.1 insulinas: insulina humana, análogos de acción prolongada
-- 18.5.2 hipoglucemiantes: metformina (hecho), gliclazida, empagliflozina
-
-## Oleada 2 — antiinfecciosos Access
-
-Sección 6.2.1. El eje es AWaRe: la ficha debe decir **por qué este y no el de
-espectro más amplio**, que es la decisión que de verdad se toma.
-
-- amoxicilina, amoxicilina + ácido clavulánico, cefalexina
-- cotrimoxazol, doxiciclina, metronidazol, nitrofurantoína
-
-## Oleada 3 — dolor y cuidados paliativos
-
-Sección 2. Aquí la ficha tiene que sostener a la vez la eficacia y el daño:
-es el terreno donde la prescripción irracional cuesta vidas.
-
-- 2.1 paracetamol, ibuprofeno
-- 2.2 morfina, codeína
-- 2.3 antieméticos y laxantes de la sección paliativa
-
-## Oleada 4 — salud mental
-
-Sección 24. Fichas largas, comparadores múltiples, certeza casi siempre
-moderada o baja. Buen banco de pruebas para el bloque de balance.
-
-## Oleada 5 — migración de los informes de alto costo
-
-Los ~30 informes de la aplicación previa (`informes-conamei-app`): pembrolizumab
-(tres indicaciones), secukinumab, ixekizumab, darolutamida, faricimab,
-ruxolitinib, trastuzumab deruxtecán, paliperidona, eltrombopag, olaparib,
-ribociclib, inmunoglobulina humana.
-
-Van **al final** a propósito. Casi ninguno está en la LME, y el repositorio
-tiene que estar maduro antes de aceptar contenido que nació con otra
-arquitectura y otro contexto —hay que amputarles todo lo ecuatoriano y
-reconstruir la evidencia contra PubMed—.
-
-Al migrar cada uno: el informe original queda como procedencia, **no como
-fuente**. Las cifras se vuelven a verificar una por una.
+### Estructura Estandarizada Obligatoria por Ficha:
+1. **Identidad y Autoría:** ID oficial (`FTxxxx`), título PICO claro, autoría unificada (`Dr. Alcy Edmundo Torres Guerrero` — `powersemiotics.com`).
+2. **Decisión Rápida (`decision_clinica`):**
+   * **Semáforo:** `verde` (primera línea / beneficio neto), `amarillo` (segunda línea / condicional), `rojo` (desfavorable / no recomendado).
+   * **Perla de prescripción:** Una frase accionable para el médico de primer contacto.
+   * **Alerta de seguridad inmediata:** Límite crítico (eGFR, interacción letal o contraindicación mayor).
+3. **Pregunta PICO:** Población (`p`), Intervención (`i`), Comparador (`c`), Desenlaces (`o`).
+4. **Posología Práctica:** Inicio, escalado, mantenimiento, dosis máxima y ajuste por función renal.
+5. **Evidencia Cuantitativa (`evidencia`):** Desenlace, criticidad, efecto con IC 95%, **NNT con horizonte temporal**, diseño del estudio, certeza GRADE con razones de descenso, y `pmid:` verificable.
+6. **Seguridad Cuantitativa (`seguridad_cuantitativa`):** Evento adverso clave, gravedad (`leve`, `moderada`, `grave`, `letal`, `mortal`), incidencia intervención vs control, **NNH con horizonte temporal**, conducta clínica, y `pmid:` verificable.
+7. **Juicio de Balance GRADE & Recomendación:** Magnitud de efectos deseables/indeseables, certeza global, dirección (`a_favor`, `en_contra`, `ninguna`), fuerza (`fuerte`, `condicional`) y justificación.
+8. **Alternativas Terapéuticas & Conclusión:** Opciones terapéuticas con código ATC y marca LME si aplica, y síntesis del balance NNT vs NNH.
 
 ---
 
-## Estado
+## El Criterio de Priorización por Oleadas
 
-| oleada | fármacos | fichas | estado |
-|---|---|---|---|
-| 0 piloto | 1 | 1 | en curso |
-| 1 cardiometabólico | 0 | 0 | pendiente |
-| 2 antiinfecciosos | 0 | 0 | pendiente |
-| 3 dolor y paliativos | 0 | 0 | pendiente |
-| 4 salud mental | 0 | 0 | pendiente |
-| 5 alto costo | 0 | 0 | pendiente |
+No se puebla por orden ciego de sección. Se puebla por **densidad de decisión clínica**:
+primero los fármacos de altísima frecuencia en atención primaria donde el balance NNT/NNH
+manda, seguido de los antiinfecciosos AWaRe, dolor, salud mental y las terapias dirigidas de alto costo.
 
-## Deudas conocidas
+---
 
-- `catalogo/lme-oms-2025.yaml` tiene `completo: false`: faltan subsecciones que
-  el anexo, maquetado a dos columnas, no dejó extraer limpias. Se completan a
-  mano contra la fuente, oleada por oleada.
-- El catálogo guarda la estructura de secciones, no la lista de medicamentos.
-  Cada oleada añade los suyos al poblar, verificados contra el anexo.
-- Falta decidir si la 10.ª LME para niños (EMLc) merece fichas propias o solo
-  un campo `emlc` en la ficha del adulto. Se decide en la oleada 1, con un caso
-  real delante.
+## Estado Actual de las Oleadas
+
+| Oleada | Temática / Área Clínica | Fármacos (`FS`) | Fichas (`FT`) | Estado |
+|---|---|---|---|---|
+| **0. Piloto** | Fármaco modelo y validación de contrato | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
+| **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `FS0002` (Apixabán) | `FT0002` (Apixabán en FA) | **En curso** |
+| **2. Antiinfecciosos AWaRe** | Sección 6.2.1 (Antibióticos Access / Watch) | — | — | Pendiente |
+| **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | Pendiente |
+| **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | — | — | Pendiente |
+| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC) | **En curso** |
+
+---
+
+## Detalle y Próximos Temas por Oleada
+
+### Oleada 1 — Cardiometabólico & Trombosis (Próximos temas prioritarios)
+- [x] **`FT0002` Apixabán en Fibrilación Auricular no valvular** (Anticoagulación de elección frente a warfarina, NNT 59 ictus, NNH menor en hemorragia mayor).
+- [ ] **Enalapril / Losartán en Insuficiencia Cardíaca y Nefropatía** (IECA/ARA-II: NNT mortalidad y protección renal, NNH hiperpotasemia/tos).
+- [ ] **Amlodipino en Hipertensión Arterial Esencial** (Calcioantagonista: NNT reducción de eventos cardiovasculares, NNH edema maleolar).
+- [ ] **Empagliflozina / Dapagliflozina en IC e Insuficiencia Renal Crónica** (iSGLT2: NNT hospitalización por IC, NNH infecciones micóticas).
+- [ ] **Atorvastatina / Rosuvastatina en Prevención Secundaria y Primaria** (Estatinas de alta potencia: NNT eventos vasculares mayores vs NNH miopatía).
+- [ ] **Ácido Acetilsalicílico en Prevención Secundaria Cardiovascular** (Antiagregación plaquetaria: NNT eventos isquémicos vs NNH hemorragia digestiva).
+
+### Oleada 2 — Antiinfecciosos AWaRe (Access & Watch)
+- [ ] **Amoxicilina en Neumonía Adquirida en la Comunidad y Faringitis Estreptocócica**.
+- [ ] **Amoxicilina + Ácido Clavulánico en Infecciones Polimicrobianas / Mordeduras**.
+- [ ] **Nitrofurantoína / Fosfomicina en Infección del Tracto Urinario no Complicada**.
+- [ ] **Cefalexina / Cefazolina en Infecciones de Piel y Partes Blandas**.
+- [ ] **Doxiciclina en Neumonía Atípica e Infecciones Transmitidas por Vectores**.
+- [ ] **Metronidazol en Infecciones Anaerobias y Giardiasis**.
+
+### Oleada 3 — Dolor & Cuidados Paliativos
+- [ ] **Paracetamol en Dolor Leve-Moderado y Fiebre** (Seguridad hepática, NNT analgesia).
+- [ ] **Ibuprofeno / Naproxeno en Dolor Inflamatorio Agudo** (AINEs: balance NNT dolor vs NNH hemorragia gastrointestinal y riesgo renal/cardiovascular).
+- [ ] **Morfina oral en Dolor Oncológico Moderado a Severo** (Titulación, manejo de estreñimiento preventivo).
+- [ ] **Tramadol en Dolor Moderado** (Límite de uso, NNH mareo/náuseas/interacciones serotoninérgicas).
+
+### Oleada 4 — Salud Mental & Neuropsiquiatría
+- [ ] **Sertralina / Escitalopram en Trastorno Depresivo Mayor y Ansiedad Generalizada** (ISRS: tiempo de latencia, NNT remisión vs NNH disfunción sexual/síndrome serotoninérgico).
+- [ ] **Risperidona en Psicosis y Agitación Aguda** (Antipsicótico: NNT control síntomas vs NNH extrapiramidalismo/metabólico).
+
+### Oleada 5 — Terapias Biológicas, Inmunooncología & Alto Costo
+- [x] **`FT0003` Pembrolizumab en Cáncer de Pulmón no Microcítico metastásico** (Anti-PD-1: NNT 8 supervivencia global).
+- [x] **`FT0004` Guselkumab en Artritis Psoriásica activa** (Anti-IL-23: NNT 4 respuesta ACR20).
+- [x] **`FT0005` Ibrutinib en Leucemia Linfocítica Crónica en primera línea** (Inhibidor BTK: NNT 10 supervivencia libre de progresión).
+- [ ] **Secukinumab / Ixekizumab en Espondiloartritis y Psoriasis**.
+- [ ] **Trastuzumab Deruxtecán en Cáncer de Mama HER2-positivo y HER2-low**.
+- [ ] **Darolutamida / Enzalutamida en Cáncer de Próstata Resistente a la Castración**.
+- [ ] **Faricimab en Degeneración Macular Asociada a la Edad y Edema Macular Diabético**.
+- [ ] **Ruxolitinib en Mielofibrosis y Policitemia Vera**.
+
+---
+
+## Flujo de Trabajo para Cada Nuevo Tema
+
+```bash
+# 1. Crear el principio activo y la ficha con la plantilla oficial
+python scripts/nuevo.py farmaco FS0006 "NombreMolecula" --atc C09AA02
+python scripts/nuevo.py ficha FT0006 "Título de la Ficha Clínica" --farmaco FS0006
+
+# 2. Descargar y verificar referencias con PubMed
+python scripts/pubmed.py <PMID_EVIDENCIA>
+python scripts/pubmed.py <PMID_SEGURIDAD>
+
+# 3. Completar el YAML con NNT, NNH, GRADE, Semáforo y Posología
+# 4. Validar el repositorio (sin errores)
+python scripts/build.py
+
+# 5. Generar índices, reto y portal Ghost
+python scripts/indice.py
+python scripts/reto.py
+python scripts/sitio.py
+
+# 6. Probar y verificar contratos
+python -m unittest discover -s tests -v
+```

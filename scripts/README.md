@@ -11,6 +11,8 @@ pudiera arreglar lo que valida, nadie sabría qué se arregló.
 
 | script | qué hace | ¿escribe? |
 |---|---|---|
+| `pipeline.py` | **orquestador unificado y benchmark de alto rendimiento** | `build/` |
+| `nnt.py` | calculadora epidemiológica y auditor matemático de NNT/NNH | **no** |
 | `nuevo.py` | crea plantillas estandarizadas de fármaco o ficha con NNT/NNH y semáforo | `farmacos/`, `fichas/` |
 | `pubmed.py` | trae una referencia por PMID y la verifica contra PubMed | `referencias/` |
 | `openfda.py` | arma el bloque regulatorio desde openFDA | imprime; pega una persona |
@@ -20,15 +22,11 @@ pudiera arreglar lo que valida, nadie sabría qué se arregló.
 | `reto.py` | `build/reto.json` con preguntas de certeza, fuerza y semáforo | solo `build/` |
 | `sitio.py` | `build/sitio/` (Ghost Casper layout, index + blog + reto) | solo `build/` |
 
-## El orden
+## El ciclo completo en un solo comando
 
 ```bash
-python scripts/nuevo.py ficha FT0006 "Nombre de la Ficha" --farmaco FS0006
-python scripts/build.py      # primero, siempre: sin esto lo demás no corre
-python scripts/indice.py
-python scripts/reto.py
-python scripts/sitio.py
-python -m http.server -d build/sitio 8000
+python scripts/pipeline.py          # valida, audita, indexa, compila y testea
+python scripts/pipeline.py --serve  # compila y lanza el servidor local
 ```
 
 `indice.py`, `reto.py` y `sitio.py` se niegan a generar nada si `build.py`

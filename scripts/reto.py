@@ -43,6 +43,11 @@ ETIQUETA_FUERZA = {"fuerte": "Fuerte", "condicional": "Condicional"}
 ETIQUETA_DIRECCION = {"a_favor": "A favor de la intervención",
                       "en_contra": "En contra de la intervención",
                       "ninguna": "Sin recomendación en ningún sentido"}
+ETIQUETA_SEMAFORO = {
+    "verde": "Verde (Elección preferente / beneficio neto demostrado)",
+    "amarillo": "Amarillo (Condicional / segunda línea o beneficio modesto)",
+    "rojo": "Rojo (No recomendado / balance desfavorable)"
+}
 
 
 def url_ficha(archivo):
@@ -117,7 +122,20 @@ def preguntas_de_ficha(reg, archivo, farmaco, rnd):
                             + ". " + " ".join((rec.get("enunciado") or "").split())),
         }))
 
-    # 3. El desenlace que va con su efecto. Los distractores son los efectos de
+    # 3. Semáforo de decisión clínica
+    dc = reg.get("decision_clinica") or {}
+    if dc.get("semaforo"):
+        salida.append(dict(base, **{
+            "id": reg["id"] + "-semaforo",
+            "tipo": "semaforo",
+            "enunciado": ("¿Cuál es la calificación semafórica de la decisión clínica en «"
+                          + reg["titulo"] + "»?"),
+            "opciones": opciones(dc["semaforo"], ("verde", "amarillo", "rojo"), ETIQUETA_SEMAFORO),
+            "explicacion": ("Semáforo " + dc["semaforo"].upper() + ". Perla: "
+                            + str(dc.get("perla_prescripcion", ""))),
+        }))
+
+    # 4. El desenlace que va con su efecto. Los distractores son los efectos de
     #    los OTROS desenlaces de la misma ficha: reales, y por eso difíciles.
     con_efecto = [e for e in reg.get("evidencia") or []
                   if e.get("efecto") and e.get("desenlace")]

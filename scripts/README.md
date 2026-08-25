@@ -11,17 +11,19 @@ pudiera arreglar lo que valida, nadie sabría qué se arregló.
 
 | script | qué hace | ¿escribe? |
 |---|---|---|
+| `nuevo.py` | crea plantillas estandarizadas de fármaco o ficha con NNT/NNH y semáforo | `farmacos/`, `fichas/` |
 | `pubmed.py` | trae una referencia por PMID y la verifica contra PubMed | `referencias/` |
 | `openfda.py` | arma el bloque regulatorio desde openFDA | imprime; pega una persona |
 | `build.py` | valida todo y dice qué falta | **no** |
 | `eml.py` | mide la cobertura frente a la Lista Modelo de la OMS | **no** |
 | `indice.py` | `build/index.json`, `build/jsonld/`, `build/jats/` | solo `build/` |
-| `reto.py` | `build/reto.json` | solo `build/` |
-| `sitio.py` | `build/sitio/`, listo para Pages | solo `build/` |
+| `reto.py` | `build/reto.json` con preguntas de certeza, fuerza y semáforo | solo `build/` |
+| `sitio.py` | `build/sitio/` (Ghost Casper layout, index + blog + reto) | solo `build/` |
 
 ## El orden
 
 ```bash
+python scripts/nuevo.py ficha FT0006 "Nombre de la Ficha" --farmaco FS0006
 python scripts/build.py      # primero, siempre: sin esto lo demás no corre
 python scripts/indice.py
 python scripts/reto.py

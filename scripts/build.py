@@ -50,6 +50,8 @@ DIRECCIONES = {"a_favor", "en_contra", "ninguna"}
 FUERZAS = {"fuerte", "condicional"}
 ESTADOS = {"borrador", "revisado", "publicado"}
 CRITICIDAD = {"critico", "importante", "no_importante"}
+SEMAFOROS = {"verde", "amarillo", "rojo"}
+GRAVEDADES_SEGURIDAD = {"leve", "moderada", "grave", "letal", "mortal"}
 
 # El repositorio es internacional. Estos términos delatan que se coló contexto
 # de un país concreto —el origen de este proyecto fue ecuatoriano— y eso
@@ -310,6 +312,27 @@ def revisar_ficha(ident, reg, archivo, estado, inf):
         inf.error(archivo, "`recomendacion.fuerza` debe ser fuerte o condicional")
     if not rec.get("enunciado"):
         inf.error(archivo, "`recomendacion` sin `enunciado`")
+
+    # Decisión rápida y semáforo
+    dc = reg.get("decision_clinica")
+    if dc:
+        if dc.get("semaforo") and dc["semaforo"] not in SEMAFOROS:
+            inf.error(archivo, "`decision_clinica.semaforo` debe ser uno de "
+                      + ", ".join(sorted(SEMAFOROS)))
+        if not dc.get("perla_prescripcion"):
+            inf.aviso(archivo, "`decision_clinica` sin `perla_prescripcion`")
+
+    # Seguridad cuantitativa (NNH)
+    seg_c = reg.get("seguridad_cuantitativa") or []
+    for j, s in enumerate(seg_c):
+        eti_s = "seguridad_cuantitativa[" + str(j) + "]"
+        if not s.get("evento"):
+            inf.error(archivo, eti_s + " sin `evento`")
+        if s.get("gravedad") and s["gravedad"] not in GRAVEDADES_SEGURIDAD:
+            inf.error(archivo, eti_s + " `gravedad` debe ser uno de "
+                      + ", ".join(sorted(GRAVEDADES_SEGURIDAD)))
+        if not s.get("ref"):
+            inf.error(archivo, eti_s + " sin `ref`")
 
     # Una recomendación fuerte sobre certeza baja es posible, pero es la
     # excepción de GRADE y tiene que estar argumentada, no dejada caer.

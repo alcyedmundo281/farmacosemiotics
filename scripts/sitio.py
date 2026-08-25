@@ -162,16 +162,16 @@ a:hover{text-decoration:underline}
   max-width:820px;margin:0 auto 28px;letter-spacing:-.015em;
 }
 .ghost-search-form{
-  display:flex;align-items:center;max-width:520px;margin:0 auto;background:var(--fondo);
-  border-radius:9999px;padding:4px 6px;border:1px solid var(--linea);box-shadow:0 2px 10px rgba(0,0,0,0.03);
+  display:flex;align-items:center;max-width:580px;width:100%;margin:0 auto;background:var(--papel);
+  border-radius:9999px;padding:5px 6px 5px 14px;border:1px solid #cbd5e1;box-shadow:0 3px 12px rgba(0,0,0,0.04);
 }
 .ghost-search-input{
-  flex:1;border:none;background:transparent;padding:10px 16px;font-size:15px;
+  flex:1;width:100%;min-width:0;border:none;background:transparent;padding:10px 14px;font-size:15px;
   color:var(--tinta);font-family:var(--sans);outline:none;
 }
 .ghost-search-submit{
   background:var(--acento);color:#fff;border:none;border-radius:9999px;
-  padding:10px 22px;font-weight:600;font-size:14px;cursor:pointer;transition:background .2s ease;
+  padding:10px 24px;font-weight:600;font-size:14px;cursor:pointer;transition:background .2s ease;flex-shrink:0;
 }
 .ghost-search-submit:hover{background:var(--acento-hover)}
 
@@ -187,51 +187,57 @@ a:hover{text-decoration:underline}
 
 /* ── Ghost Post List Row & Clinical Badge ── */
 .ghost-post-list{
-  display:flex;flex-direction:column;gap:32px;
+  display:flex;flex-direction:column;gap:36px;
 }
 .ghost-post-row{
-  display:flex;gap:28px;padding-bottom:32px;border-bottom:1px solid var(--linea-suave);
+  display:flex;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--linea-suave);
   align-items:flex-start;text-decoration:none;color:inherit;
 }
 .ghost-clinical-badge{
-  width:250px;min-height:146px;border-radius:12px;
-  background:var(--realce);border:1px solid var(--linea);color:var(--tinta);
+  width:250px;min-height:154px;border-radius:12px;
+  background:#F8FAFC;border:1px solid #E2E8F0;color:#0F172A;
   flex-shrink:0;display:flex;flex-direction:column;justify-content:space-between;
-  padding:15px 16px;box-sizing:border-box;text-decoration:none;transition:all .2s ease;
-  box-shadow:0 2px 8px rgba(0,0,0,0.02);
+  padding:16px 18px;box-sizing:border-box;text-decoration:none;transition:all .2s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,0.03);
 }
 .ghost-clinical-badge:hover{
-  transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.06);border-color:var(--tenue);text-decoration:none;
+  transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.08);border-color:#CBD5E1;text-decoration:none;
 }
 .badge-top{
-  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:8px;
 }
 .badge-atc{
   font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
-  background:var(--fondo);color:var(--suave);border:1px solid var(--linea);padding:2px 8px;border-radius:6px;
+  background:#EEF2F6;color:#475569;border:1px solid #CBD5E1;padding:3px 8px;border-radius:6px;letter-spacing:.02em;
 }
 .badge-sem{
   font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;
-  padding:3px 8px;border-radius:12px;
+  padding:3px 9px;border-radius:9999px;letter-spacing:.02em;
 }
-.badge-sem.verde{background:var(--verde-bg);color:var(--verde-txt);border:1px solid var(--verde)}
-.badge-sem.amarillo{background:var(--amarillo-bg);color:var(--amarillo-txt);border:1px solid var(--amarillo)}
-.badge-sem.rojo{background:var(--rojo-bg);color:var(--rojo-txt);border:1px solid var(--rojo)}
+.badge-sem.verde{background:#DCFCE7;color:#15803D;border:1px solid #86EFAC}
+.badge-sem.amarillo{background:#FEF3C7;color:#B45309;border:1px solid #FDE68A}
+.badge-sem.rojo{background:#FEE2E2;color:#B91C1C;border:1px solid #FCA5A5}
 
 .badge-dci{
-  font-size:16px;font-weight:800;color:var(--tinta);line-height:1.25;margin:8px 0;
+  font-size:17px;font-weight:800;color:#0F172A;line-height:1.3;margin:8px 0 12px;display:block;
 }
 .badge-bottom{
-  display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px dashed var(--linea);
+  display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid #E2E8F0;
 }
 .badge-nnt{
-  font-family:var(--mono);font-size:11.5px;font-weight:700;color:#0284c7;background:#e0f2fe;padding:2px 8px;border-radius:6px;
-}
-@media (prefers-color-scheme:dark){
-  .badge-nnt{background:#0c4a6e;color:#7dd3fc}
+  font-family:var(--mono);font-size:11.5px;font-weight:700;color:#0369A1;background:#E0F2FE;border:1px solid #BAE6FD;padding:3px 8px;border-radius:6px;
 }
 .badge-meta{
-  font-family:var(--mono);font-size:11px;color:var(--suave);
+  font-family:var(--mono);font-size:11px;color:#64748B;font-weight:600;
+}
+
+@media (prefers-color-scheme:dark){
+  .ghost-clinical-badge{background:#1E293B;border-color:#334155;color:#F8FAFC}
+  .badge-atc{background:#0F172A;border-color:#334155;color:#94A3B8}
+  .badge-dci{color:#F8FAFC}
+  .badge-bottom{border-color:#334155}
+  .badge-nnt{background:#0C4A6E;border-color:#0369A1;color:#7DD3FC}
+  .badge-meta{color:#94A3B8}
 }
 
 .ghost-post-content{flex:1}
@@ -358,12 +364,12 @@ def cabeza(titulo, prefijo, jsonld=None, descripcion=""):
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
         "family=Archivo:wght@500;600&family=Literata:ital,wght@0,400;0,600;1,400"
         '&family=IBM+Plex+Mono:wght@400;500&display=swap">\n'
-        '<link rel="stylesheet" href="' + prefijo + 'estilo.css">\n'
+        '<link rel="stylesheet" href="' + prefijo + 'estilo.css?v=3">\n'
         + ld + "\n</head>\n<body>\n<div class=\"envoltorio\">\n"
         '<header class="ghost-header">\n'
         '  <nav class="ghost-nav-left">\n'
         '    <a href="' + prefijo + 'index.html" class="ghost-nav-item">Home</a>\n'
-        '    <a href="' + prefijo + 'blog.html" class="ghost-nav-item">Fichas</a>\n'
+        '    <a href="' + prefijo + 'blog.html" class="ghost-nav-item">Indice</a>\n'
         '    <a href="' + prefijo + 'reto.html" class="ghost-nav-item">Reto</a>\n'
         '    <a href="' + COMUNIDAD + '" class="ghost-nav-item">About</a>\n'
         '  </nav>\n'

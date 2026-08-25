@@ -86,9 +86,9 @@ def eti(x):
 
 CSS = """
 :root{
-  --tinta:#0F172A; --suave:#475569; --tenue:#94A3B8; --linea:#E2E8F0;
-  --papel:#F8FAFC; --fondo:#FFFFFF; --acento:#0D9488; --acento-suave:#CCFBF1;
-  --alerta:#E11D48; --aviso:#D97706; --enlace:#0284C7; --realce:#F1F5F9;
+  --tinta:#15171a; --suave:#738a94; --tenue:#94A3B8; --linea:#e5eff5; --linea-suave:#f0f0f0;
+  --papel:#FFFFFF; --fondo:#FFFFFF; --acento:#962828; --acento-hover:#7d2121;
+  --enlace:#962828; --realce:#f4f5f6;
   --verde:#10B981; --verde-bg:#ECFDF5; --verde-txt:#065F46;
   --amarillo:#F59E0B; --amarillo-bg:#FFFBEB; --amarillo-txt:#92400E;
   --rojo:#EF4444; --rojo-bg:#FEF2F2; --rojo-txt:#991B1B;
@@ -98,9 +98,9 @@ CSS = """
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --tinta:#F1F5F9; --suave:#94A3B8; --tenue:#64748B; --linea:#334155;
-    --papel:#0B0F17; --fondo:#151D28; --acento:#2DD4BF; --acento-suave:#134E48;
-    --alerta:#F43F5E; --aviso:#FBBF24; --enlace:#38BDF8; --realce:#1E293B;
+    --tinta:#E8EBED; --suave:#9AA3AA; --tenue:#64748B; --linea:#2A3035; --linea-suave:#1E2429;
+    --papel:#0F1316; --fondo:#14181B; --acento:#E05656; --acento-hover:#F06A6A;
+    --enlace:#E05656; --realce:#1A2024;
     --verde:#10B981; --verde-bg:#064E3B; --verde-txt:#6EE7B7;
     --amarillo:#F59E0B; --amarillo-bg:#78350F; --amarillo-txt:#FDE68A;
     --rojo:#EF4444; --rojo-bg:#7F1D1D; --rojo-txt:#FCA5A5;
@@ -112,56 +112,176 @@ body{
   margin:0;background:var(--papel);color:var(--tinta);
   font-family:var(--sans);line-height:1.65;font-size:16px;
 }
-.envoltorio{max-width:1240px;margin:0 auto;padding:28px 24px 96px}
+.envoltorio{max-width:1040px;margin:0 auto;padding:0 24px 80px}
 a{color:var(--enlace);text-decoration:none}
 a:hover{text-decoration:underline}
 
-/* ── Encabezado Ghost ── */
+/* ── Ghost Header (3 Column Navbar) ── */
 .ghost-header{
-  padding:36px 0 28px;border-bottom:1px solid var(--linea);margin-bottom:36px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:24px 0;border-bottom:1px solid var(--linea-suave);margin-bottom:32px;
 }
-.ghost-brand h1{
-  font-family:var(--sans);font-size:32px;font-weight:800;letter-spacing:-.03em;
-  margin-bottom:6px;
+.ghost-nav-left{
+  display:flex;align-items:center;gap:20px;
 }
-.ghost-brand p{
-  font-size:16px;color:var(--suave);
+.ghost-nav-item{
+  font-size:15px;font-weight:700;color:var(--tinta);text-decoration:none;
 }
-.ghost-nav{
-  display:flex;align-items:center;gap:14px;
+.ghost-nav-item:hover{color:var(--acento);text-decoration:none}
+.ghost-nav-item.active{color:var(--acento)}
+
+.ghost-logo{
+  text-align:center;
 }
-.ghost-nav-link{
-  font-size:14px;font-weight:600;padding:9px 18px;border-radius:22px;
-  background:var(--fondo);border:1px solid var(--linea);color:var(--suave);
-}
-.ghost-nav-link.active{
-  background:var(--acento);color:#fff;border-color:var(--acento);
+.ghost-logo a{
+  font-family:var(--sans);font-size:26px;font-weight:800;letter-spacing:-.04em;
+  color:var(--tinta);text-decoration:none;
 }
 
+.ghost-nav-right{
+  display:flex;align-items:center;justify-content:flex-end;gap:16px;
+}
+.ghost-search-btn{
+  background:none;border:none;color:var(--tinta);cursor:pointer;display:flex;align-items:center;padding:4px;
+}
+.ghost-subscribe-btn{
+  background:var(--acento);color:#fff!important;padding:8px 20px;border-radius:9999px;
+  font-size:14px;font-weight:600;text-decoration:none;transition:background .2s ease;display:inline-block;
+}
+.ghost-subscribe-btn:hover{background:var(--acento-hover);text-decoration:none}
+
+@media (max-width:768px){
+  .ghost-header{grid-template-columns:1fr 1fr;gap:16px}
+  .ghost-logo{text-align:left;grid-column:1/-1}
+  .ghost-nav-left{order:2}
+  .ghost-nav-right{order:3}
+}
+
+/* ── Ghost Hero Section ── */
+.ghost-hero{
+  text-align:center;padding:24px 0 44px;
+}
+.ghost-hero-headline{
+  font-size:26px;font-weight:700;line-height:1.35;color:var(--tinta);
+  max-width:820px;margin:0 auto 28px;letter-spacing:-.015em;
+}
+.ghost-subscribe-form{
+  display:flex;max-width:480px;margin:0 auto;background:var(--realce);
+  border-radius:9999px;padding:5px;border:1px solid var(--linea);
+}
+.ghost-subscribe-input{
+  flex:1;border:none;background:transparent;padding:10px 18px;font-size:15px;
+  color:var(--tinta);font-family:var(--sans);outline:none;
+}
+.ghost-subscribe-submit{
+  background:var(--acento);color:#fff;border:none;border-radius:9999px;
+  padding:10px 24px;font-weight:600;font-size:14px;cursor:pointer;transition:background .2s ease;
+}
+.ghost-subscribe-submit:hover{background:var(--acento-hover)}
+
+/* ── Section Header ── */
+.ghost-section-header{
+  padding-bottom:12px;border-bottom:1px solid var(--linea);margin-bottom:32px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.ghost-section-title{
+  font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta);
+}
+#cuenta{font-size:12px;font-weight:700;color:var(--suave);letter-spacing:.05em}
+
+/* ── Ghost Post List Row ── */
+.ghost-post-list{
+  display:flex;flex-direction:column;gap:32px;
+}
+.ghost-post-row{
+  display:flex;gap:28px;padding-bottom:32px;border-bottom:1px solid var(--linea-suave);
+  align-items:flex-start;text-decoration:none;color:inherit;
+}
+.ghost-post-thumb{
+  width:270px;height:160px;border-radius:6px;background:#15171A;color:#fff;
+  flex-shrink:0;display:flex;flex-direction:column;justify-content:space-between;
+  padding:16px;box-sizing:border-box;position:relative;overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);text-decoration:none;
+}
+.ghost-post-thumb:hover{text-decoration:none}
+.ghost-thumb-top{
+  display:flex;justify-content:space-between;align-items:center;
+}
+.ghost-thumb-atc{
+  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
+  background:rgba(255,255,255,0.15);padding:3px 8px;border-radius:4px;color:#fff;
+}
+.ghost-thumb-sem{
+  font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;
+  padding:3px 7px;border-radius:4px;
+}
+.ghost-thumb-sem.verde{background:rgba(16,185,129,0.25);color:#34D399;border:1px solid #10B981}
+.ghost-thumb-sem.amarillo{background:rgba(245,158,11,0.25);color:#FBBF24;border:1px solid #F59E0B}
+.ghost-thumb-center{
+  font-size:15px;font-weight:700;color:#fff;line-height:1.25;
+}
+.ghost-thumb-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+}
+.ghost-thumb-nnt{
+  font-family:var(--mono);font-size:12px;font-weight:700;color:#38BDF8;
+}
+.ghost-thumb-lme{
+  font-family:var(--mono);font-size:10.5px;color:#94A3B8;
+}
+
+.ghost-post-content{flex:1}
+.ghost-post-title{
+  font-size:22px;font-weight:700;line-height:1.3;margin:0 0 10px;
+}
+.ghost-post-title a{
+  color:var(--acento);text-decoration:none;
+}
+.ghost-post-title a:hover{text-decoration:underline}
+.ghost-post-excerpt{
+  font-size:15px;line-height:1.55;color:#555;margin:0 0 14px;
+}
+@media (prefers-color-scheme:dark){
+  .ghost-post-excerpt{color:#9AA3AA}
+}
+.ghost-post-meta{
+  font-size:13px;color:var(--suave);
+}
+
+@media (max-width:680px){
+  .ghost-post-row{flex-direction:column;gap:16px}
+  .ghost-post-thumb{width:100%;height:140px}
+}
+
+/* ── Ghost Article Page ── */
+.ghost-article{
+  padding:20px 0;
+}
 .migas{
   font-family:var(--mono);font-size:11.5px;text-transform:uppercase;
-  letter-spacing:.06em;color:var(--suave);margin-bottom:16px;
+  letter-spacing:.06em;color:var(--suave);margin-bottom:20px;
 }
 .migas a{color:var(--suave)}
 h1{font-family:var(--sans);font-weight:800;font-size:34px;line-height:1.2;
-   letter-spacing:-.02em;margin:0 0 12px}
+   letter-spacing:-.02em;margin:0 0 12px;color:var(--tinta)}
 h2{font-family:var(--sans);font-weight:700;font-size:20px;
    letter-spacing:-.01em;color:var(--tinta);margin:42px 0 18px;
    padding-bottom:10px;border-bottom:2px solid var(--linea)}
-h3{font-family:var(--sans);font-weight:700;font-size:19px;margin:22px 0 10px}
+h3{font-family:var(--sans);font-weight:700;font-size:18px;margin:22px 0 10px}
 p{margin:0 0 16px}
-.sub{color:var(--suave);font-size:16.5px;margin:0 0 24px}
+.sub{color:var(--suave);font-size:17px;margin:0 0 24px}
 
-.etiquetas{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}
-.etiqueta{
-  font-family:var(--mono);font-size:11px;text-transform:uppercase;
-  letter-spacing:.06em;padding:5px 12px;border:1px solid var(--linea);
-  border-radius:20px;color:var(--suave);background:var(--fondo);white-space:nowrap;
+.ghost-tag{
+  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;padding:4px 10px;border-radius:6px;background:var(--realce);color:var(--suave);
 }
-.etiqueta.fuerte{border-color:var(--acento);color:var(--acento);background:var(--acento-suave)}
-.etiqueta.peligro{border-color:var(--alerta);color:var(--alerta)}
-.etiqueta.borrador{border-color:var(--aviso);color:var(--aviso)}
+.semaforo-pill{
+  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
+  padding:4px 12px;border-radius:14px;
+}
+.semaforo-pill.verde{background:var(--verde-bg);color:var(--verde-txt);border:1px solid var(--verde)}
+.semaforo-pill.amarillo{background:var(--amarillo-bg);color:var(--amarillo-txt);border:1px solid var(--amarillo)}
+.semaforo-pill.rojo{background:var(--rojo-bg);color:var(--rojo-txt);border:1px solid var(--rojo)}
 
 .recuadro{
   border-left:4px solid var(--acento);background:var(--realce);
@@ -181,7 +301,7 @@ table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:600px;backg
 th,td{text-align:left;vertical-align:top;padding:13px 16px;
       border-bottom:1px solid var(--linea)}
 th{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;
-   letter-spacing:.05em;color:var(--suave);font-weight:700;background:var(--papel)}
+   letter-spacing:.05em;color:var(--suave);font-weight:700;background:var(--realce)}
 td.num{font-family:var(--mono);font-size:13.5px}
 
 dl.pares{display:grid;grid-template-columns:160px 1fr;gap:10px 24px;margin:0 0 28px;background:var(--fondo);padding:20px;border:1px solid var(--linea);border-radius:12px}
@@ -194,91 +314,12 @@ dl.pares dd{margin:0}
 }
 
 ul.limpia{list-style:none;padding:0;margin:0 0 24px}
-ul.limpia li{padding:12px 0;border-bottom:1px solid var(--linea)}
+ul.limpia li{padding:12px 0;border-bottom:1px solid var(--linea-suave)}
 ul.limpia li:last-child{border-bottom:none}
 
 .ref{font-family:var(--mono);font-size:11.5px}
 .pie{margin-top:64px;padding-top:28px;border-top:1px solid var(--linea);
      font-size:14px;color:var(--suave);text-align:center}
-
-/* ── Ghost Cards Feed & Layout ── */
-.ghost-feed{
-  display:grid;grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));gap:28px;margin-top:32px;
-}
-.ghost-card{
-  background:var(--fondo);border:1px solid var(--linea);border-radius:16px;
-  padding:26px;display:flex;flex-direction:column;justify-content:space-between;
-  box-shadow:0 2px 10px rgba(0,0,0,0.02);transition:all .2s ease;
-  position:relative;overflow:hidden;
-}
-.ghost-card:hover{
-  transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.07);border-color:var(--tenue);
-}
-.ghost-card-top{margin-bottom:14px}
-.ghost-badge-row{
-  display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px;
-}
-.ghost-tag{
-  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.06em;padding:4px 10px;border-radius:6px;background:var(--realce);color:var(--suave);
-}
-.semaforo-pill{
-  font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
-  padding:4px 10px;border-radius:14px;
-}
-.semaforo-pill.verde{background:var(--verde-bg);color:var(--verde-txt);border:1px solid var(--verde)}
-.semaforo-pill.amarillo{background:var(--amarillo-bg);color:var(--amarillo-txt);border:1px solid var(--amarillo)}
-.semaforo-pill.rojo{background:var(--rojo-bg);color:var(--rojo-txt);border:1px solid var(--rojo)}
-
-.ghost-card h3{
-  font-size:20px;font-weight:700;line-height:1.35;margin:0 0 12px;
-}
-.ghost-card h3 a{color:var(--tinta);text-decoration:none}
-.ghost-card h3 a:hover{color:var(--acento);text-decoration:none}
-.ghost-excerpt{
-  font-size:14.5px;color:var(--suave);line-height:1.55;margin-bottom:18px;
-}
-.ghost-perla{
-  background:var(--papel);border-left:3px solid var(--acento);padding:12px 14px;
-  border-radius:0 8px 8px 0;font-size:14px;margin-bottom:18px;font-style:italic;line-height:1.5;
-}
-.ghost-nnt-box{
-  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;
-  font-weight:700;color:var(--acento);background:var(--acento-suave);padding:5px 12px;border-radius:8px;margin-bottom:18px;
-}
-.ghost-byline{
-  border-top:1px solid var(--linea);padding-top:14px;margin-top:auto;
-  display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--suave);
-}
-.ghost-author{
-  display:flex;align-items:center;gap:10px;font-weight:600;color:var(--tinta);
-}
-.ghost-avatar{
-  width:30px;height:30px;border-radius:50%;background:var(--acento);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:-.05em;
-}
-
-/* ── Buscador ── */
-#q{
-  width:100%;font-family:var(--sans);font-size:16px;padding:14px 18px;
-  border:1px solid var(--linea);border-radius:10px;background:var(--fondo);
-  color:var(--tinta);box-shadow:0 2px 6px rgba(0,0,0,0.02);
-}
-#q:focus{outline:2px solid var(--acento);border-color:var(--acento)}
-.grupo{margin:18px 0 10px}
-.rotulo-f{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;
-          letter-spacing:.08em;color:var(--suave);margin-bottom:8px}
-.chips{display:flex;gap:6px;flex-wrap:wrap}
-.chips button{
-  font-family:var(--sans);font-size:12px;font-weight:600;
-  padding:6px 14px;border:1px solid var(--linea);
-  border-radius:20px;background:var(--fondo);color:var(--suave);cursor:pointer;
-  transition:all .15s ease;
-}
-.chips button:hover{border-color:var(--suave);color:var(--tinta)}
-.chips button[aria-pressed="true"]{background:var(--acento);border-color:var(--acento);color:#fff}
-#cuenta{font-family:var(--mono);font-size:12px;text-transform:uppercase;
-        letter-spacing:.07em;color:var(--suave);margin:24px 0 12px}
 
 /* ── reto ── */
 .opcion{
@@ -314,7 +355,24 @@ def cabeza(titulo, prefijo, jsonld=None, descripcion=""):
         "family=Archivo:wght@500;600&family=Literata:ital,wght@0,400;0,600;1,400"
         '&family=IBM+Plex+Mono:wght@400;500&display=swap">\n'
         '<link rel="stylesheet" href="' + prefijo + 'estilo.css">\n'
-        + ld + "\n</head>\n<body>\n<div class=\"envoltorio\">\n")
+        + ld + "\n</head>\n<body>\n<div class=\"envoltorio\">\n"
+        '<header class="ghost-header">\n'
+        '  <nav class="ghost-nav-left">\n'
+        '    <a href="' + prefijo + 'index.html" class="ghost-nav-item">Home</a>\n'
+        '    <a href="' + prefijo + 'blog.html" class="ghost-nav-item">Fichas</a>\n'
+        '    <a href="' + prefijo + 'reto.html" class="ghost-nav-item">Reto</a>\n'
+        '    <a href="' + COMUNIDAD + '" class="ghost-nav-item">About</a>\n'
+        '  </nav>\n'
+        '  <div class="ghost-logo">\n'
+        '    <a href="' + prefijo + 'index.html">farmacosemiotics</a>\n'
+        '  </div>\n'
+        '  <div class="ghost-nav-right">\n'
+        '    <button class="ghost-search-btn" onclick="document.getElementById(\'q\')?document.getElementById(\'q\').focus():window.location.href=\'' + prefijo + 'blog.html\'" aria-label="Buscar">\n'
+        '      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
+        '    </button>\n'
+        '    <a href="' + prefijo + 'reto.html" class="ghost-subscribe-btn">Subscribe</a>\n'
+        '  </div>\n'
+        '</header>\n')
 
 
 def pie(prefijo):
@@ -747,58 +805,49 @@ function filtrar(){
 }
 function pintar(res,q){
   document.getElementById('cuenta').textContent=
-    res.length+(res.length===1?' registro':' registros');
+    res.length+(res.length===1?' post':' posts');
   document.getElementById('res').innerHTML=res.map(r=>{
     const esFicha = r.tipo === 'ficha';
-    const tagClase = r.atc ? r.atc : (r.clase || eti(r.tipo));
     const sem = r.semaforo || (r.recomendacion_direccion === 'a_favor' ? 'verde' : 'amarillo');
-    const semPill = esFicha ? ('<span class="semaforo-pill ' + sem + '">● ' + sem.toUpperCase() + '</span>') : ('<span class="ghost-tag">FÁRMACO</span>');
-    
-    let nntHtml = '';
-    if(r.nnt){
-      nntHtml = '<div class="ghost-nnt-box"><span>NNT ' + e(r.nnt) + '</span><span style="font-size:10.5px;font-weight:normal;color:var(--suave)">· ' + e(r.nnt_desenlace||'') + '</span></div>';
-    }
+    const semPill = esFicha ? ('<span class="ghost-thumb-sem ' + sem + '">● ' + sem.toUpperCase() + '</span>') : ('<span class="ghost-thumb-sem verde">● FÁRMACO</span>');
+    const atcTxt = r.atc || (r.clase || 'ATC');
+    const nntTxt = r.nnt ? ('NNT ' + r.nnt) : (r.dci || 'FÁRMACO');
+    const excerptTxt = r.perla || r.resumen || r.recomendacion || '';
+    const fechaTxt = r.actualizado || r.fecha || '24 Aug 2026';
+    const autorTxt = 'Alcy Edmundo Torres Guerrero';
 
-    let perlaHtml = '';
-    if(r.perla){
-      perlaHtml = '<div class="ghost-perla">💊 ' + realzar(r.perla, q) + '</div>';
-    } else if(r.resumen || r.recomendacion){
-      perlaHtml = '<p class="ghost-excerpt">' + realzar((r.recomendacion||r.resumen||'').slice(0,210), q) + '…</p>';
-    }
-
-    return '<article class="ghost-card">' +
-      '<div class="ghost-card-top">' +
-        '<div class="ghost-badge-row">' +
-          '<span class="ghost-tag">' + e(tagClase) + '</span>' +
+    return '<article class="ghost-post-row">' +
+      '<a href="' + r.url + '" class="ghost-post-thumb">' +
+        '<div class="ghost-thumb-top">' +
+          '<span class="ghost-thumb-atc">' + e(atcTxt) + '</span>' +
           semPill +
         '</div>' +
-        '<h3><a href="' + r.url + '">' + realzar(r.titulo, q) + '</a></h3>' +
-        (r.indicacion ? '<div style="font-size:13px;color:var(--suave);margin-bottom:10px">' + e(r.indicacion) + '</div>' : '') +
-        nntHtml +
-        perlaHtml +
-      '</div>' +
-      '<div class="ghost-byline">' +
-        '<div class="ghost-author">' +
-          '<div class="ghost-avatar">AETG</div>' +
-          '<span>Dr. Alcy Edmundo Torres Guerrero</span>' +
+        '<div class="ghost-thumb-center">' + e(r.dci || r.titulo) + '</div>' +
+        '<div class="ghost-thumb-bottom">' +
+          '<span class="ghost-thumb-nnt">' + e(nntTxt) + '</span>' +
+          '<span class="ghost-thumb-lme">5 min</span>' +
         '</div>' +
-        '<span>' + (r.actualizado || r.fecha || '2026') + ' · 3 min</span>' +
+      '</a>' +
+      '<div class="ghost-post-content">' +
+        '<h2 class="ghost-post-title"><a href="' + r.url + '">' + realzar(r.titulo, q) + '</a></h2>' +
+        '<p class="ghost-post-excerpt">' + realzar(excerptTxt.slice(0, 240), q) + (excerptTxt.length > 240 ? '...' : '') + '</p>' +
+        '<div class="ghost-post-meta">By ' + autorTxt + ' — ' + fechaTxt + '</div>' +
       '</div>' +
     '</article>';
-  }).join('')||'<p class="sub" style="grid-column:1/-1;text-align:center;padding:40px 0">Nada coincide con la búsqueda. Prueba con otro término clínico o código ATC.</p>';
+  }).join('')||'<p class="sub" style="text-align:center;padding:40px 0">Nada coincide con la búsqueda. Prueba con otro término clínico o código ATC.</p>';
 }
 function chips(facetas){
   const cont=document.getElementById('facetas');
   cont.innerHTML=FACETAS.filter(([k])=>(facetas[k]||NADA).length>1).map(([k,rot])=>
-    '<div class="grupo"><div class="rotulo-f">'+rot+'</div><div class="chips">'+
-    facetas[k].map(v=>'<button data-f="'+k+'" data-v="'+v+'" aria-pressed="false">'+
-      eti(v)+'</button>').join('')+'</div></div>').join('');
+    '<div class="grupo" style="display:inline-block;margin:0 12px 10px 0"><span class="rotulo-f" style="display:inline;margin-right:6px;font-size:11px;font-weight:700;color:var(--suave)">'+rot+':</span><span class="chips" style="display:inline-flex;gap:4px">'+
+    facetas[k].map(v=>'<button data-f="'+k+'" data-v="'+v+'" aria-pressed="false" style="font-size:11.5px;padding:3px 10px;border-radius:12px;border:1px solid var(--linea);background:var(--realce);color:var(--suave);cursor:pointer">'+
+      eti(v)+'</button>').join('')+'</span></div>').join('');
   cont.addEventListener('click',ev=>{
     const b=ev.target.closest('button'); if(!b) return;
     const k=b.dataset.f,v=b.dataset.v;
     F[k]=F[k]||new Set();
-    if(F[k].has(v)){F[k].delete(v);b.setAttribute('aria-pressed','false');}
-    else {F[k].add(v);b.setAttribute('aria-pressed','true');}
+    if(F[k].has(v)){F[k].delete(v);b.setAttribute('aria-pressed','false');b.style.background='var(--realce)';b.style.color='var(--suave)';}
+    else {F[k].add(v);b.setAttribute('aria-pressed','true');b.style.background='var(--acento)';b.style.color='#fff';}
     filtrar();
   });
 }
@@ -818,26 +867,19 @@ fetch('index.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 def pagina_blog(total):
     return (cabeza("Blog Clínico & Revista Editorial — Farmacosemiotics", "", None,
                    "Publicación médica independiente: Fichas de terapéutica racional, balanza NNT/NNH y evidencia GRADE anclada a PubMed.")
-            + '<header class="ghost-header">'
-              '<div class="ghost-brand">'
-                '<h1>Farmacosemiotics — Revista</h1>'
-                '<p>Publicación Editorial de Terapéutica Racional · Balanza NNT/NNH · Trazabilidad PubMed</p>'
-              '</div>'
-              '<nav class="ghost-nav">'
-                '<a href="index.html" class="ghost-nav-link">Inicio</a>'
-                '<a href="blog.html" class="ghost-nav-link active">Blog / Revista</a>'
-                '<a href="reto.html" class="ghost-nav-link">🎯 Reto Clínico</a>'
-                '<a href="' + COMUNIDAD + '" class="ghost-nav-link">Powersemiotics ↗</a>'
-              '</nav>'
-            '</header>\n'
-            + '<div style="margin-bottom: 24px;">'
-              '<input id="q" type="search" autocomplete="off" '
-              'placeholder="Buscar por principio activo, indicación clínica, ATC, o palabra clave…" '
-              'aria-label="Buscar">'
-            '</div>\n'
-            + '<div id="facetas"></div>\n'
-            + '<div id="cuenta" style="font-weight:700;color:var(--suave)">' + str(total) + " publicaciones</div>\n"
-            + '<div id="res" class="ghost-feed"></div>\n'
+            + '<section class="ghost-hero">\n'
+            + '  <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
+            + '  <div class="ghost-subscribe-form">\n'
+            + '    <input id="q" type="search" class="ghost-subscribe-input" placeholder="jamie@example.com o buscar fármaco..." autocomplete="off" aria-label="Buscar">\n'
+            + '    <button class="ghost-subscribe-submit" onclick="document.getElementById(\'q\').focus()">Subscribe</button>\n'
+            + '  </div>\n'
+            + '</section>\n'
+            + '<div class="ghost-section-header">\n'
+            + '  <span class="ghost-section-title">LATEST</span>\n'
+            + '  <span id="cuenta"></span>\n'
+            + '</div>\n'
+            + '<div id="facetas" style="margin-bottom:24px"></div>\n'
+            + '<div id="res" class="ghost-post-list"></div>\n'
             + "<script>" + BUSCADOR_JS + "</script>\n"
             + pie(""))
 
@@ -845,26 +887,19 @@ def pagina_blog(total):
 def pagina_index(total):
     return (cabeza("Farmacosemiotics — Terapéutica Racional & Evidencia Clínica", "", None,
                    "Portal principal de Farmacosemiotics: Ecosistema de terapéutica racional, balanza de impacto NNT/NNH y biblioteca clínica.")
-            + '<header class="ghost-header">'
-              '<div class="ghost-brand">'
-                '<h1>Farmacosemiotics</h1>'
-                '<p>Uso Racional de Medicamentos · Balanza NNT/NNH · Trazabilidad PubMed Central</p>'
-              '</div>'
-              '<nav class="ghost-nav">'
-                '<a href="index.html" class="ghost-nav-link active">Inicio</a>'
-                '<a href="blog.html" class="ghost-nav-link">📰 Blog / Revista</a>'
-                '<a href="reto.html" class="ghost-nav-link">🎯 Reto Clínico</a>'
-                '<a href="' + COMUNIDAD + '" class="ghost-nav-link">Powersemiotics ↗</a>'
-              '</nav>'
-            '</header>\n'
-            + '<div style="margin-bottom: 24px;">'
-              '<input id="q" type="search" autocomplete="off" '
-              'placeholder="Buscar por principio activo, indicación clínica, ATC, o palabra clave…" '
-              'aria-label="Buscar">'
-            '</div>\n'
-            + '<div id="facetas"></div>\n'
-            + '<div id="cuenta" style="font-weight:700;color:var(--suave)">' + str(total) + " publicaciones</div>\n"
-            + '<div id="res" class="ghost-feed"></div>\n'
+            + '<section class="ghost-hero">\n'
+            + '  <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
+            + '  <div class="ghost-subscribe-form">\n'
+            + '    <input id="q" type="search" class="ghost-subscribe-input" placeholder="jamie@example.com o buscar fármaco..." autocomplete="off" aria-label="Buscar">\n'
+            + '    <button class="ghost-subscribe-submit" onclick="document.getElementById(\'q\').focus()">Subscribe</button>\n'
+            + '  </div>\n'
+            + '</section>\n'
+            + '<div class="ghost-section-header">\n'
+            + '  <span class="ghost-section-title">LATEST</span>\n'
+            + '  <span id="cuenta"></span>\n'
+            + '</div>\n'
+            + '<div id="facetas" style="margin-bottom:24px"></div>\n'
+            + '<div id="res" class="ghost-post-list"></div>\n'
             + "<script>" + BUSCADOR_JS + "</script>\n"
             + pie(""))
 
@@ -915,20 +950,11 @@ fetch('reto.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 
 
 def pagina_reto():
-    return (cabeza("Reto", "", None,
+    return (cabeza("Reto Clínico — farmacosemiotics", "", None,
                    "Preguntas derivadas de las fichas, con enlace a la fuente.")
-            + '<header class="ghost-header">'
-              '<div class="ghost-brand">'
-                '<h1>Reto Clínico</h1>'
-                '<p>Autoevaluación interactiva basada en evidencia de las fichas farmacosemióticas</p>'
-              '</div>'
-              '<nav class="ghost-nav">'
-                '<a href="index.html" class="ghost-nav-link">Inicio</a>'
-                '<a href="blog.html" class="ghost-nav-link">📰 Blog / Revista</a>'
-                '<a href="reto.html" class="ghost-nav-link active">🎯 Reto</a>'
-                '<a href="' + COMUNIDAD + '" class="ghost-nav-link">Powersemiotics ↗</a>'
-              '</nav>'
-            '</header>\n'
+            + '<div class="ghost-section-header" style="margin-top:20px">\n'
+            + '  <span class="ghost-section-title">🎯 RETO CLÍNICO & AUTOEVALUACIÓN</span>\n'
+            + '</div>\n'
             + '<div id="reto"></div>\n'
             + "<script>" + RETO_JS + "</script>\n"
             + pie(""))

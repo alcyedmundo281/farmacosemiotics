@@ -3,8 +3,8 @@
 NUEVO — Generador de plantilla estandarizada para fármacos y fichas.
 
 Uso:
-    python scripts/nuevo.py farmaco FS0006 "Semaglutida" --atc A10BJ06
-    python scripts/nuevo.py ficha FT0006 "Semaglutida en diabetes tipo 2 y obesidad" --farmaco FS0006
+    python scripts/nuevo.py farmaco FS0009 "Atorvastatina" --atc C10AA05
+    python scripts/nuevo.py ficha FT0009 "Atorvastatina en prevención secundaria cardiovascular" --farmaco FS0009
 """
 import argparse
 import datetime as dt
@@ -12,58 +12,58 @@ import re
 import sys
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
+
 RAIZ = Path(__file__).resolve().parent.parent
 
 PLANTILLA_FARMACO = """\
-# yaml-language-server: $schema=../esquemas/farmaco.schema.json
-id: {ident}
+id: '{ident_id}'
 tipo: farmaco
-dci: '{dci}'
-dci_en: '{dci_en}'
-atc: '{atc}'
+dci: {dci}
+dci_en: {dci_en}
+sinonimos: []
+atc: {atc}
 clase_farmacologica: '{clase}'
+clase_farmacologica_en: ''
 
 lme:
   presente: false
+  lista: EML
+  edicion: 24
+  anio: 2025
   seccion: null
   categoria: null
 
-mecanismo: >
-  Mecanismo de acción del principio activo.
+mecanismo: >-
+  Mecanismo de acción detallado del principio activo.
+mecanismo_ref: 'fda:label'
 
-formas:
-  - forma: comprimido
-    via: oral
-    concentraciones:
-      - 500 mg
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático / excreción renal'
+  vida_media: 'X horas'
+  implicacion: >-
+    Implicación clínica y consideraciones en insuficiencia renal o hepática.
+  ref: 'fda:label'
 
 seguridad:
-  contraindicaciones:
-    - motivo: Hipersensibilidad al principio activo
-      ref: pmid:00000000
-  embarazo:
-    categoria_fda: null
-    resumen: Datos limitados en gestación.
-    ref: pmid:00000000
-  lactancia:
-    compatible: false
-    resumen: Se desconoce su excreción en leche materna.
-    ref: pmid:00000000
-
-refs:
-  - pmid:00000000
+  reacciones:
+    - evento: 'Reacción adversa principal'
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Descripción clínica y conducta terapéutica recomendada.
+      ref: 'fda:label'
 """
 
 PLANTILLA_FICHA = """\
-# yaml-language-server: $schema=../esquemas/ficha.schema.json
-id: {ident}
+id: '{ident_id}'
 tipo: ficha
-titulo: '{titulo}'
-titulo_en: '{titulo_en}'
-farmaco: {farmaco}
-indicacion: '{indicacion}'
-indicacion_en: '{indicacion_en}'
-poblacion: '{poblacion}'
+farmaco: '{farmaco_id}'
+titulo: {titulo}
+indicacion: {indicacion}
+indicacion_en: {indicacion_en}
+poblacion: {poblacion}
 cie11: ''
 estado: borrador
 fecha: '{fecha}'
@@ -75,56 +75,61 @@ licencia: CC BY-SA 4.0
 # ── Decisión Rápida en Punto de Atención ────────────────────────────────────
 decision_clinica:
   semaforo: verde  # verde | amarillo | rojo
-  perla_prescripcion: >
-    Perla clínica en una frase accionable para el médico de primer contacto.
-  alerta_seguridad_inmediata: >
-    Límite o contraindicación crítica a verificar antes de prescribir.
+  perla_prescripcion: >-
+    Perla clínica directa y accionable para el médico en punto de atención.
+  alerta_seguridad_inmediata: >-
+    Límite crítico de seguridad (eGFR, interacción letal o contraindicación mayor).
 
 # ── Pregunta PICO ────────────────────────────────────────────────────────────
 pico:
   p: '{poblacion}'
   i: '{titulo}'
   c: 'Placebo o comparador activo estándar'
-  o: 'Mortalidad total, eventos cardiovasculares mayores, eventos adversos graves'
+  o: 'Mortalidad por todas las causas, eventos clínicos mayores, toxicidad grave'
 
 # ── Posología Práctica ───────────────────────────────────────────────────────
 posologia:
-  inicio: 'Dosis inicial de titulación'
-  escalado: 'Pauta de ajuste progresivo'
-  mantenimiento: 'Dosis estándar de mantenimiento'
+  inicio: 'Dosis inicial recomendada'
+  escalado: 'Pauta de titulación y ajuste progresivo'
+  mantenimiento: 'Dosis de mantenimiento'
   maxima: 'Dosis máxima recomendada'
-  ajuste_renal: 'Ajuste según tasa de filtrado glomerular (eGFR)'
+  ajuste_renal: 'Ajuste según filtrado glomerular (eGFR)'
+  ref: 'fda:label'
 
 # ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
 evidencia:
-  - desenlace: 'Mortalidad global o desenlace primario'
+  - desenlace: 'Desenlace primario o mortalidad'
     criticidad: critico
-    efecto: 'HR 0.85 (IC 95 % 0.75-0.95)'
-    nnt: 20
-    horizonte_nnt: 'a 3 años'
+    efecto: 'Reducción relativa (HR 0.80, IC 95 % 0.70–0.90)'
+    rra: '4.0%'
+    rrr: '20.0%'
+    nnt: 25
+    horizonte_nnt: a 3 años
     diseno: eca
-    estudio: 'Ensayo Pivot (AÑO)'
-    certeza: moderada
-    razones_descenso:
-      - imprecision
-    ref: pmid:00000000
+    estudio: 'Ensayo Pivote (Año)'
+    comparador: Placebo
+    n: 1000
+    certeza: alta
+    razones_descenso: []
+    ref: 'fda:label'
 
 # ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
 seguridad_cuantitativa:
-  - evento: 'Evento adverso clave de seguridad'
-    gravedad: grave
-    tasa_intervencion: '2.5 %'
+  - evento: 'Evento adverso clave'
+    gravedad: moderada
+    tasa_intervencion: '3.0 %'
     tasa_control: '1.0 %'
-    nnh: 67
-    horizonte_nnh: 'a 1 año'
-    conducta: 'Monitorización periódica o ajuste de dosis.'
-    ref: pmid:00000000
+    ria: '2.0%'
+    nnh: 50
+    horizonte_nnh: a 1 año
+    conducta: 'Conducta clínica ante la aparición del evento.'
+    ref: 'fda:label'
 
 # ── Juicio de Balance GRADE ──────────────────────────────────────────────────
 balance:
   efectos_deseables: grande
   efectos_indeseables: pequeno
-  certeza_global: moderada
+  certeza_global: alta
   valores_preferencias: no_hay_incertidumbre_importante
   equidad: probablemente_aumenta
   aceptabilidad: si
@@ -134,23 +139,23 @@ balance:
 recomendacion:
   direccion: a_favor
   fuerza: fuerte
-  enunciado: >
+  enunciado: >-
     Se recomienda {titulo} en pacientes con {indicacion}.
-  ref: pmid:00000000
+  ref: 'fda:label'
 
 # ── Alternativas Terapéuticas ────────────────────────────────────────────────
 alternativas:
   - dci: 'Fármaco Alternativo'
     atc: 'ATC'
     lme: true
-    lme_seccion: '18.5'
-    nota: 'Opción terapéutica alternativa en caso de intolerancia o contraindicación.'
+    lme_seccion: '12.3'
+    nota: 'Alternativa terapéutica de primera línea.'
 
-conclusion: >
-  Síntesis razonada del balance beneficio-riesgo con énfasis en NNT frente a NNH.
+conclusion: >-
+  Síntesis del balance clínico beneficio-riesgo con base en NNT y NNH.
 
 refs:
-  - pmid:00000000
+  - 'fda:label'
 """
 
 
@@ -162,6 +167,16 @@ def slugify(texto):
     return s
 
 
+def normalizar_id(ident, prefijo):
+    limpio = str(ident).upper().replace(":", "").replace("-", "")
+    if limpio.startswith(prefijo):
+        num = limpio[len(prefijo):]
+    else:
+        num = limpio
+    num = num.zfill(4)
+    return f"{prefijo}{num}", f"{prefijo}:{num}"
+
+
 def main():
     ap = argparse.ArgumentParser(description="Crea una plantilla estandarizada de fármaco o ficha.")
     ap.add_argument("tipo", choices=["farmaco", "ficha"], help="tipo de registro a crear")
@@ -171,28 +186,29 @@ def main():
     ap.add_argument("--atc", default="", help="código ATC")
     args = ap.parse_args()
 
-    ident = args.ident.upper().replace(":", "")
     slug = slugify(args.nombre)
     hoy = dt.date.today().isoformat()
 
     if args.tipo == "farmaco":
-        nombre_fichero = f"{ident}-{slug}.yaml"
+        id_fichero, id_yaml = normalizar_id(args.ident, "FS")
+        nombre_fichero = f"{id_fichero}-{slug}.yaml"
         destino = RAIZ / "farmacos" / nombre_fichero
         contenido = PLANTILLA_FARMACO.format(
-            ident=ident,
+            ident_id=id_yaml,
             dci=args.nombre,
             dci_en=args.nombre,
             atc=args.atc,
             clase="Clase farmacológica",
         )
     else:
-        nombre_fichero = f"{ident}-{slug}.yaml"
+        id_fichero, id_yaml = normalizar_id(args.ident, "FT")
+        _, farmaco_yaml = normalizar_id(args.farmaco, "FS")
+        nombre_fichero = f"{id_fichero}-{slug}.yaml"
         destino = RAIZ / "fichas" / nombre_fichero
         contenido = PLANTILLA_FICHA.format(
-            ident=ident,
+            ident_id=id_yaml,
+            farmaco_id=farmaco_yaml,
             titulo=args.nombre,
-            titulo_en=args.nombre,
-            farmaco=args.farmaco,
             indicacion=args.nombre,
             indicacion_en=args.nombre,
             poblacion="Población diana con criterios de inclusión",
@@ -204,7 +220,7 @@ def main():
         return 1
 
     destino.write_text(contenido, encoding="utf-8")
-    print(f"✓ Creado: {destino.relative_to(RAIZ)}")
+    print(f"✓ Creado con éxito: {destino.relative_to(RAIZ)}")
     return 0
 
 

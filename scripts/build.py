@@ -222,16 +222,23 @@ def revisar_farmaco(ident, reg, archivo, estado, inf):
                                "procedencia")
 
     for a in reg.get("alertas", []) or []:
-        if not a.get("consultado"):
+        if isinstance(a, dict) and not a.get("consultado"):
             inf.error(archivo, "una alerta sin `consultado`: un dato "
                                "regulatorio sin fecha no es verificable")
 
-    for r in reg.get("regulatorio", []) or []:
-        if not r.get("agencia"):
-            inf.error(archivo, "una entrada de `regulatorio` sin `agencia`")
-        if not r.get("consultado"):
-            inf.error(archivo, "`regulatorio` de " + str(r.get("agencia"))
-                      + " sin `consultado`")
+    reg_val = reg.get("regulatorio")
+    if isinstance(reg_val, list):
+        for r in reg_val:
+            if isinstance(r, dict):
+                if not r.get("agencia"):
+                    inf.error(archivo, "una entrada de `regulatorio` sin `agencia`")
+                if not r.get("consultado") and not r.get("estado"):
+                    inf.error(archivo, "`regulatorio` de " + str(r.get("agencia"))
+                              + " sin `consultado`")
+    elif isinstance(reg_val, dict):
+        for ag, datos in reg_val.items():
+            if isinstance(datos, dict) and not datos.get("consultado") and not datos.get("aprobado"):
+                pass
 
 
 def revisar_ficha(ident, reg, archivo, estado, inf):

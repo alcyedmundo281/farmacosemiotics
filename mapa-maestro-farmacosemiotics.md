@@ -43,11 +43,11 @@ manda, seguido de los antiinfecciosos AWaRe, dolor, salud mental y las terapias 
 | Oleada | Temática / Área Clínica | Fármacos (`FS`) | Fichas (`FT`) | Estado |
 |---|---|---|---|---|
 | **0. Piloto** | Fármaco modelo y validación de contrato | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
-| **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `FS0002` (Apixabán) | `FT0002` (Apixabán en FA) | **En curso** |
+| **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA) | **En curso (4/6)** |
 | **2. Antiinfecciosos AWaRe** | Sección 6.2.1 (Antibióticos Access / Watch) | — | — | Pendiente |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | Pendiente |
 | **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | — | — | Pendiente |
-| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC) | **En curso** |
+| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC) | **En curso (3/8)** |
 
 ---
 
@@ -55,9 +55,9 @@ manda, seguido de los antiinfecciosos AWaRe, dolor, salud mental y las terapias 
 
 ### Oleada 1 — Cardiometabólico & Trombosis (Próximos temas prioritarios)
 - [x] **`FT0002` Apixabán en Fibrilación Auricular no valvular** (Anticoagulación de elección frente a warfarina, NNT 59 ictus, NNH menor en hemorragia mayor).
-- [ ] **Enalapril / Losartán en Insuficiencia Cardíaca y Nefropatía** (IECA/ARA-II: NNT mortalidad y protección renal, NNH hiperpotasemia/tos).
-- [ ] **Amlodipino en Hipertensión Arterial Esencial** (Calcioantagonista: NNT reducción de eventos cardiovasculares, NNH edema maleolar).
-- [ ] **Empagliflozina / Dapagliflozina en IC e Insuficiencia Renal Crónica** (iSGLT2: NNT hospitalización por IC, NNH infecciones micóticas).
+- [x] **`FT0006` Enalapril en Insuficiencia Cardíaca con FEVI reducida** (IECA: NNT 23 mortalidad global, NNT 10 hospitalización por IC, NNH 53 tos).
+- [x] **`FT0007` Empagliflozina en Insuficiencia Cardíaca crónica** (iSGLT2: NNT 20 muerte CV u hospitalización en 16 meses, NNH 56 micosis).
+- [x] **`FT0008` Amlodipino en Hipertensión Arterial Esencial** (DHP-CCB: NNT 100 ictus a 5.5 años, NNH 14 edema maleolar).
 - [ ] **Atorvastatina / Rosuvastatina en Prevención Secundaria y Primaria** (Estatinas de alta potencia: NNT eventos vasculares mayores vs NNH miopatía).
 - [ ] **Ácido Acetilsalicílico en Prevención Secundaria Cardiovascular** (Antiagregación plaquetaria: NNT eventos isquémicos vs NNH hemorragia digestiva).
 

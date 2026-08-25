@@ -1,0 +1,38 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:2057034"
+clave_bibtex: solvd1991
+tipo: eca
+titulo: "Effect of enalapril on survival in patients with reduced left ventricular ejection fractions and congestive heart failure"
+autores:
+  - "SOLVD Investigators"
+  - "Yusuf S"
+  - "Pitt B"
+  - "Davis CE"
+  - "Hood WB"
+  - "Cohn JN"
+publicacion: "N Engl J Med"
+anio: 1991
+volumen: "325"
+numero: "5"
+paginas: "293-302"
+
+identificadores:
+  pmid: 2057034
+  doi: "10.1056/NEJM199108013250501"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+  - "Research Support, U.S. Gov't, P.H.S."
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

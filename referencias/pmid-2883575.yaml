@@ -1,0 +1,31 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:2883575"
+clave_bibtex: consensus1987
+tipo: eca
+titulo: "Effects of enalapril on mortality in severe congestive heart failure. Results of the Cooperative North Scandinavian Enalapril Survival Study (CONSENSUS)"
+autores:
+  - "CONSENSUS Trial Study Group"
+publicacion: "N Engl J Med"
+anio: 1987
+volumen: "316"
+numero: "23"
+paginas: "1429-35"
+
+identificadores:
+  pmid: 2883575
+  doi: "10.1056/NEJM198706043162301"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

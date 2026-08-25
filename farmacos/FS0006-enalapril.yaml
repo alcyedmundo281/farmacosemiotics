@@ -1,0 +1,55 @@
+id: 'FS:0006'
+tipo: farmaco
+dci: Enalapril
+dci_en: Enalapril
+sinonimos:
+  - Renitec
+  - Vasotec
+
+atc: C09AA02
+clase_farmacologica: Inhibidor de la enzima convertidora de angiotensina (IECA)
+clase_farmacologica_en: Angiotensin-converting enzyme inhibitor (ACEi)
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '12.3'
+  categoria: core
+
+mecanismo: >-
+  Profármaco que tras bioactivación hepática a enalaprilat inhibe competitivamente
+  la enzima convertidora de angiotensina, disminuyendo la síntesis de angiotensina II
+  y aldosterona, reduciendo la poscarga y el remodelado miocárdico adverso.
+mecanismo_ref: 'pmid:2057034'
+
+farmacocinetica:
+  eliminacion: 'Renal (60% como enalaprilat) y fecal'
+  vida_media: '11 horas (enalaprilat)'
+  implicacion: >-
+    Requiere reducción de dosis inicial en insuficiencia renal con TFGe < 30 mL/min.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Tos seca persistente por acúmulo de bradicinina
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Incidencia 5-10%; no responde a antitusígenos; revierte al cambiar a un ARA-II.
+      ref: 'pmid:2057034'
+    - evento: Hiperpotasemia y empeoramiento de función renal
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Mayor riesgo en presencia de nefropatía previa, deshidratación o uso simultáneo de ARM.
+      ref: 'pmid:2057034'
+    - evento: Angioedema de cabeza y cuello
+      frecuencia: rara
+      gravedad: mortal
+      nota: >-
+        Requiere suspensión inmediata y permanente; contraindicación absoluta para cualquier IECA.
+      ref: 'fda:label'
+
+

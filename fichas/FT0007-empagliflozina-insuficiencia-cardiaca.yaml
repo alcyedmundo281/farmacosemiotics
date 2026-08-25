@@ -1,0 +1,152 @@
+id: 'FT:0007'
+tipo: ficha
+farmaco: 'FS:0007'
+titulo: Empagliflozina en la insuficiencia cardíaca crónica
+indicacion: Insuficiencia cardíaca crónica (con fracción de eyección reducida o preservada)
+indicacion_en: Chronic heart failure (reduced or preserved ejection fraction)
+poblacion: Adultos con insuficiencia cardíaca crónica sintomática (NYHA II-IV), con o sin diabetes mellitus tipo 2
+cie11: BD11
+estado: revisado
+fecha: '2026-08-25'
+actualizado: '2026-08-25'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Cuádruple terapia obligatoria en IC: dosis única fija de 10 mg/día (sin titulación requerida),
+    independientemente de si el paciente es diabético o no. Reduce hospitalizaciones por IC y muerte CV
+    (NNT 20 a 16 meses) y enlentece el deterioro de la función renal.
+  alerta_seguridad_inmediata: >-
+    Educar sobre higiene urogenital para prevenir micosis genitales (NNH 56).
+    Suspender temporalmente ante situaciones de estrés agudo, ayuno prolongado o cirugía mayor por riesgo de cetoacidosis euglucémica.
+
+# ── Pregunta PICO ────────────────────────────────────────────────────────────
+pico:
+  p: Adultos con insuficiencia cardíaca crónica sintomática (NYHA II-IV) y FEVI ≤ 40%
+  i: Empagliflozina 10 mg una vez al día añadida al tratamiento médico estándar
+  c: Placebo añadido al tratamiento óptimo de base (IECA/ARNI, betabloqueante, ARM)
+  o: Muerte cardiovascular o primera hospitalización por IC, total de hospitalizaciones por IC, deterioro de la TFGe
+
+# ── Posología Práctica ───────────────────────────────────────────────────────
+posologia:
+  inicio: 10 mg por vía oral una vez al día (por la mañana, con o sin alimentos)
+  escalado: >-
+    No requiere titulación de dosis: la dosis de 10 mg/día es la dosis terapéutica completa
+    para el beneficio cardiovascular y renal en insuficiencia cardíaca.
+  mantenimiento: 10 mg una vez al día
+  maxima: 10 mg al día (en IC; en DM2 se puede usar 25 mg para control glucémico)
+  ajuste_renal: >-
+    Se puede iniciar y mantener con TFGe ≥ 20 mL/min/1.73 m². No se recomienda iniciar
+    si TFGe < 20 mL/min. No requiere ajuste por edad ni peso.
+  ref: 'fda:label'
+
+# ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
+evidencia:
+  - desenlace: Compuesto de muerte cardiovascular o primera hospitalización por insuficiencia cardíaca
+    criticidad: critico
+    efecto: 'Reducción relativa del 25 % (HR 0.75, IC 95 % 0.65–0.86), p < 0.001'
+    rra: '5.2%'
+    rrr: '24.8%'
+    nnt: 20
+    horizonte_nnt: a 16 meses
+    diseno: eca
+    estudio: EMPEROR-Reduced (2020)
+    comparador: Placebo + terapia médica óptima
+    n: 3730
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32865377'
+
+  - desenlace: Total de hospitalizaciones por insuficiencia cardíaca (primeras y recurrentes)
+    criticidad: critico
+    efecto: 'Reducción del 30 % en tasa de eventos (HR 0.70, IC 95 % 0.58–0.85), p < 0.001'
+    rra: '4.8%'
+    rrr: '30.0%'
+    nnt: 21
+    horizonte_nnt: a 16 meses
+    diseno: eca
+    estudio: EMPEROR-Reduced (2020)
+    comparador: Placebo
+    n: 3730
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32865377'
+
+  - desenlace: Muerte cardiovascular en diabetes tipo 2 con enfermedad cardiovascular establecida
+    criticidad: critico
+    efecto: 'Reducción relativa del 38 % (HR 0.62, IC 95 % 0.49–0.77), p < 0.001'
+    rra: '2.2%'
+    rrr: '37.3%'
+    nnt: 46
+    horizonte_nnt: a 3 años
+    diseno: eca
+    estudio: EMPA-REG OUTCOME (2015)
+    comparador: Placebo + estándar de cuidado
+    n: 7020
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:26378978'
+
+# ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Infección micótica genital (candidiasis vulvovaginal / balanitis)
+    gravedad: leve
+    tasa_intervencion: '2.4 %'
+    tasa_control: '0.6 %'
+    ria: '1.8%'
+    nnh: 56
+    horizonte_nnh: a 16 meses
+    conducta: 'Tratamiento antimicótico tópico o fluconazol oral en dosis única; no suele requerir suspender el iSGLT2.'
+    ref: 'pmid:32865377'
+
+  - evento: Hipovolemia / Hipotensión sintomática
+    gravedad: moderada
+    tasa_intervencion: '2.9 %'
+    tasa_control: '2.2 %'
+    ria: '0.7%'
+    nnh: 143
+    horizonte_nnh: a 16 meses
+    conducta: 'Reducir la dosis de diuréticos de asa si el paciente se encuentra euvolémico.'
+    ref: 'pmid:32865377'
+
+# ── Juicio de Balance GRADE ──────────────────────────────────────────────────
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+# ── Recomendación Formal ─────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda añadir Empagliflozina 10 mg/día al tratamiento estándar en todos los pacientes
+    con insuficiencia cardíaca sintomática (con o sin diabetes) para reducir el riesgo de muerte cardiovascular
+    y hospitalización por insuficiencia cardíaca.
+  ref: 'pmid:32865377'
+
+# ── Alternativas Terapéuticas ────────────────────────────────────────────────
+alternativas:
+  - dci: Dapagliflozina
+    atc: A10BK01
+    lme: true
+    lme_seccion: '18.5.2'
+    nota: 'iSGLT2 con evidencia equivalente de clase en IC-FEr (ensayo DAPA-HF, 10 mg/día).'
+
+conclusion: >-
+  Empagliflozina ofrece un beneficio cardioprotector y nefroprotector precoz y consistente (NNT 20 en 16 meses)
+  con un perfil de seguridad sumamente favorable y una pauta posológica simplificada de una toma diaria sin titulación.
+
+refs:
+  - 'pmid:32865377'
+  - 'pmid:26378978'
+  - 'fda:label'
+

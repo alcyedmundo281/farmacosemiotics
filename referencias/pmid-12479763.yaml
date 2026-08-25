@@ -1,0 +1,34 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:12479763"
+clave_bibtex: allhat2002
+tipo: eca
+titulo: "Major outcomes in high-risk hypertensive patients randomized to angiotensin-converting enzyme inhibitor or calcium channel blocker vs diuretic: The Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial (ALLHAT)"
+autores:
+  - "ALLHAT Officers and Coordinators for the ALLHAT Collaborative Research Group. The Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial"
+publicacion: "JAMA"
+anio: 2002
+volumen: "288"
+numero: "23"
+paginas: "2981-97"
+
+identificadores:
+  pmid: 12479763
+  doi: "10.1001/jama.288.23.2981"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+  - "Research Support, U.S. Gov't, P.H.S."
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

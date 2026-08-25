@@ -1,0 +1,47 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:16154016"
+clave_bibtex: dahlf2005
+tipo: eca
+titulo: "Prevention of cardiovascular events with an antihypertensive regimen of amlodipine adding perindopril as required versus atenolol adding bendroflumethiazide as required, in the Anglo-Scandinavian Cardiac Outcomes Trial-Blood Pressure Lowering Arm (ASCOT-BPLA): a multicentre randomised controlled trial"
+autores:
+  - "Dahlöf B"
+  - "Sever PS"
+  - "Poulter NR"
+  - "Wedel H"
+  - "Beevers DG"
+  - "Caulfield M"
+  - "Collins R"
+  - "Kjeldsen SE"
+  - "Kristinsson A"
+  - "McInnes GT"
+  - "Mehlsen J"
+  - "Nieminen M"
+  - "O'Brien E"
+  - "Ostergren J"
+  - "ASCOT Investigators"
+publicacion: "Lancet"
+anio: 2005
+volumen: "366"
+numero: "9489"
+paginas: "895-906"
+
+identificadores:
+  pmid: 16154016
+  doi: "10.1016/S0140-6736(05)67185-1"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

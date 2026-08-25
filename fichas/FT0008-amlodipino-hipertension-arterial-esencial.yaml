@@ -1,0 +1,155 @@
+id: 'FT:0008'
+tipo: ficha
+farmaco: 'FS:0008'
+titulo: Amlodipino en la hipertensión arterial esencial
+indicacion: Hipertensión arterial esencial del adulto
+indicacion_en: Essential hypertension in adults
+poblacion: Adultos con hipertensión arterial primaria (estadio 1 o 2), con o sin factores de riesgo cardiovascular adicionales
+cie11: BA00
+estado: revisado
+fecha: '2026-08-25'
+actualizado: '2026-08-25'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Antihipertensivo de primera línea con control tensional suave y prolongado (24 h) en toma única.
+    Especialmente eficaz en ancianos, personas de raza negra e hipertensión sistólica aislada.
+    Reduce eventos cardiovasculares mayores e ictus (NNT 100 a 5.5 años).
+  alerta_seguridad_inmediata: >-
+    Vigilar la aparición de edema maleolar (NNH 14 a 1 año), que responde a vasodilatación precapilar y no a sobrecarga hidrosalina
+    (no responde a diuréticos; mejora combinando con IECA/ARA-II).
+
+# ── Pregunta PICO ────────────────────────────────────────────────────────────
+pico:
+  p: Adultos hipertensos (≥ 55 años) con al menos un factor de riesgo cardiovascular adicional
+  i: Amlodipino 5 a 10 mg al día
+  c: Clortalidona / Lisinopril (ensayo ALLHAT) o Atenolol ± diurético (ensayo ASCOT-BPLA)
+  o: Mortalidad por todas las causas, ictus mortal y no mortal, eventos coronarios, edema periférico
+
+# ── Posología Práctica ───────────────────────────────────────────────────────
+posologia:
+  inicio: 5 mg por vía oral una vez al día (2.5 mg en ancianos o pacientes frágiles)
+  escalado: >-
+    Si tras 2 a 4 semanas no se alcanza la meta de presión arterial (< 130/80 mmHg),
+    titular a 10 mg/día o, preferiblemente, asociar un IECA/ARA-II a dosis fija.
+  mantenimiento: 5 mg a 10 mg una vez al día
+  maxima: 10 mg al día
+  ajuste_renal: >-
+    No requiere ajuste de dosis en insuficiencia renal leve, moderada ni grave. No es dializable.
+  ref: 'fda:label'
+
+# ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
+evidencia:
+  - desenlace: Ictus mortal y no mortal a 5.5 años
+    criticidad: critico
+    efecto: 'Reducción relativa del 23 % frente a pauta basada en atenolol (HR 0.77, IC 95 % 0.66–0.89), p = 0.0003'
+    rra: '1.0%'
+    rrr: '22.7%'
+    nnt: 100
+    horizonte_nnt: a 5.5 años
+    diseno: eca
+    estudio: ASCOT-BPLA (2005)
+    comparador: Pauta basada en atenolol ± tiazida
+    n: 19257
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:16154016'
+
+  - desenlace: Mortalidad por todas las causas a 5.5 años
+    criticidad: critico
+    efecto: 'Reducción relativa del 11 % frente a pauta basada en betabloqueante (HR 0.89, IC 95 % 0.81–0.99), p = 0.025'
+    rra: '0.8%'
+    rrr: '9.4%'
+    nnt: 125
+    horizonte_nnt: a 5.5 años
+    diseno: eca
+    estudio: ASCOT-BPLA (2005)
+    comparador: Pauta basada en atenolol
+    n: 19257
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:16154016'
+
+  - desenlace: Enfermedad coronaria mortal o infarto de miocardio no mortal a 4.9 años
+    criticidad: critico
+    efecto: 'Eficacia equivalente a clortalidona (RR 0.98, IC 95 % 0.90–1.07), p = 0.65'
+    rra: '0.2%'
+    rrr: '1.8%'
+    nnt: 500
+    horizonte_nnt: a 5 años
+    diseno: eca
+    estudio: ALLHAT (2002)
+    comparador: Clortalidona
+    n: 33357
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:12479763'
+
+# ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Edema periférico / maleolar dependiente de dosis
+    gravedad: leve
+    tasa_intervencion: '10.7 %'
+    tasa_control: '3.2 %'
+    ria: '7.5%'
+    nnh: 14
+    horizonte_nnh: a 1 año
+    conducta: 'No prescribir diuréticos para este edema. Reducir dosis a 5 mg o asociar un IECA/ARA-II que normaliza la presión capilar.'
+    ref: 'pmid:12479763'
+
+  - evento: Cefalea / Rubefacción facial por vasodilatación
+    gravedad: leve
+    tasa_intervencion: '3.5 %'
+    tasa_control: '1.5 %'
+    ria: '2.0%'
+    nnh: 50
+    horizonte_nnh: a 1 año
+    conducta: 'Suele ser transitoria en los primeros días; si persiste, revaluar pauta o reducir dosis.'
+    ref: 'pmid:12479763'
+
+# ── Juicio de Balance GRADE ──────────────────────────────────────────────────
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+# ── Recomendación Formal ─────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda Amlodipino (5 a 10 mg/día) como una de las opciones de primera línea en monoterapia o en combinación
+    con IECA/ARA-II para el control de la hipertensión arterial esencial y la reducción de eventos cerebrovasculares.
+  ref: 'pmid:16154016'
+
+# ── Alternativas Terapéuticas ────────────────────────────────────────────────
+alternativas:
+  - dci: Enalapril
+    atc: C09AA02
+    lme: true
+    lme_seccion: '12.3'
+    nota: 'IECA de primera línea; combinación sinérgica preferente con amlodipino.'
+  - dci: Hidroclorotiazida
+    atc: C03AA03
+    lme: true
+    lme_seccion: '12.3'
+    nota: 'Diurético tiazídico alternativo para terapia combinada de primera línea.'
+
+conclusion: >-
+  Amlodipino es un pilar esencial del tratamiento antihipertensivo con sólida evidencia de reducción de ictus (NNT 100 a 5.5 años).
+  Su principal efecto adverso, el edema maleolar (NNH 14), es benigno y se previene o atenúa eficazmente asociando un IECA o ARA-II.
+
+refs:
+  - 'pmid:12479763'
+  - 'pmid:16154016'
+  - 'fda:label'
+

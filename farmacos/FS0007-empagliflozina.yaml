@@ -1,0 +1,55 @@
+id: 'FS:0007'
+tipo: farmaco
+dci: Empagliflozina
+dci_en: Empagliflozin
+sinonimos:
+  - Jardiance
+  - BI-10773
+
+atc: A10BK03
+clase_farmacologica: Inhibidor del cotransportador sodio-glucosa tipo 2 (iSGLT2)
+clase_farmacologica_en: Sodium-glucose co-transporter 2 (SGLT2) inhibitor
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '18.5.2'
+  categoria: core
+
+mecanismo: >-
+  Inhibidor selectivo y reversible del cotransportador SGLT2 en el túbulo proximal renal,
+  que induce glucosuria y natriuresis, reduce la presión intraglomerular, disminuye la precarga
+  y poscarga ventricular y optimiza la eficiencia energética miocárdica.
+mecanismo_ref: 'pmid:32865377'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo glucurónido hepático (UGT) y eliminación renal (54%) y fecal (41%)'
+  vida_media: '12.4 horas'
+  implicacion: >-
+    Apto para uso sin ajuste de dosis hasta TFGe de 20 mL/min/1.73 m² en insuficiencia cardíaca.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Infección micótica genital (candidiasis)
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Consecuencia directa de la glucosuria; prevenible con higiene adecuada y tratable con antifúngicos habituales.
+      ref: 'pmid:32865377'
+    - evento: Depleción de volumen e hipotensión sintomática
+      frecuencia: infrecuente
+      gravedad: moderada
+      nota: >-
+        Mayor riesgo en ancianos o pacientes con dosis altas de diuréticos de asa concomitantes.
+      ref: 'pmid:32865377'
+    - evento: Cetoacidosis diabética euglucémica
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Riesgo aumentado ante estrés agudo, ayuno o cirugía; suspender temporalmente ante intercurrencias médicas graves.
+      ref: 'fda:label'
+
+

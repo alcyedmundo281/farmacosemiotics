@@ -1,0 +1,170 @@
+id: 'FT:0006'
+tipo: ficha
+farmaco: 'FS:0006'
+titulo: Enalapril en la insuficiencia cardíaca con fracción de eyección reducida
+indicacion: Insuficiencia cardíaca sintomática con fracción de eyección reducida (FEVI ≤ 35%)
+indicacion_en: Symptomatic heart failure with reduced ejection fraction (HFrEF)
+poblacion: Adultos con insuficiencia cardíaca crónica sintomática (NYHA II-IV) y disfunción sistólica ventricular izquierda (FEVI ≤ 35%)
+cie11: BD11.0
+estado: revisado
+fecha: '2026-08-25'
+actualizado: '2026-08-25'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Pilar fundamental en IC-FEr: reduce mortalidad total (NNT 23 a 3.5 años) y
+    hospitalización por IC (NNT 10). Iniciar a dosis baja (2.5 mg bid) y titular
+    hasta 10–20 mg bid según tolerancia tensional, vigilando potasio y función renal a las 1–2 semanas.
+  alerta_seguridad_inmediata: >-
+    Contraindicado ante antecedente de angioedema por IECA o estenosis bilateral de la arteria renal.
+    Suspender inmediatamente si se confirma embarazo.
+
+# ── Pregunta PICO ────────────────────────────────────────────────────────────
+pico:
+  p: Adultos con insuficiencia cardíaca crónica y FEVI reducida (≤ 35%)
+  i: Enalapril 2.5 a 20 mg al día (en dos tomas) añadido al tratamiento convencional
+  c: Placebo añadido al tratamiento estándar (diuréticos ± digoxina)
+  o: Mortalidad global por todas las causas, hospitalización por insuficiencia cardíaca, eventos adversos renales e hiperpotasemia
+
+# ── Posología Práctica ───────────────────────────────────────────────────────
+posologia:
+  inicio: 2.5 mg por vía oral dos veces al día (1.25 mg si hipotensión o creatinina elevada)
+  escalado: >-
+    Duplicar la dosis cada 1 a 2 semanas según tolerancia hemodinámica y bioquímica.
+    No conformarse con dosis bajas: el beneficio pronóstico demostrado en los ensayos pivote
+    se obtuvo con dosis objetivo.
+  mantenimiento: 10 mg a 20 mg dos veces al día
+  maxima: 40 mg al día (20 mg dos veces al día)
+  ajuste_renal: >-
+    Si TFGe 30–50 mL/min, iniciar con 2.5 mg/día y titular con precaución.
+    Si TFGe < 30 mL/min, iniciar con 2.5 mg/día bajo estrecha monitorización;
+    un incremento de creatinina hasta el 30% es fisiológico y aceptable tras iniciar.
+  ref: 'fda:label'
+
+# ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
+evidencia:
+  - desenlace: Mortalidad por todas las causas a 3.5 años
+    criticidad: critico
+    efecto: 'Reducción relativa del 16 % (HR 0.84, IC 95 % 0.74–0.95), p = 0.0036'
+    rra: '4.5%'
+    rrr: '11.3%'
+    nnt: 23
+    horizonte_nnt: a 3.5 años
+    diseno: eca
+    estudio: SOLVD Treatment (1991)
+    comparador: Placebo + tratamiento estándar
+    n: 2569
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:2057034'
+
+  - desenlace: Muerte o primera hospitalización por insuficiencia cardíaca
+    criticidad: critico
+    efecto: 'Reducción relativa del 26 % (HR 0.74, IC 95 % 0.66–0.83), p < 0.0001'
+    rra: '10.5%'
+    rrr: '27.4%'
+    nnt: 10
+    horizonte_nnt: a 3.5 años
+    diseno: eca
+    estudio: SOLVD Treatment (1991)
+    comparador: Placebo
+    n: 2569
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:2057034'
+
+  - desenlace: Mortalidad a 6 meses en insuficiencia cardíaca severa (NYHA IV)
+    criticidad: critico
+    efecto: 'Reducción relativa del 40 % (39 % vs 54 % con placebo), p = 0.003'
+    rra: '15.0%'
+    rrr: '27.8%'
+    nnt: 7
+    horizonte_nnt: a 6 meses
+    diseno: eca
+    estudio: CONSENSUS (1987)
+    comparador: Placebo
+    n: 253
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:2883575'
+
+# ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Mareo / Hipotensión sintomática
+    gravedad: moderada
+    tasa_intervencion: '11.0 %'
+    tasa_control: '6.0 %'
+    ria: '5.0%'
+    nnh: 20
+    horizonte_nnh: a 3 años
+    conducta: 'Ajustar dosis de diuréticos si no hay congestión; separar tomas de otros antihipertensivos.'
+    ref: 'pmid:2057034'
+
+  - evento: Hiperpotasemia (K+ > 5.5 mEq/L)
+    gravedad: grave
+    tasa_intervencion: '6.4 %'
+    tasa_control: '2.5 %'
+    ria: '3.9%'
+    nnh: 26
+    horizonte_nnh: a 3 años
+    conducta: 'Controlar ionograma a las 1–2 semanas; restringir suplementos de potasio y vigilar interacciones con ARM.'
+    ref: 'pmid:2057034'
+
+  - evento: Tos seca persistente mediada por bradicinina
+    gravedad: leve
+    tasa_intervencion: '3.7 %'
+    tasa_control: '1.8 %'
+    ria: '1.9%'
+    nnh: 53
+    horizonte_nnh: a 3 años
+    conducta: 'Si resulta intolerable para el paciente, cambiar a un ARA-II (losartán, valsartán).'
+    ref: 'pmid:2057034'
+
+# ── Juicio de Balance GRADE ──────────────────────────────────────────────────
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+# ── Recomendación Formal ─────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda el tratamiento con Enalapril (o IECA equivalente / ARNI) en todos los pacientes
+    con insuficiencia cardíaca sintomática con fracción de eyección reducida (FEVI ≤ 35%),
+    salvo contraindicación o intolerancia demostrada, para reducir la mortalidad y las hospitalizaciones.
+  ref: 'pmid:2057034'
+
+# ── Alternativas Terapéuticas ────────────────────────────────────────────────
+alternativas:
+  - dci: Sacubitrilo / Valsartán
+    atc: C09DX04
+    lme: true
+    lme_seccion: '12.3'
+    nota: 'Inhibidor de neprilisina y receptor de angiotensina (ARNI); superior a IECA en reducción adicional de mortalidad CV.'
+  - dci: Losartán
+    atc: C09CA01
+    lme: true
+    lme_seccion: '12.3'
+    nota: 'Antagonista de los receptores de angiotensina II (ARA-II); opción de elección en caso de tos intolerable por IECA.'
+
+conclusion: >-
+  Enalapril cuenta con evidencia de certeza alta (ensayos SOLVD y CONSENSUS) que demuestra un beneficio
+  rotundo en supervivencia global (NNT 23) y reducción de descompensaciones (NNT 10). Sus efectos adversos
+  (hipotensión y tos) son manejables en la práctica clínica mediante titulación prudente y monitorización bioquímica.
+
+refs:
+  - 'pmid:2057034'
+  - 'pmid:2883575'
+  - 'fda:label'
+

@@ -1,0 +1,55 @@
+id: 'FS:0008'
+tipo: farmaco
+dci: Amlodipino
+dci_en: Amlodipine
+sinonimos:
+  - Norvasc
+  - Amlodipine besylate
+
+atc: C08CA01
+clase_farmacologica: Antagonista de los canales de calcio dihidropiridínico
+clase_farmacologica_en: Dihydropyridine calcium channel blocker (DHP-CCB)
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '12.3'
+  categoria: core
+
+mecanismo: >-
+  Inhibe la entrada de iones de calcio a través de los canales tipo L en el músculo
+  liso vascular arterial periférico y coronario, produciendo vasodilatación arteriolar
+  sostenida, disminución de la resistencia vascular sistémica y descenso de la presión arterial.
+mecanismo_ref: 'pmid:12479763'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático extenso (CYP3A4) y excreción renal como metabolitos inactivos'
+  vida_media: '30 a 50 horas'
+  implicacion: >-
+    Permite dosificación única diaria de 24 horas; no requiere ajuste de dosis en insuficiencia renal.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Edema maleolar periférico dependiente de dosis
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Debido a vasodilatación arteriolar precapilar con aumento de presión capilar (no por retención de sodio); mejora al asociar IECA/ARA-II.
+      ref: 'pmid:12479763'
+    - evento: Rubor facial y cefalea pulsátil
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Efecto vasodilatador precoz que suele atenuarse con la continuación del tratamiento.
+      ref: 'pmid:12479763'
+    - evento: Hipotensión arterial excesiva
+      frecuencia: infrecuente
+      gravedad: moderada
+      nota: >-
+        Más común en pacientes de edad avanzada o con estenosis aórtica severa.
+      ref: 'fda:label'
+
+

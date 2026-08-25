@@ -1,0 +1,44 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:26378978"
+clave_bibtex: zinman2015
+tipo: eca
+titulo: "Empagliflozin, Cardiovascular Outcomes, and Mortality in Type 2 Diabetes"
+autores:
+  - "Zinman B"
+  - "Wanner C"
+  - "Lachin JM"
+  - "Fitchett D"
+  - "Bluhmki E"
+  - "Hantel S"
+  - "Mattheus M"
+  - "Devins T"
+  - "Johansen OE"
+  - "Woerle HJ"
+  - "Broedl UC"
+  - "Inzucchi SE"
+  - "EMPA-REG OUTCOME Investigators"
+publicacion: "N Engl J Med"
+anio: 2015
+volumen: "373"
+numero: "22"
+paginas: "2117-28"
+
+identificadores:
+  pmid: 26378978
+  doi: "10.1056/NEJMoa1504720"
+  pmc: null
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

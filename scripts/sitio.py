@@ -355,40 +355,60 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
     A = P.append
     rec = reg.get("recomendacion") or {}
     balance = reg.get("balance") or {}
+    dc = reg.get("decision_clinica") or {}
+    sem = dc.get("semaforo", "verde")
 
     A(cabeza(reg["titulo"], "../", jsonld,
              " ".join((rec.get("enunciado") or "").split())))
     A(migas("../", reg["titulo"]))
-    A("<h1>" + e(reg["titulo"]) + "</h1>")
-    if reg.get("titulo_en"):
-        A('<p class="sub">' + e(reg["titulo_en"]) + "</p>")
-
+    
+    # Cabecera de artículo Ghost
+    A('<article class="ghost-article">')
+    
+    # Tags superiores
     etiquetas = []
     if farmaco and farmaco.get("atc"):
-        etiquetas.append(("", "ATC " + farmaco["atc"]))
+        etiquetas.append(('<span class="ghost-tag">' + e(farmaco["atc"]) + "</span>"))
+    if reg.get("indicacion"):
+        etiquetas.append(('<span class="ghost-tag">' + e(reg["indicacion"]) + "</span>"))
     lme = (farmaco or {}).get("lme") or {}
     if lme.get("presente"):
-        etiquetas.append(("", "LME " + str(lme.get("seccion")) + " · "
-                          + eti(lme.get("categoria"))))
-    if rec.get("fuerza"):
-        etiquetas.append(("fuerte" if rec["fuerza"] == "fuerte" else "",
-                          "recomendación " + eti(rec.get("fuerza"))))
-    if balance.get("certeza_global"):
-        etiquetas.append(("", "certeza " + eti(balance["certeza_global"])))
-    if reg.get("estado") != "publicado":
-        etiquetas.append(("borrador", eti(reg.get("estado"))))
-    A('<div class="etiquetas">'
-      + "".join('<span class="etiqueta ' + c + '">' + e(t) + "</span>"
-                for c, t in etiquetas) + "</div>")
+        etiquetas.append(('<span class="ghost-tag" style="color:var(--acento)">LME OMS ' + e(str(lme.get("seccion"))) + "</span>"))
+    
+    sem_pill = '<span class="semaforo-pill ' + sem + '">● SEMÁFORO ' + sem.upper() + '</span>'
+    
+    A('<div class="ghost-badge-row" style="margin-bottom:16px">'
+      + '<div style="display:flex;gap:6px;flex-wrap:wrap">' + "".join(etiquetas) + '</div>'
+      + sem_pill
+      + '</div>')
 
-    dc = reg.get("decision_clinica") or {}
+    A('<h1 style="font-size:36px;margin-bottom:12px">' + e(reg["titulo"]) + "</h1>")
+    if reg.get("titulo_en"):
+        A('<p class="sub" style="font-size:18px;margin-bottom:20px;color:var(--suave)">' + e(reg["titulo_en"]) + "</p>")
+
+    # Byline de autoría Ghost
+    fecha_txt = str(reg.get("actualizado") or reg.get("fecha") or "2026-08-24")
+    A('<div class="ghost-byline" style="margin:20px 0 32px;padding:16px 0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)">'
+      '<div class="ghost-author">'
+        '<div class="ghost-avatar" style="width:36px;height:36px;font-size:13px">AETG</div>'
+        '<div>'
+          '<div style="font-weight:700;color:var(--tinta);font-size:14.5px">Dr. Alcy Edmundo Torres Guerrero</div>'
+          '<div style="font-size:12px;color:var(--suave)">Editor & Fundador · PowerSemiotics</div>'
+        '</div>'
+      '</div>'
+      '<div style="font-size:13px;color:var(--suave);text-align:right">'
+        '<div>' + fecha_txt + ' · 5 min de lectura</div>'
+        '<div style="font-size:11.5px">Licencia CC BY-SA 4.0</div>'
+      '</div>'
+      '</div>')
+
+    # Tarjeta de Decisión Rápida / Perla de Prescripción
     if dc.get("perla_prescripcion"):
-        sem = dc.get("semaforo", "verde")
         clase_sem = "fuerte" if sem == "verde" else ("aviso" if sem == "amarillo" else "peligro")
-        A('<div class="recuadro ' + clase_sem + '"><span class="rotulo">Decisión Clínica · Semáforo '
-          + e(sem.upper()) + "</span><p><strong>Perla de prescripción:</strong> "
+        A('<div class="recuadro ' + clase_sem + '" style="font-size:16.5px;line-height:1.6"><span class="rotulo">⚡ Decisión Rápida en Punto de Atención · Semáforo '
+          + e(sem.upper()) + "</span><p style=\"font-weight:600;margin-bottom:8px\">Perla de prescripción: "
           + e(dc["perla_prescripcion"]) + "</p>"
-          + ('<p style="margin-top:6px;font-size:14px">⚠️ <strong>Alerta:</strong> ' + e(dc["alerta_seguridad_inmediata"]) + "</p>"
+          + ('<p style="margin-top:8px;font-size:15px;color:inherit">⚠️ <strong>Alerta inmediata:</strong> ' + e(dc["alerta_seguridad_inmediata"]) + "</p>"
              if dc.get("alerta_seguridad_inmediata") else "")
           + "</div>")
     elif rec.get("enunciado"):
@@ -526,8 +546,27 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
               + (" · " + eti(d.get("tipo")) if d.get("tipo") else "") + "</li>")
         A("</ul>")
 
+    A('</article>')
+
+    # Tarjeta de Firma Editorial del Autor y Reto Clínico
+    A('<div class="recuadro" style="margin-top:40px;background:var(--fondo);border:1px solid var(--linea);border-left:4px solid var(--acento);border-radius:12px;padding:24px">'
+      '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">'
+        '<div style="display:flex;align-items:center;gap:14px">'
+          '<div class="ghost-avatar" style="width:48px;height:48px;font-size:16px">AETG</div>'
+          '<div>'
+            '<div style="font-weight:700;font-size:16px;color:var(--tinta)">Dr. Alcy Edmundo Torres Guerrero</div>'
+            '<div style="font-size:13px;color:var(--suave)">Editor & Fundador de PowerSemiotics · Especialista en Semiología Médica</div>'
+          '</div>'
+        '</div>'
+        '<div style="display:flex;gap:10px">'
+          '<a href="../reto.html" class="boton" style="font-size:13.5px;padding:9px 18px">🎯 Reto de esta Ficha</a>'
+          '<a href="../blog.html" class="ghost-nav-link" style="font-size:13.5px">📰 Ver más Artículos</a>'
+        '</div>'
+      '</div>'
+      '</div>')
+
     if farmaco:
-        A('<p><a href="../' + mod_indice.ruta_relativa(farmaco) + '">Ficha del '
+        A('<p style="margin-top:20px"><a href="../' + mod_indice.ruta_relativa(farmaco) + '">← Ver registro del '
           "principio activo: " + e(farmaco.get("dci")) + "</a></p>")
 
     A(pie("../"))

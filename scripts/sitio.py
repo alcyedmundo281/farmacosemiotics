@@ -142,13 +142,9 @@ a:hover{text-decoration:underline}
   display:flex;align-items:center;justify-content:flex-end;gap:16px;
 }
 .ghost-search-btn{
-  background:none;border:none;color:var(--tinta);cursor:pointer;display:flex;align-items:center;padding:4px;
+  background:none;border:none;color:var(--tinta);cursor:pointer;display:flex;align-items:center;padding:6px;border-radius:50%;transition:background .2s ease;
 }
-.ghost-subscribe-btn{
-  background:var(--acento);color:#fff!important;padding:8px 20px;border-radius:9999px;
-  font-size:14px;font-weight:600;text-decoration:none;transition:background .2s ease;display:inline-block;
-}
-.ghost-subscribe-btn:hover{background:var(--acento-hover);text-decoration:none}
+.ghost-search-btn:hover{background:var(--realce)}
 
 @media (max-width:768px){
   .ghost-header{grid-template-columns:1fr 1fr;gap:16px}
@@ -157,7 +153,7 @@ a:hover{text-decoration:underline}
   .ghost-nav-right{order:3}
 }
 
-/* ── Ghost Hero Section ── */
+/* ── Ghost Hero Section & Search Form ── */
 .ghost-hero{
   text-align:center;padding:24px 0 44px;
 }
@@ -165,19 +161,19 @@ a:hover{text-decoration:underline}
   font-size:26px;font-weight:700;line-height:1.35;color:var(--tinta);
   max-width:820px;margin:0 auto 28px;letter-spacing:-.015em;
 }
-.ghost-subscribe-form{
-  display:flex;max-width:480px;margin:0 auto;background:var(--realce);
-  border-radius:9999px;padding:5px;border:1px solid var(--linea);
+.ghost-search-form{
+  display:flex;align-items:center;max-width:520px;margin:0 auto;background:var(--fondo);
+  border-radius:9999px;padding:4px 6px;border:1px solid var(--linea);box-shadow:0 2px 10px rgba(0,0,0,0.03);
 }
-.ghost-subscribe-input{
-  flex:1;border:none;background:transparent;padding:10px 18px;font-size:15px;
+.ghost-search-input{
+  flex:1;border:none;background:transparent;padding:10px 16px;font-size:15px;
   color:var(--tinta);font-family:var(--sans);outline:none;
 }
-.ghost-subscribe-submit{
+.ghost-search-submit{
   background:var(--acento);color:#fff;border:none;border-radius:9999px;
-  padding:10px 24px;font-weight:600;font-size:14px;cursor:pointer;transition:background .2s ease;
+  padding:10px 22px;font-weight:600;font-size:14px;cursor:pointer;transition:background .2s ease;
 }
-.ghost-subscribe-submit:hover{background:var(--acento-hover)}
+.ghost-search-submit:hover{background:var(--acento-hover)}
 
 /* ── Section Header ── */
 .ghost-section-header{
@@ -189,7 +185,7 @@ a:hover{text-decoration:underline}
 }
 #cuenta{font-size:12px;font-weight:700;color:var(--suave);letter-spacing:.05em}
 
-/* ── Ghost Post List Row ── */
+/* ── Ghost Post List Row & Clinical Badge ── */
 .ghost-post-list{
   display:flex;flex-direction:column;gap:32px;
 }
@@ -197,37 +193,45 @@ a:hover{text-decoration:underline}
   display:flex;gap:28px;padding-bottom:32px;border-bottom:1px solid var(--linea-suave);
   align-items:flex-start;text-decoration:none;color:inherit;
 }
-.ghost-post-thumb{
-  width:270px;height:160px;border-radius:6px;background:#15171A;color:#fff;
+.ghost-clinical-badge{
+  width:250px;min-height:146px;border-radius:12px;
+  background:var(--realce);border:1px solid var(--linea);color:var(--tinta);
   flex-shrink:0;display:flex;flex-direction:column;justify-content:space-between;
-  padding:16px;box-sizing:border-box;position:relative;overflow:hidden;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);text-decoration:none;
+  padding:15px 16px;box-sizing:border-box;text-decoration:none;transition:all .2s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,0.02);
 }
-.ghost-post-thumb:hover{text-decoration:none}
-.ghost-thumb-top{
-  display:flex;justify-content:space-between;align-items:center;
+.ghost-clinical-badge:hover{
+  transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.06);border-color:var(--tenue);text-decoration:none;
 }
-.ghost-thumb-atc{
+.badge-top{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+}
+.badge-atc{
   font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
-  background:rgba(255,255,255,0.15);padding:3px 8px;border-radius:4px;color:#fff;
+  background:var(--fondo);color:var(--suave);border:1px solid var(--linea);padding:2px 8px;border-radius:6px;
 }
-.ghost-thumb-sem{
+.badge-sem{
   font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;
-  padding:3px 7px;border-radius:4px;
+  padding:3px 8px;border-radius:12px;
 }
-.ghost-thumb-sem.verde{background:rgba(16,185,129,0.25);color:#34D399;border:1px solid #10B981}
-.ghost-thumb-sem.amarillo{background:rgba(245,158,11,0.25);color:#FBBF24;border:1px solid #F59E0B}
-.ghost-thumb-center{
-  font-size:15px;font-weight:700;color:#fff;line-height:1.25;
+.badge-sem.verde{background:var(--verde-bg);color:var(--verde-txt);border:1px solid var(--verde)}
+.badge-sem.amarillo{background:var(--amarillo-bg);color:var(--amarillo-txt);border:1px solid var(--amarillo)}
+.badge-sem.rojo{background:var(--rojo-bg);color:var(--rojo-txt);border:1px solid var(--rojo)}
+
+.badge-dci{
+  font-size:16px;font-weight:800;color:var(--tinta);line-height:1.25;margin:8px 0;
 }
-.ghost-thumb-bottom{
-  display:flex;justify-content:space-between;align-items:center;
+.badge-bottom{
+  display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px dashed var(--linea);
 }
-.ghost-thumb-nnt{
-  font-family:var(--mono);font-size:12px;font-weight:700;color:#38BDF8;
+.badge-nnt{
+  font-family:var(--mono);font-size:11.5px;font-weight:700;color:#0284c7;background:#e0f2fe;padding:2px 8px;border-radius:6px;
 }
-.ghost-thumb-lme{
-  font-family:var(--mono);font-size:10.5px;color:#94A3B8;
+@media (prefers-color-scheme:dark){
+  .badge-nnt{background:#0c4a6e;color:#7dd3fc}
+}
+.badge-meta{
+  font-family:var(--mono);font-size:11px;color:var(--suave);
 }
 
 .ghost-post-content{flex:1}
@@ -250,7 +254,7 @@ a:hover{text-decoration:underline}
 
 @media (max-width:680px){
   .ghost-post-row{flex-direction:column;gap:16px}
-  .ghost-post-thumb{width:100%;height:140px}
+  .ghost-clinical-badge{width:100%;min-height:auto}
 }
 
 /* ── Ghost Article Page ── */
@@ -368,9 +372,8 @@ def cabeza(titulo, prefijo, jsonld=None, descripcion=""):
         '  </div>\n'
         '  <div class="ghost-nav-right">\n'
         '    <button class="ghost-search-btn" onclick="document.getElementById(\'q\')?document.getElementById(\'q\').focus():window.location.href=\'' + prefijo + 'blog.html\'" aria-label="Buscar">\n'
-        '      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
+        '      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
         '    </button>\n'
-        '    <a href="' + prefijo + 'reto.html" class="ghost-subscribe-btn">Subscribe</a>\n'
         '  </div>\n'
         '</header>\n')
 
@@ -809,23 +812,23 @@ function pintar(res,q){
   document.getElementById('res').innerHTML=res.map(r=>{
     const esFicha = r.tipo === 'ficha';
     const sem = r.semaforo || (r.recomendacion_direccion === 'a_favor' ? 'verde' : 'amarillo');
-    const semPill = esFicha ? ('<span class="ghost-thumb-sem ' + sem + '">● ' + sem.toUpperCase() + '</span>') : ('<span class="ghost-thumb-sem verde">● FÁRMACO</span>');
+    const semPill = esFicha ? ('<span class="badge-sem ' + sem + '">● ' + sem.toUpperCase() + '</span>') : ('<span class="badge-sem verde">● FÁRMACO</span>');
     const atcTxt = r.atc || (r.clase || 'ATC');
     const nntTxt = r.nnt ? ('NNT ' + r.nnt) : (r.dci || 'FÁRMACO');
     const excerptTxt = r.perla || r.resumen || r.recomendacion || '';
     const fechaTxt = r.actualizado || r.fecha || '24 Aug 2026';
-    const autorTxt = 'Alcy Edmundo Torres Guerrero';
+    const autorTxt = 'Dr. Alcy Edmundo Torres Guerrero';
 
     return '<article class="ghost-post-row">' +
-      '<a href="' + r.url + '" class="ghost-post-thumb">' +
-        '<div class="ghost-thumb-top">' +
-          '<span class="ghost-thumb-atc">' + e(atcTxt) + '</span>' +
+      '<a href="' + r.url + '" class="ghost-clinical-badge">' +
+        '<div class="badge-top">' +
+          '<span class="badge-atc">' + e(atcTxt) + '</span>' +
           semPill +
         '</div>' +
-        '<div class="ghost-thumb-center">' + e(r.dci || r.titulo) + '</div>' +
-        '<div class="ghost-thumb-bottom">' +
-          '<span class="ghost-thumb-nnt">' + e(nntTxt) + '</span>' +
-          '<span class="ghost-thumb-lme">5 min</span>' +
+        '<div class="badge-dci">' + e(r.dci || r.titulo) + '</div>' +
+        '<div class="badge-bottom">' +
+          '<span class="badge-nnt">' + e(nntTxt) + '</span>' +
+          '<span class="badge-meta">5 min</span>' +
         '</div>' +
       '</a>' +
       '<div class="ghost-post-content">' +
@@ -869,9 +872,10 @@ def pagina_blog(total):
                    "Publicación médica independiente: Fichas de terapéutica racional, balanza NNT/NNH y evidencia GRADE anclada a PubMed.")
             + '<section class="ghost-hero">\n'
             + '  <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
-            + '  <div class="ghost-subscribe-form">\n'
-            + '    <input id="q" type="search" class="ghost-subscribe-input" placeholder="jamie@example.com o buscar fármaco..." autocomplete="off" aria-label="Buscar">\n'
-            + '    <button class="ghost-subscribe-submit" onclick="document.getElementById(\'q\').focus()">Subscribe</button>\n'
+            + '  <div class="ghost-search-form">\n'
+            + '    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--suave)" stroke-width="2" style="margin-left:14px;flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
+            + '    <input id="q" type="search" class="ghost-search-input" placeholder="Buscar por fármaco, indicación clínica, ATC, o palabra clave..." autocomplete="off" aria-label="Buscar">\n'
+            + '    <button class="ghost-search-submit" onclick="document.getElementById(\'q\').focus()">Buscar</button>\n'
             + '  </div>\n'
             + '</section>\n'
             + '<div class="ghost-section-header">\n'
@@ -889,9 +893,10 @@ def pagina_index(total):
                    "Portal principal de Farmacosemiotics: Ecosistema de terapéutica racional, balanza de impacto NNT/NNH y biblioteca clínica.")
             + '<section class="ghost-hero">\n'
             + '  <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
-            + '  <div class="ghost-subscribe-form">\n'
-            + '    <input id="q" type="search" class="ghost-subscribe-input" placeholder="jamie@example.com o buscar fármaco..." autocomplete="off" aria-label="Buscar">\n'
-            + '    <button class="ghost-subscribe-submit" onclick="document.getElementById(\'q\').focus()">Subscribe</button>\n'
+            + '  <div class="ghost-search-form">\n'
+            + '    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--suave)" stroke-width="2" style="margin-left:14px;flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
+            + '    <input id="q" type="search" class="ghost-search-input" placeholder="Buscar por fármaco, indicación clínica, ATC, o palabra clave..." autocomplete="off" aria-label="Buscar">\n'
+            + '    <button class="ghost-search-submit" onclick="document.getElementById(\'q\').focus()">Buscar</button>\n'
             + '  </div>\n'
             + '</section>\n'
             + '<div class="ghost-section-header">\n'

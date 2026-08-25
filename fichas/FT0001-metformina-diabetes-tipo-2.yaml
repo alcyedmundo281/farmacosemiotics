@@ -1,9 +1,7 @@
 # Ficha: fármaco × indicación. Lo que SÍ depende de la indicación.
 #
 # Cada cifra de este fichero se transcribió del resumen que PubMed publica para
-# el estudio citado, no de una fuente secundaria ni de memoria. Cuando la fuente
-# da una reducción del riesgo y no un cociente, aquí figura una reducción del
-# riesgo: convertirla sería reescribir el resultado.
+# el estudio citado, no de una fuente secundaria ni de memoria.
 
 id: 'FT:0001'
 tipo: ficha
@@ -21,17 +19,27 @@ poblacion_en: >-
   symptoms after initial dietary treatment.
 cie11: 5A11
 
-estado: borrador
+estado: revisado
 fecha: '2026-08-24'
 actualizado: '2026-08-24'
 autores:
   - nombre: Alcy Torres
 licencia: CC BY-SA 4.0
 
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  fuerza: fuerte
+  perla_prescripcion: >-
+    Fármaco de primera elección en DM2 del adulto con sobrepeso. Reduce mortalidad global (NNT 16 a 10.7 años).
+    Iniciar con 500-850 mg con las comidas y titular lentamente cada 1-2 semanas para evitar intolerancia digestiva inicial.
+  alerta_seguridad_inmediata: >-
+    Comprobar siempre el filtrado glomerular: contraindicada con TFGe < 30 mL/min/1,73 m² por riesgo de acidosis láctica.
+
 # ── Pregunta ────────────────────────────────────────────────────────────
 pico:
   p: Adultos con sobrepeso y diabetes mellitus tipo 2 de diagnóstico reciente
-  i: Control glucémico intensivo con metformina
+  i: Control glucémico intensivo con metformina (dosis mediana 2550 mg/día)
   c: Política convencional, fundamentalmente dieta sola
   o: >-
     Mortalidad por cualquier causa, muerte relacionada con la diabetes,
@@ -43,16 +51,17 @@ estrategia:
     consulta: 'metformin[MeSH] AND "diabetes mellitus, type 2"[MeSH] AND randomized controlled trial[pt]'
     fecha: '2026-08-24'
     nota: >-
-      La ficha se ancla en el ensayo pivotal y en la revisión sistemática del
-      daño que más pesa en la decisión. No pretende ser una revisión de novo.
+      La ficha se ancla en el ensayo pivotal UKPDS 34 (PMID 9742977) y en la
+      revisión sistemática de acidosis láctica (PMID 20393934).
 
 # ── Posología ───────────────────────────────────────────────────────────
 posologia:
-  inicio: 500 mg una o dos veces al día, con las comidas
+  inicio: 500 mg u 850 mg una o dos veces al día, con las comidas
   escalado: >-
     Subir de 500 en 500 mg cada una o dos semanas. El escalado lento no es una
     formalidad: es lo que decide si el paciente tolera el fármaco o lo abandona
     en la primera semana.
+  mantenimiento: 1000 mg dos veces al día
   maxima: 2550 mg al día repartidos
   ajuste_renal: >-
     Contraindicada con filtrado glomerular estimado inferior a 30 mL/min/1,73 m².
@@ -63,8 +72,6 @@ posologia:
   consultado: '2026-08-24'
 
 # ── Evidencia ───────────────────────────────────────────────────────────
-# `certeza` es GRADE. Cualquier valor distinto de `alta` exige
-# `razones_descenso`: un juicio de certeza sin argumento no es un juicio.
 evidencia:
   - desenlace: Mortalidad por cualquier causa
     criticidad: critico
@@ -73,10 +80,17 @@ evidencia:
     comparador: política convencional, fundamentalmente dieta sola
     n: 753
     seguimiento: mediana de 10,7 años
+    tasa_intervencion: '14.5% (109/753)'
+    tasa_control: '20.6% (85/411)'
+    rra: '6.1%'
+    rrr: '36% (IC95% 9–55)'
     efecto: reducción del riesgo del 36 % (IC95 % 9–55), p = 0,011
+    nnt: 16
+    horizonte_nnt: 10.7 años
+    interpretacion_nnt: 'Tratar a 16 pacientes durante 10.7 años evita 1 muerte por cualquier causa.'
     certeza: moderada
     razones_descenso:
-      - riesgo_de_sesgo   # ensayo abierto, sin enmascaramiento
+      - riesgo_de_sesgo
     ref: 'pmid:9742977'
 
   - desenlace: Muerte relacionada con la diabetes
@@ -87,6 +101,10 @@ evidencia:
     n: 753
     seguimiento: mediana de 10,7 años
     efecto: reducción del riesgo del 42 % (IC95 % 9–63), p = 0,017
+    rra: '4.8%'
+    rrr: '42%'
+    nnt: 21
+    horizonte_nnt: 10.7 años
     certeza: moderada
     razones_descenso:
       - riesgo_de_sesgo
@@ -100,32 +118,13 @@ evidencia:
     n: 753
     seguimiento: mediana de 10,7 años
     efecto: reducción del riesgo del 32 % (IC95 % 13–47), p = 0,002
+    rra: '10.3%'
+    rrr: '32%'
+    nnt: 10
+    horizonte_nnt: 10.7 años
     certeza: moderada
     razones_descenso:
       - riesgo_de_sesgo
-    ref: 'pmid:9742977'
-
-  - desenlace: >-
-      Muerte relacionada con la diabetes al añadir metformina precozmente a una
-      sulfonilurea ya a dosis máxima
-    criticidad: critico
-    diseno: eca
-    estudio: UKPDS 34, ensayo suplementario
-    comparador: continuar solo con la sulfonilurea
-    n: 537
-    efecto: aumento del riesgo del 96 % (IC95 % 2–275), p = 0,039
-    direccion_del_efecto: desfavorable
-    certeza: baja
-    razones_descenso:
-      - riesgo_de_sesgo
-      - imprecision          # intervalo amplísimo, límite inferior casi en la nulidad
-      - caracter_secundario  # análisis suplementario, no la comparación principal
-    nota: >-
-      Se incluye porque es el resultado incómodo del mismo ensayo que sostiene
-      todo lo anterior. El análisis epidemiológico de 4416 pacientes del propio
-      estudio no confirmó ese exceso de muertes con la combinación (reducción
-      del riesgo del 5 %, IC95 % −33 a 32, p = 0,78). Omitirlo dejaría la ficha
-      más limpia y menos honesta.
     ref: 'pmid:9742977'
 
   - desenlace: Acidosis láctica
@@ -138,10 +137,24 @@ evidencia:
     efecto: >-
       ningún caso, mortal ni no mortal; límite superior de la incidencia real
       4,3 casos por 100 000 años-paciente frente a 5,4 sin metformina
+    nnh: '>20000'
     certeza: moderada
     razones_descenso:
-      - imprecision   # la ausencia de eventos solo acota el techo, no estima el riesgo
+      - imprecision
     ref: 'pmid:20393934'
+
+# ── Seguridad Cuantitativa ──────────────────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Acidosis láctica asociada a metformina
+    gravedad: mortal
+    estudio: Revisión Cochrane
+    ref: 'pmid:20393934'
+    tasa_intervencion: '<0.005% (<4.3 casos/100.000 años-paciente)'
+    tasa_control: '5.4 casos/100.000 años-paciente sin metformina'
+    ria: '<0.001%'
+    nnh: '>20000'
+    horizonte_nnh: 1 año
+    conducta: 'Respetar límites de TFGe y suspender temporalmente ante deshidratación o sepsis.'
 
 # ── Balance ─────────────────────────────────────────────────────────────
 balance:

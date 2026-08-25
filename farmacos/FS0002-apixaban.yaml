@@ -1,0 +1,51 @@
+id: 'FS:0002'
+tipo: farmaco
+dci: Apixabán
+dci_en: Apixaban
+sinonimos:
+  - Eliquis
+  - BMS-562247-01
+
+atc: B01AF02
+clase_farmacologica: Inhibidor directo del factor Xa
+clase_farmacologica_en: Direct factor Xa inhibitor
+
+codigos:
+  rxcui: '1364430'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-08-24'
+  snomed: null
+  unii: null
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor reversible, potente y altamente selectivo del factor Xa libre y ligado
+  al coágulo. No requiere antitrombina III para su acción anticoagulante. Inhibe la
+  conversión de protrombina a trombina, previniendo la formación del trombo.
+mecanismo_en: >-
+  Selective inhibitor of FXa, decreasing thrombin generation and thrombus development.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: '27% excreción renal; 73% biliar y fecal'
+  vida_media: 'Aproximadamente 12 horas'
+  implicacion: >-
+    Menor dependencia de eliminación renal en comparación con otros anticoagulantes orales directos.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Hemorragia mayor
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Menor incidencia estadísticamente significativa en comparación con warfarina (HR 0.69).
+      ref: 'pmid:21870978'
+    - evento: Hematoma espinal o epidural
+      frecuencia: rara
+      gravedad: mortal
+      nota: >-
+        Riesgo incrementado durante anestesia neuroaxial o punción lumbar.
+      ref: 'fda:label'

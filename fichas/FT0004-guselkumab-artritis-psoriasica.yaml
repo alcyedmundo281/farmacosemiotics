@@ -1,0 +1,124 @@
+id: 'FT:0004'
+tipo: ficha
+farmaco: 'FS:0004'
+
+titulo: Guselkumab en la artritis psoriásica activa del adulto
+titulo_en: Guselkumab for active psoriatic arthritis in adults
+indicacion: Artritis psoriásica activa
+indicacion_en: Active psoriatic arthritis
+poblacion: >-
+  Adultos con artritis psoriásica activa con respuesta inadecuada o intolerancia a FARME convencionales.
+poblacion_en: >-
+  Biologic-naive adults with active psoriatic arthritis despite conventional synthetic DMARDs.
+cie11: FA20
+
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+autores:
+  - nombre: Alcy Torres
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  fuerza: fuerte
+  perla_prescripcion: >-
+    Inhibidor selectivo IL-23p19 con alta eficacia articular (ACR20 NNT 4) y cutánea (PASI90 NNT 2 a 24 semanas).
+    Pauta de mantenimiento cada 8 semanas y perfil de seguridad excelente sin incremento de infecciones oportunistas graves.
+  alerta_seguridad_inmediata: >-
+    Descartar tuberculosis activa/latente e infecciones graves antes del inicio.
+
+pico:
+  p: Adultos con artritis psoriásica activa sin tratamiento biológico previo (N=739)
+  i: Guselkumab 100 mg SC en semanas 0, 4 y luego cada 8 semanas
+  c: Placebo subcutáneo
+  o: Respuesta ACR20, respuesta PASI90, progresión radiográfica, infecciones graves
+
+estrategia:
+  - base: PubMed
+    consulta: '"DISCOVER-2" AND guselkumab AND "psoriatic arthritis"'
+    fecha: '2026-08-24'
+    nota: Ensayo pivotal DISCOVER-2 (PMID 32178766).
+
+posologia:
+  inicio: 100 mg mediante inyección subcutánea en la semana 0 y en la semana 4
+  mantenimiento: 100 mg subcutáneos cada 8 semanas
+  ajuste_renal: No es necesario ajustar la dosis en insuficiencia renal.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2c68eec7-ae6e-4ea7-9a4f-8e43e7fb0277
+  consultado: '2026-08-24'
+
+evidencia:
+  - desenlace: Respuesta articular ACR 20 a semana 24
+    criticidad: critico
+    diseno: eca
+    estudio: DISCOVER-2
+    comparador: placebo subcutáneo
+    n: 739
+    seguimiento: 24 semanas
+    tasa_intervencion: '64% (156/245)'
+    tasa_control: '33% (81/246)'
+    rra: '31%'
+    efecto: incremento significativo de respuesta ACR20 (OR 3,65, IC95 % 2,49–5,34), p < 0,0001
+    nnt: 4
+    horizonte_nnt: 24 semanas
+    interpretacion_nnt: 'Tratar a 4 pacientes con guselkumab logra 1 respuesta clínica articular mayor adicional (ACR20) a 24 semanas.'
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32178766'
+
+  - desenlace: Aclaramiento cutáneo PASI 90 a semana 24
+    criticidad: importante
+    diseno: eca
+    estudio: DISCOVER-2
+    comparador: placebo subcutáneo
+    n: 739
+    seguimiento: 24 semanas
+    tasa_intervencion: '69% (122/176)'
+    tasa_control: '19% (32/169)'
+    rra: '50%'
+    efecto: aclaramiento de lesiones psoriásicas del 69 % frente a 19 % con placebo, p < 0,0001
+    nnt: 2
+    horizonte_nnt: 24 semanas
+    interpretacion_nnt: 'Tratar a 2 pacientes logra 1 respuesta cutánea PASI 90 a los 6 meses.'
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32178766'
+
+seguridad_cuantitativa:
+  - evento: Infecciones graves Grado 3 o 4
+    gravedad: grave
+    estudio: DISCOVER-2
+    ref: 'pmid:32178766'
+    tasa_intervencion: '1.2% (3/248)'
+    tasa_control: '1.2% (3/246)'
+    ria: '0.0%'
+    nnh: '>1000'
+    horizonte_nnh: 24 semanas
+    conducta: 'Vigilancia clínica estándar; suspender temporalmente durante infecciones agudas graves.'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: >-
+    Muy favorable por la eficacia simultánea en síntomas axiales, periféricos y cutáneos.
+  equidad: >-
+    Medicamento biológico de coste elevado que requiere comités de acceso en muchos centros.
+  aceptabilidad: alta
+  factibilidad: alta
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda guselkumab en adultos con artritis psoriásica activa que no han respondido
+    adecuadamente a FARME sintéticos tradicionales.
+  ref: 'pmid:32178766'
+
+conclusion: >-
+  Guselkumab demostró una eficacia articular y cutánea superior al placebo a las 24 semanas
+  en pacientes con artritis psoriásica activa bio-naïve, con un perfil de seguridad muy favorable.
+
+refs:
+  - 'pmid:32178766'

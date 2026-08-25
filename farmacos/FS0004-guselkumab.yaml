@@ -1,0 +1,43 @@
+id: 'FS:0004'
+tipo: farmaco
+dci: Guselkumab
+dci_en: Guselkumab
+sinonimos:
+  - Tremfya
+  - CNTO-1959
+
+atc: L04AC16
+clase_farmacologica: Inhibidor selectivo de la interleucina-23 (anti-IL-23p19)
+clase_farmacologica_en: Interleukin-23 (IL-23) inhibitor
+
+codigos:
+  rxcui: '1946826'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-08-24'
+  snomed: null
+  unii: null
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Anticuerpo monoclonal humano IgG1 que bloquea selectivamente la subunidad p19
+  de la IL-23, inhibiendo la diferenciación y mantenimiento de los linfocitos Th17
+  y la producción de citoquinas inflamatorias (IL-17A, IL-17F, IL-22).
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: 'Degradación proteica no específica en pequeños péptidos y aminoácidos'
+  vida_media: 'Aproximadamente 15 a 18 días'
+  implicacion: >-
+    Permite pauta de mantenimiento cómoda cada 8 semanas por vía subcutánea.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Infecciones respiratorias de vías altas
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Infecciones leves o moderadas en un 5-10% de los pacientes tratados.
+      ref: 'pmid:32178766'

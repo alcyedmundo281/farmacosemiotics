@@ -1,0 +1,125 @@
+id: 'FT:0003'
+tipo: ficha
+farmaco: 'FS:0003'
+
+titulo: Pembrolizumab en cáncer de pulmón no microcítico no escamoso metastásico
+titulo_en: Pembrolizumab in metastatic non-squamous non-small-cell lung cancer
+indicacion: Cáncer de pulmón no microcítico no escamoso metastásico
+indicacion_en: First-line metastatic non-squamous non-small cell lung cancer
+poblacion: >-
+  Adultos con CPNM metastásico no escamoso en primera línea, sin mutaciones EGFR ni translocaciones ALK.
+poblacion_en: >-
+  Adults with previously untreated metastatic non-squamous non-small-cell lung cancer without EGFR or ALK mutations.
+cie11: 2C25.0
+
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+autores:
+  - nombre: Alcy Torres
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  fuerza: fuerte
+  perla_prescripcion: >-
+    Estándar de 1ª línea combinado con pemetrexed/platino. Reduce mortalidad un 51% a 12 meses (HR 0.49; NNT 5 a 1 año).
+    Dosis: 200 mg IV cada 3 semanas.
+  alerta_seguridad_inmediata: >-
+    Vigilar toxicidades inmunomediadas severas (NNH 14): neumonitis, colitis, tiroiditis. Suspender e iniciar corticoides (1-2 mg/kg/día).
+
+pico:
+  p: Pacientes con CPNM no escamoso estadio IV sin tratamiento previo ni alteraciones EGFR/ALK
+  i: Pembrolizumab (200 mg) + Pemetrexed + Platino cada 3 semanas
+  c: Placebo + Pemetrexed + Platino cada 3 semanas
+  o: Supervivencia global (OS), supervivencia libre de progresión (PFS), toxicidad inmunomediada G3-5
+
+estrategia:
+  - base: PubMed
+    consulta: '"KEYNOTE-189" AND pembrolizumab AND "lung cancer"'
+    fecha: '2026-08-24'
+    nota: Ensayo pivotal KEYNOTE-189 (PMID 29658856).
+
+posologia:
+  inicio: 200 mg en infusión IV de 30 minutos cada 3 semanas (o 400 mg cada 6 semanas)
+  mantenimiento: Continuar hasta progresión de la enfermedad o toxicidad inaceptable (hasta 24 meses / 35 ciclos)
+  ajuste_renal: No requiere ajuste en insuficiencia renal leve a moderada.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9333c79b-d487-4538-a9f0-70191bf933dc
+  consultado: '2026-08-24'
+
+evidencia:
+  - desenlace: Supervivencia global (OS) a 12 meses
+    criticidad: critico
+    diseno: eca
+    estudio: KEYNOTE-189
+    comparador: quimioterapia con pemetrexed y platino sola
+    n: 616
+    seguimiento: mediana de 10,5 meses
+    tasa_intervencion: '69.2% vivos a 12 meses'
+    tasa_control: '49.4% vivos a 12 meses'
+    rra: '19.8%'
+    rrr: '51%'
+    efecto: reducción de mortalidad del 51 % (HR 0,49, IC95 % 0,38–0,64), p < 0,001
+    nnt: 5
+    horizonte_nnt: 1 año
+    interpretacion_nnt: 'Tratar a 5 pacientes con pembrolizumab previene 1 muerte al año.'
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:29658856'
+
+  - desenlace: Supervivencia libre de progresión (PFS)
+    criticidad: critico
+    diseno: eca
+    estudio: KEYNOTE-189
+    comparador: quimioterapia sola
+    n: 616
+    seguimiento: mediana de 10,5 meses
+    tasa_intervencion: 'Mediana 8.8 meses'
+    tasa_control: 'Mediana 4.9 meses'
+    efecto: reducción de progresión/muerte del 48 % (HR 0,52, IC95 % 0,42–0,64), p < 0,001
+    nnt: 6
+    horizonte_nnt: 1 año
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:29658856'
+
+seguridad_cuantitativa:
+  - evento: Reacciones adversas inmunomediadas severas (Grado 3-5)
+    gravedad: grave
+    estudio: KEYNOTE-189
+    ref: 'pmid:29658856'
+    tasa_intervencion: '8.9%'
+    tasa_control: '1.5%'
+    ria: '7.4%'
+    nnh: 14
+    horizonte_nnh: Período de tratamiento activo
+    conducta: 'Corticoterapia sistémica (metilprednisolona 1-2 mg/kg/día) e interrupción del tratamiento.'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: >-
+    Beneficio de supervivencia muy valorado por los pacientes a pesar del riesgo
+    de toxicidades inmunológicas que requieren vigilancia estrecha.
+  equidad: >-
+    Impacto presupuestario elevado que condiciona la cobertura en sistemas públicos.
+  aceptabilidad: alta
+  factibilidad: alta
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda pembrolizumab combinado con quimioterapia estándar en primera línea
+    en adultos con CPNM metastásico no escamoso sin mutaciones diana.
+  ref: 'pmid:29658856'
+
+conclusion: >-
+  La adición de pembrolizumab a la quimioterapia con platino y pemetrexed mejoró
+  significativamente la supervivencia global y libre de progresión en pacientes con
+  CPNM no escamoso avanzado independientemente de la expresión de PD-L1.
+
+refs:
+  - 'pmid:29658856'

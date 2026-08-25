@@ -1,0 +1,48 @@
+id: 'FS:0003'
+tipo: farmaco
+dci: Pembrolizumab
+dci_en: Pembrolizumab
+sinonimos:
+  - Keytruda
+  - MK-3475
+
+atc: L01FF02
+clase_farmacologica: Anticuerpo monoclonal anti-PD-1
+clase_farmacologica_en: Anti-PD-1 monoclonal antibody
+
+codigos:
+  rxcui: '1547545'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-08-24'
+  snomed: null
+  unii: null
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '8.2'
+  categoria: complementary
+
+mecanismo: >-
+  Anticuerpo monoclonal humanizado IgG4 que se une al receptor PD-1 y bloquea su
+  interacción con PD-L1 y PD-L2, reactivando la respuesta inmune celular mediada por
+  linfocitos T contra las células tumorales.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: 'Catabolismo proteico no específico mediado por el sistema reticuloendotelial'
+  vida_media: 'Aproximadamente 22 días'
+  implicacion: >-
+    No requiere ajuste de dosis en insuficiencia renal ni en insuficiencia hepática leve/moderada.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Toxicidad inmunomediada severa Grado 3-5 (neumonitis, colitis, hepatitis)
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Requiere detección temprana e interrupción del fármaco con corticoterapia sistémica.
+      ref: 'pmid:29658856'

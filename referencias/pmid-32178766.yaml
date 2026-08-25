@@ -1,0 +1,43 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:32178766"
+clave_bibtex: mease2020
+tipo: eca
+titulo: "Guselkumab in biologic-naive patients with active psoriatic arthritis (DISCOVER-2): a double-blind, randomised, placebo-controlled phase 3 trial"
+autores:
+  - "Mease PJ"
+  - "Rahman P"
+  - "Gottlieb AB"
+  - "Kollmeier AP"
+  - "Hsia EC"
+  - "Xu XL"
+  - "Sheng S"
+  - "Agarwal P"
+  - "Zhou B"
+  - "Zhuang Y"
+  - "van der Heijde D"
+  - "McInnes IB"
+  - "DISCOVER-2 Study Group"
+publicacion: "Lancet"
+anio: 2020
+volumen: "395"
+numero: "10230"
+paginas: "1126-1136"
+
+identificadores:
+  pmid: 32178766
+  doi: "10.1016/S0140-6736(20)30263-4"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

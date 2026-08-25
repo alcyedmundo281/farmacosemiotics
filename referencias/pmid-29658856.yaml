@@ -1,0 +1,61 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:29658856"
+clave_bibtex: gandhi2018
+tipo: eca
+titulo: "Pembrolizumab plus Chemotherapy in Metastatic Non-Small-Cell Lung Cancer"
+autores:
+  - "Gandhi L"
+  - "Rodríguez-Abreu D"
+  - "Gadgeel S"
+  - "Esteban E"
+  - "Felip E"
+  - "De Angelis F"
+  - "Domine M"
+  - "Clingan P"
+  - "Hochmair MJ"
+  - "Powell SF"
+  - "Cheng SY"
+  - "Bischoff HG"
+  - "Peled N"
+  - "Grossi F"
+  - "Jennens RR"
+  - "Reck M"
+  - "Hui R"
+  - "Garon EB"
+  - "Boyer M"
+  - "Rubio-Viqueira B"
+  - "Novello S"
+  - "Kurata T"
+  - "Gray JE"
+  - "Vida J"
+  - "Wei Z"
+  - "Yang J"
+  - "Raftopoulos H"
+  - "Pietanza MC"
+  - "Garassino MC"
+  - "KEYNOTE-189 Investigators"
+publicacion: "N Engl J Med"
+anio: 2018
+volumen: "378"
+numero: "22"
+paginas: "2078-2092"
+
+identificadores:
+  pmid: 29658856
+  doi: "10.1056/NEJMoa1801005"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

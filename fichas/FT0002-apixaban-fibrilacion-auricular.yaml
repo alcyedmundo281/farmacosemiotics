@@ -1,0 +1,148 @@
+id: 'FT:0002'
+tipo: ficha
+farmaco: 'FS:0002'
+
+titulo: Apixabán en la prevención de ictus en fibrilación auricular no valvular
+titulo_en: Apixaban for stroke prevention in non-valvular atrial fibrillation
+indicacion: Fibrilación auricular no valvular
+indicacion_en: Non-valvular atrial fibrillation
+poblacion: >-
+  Adultos con fibrilación auricular no valvular y al menos un factor de riesgo adicional de ictus.
+poblacion_en: >-
+  Adults with non-valvular atrial fibrillation and at least one additional stroke risk factor.
+cie11: BC81.3
+
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+autores:
+  - nombre: Alcy Torres
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  fuerza: fuerte
+  perla_prescripcion: >-
+    Anticoagulante oral de primera línea en FANV. Reduce ictus (NNT 303/año) y mortalidad (NNT 238/año)
+    con menor sangrado mayor (RRR 31%) y 58% menos hemorragia intracraneal que warfarina. Dosis: 5 mg c/12h.
+  alerta_seguridad_inmediata: >-
+    Reducir dosis a 2.5 mg c/12h si cumple >=2 de 3: Edad >= 80 años, Peso <= 60 kg, Creatinina >= 1.5 mg/dL.
+
+pico:
+  p: Adultos con fibrilación auricular no valvular y al menos un factor de riesgo de ictus
+  i: Apixabán 5 mg cada 12 horas (o 2.5 mg c/12h si cumplía criterios de ajuste)
+  c: Warfarina sódica ajustada a INR 2.0-3.0
+  o: Ictus, embolia sistémica, hemorragia mayor, hemorragia intracraneal, mortalidad global
+
+estrategia:
+  - base: PubMed
+    consulta: 'apixaban AND "atrial fibrillation" AND "ARISTOTLE"'
+    fecha: '2026-08-24'
+    nota: Ensayo pivotal ARISTOTLE (PMID 21870978).
+
+posologia:
+  inicio: 5 mg cada 12 horas por vía oral
+  mantenimiento: 5 mg cada 12 horas
+  ajuste_renal: >-
+    Reducir a 2.5 mg c/12h si creatinina sérica >= 1.5 mg/dL junto a edad >= 80 años o peso <= 60 kg.
+    En TFGe 15-29 mL/min usar 2.5 mg c/12h con precaución.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4270d10a-867b-4029-a720-d464cf51cfba
+  consultado: '2026-08-24'
+
+evidencia:
+  - desenlace: Ictus o embolia sistémica
+    criticidad: critico
+    diseno: eca
+    estudio: ARISTOTLE
+    comparador: warfarina sódica (INR 2.0-3.0)
+    n: 18201
+    seguimiento: mediana de 1,8 años
+    tasa_intervencion: '1.27% por año'
+    tasa_control: '1.60% por año'
+    rra: '0.33% por año'
+    rrr: '21%'
+    efecto: reducción del riesgo del 21 % (HR 0,79, IC95 % 0,66–0,95), p = 0,01
+    nnt: 303
+    horizonte_nnt: 1 año (NNT 167 a 1.8 años)
+    interpretacion_nnt: 'Tratar a 167 pacientes durante 1.8 años con apixabán en lugar de warfarina previene 1 ictus o embolia sistémica.'
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:21870978'
+
+  - desenlace: Mortalidad por cualquier causa
+    criticidad: critico
+    diseno: eca
+    estudio: ARISTOTLE
+    comparador: warfarina sódica
+    n: 18201
+    seguimiento: mediana de 1,8 años
+    tasa_intervencion: '3.52% por año'
+    tasa_control: '3.94% por año'
+    rra: '0.42% por año'
+    rrr: '11%'
+    efecto: reducción del riesgo del 11 % (HR 0,89, IC95 % 0,80–0,998), p = 0,047
+    nnt: 238
+    horizonte_nnt: 1 año (NNT 132 a 1.8 años)
+    interpretacion_nnt: 'Tratar a 132 pacientes durante 1.8 años previene 1 muerte frente a warfarina.'
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:21870978'
+
+  - desenlace: Hemorragia mayor
+    criticidad: critico
+    diseno: eca
+    estudio: ARISTOTLE
+    comparador: warfarina sódica
+    n: 18201
+    seguimiento: mediana de 1,8 años
+    tasa_intervencion: '2.13% por año'
+    tasa_control: '3.09% por año'
+    rra: '0.96% por año'
+    rrr: '31%'
+    efecto: reducción del sangrado mayor del 31 % (HR 0,69, IC95 % 0,60–0,80), p < 0,001
+    nnh: 'Beneficio neto (NNT para evitar sangrado = 104 al año)'
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:21870978'
+
+seguridad_cuantitativa:
+  - evento: Hemorragia mayor
+    gravedad: grave
+    estudio: ARISTOTLE
+    ref: 'pmid:21870978'
+    tasa_intervencion: '2.13% por año'
+    tasa_control: '3.09% por año'
+    ria: '-0.96% por año'
+    nnh: 'Beneficio neto (NNT 104/año para evitar sangrado)'
+    horizonte_nnh: 1 año
+    conducta: 'Suspender dosis y medidas de soporte. Antídoto disponible: Andexanet alfa.'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: trivial
+  certeza_global: alta
+  valores_preferencias: >-
+    Alta preferencia de los pacientes por la comodidad posológica sin necesidad
+    de monitorización periódica de INR ni restricciones dietéticas estrictas.
+  equidad: >-
+    Sensible al costo en sistemas sin cobertura universal de anticoagulantes directos.
+  aceptabilidad: alta
+  factibilidad: alta
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda apixabán como anticoagulante oral preferente frente a warfarina
+    en adultos con fibrilación auricular no valvular y riesgo tromboembólico.
+  ref: 'pmid:21870978'
+
+conclusion: >-
+  En pacientes con fibrilación auricular no valvular, apixabán demostró superioridad
+  frente a warfarina en la prevención de ictus y embolia sistémica, con menor mortalidad
+  global y una reducción significativa del 31% en hemorragias mayores y del 58% en
+  hemorragias intracraneales.
+
+refs:
+  - 'pmid:21870978'

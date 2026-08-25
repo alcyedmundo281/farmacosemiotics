@@ -1,0 +1,54 @@
+id: 'FS:0005'
+tipo: farmaco
+dci: Ibrutinib
+dci_en: Ibrutinib
+sinonimos:
+  - Imbruvica
+  - PCI-32765
+
+atc: L01EL01
+clase_farmacologica: Inhibidor de la tirosina quinasa de Bruton (BTK)
+clase_farmacologica_en: Bruton's tyrosine kinase (BTK) inhibitor
+
+codigos:
+  rxcui: '1442992'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-08-24'
+  snomed: null
+  unii: null
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '8.2'
+  categoria: complementary
+
+mecanismo: >-
+  Inhibidor irreversible de molécula pequeña de la tirosina quinasa de Bruton (BTK),
+  que bloquea la señalización intracelular del receptor de células B (BCR), frenando
+  la proliferación y supervivencia de las células B clonales en neoplasias linfoides.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático extenso vía CYP3A4; 80% excreción fecal'
+  vida_media: '4 a 6 horas (con inhibición enzimática prolongada durante 24 horas)'
+  implicacion: >-
+    Múltiples interacciones medicamentosas mediadas por CYP3A4 y necesidad de ajuste en insuficiencia hepática.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Fibrilación auricular y arritmias cardíacas
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Incidencia acumulada de FA del 6-10% en ensayos clínicos.
+      ref: 'pmid:26639149'
+    - evento: Hemorragias mayores
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Efecto antiagregante por inhibición de quinasas plaquetarias colaterales (TEC).
+      ref: 'pmid:26639149'

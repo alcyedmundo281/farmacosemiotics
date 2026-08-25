@@ -1,0 +1,64 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:21870978"
+clave_bibtex: granger2011
+tipo: eca
+titulo: "Apixaban versus warfarin in patients with atrial fibrillation"
+autores:
+  - "Granger CB"
+  - "Alexander JH"
+  - "McMurray JJ"
+  - "Lopes RD"
+  - "Hylek EM"
+  - "Hanna M"
+  - "Al-Khalidi HR"
+  - "Ansell J"
+  - "Atar D"
+  - "Avezum A"
+  - "Bahit MC"
+  - "Diaz R"
+  - "Easton JD"
+  - "Ezekowitz JA"
+  - "Flaker G"
+  - "Garcia D"
+  - "Geraldes M"
+  - "Gersh BJ"
+  - "Golitsyn S"
+  - "Goto S"
+  - "Hermosillo AG"
+  - "Hohnloser SH"
+  - "Horowitz J"
+  - "Mohan P"
+  - "Jansky P"
+  - "Lewis BS"
+  - "Lopez-Sendon JL"
+  - "Pais P"
+  - "Parkhomenko A"
+  - "Verheugt FW"
+  - "Zhu J"
+  - "Wallentin L"
+  - "ARISTOTLE Committees and Investigators"
+publicacion: "N Engl J Med"
+anio: 2011
+volumen: "365"
+numero: "11"
+paginas: "981-92"
+
+identificadores:
+  pmid: 21870978
+  doi: "10.1056/NEJMoa1107039"
+  pmc: null
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

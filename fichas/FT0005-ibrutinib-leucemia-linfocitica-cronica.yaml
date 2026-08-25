@@ -1,0 +1,142 @@
+id: 'FT:0005'
+tipo: ficha
+farmaco: 'FS:0005'
+
+titulo: Ibrutinib en la leucemia linfocítica crónica no tratada previamente
+titulo_en: Ibrutinib for previously untreated chronic lymphocytic leukemia
+indicacion: Leucemia linfocítica crónica en primera línea
+indicacion_en: First-line chronic lymphocytic leukemia
+poblacion: >-
+  Adultos de edad avanzada (>=65 años) con leucemia linfocítica crónica no tratada previamente.
+poblacion_en: >-
+  Older adults (>=65 years) with previously untreated chronic lymphocytic leukemia.
+cie11: 2A70.0
+
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+autores:
+  - nombre: Alcy Torres
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: amarillo
+  fuerza: condicional
+  perla_prescripcion: >-
+    Inhibidor de BTK de alta eficacia en primera línea (reducción del 84% en progresión/muerte, NNT 2 a 2 años).
+    Semáforo AMARILLO por cardiotoxicidad (FA en 6%, NNH 20) y riesgo de sangrado.
+    Dosis: 420 mg vía oral una vez al día.
+  alerta_seguridad_inmediata: >-
+    Realizar ECG basal y evitar anticoagulación oral concomitante si es posible. Suspender 3-7 días antes de cirugía mayor.
+
+pico:
+  p: Adultos de 65 años o más con LLC no tratada previamente (N=269)
+  i: Ibrutinib 420 mg vía oral una vez al día en monoterapia continua
+  c: Clorambucilo oral en días 1 y 15 de ciclos de 28 días hasta 12 ciclos
+  o: Supervivencia libre de progresión (PFS), supervivencia global (OS), fibrilación auricular, hemorragia mayor
+
+estrategia:
+  - base: PubMed
+    consulta: '"RESONATE-2" AND ibrutinib AND "chronic lymphocytic leukemia"'
+    fecha: '2026-08-24'
+    nota: Ensayo pivotal RESONATE-2 (PMID 26639149).
+
+posologia:
+  inicio: 420 mg una vez al día por vía oral
+  mantenimiento: 420 mg una vez al día de forma continua hasta progresión o toxicidad inaceptable
+  ajuste_renal: No es necesario ajuste en insuficiencia renal leve o moderada.
+  ajuste_hepatico: >-
+    Reducir a 140 mg/día en Child-Pugh A; 70-140 mg/día en Child-Pugh B; contraindicado en Child-Pugh C.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ca4f8ef0-9e0c-4e8c-a9e9-74d101297e06
+  consultado: '2026-08-24'
+
+evidencia:
+  - desenlace: Supervivencia libre de progresión (PFS) a 24 meses
+    criticidad: critico
+    diseno: eca
+    estudio: RESONATE-2
+    comparador: clorambucilo oral
+    n: 269
+    seguimiento: mediana de 18,4 meses
+    tasa_intervencion: '89% libres de progresión a 24 meses'
+    tasa_control: '34% libres de progresión'
+    rra: '55%'
+    rrr: '84%'
+    efecto: reducción de progresión/muerte del 84 % (HR 0,16, IC95 % 0,09–0,28), p < 0,001
+    nnt: 2
+    horizonte_nnt: 2 años
+    interpretacion_nnt: 'Por cada 2 pacientes tratados con ibrutinib se previene 1 evento de progresión tumoral o muerte a los 2 años.'
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:26639149'
+
+  - desenlace: Supervivencia global (OS) a 24 meses
+    criticidad: critico
+    diseno: eca
+    estudio: RESONATE-2
+    comparador: clorambucilo oral
+    n: 269
+    seguimiento: mediana de 18,4 meses
+    tasa_intervencion: '98% vivos a 24 meses'
+    tasa_control: '85% vivos a 24 meses'
+    rra: '13%'
+    rrr: '84%'
+    efecto: reducción de mortalidad del 84 % (HR 0,16, IC95 % 0,05–0,56), p = 0,001
+    nnt: 8
+    horizonte_nnt: 2 años
+    certeza: moderada
+    razones_descenso:
+      - caracter_secundario
+    ref: 'pmid:26639149'
+
+seguridad_cuantitativa:
+  - evento: Fibrilación auricular de nueva aparición
+    gravedad: grave
+    estudio: RESONATE-2
+    ref: 'pmid:26639149'
+    tasa_intervencion: '6.0% (8/135)'
+    tasa_control: '1.0% (1/132)'
+    ria: '5.0%'
+    nnh: 20
+    horizonte_nnh: Mediana de 18.4 meses
+    conducta: 'Control de frecuencia cardíaca y evaluar inhibidor BTK alternativo si intolerancia.'
+
+  - evento: Hemorragia mayor Grado >= 3
+    gravedad: grave
+    estudio: RESONATE-2
+    ref: 'pmid:26639149'
+    tasa_intervencion: '4.0% (5/135)'
+    tasa_control: '1.5% (2/132)'
+    ria: '2.5%'
+    nnh: 40
+    horizonte_nnh: Mediana de 18.4 meses
+    conducta: 'Interrumpir inmediatamente y transfundir plaquetas si sangrado refractario.'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: moderada
+  valores_preferencias: >-
+    Tratamiento oral libre de quimioterapia bien valorado pero con necesidad de
+    administración indefinida y vigilancia de arritmias.
+  equidad: >-
+    Coste continuo muy elevado comparado con pautas de duración fija.
+  aceptabilidad: alta
+  factibilidad: moderada
+
+recomendacion:
+  direccion: a_favor
+  fuerza: condicional
+  enunciado: >-
+    Se sugiere ibrutinib como opción de primera línea en adultos de edad avanzada con LLC,
+    sopesando el perfil de comorbilidad cardiovascular previo.
+  ref: 'pmid:26639149'
+
+conclusion: >-
+  Ibrutinib demostró una prolongación sustancial de la supervivencia libre de progresión
+  y global frente a clorambucilo en primera línea de LLC en pacientes mayores, aunque
+  con un incremento en la incidencia de fibrilación auricular e hipertensión.
+
+refs:
+  - 'pmid:26639149'

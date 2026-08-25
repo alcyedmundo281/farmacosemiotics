@@ -1,0 +1,67 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:26639149"
+clave_bibtex: burger2015
+tipo: eca
+titulo: "Ibrutinib as Initial Therapy for Patients with Chronic Lymphocytic Leukemia"
+autores:
+  - "Burger JA"
+  - "Tedeschi A"
+  - "Barr PM"
+  - "Robak T"
+  - "Owen C"
+  - "Ghia P"
+  - "Bairey O"
+  - "Hillmen P"
+  - "Bartlett NL"
+  - "Li J"
+  - "Simpson D"
+  - "Grosicki S"
+  - "Devereux S"
+  - "McCarthy H"
+  - "Coutre S"
+  - "Quach H"
+  - "Gaidano G"
+  - "Maslyak Z"
+  - "Stevens DA"
+  - "Janssens A"
+  - "Offner F"
+  - "Mayer J"
+  - "O'Dwyer M"
+  - "Hellmann A"
+  - "Schuh A"
+  - "Siddiqi T"
+  - "Polliack A"
+  - "Tam CS"
+  - "Suri D"
+  - "Cheng M"
+  - "Clow F"
+  - "Styles L"
+  - "James DF"
+  - "Kipps TJ"
+  - "RESONATE-2 Investigators"
+publicacion: "N Engl J Med"
+anio: 2015
+volumen: "373"
+numero: "25"
+paginas: "2425-37"
+
+identificadores:
+  pmid: 26639149
+  doi: "10.1056/NEJMoa1509388"
+  pmc: "PMC4722809"
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, N.I.H., Extramural"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-08-24'
+  retractado: false
+  crossref: true

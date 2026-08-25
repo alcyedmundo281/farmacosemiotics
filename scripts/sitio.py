@@ -300,7 +300,17 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
       + "".join('<span class="etiqueta ' + c + '">' + e(t) + "</span>"
                 for c, t in etiquetas) + "</div>")
 
-    if rec.get("enunciado"):
+    dc = reg.get("decision_clinica") or {}
+    if dc.get("perla_prescripcion"):
+        sem = dc.get("semaforo", "verde")
+        clase_sem = "fuerte" if sem == "verde" else ("aviso" if sem == "amarillo" else "peligro")
+        A('<div class="recuadro ' + clase_sem + '"><span class="rotulo">Decisión Clínica · Semáforo '
+          + e(sem.upper()) + "</span><p><strong>Perla de prescripción:</strong> "
+          + e(dc["perla_prescripcion"]) + "</p>"
+          + ('<p style="margin-top:6px;font-size:14px">⚠️ <strong>Alerta:</strong> ' + e(dc["alerta_seguridad_inmediata"]) + "</p>"
+             if dc.get("alerta_seguridad_inmediata") else "")
+          + "</div>")
+    elif rec.get("enunciado"):
         A('<div class="recuadro"><span class="rotulo">Recomendación · '
           + e(eti(rec.get("direccion"))) + " · " + e(eti(rec.get("fuerza")))
           + '</span><p>' + e(rec["enunciado"]) + "</p>"
@@ -324,17 +334,20 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
         A("<h2>Posología</h2>")
         A('<dl class="pares">')
         for k, rot in (("inicio", "Inicio"), ("escalado", "Escalado"),
-                       ("maxima", "Dosis máxima"), ("ajuste_renal", "Función renal")):
+                       ("mantenimiento", "Mantenimiento"), ("maxima", "Dosis máxima"),
+                       ("ajuste_renal", "Función renal")):
             if pos.get(k):
                 A("<dt>" + rot + "</dt><dd>" + e(pos[k]) + "</dd>")
         A("</dl>")
 
     evidencia = reg.get("evidencia") or []
     if evidencia:
+        tiene_nnt = any(x.get("nnt") for x in evidencia)
         A("<h2>Evidencia</h2>")
         A('<div class="tabla-scroll"><table><thead><tr>'
-          "<th>Desenlace</th><th>Efecto</th><th>Diseño</th>"
-          "<th>Certeza</th><th>Fuente</th></tr></thead><tbody>")
+          "<th>Desenlace</th><th>Efecto</th>"
+          + ("<th>NNT</th>" if tiene_nnt else "")
+          + "<th>Diseño</th><th>Certeza</th><th>Fuente</th></tr></thead><tbody>")
         for x in evidencia:
             desc = e(x.get("desenlace"))
             if x.get("criticidad"):
@@ -348,8 +361,17 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
             estudio = e(eti(x.get("diseno")))
             if x.get("estudio"):
                 estudio += '<br><span class="ref">' + e(x["estudio"]) + "</span>"
+            celda_nnt = ""
+            if tiene_nnt:
+                if x.get("nnt"):
+                    celda_nnt = ('<td class="num" style="color:var(--acento);font-weight:bold">'
+                                 + "NNT " + e(x["nnt"])
+                                 + ('<br><span class="ref">' + e(x["horizonte_nnt"]) + "</span>" if x.get("horizonte_nnt") else "")
+                                 + "</td>")
+                else:
+                    celda_nnt = '<td class="num" style="color:var(--suave)">—</td>'
             A("<tr><td>" + desc + '</td><td class="num">' + e(x.get("efecto"))
-              + "</td><td>" + estudio + "</td><td>" + certeza + "</td><td>"
+              + "</td>" + celda_nnt + "<td>" + estudio + "</td><td>" + certeza + "</td><td>"
               + enlace_pubmed(x.get("ref")) + "</td></tr>")
         A("</tbody></table></div>")
         for x in evidencia:
@@ -357,6 +379,26 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
                 A('<div class="recuadro aviso"><span class="rotulo">'
                   + e(x.get("desenlace")) + "</span><p>" + e(x["nota"])
                   + "</p></div>")
+
+    seg_c = reg.get("seguridad_cuantitativa") or []
+    if seg_c:
+        A("<h2>Seguridad Cuantitativa (NNH)</h2>")
+        A('<div class="tabla-scroll"><table><thead><tr>'
+          "<th>Evento Adverso</th><th>Incidencia (I vs C)</th><th>NNH</th>"
+          "<th>Conducta Clínica</th><th>Fuente</th></tr></thead><tbody>")
+        for s in seg_c:
+            t_i = e(s.get("tasa_intervencion", ""))
+            t_c = e(s.get("tasa_control", ""))
+            incid = "I: " + t_i + ("<br>C: " + t_c if t_c else "")
+            nnh_txt = "NNH " + e(s.get("nnh")) if s.get("nnh") else "—"
+            A("<tr><td><strong>" + e(s.get("evento")) + "</strong>"
+              + ('<br><span class="ref">' + e(eti(s.get("gravedad"))) + "</span>" if s.get("gravedad") else "")
+              + '</td><td class="num">' + incid
+              + '</td><td class="num" style="color:var(--alerta);font-weight:bold">' + nnh_txt
+              + ('<br><span class="ref">' + e(s["horizonte_nnh"]) + "</span>" if s.get("horizonte_nnh") else "")
+              + "</td><td>" + e(s.get("conducta", ""))
+              + "</td><td>" + enlace_pubmed(s.get("ref")) + "</td></tr>")
+        A("</tbody></table></div>")
 
     if balance:
         A("<h2>Balance</h2>")

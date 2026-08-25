@@ -335,7 +335,8 @@ def migas(prefijo, actual):
     """El rastro empieza fuera del repositorio, en la comunidad que lo aloja.
     Ese primer enlace es absoluto a propósito: sale del subdirectorio."""
     return ('<nav class="migas"><a href="' + COMUNIDAD + '">Powersemiotics</a> · '
-            '<a href="' + prefijo + 'index.html">Buscar</a> · '
+            '<a href="' + prefijo + 'index.html">Inicio</a> · '
+            '<a href="' + prefijo + 'blog.html">Blog / Revista</a> · '
             '<a href="' + prefijo + 'reto.html">Reto</a> · ' + e(actual) + "</nav>\n")
 
 
@@ -775,16 +776,44 @@ fetch('index.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 """
 
 
-def pagina_buscador(total):
-    return (cabeza("Farmacosemiotics — Revista de Terapéutica Racional", "", None,
+def pagina_blog(total):
+    return (cabeza("Blog Clínico & Revista Editorial — Farmacosemiotics", "", None,
                    "Publicación médica independiente: Fichas de terapéutica racional, balanza NNT/NNH y evidencia GRADE anclada a PubMed.")
+            + '<header class="ghost-header">'
+              '<div class="ghost-brand">'
+                '<h1>Farmacosemiotics — Revista</h1>'
+                '<p>Publicación Editorial de Terapéutica Racional · Balanza NNT/NNH · Trazabilidad PubMed</p>'
+              '</div>'
+              '<nav class="ghost-nav">'
+                '<a href="index.html" class="ghost-nav-link">Inicio</a>'
+                '<a href="blog.html" class="ghost-nav-link active">Blog / Revista</a>'
+                '<a href="reto.html" class="ghost-nav-link">🎯 Reto Clínico</a>'
+                '<a href="' + COMUNIDAD + '" class="ghost-nav-link">Powersemiotics ↗</a>'
+              '</nav>'
+            '</header>\n'
+            + '<div style="margin-bottom: 24px;">'
+              '<input id="q" type="search" autocomplete="off" '
+              'placeholder="Buscar por principio activo, indicación clínica, ATC, o palabra clave…" '
+              'aria-label="Buscar">'
+            '</div>\n'
+            + '<div id="facetas"></div>\n'
+            + '<div id="cuenta" style="font-weight:700;color:var(--suave)">' + str(total) + " publicaciones</div>\n"
+            + '<div id="res" class="ghost-feed"></div>\n'
+            + "<script>" + BUSCADOR_JS + "</script>\n"
+            + pie(""))
+
+
+def pagina_index(total):
+    return (cabeza("Farmacosemiotics — Terapéutica Racional & Evidencia Clínica", "", None,
+                   "Portal principal de Farmacosemiotics: Ecosistema de terapéutica racional, balanza de impacto NNT/NNH y biblioteca clínica.")
             + '<header class="ghost-header">'
               '<div class="ghost-brand">'
                 '<h1>Farmacosemiotics</h1>'
                 '<p>Uso Racional de Medicamentos · Balanza NNT/NNH · Trazabilidad PubMed Central</p>'
               '</div>'
               '<nav class="ghost-nav">'
-                '<a href="index.html" class="ghost-nav-link active">Revista</a>'
+                '<a href="index.html" class="ghost-nav-link active">Inicio</a>'
+                '<a href="blog.html" class="ghost-nav-link">📰 Blog / Revista</a>'
                 '<a href="reto.html" class="ghost-nav-link">🎯 Reto Clínico</a>'
                 '<a href="' + COMUNIDAD + '" class="ghost-nav-link">Powersemiotics ↗</a>'
               '</nav>'
@@ -849,12 +878,18 @@ fetch('reto.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 def pagina_reto():
     return (cabeza("Reto", "", None,
                    "Preguntas derivadas de las fichas, con enlace a la fuente.")
-            + '<nav class="migas"><a href="' + COMUNIDAD + '">Powersemiotics</a>'
-              ' · <a href="index.html">Buscar</a> · Reto</nav>\n'
-            + "<h1>Reto</h1>\n"
-            + '<p class="sub">Las preguntas se derivan de las fichas: ningún '
-              "distractor está inventado. Cada respuesta enlaza con el registro "
-              "que la sostiene.</p>\n"
+            + '<header class="ghost-header">'
+              '<div class="ghost-brand">'
+                '<h1>Reto Clínico</h1>'
+                '<p>Autoevaluación interactiva basada en evidencia de las fichas farmacosemióticas</p>'
+              '</div>'
+              '<nav class="ghost-nav">'
+                '<a href="index.html" class="ghost-nav-link">Inicio</a>'
+                '<a href="blog.html" class="ghost-nav-link">📰 Blog / Revista</a>'
+                '<a href="reto.html" class="ghost-nav-link active">🎯 Reto</a>'
+                '<a href="' + COMUNIDAD + '" class="ghost-nav-link">Powersemiotics ↗</a>'
+              '</nav>'
+            '</header>\n'
             + '<div id="reto"></div>\n'
             + "<script>" + RETO_JS + "</script>\n"
             + pie(""))
@@ -904,7 +939,8 @@ def main():
         n += 1
 
     total = len(estado["farmacos"]) + len(estado["fichas"])
-    (salida / "index.html").write_text(pagina_buscador(total), encoding="utf-8")
+    (salida / "index.html").write_text(pagina_index(total), encoding="utf-8")
+    (salida / "blog.html").write_text(pagina_blog(total), encoding="utf-8")
     (salida / "reto.html").write_text(pagina_reto(), encoding="utf-8")
     (salida / "estilo.css").write_text(CSS, encoding="utf-8")
     (salida / ".nojekyll").write_text("", encoding="utf-8")
@@ -918,7 +954,7 @@ def main():
 
     print("sitio generado en " + args.salida)
     print("  páginas de registro  " + str(n))
-    print("  índice + reto        index.html · reto.html")
+    print("  índice + blog + reto index.html · blog.html · reto.html")
     print("")
     print("Para verlo:  python -m http.server -d " + args.salida + " 8000")
     return 0

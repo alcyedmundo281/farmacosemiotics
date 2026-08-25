@@ -85,6 +85,11 @@ class LasSalidas(unittest.TestCase):
         cls.indice = json.loads(
             (RAIZ / "build" / "index.json").read_text(encoding="utf-8"))
 
+    def test_existen_index_blog_y_reto(self):
+        for pagina in ("index.html", "blog.html", "reto.html"):
+            self.assertTrue((self.sitio / pagina).exists(),
+                            pagina + " debe existir en el sitio generado")
+
     def test_toda_url_del_indice_existe_en_el_sitio(self):
         for r in self.indice["registros"]:
             self.assertTrue((self.sitio / r["url"]).exists(),

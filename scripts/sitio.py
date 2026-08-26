@@ -345,10 +345,96 @@ ul.limpia li:last-child{border-bottom:none}
   font-family:var(--sans);font-weight:600;font-size:14.5px;padding:12px 24px;
   border:none;border-radius:8px;background:var(--acento);color:#fff;cursor:pointer;
 }
+
+.envoltorio.envoltorio-ancho{max-width:1380px}
+
+/* ── 3-Column Layout ── */
+.layout-3col{
+  display:grid;
+  grid-template-columns:260px minmax(0,1fr) 280px;
+  gap:28px;
+  align-items:start;
+  margin-top:16px;
+}
+@media (max-width:1160px){
+  .layout-3col{grid-template-columns:240px minmax(0,1fr)}
+  .panel-der{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+}
+@media (max-width:840px){
+  .layout-3col{grid-template-columns:1fr}
+  .panel-der{display:block}
+}
+
+.panel-card{
+  background:var(--fondo);border:1px solid var(--linea);border-radius:14px;
+  padding:20px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,0.03);
+}
+.panel-title{
+  font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;color:var(--tinta);
+}
+.panel-desc{
+  font-size:12.5px;line-height:1.5;color:var(--suave);margin-bottom:14px;
+}
+.panel-nav{
+  display:flex;flex-direction:column;gap:8px;
+}
+.panel-nav-item{
+  display:block;padding:10px 12px;background:var(--realce);border:1px solid var(--linea-suave);
+  border-radius:10px;text-decoration:none;transition:all .2s ease;
+}
+.panel-nav-item:hover{
+  border-color:var(--acento);transform:translateY(-1px);text-decoration:none;
+}
+.panel-nav-item strong{
+  display:block;font-size:13px;color:var(--tinta);font-weight:700;
+}
+.panel-nav-item span{
+  display:block;font-size:11px;color:var(--suave);margin-top:2px;
+}
+.panel-list{
+  list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--suave);
+}
+.panel-list li{
+  padding-left:14px;position:relative;line-height:1.45;
+}
+.panel-list li::before{
+  content:'•';position:absolute;left:0;color:var(--acento);font-weight:bold;
+}
+.panel-list strong{color:var(--tinta)}
+
+.panel-destacado{
+  background:linear-gradient(135deg,var(--realce) 0%,var(--fondo) 100%);
+  border-color:var(--acento);position:relative;
+}
+.panel-badge{
+  position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;background:var(--acento);color:#fff;padding:2px 8px;border-radius:10px;
+}
+.panel-btn{
+  display:block;text-align:center;background:var(--acento);color:#fff;font-size:13px;font-weight:700;
+  padding:10px 16px;border-radius:10px;text-decoration:none;transition:background .2s ease;
+}
+.panel-btn:hover{background:var(--acento-hover);color:#fff;text-decoration:none}
+
+.panel-links{
+  display:flex;flex-direction:column;gap:6px;font-size:12.5px;
+}
+.panel-link{
+  color:var(--enlace);text-decoration:none;padding:3px 0;
+}
+.panel-link:hover{text-decoration:underline}
+.panel-meta{
+  background:var(--realce);border-color:var(--linea);
+}
+.panel-meta-foot{
+  font-size:11px;color:var(--suave);padding-top:10px;border-top:1px solid var(--linea);margin-top:10px;
+}
+
 """
 
 
-def cabeza(titulo, prefijo, jsonld=None, descripcion=""):
+def cabeza(titulo, prefijo, jsonld=None, descripcion="", ancho_completo=False):
     ld = ""
     if jsonld:
         ld = ('<script type="application/ld+json">'
@@ -364,8 +450,8 @@ def cabeza(titulo, prefijo, jsonld=None, descripcion=""):
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
         "family=Archivo:wght@500;600&family=Literata:ital,wght@0,400;0,600;1,400"
         '&family=IBM+Plex+Mono:wght@400;500&display=swap">\n'
-        '<link rel="stylesheet" href="' + prefijo + 'estilo.css?v=3">\n'
-        + ld + "\n</head>\n<body>\n<div class=\"envoltorio\">\n"
+        '<link rel="stylesheet" href="' + prefijo + 'estilo.css?v=4">\n'
+        + ld + "\n</head>\n<body>\n<div class=\"envoltorio" + (" envoltorio-ancho" if ancho_completo else "") + "\">\n"
         '<header class="ghost-header">\n'
         '  <nav class="ghost-nav-left">\n'
         '    <a href="' + prefijo + 'index.html" class="ghost-nav-item">Home</a>\n'
@@ -875,42 +961,142 @@ fetch('index.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
 
 def pagina_blog(total):
     return (cabeza("Blog Clínico & Revista Editorial — Farmacosemiotics", "", None,
-                   "Publicación médica independiente: Fichas de terapéutica racional, balanza NNT/NNH y evidencia GRADE anclada a PubMed.")
-            + '<section class="ghost-hero">\n'
-            + '  <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
-            + '  <div class="ghost-search-form">\n'
-            + '    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--suave)" stroke-width="2" style="margin-left:14px;flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
-            + '    <input id="q" type="search" class="ghost-search-input" placeholder="Buscar por fármaco, indicación clínica, ATC, o palabra clave..." autocomplete="off" aria-label="Buscar">\n'
-            + '    <button class="ghost-search-submit" onclick="document.getElementById(\'q\').focus()">Buscar</button>\n'
+                   "Publicación médica independiente: Fichas de terapéutica racional, balanza NNT/NNH y evidencia GRADE anclada a PubMed.", ancho_completo=True)
+            + '<div class="layout-3col">\n'
+            + panel_izquierdo()
+            + '<main class="panel-centro">\n'
+            + '  <section class="ghost-hero">\n'
+            + '    <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
+            + '    <div class="ghost-search-form">\n'
+            + '      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--suave)" stroke-width="2" style="margin-left:14px;flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
+            + '      <input id="q" type="search" class="ghost-search-input" placeholder="Buscar por fármaco, indicación clínica, ATC, o palabra clave..." autocomplete="off" aria-label="Buscar">\n'
+            + '      <button class="ghost-search-submit" onclick="document.getElementById(\'q\').focus()">Buscar</button>\n'
+            + '    </div>\n'
+            + '  </section>\n'
+            + '  <div class="ghost-section-header">\n'
+            + '    <span class="ghost-section-title">LATEST</span>\n'
+            + '    <span id="cuenta"></span>\n'
             + '  </div>\n'
-            + '</section>\n'
-            + '<div class="ghost-section-header">\n'
-            + '  <span class="ghost-section-title">LATEST</span>\n'
-            + '  <span id="cuenta"></span>\n'
+            + '  <div id="facetas" style="margin-bottom:24px"></div>\n'
+            + '  <div id="res" class="ghost-post-list"></div>\n'
+            + '</main>\n'
+            + panel_derecho()
             + '</div>\n'
-            + '<div id="facetas" style="margin-bottom:24px"></div>\n'
-            + '<div id="res" class="ghost-post-list"></div>\n'
             + "<script>" + BUSCADOR_JS + "</script>\n"
             + pie(""))
 
 
+
+def panel_izquierdo():
+    return '''<aside class="panel-izq">
+  <div class="panel-card">
+    <h3 class="panel-title"><span>📚</span> Módulos Terapéuticos</h3>
+    <p class="panel-desc">Guías estructuradas por área clínica con algoritmos de escalamiento:</p>
+    <div class="panel-nav">
+      <a href="https://powersemiotics.com/farmacosemiotics/espondilitis_anquilosante/" class="panel-nav-item">
+        <strong>🦴 Reumatología</strong>
+        <span>Espondilitis, Psoriasis & JAKi</span>
+      </a>
+      <a href="javascript:void(0)" onclick="document.getElementById('q').value='insuficiencia cardiaca';document.getElementById('q').dispatchEvent(new Event('input'))" class="panel-nav-item">
+        <strong>🩸 Cardiometabólico</strong>
+        <span>DOACs, IECA, iSGLT2, BCC</span>
+      </a>
+      <a href="javascript:void(0)" onclick="document.getElementById('q').value='antipsicotico';document.getElementById('q').dispatchEvent(new Event('input'))" class="panel-nav-item">
+        <strong>🧠 Psiquiatría & Neuro</strong>
+        <span>Paliperidona LAI, Ofatumumab</span>
+      </a>
+      <a href="javascript:void(0)" onclick="document.getElementById('q').value='inmunoterapia';document.getElementById('q').dispatchEvent(new Event('input'))" class="panel-nav-item">
+        <strong>🎗️ Inmuno-Oncología</strong>
+        <span>Anti-PD-1, BTKi, IMiDs</span>
+      </a>
+      <a href="javascript:void(0)" onclick="document.getElementById('q').value='faricimab';document.getElementById('q').dispatchEvent(new Event('input'))" class="panel-nav-item">
+        <strong>👁️ Oftalmología</strong>
+        <span>Faricimab (Ang-2 / VEGF)</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="panel-card">
+    <h3 class="panel-title"><span>⚖️</span> Decisión Clínica</h3>
+    <ul class="panel-list">
+      <li><strong>Balanza NNT / NNH:</strong> Beneficio-riesgo cuantificado por ficha.</li>
+      <li><strong>Semáforo Racional:</strong> Verde (a favor), Amarillo (condicional), Rojo (desaconsejado).</li>
+      <li><strong>Lista Modelo OMS:</strong> Validación contra el catálogo LME 2025.</li>
+    </ul>
+  </div>
+</aside>
+'''
+
+
+def panel_derecho():
+    return '''<aside class="panel-der">
+  <!-- Reto Clínico -->
+  <div class="panel-card panel-destacado">
+    <div class="panel-badge">Interactivo</div>
+    <h3 class="panel-title"><span>🎯</span> Reto Clínico</h3>
+    <p class="panel-desc">49 preguntas de autoevaluación terapéutica derivadas directamente de las fichas clínicas con retroalimentación GRADE.</p>
+    <a href="reto.html" class="panel-btn">Iniciar Reto Clínico →</a>
+  </div>
+
+  <!-- Repositorio Fármacos Crónicos -->
+  <div class="panel-card">
+    <h3 class="panel-title"><span>💊</span> Medicamentos Crónicos</h3>
+    <p class="panel-desc">Monografías de uso continuado, farmacocinética y farmacoeconomía:</p>
+    <div class="panel-links">
+      <a href="https://powersemiotics.com/farmacosemiotics/medicamentos_cronicos.html" class="panel-link"><strong>Ficha Global de Crónicos →</strong></a>
+      <a href="apixaban.html" class="panel-link">• Apixabán (DOAC)</a>
+      <a href="paliperidona.html" class="panel-link">• Paliperidona LAI</a>
+      <a href="tofacitinib.html" class="panel-link">• Tofacitinib (JAKi)</a>
+      <a href="secukinumab.html" class="panel-link">• Secukinumab (IL-17A)</a>
+      <a href="guselkumab.html" class="panel-link">• Guselkumab (IL-23)</a>
+    </div>
+  </div>
+
+  <!-- Repositorio Terapias Oncológicas -->
+  <div class="panel-card">
+    <h3 class="panel-title"><span>🎗️</span> Terapias Oncológicas</h3>
+    <p class="panel-desc">Evaluación tecnológica, impacto presupuestario e inmunoterapia:</p>
+    <div class="panel-links">
+      <a href="https://powersemiotics.com/farmacosemiotics/medicamentos_oncologicos.html" class="panel-link"><strong>Ficha Global Oncológica →</strong></a>
+      <a href="pembrolizumab.html" class="panel-link">• Pembrolizumab (CPCNP)</a>
+      <a href="nivolumab.html" class="panel-link">• Nivolumab (Melanoma/Renal)</a>
+      <a href="ibrutinib.html" class="panel-link">• Ibrutinib (BTKi)</a>
+      <a href="pomalidomida.html" class="panel-link">• Pomalidomida (Mieloma)</a>
+    </div>
+  </div>
+
+  <!-- Rigor Metodológico -->
+  <div class="panel-card panel-meta">
+    <h3 class="panel-title"><span>🔬</span> Rigor Metodológico</h3>
+    <p class="panel-desc">Evidencia contrastada con PubMed, openFDA y pautas internacionales bajo metodología GRADE.</p>
+    <div class="panel-meta-foot">Contenido bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div>
+  </div>
+</aside>
+'''
+
 def pagina_index(total):
     return (cabeza("Farmacosemiotics — Terapéutica Racional & Evidencia Clínica", "", None,
-                   "Portal principal de Farmacosemiotics: Ecosistema de terapéutica racional, balanza de impacto NNT/NNH y biblioteca clínica.")
-            + '<section class="ghost-hero">\n'
-            + '  <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
-            + '  <div class="ghost-search-form">\n'
-            + '    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--suave)" stroke-width="2" style="margin-left:14px;flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
-            + '    <input id="q" type="search" class="ghost-search-input" placeholder="Buscar por fármaco, indicación clínica, ATC, o palabra clave..." autocomplete="off" aria-label="Buscar">\n'
-            + '    <button class="ghost-search-submit" onclick="document.getElementById(\'q\').focus()">Buscar</button>\n'
+                   "Portal principal de Farmacosemiotics: Ecosistema de terapéutica racional, balanza de impacto NNT/NNH y biblioteca clínica.", ancho_completo=True)
+            + '<div class="layout-3col">\n'
+            + panel_izquierdo()
+            + '<main class="panel-centro">\n'
+            + '  <section class="ghost-hero">\n'
+            + '    <h1 class="ghost-hero-headline">Terapéutica racional para el médico de primer contacto. Una ficha, un NNT/NNH, una decisión — cada semana.</h1>\n'
+            + '    <div class="ghost-search-form">\n'
+            + '      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--suave)" stroke-width="2" style="margin-left:14px;flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>\n'
+            + '      <input id="q" type="search" class="ghost-search-input" placeholder="Buscar por fármaco, indicación clínica, ATC, o palabra clave..." autocomplete="off" aria-label="Buscar">\n'
+            + '      <button class="ghost-search-submit" onclick="document.getElementById(\'q\').focus()">Buscar</button>\n'
+            + '    </div>\n'
+            + '  </section>\n'
+            + '  <div class="ghost-section-header">\n'
+            + '    <span class="ghost-section-title">LATEST</span>\n'
+            + '    <span id="cuenta"></span>\n'
             + '  </div>\n'
-            + '</section>\n'
-            + '<div class="ghost-section-header">\n'
-            + '  <span class="ghost-section-title">LATEST</span>\n'
-            + '  <span id="cuenta"></span>\n'
+            + '  <div id="facetas" style="margin-bottom:24px"></div>\n'
+            + '  <div id="res" class="ghost-post-list"></div>\n'
+            + '</main>\n'
+            + panel_derecho()
             + '</div>\n'
-            + '<div id="facetas" style="margin-bottom:24px"></div>\n'
-            + '<div id="res" class="ghost-post-list"></div>\n'
             + "<script>" + BUSCADOR_JS + "</script>\n"
             + pie(""))
 

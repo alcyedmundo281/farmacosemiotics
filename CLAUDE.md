@@ -13,13 +13,21 @@ de medsemiotics-db —que solo guarda hechos y prohíbe la prosa—, aquí el YA
 *es* el texto completo. Ese es el equivalente a PMC; `build/index.json` es el
 equivalente a PubMed.
 
-Cada entrada de `fichas/` es una guía: no se limita a pesar el NNT frente al
-NNH, sino que responde a lo que el prescriptor tiene delante —qué pido antes de
-la primera dosis, cada cuánto lo repito, qué hago cuando el análisis se tuerce,
-qué le digo a quien quiere quedarse embarazada y de quién es cada acto entre el
-especialista y el médico de seguimiento—. El estándar de forma son las guías de
-las sociedades europeas y británicas (BSR, BAD, EDF/EADV) y la guía CPIC para
-lo farmacogenético.
+El repositorio es un **híbrido de dos partes**, y en ese orden, porque es el de
+la decisión:
+
+**Parte I — Selección** (`selecciones/`). Antes de usar un fármaco hay que
+elegirlo. Un informe por problema de salud compara los candidatos en los
+**cuatro ejes** —eficacia, seguridad, conveniencia y costo— y emite un
+veredicto. El juicio de cada eje es comparativo: superior o inferior *a los
+otros candidatos de esa misma tabla*, nunca en abstracto.
+
+**Parte II — Farmacoterapia** (`farmacoterapia/` y `fichas/`). Elegido el
+fármaco, cómo se usa: qué se pide antes de la primera dosis, cada cuánto se
+repite, qué se hace cuando el análisis se tuerce, qué se le dice a quien quiere
+quedarse embarazada y de quién es cada acto entre el especialista y el médico de
+seguimiento. El estándar de forma son las guías de las sociedades europeas y
+británicas (BSR, BAD, EDF/EADV) y la guía CPIC para lo farmacogenético.
 
 **Una fuente, muchas salidas.** El YAML es la única fuente y es obligatoria.
 De ahí salen `build/index.json`, el sitio, el JATS y —en un solo `.qmd`— el
@@ -57,6 +65,8 @@ farmacosemiotics/
 ├── CLAUDE.md                          ← este archivo
 ├── mapa-maestro-farmacosemiotics.md   ← QUÉ poblar y en qué orden (léelo siempre)
 ├── farmacos/*.yaml                    ← principio activo: identidad, ATC, LME, seguridad
+├── selecciones/*.yaml                 ← PARTE I: qué fármaco gana, por problema de salud
+├── farmacoterapia/*.yaml              ← PARTE II: cómo se usa la molécula (el concepto)
 ├── fichas/*.yaml                      ← fármaco × indicación: Semáforo, NNT, NNH, GRADE
 ├── referencias/*.yaml                 ← artículos con PMID y DOI verificados
 ├── catalogo/lme-oms-2025.yaml         ← la meta de contenido
@@ -79,10 +89,31 @@ El libro se compila en dos pasos y por una razón: `qmd.py` solo necesita Python
 y entra en el pipeline; `epub.py` necesita Quarto instalado y por eso queda
 fuera, para que el pipeline siga corriendo en cualquier máquina.
 
-## El desdoblamiento fármaco / ficha
+## El desdoblamiento: tres respuestas, no dos
 
-Es la decisión de diseño que más se malinterpreta. Antes de añadir un campo,
-pregúntate **si el dato cambia según la indicación**:
+Es la decisión de diseño que más se malinterpreta, y en la que ya se falló una
+vez: la capa de monitorización se escribió dentro de `fichas/` cuando el
+cronograma de TPMT, los umbrales analíticos y el perfil reproductivo **no
+cambian** entre el pénfigo, el lupus y la enfermedad inflamatoria intestinal.
+Son propiedades de la molécula.
+
+Antes de añadir un campo, pregúntate **de qué depende el dato**, y elige entre
+tres respuestas:
+
+| depende de… | va en | vocabulario |
+|---|---|---|
+| la molécula, como identidad | `farmacos/` (`FS:`) | — |
+| la molécula, como uso seguro | `farmacoterapia/` (`FA:`) | el **concepto** |
+| el problema de salud | `selecciones/` (`SEL:`) | el **informe** |
+| el par fármaco × indicación | `fichas/` (`FT:`) | el **signo** |
+
+`FA:` va **1:1 con su `FS:`** y la ficha no lo enlaza: lo deduce de su fármaco,
+porque un enlace que se deduce no puede quedar apuntando a otro sitio. Cuando
+una indicación se aparta en algo del cronograma común, ese poco se declara en
+`variaciones` dentro de la ficha —nunca copiando el apartado entero, que es
+como dos copias acaban divergiendo—.
+
+La tabla de detalle, por si la duda es sobre un campo concreto:
 
 | dato | dónde va | ¿depende de la indicación? |
 |---|---|---|
@@ -94,14 +125,17 @@ pregúntate **si el dato cambia según la indicación**:
 | NNH, toxicidad e incidencia | `fichas/` · `seguridad_cuantitativa` | **sí** |
 | posología y ajuste renal específico | `fichas/` · `posologia` | **sí** |
 | fuerza y dirección de recomendación | `fichas/` · `recomendacion` | **sí** |
-| cribado previo a la primera dosis | `fichas/` · `cribado_basal` | **sí** |
-| dosis según genotipo (TPMT, NUDT15…) | `fichas/` · `farmacogenetica` | **sí** |
-| cronograma de analíticas por fase | `fichas/` · `monitorizacion` | **sí** |
-| punto de corte y conducta ante la anomalía | `fichas/` · `umbrales_accion` | **sí** |
-| interacción que cambia la dosis | `fichas/` · `interacciones` | **sí** |
-| embarazo, lactancia, lavado, anticoncepción | `fichas/` · `reproductivo` | **sí** |
-| reparto especialista / seguimiento | `fichas/` · `atencion_compartida` | **sí** |
+| cribado previo a la primera dosis | `farmacoterapia/` · `cribado_basal` | no |
+| dosis según genotipo (TPMT, NUDT15…) | `farmacoterapia/` · `farmacogenetica` | no |
+| cronograma de analíticas por fase | `farmacoterapia/` · `monitorizacion` | no |
+| punto de corte y conducta ante la anomalía | `farmacoterapia/` · `umbrales_accion` | no |
+| interacción que cambia la dosis | `farmacoterapia/` · `interacciones` | no |
+| embarazo, lactancia, lavado, anticoncepción | `farmacoterapia/` · `reproductivo` | no |
+| reparto especialista / seguimiento | `farmacoterapia/` · `atencion_compartida` | no |
 | línea de tratamiento y desescalamiento | `fichas/` · `posicionamiento` | **sí** |
+| lo que esta indicación cambia del cronograma | `fichas/` · `variaciones` | **sí** |
+| comparación de candidatos en los 4 ejes | `selecciones/` · `candidatos` | por problema |
+| qué eje decidió la elección | `selecciones/` · `criterio_decisorio` | por problema |
 
 Un mismo fármaco tiene tantas fichas como indicaciones evaluadas.
 `FS:0001` (metformina) puede sostener `FT:0001` (DM2) y una futura ficha de
@@ -109,8 +143,10 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
 
 ## Códigos
 
-- **`FS:` y `FT:` son permanentes.** No se renumeran, no se reutilizan, no se
-  reasignan. El índice, el reto y las URL del sitio los citan.
+- **`FS:`, `SEL:`, `FA:` y `FT:` son permanentes.** No se renumeran, no se
+  reutilizan, no se reasignan. El índice, el reto y las URL del sitio los citan.
+  `FA:` comparte número con su `FS:` porque van 1:1 (FS:0009 ↔ FA:0009); los
+  otros dos numeran por su cuenta.
 - Cuatro dígitos, secuenciales por tipo. El nombre del fichero es
   `FS0001-<slug-dci>.yaml` y `FT0001-<slug-farmaco>-<slug-indicacion>.yaml`.
 - Antes de acuñar un código nuevo, **busca si el fármaco ya existe**. Duplicar
@@ -134,7 +170,25 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
 - **Un artículo retractado no sostiene un enunciado.** `pubmed.py` marca
   `retractado: true` y `build.py` lo convierte en error.
 - **Nada de precios en el núcleo.** Si aparece una cifra en dólares dentro de
-  `farmacos/` o `fichas/`, está en el sitio equivocado: va a `costos/`.
+  `farmacos/`, `farmacoterapia/`, `selecciones/` o `fichas/`, está en el sitio
+  equivocado: va a `costos/`. El eje `costo` de un informe de selección emite
+  un **juicio comparativo** —«genérico oral multifuente» frente a «biológico de
+  marca de administración hospitalaria»—, que es internacional y no caduca. Es
+  el único de los cuatro ejes que no exige `ref` a un artículo, porque su
+  sustento es una propiedad del mercado y no un hallazgo publicado.
+- **Los cuatro ejes se responden siempre.** En un informe de selección,
+  eficacia, seguridad, conveniencia y costo van los cuatro para cada candidato,
+  aunque la respuesta sea `juicio: sin_datos`. Callar un eje deja que el lector
+  suponga, y lo que suele suponerse es que era favorable.
+- **Un informe que no selecciona no ha terminado.** Exactamente un candidato
+  queda `seleccionado`; los demás son `alternativa`, `reservado` o
+  `no_seleccionado`. Y hacen falta dos candidatos como mínimo: el juicio de
+  cada eje es comparativo y sin comparación no significa nada.
+- **Todo registro publicable lleva sus metadatos**: `estado`, `fecha`,
+  `actualizado`, `autores` y `licencia`, iguales en las cuatro entidades. Sin
+  fecha no se puede citar, sin autoría no tiene responsable clínico y sin
+  licencia no se puede reutilizar. `actualizado` nunca es anterior a `fecha`:
+  cuando lo es, casi siempre se copió de otra entrada.
 - **Nada de contexto ecuatoriano.** Sin CNMB, sin ARCSA, sin RPIS, sin IESS,
   sin MSP. Ecuador es un overlay de `costos/`, como cualquier otro país.
 - **La certeza GRADE necesita razón.** Una certeza distinta de `alta` sin
@@ -155,23 +209,39 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
 
 ## Flujo para añadir una guía
 
+El orden importa: se elige el fármaco antes de decir cómo se usa.
+
+```bash
+python scripts/nuevo.py seleccion      SEL0002 "Artritis reumatoide"
+python scripts/nuevo.py farmaco        FS0010  "Metotrexato" --atc L04AX03
+python scripts/nuevo.py farmacoterapia FA0010  "metotrexato" --farmaco FS0010
+python scripts/nuevo.py ficha          FT0010  "Metotrexato en artritis reumatoide" --farmaco FS0010
+```
+
 1. **Ubica la indicación en el mapa maestro.** Copia su sección de la LME y su
    oleada.
-2. **Comprueba que el fármaco existe** en `farmacos/`. Si no, créalo primero:
+2. **Escribe primero el informe de selección** (Parte I): los candidatos, los
+   cuatro ejes de cada uno y el veredicto. Si la ficha se escribe antes, la
+   elección del fármaco queda sin justificar y `build.py` lo avisa.
+3. **Comprueba que el fármaco existe** en `farmacos/`. Si no, créalo primero:
    una ficha que apunta a un `FS:` inexistente falla la validación.
-3. **Busca la evidencia y trae las referencias**:
+4. **Escribe la farmacoterapia** (Parte II) en `farmacoterapia/`, una sola vez
+   por molécula: cribado, farmacogenética, cronograma, umbrales, interacciones,
+   reproductivo y atención compartida.
+5. **Busca la evidencia y trae las referencias**:
    `python scripts/pubmed.py <PMID> <PMID> ...`
-4. **Escribe la ficha.** Cada fila de `evidencia` con su `ref`, su `certeza` y,
-   si baja de `alta`, sus `razones_descenso`.
-5. **Refresca el regulatorio**: `python scripts/openfda.py <nombre>`.
-6. **Completa la capa de guía** hasta donde llegue la fuente: `cribado_basal`,
-   `farmacogenetica`, `monitorizacion`, `umbrales_accion`, `interacciones`,
-   `reproductivo`, `atencion_compartida`, `posicionamiento`. Lo que no tenga
-   fuente va a `huecos_declarados`, nunca escrito de memoria.
-7. `python scripts/build.py`. **No continúes con errores.**
-8. `python scripts/pipeline.py` genera índice, reto, sitio y la proyección del
-   libro, y pasa las pruebas de contrato.
-9. `python scripts/epub.py` encuaderna el EPUB, si tienes Quarto instalado.
+6. **Escribe la ficha** (el signo): `seleccion:` apuntando a su `SEL:`, el
+   semáforo, el PICO, la evidencia de ESE desenlace, el `posicionamiento` y el
+   balance. Cada fila de `evidencia` con su `ref`, su `certeza` y, si baja de
+   `alta`, sus `razones_descenso`. Lo que esta indicación cambie del cronograma
+   común va en `variaciones`.
+7. **Refresca el regulatorio**: `python scripts/openfda.py <nombre>`.
+8. Lo que no tenga fuente publicada va a `huecos_declarados`, con su motivo y
+   las `refs` de lo que se consultó sin éxito. Nunca escrito de memoria.
+9. `python scripts/build.py`. **No continúes con errores.**
+10. `python scripts/pipeline.py` genera índice, reto, sitio y la proyección del
+    libro, y pasa las pruebas de contrato.
+11. `python scripts/epub.py` encuaderna el EPUB, si tienes Quarto instalado.
 
 ## Qué NO hacer
 
@@ -183,6 +253,9 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
   `build/quarto/guias-farmacoterapeuticas.qmd`, que parece un documento
   editable y es una salida: corregir ahí una cifra la deja sin arreglar en el
   YAML y sin arreglar en la siguiente compilación.
+- No metas el cronograma, los umbrales ni el reproductivo dentro de una ficha.
+  `build.py` lo rechaza con un error que dice adónde va, porque es el fallo que
+  ya se cometió una vez y duplica el mismo dato en cada indicación.
 - No inventes un punto de corte «porque es el habitual». Un umbral de
   neutrófilos sin PMID es el mismo fallo que un HR sin PMID, y llega más
   directo a una decisión: alguien suspende un fármaco por ese número.

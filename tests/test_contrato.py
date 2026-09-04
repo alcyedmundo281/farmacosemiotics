@@ -141,7 +141,8 @@ class LasSalidas(unittest.TestCase):
         for j in (RAIZ / "build" / "jsonld").glob("*.json"):
             ld = json.loads(j.read_text(encoding="utf-8"))
             self.assertEqual(ld.get("@context"), "https://schema.org", j.name)
-            self.assertIn(ld.get("@type"), ("Drug", "MedicalScholarlyArticle"),
+            self.assertIn(ld.get("@type"),
+                          ("Drug", "MedicalScholarlyArticle", "MedicalGuideline"),
                           j.name)
 
 
@@ -197,15 +198,66 @@ class LaCapaDeGuia(unittest.TestCase):
     def test_el_libro_declara_la_regla_de_oro(self):
         self.assertIn("sin PMID resoluble", self.qmd)
 
-    def test_el_indice_expone_la_capa_de_guia(self):
+    def test_el_indice_expone_las_cuatro_entidades(self):
         indice = json.loads((RAIZ / "build" / "index.json").read_text(
             encoding="utf-8"))
-        guias = [r for r in indice["registros"] if r["tipo"] == "ficha"]
-        self.assertTrue(guias)
-        for g in guias:
-            self.assertIn("gpc", g, g["id"] + " sin la marca `gpc`")
-        for faceta in ("linea", "gestacion", "huecos", "fases_monitorizacion"):
-            self.assertIn(faceta, indice["facetas"])
+        tipos = {r["tipo"] for r in indice["registros"]}
+        for esperado in ("farmaco", "seleccion", "farmacoterapia", "ficha"):
+            self.assertIn(esperado, tipos, "el índice no publica " + esperado)
+        # La capa de guía la lleva la farmacoterapia, que es de la molécula.
+        for r in indice["registros"]:
+            if r["tipo"] == "farmacoterapia":
+                self.assertIn("gpc", r, r["id"] + " sin la marca `gpc`")
+        for faceta in ("linea", "gestacion", "huecos", "fases_monitorizacion",
+                       "seleccionados", "ejes_sin_datos"):
+            self.assertIn(faceta, indice["facetas"], "falta la faceta " + faceta)
+
+    def test_todo_registro_del_indice_trae_sus_metadatos(self):
+        """El buscador filtra por metadatos, así que ningún tipo puede
+        publicarlos a su manera: si uno se queda sin `actualizado`, «lo último
+        que cambió» deja de devolverlo y nadie se entera."""
+        indice = json.loads((RAIZ / "build" / "index.json").read_text(
+            encoding="utf-8"))
+        for r in indice["registros"]:
+            for campo in ("estado", "fecha", "actualizado", "idioma",
+                          "licencia", "autores"):
+                self.assertIn(campo, r, r["id"] + " sin `" + campo + "`")
+
+    def test_la_ficha_hereda_la_capa_de_su_farmacoterapia(self):
+        estado = build.cargar()
+        for ident, reg in estado["fichas"].items():
+            fa = build.farmacoterapia_de(reg.get("farmaco"), estado)
+            if not fa:
+                continue
+            registro = [r for r in json.loads(
+                (RAIZ / "build" / "index.json").read_text(encoding="utf-8")
+            )["registros"] if r["id"] == ident][0]
+            self.assertEqual(registro.get("farmacoterapia"), fa["id"],
+                             ident + " no hereda su farmacoterapia")
+
+    def test_el_informe_de_seleccion_compara_y_decide(self):
+        estado = build.cargar()
+        for ident, reg in estado["selecciones"].items():
+            candidatos = reg.get("candidatos") or []
+            self.assertGreaterEqual(len(candidatos), 2,
+                                    ident + " no compara nada")
+            self.assertEqual(
+                sum(1 for c in candidatos if c.get("veredicto") == "seleccionado"),
+                1, ident + " debe seleccionar exactamente un candidato")
+            for c in candidatos:
+                for eje in build.EJES:
+                    self.assertIn(eje, c, ident + ": " + str(c.get("dci"))
+                                  + " no responde al eje " + eje)
+
+    def test_ningun_precio_en_el_eje_costo(self):
+        """El costo se juzga, no se cifra: la cifra caduca y cruza mal las
+        fronteras. `build.py` lo rechaza, y esta prueba lo deja explícito."""
+        estado = build.cargar()
+        for ident, reg in estado["selecciones"].items():
+            for c in reg.get("candidatos") or []:
+                sustento = str((c.get("costo") or {}).get("sustento") or "")
+                self.assertNotRegex(sustento, build.RE_PRECIO.pattern,
+                                    ident + ": el eje costo lleva una cifra")
 
     def test_un_hueco_declarado_no_tapa_un_apartado_lleno(self):
         estado = build.cargar()
@@ -321,7 +373,10 @@ class ElValidadorFalla(unittest.TestCase):
         self.assertIn("no existe en farmacos/", r.stdout)
 
     # ── La capa de guía: que el validador la vigile de verdad ────────────
-    GPC = "fichas/FT0009-azatioprina-penfigo-vulgar.yaml"
+    # La capa de guía se mudó a farmacoterapia/: es de la molécula, no del
+    # par fármaco × indicación.
+    GPC = "farmacoterapia/FA0009-azatioprina.yaml"
+    SEL = "selecciones/SEL0001-penfigo-vulgar.yaml"
 
     def test_detecta_una_fase_de_monitorizacion_sin_frecuencia(self):
         # Se renombra la clave en vez de recortar el bloque: así el YAML sigue

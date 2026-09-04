@@ -24,9 +24,18 @@ La meta de contenido es la **Lista Modelo de Medicamentos Esenciales de la OMS**
 —24.ª lista, 2025, y la 10.ª LME para niños—. No es un catálogo nacional: es
 internacional por diseño, y lo que depende del país vive en `costos/`, aparte.
 
+## Primero se elige, luego se usa
+
+El repositorio son dos cosas encadenadas en el orden de la decisión. **Parte I:**
+un informe de selección por problema de salud, que compara los candidatos en
+eficacia, seguridad, conveniencia y costo y dice cuál se elige. **Parte II:** la
+farmacoterapia de la molécula elegida —cribado, cronograma, umbrales,
+interacciones, reproductivo, atención compartida—, escrita una sola vez y
+servida a todas sus indicaciones.
+
 ## El libro
 
-Todas las guías se proyectan a **un solo `.qmd`** y de ahí sale un EPUB con
+Las dos partes se proyectan a **un solo `.qmd`** y de ahí sale un EPUB con
 Quarto. Cada cifra viaja con su cita, y cada entrada de la bibliografía lleva
 su PMID, así que el vínculo con PubMed sobrevive a la encuadernación: quien lea
 el libro puede seguir cualquier número hasta el artículo del que sale.
@@ -83,6 +92,8 @@ farmacosemiotics/
 ├── referencias/   pmid-9742977.yaml            verificadas contra PubMed
 ├── catalogo/      lme-oms-2025.yaml            la meta de contenido
 ├── costos/        <pais>.yaml                  overlay opcional, nunca el núcleo
+├── selecciones/   PARTE I: qué fármaco gana, por problema de salud (SEL:)
+├── farmacoterapia/ PARTE II: cómo se usa la molécula (FA:)
 ├── scripts/       build · pubmed · openfda · eml · indice · sitio · reto · qmd · epub
 ├── sitio/         plantillas del frontend
 └── build/         GENERADO — no se versiona

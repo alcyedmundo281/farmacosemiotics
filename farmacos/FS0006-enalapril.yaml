@@ -10,6 +10,19 @@ atc: C09AA02
 clase_farmacologica: Inhibidor de la enzima convertidora de angiotensina (IECA)
 clase_farmacologica_en: Angiotensin-converting enzyme inhibitor (ACEi)
 
+# ── Metadatos editoriales ───────────────────────────────────────────────
+# Las fechas salen del historial del repositorio, no de la memoria de nadie:
+# `fecha` es la del commit que dio de alta el fichero y `actualizado` la del
+# último que lo tocó.
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+
 lme:
   presente: true
   lista: EML

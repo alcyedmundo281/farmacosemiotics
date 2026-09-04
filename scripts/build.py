@@ -30,6 +30,12 @@ RE_ATC = re.compile(r"^[A-Z]\d{2}[A-Z]{2}\d{2}$")
 RE_FECHA = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 RE_ARCHIVO_FS = re.compile(r"^FS(\d{4})-[a-z0-9-]+\.yaml$")
 RE_ARCHIVO_FT = re.compile(r"^FT(\d{4})-[a-z0-9-]+\.yaml$")
+# SEL: el informe de selección, por problema de salud. FA: la farmacoterapia,
+# por molécula. Son permanentes igual que FS y FT.
+RE_SEL = re.compile(r"^SEL:\d{4}$")
+RE_FA = re.compile(r"^FA:\d{4}$")
+RE_ARCHIVO_SEL = re.compile(r"^SEL(\d{4})-[a-z0-9-]+\.yaml$")
+RE_ARCHIVO_FA = re.compile(r"^FA(\d{4})-[a-z0-9-]+\.yaml$")
 
 # Fuentes que NO son artículos y por eso no viven en referencias/. Cada una
 # exige `url` y `consultado` en el bloque donde aparece: un dato regulatorio
@@ -68,6 +74,37 @@ LINEAS = {"primera", "segunda", "tercera", "rescate", "no_recomendada"}
 # Quién responde de cada acto. Es lo que un acuerdo de atención compartida
 # existe para fijar: sin esto, el cribado basal lo acaba pidiendo nadie.
 RESPONSABLES = {"especialista", "seguimiento", "compartida"}
+
+# ── Los cuatro ejes de la selección de medicamentos ──────────────────────
+# Eficacia, seguridad, conveniencia y costo. El orden importa y no es
+# alfabético: es el de la decisión. Un fármaco que no funciona no se salva por
+# ser barato, y uno inseguro no se salva por ser cómodo.
+# Todo lo que puede citar un artículo, y por tanto todo lo que pasa por la
+# regla de oro, por el veto a los precios y por el veto al contexto de un país.
+COLECCIONES_CITABLES = ("farmacos", "farmacoterapias", "selecciones", "fichas")
+
+# ── El contrato de metadatos, igual para las cuatro entidades ────────────
+# Un registro sin fecha no se puede citar, uno sin autoría no tiene
+# responsable clínico y uno sin licencia no se puede reutilizar. Los tres
+# huecos se notan tarde: cuando alguien intenta hacer justo eso.
+#
+# `idioma` tiene defecto porque el repositorio es en español, pero se declara:
+# el día que entre una entrada en otra lengua, el índice y el JATS tienen que
+# poder decirlo sin adivinarlo por el texto.
+METADATOS = ("estado", "fecha", "actualizado", "autores", "licencia")
+IDIOMA_POR_DEFECTO = "es"
+# La etiqueta legible de cada tipo, y de paso la lista cerrada de tipos: un
+# `tipo:` mal escrito manda el registro a la carpeta equivocada del sitio.
+TIPOS = {"farmaco": "principio activo",
+         "farmacoterapia": "farmacoterapia",
+         "seleccion": "informe de selección",
+         "ficha": "guía"}
+
+EJES = ("eficacia", "seguridad", "conveniencia", "costo")
+# El juicio es siempre COMPARATIVO —superior a qué— y por eso el informe
+# necesita más de un candidato para significar algo.
+JUICIOS = {"superior", "equivalente", "inferior", "sin_datos"}
+VEREDICTOS = {"seleccionado", "alternativa", "reservado", "no_seleccionado"}
 # Los apartados que una guía puede declarar pendientes. Un hueco declarado y
 # uno olvidado se leen igual en el documento final, y no son lo mismo: el
 # primero dice que se buscó fuente y no la hubo.
@@ -129,14 +166,28 @@ def refs_de(nodo):
 # ───────────────────────────── carga ─────────────────────────────
 
 def cargar(inf=None):
-    """Lee farmacos/, fichas/, referencias/ y el catálogo. No valida: solo lee."""
+    """Lee las cuatro colecciones y el catálogo. No valida: solo lee.
+
+    El reparto sigue la pregunta del desdoblamiento —¿de qué depende el dato?—
+    y ahora tiene tres respuestas, no dos:
+
+      farmacos/        de la molécula: identidad, ATC, LME, regulatorio
+      farmacoterapia/  de la molécula: cómo se usa con seguridad (el concepto)
+      selecciones/     del problema de salud: qué fármaco gana (el informe)
+      fichas/          del par fármaco × indicación (el signo)
+    """
     inf = inf or Informe()
-    estado = {"farmacos": {}, "fichas": {}, "referencias": {}, "catalogo": None,
+    estado = {"farmacos": {}, "fichas": {}, "referencias": {},
+              "selecciones": {}, "farmacoterapias": {}, "catalogo": None,
               "archivos": {}, "informe": inf}
 
     for carpeta, clave, patron in (("farmacos", "farmacos", RE_ARCHIVO_FS),
+                                   ("farmacoterapia", "farmacoterapias", RE_ARCHIVO_FA),
+                                   ("selecciones", "selecciones", RE_ARCHIVO_SEL),
                                    ("fichas", "fichas", RE_ARCHIVO_FT),
                                    ("referencias", "referencias", None)):
+        if not (RAIZ / carpeta).is_dir():
+            continue
         for ruta in sorted((RAIZ / carpeta).glob("*.yaml")):
             if patron and not patron.match(ruta.name):
                 inf.error(ruta.name, "el nombre del fichero no sigue el patrón "
@@ -168,7 +219,7 @@ def cargar(inf=None):
 
 def regla_de_oro(estado, inf):
     """Ningún enunciado de eficacia o seguridad sin PMID resoluble."""
-    for coleccion in ("farmacos", "fichas"):
+    for coleccion in COLECCIONES_CITABLES:
         for ident, reg in estado[coleccion].items():
             archivo = estado["archivos"][ident]
             for ruta, ref in refs_de(reg):
@@ -281,17 +332,48 @@ def revisar_ficha(ident, reg, archivo, estado, inf):
         inf.error(archivo, "`farmaco: " + str(farmaco) + "` no existe en "
                            "farmacos/. Crea el fármaco antes que la ficha.")
 
-    for campo in ("titulo", "indicacion", "poblacion", "fecha", "conclusion"):
+    # ── Parte I: el informe de selección que sostiene esta ficha ────────
+    seleccion = reg.get("seleccion")
+    if seleccion and seleccion not in estado["selecciones"]:
+        inf.error(archivo, "`seleccion: " + str(seleccion) + "` no existe en "
+                           "selecciones/")
+    elif not seleccion:
+        inf.aviso(archivo, "sin `seleccion`: la guía dice cómo usar el fármaco "
+                           "pero no por qué se eligió ese y no otro")
+
+    # ── Parte II: la farmacoterapia se hereda del fármaco, no se enlaza ──
+    if farmaco and not farmacoterapia_de(farmaco, estado):
+        inf.aviso(archivo, "su fármaco no tiene farmacoterapia en "
+                           "farmacoterapia/: la guía saldrá sin cronograma, "
+                           "sin umbrales y sin seguridad reproductiva")
+
+    # Guardia de migración: estos bloques vivían en la ficha y ahora son del
+    # fármaco. Dejarlos aquí los duplicaría, y dos copias del mismo cronograma
+    # divergen en cuanto alguien corrige una.
+    intrusos = sorted(b for b in BLOQUES_GPC
+                      if b != "posicionamiento" and reg.get(b))
+    if intrusos:
+        inf.error(archivo, "lleva " + ", ".join("`" + b + "`" for b in intrusos)
+                  + ": eso no depende de la indicación y va en "
+                    "farmacoterapia/, no en la ficha. `posicionamiento` sí se "
+                    "queda, porque la línea de tratamiento sí cambia con el "
+                    "problema de salud.")
+
+    # `variaciones`: lo poco que esta indicación cambia de la farmacoterapia
+    # base. Es el caso de una molécula que sirve a varias indicaciones.
+    for i, v in enumerate(reg.get("variaciones") or []):
+        eti = "variaciones[" + str(i) + "]"
+        if not isinstance(v, dict):
+            inf.error(archivo, eti + " debería ser un bloque con `bloque`")
+            continue
+        if v.get("bloque") not in BLOQUES_GPC:
+            inf.error(archivo, eti + " `bloque: " + str(v.get("bloque"))
+                      + "` no es un apartado de la farmacoterapia")
+        _exige(inf, archivo, eti, v, ("cambio", "ref"))
+
+    for campo in ("titulo", "indicacion", "poblacion", "conclusion"):
         if not reg.get(campo):
             inf.error(archivo, "falta `" + campo + "`")
-
-    if reg.get("estado") not in ESTADOS:
-        inf.error(archivo, "`estado` debe ser uno de " + ", ".join(sorted(ESTADOS)))
-
-    for campo in ("fecha", "actualizado"):
-        v = reg.get(campo)
-        if v and not RE_FECHA.match(str(v)):
-            inf.error(archivo, "`" + campo + "` debe ser YYYY-MM-DD")
 
     pico = reg.get("pico") or {}
     faltan = [k for k in ("p", "i", "c", "o") if not pico.get(k)]
@@ -594,6 +676,167 @@ def es_gpc(reg):
     return bool(reg.get("monitorizacion")) and bool(reg.get("umbrales_accion"))
 
 
+# ───────────── PARTE I: el informe de selección (por indicación) ─────────────
+# Un fármaco no se elige porque funcione, sino porque funciona mejor que las
+# alternativas en el balance de los cuatro ejes. Ese juicio depende del
+# problema de salud y no de la molécula, y por eso vive aquí y no en
+# `farmacos/`: la misma azatioprina gana en una indicación y pierde en otra.
+
+def revisar_metadatos(ident, reg, archivo, tipo_esperado, inf):
+    """Lo que todo registro publicable necesita, sea del tipo que sea."""
+    if reg.get("tipo") != tipo_esperado:
+        inf.error(archivo, "`tipo: " + str(reg.get("tipo")) + "` no concuerda "
+                  "con la carpeta: aquí van registros `" + tipo_esperado + "`")
+
+    for campo in METADATOS:
+        if not reg.get(campo):
+            inf.error(archivo, "falta `" + campo + "`: sin él el registro no "
+                      "se puede " + {"estado": "situar en el flujo editorial",
+                                     "fecha": "citar",
+                                     "actualizado": "comparar con su versión previa",
+                                     "autores": "atribuir a un responsable clínico",
+                                     "licencia": "reutilizar"}[campo])
+
+    if reg.get("estado") and reg["estado"] not in ESTADOS:
+        inf.error(archivo, "`estado` debe ser uno de " + ", ".join(sorted(ESTADOS)))
+
+    fechas = {}
+    for campo in ("fecha", "actualizado"):
+        v = reg.get(campo)
+        if v is None:
+            continue
+        if not RE_FECHA.match(str(v)):
+            inf.error(archivo, "`" + campo + "` debe ser YYYY-MM-DD")
+        else:
+            fechas[campo] = str(v)
+    # Una fecha de actualización anterior a la de creación es casi siempre un
+    # copiar y pegar de otra entrada, y falsea el orden del índice.
+    if len(fechas) == 2 and fechas["actualizado"] < fechas["fecha"]:
+        inf.error(archivo, "`actualizado` (" + fechas["actualizado"] + ") es "
+                  "anterior a `fecha` (" + fechas["fecha"] + ")")
+
+    autores = reg.get("autores")
+    if autores is not None:
+        if not isinstance(autores, list):
+            inf.error(archivo, "`autores` debe ser una lista")
+        else:
+            for i, a in enumerate(autores):
+                if not isinstance(a, dict) or not a.get("nombre"):
+                    inf.error(archivo, "autores[" + str(i) + "] sin `nombre`")
+
+    idioma = reg.get("idioma", IDIOMA_POR_DEFECTO)
+    if not isinstance(idioma, str) or len(idioma) not in (2, 5):
+        inf.error(archivo, "`idioma: " + str(idioma) + "` debería ser un "
+                           "código ISO 639-1 como `es` o `es-EC`")
+
+
+def revisar_seleccion(ident, reg, archivo, inf):
+    if not RE_SEL.match(str(ident)):
+        inf.error(archivo, "el id `" + str(ident) + "` no tiene la forma SEL:NNNN")
+    m = RE_ARCHIVO_SEL.match(archivo)
+    if m and str(ident) != "SEL:" + m.group(1):
+        inf.error(archivo, "el id no concuerda con el número del fichero")
+
+    for campo in ("problema", "pregunta", "conclusion"):
+        if not reg.get(campo):
+            inf.error(archivo, "falta `" + campo + "`")
+
+    candidatos = reg.get("candidatos") or []
+    if len(candidatos) < 2:
+        inf.error(archivo, "un informe de selección con menos de dos "
+                           "candidatos no compara nada: el juicio de cada eje "
+                           "es comparativo y necesita contra qué")
+
+    seleccionados = 0
+    for i, c in enumerate(candidatos):
+        eti = "candidatos[" + str(i) + "]"
+        if not isinstance(c, dict):
+            inf.error(archivo, eti + " debería ser un bloque con `dci`")
+            continue
+        if not c.get("dci"):
+            inf.error(archivo, eti + " sin `dci`")
+        atc = c.get("atc")
+        if atc and not RE_ATC.match(str(atc)):
+            inf.error(archivo, eti + " `atc: " + str(atc) + "` no es un código "
+                                     "ATC de 7 caracteres")
+
+        _en(inf, archivo, eti, c, "veredicto", VEREDICTOS, obligatorio=True)
+        if c.get("veredicto") == "seleccionado":
+            seleccionados += 1
+
+        # Los cuatro ejes: ninguno es opcional. Callar uno es dejar que el
+        # lector suponga, y lo que suele suponerse es que era favorable.
+        for eje in EJES:
+            bloque = c.get(eje)
+            eti_e = eti + "." + eje
+            if bloque is None:
+                inf.error(archivo, eti_e + " no está: los cuatro ejes se "
+                          "responden siempre, aunque la respuesta sea "
+                          "`juicio: sin_datos`")
+                continue
+            if not isinstance(bloque, dict):
+                inf.error(archivo, eti_e + " debería ser un bloque con `juicio`")
+                continue
+            _en(inf, archivo, eti_e, bloque, "juicio", JUICIOS, obligatorio=True)
+            if not bloque.get("sustento"):
+                inf.error(archivo, eti_e + " sin `sustento`: un juicio sin "
+                                           "argumento no se puede discutir")
+            # El costo es el único eje que no exige `ref` a un artículo: su
+            # sustento es una propiedad del mercado (genérico multifuente,
+            # biológico de marca), no un hallazgo publicado. Las cifras viven
+            # en costos/ y no aquí.
+            if eje != "costo" and bloque.get("juicio") != "sin_datos" \
+                    and not bloque.get("ref"):
+                inf.error(archivo, eti_e + " sin `ref`")
+
+    if candidatos and not seleccionados:
+        inf.error(archivo, "ningún candidato queda `seleccionado`: un informe "
+                           "de selección que no selecciona no ha terminado")
+    if seleccionados > 1:
+        inf.aviso(archivo, str(seleccionados) + " candidatos `seleccionado`: "
+                  "si de verdad empatan, conviene decirlo en `criterio_decisorio`")
+
+
+# ──────── PARTE II: la farmacoterapia (por molécula, es el concepto) ────────
+# El cronograma de TPMT, el reproductivo y los umbrales analíticos no cambian
+# entre el pénfigo y el lupus: son propiedades de la molécula. Por eso la
+# farmacoterapia se escribe una vez por fármaco y la sirven todas sus
+# indicaciones, que declaran en `variaciones` lo poco que difiera.
+
+def revisar_farmacoterapia(ident, reg, archivo, estado, inf):
+    if not RE_FA.match(str(ident)):
+        inf.error(archivo, "el id `" + str(ident) + "` no tiene la forma FA:NNNN")
+    m = RE_ARCHIVO_FA.match(archivo)
+    if m and str(ident) != "FA:" + m.group(1):
+        inf.error(archivo, "el id no concuerda con el número del fichero")
+
+    farmaco = reg.get("farmaco")
+    if not farmaco:
+        inf.error(archivo, "falta `farmaco`")
+    elif farmaco not in estado["farmacos"]:
+        inf.error(archivo, "`farmaco: " + str(farmaco) + "` no existe en "
+                           "farmacos/. Crea el fármaco antes que su "
+                           "farmacoterapia.")
+
+    for campo in ("titulo", "alcance"):
+        if not reg.get(campo):
+            inf.error(archivo, "falta `" + campo + "`")
+
+    # Los ocho apartados y sus huecos declarados se validan igual que antes:
+    # lo que cambió es dónde viven, no qué se les exige.
+    revisar_gpc(ident, reg, archivo, inf)
+
+
+def farmacoterapia_de(farmaco, estado):
+    """La farmacoterapia de un fármaco, o None. Es 1:1, así que la ficha no
+    necesita enlazarla: se deduce, y un enlace que se deduce no puede quedar
+    apuntando a otro sitio tras un renombrado."""
+    for reg in estado["farmacoterapias"].values():
+        if reg.get("farmaco") == farmaco:
+            return reg
+    return None
+
+
 def secciones_catalogo(estado):
     cat = estado.get("catalogo") or {}
     return {str(s.get("numero")) for s in cat.get("secciones", [])}
@@ -601,7 +844,7 @@ def secciones_catalogo(estado):
 
 def revisar_higiene(estado, inf):
     """Lo que delata que un registro se salió del contrato del repositorio."""
-    for coleccion in ("farmacos", "fichas"):
+    for coleccion in COLECCIONES_CITABLES:
         for ident, reg in estado[coleccion].items():
             archivo = estado["archivos"][ident]
             for ruta, valor in recorrer(reg):
@@ -620,7 +863,7 @@ def revisar_higiene(estado, inf):
 
 def revisar_huerfanos(estado, inf):
     citadas = set()
-    for coleccion in ("farmacos", "fichas"):
+    for coleccion in COLECCIONES_CITABLES:
         for reg in estado[coleccion].values():
             for _, ref in refs_de(reg):
                 citadas.add(ref)
@@ -629,7 +872,7 @@ def revisar_huerfanos(estado, inf):
             inf.aviso(estado["archivos"][ident],
                       "referencia que no cita nadie todavía")
 
-    for ident, reg in estado["fichas"].items():
+    for ident, reg in estado["farmacoterapias"].items():
         if not es_gpc(reg):
             declarados = huecos_de(reg)
             falta = [n for n, k in (("cronograma de monitorización", "monitorizacion"),
@@ -637,8 +880,15 @@ def revisar_huerfanos(estado, inf):
                      if not reg.get(k) and k not in declarados]
             if falta:
                 inf.aviso(estado["archivos"][ident],
-                          "todavía no responde como guía de práctica clínica: "
-                          "le falta " + " y ".join(falta))
+                          "la farmacoterapia todavía no está completa: le "
+                          "falta " + " y ".join(falta))
+
+    con_fa = {f.get("farmaco") for f in estado["farmacoterapias"].values()}
+    for ident in estado["farmacos"]:
+        if ident not in con_fa:
+            inf.aviso(estado["archivos"][ident],
+                      "fármaco sin farmacoterapia: nadie ha escrito todavía "
+                      "cómo se usa con seguridad")
 
     con_ficha = {f.get("farmaco") for f in estado["fichas"].values()}
     for ident in estado["farmacos"]:
@@ -662,24 +912,41 @@ def main():
         revisar_referencia(ident, reg, estado["archivos"][ident], inf)
     for ident, reg in estado["farmacos"].items():
         revisar_farmaco(ident, reg, estado["archivos"][ident], estado, inf)
+    # El contrato de metadatos primero y para todos: si falla, lo demás se
+    # valida igual, pero el informe deja claro que el fallo es editorial y no
+    # clínico.
+    for coleccion, tipo in (("farmacos", "farmaco"),
+                            ("farmacoterapias", "farmacoterapia"),
+                            ("selecciones", "seleccion"),
+                            ("fichas", "ficha")):
+        for ident, reg in estado[coleccion].items():
+            revisar_metadatos(ident, reg, estado["archivos"][ident], tipo, inf)
+
+    for ident, reg in estado["selecciones"].items():
+        revisar_seleccion(ident, reg, estado["archivos"][ident], inf)
+    for ident, reg in estado["farmacoterapias"].items():
+        revisar_farmacoterapia(ident, reg, estado["archivos"][ident], estado, inf)
     for ident, reg in estado["fichas"].items():
         revisar_ficha(ident, reg, estado["archivos"][ident], estado, inf)
-        revisar_gpc(ident, reg, estado["archivos"][ident], inf)
 
     regla_de_oro(estado, inf)
     revisar_higiene(estado, inf)
     revisar_huerfanos(estado, inf)
 
-    completas = [i for i, r in estado["fichas"].items() if es_gpc(r)]
-    declarados = [i for i, r in estado["fichas"].items()
-                  if not es_gpc(r) and huecos_de(r)]
+    fa = estado["farmacoterapias"]
+    completas = [i for i, r in fa.items() if es_gpc(r)]
+    declarados = [i for i, r in fa.items() if not es_gpc(r) and huecos_de(r)]
 
     print("farmacosemiotics — validación")
-    print("  fármacos      " + str(len(estado["farmacos"])))
-    print("  guías         " + str(len(estado["fichas"]))
-          + "   (" + str(len(completas)) + " completas, "
-          + str(len(declarados)) + " con huecos declarados)")
-    print("  referencias   " + str(len(estado["referencias"])))
+    print("  fármacos          " + str(len(estado["farmacos"])))
+    print("  selecciones       " + str(len(estado["selecciones"]))
+          + "   parte I: qué fármaco gana, por problema de salud")
+    print("  farmacoterapias   " + str(len(fa))
+          + "   parte II: " + str(len(completas)) + " completas, "
+          + str(len(declarados)) + " con huecos declarados")
+    print("  guías             " + str(len(estado["fichas"]))
+          + "   fármaco × indicación")
+    print("  referencias       " + str(len(estado["referencias"])))
     print("")
 
     if inf.errores:

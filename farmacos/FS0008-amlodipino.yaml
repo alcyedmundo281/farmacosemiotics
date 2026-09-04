@@ -10,6 +10,19 @@ atc: C08CA01
 clase_farmacologica: Antagonista de los canales de calcio dihidropiridínico
 clase_farmacologica_en: Dihydropyridine calcium channel blocker (DHP-CCB)
 
+# ── Metadatos editoriales ───────────────────────────────────────────────
+# Las fechas salen del historial del repositorio, no de la memoria de nadie:
+# `fecha` es la del commit que dio de alta el fichero y `actualizado` la del
+# último que lo tocó.
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+
 lme:
   presente: true
   lista: EML

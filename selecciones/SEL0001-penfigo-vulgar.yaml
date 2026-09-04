@@ -1,0 +1,216 @@
+# PARTE I — Informe de selección del medicamento.
+#
+# Es el **informe**, y va por problema de salud, no por fármaco: la pregunta
+# que responde es «de todos los candidatos, ¿cuál se elige para tratar esto?»,
+# y esa pregunta solo tiene sentido comparando. Por eso el esquema exige dos
+# candidatos como mínimo y un juicio en los cuatro ejes para cada uno.
+#
+# Los cuatro ejes van en el orden de la decisión, no en orden alfabético: un
+# fármaco que no funciona no se salva por ser barato, y uno inseguro no se
+# salva por ser cómodo.
+#
+# El juicio de cada eje es COMPARATIVO —superior, equivalente o inferior *a
+# los otros candidatos de esta misma tabla*— y lleva su sustento y su PMID.
+# `sin_datos` es una respuesta legítima y frecuente en una enfermedad rara: el
+# hueco se declara, no se rellena con lo verosímil.
+#
+# El eje `costo` es el único sin `ref` a un artículo. Su sustento es una
+# propiedad del mercado —genérico oral multifuente frente a biológico de marca
+# de administración hospitalaria—, que es internacional y no caduca. Las cifras
+# en moneda viven en costos/<pais>.yaml y nunca aquí: un precio dentro del
+# núcleo vuelve el informe falso en cuanto cruza una frontera.
+
+id: 'SEL:0001'
+tipo: seleccion
+problema: Pénfigo vulgar
+problema_en: Pemphigus vulgaris
+cie11: EB40
+
+poblacion: >-
+  Personas adultas con pénfigo vulgar confirmado que requieren tratamiento
+  sistémico, con especial atención a la enfermedad moderada y grave, que es
+  donde el posicionamiento cambió en la última década.
+
+pregunta: >-
+  En el adulto con pénfigo vulgar que requiere tratamiento sistémico, ¿qué
+  inmunosupresor se selecciona como tratamiento de elección, y cuáles quedan
+  como alternativa, según eficacia, seguridad, conveniencia y costo?
+
+estado: borrador
+fecha: '2026-09-04'
+actualizado: '2026-09-04'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Antes de la era del tratamiento inmunosupresor el pronóstico del pénfigo era
+  casi siempre mortal. Esa es la razón de que exista un consenso europeo y de
+  que se elaborara pese a disponerse de pocos ensayos prospectivos
+  controlados: la rareza de la enfermedad no exime de tener que decidir.
+
+estrategia:
+  - base: PubMed
+    consulta: 'pemphigus[MeSH] AND (guideline[pt] OR practice guideline[pt])'
+    fecha: '2026-09-04'
+    nota: >-
+      La comparación se ancla en los dos consensos europeos del pénfigo, en la
+      guía CPIC de tiopurinas para lo que la azatioprina exige antes de la
+      primera dosis, y en la guía de la BSR de embarazo y lactancia para el
+      perfil reproductivo de los tres candidatos.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+candidatos:
+  - dci: Rituximab
+    atc: L01FA01
+    clase: Anticuerpo monoclonal anti-CD20
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Es el único de los tres que llegó a aprobarse como tratamiento de
+        primera línea del pénfigo vulgar moderado y grave, y lo hizo tanto en
+        Europa como en Estados Unidos. Ese cambio regulatorio es el que
+        reordenó el escalón terapéutico en la actualización de 2020.
+      ref: 'pmid:32830877'
+    seguridad:
+      juicio: sin_datos
+      sustento: >-
+        No se localizó, entre las fuentes accesibles para este informe, una
+        comparación directa de seguridad frente a los otros dos candidatos en
+        esta indicación. Declararlo es más útil que suponerla equivalente: el
+        eje queda abierto y señalado.
+      ref: 'pmid:32830877'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Anticuerpo monoclonal de administración parenteral en medio
+        hospitalario, frente a dos comparadores orales. En planificación
+        reproductiva obliga a considerar la suspensión en el momento de la
+        concepción, mientras que la azatioprina no exige ninguna maniobra
+        previa.
+      ref: 'pmid:36318966'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Biológico de marca con administración hospitalaria: al precio del
+        fármaco se suma el del acto de infusión y el de la vigilancia
+        asociada. Es el candidato más caro de los tres por un margen que no
+        depende del país, aunque su magnitud sí.
+    veredicto: seleccionado
+    nota: >-
+      Seleccionado para la enfermedad moderada y grave, que es la población en
+      la que se aprobó. Fuera de ella el informe no lo respalda: la aprobación
+      acota la indicación, no la amplía.
+
+  - dci: Azatioprina
+    atc: L04AX01
+    farmaco: 'FS:0009'
+    clase: Tiopurina inmunosupresora
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Conserva su papel de inmunosupresor adyuvante ahorrador de corticoide,
+        pero dejó de encabezar el escalón cuando el rituximab se aprobó en
+        primera línea para la enfermedad moderada y grave. La base de ensayos
+        controlados es escasa para los tres candidatos, y eso limita cuánto
+        puede afirmarse de esta comparación.
+      ref: 'pmid:32830877'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Su daño principal —la mielosupresión— es grave pero predecible y
+        mitigable antes de exponer al paciente: el genotipado de TPMT y NUDT15
+        identifica de antemano a quien no tolerará la dosis convencional. Un
+        riesgo que se puede anticipar con una prueba no pesa igual que uno que
+        solo se detecta cuando ya ocurrió.
+      ref: 'pmid:30447069'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Oral, y el único de los tres compatible durante todo el embarazo y con
+        la lactancia sin maniobra previa alguna. Su exigencia es el genotipado
+        antes de la primera dosis, que es un requisito de una sola vez frente
+        a la carga recurrente de la infusión hospitalaria.
+      ref: 'pmid:36318966'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente, de administración domiciliaria. El coste
+        añadido que sí tiene es el genotipado previo, que es único por
+        paciente y no recurrente.
+    veredicto: alternativa
+    nota: >-
+      Alternativa de elección cuando el rituximab no procede por gravedad, no
+      está disponible, o el perfil reproductivo de la paciente lo desaconseja.
+
+  - dci: Micofenolato de mofetilo
+    atc: L04AA06
+    clase: Inhibidor de la inosina monofosfato deshidrogenasa
+    eficacia:
+      juicio: sin_datos
+      sustento: >-
+        No se localizó, entre las fuentes accesibles para este informe, una
+        comparación directa de eficacia frente a los otros dos candidatos en
+        esta indicación. Figura como adyuvante en el consenso, pero el consenso
+        no ordena los adyuvantes entre sí.
+      ref: 'pmid:32830877'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Es el único de los tres desaconsejado en el embarazo y que exige
+        suspenderlo al menos seis semanas antes de concebir. En una enfermedad
+        que afecta a adultos en edad fértil, ese perfil no es un detalle de
+        ficha técnica: condiciona a quién puede prescribírsele.
+      ref: 'pmid:36318966'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Oral, como la azatioprina, pero con una carga de planificación que
+        aquella no impone: anticoncepción durante el tratamiento y ventana de
+        lavado de seis semanas antes de cualquier gestación buscada.
+      ref: 'pmid:36318966'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Oral y con presentaciones genéricas disponibles, en el mismo orden de
+        magnitud que la azatioprina y muy por debajo del biológico.
+    veredicto: alternativa
+    nota: >-
+      Alternativa oral cuando la azatioprina no es viable —intolerancia,
+      metabolizador lento de TPMT o NUDT15— y no hay deseo gestacional.
+
+# ── Qué eje decidió ─────────────────────────────────────────────────────
+criterio_decisorio: >-
+  Decidió la eficacia, y de forma poco habitual: no por una comparación
+  cabeza a cabeza, que no existe con la solidez que haría falta, sino por el
+  hecho regulatorio de que el rituximab es el único que alcanzó la aprobación
+  en primera línea para la enfermedad moderada y grave. Los otros tres ejes
+  van en su contra —es el menos conveniente y el más caro, y su seguridad
+  comparada queda sin datos— y aun así no bastan para desplazarlo en esa
+  población, porque la enfermedad no tratada era casi siempre mortal y el
+  margen de eficacia manda cuando ese es el desenlace.
+
+  Fuera de la enfermedad moderada y grave el orden se invierte: ahí la
+  azatioprina gana en conveniencia y en costo sin ceder en seguridad, y es la
+  que el informe respalda.
+
+conclusion: >-
+  Para el pénfigo vulgar moderado y grave se selecciona el rituximab, único
+  candidato con aprobación en primera línea en Europa y Estados Unidos, pese a
+  ser el menos conveniente y el más costoso de los tres. La azatioprina queda
+  como alternativa de elección —oral, genérica y la única compatible con el
+  embarazo y la lactancia sin maniobra previa—, con la condición de genotipar
+  TPMT y NUDT15 antes de la primera dosis. El micofenolato de mofetilo queda
+  como segunda alternativa oral, descartado de entrada en quien busque
+  gestación por exigir seis semanas de lavado previo.
+
+  El informe declara dos huecos que conviene no disimular: la seguridad
+  comparada del rituximab y la eficacia comparada del micofenolato quedaron
+  sin datos entre las fuentes accesibles. En una enfermedad rara, con pocos
+  ensayos controlados, ese es el estado real de la evidencia y no una omisión.
+
+refs:
+  - 'pmid:32830877'
+  - 'pmid:25338479'
+  - 'pmid:30447069'
+  - 'pmid:36318966'

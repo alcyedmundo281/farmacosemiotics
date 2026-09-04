@@ -13,7 +13,7 @@ pudiera arreglar lo que valida, nadie sabría qué se arregló.
 |---|---|---|
 | `pipeline.py` | **orquestador unificado y benchmark de alto rendimiento** | `build/` |
 | `nnt.py` | calculadora epidemiológica y auditor matemático de NNT/NNH | **no** |
-| `nuevo.py` | crea plantillas estandarizadas de fármaco o ficha con NNT/NNH y semáforo | `farmacos/`, `fichas/` |
+| `nuevo.py` | plantillas de fármaco, selección, farmacoterapia o guía | `farmacos/`, `selecciones/`, `farmacoterapia/`, `fichas/` |
 | `pubmed.py` | trae una referencia por PMID y la verifica contra PubMed | `referencias/` |
 | `openfda.py` | arma el bloque regulatorio desde openFDA | imprime; pega una persona |
 | `build.py` | valida todo y dice qué falta | **no** |

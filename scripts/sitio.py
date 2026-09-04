@@ -34,7 +34,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).parent))
 
-from build import cargar, RAIZ  # noqa: E402
+from build import cargar, RAIZ, EJES, farmacoterapia_de  # noqa: E402
 import indice as mod_indice  # noqa: E402
 
 AVISO = ("Material educativo. No sustituye el juicio clínico ni la ficha "
@@ -737,7 +737,7 @@ def bloque_posicionamiento(reg):
     return "".join(partes)
 
 
-def bloque_huecos(reg):
+def bloque_huecos(reg, que="esta guía"):
     """Un apartado ausente porque no se encontró fuente no es lo mismo que uno
     olvidado, y el lector no puede distinguirlos si no se le dice."""
     huecos = [h for h in reg.get("huecos_declarados") or [] if isinstance(h, dict)]
@@ -751,9 +751,28 @@ def bloque_huecos(reg):
         if h.get("buscado_en"):
             texto += ' <span class="ref">Se buscó en: ' + e(h["buscado_en"]) + "</span>"
         puntos.append("<li>" + texto + "</li>")
-    return ("<h2>Lo que esta guía todavía no cubre</h2>"
+    return ("<h2>Lo que " + que + " todavía no cubre</h2>"
             '<div class="recuadro aviso"><span class="rotulo">Huecos '
             "declarados</span><ul>" + "".join(puntos) + "</ul></div>")
+
+
+def bloque_variaciones(reg):
+    """Lo que esta indicación se aparta del cronograma común. Va junto a la
+    farmacoterapia y no en su lugar: se lee la base y luego la desviación."""
+    filas = []
+    for v in reg.get("variaciones") or []:
+        if not isinstance(v, dict):
+            continue
+        cambio = e(v.get("cambio"))
+        if v.get("ref"):
+            cambio += '<br><span class="ref">' + enlace_pubmed(v["ref"]) + "</span>"
+        filas.append(("<strong>"
+                      + e(BLOQUE_ROTULO.get(v.get("bloque"), v.get("bloque") or ""))
+                      + "</strong>", cambio))
+    if not filas:
+        return ""
+    return ("<h2>En qué se aparta esta indicación</h2>"
+            + tabla_gpc(["Apartado", "Cambio"], filas))
 
 
 def capa_gpc_html(reg):
@@ -764,7 +783,8 @@ def capa_gpc_html(reg):
         bloque_reproductivo, bloque_atencion_compartida))
 
 
-def pagina_ficha(reg, farmaco, referencias, jsonld):
+def pagina_ficha(reg, farmaco, referencias, jsonld, fa=None,
+                 seleccion=None):
     P = []
     A = P.append
     rec = reg.get("recomendacion") or {}
@@ -855,7 +875,32 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
                 A("<dt>" + rot + "</dt><dd>" + e(pos[k]) + "</dd>")
         A("</dl>")
 
+    # Parte I: por qué este fármaco. El enlace va arriba del todo de la
+    # sección clínica, porque es la pregunta que se responde antes.
+    if seleccion:
+        A('<div class="recuadro"><span class="rotulo">Parte I · Selección'
+          '</span><p>Este fármaco se eligió para <strong>'
+          + e(seleccion.get("problema")) + '</strong> frente a '
+          + str(len(seleccion.get("candidatos") or [])) + ' candidatos, '
+          'comparados en eficacia, seguridad, conveniencia y costo. '
+          '<a href="../' + e(mod_indice.ruta_relativa(seleccion))
+          + '">Leer el informe de selección</a>.</p></div>')
+
     A(capa_gpc_html(reg))
+
+    # Parte II: la farmacoterapia es de la molécula y la sirven todas sus
+    # indicaciones. Se muestra entera aquí para que la guía se lea de un tirón,
+    # pero se dice de dónde viene: la fuente es una y está en otro sitio.
+    if fa:
+        A('<div class="recuadro"><span class="rotulo">Parte II · '
+          'Farmacoterapia</span><p>Lo que sigue es la farmacoterapia de '
+          '<strong>' + e((farmaco or {}).get("dci")) + '</strong> y vale para '
+          'todas sus indicaciones, no solo para esta. '
+          '<a href="../' + e(mod_indice.ruta_relativa(fa))
+          + '">Verla como documento propio</a>.</p></div>')
+        A(capa_gpc_html(fa))
+        A(bloque_variaciones(reg))
+        A(bloque_huecos(fa, "esta farmacoterapia"))
 
     evidencia = reg.get("evidencia") or []
     if evidencia:
@@ -1125,19 +1170,44 @@ const norm=s=>(s||'').toString().toLowerCase()
   .normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');
 const ETI={alta:'alta',moderada:'moderada',baja:'baja',muy_baja:'muy baja',
   fuerte:'fuerte',condicional:'condicional',core:'núcleo',
-  complementary:'complementaria',farmaco:'fármaco',ficha:'ficha',
+  complementary:'complementaria',farmaco:'fármaco',ficha:'guía',
+  seleccion:'selección',farmacoterapia:'farmacoterapia',
   eca:'ECA',metaanalisis:'metaanálisis',revision_sistematica:'revisión sistemática',
   guia:'guía',cohorte:'cohorte',borrador:'borrador',revisado:'revisado',
-  publicado:'publicado'};
+  publicado:'publicado',
+  primera:'primera línea',segunda:'segunda línea',tercera:'tercera línea',
+  rescate:'rescate',no_recomendada:'no recomendada',
+  compatible:'compatible',compatible_con_precaucion:'compatible con precaución',
+  evitar:'evitar',contraindicado:'contraindicado',sin_datos:'sin datos',
+  basal:'basal',induccion:'inducción',mantenimiento:'mantenimiento',
+  estable:'estable',post_suspension:'tras suspensión',
+  cribado_basal:'cribado basal',monitorizacion:'monitorización',
+  umbrales_accion:'umbrales de acción',atencion_compartida:'atención compartida',
+  reproductivo:'reproductivo',interacciones:'interacciones',
+  farmacogenetica:'farmacogenética',posicionamiento:'posicionamiento',
+  eficacia:'eficacia',seguridad:'seguridad',conveniencia:'conveniencia',
+  costo:'costo',es:'español'};
 const eti=v=>ETI[v]||String(v).replace(/_/g,' ');
 
+// Las facetas van en el orden de las preguntas que se le hacen al índice:
+// qué es, de qué trata, en qué estado está, y qué le falta.
 const FACETAS=[['tipo','Tipo'],['clase','Clase'],['lme_seccion','Sección LME'],
-  ['certeza_global','Certeza'],['recomendacion_fuerza','Fuerza']];
+  ['linea','Línea'],['certeza_global','Certeza'],
+  ['recomendacion_fuerza','Fuerza'],
+  ['gestacion','Gestación'],['lactancia','Lactancia'],
+  ['farmacogenetica','Farmacogenética'],
+  ['fases_monitorizacion','Fase de monitorización'],
+  ['seleccionados','Fármaco seleccionado'],
+  ['estado','Estado'],
+  ['huecos','Hueco declarado'],['ejes_sin_datos','Eje sin datos']];
 
 function texto(r){
   return norm([r.titulo,r.titulo_en,r.dci,r.indicacion,r.indicacion_en,r.clase,
-    r.atc,r.resumen,r.recomendacion,r.poblacion,
-    (r.sinonimos||NADA).join(' '),(r.desenlaces||NADA).join(' ')].join(' '));
+    r.atc,r.resumen,r.recomendacion,r.poblacion,r.problema,r.pregunta,
+    r.farmacogenetica,r.perla,
+    (r.sinonimos||NADA).join(' '),(r.desenlaces||NADA).join(' '),
+    (r.candidatos||NADA).join(' '),(r.seleccionados||NADA).join(' '),
+    (r.sirve_a||NADA).join(' ')].join(' '));
 }
 function realzar(s,q){
   if(!q) return s;
@@ -1158,23 +1228,44 @@ function filtrar(){
     }
     return true;
   });
-  // Los fármacos primero: al buscar un principio activo, lo que se quiere ver
-  // antes es su identidad, no la evaluación de una de sus indicaciones.
-  res.sort((a,b)=>(a.tipo===b.tipo?0:a.tipo==='farmaco'?-1:1));
+  // El mismo orden del libro: primero se elige el fármaco, después se usa.
+  const ORDEN={seleccion:0,farmaco:1,farmacoterapia:2,ficha:3};
+  res.sort((a,b)=>(ORDEN[a.tipo]??9)-(ORDEN[b.tipo]??9)
+    || String(b.actualizado||'').localeCompare(String(a.actualizado||'')));
   pintar(res,q);
 }
 function pintar(res,q){
   document.getElementById('cuenta').textContent=
     res.length+(res.length===1?' post':' posts');
   document.getElementById('res').innerHTML=res.map(r=>{
-    const esFicha = r.tipo === 'ficha';
-    const sem = r.semaforo || (r.recomendacion_direccion === 'a_favor' ? 'verde' : 'amarillo');
-    const semPill = esFicha ? ('<span class="badge-sem ' + sem + '">● ' + sem.toUpperCase() + '</span>') : ('<span class="badge-sem verde">● FÁRMACO</span>');
-    const atcTxt = r.atc || (r.clase || 'ATC');
-    const nntTxt = r.nnt ? ('NNT ' + r.nnt) : (r.dci || 'FÁRMACO');
-    const excerptTxt = r.perla || r.resumen || r.recomendacion || '';
-    const fechaTxt = r.actualizado || r.fecha || '24 Aug 2026';
-    const autorTxt = 'Dr. Alcy Edmundo Torres Guerrero';
+    // Cada tipo de registro responde a una pregunta distinta, así que la
+    // insignia dice cuál: el informe de selección enseña a quién eligió, la
+    // farmacoterapia a cuántas indicaciones sirve, la guía su semáforo.
+    const T = r.tipo;
+    let semPill, atcTxt, nntTxt;
+    if (T === 'seleccion') {
+      const elegido = (r.seleccionados || NADA)[0];
+      semPill = '<span class="badge-sem verde">● SELECCIÓN</span>';
+      atcTxt = 'PARTE I';
+      nntTxt = elegido ? ('→ ' + elegido) : ((r.n_candidatos || 0) + ' candidatos');
+    } else if (T === 'farmacoterapia') {
+      semPill = '<span class="badge-sem amarillo">● FARMACOTERAPIA</span>';
+      atcTxt = r.atc || 'PARTE II';
+      nntTxt = (r.n_indicaciones || 0) + ' indicación(es)';
+    } else if (T === 'ficha') {
+      const sem = r.semaforo || (r.recomendacion_direccion === 'a_favor' ? 'verde' : 'amarillo');
+      semPill = '<span class="badge-sem ' + sem + '">● ' + sem.toUpperCase() + '</span>';
+      atcTxt = r.atc || r.clase || 'ATC';
+      nntTxt = r.nnt ? ('NNT ' + r.nnt) : (r.dci || 'GUÍA');
+    } else {
+      semPill = '<span class="badge-sem verde">● FÁRMACO</span>';
+      atcTxt = r.atc || r.clase || 'ATC';
+      nntTxt = r.dci || 'FÁRMACO';
+    }
+    const excerptTxt = r.perla || r.pregunta || r.resumen || r.recomendacion || '';
+    const fechaTxt = r.actualizado || r.fecha || '';
+    const autorTxt = ((r.autores || NADA)[0] || {}).nombre
+      || 'Dr. Alcy Edmundo Torres Guerrero';
 
     return '<article class="ghost-post-row">' +
       '<a href="' + r.url + '" class="ghost-clinical-badge">' +
@@ -1182,7 +1273,7 @@ function pintar(res,q){
           '<span class="badge-atc">' + e(atcTxt) + '</span>' +
           semPill +
         '</div>' +
-        '<div class="badge-dci">' + e(r.dci || r.titulo) + '</div>' +
+        '<div class="badge-dci">' + e(r.dci || r.problema || r.titulo) + '</div>' +
         '<div class="badge-bottom">' +
           '<span class="badge-nnt">' + e(nntTxt) + '</span>' +
           '<span class="badge-meta">5 min</span>' +
@@ -1222,6 +1313,145 @@ fetch('index.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
     'Genera el sitio con <code>python scripts/sitio.py</code> y sírvelo por HTTP.</p>';
 });
 """
+
+
+JUICIO_ROTULO = {"superior": "superior", "equivalente": "equivalente",
+                 "inferior": "inferior", "sin_datos": "sin datos"}
+VEREDICTO_ROTULO = {"seleccionado": "Seleccionado", "alternativa": "Alternativa",
+                    "reservado": "Reservado", "no_seleccionado": "No seleccionado"}
+EJE_ROTULO = {"eficacia": "Eficacia", "seguridad": "Seguridad",
+              "conveniencia": "Conveniencia", "costo": "Costo"}
+# El semáforo del sitio ya distingue tres colores; el veredicto los reutiliza
+# para que la tabla se lea de un vistazo sin inventar otra paleta.
+VEREDICTO_CLASE = {"seleccionado": "verde", "alternativa": "amarillo",
+                   "reservado": "amarillo", "no_seleccionado": "rojo"}
+
+
+def pagina_seleccion(reg, jsonld, fichas):
+    """PARTE I — el informe de selección, por problema de salud."""
+    P = []
+    A = P.append
+    A(cabeza(reg["problema"], "../", jsonld,
+             " ".join((reg.get("pregunta") or "").split())))
+    A(migas("../", reg["problema"]))
+    A('<article class="ghost-article">')
+
+    etiquetas = ['<span class="ghost-tag">Parte I · Selección</span>']
+    if reg.get("cie11"):
+        etiquetas.append('<span class="ghost-tag">CIE-11 ' + e(reg["cie11"]) + "</span>")
+    A('<div class="ghost-badge-row" style="margin-bottom:16px">'
+      '<div style="display:flex;gap:6px;flex-wrap:wrap">'
+      + "".join(etiquetas) + "</div></div>")
+
+    A('<h1 style="font-size:36px;margin-bottom:12px">' + e(reg["problema"]) + "</h1>")
+    if reg.get("problema_en"):
+        A('<p class="sub" style="font-size:18px;margin-bottom:20px;'
+          'color:var(--suave)">' + e(reg["problema_en"]) + "</p>")
+
+    if reg.get("pregunta"):
+        A('<div class="recuadro"><span class="rotulo">La pregunta que responde '
+          'este informe</span><p>' + e(reg["pregunta"]) + "</p></div>")
+    if reg.get("poblacion"):
+        A("<h2>Población</h2><p>" + e(reg["poblacion"]) + "</p>")
+    if reg.get("contexto"):
+        A("<p>" + e(reg["contexto"]) + "</p>")
+
+    candidatos = [c for c in reg.get("candidatos") or [] if isinstance(c, dict)]
+
+    A("<h2>Comparación en los cuatro ejes</h2>")
+    A('<p class="sub">El juicio es comparativo: superior o inferior '
+      '<em>a los otros candidatos de esta tabla</em>, nunca en abstracto.</p>')
+    A(tabla_gpc(["Candidato"] + [EJE_ROTULO[x] for x in EJES] + ["Veredicto"],
+                [["<strong>" + e(c.get("dci")) + "</strong>"]
+                 + [e(JUICIO_ROTULO.get((c.get(x) or {}).get("juicio"), "—"))
+                    for x in EJES]
+                 + ['<span class="semaforo-pill '
+                    + VEREDICTO_CLASE.get(c.get("veredicto"), "amarillo")
+                    + '">' + e(VEREDICTO_ROTULO.get(c.get("veredicto"),
+                                                    c.get("veredicto") or ""))
+                    + "</span>"]
+                 for c in candidatos]))
+
+    for c in candidatos:
+        titulo = e(c.get("dci"))
+        if c.get("atc"):
+            titulo += ' <span class="ref">' + e(c["atc"]) + "</span>"
+        A("<h2>" + titulo + "</h2>")
+        if c.get("clase"):
+            A('<p class="sub">' + e(c["clase"]) + "</p>")
+        filas = []
+        for x in EJES:
+            bloque = c.get(x)
+            if not isinstance(bloque, dict):
+                continue
+            sustento = e(bloque.get("sustento"))
+            if bloque.get("ref"):
+                sustento += ('<br><span class="ref">'
+                             + enlace_pubmed(bloque["ref"]) + "</span>")
+            filas.append(("<strong>" + EJE_ROTULO[x] + "</strong>",
+                          e(JUICIO_ROTULO.get(bloque.get("juicio"), "—")),
+                          sustento))
+        A(tabla_gpc(["Eje", "Juicio", "Sustento"], filas))
+        clase = VEREDICTO_CLASE.get(c.get("veredicto"), "amarillo")
+        recuadro = {"verde": "fuerte", "amarillo": "aviso", "rojo": "peligro"}[clase]
+        A('<div class="recuadro ' + recuadro + '"><span class="rotulo">'
+          "Veredicto</span><p><strong>"
+          + e(VEREDICTO_ROTULO.get(c.get("veredicto"), c.get("veredicto") or ""))
+          + "</strong>" + (". " + e(c["nota"]) if c.get("nota") else "")
+          + "</p></div>")
+
+    if reg.get("criterio_decisorio"):
+        A("<h2>Qué eje decidió</h2><p>"
+          + e(reg["criterio_decisorio"]).replace("\n\n", "</p><p>") + "</p>")
+    if reg.get("conclusion"):
+        A("<h2>Conclusión del informe</h2><p>"
+          + e(reg["conclusion"]).replace("\n\n", "</p><p>") + "</p>")
+
+    if fichas:
+        A("<h2>Guías que se apoyan en este informe</h2><ul>")
+        for f in fichas:
+            A('<li><a href="../' + e(mod_indice.ruta_relativa(f)) + '">'
+              + e(f.get("titulo")) + "</a></li>")
+        A("</ul>")
+
+    A("</article>")
+    A(pie("../"))
+    return "\n".join(P)
+
+
+def pagina_farmacoterapia(reg, farmaco, jsonld, fichas):
+    """PARTE II — cómo se usa la molécula. Vale para todas sus indicaciones."""
+    P = []
+    A = P.append
+    titulo = reg.get("titulo") or "Farmacoterapia"
+    A(cabeza(titulo, "../", jsonld, " ".join((reg.get("alcance") or "").split())))
+    A(migas("../", titulo))
+    A('<article class="ghost-article">')
+
+    etiquetas = ['<span class="ghost-tag">Parte II · Farmacoterapia</span>']
+    if farmaco and farmaco.get("atc"):
+        etiquetas.append('<span class="ghost-tag">' + e(farmaco["atc"]) + "</span>")
+    A('<div class="ghost-badge-row" style="margin-bottom:16px">'
+      '<div style="display:flex;gap:6px;flex-wrap:wrap">'
+      + "".join(etiquetas) + "</div></div>")
+
+    A('<h1 style="font-size:36px;margin-bottom:12px">' + e(titulo) + "</h1>")
+    if reg.get("alcance"):
+        A('<div class="recuadro"><span class="rotulo">Alcance</span><p>'
+          + e(reg["alcance"]) + "</p></div>")
+
+    if fichas:
+        A("<h2>Indicaciones que la usan</h2><ul>")
+        for f in fichas:
+            A('<li><a href="../' + e(mod_indice.ruta_relativa(f)) + '">'
+              + e(f.get("indicacion") or f.get("titulo")) + "</a></li>")
+        A("</ul>")
+
+    A(capa_gpc_html(reg))
+    A(bloque_huecos(reg, "esta farmacoterapia"))
+    A("</article>")
+    A(pie("../"))
+    return "\n".join(P)
 
 
 def pagina_blog(total):
@@ -1442,11 +1672,19 @@ def main():
     salida = RAIZ / args.salida
     if salida.exists():
         shutil.rmtree(salida)
-    (salida / "fichas").mkdir(parents=True)
-    (salida / "farmacos").mkdir(parents=True)
+    for carpeta in ("fichas", "farmacos", "selecciones", "farmacoterapia"):
+        (salida / carpeta).mkdir(parents=True)
 
-    for reg in list(estado["farmacos"].values()) + list(estado["fichas"].values()):
+    todos = (list(estado["farmacos"].values())
+             + list(estado["farmacoterapias"].values())
+             + list(estado["selecciones"].values())
+             + list(estado["fichas"].values()))
+    for reg in todos:
         reg["_archivo"] = estado["archivos"][reg["id"]]
+
+    def fichas_de(fs):
+        return sorted((f for f in estado["fichas"].values()
+                       if f.get("farmaco") == fs), key=lambda x: x["id"])
 
     n = 0
     for ident, reg in estado["farmacos"].items():
@@ -1457,15 +1695,33 @@ def main():
             pagina_farmaco(reg, fichas, mod_indice.jsonld_farmaco(reg)),
             encoding="utf-8")
         n += 1
+    for ident, reg in estado["selecciones"].items():
+        usan = sorted((f for f in estado["fichas"].values()
+                       if f.get("seleccion") == ident), key=lambda x: x["id"])
+        (salida / mod_indice.ruta_relativa(reg)).write_text(
+            pagina_seleccion(reg, mod_indice.jsonld_seleccion(reg), usan),
+            encoding="utf-8")
+        n += 1
+    for ident, reg in estado["farmacoterapias"].items():
+        farmaco = estado["farmacos"].get(reg.get("farmaco"))
+        (salida / mod_indice.ruta_relativa(reg)).write_text(
+            pagina_farmacoterapia(
+                reg, farmaco,
+                mod_indice.jsonld_farmacoterapia(reg, farmaco),
+                fichas_de(reg.get("farmaco"))),
+            encoding="utf-8")
+        n += 1
     for ident, reg in estado["fichas"].items():
         farmaco = estado["farmacos"].get(reg.get("farmaco"))
         (salida / mod_indice.ruta_relativa(reg)).write_text(
             pagina_ficha(reg, farmaco, estado["referencias"],
-                         mod_indice.jsonld_ficha(reg, farmaco)),
+                         mod_indice.jsonld_ficha(reg, farmaco),
+                         fa=farmacoterapia_de(reg.get("farmaco"), estado),
+                         seleccion=estado["selecciones"].get(reg.get("seleccion"))),
             encoding="utf-8")
         n += 1
 
-    total = len(estado["farmacos"]) + len(estado["fichas"])
+    total = len(todos)
     (salida / "index.html").write_text(pagina_index(total), encoding="utf-8")
     (salida / "blog.html").write_text(pagina_blog(total), encoding="utf-8")
     (salida / "reto.html").write_text(pagina_reto(), encoding="utf-8")

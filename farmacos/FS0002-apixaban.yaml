@@ -10,6 +10,19 @@ atc: B01AF02
 clase_farmacologica: Inhibidor directo del factor Xa
 clase_farmacologica_en: Direct factor Xa inhibitor
 
+# ── Metadatos editoriales ───────────────────────────────────────────────
+# Las fechas salen del historial del repositorio, no de la memoria de nadie:
+# `fecha` es la del commit que dio de alta el fichero y `actualizado` la del
+# último que lo tocó.
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+
 codigos:
   rxcui: '1364430'
   fuente_rxcui: 'rxnav:rxcui'

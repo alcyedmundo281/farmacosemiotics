@@ -11,6 +11,32 @@ frente a la LME.
 
 ---
 
+## El híbrido: primero se elige, luego se usa
+
+El repositorio dejó de ser un catálogo de fichas para ser dos cosas encadenadas,
+en el orden de la decisión clínica:
+
+**Parte I — Selección** (`selecciones/`, código `SEL:`). Un informe por problema
+de salud que compara los candidatos en **eficacia, seguridad, conveniencia y
+costo** y emite un veredicto. Los ejes van en ese orden y no en orden
+alfabético: un fármaco que no funciona no se salva por ser barato, y uno
+inseguro no se salva por ser cómodo.
+
+**Parte II — Farmacoterapia** (`farmacoterapia/`, código `FA:`, más `fichas/`).
+Cómo se usa la molécula elegida.
+
+La división entre `FA:` y `FT:` responde a la pregunta de siempre —¿de qué
+depende el dato?— y es la que estructura el libro:
+
+| | va por | es |
+|---|---|---|
+| `SEL:` | problema de salud | el informe |
+| `FA:` | molécula | el **concepto**: sirve a todas sus indicaciones |
+| `FT:` | fármaco × indicación | el **signo**: la decisión situada |
+
+Una farmacoterapia se escribe **una sola vez** y la usan todas las indicaciones
+de su fármaco. Lo poco que una cambie va en `variaciones`, dentro de su ficha.
+
 ## Qué es ahora una entrada del índice
 
 El índice dejó de ser un catálogo de fichas de evidencia para ser un catálogo
@@ -44,21 +70,28 @@ tabla de monitorización es peor que ninguna, porque parece completa. Y lo que
 no tenga fuente publicada no se escribe: se declara en `huecos_declarados` con
 su motivo y las referencias que se consultaron sin éxito.
 
-**FT0009 (azatioprina en el pénfigo vulgar) es la plantilla.** Es la primera
-guía que estrena la capa completa, y también la primera que declara sus huecos
-en vez de rellenarlos.
+**El trío del pénfigo vulgar es la plantilla:** `SEL0001` compara rituximab,
+azatioprina y micofenolato en los cuatro ejes; `FA0009` dice cómo se usa la
+azatioprina con seguridad; `FT0009` es la decisión situada en esa indicación.
+`FA0009` es además la primera que declara sus huecos en vez de rellenarlos.
 
-## El libro: un solo .qmd, un EPUB
+## El libro: un solo .qmd, un EPUB, dos partes
 
 `scripts/qmd.py` proyecta TODAS las guías a un único
 `build/quarto/guias-farmacoterapeuticas.qmd`, con la bibliografía derivada de
 `referencias/` en BibLaTeX y cada cifra citada como `[@clave]`. `scripts/epub.py`
 lo encuaderna con Quarto.
 
-Que sea un solo fichero y no un capítulo por guía es deliberado: el libro se lee
-y se busca como un vademécum continuo, y el índice de Quarto ya da la navegación
-que daría el troceado. El vínculo con PubMed sobrevive a la encuadernación
-porque cada entrada del `.bib` lleva su PMID.
+El libro sale en dos partes: los informes de selección primero, y después las
+farmacoterapias agrupadas **por molécula**, con cada indicación como sección
+dentro de su capítulo. Agrupar por molécula es lo que hace visible el caso que
+motivó la estructura: una misma farmacoterapia sirviendo a varias indicaciones,
+escrita una sola vez.
+
+Que sea un solo fichero es deliberado: el libro se lee y se busca como un
+vademécum continuo, y el índice de Quarto ya da la navegación que daría el
+troceado. El vínculo con PubMed sobrevive a la encuadernación porque cada
+entrada del `.bib` lleva su PMID.
 
 ## El Modelo Editorial Ghost & Estándar de Contenido
 
@@ -168,8 +201,10 @@ entorno de compilación cuando se escribió FT0009.
 
 ```bash
 # 1. Crear el principio activo y la ficha con la plantilla oficial
-python scripts/nuevo.py farmaco FS0006 "NombreMolecula" --atc C09AA02
-python scripts/nuevo.py ficha FT0006 "Título de la Ficha Clínica" --farmaco FS0006
+python scripts/nuevo.py seleccion      SEL0002 "Problema de salud"
+python scripts/nuevo.py farmaco        FS0010  "NombreMolecula" --atc C09AA02
+python scripts/nuevo.py farmacoterapia FA0010  "nombremolecula" --farmaco FS0010
+python scripts/nuevo.py ficha          FT0010  "Título de la guía" --farmaco FS0010
 
 # 2. Descargar y verificar referencias con PubMed
 python scripts/pubmed.py <PMID_EVIDENCIA>

@@ -31,7 +31,8 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).parent))
 
-from build import cargar, RAIZ, es_gpc  # noqa: E402
+from build import (cargar, RAIZ, es_gpc, EJES,  # noqa: E402
+                   farmacoterapia_de)
 
 SALIDA = RAIZ / "build" / "quarto"
 NOMBRE = "guias-farmacoterapeuticas"
@@ -56,6 +57,19 @@ FASE_TEXTO = {
     "estable": "Estable",
     "post_suspension": "Tras la suspensión",
 }
+JUICIO_TEXTO = {
+    "superior": "superior", "equivalente": "equivalente",
+    "inferior": "inferior", "sin_datos": "sin datos",
+}
+VEREDICTO_TEXTO = {
+    "seleccionado": "**Seleccionado**",
+    "alternativa": "Alternativa",
+    "reservado": "Reservado",
+    "no_seleccionado": "No seleccionado",
+}
+EJE_TEXTO = {"eficacia": "Eficacia", "seguridad": "Seguridad",
+             "conveniencia": "Conveniencia", "costo": "Costo"}
+
 RESPONSABLE_TEXTO = {
     "especialista": "Especialista",
     "seguimiento": "Médico de seguimiento",
@@ -87,10 +101,18 @@ def lista(valor):
 
 
 class Doc:
-    """Acumulador de líneas Markdown que se despreocupa de los saltos dobles."""
+    """Acumulador de líneas Markdown que se despreocupa de los saltos dobles.
 
-    def __init__(self):
+    `desplazamiento` existe porque los mismos renderizadores de apartado
+    —cribado, monitorización, evidencia— sirven a la farmacoterapia y a la
+    guía, que cuelgan de niveles distintos. Sin él ambos escribirían `###` y
+    el índice del EPUB saldría plano, con los apartados de una guía como
+    hermanos suyos en vez de como hijos.
+    """
+
+    def __init__(self, desplazamiento=0):
         self.lineas = []
+        self.desplazamiento = desplazamiento
 
     def p(self, texto=""):
         self.lineas.append(texto)
@@ -101,10 +123,12 @@ class Doc:
             self.lineas.append("")
         return self
 
-    def titulo(self, nivel, texto, ident=None):
+    def titulo(self, nivel, texto, ident=None, absoluto=False):
         self.blanco()
         marca = " {#" + ident + "}" if ident else ""
-        self.lineas.append("#" * nivel + " " + texto + marca)
+        if not absoluto:
+            nivel += self.desplazamiento
+        self.lineas.append("#" * min(nivel, 6) + " " + texto + marca)
         self.blanco()
         return self
 
@@ -464,7 +488,7 @@ BLOQUE_TEXTO = {
 }
 
 
-def seccion_huecos(d, reg, referencias):
+def seccion_huecos(d, reg, referencias, que="esta guía"):
     """Lo que esta guía todavía no puede responder, y por qué. Va impreso: un
     lector que no vea el apartado de umbrales necesita saber si es que no
     aplica, o que no se encontró fuente que lo fijara."""
@@ -472,7 +496,7 @@ def seccion_huecos(d, reg, referencias):
               if isinstance(h, dict)]
     if not huecos:
         return
-    d.titulo(3, "Lo que esta guía todavía no cubre")
+    d.titulo(3, "Lo que " + que + " todavía no cubre")
     for h in huecos:
         nombre = BLOQUE_TEXTO.get(h.get("bloque"), t(h.get("bloque")))
         linea = "**" + nombre + ".** " + t(h.get("motivo"))
@@ -514,11 +538,121 @@ def seccion_alternativas(d, reg):
     d.tabla(["Alternativa", "ATC", "En la LME", "Nota"], filas)
 
 
-def guia(reg, farmaco, referencias):
-    """Un capítulo del libro: una guía completa."""
+def ancla(ident):
+    return ident.replace(":", "").lower()
+
+
+# ══════════════ PARTE I: el informe de selección, por problema ══════════════
+
+def informe_seleccion(reg, referencias):
+    """Qué fármaco gana para este problema de salud, y por qué.
+
+    La tabla resume; la ficha de cada candidato argumenta. Ese doble paso es
+    deliberado: un informe que solo diera la tabla escondería el juicio detrás
+    de tres adjetivos, y uno que solo diera la prosa no se podría comparar de
+    un vistazo.
+    """
     d = Doc()
-    ident = reg["id"].replace(":", "").lower()
-    d.titulo(2, t(reg.get("titulo")), ident)
+    d.titulo(2, t(reg.get("problema")), ancla(reg["id"]))
+
+    encabezado = ["**" + t(reg["id"]) + "**"]
+    for etiqueta, campo in (("Estado", "estado"), ("Actualizado", "actualizado")):
+        if reg.get(campo):
+            encabezado.append(etiqueta + ": " + t(reg[campo]))
+    d.parrafo(" · ".join(encabezado))
+
+    if reg.get("pregunta"):
+        d.parrafo("> **Pregunta.** " + t(reg["pregunta"]))
+    if reg.get("poblacion"):
+        d.parrafo("**Población.** " + t(reg["poblacion"]))
+    if reg.get("contexto"):
+        d.parrafo(t(reg["contexto"]))
+
+    candidatos = [c for c in reg.get("candidatos") or [] if isinstance(c, dict)]
+
+    d.titulo(3, "Comparación en los cuatro ejes")
+    d.tabla(["Candidato"] + [EJE_TEXTO[e] for e in EJES] + ["Veredicto"],
+            [[t(c.get("dci"))]
+             + [JUICIO_TEXTO.get((c.get(e) or {}).get("juicio"), "—")
+                for e in EJES]
+             + [VEREDICTO_TEXTO.get(c.get("veredicto"), t(c.get("veredicto")))]
+             for c in candidatos])
+
+    for c in candidatos:
+        titulo = t(c.get("dci"))
+        if c.get("atc"):
+            titulo += " (" + t(c["atc"]) + ")"
+        d.titulo(3, titulo)
+        if c.get("clase"):
+            d.parrafo("*" + t(c["clase"]) + "*")
+        d.tabla(["Eje", "Juicio", "Sustento"],
+                [(EJE_TEXTO[e],
+                  JUICIO_TEXTO.get((c.get(e) or {}).get("juicio"), "—"),
+                  t((c.get(e) or {}).get("sustento"))
+                  + cita((c.get(e) or {}).get("ref"), referencias))
+                 for e in EJES if c.get(e)])
+        veredicto = VEREDICTO_TEXTO.get(c.get("veredicto"), t(c.get("veredicto")))
+        linea = "**Veredicto:** " + veredicto
+        if c.get("nota"):
+            linea += ". " + t(c["nota"])
+        d.parrafo(linea)
+
+    if reg.get("criterio_decisorio"):
+        d.titulo(3, "Qué eje decidió")
+        d.parrafo(t(reg["criterio_decisorio"]))
+    if reg.get("conclusion"):
+        d.titulo(3, "Conclusión del informe")
+        d.parrafo(t(reg["conclusion"]))
+    if reg.get("refs"):
+        d.parrafo("*Referencias del informe:*" + citas(reg["refs"], referencias))
+    return d.texto()
+
+
+# ══════════ PARTE II: la farmacoterapia (molécula) y sus guías ══════════
+
+def farmacoterapia(reg, referencias):
+    """Cómo se usa la molécula con seguridad. Vale para todas sus
+    indicaciones: lo que una cambie se declara en su guía, no aquí."""
+    d = Doc()
+    d.titulo(3, "Farmacoterapia", ancla(reg["id"]), absoluto=True)
+    d.desplazamiento = 1
+    encabezado = ["**" + t(reg["id"]) + "**"]
+    if reg.get("estado"):
+        encabezado.append("Estado: " + t(reg["estado"]))
+    if reg.get("actualizado"):
+        encabezado.append("Actualizada: " + t(reg["actualizado"]))
+    d.parrafo(" · ".join(encabezado))
+    if reg.get("alcance"):
+        d.parrafo("**Alcance.** " + t(reg["alcance"]))
+
+    seccion_farmacogenetica(d, reg, referencias)
+    seccion_cribado(d, reg, referencias)
+    seccion_monitorizacion(d, reg, referencias)
+    seccion_umbrales(d, reg, referencias)
+    seccion_interacciones(d, reg, referencias)
+    seccion_reproductivo(d, reg, referencias)
+    seccion_atencion_compartida(d, reg, referencias)
+    seccion_huecos(d, reg, referencias, "esta farmacoterapia")
+    return d.texto()
+
+
+def seccion_variaciones(d, reg, referencias):
+    """Lo poco que esta indicación se aparta de la farmacoterapia base."""
+    variaciones = [v for v in reg.get("variaciones") or [] if isinstance(v, dict)]
+    if not variaciones:
+        return
+    d.titulo(3, "En qué se aparta esta indicación")
+    d.tabla(["Apartado", "Cambio"],
+            [(BLOQUE_TEXTO.get(v.get("bloque"), t(v.get("bloque"))),
+              t(v.get("cambio")) + cita(v.get("ref"), referencias))
+             for v in variaciones])
+
+
+def guia(reg, farmaco, seleccion, tiene_fa, referencias):
+    """La decisión situada: lo que cambia con la indicación."""
+    d = Doc()
+    d.titulo(3, t(reg.get("titulo")), ancla(reg["id"]), absoluto=True)
+    d.desplazamiento = 1
 
     encabezado = ["**" + t(reg["id"]) + "**"]
     if reg.get("indicacion"):
@@ -529,23 +663,26 @@ def guia(reg, farmaco, referencias):
         encabezado.append("Actualizada: " + t(reg["actualizado"]))
     d.parrafo(" · ".join(encabezado))
 
+    # Los dos enlaces que hacen del libro un híbrido y no dos libros pegados.
+    enlaces = []
+    if seleccion:
+        enlaces.append("Por qué este fármaco: [informe de selección](#"
+                       + ancla(seleccion["id"]) + ")")
+    if tiene_fa:
+        enlaces.append("Cómo se usa: la farmacoterapia de este capítulo")
+    if enlaces:
+        d.parrafo("*" + " · ".join(enlaces) + ".*")
+
     if reg.get("poblacion"):
         d.parrafo("**Población.** " + t(reg["poblacion"]))
 
     seccion_decision(d, reg, referencias)
-    seccion_identidad(d, farmaco, referencias)
     seccion_pregunta(d, reg)
     seccion_posicionamiento(d, reg, referencias)
     seccion_posologia(d, reg, referencias)
-    seccion_farmacogenetica(d, reg, referencias)
-    seccion_cribado(d, reg, referencias)
-    seccion_monitorizacion(d, reg, referencias)
-    seccion_umbrales(d, reg, referencias)
-    seccion_interacciones(d, reg, referencias)
+    seccion_variaciones(d, reg, referencias)
     seccion_evidencia(d, reg, referencias)
     seccion_seguridad(d, reg, referencias)
-    seccion_reproductivo(d, reg, referencias)
-    seccion_atencion_compartida(d, reg, referencias)
     seccion_recomendacion(d, reg, referencias)
     seccion_alternativas(d, reg)
     seccion_huecos(d, reg, referencias)
@@ -553,19 +690,57 @@ def guia(reg, farmaco, referencias):
     if reg.get("conclusion"):
         d.titulo(3, "Conclusión")
         d.parrafo(t(reg["conclusion"]))
-
     if reg.get("refs"):
         d.parrafo("*Referencias de esta guía:*" + citas(reg["refs"], referencias))
     return d.texto()
 
 
+def capitulo_molecula(farmaco, fa, fichas, estado, referencias):
+    """Un capítulo por molécula: su farmacoterapia y todas sus indicaciones.
+
+    Agrupar por molécula y no por indicación es lo que hace visible el caso que
+    motivó esta estructura: una misma farmacoterapia sirviendo a varias
+    indicaciones, escrita una sola vez.
+    """
+    d = Doc()
+    nombre = t((farmaco or {}).get("dci")) or t(fichas[0].get("titulo"))
+    d.titulo(2, nombre, ancla((farmaco or fichas[0])["id"]))
+    partes = [d.texto()]
+
+    if farmaco:
+        e = Doc()
+        seccion_identidad(e, farmaco, referencias)
+        partes.append(e.texto())
+
+    if fa:
+        partes.append(farmacoterapia(fa, referencias))
+    else:
+        e = Doc()
+        e.parrafo("> **Sin farmacoterapia todavía.** Este fármaco no tiene "
+                  "aún el apartado que dice cómo se usa con seguridad "
+                  "—cribado, cronograma, umbrales, reproductivo—. Las guías "
+                  "que siguen dan la decisión, no el seguimiento.")
+        partes.append(e.texto())
+
+    for f in fichas:
+        seleccion = estado["selecciones"].get(f.get("seleccion"))
+        partes.append(guia(f, farmaco, seleccion, bool(fa), referencias))
+    return "\n\n".join(x for x in partes if x.strip())
+
+
 # ─────────────────────────── el documento entero ───────────────────────────
 
-def portada(total, completas, hoy):
+def portada(estado, hoy):
+    n_sel = len(estado["selecciones"])
+    n_fa = len(estado["farmacoterapias"])
+    n_ft = len(estado["fichas"])
+    completas = sum(1 for r in estado["farmacoterapias"].values() if es_gpc(r))
+
     return "\n".join([
         "---",
-        'title: "Guías de práctica clínica farmacoterapéuticas"',
-        'subtitle: "Terapéutica racional con procedencia verificable"',
+        'title: "Selección de medicamentos y farmacoterapia"',
+        'subtitle: "Informes de selección y guías de práctica clínica '
+        'farmacoterapéuticas, con procedencia verificable"',
         'author: "' + AUTOR + '"',
         "date: " + hoy,
         "lang: es",
@@ -575,7 +750,7 @@ def portada(total, completas, hoy):
         "format:",
         "  epub:",
         "    toc: true",
-        "    toc-depth: 2",
+        "    toc-depth: 3",
         "    number-sections: false",
         "    epub-title-page: true",
         "  html:",
@@ -584,18 +759,44 @@ def portada(total, completas, hoy):
         "    embed-resources: true",
         "---",
         "",
-        "# Sobre estas guías",
+        "# Cómo está armado este libro",
         "",
-        "Este libro reúne " + str(total) + " guías de práctica clínica "
-        "farmacoterapéuticas. " + str(completas) + " traen ya el cronograma "
-        "de monitorización y la conducta ante la anomalía analítica que "
-        "completan el formato; las demás declaran, guía por guía, qué "
-        "apartado les falta y por qué.",
+        "Un medicamento se elige antes de usarse, y son dos preguntas "
+        "distintas. Este libro las separa en dos partes y las responde en ese "
+        "orden.",
         "",
-        "Se compila desde el repositorio [farmacosemiotics](" + REPO + "), y el "
-        "YAML de ese repositorio es la única fuente: este documento es "
-        "derivado y se regenera entero en cada compilación. Corregir aquí no "
-        "sirve de nada, porque la siguiente compilación lo sobrescribe.",
+        "**Parte I — Selección.** " + str(n_sel) + " informe(s), uno por "
+        "problema de salud. Compara los candidatos en los cuatro ejes "
+        "—eficacia, seguridad, conveniencia y costo— y dice cuál se "
+        "selecciona. El juicio de cada eje es comparativo: superior o "
+        "inferior *a los otros candidatos de esa misma tabla*, nunca en "
+        "abstracto.",
+        "",
+        "**Parte II — Farmacoterapia.** " + str(n_fa) + " farmacoterapia(s) y "
+        + str(n_ft) + " guía(s), agrupadas por molécula. Aquí no se elige: se "
+        "usa. Qué se pide antes de la primera dosis, cada cuánto se repite, "
+        "qué se hace cuando el análisis se tuerce, qué se le dice a quien "
+        "quiere quedarse embarazada, y de quién es cada acto entre el "
+        "especialista y el médico que sigue al paciente.",
+        "",
+        "## Por qué la farmacoterapia va por molécula y la selección por "
+        "problema",
+        "",
+        "Es la misma pregunta repetida en cada apartado: **¿de qué depende "
+        "este dato?**",
+        "",
+        "El cronograma de vigilancia de la azatioprina, su dosificación según "
+        "el genotipo y su perfil en el embarazo no cambian entre el pénfigo, "
+        "el lupus y la enfermedad inflamatoria intestinal: son propiedades de "
+        "la molécula, y se escriben una sola vez. Que la azatioprina sea o no "
+        "la elegida sí cambia con el problema, porque compite contra "
+        "candidatos distintos en cada uno.",
+        "",
+        "De ahí la estructura: un capítulo por molécula, con su "
+        "farmacoterapia una vez y debajo cada indicación que la usa. Cuando "
+        "una indicación se aparta en algo del cronograma común, ese poco "
+        "aparece como «en qué se aparta esta indicación», y no como una copia "
+        "entera del apartado que acabaría divergiendo.",
         "",
         "## La regla que sostiene el libro",
         "",
@@ -606,19 +807,23 @@ def portada(total, completas, hoy):
         "compilador trata como error, no como advertencia, cualquier cifra que "
         "no pueda seguirse hasta su origen.",
         "",
-        "La consecuencia práctica se nota en los huecos: donde una guía no "
-        "trae cronograma de monitorización es porque no se encontró fuente "
-        "publicada que lo fije, no porque se olvidara. Un apartado ausente "
-        "informa; uno rellenado con lo verosímil, no.",
+        "La consecuencia se nota en los huecos. De las " + str(n_fa) + " "
+        "farmacoterapias, " + str(completas) + " traen ya el cronograma y los "
+        "umbrales que completan el formato; el resto declara, apartado por "
+        "apartado, qué falta y por qué no se encontró fuente. Un hueco "
+        "declarado informa; uno rellenado con lo verosímil, no. Lo mismo vale "
+        "en los informes de selección, donde un eje puede quedar «sin datos» "
+        "y eso también es un resultado.",
         "",
-        "## Cómo leer cada guía",
+        "## El precio no está aquí",
         "",
-        "El orden de los apartados sigue el de la consulta: primero la "
-        "decisión que hay que tomar con el paciente delante —semáforo, perla "
-        "de prescripción, alerta de seguridad—, después la pregunta que la "
-        "guía responde, y solo entonces la evidencia que la sostiene. Quien "
-        "necesite decidir en treinta segundos no tiene que leer la tabla de "
-        "GRADE; quien quiera discutir la recomendación la encuentra entera.",
+        "El eje `costo` de la Parte I emite un juicio comparativo —genérico "
+        "oral multifuente frente a biológico de marca de administración "
+        "hospitalaria— y no una cifra. Es deliberado: un juicio así es "
+        "internacional y no caduca, mientras que un precio vuelve el informe "
+        "falso en cuanto cruza una frontera y envejece sin que se note. Las "
+        "cifras en moneda viven en el repositorio como capa aparte, por país "
+        "y con su fecha de consulta.",
         "",
         "## Aviso",
         "",
@@ -627,21 +832,44 @@ def portada(total, completas, hoy):
         "dosis, los puntos de corte y los cronogramas se transcriben de las "
         "fuentes citadas y pueden no coincidir con la práctica local.",
         "",
-        "Publicado en <" + SITIO + "> bajo licencia CC BY-SA 4.0.",
+        "Se compila desde el repositorio [farmacosemiotics](" + REPO + "), "
+        "cuyo YAML es la única fuente: este documento es derivado y se "
+        "regenera entero en cada compilación.",
         "",
-        "# Las guías",
+        "Publicado en <" + SITIO + "> bajo licencia CC BY-SA 4.0.",
         "",
     ])
 
 
 def documento(estado, hoy):
+    """Primero la selección, luego la farmacoterapia. En ese orden, porque es
+    el de la decisión: quién se elige antes que cómo se usa."""
     referencias = estado["referencias"]
+    partes = [portada(estado, hoy)]
+
+    # ── Parte I ──────────────────────────────────────────────────────────
+    partes.append("# Parte I — Selección del medicamento\n")
+    if estado["selecciones"]:
+        for ident in sorted(estado["selecciones"]):
+            partes.append(informe_seleccion(estado["selecciones"][ident],
+                                            referencias))
+    else:
+        partes.append("*Todavía no hay informes de selección.*\n")
+
+    # ── Parte II, agrupada por molécula ──────────────────────────────────
+    partes.append("# Parte II — Farmacoterapia\n")
     fichas = orden(estado)
-    completas = sum(1 for f in fichas if es_gpc(f))
-    partes = [portada(len(fichas), completas, hoy)]
-    for reg in fichas:
-        partes.append(guia(reg, estado["farmacos"].get(reg.get("farmaco")),
-                           referencias))
+    por_farmaco = {}
+    for f in fichas:
+        por_farmaco.setdefault(f.get("farmaco"), []).append(f)
+
+    # El orden lo marca el código del fármaco, que es el de publicación: un
+    # vademécum que se reordena solo deja de ser citable.
+    for fs in sorted(por_farmaco, key=lambda x: str(x)):
+        farmaco = estado["farmacos"].get(fs)
+        fa = farmacoterapia_de(fs, estado) if fs else None
+        partes.append(capitulo_molecula(farmaco, fa, por_farmaco[fs],
+                                        estado, referencias))
     return "\n\n".join(partes).rstrip() + "\n"
 
 
@@ -685,8 +913,6 @@ def main():
     bib.write_text(bibliografia(estado["referencias"]), encoding="utf-8")
     (args.salida / "_quarto.yml").write_text(proyecto(), encoding="utf-8")
 
-    fichas = estado["fichas"]
-    completas = sum(1 for f in fichas.values() if es_gpc(f))
     def corta(ruta):
         """--salida puede apuntar fuera del repositorio (las pruebas lo hacen)."""
         try:
@@ -694,13 +920,19 @@ def main():
         except ValueError:
             return str(ruta)
 
+    fa = estado["farmacoterapias"]
+    completas = sum(1 for f in fa.values() if es_gpc(f))
     print("proyección a Quarto")
-    print("  " + corta(qmd) + "   "
-          + str(len(fichas)) + " guías (" + str(completas)
-          + " completas), "
-          + str(len(qmd.read_text(encoding='utf-8').splitlines())) + " líneas")
-    print("  " + corta(bib) + "                "
-          + str(len(estado["referencias"])) + " entradas")
+    print("  " + corta(qmd))
+    print("     parte I    " + str(len(estado["selecciones"]))
+          + " informes de selección")
+    print("     parte II   " + str(len(fa)) + " farmacoterapias ("
+          + str(completas) + " completas), " + str(len(estado["fichas"]))
+          + " guías")
+    print("     total      "
+          + str(len(qmd.read_text(encoding="utf-8").splitlines())) + " líneas")
+    print("  " + corta(bib) + "   " + str(len(estado["referencias"]))
+          + " entradas")
     print("")
     print("  Ahora: python scripts/epub.py")
     return 0

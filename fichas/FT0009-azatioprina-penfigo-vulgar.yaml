@@ -1,17 +1,22 @@
-# Guía de práctica clínica farmacoterapéutica: fármaco × indicación.
+# Guía: fármaco × indicación. La decisión situada.
 #
-# Es la primera del repositorio que estrena la capa de GPC —cribado basal,
-# estratificación farmacogenética, cronograma de monitorización, interacciones
-# que cambian la conducta y seguridad reproductiva— y por eso conviene leerla
-# como plantilla de lo que se espera de las siguientes.
+# Aquí vive solo lo que cambia con la indicación: el semáforo, la pregunta
+# PICO, la evidencia de ESTE desenlace, la línea de tratamiento y el balance.
 #
-# Cada cifra sale del artículo citado en su `ref`. Lo que no tiene fuente no
-# está: los apartados que faltan se declaran en `huecos_declarados`, con el
-# motivo, para que una ausencia buscada no se confunda con un olvido.
+# Lo que no cambia con la indicación está en otros dos sitios y esta ficha los
+# usa sin repetirlos:
+#
+#   selecciones/SEL0001-penfigo-vulgar.yaml   por qué se eligió este fármaco
+#   farmacoterapia/FA0009-azatioprina.yaml    cómo se usa con seguridad
+#
+# La farmacoterapia no se enlaza: se deduce del fármaco, porque va 1:1 con él.
+# Si esta indicación se apartara en algo del cronograma o del reproductivo, ese
+# poco se declara en `variaciones`, nunca copiando el apartado entero.
 
 id: 'FT:0009'
 tipo: ficha
 farmaco: 'FS:0009'
+seleccion: 'SEL:0001'
 
 titulo: Azatioprina como ahorrador de corticoide en el pénfigo vulgar
 titulo_en: Azathioprine as a corticosteroid-sparing agent in pemphigus vulgaris
@@ -82,126 +87,6 @@ posologia:
     de dos a cuatro semanas, que es cuando se alcanza el estado estacionario.
   ref: 'pmid:30447069'
 
-# ── Estratificación farmacogenética ─────────────────────────────────────
-# La TPMT explica la intolerancia a tiopurinas sobre todo en población europea
-# y africana; la NUDT15, en población asiática e hispana. Genotipar solo una de
-# las dos deja fuera a una parte de los pacientes según su ascendencia, y por
-# eso este repositorio, que es internacional, las trata como un solo bloque.
-farmacogenetica:
-  gen: TPMT y NUDT15
-  prueba: genotipado antes de la primera dosis
-  nota: >-
-    La actividad de TPMT se hereda como rasgo monogénico autosómico
-    codominante, y tres polimorfismos explican más del 90 % de los fenotipos de
-    actividad baja, de modo que un genotipado que los incluya informa del
-    fenotipo con alta probabilidad. Las recomendaciones valen igual si la
-    actividad se midió por fenotipo en vez de por genotipo.
-  fenotipos:
-    - fenotipo: TPMT metabolizador normal
-      conducta: >-
-        Dosis de inicio plena de la indicación. La titulación posterior sigue
-        siendo necesaria.
-      ref: 'pmid:30447069'
-
-    - fenotipo: TPMT metabolizador intermedio
-      dosis: 30-80 % de la dosis diana
-      conducta: >-
-        En enfermedad no maligna, dosis reducida. Solo un 30-60 % de los
-        heterocigotos no tolera la dosis plena, así que reducir de entrada
-        expone a algunos a unas semanas de infradosificación; como el estado
-        estacionario llega en dos a cuatro semanas, ese periodo es corto.
-      ref: 'pmid:30447069'
-
-    - fenotipo: TPMT metabolizador lento
-      conducta: >-
-        Dosis sustancialmente reducida, o directamente otro fármaco. Con dos
-        alelos sin función, la dosis convencional conlleva riesgo muy alto de
-        mielosupresión potencialmente mortal.
-      ref: 'pmid:30447069'
-
-    - fenotipo: NUDT15 metabolizador normal
-      conducta: No hace falta alterar la dosis de inicio.
-      ref: 'pmid:30447069'
-
-    - fenotipo: NUDT15 metabolizador intermedio
-      conducta: >-
-        Considerar dosis de inicio reducida, sobre todo si la dosis de partida
-        de la indicación es alta.
-      ref: 'pmid:30447069'
-
-    - fenotipo: NUDT15 metabolizador lento
-      frecuencia: >-
-        Alrededor de 1 de cada 50 personas de ascendencia asiática oriental, y
-        más frecuente en población hispana, en particular con alta ascendencia
-        amerindia
-      conducta: >-
-        Dosis sustancialmente reducida o fármaco alternativo. La reducción es
-        preventiva y se recomienda con fuerza: la dosis plena supone riesgo
-        grave de toxicidad hematopoyética prolongada.
-      ref: 'pmid:30447069'
-
-# ── Cribado antes de la primera dosis ───────────────────────────────────
-cribado_basal:
-  - prueba: Genotipado de TPMT
-    motivo: >-
-      Fijar la dosis de inicio y detectar al metabolizador lento antes de
-      exponerlo
-    responsable: especialista
-    ref: 'pmid:30447069'
-
-  - prueba: Genotipado de NUDT15
-    motivo: >-
-      Misma decisión de dosis por una vía metabólica distinta; es la que rinde
-      en población asiática e hispana, donde la TPMT sola dejaría casos fuera
-    responsable: especialista
-    ref: 'pmid:30447069'
-
-  - prueba: Hemograma completo
-    motivo: >-
-      Punto de partida sin el cual la primera citopenia del tratamiento no
-      puede interpretarse
-    responsable: especialista
-    ref: 'pmid:30447069'
-
-# ── Cronograma de monitorización ────────────────────────────────────────
-monitorizacion:
-  - fase: basal
-    pruebas:
-      - Genotipado de TPMT
-      - Genotipado de NUDT15
-      - Hemograma completo
-    responsable: especialista
-    ref: 'pmid:30447069'
-
-  - fase: induccion
-    periodo: Desde la primera dosis hasta alcanzar la dosis de mantenimiento
-    pruebas:
-      - Hemograma completo
-      - Signos clínicos de mielosupresión
-    frecuencia: >-
-      Antes de cada escalado, y nunca antes de dos a cuatro semanas del
-      anterior: por debajo de ese plazo no se ha alcanzado el estado
-      estacionario y la cifra todavía no dice lo que parece decir
-    responsable: compartida
-    ref: 'pmid:30447069'
-
-# ── Interacciones que cambian la conducta ───────────────────────────────
-interacciones:
-  - con: Alopurinol y febuxostat (inhibidores de la xantina oxidasa)
-    gravedad: mayor
-    efecto: >-
-      Bloquean la vía de inactivación por xantina oxidasa y desvían el
-      metabolismo hacia los nucleótidos de tioguanina activos
-    conducta: >-
-      No asociar sin reducir sustancialmente la dosis de azatioprina y
-      estrechar la vigilancia hematológica. La combinación es una causa clásica
-      y evitable de mielosupresión grave.
-    ref: 'fda:label'
-    nota: >-
-      La conducta procede de la ficha técnica del producto y no de las guías
-      citadas en el resto de esta ficha. Queda anclada a `fda:label` a la
-      espera de que `scripts/openfda.py` fije el `setid` y la fecha de consulta.
-
 # ── Evidencia ───────────────────────────────────────────────────────────
 evidencia:
   - desenlace: >-
@@ -263,70 +148,6 @@ posicionamiento:
         Papel de ahorrador de corticoide, con la dosis fijada por el genotipo
         de TPMT y NUDT15.
   ref: 'pmid:32830877'
-
-# ── Seguridad reproductiva ──────────────────────────────────────────────
-# El apartado que las guías de inmunosupresores suelen resolver con un «evitar»
-# genérico, y que aquí se cita entero: la azatioprina es la excepción amable de
-# su clase, y decirlo con procedencia evita suspensiones innecesarias.
-reproductivo:
-  gestacion:
-    compatibilidad: compatible
-    enunciado: >-
-      Compatible durante todo el embarazo (GRADE 1B, grado de acuerdo 100 %).
-      La tabla de compatibilidad la da por aceptable en la periconcepción, el
-      primer trimestre y el segundo y tercero, y también con exposición
-      paterna. No se identificaron desenlaces adversos del embarazo en 1019
-      exposiciones maternas, y no hay evidencia clara de un límite de dosis; el
-      uso a dosis eficaz debe apoyarse en la monitorización analítica.
-    ref: 'pmid:36318966'
-  lactancia:
-    compatibilidad: compatible
-    enunciado: >-
-      Compatible con la lactancia (GRADE 2C, grado de acuerdo 99,5 %). Se
-      detectaron cantidades mínimas en la leche y no se identificaron efectos
-      adversos. Evitar la lactancia durante las cuatro horas siguientes a la
-      toma reduce marcadamente la dosis que recibe el lactante.
-    ref: 'pmid:36318966'
-  anticoncepcion:
-    requerida: false
-    enunciado: >-
-      La azatioprina no exige por sí misma anticoncepción de alta eficacia ni
-      periodo de lavado previo a la concepción, a diferencia de otros
-      inmunosupresores de su entorno: la ciclofosfamida queda reservada a
-      circunstancias excepcionales en el embarazo y desaconsejada en lactancia
-      y exposición paterna, el metotrexato exige suspenderlo al menos un mes
-      antes de concebir y el micofenolato al menos seis semanas.
-    ref: 'pmid:36318966'
-
-# ── Huecos declarados ───────────────────────────────────────────────────
-# Se buscó fuente para estos apartados y no se encontró una que pudiera
-# citarse. Declararlos es lo que impide que la guía parezca completa.
-huecos_declarados:
-  - bloque: umbrales_accion
-    motivo: >-
-      No se localizó fuente de acceso abierto que fije los puntos de corte
-      numéricos de neutropenia, trombocitopenia y elevación de transaminasas
-      para esta molécula. Escribir un umbral verosímil sería justamente el
-      fallo que este repositorio existe para impedir: un número con formato
-      clínico y sin procedencia.
-    buscado_en: >-
-      Guía de la BSR para la prescripción y monitorización de csDMARD y guía
-      de la BAD para la prescripción segura de azatioprina: ninguna de las dos
-      con texto completo accesible desde el entorno de compilación.
-    refs:
-      - 'pmid:41235543'
-      - 'pmid:21950502' 
-
-  - bloque: atencion_compartida
-    motivo: >-
-      El reparto de responsabilidades entre especialista y médico de
-      seguimiento requiere transcribir el acuerdo de atención compartida, y no
-      se dispuso del texto completo de la guía que lo fija.
-    buscado_en: >-
-      Guía de la BSR para la prescripción y monitorización de csDMARD, que es
-      donde vive el modelo de acuerdo de atención compartida.
-    refs:
-      - 'pmid:41235543'
 
 # ── Balance ─────────────────────────────────────────────────────────────
 balance:
@@ -396,7 +217,8 @@ conclusion: >-
   seguridad reproductiva es la excepción amable de su clase, compatible con el
   embarazo y con la lactancia, mientras el micofenolato y el metotrexato exigen
   suspensión previa a la concepción. Los puntos de corte analíticos que
-  completarían esta guía quedan declarados como hueco, no resueltos de memoria.
+  completarían la farmacoterapia quedan declarados como hueco en FA:0009, no
+  resueltos de memoria.
 
 refs:
   - 'pmid:30447069'

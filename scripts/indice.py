@@ -26,7 +26,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).parent))
 
-from build import cargar, RAIZ  # noqa: E402
+from build import cargar, RAIZ, es_gpc, huecos_de  # noqa: E402
 
 SALIDA = RAIZ / "build"
 BASE = "https://powersemiotics.com/farmacosemiotics/"
@@ -55,6 +55,10 @@ def registro_farmaco(reg, fichas):
         "clase": reg.get("clase_farmacologica"),
         "sinonimos": reg.get("sinonimos") or [],
         "lme": bool(lme.get("presente")),
+        # Tres estados, no dos: dentro, fuera y sin comprobar. Sin esta marca
+        # el buscador presentaría como «fuera de la Lista Modelo» un fármaco
+        # que solo está pendiente de consulta.
+        "lme_sin_comprobar": lme.get("presente") is None,
         "lme_seccion": lme.get("seccion"),
         "lme_categoria": lme.get("categoria"),
         "emlc": bool((lme.get("emlc") or {}).get("presente")),
@@ -114,8 +118,34 @@ def registro_ficha(reg, farmaco):
         "refs": reg.get("refs") or [],
         "autores": reg.get("autores") or AUTOR_POR_DEFECTO,
     }
+    r.update(capa_gpc(reg))
     r["n_refs"] = len(r["refs"])
     return {k: v for k, v in r.items() if v not in (None, [], "")}
+
+
+def capa_gpc(reg):
+    """Lo que convierte una ficha en una guía de práctica clínica, resumido
+    para el buscador. Igual que el resto del índice, aquí van metadatos y
+    nunca el cuerpo: el cronograma completo vive en el YAML y en el libro."""
+    fg = reg.get("farmacogenetica") or {}
+    pos = reg.get("posicionamiento") or {}
+    rep = reg.get("reproductivo") or {}
+    monitor = [m for m in reg.get("monitorizacion") or [] if isinstance(m, dict)]
+
+    return {
+        "gpc": es_gpc(reg),
+        "fases_monitorizacion": [m.get("fase") for m in monitor if m.get("fase")],
+        "n_umbrales": len(reg.get("umbrales_accion") or []),
+        "n_interacciones": len(reg.get("interacciones") or []),
+        "n_cribado": len(reg.get("cribado_basal") or []),
+        "farmacogenetica": fg.get("gen"),
+        "linea": pos.get("linea"),
+        "gestacion": (rep.get("gestacion") or {}).get("compatibilidad"),
+        "lactancia": (rep.get("lactancia") or {}).get("compatibilidad"),
+        # Un hueco declarado es un dato del índice, no una ausencia: permite
+        # buscar «qué guías no fijan todavía sus puntos de corte».
+        "huecos": sorted(h for h in huecos_de(reg) if h),
+    }
 
 
 # ══════════════════ 2. JSON-LD (Google + sistemas de IA) ══════════════════
@@ -196,6 +226,16 @@ def jsonld_ficha(reg, farmaco):
                                  + ref.split(":")[1] + "/"})
     if citas:
         ld["citation"] = citas
+    # schema.org no tiene un tipo para «guía farmacoterapéutica», así que la
+    # capa de GPC viaja como `MedicalGuideline` dentro de `about`: es lo que
+    # un sistema que lea la página puede interpretar sin inventarse un
+    # vocabulario propio.
+    if es_gpc(reg) or reg.get("monitorizacion"):
+        ld["guideline"] = {
+            "@type": "MedicalGuideline",
+            "guidelineSubject": reg.get("indicacion"),
+            "evidenceLevel": (reg.get("balance") or {}).get("certeza_global"),
+        }
     return {k: v for k, v in ld.items() if v not in (None, [], "")}
 
 
@@ -310,6 +350,12 @@ def facetas(registros):
         "recomendacion_fuerza": valores("recomendacion_fuerza"),
         "disenos": valores("disenos"),
         "estado": valores("estado"),
+        "linea": valores("linea"),
+        "gestacion": valores("gestacion"),
+        "lactancia": valores("lactancia"),
+        "farmacogenetica": valores("farmacogenetica"),
+        "fases_monitorizacion": valores("fases_monitorizacion"),
+        "huecos": valores("huecos"),
     }
 
 

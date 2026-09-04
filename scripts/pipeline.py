@@ -8,7 +8,13 @@ Ejecuta el ciclo de vida completo en un solo comando determinista:
     3. indice.py        (Generación de index.json, JSON-LD y JATS XML)
     4. reto.py          (Generación del banco de autoevaluación)
     5. sitio.py         (Compilación estática Ghost)
-    6. test_contrato    (Suite completa de pruebas de contrato)
+    6. qmd.py           (Proyección a un único .qmd para el EPUB de Quarto)
+    7. test_contrato    (Suite completa de pruebas de contrato)
+
+El EPUB en sí no entra en el pipeline: `epub.py` necesita Quarto instalado, y
+una etapa que falle por una dependencia externa convertiría el pipeline en
+algo que no se puede ejecutar en cualquier máquina. La proyección sí entra,
+porque es la que puede romperse al cambiar el esquema.
 
 Uso:
     python scripts/pipeline.py
@@ -59,7 +65,8 @@ def main():
         ("3. Indexación Semántica", ["scripts/indice.py"]),
         ("4. Banco Interactivo", ["scripts/reto.py"]),
         ("5. Compilador Ghost", ["scripts/sitio.py"]),
-        ("6. Tests de Contrato", ["-m", "unittest", "discover", "-s", "tests", "-v"]),
+        ("6. Proyección del Libro", ["scripts/qmd.py"]),
+        ("7. Tests de Contrato", ["-m", "unittest", "discover", "-s", "tests", "-v"]),
     ]
 
     tiempos = []
@@ -73,7 +80,8 @@ def main():
     total_s = time.perf_counter() - t0
     print("\n" + "─" * 68)
     print(f"✓ Pipeline completado con éxito en {total_s:.3f} s ({sum(tiempos):.1f} ms CPU).")
-    print("  Todos los esquemas, índices, reto, HTML y tests aprobados al 100%.\n")
+    print("  Todos los esquemas, índices, reto, HTML, libro y tests aprobados.")
+    print("  El EPUB se encuaderna aparte: python scripts/epub.py\n")
 
     if args.serve:
         print(f"Iniciando servidor local en http://localhost:{args.puerto}/ (Ctrl+C para salir)...\n")

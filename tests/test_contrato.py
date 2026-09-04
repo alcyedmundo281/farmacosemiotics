@@ -14,6 +14,7 @@ Dos clases de prueba, y la segunda es la que de verdad importa:
     sobre un repositorio con las cifras inventadas.
 """
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -143,6 +144,88 @@ class LasSalidas(unittest.TestCase):
                           j.name)
 
 
+class LaCapaDeGuia(unittest.TestCase):
+    """La proyección a Quarto y lo que el índice publica de ella.
+
+    El libro se compila en otra máquina, con Quarto instalado, así que aquí no
+    se renderiza: se comprueba lo que sí puede romperse en silencio y llegaría
+    roto al EPUB —una cita sin entrada en la bibliografía, un hueco declarado
+    sobre un apartado que en realidad tiene contenido—.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = Path(tempfile.mkdtemp())
+        r = correr(RAIZ / "scripts" / "qmd.py", "--salida", cls.tmp)
+        assert r.returncode == 0, r.stdout + r.stderr
+        cls.qmd = (cls.tmp / "guias-farmacoterapeuticas.qmd").read_text(
+            encoding="utf-8")
+        cls.bib = (cls.tmp / "referencias.bib").read_text(encoding="utf-8")
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    def test_el_libro_es_un_solo_fichero_con_todas_las_guias(self):
+        estado = build.cargar()
+        for ident, reg in estado["fichas"].items():
+            self.assertIn(reg["titulo"], self.qmd,
+                          ident + " no aparece en el libro")
+
+    def test_ninguna_cita_del_libro_falta_en_la_bibliografia(self):
+        # Es el fallo que Quarto no siempre grita y que deja un «[?]» en el
+        # EPUB publicado: la cifra pierde su procedencia justo en la salida
+        # que más gente va a leer.
+        claves_bib = set(re.findall(r"^@article\{([^,]+),", self.bib,
+                                    flags=re.MULTILINE))
+        citadas = set(re.findall(r"@([A-Za-z][A-Za-z0-9_:-]*)", self.qmd))
+        huerfanas = citadas - claves_bib
+        self.assertFalse(huerfanas,
+                         "citas sin entrada en referencias.bib: "
+                         + ", ".join(sorted(huerfanas)))
+
+    def test_toda_entrada_de_la_bibliografia_lleva_su_pmid(self):
+        entradas = re.findall(r"@article\{([^,]+),(.*?)\n\}", self.bib,
+                              flags=re.DOTALL)
+        self.assertTrue(entradas, "la bibliografía salió vacía")
+        for clave, cuerpo in entradas:
+            self.assertIn("eprint = {", cuerpo,
+                          clave + " no lleva PMID: el vínculo con PubMed se "
+                                  "pierde al encuadernar")
+
+    def test_el_libro_declara_la_regla_de_oro(self):
+        self.assertIn("sin PMID resoluble", self.qmd)
+
+    def test_el_indice_expone_la_capa_de_guia(self):
+        indice = json.loads((RAIZ / "build" / "index.json").read_text(
+            encoding="utf-8"))
+        guias = [r for r in indice["registros"] if r["tipo"] == "ficha"]
+        self.assertTrue(guias)
+        for g in guias:
+            self.assertIn("gpc", g, g["id"] + " sin la marca `gpc`")
+        for faceta in ("linea", "gestacion", "huecos", "fases_monitorizacion"):
+            self.assertIn(faceta, indice["facetas"])
+
+    def test_un_hueco_declarado_no_tapa_un_apartado_lleno(self):
+        estado = build.cargar()
+        for ident, reg in estado["fichas"].items():
+            for bloque in build.huecos_de(reg):
+                self.assertFalse(reg.get(bloque),
+                                 ident + " declara vacío `" + str(bloque)
+                                 + "` y tiene contenido")
+
+    def test_todo_umbral_de_accion_trae_conducta(self):
+        # Un punto de corte sin qué hacer deja al clínico con un número y sin
+        # decisión, que es exactamente donde se falla.
+        estado = build.cargar()
+        for ident, reg in estado["fichas"].items():
+            for u in reg.get("umbrales_accion") or []:
+                self.assertTrue(u.get("accion"),
+                                ident + ": umbral sin `accion`")
+                self.assertTrue(u.get("ref"),
+                                ident + ": umbral sin `ref`")
+
+
 class ElValidadorFalla(unittest.TestCase):
     """Copia el repositorio a un temporal, lo estropea a propósito y comprueba
     que build.py lo detecta. Sin estas pruebas no sabríamos si valida algo."""
@@ -214,6 +297,65 @@ class ElValidadorFalla(unittest.TestCase):
         r = self.validar(repo)
         self.assertEqual(r.returncode, 1)
         self.assertIn("no existe en farmacos/", r.stdout)
+
+    # ── La capa de guía: que el validador la vigile de verdad ────────────
+    GPC = "fichas/FT0009-azatioprina-penfigo-vulgar.yaml"
+
+    def test_detecta_una_fase_de_monitorizacion_sin_frecuencia(self):
+        # Se renombra la clave en vez de recortar el bloque: así el YAML sigue
+        # siendo válido y lo que se prueba es el validador, no el parser.
+        repo = self.preparar()
+        # El ancla incluye la primera línea del valor: `frecuencia` aparece
+        # antes en farmacogenética, donde es opcional, y sustituir ahí no
+        # probaría nada.
+        self.estropear(repo,
+                       "    frecuencia: >-\n      Antes de cada escalado",
+                       "    frecuencia_antigua: >-\n      Antes de cada escalado",
+                       fichero=self.GPC)
+        r = self.validar(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("frecuencia", r.stdout)
+
+    def test_detecta_una_interaccion_sin_gravedad(self):
+        repo = self.preparar()
+        self.estropear(repo, "    gravedad: mayor\n", "", fichero=self.GPC)
+        r = self.validar(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("gravedad", r.stdout)
+
+    def test_detecta_un_fenotipo_sin_conducta(self):
+        repo = self.preparar()
+        self.estropear(repo,
+                       "      conducta: No hace falta alterar la dosis de inicio.\n",
+                       "", fichero=self.GPC)
+        r = self.validar(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("conducta", r.stdout)
+
+    def test_detecta_un_hueco_sin_motivo(self):
+        repo = self.preparar()
+        self.estropear(repo, "  - bloque: atencion_compartida\n    motivo: >-",
+                       "  - bloque: atencion_compartida\n    motivo_antiguo: >-",
+                       fichero=self.GPC)
+        r = self.validar(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("olvido", r.stdout)
+
+    def test_detecta_un_hueco_que_declara_vacio_un_bloque_lleno(self):
+        repo = self.preparar()
+        self.estropear(repo, "  - bloque: umbrales_accion",
+                       "  - bloque: monitorizacion", fichero=self.GPC)
+        r = self.validar(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("tiene contenido", r.stdout)
+
+    def test_detecta_una_compatibilidad_reproductiva_inventada(self):
+        repo = self.preparar()
+        self.estropear(repo, "    compatibilidad: compatible\n",
+                       "    compatibilidad: seguro\n", fichero=self.GPC)
+        r = self.validar(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("lista cerrada", r.stdout)
 
 
 if __name__ == "__main__":

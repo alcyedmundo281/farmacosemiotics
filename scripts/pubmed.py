@@ -12,9 +12,27 @@ frecuencia suficiente como para no compararlos.
     python scripts/pubmed.py 9742977 --forzar        # reescribe si ya existe
 
 Escribe referencias/pmid-<PMID>.yaml y no toca nada más.
+
+## Cuando eutils no es alcanzable
+
+Hay redes que deniegan la salida a `eutils.ncbi.nlm.nih.gov`. Ahí la regla
+«las referencias no se escriben a mano» dejaría de poder cumplirse, y esa es
+justamente la regla que no conviene relajar. Para eso está `--desde-json`:
+acepta la respuesta *literal* de un servidor MCP de PubMed y la pasa por el
+mismo escritor que la vía de red, de modo que el fichero resultante no depende
+de que nadie transcriba un título.
+
+    python scripts/pubmed.py --desde-json registros.json
+
+Lo que se pierde por ese camino queda anotado en el propio fichero: la
+respuesta MCP no expone `CommentsCorrectionsList`, así que la retractación solo
+puede leerse del tipo de publicación. Un registro así llega con
+`verificacion.via: pubmed-mcp`, y build.py avisa de que conviene rehacerlo
+contra eutils cuando la red lo permita.
 """
 import argparse
 import datetime as dt
+import json
 import re
 import sys
 import time
@@ -160,11 +178,20 @@ def yaml_escapar(s):
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
-def escribir(reg, clave, crossref, hoy):
+def escribir(reg, clave, crossref, hoy, via=None):
     L = []
     A = L.append
     A("# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.")
     A("# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.")
+    if via:
+        A("#")
+        A("# Obtenido por " + via + " porque la red de este entorno deniega")
+        A("# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia")
+        A("# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.")
+        A("#")
+        A("# `anio` es la fecha que devolvió esa vía, que en los artículos")
+        A("# publicados antes en electrónico es la del epub y no la del")
+        A("# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.")
     A("")
     A('id: "pmid:' + reg["pmid"] + '"')
     A("clave_bibtex: " + clave)
@@ -195,6 +222,13 @@ def escribir(reg, clave, crossref, hoy):
     A("  pubmed: true")
     A("  fecha: '" + hoy + "'")
     A("  retractado: " + ("true" if reg["retractado"] else "false"))
+    if via:
+        A("  via: " + via)
+        # Sin CommentsCorrectionsList no se ve el aviso que retracta a otro
+        # artículo, solo el tipo de publicación del propio registro. La
+        # diferencia importa: un artículo retractado no sostiene un enunciado.
+        A("  retractacion_completa: false   # el tipo de publicación es todo")
+        A("                                 # lo que esta vía deja comprobar")
     if crossref is None:
         # `null` cubre dos casos distintos y conviene no confundirlos con `false`:
         # no se comprobó, o el registro no trae DOI que comprobar.
@@ -205,10 +239,101 @@ def escribir(reg, clave, crossref, hoy):
     return "\n".join(L) + "\n"
 
 
+def desde_mcp(art):
+    """El mismo registro que `parsear()`, desde la respuesta de un MCP de PubMed.
+
+    Se mapea campo a campo y no se completa nada: si el servidor no devolvió
+    páginas, el registro sale sin páginas. Inventar aquí un volumen plausible
+    sería exactamente el fallo que este módulo existe para impedir.
+    """
+    ids = art.get("identifiers") or {}
+    revista = art.get("journal") or {}
+    cita = art.get("citation") or {}
+
+    autores, apellido_primero = [], ""
+    for a in art.get("authors") or []:
+        # La lista trae entradas vacías donde PubMed pone un autor colectivo:
+        # el MCP no lo expone, y una entrada vacía no se puede firmar.
+        colectivo = (a.get("collective_name") or "").strip()
+        if colectivo:
+            autores.append(colectivo)
+            apellido_primero = apellido_primero or colectivo.split()[0]
+            continue
+        apellido = (a.get("last_name") or "").strip()
+        if not apellido:
+            continue
+        iniciales = (a.get("initials") or "").strip()
+        autores.append((apellido + " " + iniciales).strip())
+        apellido_primero = apellido_primero or apellido
+
+    tipos = list(art.get("article_types") or [])
+    return {
+        "pmid": str(ids.get("pmid") or "").strip(),
+        "titulo": " ".join(str(art.get("title") or "").split()).rstrip("."),
+        "autores": autores,
+        "apellido_primero": apellido_primero,
+        "publicacion": (revista.get("iso_abbreviation")
+                        or revista.get("title") or ""),
+        "anio": str((art.get("publication_date") or {}).get("year") or ""),
+        "volumen": str(cita.get("volume") or ""),
+        "numero": str(cita.get("issue") or ""),
+        "paginas": str(cita.get("pages") or ""),
+        "doi": str(ids.get("doi") or ""),
+        "pmc": str(ids.get("pmc") or ""),
+        "tipos": tipos,
+        "retractado": "Retracted Publication" in tipos,
+    }
+
+
+def registros_de_json(ruta):
+    """Lee la respuesta literal de un MCP de PubMed. Acepta las tres formas
+    en que suele llegar: {"articles": [...]}, una lista, o un único objeto."""
+    datos = json.loads(Path(ruta).read_text(encoding="utf-8"))
+    if isinstance(datos, dict):
+        datos = datos.get("articles", datos.get("results", [datos]))
+    if not isinstance(datos, list):
+        raise ValueError("no encuentro una lista de artículos en " + str(ruta))
+    return [desde_mcp(a) for a in datos]
+
+
+def ingerir(registros, args, hoy, usadas):
+    """Escribe los registros ya parseados. No toca la red: CrossRef queda
+    sin comprobar y el fichero lo dice, en vez de afirmar un `false`."""
+    problemas = 0
+    for reg in registros:
+        if not reg["pmid"]:
+            print("ERROR: un registro sin PMID", file=sys.stderr)
+            problemas += 1
+            continue
+        destino = DESTINO / ("pmid-" + reg["pmid"] + ".yaml")
+        if destino.exists() and not args.forzar:
+            print("  ya existe   pmid:" + reg["pmid"]
+                  + "  (usa --forzar para reescribir)")
+            continue
+        clave = args.clave or slug_bibtex(reg["apellido_primero"],
+                                          reg["anio"], usadas)
+        usadas.add(clave)
+        destino.write_text(escribir(reg, clave, None, hoy, via="pubmed-mcp"),
+                           encoding="utf-8")
+        marca = "   RETRACTADO" if reg["retractado"] else ""
+        print("  escrito     pmid:" + reg["pmid"] + "  " + clave + "  "
+              + reg["titulo"][:58] + "…" + marca)
+        if reg["retractado"]:
+            print("              ^ un artículo retractado NO sostiene un enunciado.",
+                  file=sys.stderr)
+            problemas += 1
+    return 1 if problemas else 0
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="Crea referencias/ desde uno o más PMID.")
-    ap.add_argument("pmids", nargs="+", help="uno o más PMID")
+    ap.add_argument("pmids", nargs="*", help="uno o más PMID")
+    ap.add_argument("--desde-json", metavar="ARCHIVO",
+                    help="ingiere la respuesta literal de un MCP de PubMed en "
+                         "vez de consultar eutils. Para redes que deniegan la "
+                         "salida a NCBI: mantiene en pie la regla de que una "
+                         "referencia no se escribe a mano.")
     ap.add_argument("--sin-crossref", action="store_true",
                     help="no comprueba que el DOI resuelva")
     ap.add_argument("--forzar", action="store_true",
@@ -221,10 +346,17 @@ def main():
 
     if args.clave and len(args.pmids) != 1:
         ap.error("--clave solo tiene sentido con un único PMID")
+    if not args.pmids and not args.desde_json:
+        ap.error("hacen falta PMID, o --desde-json con la respuesta del MCP")
+    if args.pmids and args.desde_json:
+        ap.error("--desde-json ya trae los registros: no le pases PMID además")
 
     DESTINO.mkdir(parents=True, exist_ok=True)
     hoy = dt.date.today().isoformat()
     usadas = claves_en_uso()
+
+    if args.desde_json:
+        return ingerir(registros_de_json(args.desde_json), args, hoy, usadas)
 
     pendientes = []
     for p in args.pmids:

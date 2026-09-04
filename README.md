@@ -24,6 +24,17 @@ La meta de contenido es la **Lista Modelo de Medicamentos Esenciales de la OMS**
 —24.ª lista, 2025, y la 10.ª LME para niños—. No es un catálogo nacional: es
 internacional por diseño, y lo que depende del país vive en `costos/`, aparte.
 
+## El libro
+
+Todas las guías se proyectan a **un solo `.qmd`** y de ahí sale un EPUB con
+Quarto. Cada cifra viaja con su cita, y cada entrada de la bibliografía lleva
+su PMID, así que el vínculo con PubMed sobrevive a la encuadernación: quien lea
+el libro puede seguir cualquier número hasta el artículo del que sale.
+
+```bash
+python scripts/epub.py      # build/guias-farmacoterapeuticas.epub
+```
+
 ## La arquitectura, en una frase
 
 > **El índice es PubMed. Los YAML son PubMed Central.**
@@ -72,7 +83,7 @@ farmacosemiotics/
 ├── referencias/   pmid-9742977.yaml            verificadas contra PubMed
 ├── catalogo/      lme-oms-2025.yaml            la meta de contenido
 ├── costos/        <pais>.yaml                  overlay opcional, nunca el núcleo
-├── scripts/       build · pubmed · openfda · eml · indice · sitio · reto
+├── scripts/       build · pubmed · openfda · eml · indice · sitio · reto · qmd · epub
 ├── sitio/         plantillas del frontend
 └── build/         GENERADO — no se versiona
 ```
@@ -85,6 +96,8 @@ python scripts/build.py          # valida; no modifica nada
 python scripts/indice.py         # build/index.json + build/jsonld/ + build/jats/
 python scripts/sitio.py          # build/sitio/ listo para Pages
 python scripts/eml.py            # cobertura frente a la Lista Modelo de la OMS
+python scripts/pipeline.py       # todo lo anterior, más el reto y las pruebas
+python scripts/epub.py           # el libro con todas las guías (necesita Quarto)
 ```
 
 Añadir una referencia (no se escriben a mano):

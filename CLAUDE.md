@@ -7,10 +7,23 @@ repositorio. **Léelo completo al arrancar.** No improvises el flujo.
 
 ## Qué es este proyecto
 
-Fichas de terapéutica racional en YAML, con el índice y el sitio derivados de
-ellas. **Publicador, no proveedor**: a diferencia de medsemiotics-db —que solo
-guarda hechos y prohíbe la prosa—, aquí el YAML *es* el texto completo. Ese es
-el equivalente a PMC; `build/index.json` es el equivalente a PubMed.
+**Guías de práctica clínica farmacoterapéuticas** en YAML, con el índice, el
+sitio y el libro derivados de ellas. **Publicador, no proveedor**: a diferencia
+de medsemiotics-db —que solo guarda hechos y prohíbe la prosa—, aquí el YAML
+*es* el texto completo. Ese es el equivalente a PMC; `build/index.json` es el
+equivalente a PubMed.
+
+Cada entrada de `fichas/` es una guía: no se limita a pesar el NNT frente al
+NNH, sino que responde a lo que el prescriptor tiene delante —qué pido antes de
+la primera dosis, cada cuánto lo repito, qué hago cuando el análisis se tuerce,
+qué le digo a quien quiere quedarse embarazada y de quién es cada acto entre el
+especialista y el médico de seguimiento—. El estándar de forma son las guías de
+las sociedades europeas y británicas (BSR, BAD, EDF/EADV) y la guía CPIC para
+lo farmacogenético.
+
+**Una fuente, muchas salidas.** El YAML es la única fuente y es obligatoria.
+De ahí salen `build/index.json`, el sitio, el JATS y —en un solo `.qmd`— el
+EPUB con todas las guías. Nada de eso se edita a mano: se regenera.
 
 Alcance **internacional**. Lo que dependa de un país va en `costos/`, nunca en
 `farmacos/` ni en `fichas/`.
@@ -33,7 +46,9 @@ fichero de `referencias/` del que sale?* Si no, no se escribe.
 
 1. `git status` y reporta el estado.
 2. Lee `mapa-maestro-farmacosemiotics.md` y di **qué oleada toca**.
-3. `python scripts/build.py` y reporta las alertas actuales.
+3. `python scripts/build.py` y reporta las alertas actuales. Fíjate en cuántas
+   guías salen «completas» y cuántas con huecos declarados: esa es la distancia
+   real que le queda al repositorio.
 
 ## Mapa del repositorio
 
@@ -54,8 +69,15 @@ farmacosemiotics/
 ├── scripts/indice.py                  ← build/index.json + jsonld/ + jats/
 ├── scripts/sitio.py                   ← build/sitio/ (Ghost Casper: index, blog/Indice, reto)
 ├── scripts/reto.py                    ← build/reto.json, URL relativas
+├── scripts/qmd.py                     ← proyecta UN solo .qmd con todas las guías
+├── scripts/epub.py                    ← lo encuaderna con Quarto → build/*.epub
+├── scripts/pipeline.py                ← ejecuta el ciclo entero y cronometra
 └── build/                             ← GENERADO, no se versiona
 ```
+
+El libro se compila en dos pasos y por una razón: `qmd.py` solo necesita Python
+y entra en el pipeline; `epub.py` necesita Quarto instalado y por eso queda
+fuera, para que el pipeline siga corriendo en cualquier máquina.
 
 ## El desdoblamiento fármaco / ficha
 
@@ -72,6 +94,14 @@ pregúntate **si el dato cambia según la indicación**:
 | NNH, toxicidad e incidencia | `fichas/` · `seguridad_cuantitativa` | **sí** |
 | posología y ajuste renal específico | `fichas/` · `posologia` | **sí** |
 | fuerza y dirección de recomendación | `fichas/` · `recomendacion` | **sí** |
+| cribado previo a la primera dosis | `fichas/` · `cribado_basal` | **sí** |
+| dosis según genotipo (TPMT, NUDT15…) | `fichas/` · `farmacogenetica` | **sí** |
+| cronograma de analíticas por fase | `fichas/` · `monitorizacion` | **sí** |
+| punto de corte y conducta ante la anomalía | `fichas/` · `umbrales_accion` | **sí** |
+| interacción que cambia la dosis | `fichas/` · `interacciones` | **sí** |
+| embarazo, lactancia, lavado, anticoncepción | `fichas/` · `reproductivo` | **sí** |
+| reparto especialista / seguimiento | `fichas/` · `atencion_compartida` | **sí** |
+| línea de tratamiento y desescalamiento | `fichas/` · `posicionamiento` | **sí** |
 
 Un mismo fármaco tiene tantas fichas como indicaciones evaluadas.
 `FS:0001` (metformina) puede sostener `FT:0001` (DM2) y una futura ficha de
@@ -92,6 +122,13 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
   aceptes una que produjo un modelo sin comprobar el PMID. Este ecosistema ya
   fue salvado de tres referencias inventadas en biosemiotics. Las referencias
   **no se escriben a mano**: `python scripts/pubmed.py <PMID>`.
+  Si la red del entorno deniega la salida a `eutils.ncbi.nlm.nih.gov` —pasa en
+  las sesiones con política de egreso restrictiva—, la regla no se relaja: se
+  usa `python scripts/pubmed.py --desde-json <archivo>`, que ingiere la
+  respuesta literal de un servidor MCP de PubMed por el mismo escritor. El
+  fichero resultante lo declara con `verificacion.via: pubmed-mcp` y avisa de
+  que la retractación solo pudo comprobarse por el tipo de publicación. Cuando
+  eutils vuelva a ser alcanzable, se rehace con `--forzar`.
 - **PubMed manda sobre CrossRef.** PubMed es autoridad para título, año y
   retractación; CrossRef solo confirma que el DOI resuelve.
 - **Un artículo retractado no sostiene un enunciado.** `pubmed.py` marca
@@ -104,8 +141,19 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
   `razones_descenso` es un juicio sin argumento.
 - **Fecha de consulta obligatoria** en todo dato traído de una API externa
   (`openfda`, `rxnav`). Un dato regulatorio sin fecha no es verificable.
+- **Un hueco se declara, no se rellena.** Si no hay fuente que fije un
+  cronograma o un punto de corte, el apartado NO se escribe: se anota en
+  `huecos_declarados` con su `motivo` y las `refs` de lo que se consultó sin
+  éxito. Un apartado ausente y uno olvidado se leen igual en el EPUB, y no son
+  lo mismo. `build.py` exige el motivo y falla si el hueco declara vacío un
+  bloque que en realidad tiene contenido.
+- **Tres estados, no dos, en lo que no se ha podido comprobar.** `lme.presente`
+  admite `null` además de `true` y `false`. `null` significa «no comprobado» y
+  `eml.py` lo cuenta fuera de la Lista Modelo, que es el sesgo conservador
+  correcto. Poner `false` para quitarse el aviso de encima es afirmar algo que
+  no se sabe.
 
-## Flujo para añadir una ficha
+## Flujo para añadir una guía
 
 1. **Ubica la indicación en el mapa maestro.** Copia su sección de la LME y su
    oleada.
@@ -116,8 +164,14 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
 4. **Escribe la ficha.** Cada fila de `evidencia` con su `ref`, su `certeza` y,
    si baja de `alta`, sus `razones_descenso`.
 5. **Refresca el regulatorio**: `python scripts/openfda.py <nombre>`.
-6. `python scripts/build.py`. **No continúes con errores.**
-7. `python scripts/indice.py && python scripts/sitio.py` para ver el resultado.
+6. **Completa la capa de guía** hasta donde llegue la fuente: `cribado_basal`,
+   `farmacogenetica`, `monitorizacion`, `umbrales_accion`, `interacciones`,
+   `reproductivo`, `atencion_compartida`, `posicionamiento`. Lo que no tenga
+   fuente va a `huecos_declarados`, nunca escrito de memoria.
+7. `python scripts/build.py`. **No continúes con errores.**
+8. `python scripts/pipeline.py` genera índice, reto, sitio y la proyección del
+   libro, y pasa las pruebas de contrato.
+9. `python scripts/epub.py` encuaderna el EPUB, si tienes Quarto instalado.
 
 ## Qué NO hacer
 
@@ -125,7 +179,13 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
   no lo da, el campo se omite.
 - No conviertas una asociación observacional en un enunciado de eficacia. El
   campo `diseno` existe para eso y `build.py` lo exige.
-- No edites `build/` a mano: se regenera y se pierde.
+- No edites `build/` a mano: se regenera y se pierde. Eso incluye
+  `build/quarto/guias-farmacoterapeuticas.qmd`, que parece un documento
+  editable y es una salida: corregir ahí una cifra la deja sin arreglar en el
+  YAML y sin arreglar en la siguiente compilación.
+- No inventes un punto de corte «porque es el habitual». Un umbral de
+  neutrófilos sin PMID es el mismo fallo que un HR sin PMID, y llega más
+  directo a una decisión: alguien suspende un fármaco por ese número.
 - No metas el texto de la ficha técnica de la FDA en el YAML. Se enlaza y se
   resume; copiarlo lo convierte en una obra derivada que no controlamos.
 - No hagas que el sitio consulte APIs en tiempo de ejecución. Todo se resuelve

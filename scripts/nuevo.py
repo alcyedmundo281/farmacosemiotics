@@ -125,6 +125,106 @@ seguridad_cuantitativa:
     conducta: 'Conducta clínica ante la aparición del evento.'
     ref: 'fda:label'
 
+# ── La capa de guía de práctica clínica ──────────────────────────────────────
+# Todo lo que sigue es OPCIONAL, pero en cuanto un apartado aparece se valida
+# entero: media tabla de monitorización es peor que ninguna, porque parece
+# completa. Borra los que no apliquen y declara en `huecos_declarados` los que
+# apliquen pero no tengan fuente publicada que citar.
+#
+# Cada `ref` pasa por la regla de oro igual que las de `evidencia`. Un punto de
+# corte de neutrófilos sin PMID es el mismo fallo que un HR sin PMID, y llega
+# más directo a una decisión: alguien suspende un fármaco por ese número.
+
+# cribado_basal:
+#   - prueba: 'Hemograma completo'
+#     motivo: 'Qué decisión cambia este resultado antes de la primera dosis'
+#     responsable: especialista        # especialista | seguimiento | compartida
+#     ref: 'pmid:00000000'
+
+# farmacogenetica:
+#   gen: 'TPMT'
+#   prueba: 'genotipado antes de la primera dosis'
+#   fenotipos:
+#     - fenotipo: 'metabolizador lento'
+#       frecuencia: '1 de cada 300'
+#       dosis: '10 % de la dosis diana'
+#       conducta: 'Qué se hace con este fenotipo delante'
+#       ref: 'pmid:00000000'
+
+# monitorizacion:
+#   - fase: basal                      # basal es la única sin `frecuencia`
+#     pruebas: ['Hemograma completo']
+#     responsable: especialista
+#     ref: 'pmid:00000000'
+#   - fase: induccion                  # induccion | mantenimiento | estable
+#     periodo: 'Primeras 6 semanas'    # post_suspension
+#     pruebas: ['Hemograma completo', 'ALT']
+#     frecuencia: 'cada 2 semanas'
+#     responsable: compartida
+#     ref: 'pmid:00000000'
+
+# umbrales_accion:
+#   - parametro: 'Neutrófilos'
+#     umbral: '< 1,6 x 10^9/L'
+#     accion: 'Suspender y repetir en 1-2 semanas'
+#     ref: 'pmid:00000000'
+
+# interacciones:
+#   - con: 'Alopurinol'
+#     gravedad: mayor                  # contraindicada | mayor | moderada | menor
+#     efecto: 'Qué le pasa al fármaco'
+#     conducta: 'Qué hace el prescriptor'
+#     ref: 'pmid:00000000'
+
+# reproductivo:
+#   gestacion:
+#     compatibilidad: compatible       # compatible | compatible_con_precaucion
+#     enunciado: 'Lo que dice la fuente'   # evitar | contraindicado | sin_datos
+#     ref: 'pmid:00000000'
+#   lactancia:
+#     compatibilidad: sin_datos        # `sin_datos` no exige enunciado: el
+#     ref: 'pmid:00000000'             # hueco ya lo dice el propio valor
+#   washout:
+#     mujer: 'al menos 1 mes antes de concebir'
+#     varon: 'no se exige'
+#     ref: 'pmid:00000000'
+#   anticoncepcion:
+#     requerida: true
+#     enunciado: 'De alta eficacia durante el tratamiento y 6 meses después'
+#     ref: 'pmid:00000000'
+
+# atencion_compartida:
+#   especialista: ['Indicar y titular', 'Pedir el cribado basal']
+#   seguimiento: ['Repetir la analítica del cronograma']
+#   checklist_preinicio: ['Cribado basal completo']
+#   suspension_inmediata: ['Neutropenia', 'Ictericia', 'Fiebre sin foco']
+#   ref: 'pmid:00000000'
+
+# posicionamiento:
+#   linea: primera                     # primera | segunda | tercera | rescate
+#   justificacion: 'Por qué va en esa línea'   # no_recomendada
+#   escalonado:
+#     - linea: primera
+#       opciones: ['Fármaco A']
+#       nota: 'Cuándo'
+#   desescalamiento:
+#     enunciado: 'Cómo se baja la dosis'
+#     ref: 'pmid:00000000'
+#   ref: 'pmid:00000000'
+
+# ── Huecos declarados ────────────────────────────────────────────────────────
+# Se buscó fuente para este apartado y no se encontró. Declararlo es lo que
+# impide que la guía parezca completa, y silencia el aviso de build.py para ese
+# bloque concreto. `bloque` debe ser uno de los ocho de arriba.
+#
+# huecos_declarados:
+#   - bloque: umbrales_accion
+#     motivo: >-
+#       Por qué no hay tabla aquí. Escribir un umbral verosímil sería
+#       justamente el fallo que este repositorio existe para impedir.
+#     buscado_en: 'Qué se consultó sin éxito'
+#     refs: ['pmid:00000000']
+
 # ── Juicio de Balance GRADE ──────────────────────────────────────────────────
 balance:
   efectos_deseables: grande

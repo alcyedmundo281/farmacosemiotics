@@ -503,6 +503,267 @@ def enlace_pubmed(ref):
 
 # ══════════════════ página de ficha ══════════════════
 
+# ─────────────────── la capa de guía de práctica clínica ───────────────────
+# Estos apartados son los que separan una ficha de evidencia de una guía que
+# se puede seguir con el paciente delante: qué pido antes de la primera dosis,
+# cada cuánto lo repito, qué hago cuando el análisis se tuerce y qué le digo a
+# quien quiere quedarse embarazada. Ninguno se dibuja si está vacío.
+
+FASE_ROTULO = {
+    "basal": "Basal · antes de la primera dosis",
+    "induccion": "Inducción",
+    "mantenimiento": "Mantenimiento",
+    "estable": "Estable",
+    "post_suspension": "Tras la suspensión",
+}
+RESPONSABLE_ROTULO = {
+    "especialista": "Especialista",
+    "seguimiento": "Médico de seguimiento",
+    "compartida": "Compartida",
+}
+BLOQUE_ROTULO = {
+    "cribado_basal": "Cribado basal",
+    "farmacogenetica": "Estratificación farmacogenética",
+    "monitorizacion": "Cronograma de monitorización",
+    "umbrales_accion": "Conducta ante la anomalía analítica",
+    "interacciones": "Interacciones",
+    "reproductivo": "Seguridad reproductiva",
+    "atencion_compartida": "Atención compartida",
+    "posicionamiento": "Posicionamiento terapéutico",
+}
+
+
+def lista_es(valor):
+    if not valor:
+        return ""
+    if isinstance(valor, str):
+        return valor
+    return "; ".join(str(x) for x in valor if x not in (None, ""))
+
+
+def tabla_gpc(cabeceras, filas):
+    """Tabla con desplazamiento horizontal, como el resto del sitio."""
+    if not filas:
+        return ""
+    salida = ['<div class="tabla-scroll"><table><thead><tr>']
+    salida += ["<th>" + c + "</th>" for c in cabeceras]
+    salida.append("</tr></thead><tbody>")
+    for fila in filas:
+        salida.append("<tr>" + "".join("<td>" + c + "</td>" for c in fila) + "</tr>")
+    salida.append("</tbody></table></div>")
+    return "".join(salida)
+
+
+def bloque_farmacogenetica(reg):
+    fg = reg.get("farmacogenetica")
+    if not isinstance(fg, dict) or not fg.get("fenotipos"):
+        return ""
+    filas = []
+    for f in fg["fenotipos"]:
+        if not isinstance(f, dict):
+            continue
+        conducta = e(f.get("conducta"))
+        if f.get("ref"):
+            conducta += '<br><span class="ref">' + enlace_pubmed(f["ref"]) + "</span>"
+        filas.append(("<strong>" + e(f.get("fenotipo")) + "</strong>",
+                      e(f.get("frecuencia")) or "—",
+                      e(f.get("dosis")) or "—", conducta))
+    if not filas:
+        return ""
+    cabecera = ("<h2>Estratificación farmacogenética</h2>"
+                '<p class="sub">Gen: <strong>' + e(fg.get("gen"))
+                + "</strong>"
+                + (" · " + e(fg["prueba"]) if fg.get("prueba") else "")
+                + "</p>")
+    nota = "<p>" + e(fg["nota"]) + "</p>" if fg.get("nota") else ""
+    return cabecera + nota + tabla_gpc(
+        ["Fenotipo", "Frecuencia", "Dosis de inicio", "Conducta"], filas)
+
+
+def bloque_cribado(reg):
+    filas = []
+    for c in reg.get("cribado_basal") or []:
+        if not isinstance(c, dict):
+            continue
+        motivo = e(c.get("motivo"))
+        if c.get("ref"):
+            motivo += '<br><span class="ref">' + enlace_pubmed(c["ref"]) + "</span>"
+        filas.append(("<strong>" + e(c.get("prueba")) + "</strong>", motivo,
+                      e(RESPONSABLE_ROTULO.get(c.get("responsable"), "")) or "—"))
+    if not filas:
+        return ""
+    return ("<h2>Antes de la primera dosis</h2>"
+            + tabla_gpc(["Prueba", "Para qué", "Quién"], filas))
+
+
+def bloque_monitorizacion(reg):
+    filas = []
+    for m in reg.get("monitorizacion") or []:
+        if not isinstance(m, dict):
+            continue
+        quien = e(RESPONSABLE_ROTULO.get(m.get("responsable"), "")) or "—"
+        if m.get("ref"):
+            quien += '<br><span class="ref">' + enlace_pubmed(m["ref"]) + "</span>"
+        filas.append(("<strong>"
+                      + e(FASE_ROTULO.get(m.get("fase"), m.get("fase") or ""))
+                      + "</strong>",
+                      e(m.get("periodo")) or "—",
+                      e(lista_es(m.get("pruebas"))),
+                      e(m.get("frecuencia")) or "—", quien))
+    if not filas:
+        return ""
+    return ("<h2>Cronograma de monitorización</h2>"
+            + tabla_gpc(["Fase", "Periodo", "Pruebas", "Frecuencia", "Quién"],
+                        filas))
+
+
+def bloque_umbrales(reg):
+    filas = []
+    for u in reg.get("umbrales_accion") or []:
+        if not isinstance(u, dict):
+            continue
+        accion = e(u.get("accion"))
+        if u.get("ref"):
+            accion += '<br><span class="ref">' + enlace_pubmed(u["ref"]) + "</span>"
+        filas.append(("<strong>" + e(u.get("parametro")) + "</strong>",
+                      "<code>" + e(u.get("umbral")) + "</code>", accion))
+    if not filas:
+        return ""
+    return ("<h2>Si el análisis se tuerce</h2>"
+            + tabla_gpc(["Parámetro", "Punto de corte", "Conducta"], filas))
+
+
+def bloque_interacciones(reg):
+    filas = []
+    for x in reg.get("interacciones") or []:
+        if not isinstance(x, dict):
+            continue
+        conducta = e(x.get("conducta"))
+        if x.get("ref"):
+            conducta += '<br><span class="ref">' + enlace_pubmed(x["ref"]) + "</span>"
+        filas.append(("<strong>" + e(x.get("con")) + "</strong>",
+                      e(eti(x.get("gravedad"))), e(x.get("efecto")), conducta))
+    if not filas:
+        return ""
+    return ("<h2>Interacciones que cambian la conducta</h2>"
+            + tabla_gpc(["Con", "Gravedad", "Efecto", "Conducta"], filas))
+
+
+def bloque_reproductivo(reg):
+    rep = reg.get("reproductivo")
+    if not isinstance(rep, dict):
+        return ""
+    partes = ["<h2>Seguridad reproductiva</h2>"]
+    filas = []
+    for rotulo, campo in (("Gestación", "gestacion"), ("Lactancia", "lactancia")):
+        etapa = rep.get(campo)
+        if not isinstance(etapa, dict):
+            continue
+        enunciado = e(etapa.get("enunciado"))
+        if etapa.get("ref"):
+            enunciado += ('<br><span class="ref">'
+                          + enlace_pubmed(etapa["ref"]) + "</span>")
+        filas.append(("<strong>" + rotulo + "</strong>",
+                      e(eti(etapa.get("compatibilidad"))), enunciado))
+    partes.append(tabla_gpc(["Etapa", "Compatibilidad", "Enunciado"], filas))
+
+    wo = rep.get("washout")
+    if isinstance(wo, dict) and (wo.get("mujer") or wo.get("varon")):
+        puntos = []
+        if wo.get("mujer"):
+            puntos.append("<li><strong>Mujer:</strong> " + e(wo["mujer"]) + "</li>")
+        if wo.get("varon"):
+            puntos.append("<li><strong>Varón:</strong> " + e(wo["varon"]) + "</li>")
+        partes.append('<div class="recuadro aviso"><span class="rotulo">'
+                      "Periodo de lavado antes de la concepción</span><ul>"
+                      + "".join(puntos) + "</ul>"
+                      + ('<p class="ref">' + enlace_pubmed(wo["ref"]) + "</p>"
+                         if wo.get("ref") else "") + "</div>")
+    anti = rep.get("anticoncepcion")
+    if isinstance(anti, dict) and anti.get("enunciado"):
+        partes.append('<div class="recuadro"><span class="rotulo">'
+                      "Anticoncepción</span><p>" + e(anti["enunciado"]) + "</p>"
+                      + ('<p class="ref">' + enlace_pubmed(anti["ref"]) + "</p>"
+                         if anti.get("ref") else "") + "</div>")
+    return "".join(partes)
+
+
+def bloque_atencion_compartida(reg):
+    ac = reg.get("atencion_compartida")
+    if not isinstance(ac, dict):
+        return ""
+    partes = ["<h2>Atención compartida</h2>",
+              '<p class="sub">Quién responde de cada acto entre el '
+              "especialista que indica y el médico que sigue.</p>"]
+    for rotulo, campo, clase in (
+            ("Corresponde al especialista", "especialista", ""),
+            ("Corresponde al médico de seguimiento", "seguimiento", ""),
+            ("Antes de iniciar", "checklist_preinicio", ""),
+            ("Suspensión inmediata si", "suspension_inmediata", " peligro")):
+        valores = ac.get(campo)
+        if not valores:
+            continue
+        if isinstance(valores, str):
+            valores = [valores]
+        partes.append('<div class="recuadro' + clase + '"><span class="rotulo">'
+                      + rotulo + "</span><ul>"
+                      + "".join("<li>" + e(v) + "</li>" for v in valores)
+                      + "</ul></div>")
+    if ac.get("ref"):
+        partes.append('<p class="ref">' + enlace_pubmed(ac["ref"]) + "</p>")
+    return "".join(partes)
+
+
+def bloque_posicionamiento(reg):
+    pos = reg.get("posicionamiento")
+    if not isinstance(pos, dict):
+        return ""
+    partes = ["<h2>Posicionamiento terapéutico</h2>"]
+    if pos.get("justificacion"):
+        partes.append("<p>" + e(pos["justificacion"]) + "</p>")
+    filas = []
+    for x in pos.get("escalonado") or []:
+        if not isinstance(x, dict):
+            continue
+        filas.append(("<strong>" + e(eti(x.get("linea"))) + "</strong>",
+                      e(lista_es(x.get("opciones"))), e(x.get("nota"))))
+    partes.append(tabla_gpc(["Línea", "Opciones", "Nota"], filas))
+    des = pos.get("desescalamiento")
+    if isinstance(des, dict) and des.get("enunciado"):
+        partes.append('<div class="recuadro"><span class="rotulo">'
+                      "Desescalamiento</span><p>" + e(des["enunciado"]) + "</p>"
+                      + ('<p class="ref">' + enlace_pubmed(des["ref"]) + "</p>"
+                         if des.get("ref") else "") + "</div>")
+    return "".join(partes)
+
+
+def bloque_huecos(reg):
+    """Un apartado ausente porque no se encontró fuente no es lo mismo que uno
+    olvidado, y el lector no puede distinguirlos si no se le dice."""
+    huecos = [h for h in reg.get("huecos_declarados") or [] if isinstance(h, dict)]
+    if not huecos:
+        return ""
+    puntos = []
+    for h in huecos:
+        texto = ("<strong>" + e(BLOQUE_ROTULO.get(h.get("bloque"),
+                                                  h.get("bloque") or ""))
+                 + ".</strong> " + e(h.get("motivo")))
+        if h.get("buscado_en"):
+            texto += ' <span class="ref">Se buscó en: ' + e(h["buscado_en"]) + "</span>"
+        puntos.append("<li>" + texto + "</li>")
+    return ("<h2>Lo que esta guía todavía no cubre</h2>"
+            '<div class="recuadro aviso"><span class="rotulo">Huecos '
+            "declarados</span><ul>" + "".join(puntos) + "</ul></div>")
+
+
+def capa_gpc_html(reg):
+    """Los apartados de guía, en el orden en que se usan en la consulta."""
+    return "".join(f(reg) for f in (
+        bloque_posicionamiento, bloque_farmacogenetica, bloque_cribado,
+        bloque_monitorizacion, bloque_umbrales, bloque_interacciones,
+        bloque_reproductivo, bloque_atencion_compartida))
+
+
 def pagina_ficha(reg, farmaco, referencias, jsonld):
     P = []
     A = P.append
@@ -594,6 +855,8 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
                 A("<dt>" + rot + "</dt><dd>" + e(pos[k]) + "</dd>")
         A("</dl>")
 
+    A(capa_gpc_html(reg))
+
     evidencia = reg.get("evidencia") or []
     if evidencia:
         tiene_nnt = any(x.get("nnt") for x in evidencia)
@@ -683,6 +946,8 @@ def pagina_ficha(reg, farmaco, referencias, jsonld):
 
     if reg.get("conclusion"):
         A("<h2>Conclusión</h2><p>" + e(reg["conclusion"]) + "</p>")
+
+    A(bloque_huecos(reg))
     if rec.get("nota_consenso"):
         A('<div class="recuadro aviso"><span class="rotulo">Matiz</span><p>'
           + e(rec["nota_consenso"]) + "</p></div>")

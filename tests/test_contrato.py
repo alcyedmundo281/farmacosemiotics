@@ -21,6 +21,7 @@ import sys
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
+import zipfile
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -213,6 +214,27 @@ class LaCapaDeGuia(unittest.TestCase):
                 self.assertFalse(reg.get(bloque),
                                  ident + " declara vacío `" + str(bloque)
                                  + "` y tiene contenido")
+
+    def test_quarto_encuaderna_el_libro(self):
+        """Si Quarto está instalado, se renderiza de verdad.
+
+        Existe por un fallo concreto: el front-matter llevaba `css: ""`, que
+        Quarto lee como un fichero de estilos vacío e intenta abrir. Pandoc no
+        lo veía y las pruebas pasaban con un libro que no compilaba. Un
+        generador de documentos que nunca ha renderizado no está probado.
+        """
+        if not shutil.which("quarto"):
+            self.skipTest("Quarto no está instalado en esta máquina")
+        r = correr(RAIZ / "scripts" / "epub.py", "--solo-render")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        libro = RAIZ / "build" / "guias-farmacoterapeuticas.epub"
+        self.assertTrue(libro.exists(), "Quarto terminó sin dejar el EPUB")
+        with zipfile.ZipFile(libro) as z:
+            paginas = [n for n in z.namelist() if n.endswith((".xhtml", ".html"))]
+            texto = "".join(z.read(n).decode("utf-8", "ignore") for n in paginas)
+        self.assertNotRegex(texto, r"\[@[a-z]",
+                            "el EPUB salió con citas sin resolver")
+        self.assertIn("Bibliograf", texto, "el EPUB salió sin bibliografía")
 
     def test_todo_umbral_de_accion_trae_conducta(self):
         # Un punto de corte sin qué hacer deja al clínico con un número y sin

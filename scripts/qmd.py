@@ -578,7 +578,6 @@ def portada(total, completas, hoy):
         "    toc-depth: 2",
         "    number-sections: false",
         "    epub-title-page: true",
-        '    css: ""',
         "  html:",
         "    toc: true",
         "    toc-depth: 3",

@@ -1,0 +1,78 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:34101387"
+clave_bibtex: fraenkel2021
+tipo: revision_sistematica
+titulo: "2021 American College of Rheumatology Guideline for the Treatment of Rheumatoid Arthritis"
+autores:
+  - "Fraenkel L"
+  - "Bathon JM"
+  - "England BR"
+  - "St Clair EW"
+  - "Arayssi T"
+  - "Carandang K"
+  - "Deane KD"
+  - "Genovese M"
+  - "Huston KK"
+  - "Kerr G"
+  - "Kremer J"
+  - "Nakamura MC"
+  - "Russell LA"
+  - "Singh JA"
+  - "Smith BJ"
+  - "Sparks JA"
+  - "Venkatachalam S"
+  - "Weinblatt ME"
+  - "Al-Gibbawi M"
+  - "Baker JF"
+  - "Barbour KE"
+  - "Barton JL"
+  - "Cappelli L"
+  - "Chamseddine F"
+  - "George M"
+  - "Johnson SR"
+  - "Kahale L"
+  - "Karam BS"
+  - "Khamis AM"
+  - "Navarro-Millán I"
+  - "Mirza R"
+  - "Schwab P"
+  - "Singh N"
+  - "Turgunbaev M"
+  - "Turner AS"
+  - "Yaacoub S"
+  - "Akl EA"
+publicacion: "Arthritis Care Res (Hoboken)"
+anio: 2021
+volumen: "73"
+numero: "7"
+paginas: "924-939"
+
+identificadores:
+  pmid: 34101387
+  doi: "10.1002/acr.24596"
+  pmc: "PMC9273041"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Practice Guideline"
+  - "Research Support, N.I.H., Extramural"
+  - "Systematic Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

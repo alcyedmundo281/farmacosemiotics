@@ -1,0 +1,112 @@
+# Principio activo. Lo que NO depende de la indicación.
+#
+# El código FS: es permanente: no se renumera, no se reutiliza, no se reasigna.
+# La evidencia de eficacia no vive aquí, sino en las fichas que lo citan; cómo
+# se usa con seguridad vive en su farmacoterapia, FA:0010.
+
+id: 'FS:0010'
+tipo: farmaco
+dci: Metotrexato
+dci_en: Methotrexate
+sinonimos:
+  - methotrexate
+  - MTX
+  - ametopterina
+
+atc: L04AX03
+clase_farmacologica: Antimetabolito antifolato inmunomodulador
+clase_farmacologica_en: Antifolate antimetabolite immunomodulator
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: borrador
+fecha: '2026-09-04'
+actualizado: '2026-09-04'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: null
+  snomed: null
+  unii: null
+
+# ── Lista Modelo de la OMS ──────────────────────────────────────────────
+# `presente: null` es el tercer estado: no comprobado. La red de la sesión en
+# que se creó esta entrada no alcanzaba who.int, y afirmar la pertenencia a la
+# Lista Modelo de memoria es lo que la regla de oro impide. Se resuelve
+# consultando el anexo de la 24.ª Lista, no borrando el campo.
+lme:
+  presente: null
+  sin_comprobar: true
+  nota: >-
+    El metotrexato figura en la Lista Modelo por su uso antineoplásico y por su
+    uso inmunomodulador, que son secciones distintas. Cuál corresponde aquí
+    depende de la indicación evaluada, y por eso no se rellena a ojo.
+
+# ── Farmacología ────────────────────────────────────────────────────────
+# `mecanismo_ref: fda:label` sigue la convención del repositorio, pero está
+# pendiente de confirmar con `python scripts/openfda.py methotrexate`, que
+# necesita salida a la API de la FDA. Hasta entonces, la descripción se
+# mantiene deliberadamente corta: lo que no se ha comprobado no se detalla.
+mecanismo: >-
+  Antimetabolito antifolato. A las dosis bajas semanales que se usan en
+  enfermedad inflamatoria, su efecto es inmunomodulador y no citotóxico, que es
+  la razón de que la pauta sea semanal y no diaria. La confusión entre ambas
+  pautas es la causa clásica de toxicidad grave por sobredosificación.
+mecanismo_en: >-
+  Antifolate antimetabolite; at the low weekly doses used in inflammatory
+  disease its effect is immunomodulatory rather than cytotoxic.
+mecanismo_ref: 'fda:label'
+
+formas:
+  - forma: comprimido
+    concentraciones: ['2.5 mg', '10 mg']
+    via: oral
+  - forma: solución inyectable
+    via: subcutánea
+
+# ── Seguridad ───────────────────────────────────────────────────────────
+seguridad:
+  reacciones:
+    - evento: Neumonitis por metotrexato
+      gravedad: grave
+      nota: >-
+        La enfermedad pulmonar preexistente es un factor de riesgo. El riesgo
+        global de empeoramiento pulmonar atribuible al metotrexato es incierto,
+        y otros DMARD también se han asociado a enfermedad pulmonar. Al paciente
+        con enfermedad pulmonar previa hay que informarle de este riesgo antes
+        de iniciar el tratamiento.
+      ref: 'pmid:34101387'
+
+    - evento: Hepatotoxicidad
+      gravedad: grave
+      nota: >-
+        Es lo que acota su uso en el hígado graso no alcohólico: el metotrexato
+        queda restringido a quien tiene enzimas y pruebas de función hepática
+        normales y no tiene fibrosis avanzada.
+      ref: 'pmid:34101387'
+
+    - evento: Nodulosis acelerada
+      gravedad: moderada
+      nota: >-
+        Se ha observado nodulosis acelerada al iniciar metotrexato. No hay
+        estudios que comparen estrategias ante nódulos estables o progresivos;
+        la recomendación de cambiar de fármaco se apoya en la premisa de que el
+        metotrexato contribuye a la progresión.
+      ref: 'pmid:34101387'
+
+    - evento: Teratogenicidad
+      gravedad: grave
+      nota: >-
+        Se describieron complicaciones a largo plazo del síndrome fetal por
+        metotrexato en tres lactantes con exposición en el primer trimestre,
+        entre ellas holoprosencefalia semilobar y anomalías cardíacas.
+      ref: 'pmid:36318966'
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+# Sin bloque `regulatorio` ni `etiqueta_fda`: se rellenan con
+# `python scripts/openfda.py methotrexate`. Escribirlos a mano dejaría un dato
+# regulatorio sin fecha de consulta verificable, que es peor que no tenerlo.
+
+fichas: []

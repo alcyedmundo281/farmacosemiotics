@@ -1038,7 +1038,7 @@ def pagina_ficha(reg, farmaco, referencias, jsonld, fa=None,
 
 # ══════════════════ página de fármaco ══════════════════
 
-def pagina_farmaco(reg, fichas, jsonld):
+def pagina_farmaco(reg, fichas, jsonld, fa=None):
     P = []
     A = P.append
     A(cabeza(reg["dci"], "../", jsonld,
@@ -1062,6 +1062,16 @@ def pagina_farmaco(reg, fichas, jsonld):
     A('<div class="etiquetas">'
       + "".join('<span class="etiqueta">' + e(t) + "</span>" for t in etiquetas)
       + "</div>")
+
+    # La farmacoterapia es de esta molécula y va 1:1 con ella: desde su ficha
+    # de identidad tiene que verse, o el lector no sabe que existe.
+    if fa:
+        A('<div class="recuadro"><span class="rotulo">Parte II · '
+          'Farmacoterapia</span><p>Cómo se usa con seguridad —cribado, '
+          'cronograma, umbrales, seguridad reproductiva— está escrito una sola '
+          'vez para toda la molécula: '
+          '<a href="../' + e(mod_indice.ruta_relativa(fa)) + '">'
+          + e(fa.get("titulo") or "ver la farmacoterapia") + "</a>.</p></div>")
 
     for al in reg.get("alertas") or []:
         A('<div class="recuadro peligro"><span class="rotulo">'
@@ -1692,7 +1702,8 @@ def main():
                          if f.get("farmaco") == ident),
                         key=lambda x: x["id"])
         (salida / mod_indice.ruta_relativa(reg)).write_text(
-            pagina_farmaco(reg, fichas, mod_indice.jsonld_farmaco(reg)),
+            pagina_farmaco(reg, fichas, mod_indice.jsonld_farmaco(reg),
+                           fa=farmacoterapia_de(ident, estado)),
             encoding="utf-8")
         n += 1
     for ident, reg in estado["selecciones"].items():

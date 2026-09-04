@@ -1,0 +1,263 @@
+# PARTE I — Informe de selección del medicamento.
+#
+# Va por PROBLEMA DE SALUD y compara: el juicio de cada eje es comparativo
+# —superior o inferior *a los otros candidatos de esta tabla*— y por eso hacen
+# falta dos como mínimo.
+#
+# Este informe tiene una particularidad que conviene leer antes que la tabla:
+# la población está acotada a **actividad moderada a alta sin DMARD previo**,
+# porque en actividad baja el orden se invierte y la fuente lo dice
+# explícitamente. Un informe de selección que no acotara la población daría por
+# universal una decisión que no lo es.
+
+id: 'SEL:0002'
+tipo: seleccion
+problema: Artritis reumatoide con actividad moderada a alta, sin DMARD previo
+problema_en: >-
+  Rheumatoid arthritis with moderate-to-high disease activity, DMARD-naive
+cie11: FA20
+
+poblacion: >-
+  Personas adultas con artritis reumatoide, actividad de la enfermedad moderada
+  a alta y sin exposición previa a fármacos antirreumáticos modificadores de la
+  enfermedad. La acotación no es cosmética: en actividad baja la misma fuente
+  recomienda empezar por hidroxicloroquina o sulfasalazina, y este informe no
+  respalda su elección fuera de la población que evalúa.
+
+pregunta: >-
+  En el adulto con artritis reumatoide de actividad moderada a alta y sin DMARD
+  previo, ¿qué antirreumático modificador de la enfermedad convencional se
+  selecciona como tratamiento inicial, según eficacia, seguridad, conveniencia
+  y costo?
+
+estado: borrador
+fecha: '2026-09-04'
+actualizado: '2026-09-04'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  El diagnóstico y el tratamiento precoces se asocian a mejores desenlaces, y
+  ese es el principio que ordena toda la decisión: la pregunta no es solo cuál
+  es el mejor fármaco, sino cuál permite empezar antes y sostenerse. La
+  recomendación europea sitúa el metotrexato con glucocorticoide como
+  tratamiento inicial, y reevalúa a los tres a seis meses si la respuesta es
+  insuficiente.
+
+estrategia:
+  - base: PubMed
+    consulta: >-
+      "arthritis, rheumatoid"[MeSH] AND (guideline[pt] OR practice guideline[pt])
+    fecha: '2026-09-04'
+    nota: >-
+      La comparación se ancla en la guía de tratamiento de la ACR de 2021, que
+      es la que enfrenta explícitamente los cuatro csDMARD entre sí, y en la
+      actualización de las recomendaciones EULAR de 2022 para el
+      posicionamiento inicial. La seguridad reproductiva de los cuatro sale de
+      la guía de la BSR de embarazo y lactancia.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+candidatos:
+  - dci: Metotrexato
+    atc: L04AX03
+    farmaco: 'FS:0010'
+    clase: Antimetabolito antifolato inmunomodulador
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Recomendado con fuerza sobre hidroxicloroquina y sobre sulfasalazina en
+        esta población, pese a que la certeza de la evidencia era muy baja para
+        la primera y baja para la segunda: lo que sostiene la fuerza es el
+        volumen de datos que respaldan sus propiedades modificadoras de la
+        enfermedad. Frente a leflunomida la eficacia es comparable con evidencia
+        de baja certeza, y lo que decide es su papel como DMARD ancla de los
+        regímenes de combinación.
+      ref: 'pmid:34101387'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Es el eje donde pierde, y conviene no disimularlo. La hidroxicloroquina
+        se tolera mejor y tiene un perfil de riesgo más favorable; la
+        sulfasalazina es menos inmunosupresora. A eso se suman la neumonitis en
+        quien ya tiene enfermedad pulmonar, la restricción hepática en el hígado
+        graso no alcohólico y la teratogenicidad, que obliga a suspenderlo un mes
+        antes de cualquier concepción planificada.
+      ref: 'pmid:34101387'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Gana en pauta y pierde en planificación reproductiva. A favor: mayor
+        flexibilidad de dosificación que la leflunomida, administración oral
+        preferida sobre la subcutánea al iniciar por biodisponibilidad similar a
+        las dosis habituales de partida, y la posibilidad de rescatar la
+        tolerancia sin cambiar de fármaco —dosis oral repartida en 24 horas, paso
+        a subcutáneo o más ácido fólico— antes de recurrir a otro DMARD. En
+        contra: exige suspensión un mes antes de la concepción y cambio a un
+        fármaco compatible, donde la sulfasalazina no exige nada.
+      ref: 'pmid:34101387'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral de coste bajo, y la propia guía lo cuenta entre sus
+        ventajas frente a la leflunomida. Es además el fármaco sobre el que se
+        construyen las combinaciones, de modo que su coste no se suma al del
+        escalón siguiente sino que lo antecede.
+    veredicto: seleccionado
+    nota: >-
+      Seleccionado en monoterapia, y con fuerza también frente a alternativas
+      más caras: se recomienda con fuerza sobre la monoterapia con biológico o
+      con sintético dirigido, y sobre metotrexato más biológico no anti-TNF.
+
+  - dci: Leflunomida
+    atc: L04AA13
+    clase: Inhibidor de la dihidroorotato deshidrogenasa
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        La evidencia, de baja certeza, apunta a eficacia comparable con el
+        metotrexato. No es el eje que la desplaza.
+      ref: 'pmid:34101387'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Puede no ser teratógena en humanos, pero la evidencia es insuficiente
+        para respaldar su uso en la concepción o el embarazo, y quien la toma y
+        busca gestación debe someterse a un procedimiento de lavado con
+        colestiramina antes de cambiar a otro fármaco. Ante una concepción no
+        planificada hay que suspenderla de inmediato y hacer el lavado. Tampoco
+        se recomienda durante la lactancia.
+      ref: 'pmid:36318966'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Menor flexibilidad de dosificación que el metotrexato, y una carga de
+        planificación que ninguno de los otros tres impone: el lavado con
+        colestiramina no es una suspensión, es un procedimiento.
+      ref: 'pmid:34101387'
+    costo:
+      juicio: inferior
+      sustento: >-
+        La guía cuenta el menor coste entre las ventajas del metotrexato frente
+        a la leflunomida, de modo que el juicio comparativo va en su contra.
+    veredicto: alternativa
+    nota: >-
+      Alternativa oral cuando el metotrexato no es viable por intolerancia o
+      contraindicación hepática, en paciente sin deseo gestacional a corto plazo.
+
+  - dci: Sulfasalazina
+    atc: A07EC01
+    clase: Salicilato con sulfapiridina
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        El metotrexato se recomienda con fuerza sobre ella en esta población, y
+        la certeza de la evidencia que la respalda es baja. En actividad baja el
+        juicio se invierte y es ella la recomendada sobre el metotrexato.
+      ref: 'pmid:34101387'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Dos platillos que se compensan. A favor: es menos inmunosupresora que el
+        metotrexato, es compatible durante todo el embarazo con ácido fólico 5
+        mg al día en la periconcepción y el primer trimestre, y es compatible con
+        la lactancia en el lactante sano a término. En contra: la propia guía
+        señala preocupación por su tolerabilidad a largo plazo y su peor
+        persistencia en tratamiento por efectos adversos, hasta el punto de que,
+        en triple terapia, es la primera que se retira.
+      ref: 'pmid:34101387'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Es la única de las cuatro que no impone maniobra alguna a quien busca
+        gestación: se continúa durante el embarazo y durante la lactancia. En un
+        problema que afecta sobre todo a mujeres en edad fértil, eso no es un
+        matiz de ficha técnica.
+      ref: 'pmid:36318966'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Oral y genérica, en el mismo orden de magnitud que el metotrexato y la
+        leflunomida. El coste no diferencia entre los tres csDMARD orales.
+    veredicto: alternativa
+    nota: >-
+      Alternativa de elección ante deseo gestacional o lactancia, y primera
+      opción junto a la hidroxicloroquina cuando la actividad es baja.
+
+  - dci: Hidroxicloroquina
+    atc: P01BA02
+    clase: Antipalúdico de síntesis
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        El metotrexato se recomienda con fuerza sobre ella en actividad moderada
+        a alta, y la certeza de la evidencia que la respalda es muy baja. Es el
+        candidato con la base de eficacia más débil de los cuatro en esta
+        población.
+      ref: 'pmid:34101387'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Es el eje donde gana, y con claridad: se tolera mejor y tiene un perfil
+        de riesgo más favorable que los otros csDMARD. Ese solo hecho es lo que
+        la coloca en primera línea cuando la actividad de la enfermedad es baja.
+      ref: 'pmid:34101387'
+    conveniencia:
+      juicio: sin_datos
+      sustento: >-
+        No se localizó, entre las fuentes accesibles para este informe, una
+        comparación de conveniencia —pauta, carga de monitorización,
+        planificación reproductiva— de la hidroxicloroquina frente a los otros
+        tres candidatos. La mejor tolerancia ya está contada en el eje de
+        seguridad y contarla otra vez aquí sería inflar el juicio.
+      ref: 'pmid:34101387'
+    costo:
+      juicio: superior
+      sustento: >-
+        Oral, genérica y de las más establecidas del grupo. Junto con el
+        metotrexato, el extremo barato de la tabla.
+    veredicto: reservado
+    nota: >-
+      Reservada para la actividad baja, donde la misma fuente la recomienda
+      sobre los demás csDMARD. En la población de este informe —actividad
+      moderada a alta— no se selecciona.
+
+# ── Qué eje decidió ─────────────────────────────────────────────────────
+criterio_decisorio: >-
+  Decidió la eficacia, y lo hizo contra los otros tres ejes a la vez. El
+  metotrexato es el peor de los cuatro en seguridad —más inmunosupresor que la
+  sulfasalazina, peor tolerado que la hidroxicloroquina, teratógeno y con
+  restricción hepática y pulmonar— y aun así se recomienda con fuerza sobre
+  ellos. Lo que inclina la balanza no es un ensayo comparativo mejor, porque la
+  certeza de la evidencia era baja o muy baja, sino el volumen acumulado de
+  datos sobre sus propiedades modificadoras de la enfermedad y su papel de
+  ancla: es el fármaco sobre el que se construye el escalón siguiente.
+
+  La acotación de la población es lo que hace válido ese juicio. En actividad
+  baja los mismos autores invierten el orden y recomiendan hidroxicloroquina
+  sobre los demás csDMARD, y sulfasalazina sobre metotrexato, porque cuando la
+  enfermedad aprieta menos el platillo de la seguridad pesa más. Un informe que
+  omitiera la acotación convertiría una recomendación condicionada en una
+  universal, que es la forma más silenciosa de equivocarse.
+
+conclusion: >-
+  En el adulto con artritis reumatoide de actividad moderada a alta y sin DMARD
+  previo se selecciona el metotrexato en monoterapia, pese a ser el candidato
+  con peor perfil de seguridad de los cuatro. La sulfasalazina queda como
+  alternativa de elección ante deseo gestacional o lactancia, por ser la única
+  compatible sin maniobra previa. La leflunomida queda como alternativa oral
+  fuera del contexto reproductivo, porque exige un lavado con colestiramina que
+  ninguna otra impone. La hidroxicloroquina queda reservada a la actividad baja,
+  donde su mejor tolerancia sí decide.
+
+  El informe declara un hueco: la conveniencia comparada de la hidroxicloroquina
+  no se pudo juzgar con las fuentes accesibles. Y deja anotado que la elección
+  del csDMARD inicial es solo el primer paso: la recomendación europea reevalúa
+  la respuesta a los tres a seis meses y estratifica entonces según factores de
+  mal pronóstico.
+
+refs:
+  - 'pmid:34101387'
+  - 'pmid:36357155'
+  - 'pmid:36318966'

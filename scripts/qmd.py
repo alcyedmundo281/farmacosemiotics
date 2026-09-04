@@ -703,8 +703,11 @@ def capitulo_molecula(farmaco, fa, fichas, estado, referencias):
     indicaciones, escrita una sola vez.
     """
     d = Doc()
-    nombre = t((farmaco or {}).get("dci")) or t(fichas[0].get("titulo"))
-    d.titulo(2, nombre, ancla((farmaco or fichas[0])["id"]))
+    ancla_reg = farmaco or fa or (fichas[0] if fichas else None)
+    nombre = (t((farmaco or {}).get("dci"))
+              or t((fa or {}).get("titulo"))
+              or t(fichas[0].get("titulo")))
+    d.titulo(2, nombre, ancla(ancla_reg["id"]))
     partes = [d.texto()]
 
     if farmaco:
@@ -714,6 +717,14 @@ def capitulo_molecula(farmaco, fa, fichas, estado, referencias):
 
     if fa:
         partes.append(farmacoterapia(fa, referencias))
+        if not fichas:
+            e = Doc()
+            e.parrafo("> **Sin indicación evaluada todavía.** La "
+                      "farmacoterapia está escrita y sirve a cualquier "
+                      "indicación de esta molécula, pero ninguna guía la usa "
+                      "aún: falta el informe de selección que la elija para un "
+                      "problema concreto y la ficha que la sitúe.")
+            partes.append(e.texto())
     else:
         e = Doc()
         e.parrafo("> **Sin farmacoterapia todavía.** Este fármaco no tiene "
@@ -858,8 +869,13 @@ def documento(estado, hoy):
 
     # ── Parte II, agrupada por molécula ──────────────────────────────────
     partes.append("# Parte II — Farmacoterapia\n")
+    # El capítulo es la MOLÉCULA, así que el conjunto sale de la unión: una
+    # farmacoterapia escrita antes que su primera indicación tiene que salir
+    # igual. Armarlo solo desde las fichas la dejaba invisible en el libro.
     fichas = orden(estado)
     por_farmaco = {}
+    for fa in estado["farmacoterapias"].values():
+        por_farmaco.setdefault(fa.get("farmaco"), [])
     for f in fichas:
         por_farmaco.setdefault(f.get("farmaco"), []).append(f)
 

@@ -1,0 +1,272 @@
+# PARTE II — Farmacoterapia: cómo se usa el ibrutinib con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# Lo que ordena esta farmacoterapia es una toxicidad FUERA DE DIANA y
+# cardiovascular, no hematológica. El ibrutinib inhibe la tirosina cinasa de
+# Bruton para tratar neoplasias de linfocito B, y por efectos cardíacos fuera de
+# diana multiplica por cuatro el riesgo de fibrilación auricular y eleva la
+# presión arterial en la mayoría de quienes lo reciben. Como además se toma
+# durante periodos prolongados, esas dos cosas dejan de ser efectos adversos
+# anecdóticos y se convierten en el eje del seguimiento.
+#
+# Hay un hallazgo en las fuentes que conviene leer antes que las tablas, porque
+# explica para qué sirve escribir todo esto: en la cohorte que documenta la
+# hipertensión, el 61,2 % de los pacientes que la desarrollaron NO recibió
+# ningún cambio de tratamiento antihipertensivo, y entre quienes subieron más de
+# 20 mmHg de sistólica solo el 52,9 % lo recibió. El problema no fue no medir la
+# presión: fue medirla y no actuar. Un cronograma sin umbral de acción produce
+# exactamente eso.
+#
+# Alcance de las fuentes, dicho por delante: lo cardiovascular está cubierto; lo
+# hematológico —hemograma, riesgo hemorrágico, citopenias— no lo cubren las
+# fuentes accesibles. Esa carencia se advierte en `alcance` y no en
+# `huecos_declarados`, porque un hueco declarado nombra un apartado entero vacío
+# y aquí `monitorizacion` sí tiene contenido: lo que falta es una parte de él.
+
+id: 'FA:0005'
+tipo: farmacoterapia
+farmaco: 'FS:0005'
+
+titulo: Farmacoterapia con ibrutinib
+titulo_en: Ibrutinib pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del ibrutinib como inhibidor de la tirosina
+  cinasa de Bruton: leucemia linfocítica crónica, macroglobulinemia de
+  Waldenström, linfoma de células del manto y linfoma de la zona marginal. Lo
+  que cubre es la vigilancia cardiovascular —presión arterial y fibrilación
+  auricular—, la conducta ante su elevación, las interacciones que suben los
+  niveles del fármaco o los de los que lo acompañan, y el reparto entre
+  cardiología y oncología. Lo que NO cubre es la vigilancia hematológica y del
+  riesgo hemorrágico, que en un inhibidor de BTK importa y que ninguna fuente
+  accesible en esta sesión fijaba con cronograma ni con puntos de corte. Esa
+  ausencia no puede anotarse en `huecos_declarados`, porque ahí solo se declara
+  un apartado entero vacío y `monitorizacion` sí tiene contenido: queda dicha
+  aquí, que es donde el lector la encuentra antes de fiarse del cronograma. El
+  cronograma de abajo es cardiovascular y solo cardiovascular.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Presión arterial basal
+    motivo: >-
+      Sin la cifra de partida no se puede reconocer el ascenso, que es la
+      anomalía que este fármaco produce. Y el ascenso ocurre en los dos grupos
+      por igual: en la cohorte, el estado hipertensivo basal NO modificó la
+      magnitud del cambio de presión, de modo que tener la presión normal antes
+      de empezar no protege de subir después
+    responsable: compartida
+    ref: 'pmid:34210750'
+
+  - prueba: >-
+      Revisión de la medicación concomitante, buscando inhibidores de CYP3A y
+      sustratos de la glucoproteína P
+    motivo: >-
+      Decide qué antiarrítmico y qué fármaco de control de frecuencia podrán
+      usarse si aparece la fibrilación auricular, que es el escenario más
+      probable de este tratamiento. El cribado sistemático de interacciones por
+      farmacia puede aportar beneficio
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+# La fase de inducción aquí es real y está medida: el mayor ascenso de la
+# presión arterial ocurre dentro del PRIMER MES de tratamiento, y la mediana de
+# tiempo hasta la hipertensión asociada al ibrutinib fue de 1,8 meses en una
+# cohorte de 562 pacientes. Por eso la comprobación del primer mes no es una
+# visita más: es la que detecta el cambio.
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Presión arterial
+      - Revisión de la medicación concomitante
+    responsable: compartida
+    ref: 'pmid:34210750'
+
+  - fase: induccion
+    periodo: Primer mes de tratamiento
+    pruebas:
+      - Presión arterial
+    frecuencia: >-
+      Una comprobación al mes de iniciar. Es el punto en el que el estudio midió
+      el mayor ascenso: la presión pasó de 122/72 mmHg basal a 130/74 mmHg al
+      mes (p < 0,001), y el 36,6 % de los tratados con ibrutinib subió más de 10
+      mmHg de sistólica, frente al 7,9 % de los tratados con
+      quimioinmunoterapia convencional.
+    responsable: compartida
+    ref: 'pmid:34210750'
+
+  - fase: mantenimiento
+    periodo: A partir del segundo mes
+    pruebas:
+      - Presión arterial
+      - Vigilancia de síntomas o hallazgos de fibrilación auricular
+    frecuencia: >-
+      Comprobaciones a los 2, 3 y 6 meses, que es el esquema con el que se
+      documentó la evolución: la presión siguió subiendo hasta 133/76 mmHg en
+      ese intervalo (p < 0,001 frente a la basal), sin estabilizarse. El
+      seguimiento no termina ahí: el tratamiento se administra durante periodos
+      prolongados y la fibrilación auricular aparece con un riesgo cuatro veces
+      mayor que sin el fármaco, según un metaanálisis.
+    responsable: compartida
+    ref: 'pmid:34210750'
+
+# ── Qué hacer cuando el resultado se tuerce ─────────────────────────────
+umbrales_accion:
+  - parametro: Presión arterial
+    umbral: >-
+      130/80 mmHg o superior, o ascenso de más de 10 mmHg de sistólica sobre la
+      basal
+    accion: >-
+      Iniciar o intensificar el tratamiento antihipertensivo sin demora. Tratar
+      la hipertensión inducida por ibrutinib reduce el riesgo de eventos
+      cardíacos adversos mayores —ictus, infarto de miocardio, insuficiencia
+      cardíaca, arritmia y muerte cardiovascular—, y ninguna clase de
+      antihipertensivo demostró ser más eficaz que otra, de modo que la
+      elección del fármaco importa menos que el hecho de iniciarlo. La brecha
+      documentada es enorme y va en la dirección de la inacción: el 61,2 % de
+      quienes desarrollaron hipertensión no recibió ningún cambio de
+      tratamiento.
+    ref: 'pmid:34210750'
+
+  - parametro: Ascenso de la presión arterial sistólica
+    umbral: Más de 20 mmHg sobre la basal
+    accion: >-
+      Ajustar el tratamiento antihipertensivo, siempre. Es el umbral en el que
+      la omisión resulta más difícil de justificar y sin embargo se produjo: solo
+      el 52,9 % de quienes subieron más de 20 mmHg de sistólica tuvo algún
+      cambio de manejo.
+    ref: 'pmid:34210750'
+
+  - parametro: Fibrilación auricular de nueva aparición
+    umbral: Diagnóstico de fibrilación auricular durante el tratamiento
+    accion: >-
+      Optimizar primero el control de la arritmia MANTENIENDO el tratamiento
+      oncológico, que es el primer abordaje habitual. Los betabloqueantes se
+      consideran la mejor opción para el control de frecuencia en la fibrilación
+      auricular asociada a inhibidores de BTK, precisamente porque evitan la
+      interacción de las alternativas. Si el control no se consigue, la decisión
+      de reducir la dosis del tratamiento oncológico o incluso de suspenderlo
+      solo se toma junto al equipo de oncología y en decisión compartida con el
+      paciente: no la toma cardiología por su cuenta.
+    ref: 'pmid:38043043'
+
+  - parametro: Intervalo QTc
+    umbral: Prolongación del QTc
+    accion: >-
+      Tenerla en cuenta antes de añadir un antiarrítmico que prolongue el QT. La
+      prolongación del QTc es más frecuente en el paciente oncológico por varias
+      terapias antineoplásicas, antieméticos, antibióticos y alteraciones
+      electrolíticas, y un antiarrítmico que prolongue el QT la agrava sobre ese
+      terreno ya alterado.
+    ref: 'pmid:38043043'
+
+# ── Interacciones que cambian la conducta ───────────────────────────────
+interacciones:
+  - con: >-
+      Inhibidores de CYP3A usados como antiarrítmicos o para control de
+      frecuencia: amiodarona, dronedarona, verapamilo y diltiazem
+    gravedad: mayor
+    efecto: >-
+      Elevan los niveles de ibrutinib. Es la interacción que más veces se
+      encuentra en la práctica, porque son exactamente los fármacos que se
+      indicarían al aparecer la fibrilación auricular que el propio ibrutinib
+      provoca.
+    conducta: >-
+      Se evitan habitualmente. Para el control de frecuencia, los
+      betabloqueantes se consideran la mejor opción en la fibrilación auricular
+      asociada a inhibidores de BTK.
+    ref: 'pmid:38043043'
+
+  - con: Digoxina
+    gravedad: moderada
+    efecto: >-
+      El ibrutinib puede elevar los niveles de digoxina, que es sustrato de la
+      glucoproteína P. Aquí la dirección se invierte: no es el acompañante el
+      que sube al ibrutinib, es el ibrutinib el que sube al acompañante.
+    conducta: >-
+      Vigilancia estrecha si la combinación es inevitable, y preferencia por un
+      betabloqueante para el control de frecuencia.
+    ref: 'pmid:38043043'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - >-
+      Oncología decide toda reducción de dosis o suspensión del ibrutinib: si el
+      control de la arritmia no se logra, esa decisión se toma en concierto con
+      el equipo oncológico y en decisión compartida con el paciente, nunca de
+      forma unilateral desde cardiología
+    - >-
+      Cardiología maneja la arritmia y la presión arterial optimizando el
+      control mientras el tratamiento oncológico continúa, que es el primer
+      abordaje
+    - >-
+      Cribado estructurado de interacciones por farmacia, que la fuente señala
+      como una intervención que puede aportar beneficio
+  seguimiento:
+    - >-
+      Tomar la presión arterial en cada contacto y compararla con la basal, no
+      solo con el umbral: el ascenso sobre la propia cifra de partida es la
+      señal, y se pierde si no se registró la basal
+    - >-
+      Iniciar o intensificar el antihipertensivo cuando la cifra lo pida, sin
+      esperar a la siguiente visita de oncología. La brecha documentada está
+      justamente aquí: se midió la presión y no se actuó en seis de cada diez
+      casos
+  suspension_inmediata: >-
+    Ninguna suspensión del ibrutinib se decide fuera de oncología, ni siquiera
+    ante fibrilación auricular no controlada: lo que corresponde hacer sin
+    esperar es tratar la arritmia y la hipertensión, y consultar. Este apartado
+    invierte deliberadamente la lógica de las demás farmacoterapias de este
+    libro, porque aquí el fármaco trata un cáncer y retirarlo tiene un costo que
+    no puede valorar quien no lleva la neoplasia.
+  ref: 'pmid:38043043'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: reproductivo
+    motivo: >-
+      Ninguna de las fuentes accesibles trata el embarazo, la lactancia, el
+      periodo de lavado ni el requisito anticonceptivo del ibrutinib. Las dos
+      son cardiológicas y una es una cohorte retrospectiva de presión arterial:
+      ni siquiera abordan la cuestión. Se resuelve con la ficha técnica del
+      producto o con una guía hematológica, no por analogía con otro inhibidor
+      de tirosina cinasa, que es la extrapolación que aquí no se hace.
+    buscado_en: >-
+      Guía ACC/AHA/ACCP/HRS de fibrilación auricular de 2023, en su capítulo de
+      fibrilación auricular y cáncer, y cohorte retrospectiva sobre hipertensión
+      asociada al ibrutinib.
+    refs:
+      - 'pmid:38043043'
+      - 'pmid:34210750'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que establezca una dosificación del ibrutinib guiada
+      por genotipo germinal del paciente, ni existe guía CPIC para esta
+      molécula. Como en el pembrolizumab, conviene separar dos cosas que se
+      confunden: en la leucemia linfocítica crónica hay marcadores genéticos que
+      pesan en la decisión —deleción 17p, estado mutacional de IGHV—, pero son
+      del TUMOR y son criterio de indicación, que vive en la ficha, no una
+      dosificación por genotipo del paciente, que es lo que este apartado
+      recoge.
+    buscado_en: >-
+      Guía ACC/AHA/ACCP/HRS de fibrilación auricular de 2023 y cohorte
+      retrospectiva sobre hipertensión asociada al ibrutinib.
+    refs:
+      - 'pmid:38043043'
+      - 'pmid:34210750'
+
+refs:
+  - 'pmid:34210750'
+  - 'pmid:38043043'

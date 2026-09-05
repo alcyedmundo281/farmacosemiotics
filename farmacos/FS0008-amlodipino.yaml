@@ -1,3 +1,27 @@
+# CORRECCIÓN DE PROCEDENCIA (2026-09-05).
+#
+# Tres enunciados de este fichero citaban `pmid:12479763`, que es ALLHAT: un
+# ensayo aleatorizado de desenlaces que comparó clortalidona, amlodipino y
+# lisinopril en 33.357 hipertensos. Un ensayo de desenlaces no formula
+# enunciados mecanísticos, y ninguno de los tres está en él: el mecanismo de
+# acción sobre los canales de calcio tipo L, el mecanismo del edema maleolar
+# —vasodilatación arteriolar precapilar frente a retención de sodio— y la
+# afirmación de que ese edema mejora al asociar un IECA o un ARA-II. El PMID
+# resolvía, de modo que `build.py` los daba por buenos: es el fallo que la
+# regla de oro describe y que la validación no puede detectar sola.
+#
+# Los tres pasan a `fda:label`, que es la convención del repositorio para el
+# mecanismo y para una reacción adversa listada, y las afirmaciones que la
+# etiqueta no hace —el mecanismo del edema y su manejo— se retiran en lugar de
+# reasignarse: cambiar de cita no convierte en cierto lo que no se pudo
+# comprobar. Lo que ALLHAT SÍ sostiene sobre esta molécula —una tasa de
+# insuficiencia cardíaca más alta que con clortalidona— faltaba, y se añadió a
+# FT:0008.
+#
+# `fda:label` queda aquí sin confirmar: openFDA responde 403 en la red de esta
+# sesión. Cuando sea alcanzable, `python scripts/openfda.py amlodipine`
+# refresca el bloque regulatorio y permite verificar estas tres asignaciones.
+
 id: 'FS:0008'
 tipo: farmaco
 dci: Amlodipino
@@ -9,6 +33,19 @@ sinonimos:
 atc: C08CA01
 clase_farmacologica: Antagonista de los canales de calcio dihidropiridínico
 clase_farmacologica_en: Dihydropyridine calcium channel blocker (DHP-CCB)
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+# Las fechas salen del historial del repositorio, no de la memoria de nadie:
+# `fecha` es la del commit que dio de alta el fichero y `actualizado` la del
+# último que lo tocó.
+estado: revisado
+fecha: '2026-08-24'
+actualizado: '2026-08-24'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
 
 lme:
   presente: true
@@ -22,7 +59,7 @@ mecanismo: >-
   Inhibe la entrada de iones de calcio a través de los canales tipo L en el músculo
   liso vascular arterial periférico y coronario, produciendo vasodilatación arteriolar
   sostenida, disminución de la resistencia vascular sistémica y descenso de la presión arterial.
-mecanismo_ref: 'pmid:12479763'
+mecanismo_ref: 'fda:label'
 
 farmacocinetica:
   eliminacion: 'Metabolismo hepático extenso (CYP3A4) y excreción renal como metabolitos inactivos'
@@ -37,14 +74,21 @@ seguridad:
       frecuencia: frecuente
       gravedad: leve
       nota: >-
-        Debido a vasodilatación arteriolar precapilar con aumento de presión capilar (no por retención de sodio); mejora al asociar IECA/ARA-II.
-      ref: 'pmid:12479763'
+        Es la reacción adversa característica de la clase y depende de la dosis.
+        Su mecanismo y su manejo no se enuncian aquí: lo que este fichero
+        afirmaba —vasodilatación arteriolar precapilar y mejoría al asociar un
+        IECA o un ARA-II— se atribuía a un ensayo de desenlaces que no lo dice.
+        Mientras no haya fuente, la conducta ante el edema queda sin escribir,
+        y FA:0008 lo declara así en su `alcance`.
+      ref: 'fda:label'
     - evento: Rubor facial y cefalea pulsátil
       frecuencia: frecuente
       gravedad: leve
       nota: >-
-        Efecto vasodilatador precoz que suele atenuarse con la continuación del tratamiento.
-      ref: 'pmid:12479763'
+        Reacción adversa vasodilatadora listada para la clase. El curso clínico
+        que este fichero le atribuía —que se atenúa al continuar el
+        tratamiento— citaba a ALLHAT, que no lo dice, y se retira.
+      ref: 'fda:label'
     - evento: Hipotensión arterial excesiva
       frecuencia: infrecuente
       gravedad: moderada

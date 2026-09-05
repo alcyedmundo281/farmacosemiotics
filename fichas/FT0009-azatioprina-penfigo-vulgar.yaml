@@ -1,0 +1,227 @@
+# Guía: fármaco × indicación. La decisión situada.
+#
+# Aquí vive solo lo que cambia con la indicación: el semáforo, la pregunta
+# PICO, la evidencia de ESTE desenlace, la línea de tratamiento y el balance.
+#
+# Lo que no cambia con la indicación está en otros dos sitios y esta ficha los
+# usa sin repetirlos:
+#
+#   selecciones/SEL0001-penfigo-vulgar.yaml   por qué se eligió este fármaco
+#   farmacoterapia/FA0009-azatioprina.yaml    cómo se usa con seguridad
+#
+# La farmacoterapia no se enlaza: se deduce del fármaco, porque va 1:1 con él.
+# Si esta indicación se apartara en algo del cronograma o del reproductivo, ese
+# poco se declara en `variaciones`, nunca copiando el apartado entero.
+
+id: 'FT:0009'
+tipo: ficha
+farmaco: 'FS:0009'
+seleccion: 'SEL:0001'
+
+titulo: Azatioprina como ahorrador de corticoide en el pénfigo vulgar
+titulo_en: Azathioprine as a corticosteroid-sparing agent in pemphigus vulgaris
+indicacion: Pénfigo vulgar
+indicacion_en: Pemphigus vulgaris
+poblacion: >-
+  Personas adultas con pénfigo vulgar confirmado, en tratamiento con
+  corticoide sistémico, en quienes se plantea un inmunosupresor adyuvante para
+  reducir la exposición acumulada al corticoide.
+poblacion_en: >-
+  Adults with confirmed pemphigus vulgaris on systemic corticosteroids in whom
+  an adjuvant immunosuppressant is considered to reduce cumulative
+  corticosteroid exposure.
+cie11: EB40
+
+estado: borrador
+fecha: '2026-09-04'
+actualizado: '2026-09-04'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────
+decision_clinica:
+  semaforo: amarillo
+  fuerza: condicional
+  perla_prescripcion: >-
+    Adyuvante ahorrador de corticoide, ya no la primera opción: el rituximab
+    está aprobado en primera línea para el pénfigo vulgar moderado y grave en
+    Europa y en Estados Unidos. Antes de la primera dosis, genotipar TPMT y
+    NUDT15: es lo único que separa una titulación tranquila de una
+    mielosupresión evitable.
+  alerta_seguridad_inmediata: >-
+    Nunca junto a alopurinol o febuxostat sin reducir la dosis: el inhibidor de
+    la xantina oxidasa desvía el metabolismo hacia los nucleótidos activos y
+    multiplica el riesgo de mielosupresión.
+
+# ── Pregunta ────────────────────────────────────────────────────────────
+pico:
+  p: Adultos con pénfigo vulgar en tratamiento corticoideo sistémico
+  i: Azatioprina como inmunosupresor adyuvante
+  c: >-
+    Corticoide solo, u otro adyuvante (micofenolato), o rituximab en primera
+    línea en la enfermedad moderada y grave
+  o: >-
+    Remisión, dosis acumulada de corticoide, recaída, mielosupresión,
+    hepatotoxicidad
+
+estrategia:
+  - base: PubMed
+    consulta: 'pemphigus[MeSH] AND azathioprine[MeSH] AND guideline[pt]'
+    fecha: '2026-09-04'
+    nota: >-
+      La guía se ancla en los dos consensos europeos del pénfigo (EDF/EADV
+      2014 y su actualización EADV 2020) para el posicionamiento, en la guía
+      CPIC de tiopurinas para la dosificación por genotipo, y en la guía de la
+      BSR de embarazo y lactancia para la seguridad reproductiva.
+
+# ── Posología ───────────────────────────────────────────────────────────
+posologia:
+  inicio: >-
+    La dosis de inicio depende del genotipo de TPMT y NUDT15: ver la
+    estratificación farmacogenética. En metabolizador normal para ambos genes
+    se emplea la dosis plena de la indicación.
+  escalado: >-
+    La dosis guiada por genotipo es solo la dosis de partida. El ajuste
+    posterior se hace titulando contra el grado de mielosupresión, y no antes
+    de dos a cuatro semanas, que es cuando se alcanza el estado estacionario.
+  ref: 'pmid:30447069'
+
+# ── Evidencia ───────────────────────────────────────────────────────────
+evidencia:
+  - desenlace: >-
+      Posicionamiento de la azatioprina como adyuvante frente a las
+      alternativas
+    criticidad: critico
+    diseno: guia
+    estudio: >-
+      Consenso S2 del European Dermatology Forum con la EADV, y su
+      actualización S2K de 2020
+    comparador: Corticoide solo u otros adyuvantes
+    efecto: >-
+      Los dos consensos coinciden en que, por la rareza de la enfermedad, se
+      dispone de pocos ensayos terapéuticos controlados. La actualización de
+      2020 registra el cambio que reordena el escalón: el rituximab pasó a estar
+      aprobado como tratamiento de primera línea del pénfigo vulgar moderado y
+      grave en Europa y en Estados Unidos.
+    certeza: baja
+    razones_descenso:
+      - imprecision
+      - evidencia_indirecta
+    ref: 'pmid:32830877'
+
+  - desenlace: Marco diagnóstico y terapéutico de referencia
+    criticidad: importante
+    diseno: consenso
+    estudio: >-
+      Guía S2 del European Dermatology Forum en cooperación con la EADV y la
+      UEMS
+    efecto: >-
+      Antes de la era del tratamiento inmunosupresor el pronóstico del pénfigo
+      era casi siempre mortal; el consenso se elaboró precisamente porque la
+      rareza de la enfermedad deja pocos ensayos prospectivos controlados en
+      los que apoyarse.
+    certeza: baja
+    razones_descenso:
+      - imprecision
+      - riesgo_de_sesgo
+    ref: 'pmid:25338479'
+
+# ── Posicionamiento terapéutico ─────────────────────────────────────────
+posicionamiento:
+  linea: segunda
+  justificacion: >-
+    La azatioprina conserva su papel de inmunosupresor adyuvante ahorrador de
+    corticoide, pero ya no encabeza el escalón: la aprobación del rituximab en
+    primera línea para la enfermedad moderada y grave desplazó su posición.
+  escalonado:
+    - linea: primera
+      opciones:
+        - Rituximab en el pénfigo vulgar moderado y grave
+      nota: >-
+        Aprobado como tratamiento de primera línea en Europa y en Estados
+        Unidos, según la actualización de 2020.
+    - linea: segunda
+      opciones:
+        - Azatioprina como adyuvante del corticoide sistémico
+      nota: >-
+        Papel de ahorrador de corticoide, con la dosis fijada por el genotipo
+        de TPMT y NUDT15.
+  ref: 'pmid:32830877'
+
+# ── Balance ─────────────────────────────────────────────────────────────
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: moderado
+  certeza_global: baja
+  valores_preferencias: >-
+    Variabilidad esperable alta. Frente a un adyuvante oral y barato, con
+    dosificación ajustable por genotipo y compatible con el embarazo y la
+    lactancia, está un anticuerpo monoclonal de administración hospitalaria con
+    aprobación en primera línea. El peso que cada paciente dé a la vía oral, al
+    coste y al deseo gestacional mueve la elección más que la eficacia.
+  equidad: >-
+    Favorable en cuanto al fármaco, que es oral y genérico, pero condicionada
+    por el genotipado previo. Donde no hay acceso a TPMT y NUDT15, la
+    estratificación que hace segura la dosis de inicio no puede aplicarse, y
+    esa es la barrera real de esta guía.
+  aceptabilidad: alta
+  factibilidad: >-
+    Depende del genotipado. Sin él, la alternativa es titular a ciegas con
+    vigilancia hematológica estrecha, que es lo que la guía CPIC busca evitar.
+
+# ── Recomendación ───────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: condicional
+  enunciado: >-
+    Se sugiere la azatioprina como inmunosupresor adyuvante ahorrador de
+    corticoide en el pénfigo vulgar, con la dosis de inicio fijada por el
+    genotipo de TPMT y NUDT15, en pacientes en quienes el rituximab no es la
+    opción de primera línea o no está disponible.
+  enunciado_en: >-
+    Azathioprine is suggested as an adjuvant corticosteroid-sparing
+    immunosuppressant in pemphigus vulgaris, with the starting dose set by TPMT
+    and NUDT15 genotype, in patients for whom first-line rituximab is not
+    indicated or not available.
+  ref: 'pmid:32830877'
+  justificacion_fuerza: >-
+    Condicional y no fuerte por dos motivos que van en la misma dirección: la
+    base de ensayos controlados es escasa por la rareza de la enfermedad, y el
+    posicionamiento cambió al aprobarse el rituximab en primera línea para la
+    enfermedad moderada y grave.
+
+alternativas:
+  - dci: Rituximab
+    atc: L01FA01
+    lme: false
+    nota: >-
+      Aprobado en primera línea para el pénfigo vulgar moderado y grave en
+      Europa y en Estados Unidos. No tiene guía propia aquí todavía.
+  - dci: Micofenolato de mofetilo
+    atc: L04AA06
+    lme: false
+    nota: >-
+      El otro adyuvante clásico del corticoide. En seguridad reproductiva es lo
+      contrario de la azatioprina: exige suspenderlo al menos seis semanas
+      antes de concebir.
+
+conclusion: >-
+  En el pénfigo vulgar, la azatioprina sigue siendo un adyuvante razonable del
+  corticoide, pero su sitio se movió: la actualización europea de 2020 recoge
+  que el rituximab pasó a estar aprobado en primera línea para la enfermedad
+  moderada y grave. Lo que decide si la azatioprina se usa bien no es la
+  eficacia sino la dosis de partida, y esa depende del genotipo de TPMT y
+  NUDT15: dos genes cuya frecuencia varía con la ascendencia, de modo que
+  genotipar solo uno deja pacientes desprotegidos según de dónde vengan. En
+  seguridad reproductiva es la excepción amable de su clase, compatible con el
+  embarazo y con la lactancia, mientras el micofenolato y el metotrexato exigen
+  suspensión previa a la concepción. Los puntos de corte analíticos que
+  completarían la farmacoterapia quedan declarados como hueco en FA:0009, no
+  resueltos de memoria.
+
+refs:
+  - 'pmid:30447069'
+  - 'pmid:32830877'
+  - 'pmid:25338479'
+  - 'pmid:36318966'

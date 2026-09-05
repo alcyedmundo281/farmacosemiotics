@@ -1,0 +1,82 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:41235543"
+clave_bibtex: bechman2026
+tipo: articulo
+titulo: "The 2025 British Society for Rheumatology guideline for the prescription and monitoring of conventional synthetic disease-modifying anti-rheumatic drugs"
+autores:
+  - "Bechman K"
+  - "Song K"
+  - "Abhishek A"
+  - "Adas M"
+  - "Ahmed A"
+  - "Bray L"
+  - "Davidson A"
+  - "Deepak S"
+  - "Dey M"
+  - "De Vere H"
+  - "Dhillon E"
+  - "Faithfull N"
+  - "Foulkes A"
+  - "Gibson M"
+  - "Gullick N"
+  - "Hartley K"
+  - "Heaton R"
+  - "Hider S"
+  - "Holmes J"
+  - "Jones C"
+  - "Kavirayani A"
+  - "Khalid S"
+  - "Kyle S"
+  - "Mackie SL"
+  - "Adikari M"
+  - "Nash C"
+  - "Nowak K"
+  - "Parsons K"
+  - "Patel S"
+  - "Raghuvanshi S"
+  - "Reynolds JA"
+  - "Rose-Parfitt E"
+  - "Ryan S"
+  - "Said S"
+  - "Saha P"
+  - "Scott J"
+  - "Shivamurthy V"
+  - "Tan SY"
+  - "Twohig H"
+  - "Warrier K"
+  - "Wood N"
+  - "Zabate G"
+  - "Zuckerman B"
+  - "Galloway J"
+  - "Mercer L"
+publicacion: "Rheumatology (Oxford)"
+anio: 2026
+volumen: "65"
+numero: "2"
+
+identificadores:
+  pmid: 41235543
+  doi: "10.1093/rheumatology/keaf522"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

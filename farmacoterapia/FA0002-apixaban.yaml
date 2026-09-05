@@ -1,0 +1,344 @@
+# PARTE II — Farmacoterapia: cómo se usa el apixabán con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# Conviene leer antes que su contenido de dónde sale y de dónde NO sale. El
+# documento que mejor describe el «cómo se usa» de los anticoagulantes orales
+# directos es la Guía Práctica de la EHRA sobre ACOD, cuyo texto completo no
+# resultó accesible en esta sesión. Lo que sí lo fue es la guía ACC/AHA/ACCP/HRS
+# de fibrilación auricular de 2023, y de ella sale todo lo que hay aquí. Con una
+# limitación que se declara abajo y que conviene tener presente: las TABLAS de
+# esa guía —la de dosificación de los ACOD, la de monitorización analítica y la
+# de tiempos de interrupción periprocedimiento— no vienen en el cuerpo del
+# artículo, que se limita a remitir a ellas. Por eso aquí están las conductas y
+# los criterios que el texto sí enuncia, y no están las cifras que solo viven en
+# esas tablas.
+
+id: 'FA:0002'
+tipo: farmacoterapia
+farmaco: 'FS:0002'
+
+titulo: Farmacoterapia con apixabán
+titulo_en: Apixaban pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del apixabán como inhibidor directo del factor
+  Xa. Lo que cubre es lo que no cambia con la indicación: qué se comprueba antes
+  de la primera dosis, qué obliga a reevaluar la indicación y la dosis, qué se
+  hace ante la hemorragia, la insuficiencia renal avanzada, la enfermedad
+  hepática y la cirugía, y qué fármacos concomitantes cambian la dosis o
+  desaconsejan la molécula. Una advertencia que la fuente enuncia y que
+  atraviesa todo el apartado: la medición sistemática de las concentraciones
+  plasmáticas de los ACOD no está indicada en la práctica, porque no hay rangos
+  terapéuticos bien establecidos. Este no es un fármaco que se siga por su nivel
+  en sangre, y esa es la diferencia de fondo con la warfarina.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+# La guía enuncia qué determina la dosis —edad, función renal, peso y
+# medicación concomitante— y añade la función hepática para decidir si el ACOD
+# es apropiado. `responsable: compartida` no es un reparto inventado: la propia
+# guía recomienda atención integral y considera razonables las vías de atención
+# en equipo, con la monitorización de la anticoagulación en atención primaria.
+cribado_basal:
+  - prueba: Aclaramiento de creatinina
+    motivo: >-
+      Es uno de los cuatro parámetros con los que se elige la dosis del ACOD, y
+      el que además decide si la molécula es utilizable en la enfermedad renal
+      avanzada
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+  - prueba: Edad y peso
+    motivo: >-
+      Junto con la función renal y la medicación concomitante, son los datos con
+      los que se selecciona la dosis. Sin ellos no se puede afirmar que la dosis
+      prescrita sea la basada en evidencia
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+  - prueba: Función hepática
+    motivo: >-
+      Hay que evaluarla para juzgar si un ACOD es apropiado en este paciente, y
+      es la que separa las clases de Child-Pugh en las que unos ACOD se prefieren
+      a otros
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+  - prueba: >-
+      Revisión de la medicación concomitante, buscando inhibidores e inductores
+      potentes de CYP3A4 y de la glucoproteína P
+    motivo: >-
+      Es lo que decide entre la dosis estándar, la dosis reducida y preferir
+      warfarina. Es un cribado de fármacos, no de laboratorio, y por eso se
+      olvida con facilidad
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+  - prueba: >-
+      Riesgo de ictus y riesgo hemorrágico, junto con las preferencias del
+      paciente
+    motivo: >-
+      La elección de la terapia de reducción del riesgo de ictus se guía por el
+      riesgo de ictus del paciente, por el riesgo hemorrágico del tratamiento y
+      por sus preferencias individuales
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+# Sin fase de inducción, y no por olvido: en un anticoagulante oral directo no
+# hay un periodo inicial de riesgo hematológico que obligue a analíticas
+# seriadas, como sí lo hay en un antimetabolito. Lo que la guía convierte en
+# recomendación de clase 1 es la REEVALUACIÓN periódica de la indicación, la
+# elección y la dosis, y sí fija su cadencia: una vez al año, con más frecuencia
+# si cambia la situación clínica. Lo que no reproduce el cuerpo del artículo es
+# la tabla de monitorización analítica; el intervalo de la reevaluación, en
+# cambio, está en el texto.
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Aclaramiento de creatinina
+      - Función hepática
+      - Edad y peso
+      - Revisión de la medicación concomitante
+      - Riesgo de ictus y riesgo hemorrágico
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+  - fase: mantenimiento
+    periodo: Mientras dure la anticoagulación
+    pruebas:
+      - Riesgo de ictus
+      - Riesgo hemorrágico
+      - Beneficio clínico neto
+      - Adecuación de la dosis
+    frecuencia: >-
+      Habitualmente una vez al año, y con más frecuencia cuando cambie la
+      situación clínica: una caída de la función renal o la aparición de nuevos
+      factores de riesgo son los dos ejemplos que da la propia guía. La
+      reevaluación periódica es recomendación de clase 1, porque la fibrilación
+      auricular es una condición de por vida y el riesgo, la elegibilidad y las
+      preferencias del paciente cambian con el tiempo: la decisión de prevención
+      del ictus se reevalúa, no se hereda.
+    responsable: compartida
+    ref: 'pmid:38043043'
+
+# ── Qué hacer cuando el resultado se tuerce ─────────────────────────────
+umbrales_accion:
+  - parametro: Hemorragia durante el tratamiento
+    umbral: Hemorragia con riesgo vital
+    accion: >-
+      Revertir con andexanet alfa o con concentrado de complejo protrombínico de
+      4 factores, como recomendación de clase 1. El nivel de evidencia B-NR
+      corresponde precisamente a los datos de apixabán y rivaroxabán. En el
+      ensayo ANNEXA-4, la actividad anti-factor Xa cayó una mediana del 89 % tras
+      el bolo y la hemostasia se juzgó excelente o buena en 37 de 47 pacientes
+      (79 %, IC95 % 64-89); hubo eventos trombóticos en 12 de 67 pacientes (18 %)
+      a los 30 días, que es el precio de la reversión y no un efecto marginal.
+    ref: 'pmid:38043043'
+
+  - parametro: Hemorragia digestiva mayor ya controlada
+    umbral: Tras corregir las causas reversibles de la hemorragia
+    accion: >-
+      Reanudar la anticoagulación oral puede ser razonable (clase 2b), después de
+      reevaluar su beneficio y su riesgo a largo plazo con un abordaje de equipo
+      multidisciplinar y en decisión compartida con el paciente. La decisión de
+      no reanudar es tan explícita como la de reanudar: lo que no cabe es que la
+      suspensión quede por omisión.
+    ref: 'pmid:38043043'
+
+  - parametro: Aclaramiento de creatinina
+    umbral: Menor de 15 mL/min, o paciente en diálisis
+    accion: >-
+      Puede ser razonable (clase 2b) prescribir warfarina con INR 2,0-3,0 o una
+      dosis de apixabán basada en evidencia. Los ensayos pivotales excluyeron el
+      aclaramiento menor de 25 mL/min; la etiqueta de la FDA se extendió después
+      a la insuficiencia renal terminal, y un estudio farmacocinético encontró
+      que con 2,5 mg cada 12 horas las concentraciones se aproximan a las de 5 mg
+      cada 12 horas con función renal normal, lo que sitúa 2,5 mg como la dosis
+      apropiada en esos pacientes. Un análisis observacional halló más
+      tromboembolia y más hemorragia mortal o intracraneal con 5 mg cada 12 horas
+      frente a no anticoagular, y no con 2,5 mg cada 12 horas.
+    ref: 'pmid:38043043'
+
+  - parametro: Enfermedad hepática, clasificada por Child-Pugh
+    umbral: Child-Pugh A o B
+    accion: >-
+      En el paciente con riesgo elevado de tromboembolia sistémica y enfermedad
+      hepática leve o moderada, es razonable prescribir un ACOD antes que
+      warfarina (clase 2a): cualquiera de ellos en Child-Pugh A, y apixabán,
+      dabigatrán o edoxabán en Child-Pugh B. El apoyo farmacocinético es directo:
+      el AUC del apixabán no aumentó de forma significativa tras una dosis única
+      de 5 mg en sujetos con enfermedad hepática leve o moderada frente a sujetos
+      sanos. La guía no extiende esta conducta a Child-Pugh C.
+    ref: 'pmid:38043043'
+
+  - parametro: >-
+      Procedimiento invasivo o cirugía que no puede realizarse con
+      anticoagulación ininterrumpida
+    umbral: Indicación de interrumpir el ACOD
+    accion: >-
+      El momento de la interrupción se guía por el fármaco concreto, por la
+      función renal y por el riesgo hemorrágico del procedimiento (clase 1). La
+      reanudación al día siguiente en la cirugía de bajo riesgo hemorrágico, y
+      entre la tarde del segundo día y la del tercero en la de alto riesgo, es
+      razonable (clase 2a) siempre que se haya logrado la hemostasia y no se
+      anticipe más sangrado. No se administra terapia puente con heparina de bajo
+      peso molecular. Las cifras de días de interrupción por fármaco, función
+      renal y riesgo del procedimiento viven en una tabla que el cuerpo del
+      artículo no reproduce; lo que sí razona el texto es que un nivel menor de
+      30 ng/mL se alcanza en dos tercios de los pacientes entre 24 y 48 horas
+      después de la última toma, con resultados similares observados para el
+      apixabán.
+    ref: 'pmid:38043043'
+
+  - parametro: Dosis prescrita frente a la dosis basada en evidencia
+    umbral: Cualquier dosis de ACOD no basada en evidencia
+    accion: >-
+      Evitarla: es una recomendación de clase 3 por daño. La desviación es
+      frecuente y perjudica en las dos direcciones. Un metaanálisis de estudios
+      de cohortes encontró que las dosis inapropiadamente bajas se asocian a más
+      ictus o embolia sistémica (OR 1,21; IC95 % 1,02-1,43; p = 0,03) sin
+      diferencias en hemorragia, y otro halló que las dosis inapropiadamente
+      altas se asocian a más ictus isquémico o embolia sistémica (HR 1,26;
+      IC95 % 1,11-1,43; p = 0,003) y a más hemorragia mayor (HR 1,30;
+      IC95 % 1,04-1,62; p = 0,025). Reducir la dosis «por prudencia» no es una
+      medida de seguridad.
+    ref: 'pmid:38043043'
+
+# ── Interacciones que cambian la dosis o el fármaco ─────────────────────
+interacciones:
+  - con: >-
+      Ketoconazol, itraconazol o ritonavir, como inhibidores potentes de CYP3A4 y
+      de la glucoproteína P
+    gravedad: mayor
+    efecto: >-
+      Aumentan de forma significativa la concentración plasmática del ACOD y con
+      ella el riesgo hemorrágico. La coadministración de ketoconazol elevó un
+      99 % el nivel plasmático de apixabán en sujetos sanos.
+    conducta: >-
+      Al iniciar cualquiera de ellos en quien toma apixabán 5 mg cada 12 horas,
+      ajustar la dosis a 2,5 mg cada 12 horas.
+    ref: 'pmid:38043043'
+
+  - con: >-
+      Rifampicina, fenitoína, fenobarbital, primidona, carbamazepina o hierba de
+      San Juan, como inductores potentes de CYP3A4 y de la glucoproteína P
+    gravedad: mayor
+    efecto: >-
+      Bajan la concentración plasmática del ACOD y aumentan el riesgo de ictus o
+      embolia sistémica. Es la dirección peligrosa que no da síntomas de aviso:
+      el fármaco se sigue tomando y ha dejado de proteger.
+    conducta: >-
+      La warfarina sigue siendo el agente preferido en el paciente que recibe
+      inductores de CYP3A4 o de la glucoproteína P.
+    ref: 'pmid:38043043'
+
+  - con: Antiepilépticos inductores enzimáticos
+    gravedad: mayor
+    efecto: >-
+      La probabilidad de tener niveles de ACOD por debajo del rango de referencia
+      fue significativamente mayor en los pacientes que recibían antiepilépticos.
+      Un estudio de cohortes sobre reclamaciones asoció el uso de antiepilépticos
+      inductores del citocromo a un aumento del 86 % de los eventos
+      tromboembólicos e isquémicos en pacientes con ACOD, y una cohorte
+      prospectiva multicéntrica corroboró una tasa de ictus, accidente isquémico
+      transitorio o embolia sistémica del 5,7 % por paciente-año con la
+      combinación.
+    conducta: >-
+      Optimizar el manejo de la interacción es recomendación de clase 1; ante un
+      inductor enzimático, la warfarina es el agente preferido.
+    ref: 'pmid:38043043'
+
+# ── Seguridad reproductiva ──────────────────────────────────────────────
+# Sin `washout` ni `anticoncepcion`: la fuente accesible no fija un periodo de
+# lavado antes de la concepción ni un requisito anticonceptivo para esta
+# molécula. Escribir un plazo aquí sería exactamente lo que la contraindicación
+# no autoriza a deducir. La guía además nombra la anticoagulación en el embarazo
+# entre sus lagunas de evidencia: hoy está contraindicada por ausencia de datos y
+# necesita investigarse.
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Los ACOD están contraindicados durante el embarazo por la falta de datos
+      que respalden su seguridad y su eficacia en esta población. El matiz
+      importa y la propia guía lo hace explícito: no se recomienda su uso «ante
+      la falta de evidencia sobre la seguridad», que no es lo mismo que un daño
+      demostrado. En la paciente embarazada con riesgo elevado de ictus, las
+      recomendaciones de anticoagulación se extrapolan de la experiencia en
+      valvulopatía, y toda la decisión se toma de forma compartida reconociendo
+      que ninguna estrategia es completamente segura para la madre y para el
+      feto.
+    ref: 'pmid:38043043'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Los ACOD están contraindicados durante la lactancia por la misma razón que
+      en el embarazo: ausencia de datos que respalden su seguridad y su eficacia.
+    ref: 'pmid:38043043'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - >-
+      Fijar la indicación de anticoagulación y la dosis a partir del riesgo de
+      ictus, del riesgo hemorrágico, de la función renal y hepática, de la edad,
+      del peso y de la medicación concomitante
+    - >-
+      Planificar la interrupción periprocedimiento según el fármaco, la función
+      renal y el riesgo hemorrágico del procedimiento, incorporando siempre la
+      opinión de quien realiza el procedimiento, y no indicar terapia puente con
+      heparina de bajo peso molecular
+    - >-
+      Decidir con un equipo multidisciplinar, y en decisión compartida con el
+      paciente, si se reanuda la anticoagulación tras una hemorragia digestiva
+      mayor
+  seguimiento:
+    - >-
+      Reevaluar una vez al año —y antes si cae la función renal o aparecen nuevos
+      factores de riesgo— la necesidad y la elección de la terapia, el riesgo de
+      ictus, el riesgo hemorrágico, el beneficio clínico neto y la adecuación de
+      la dosis
+    - >-
+      Revisar la medicación en cada nueva prescripción buscando inhibidores e
+      inductores potentes de CYP3A4 y de la glucoproteína P, que es donde la dosis
+      correcta deja de serlo sin que nadie lo note
+    - >-
+      Reforzar la adherencia: la comodidad de no medir el INR es también la
+      razón por la que una toma omitida pasa inadvertida, y la medición
+      sistemática de niveles plasmáticos no está indicada para detectarla
+  suspension_inmediata: >-
+    Hemorragia con riesgo vital: suspender y revertir con andexanet alfa o con
+    concentrado de complejo protrombínico de 4 factores, sin esperar a la
+    valoración del especialista.
+  ref: 'pmid:38043043'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que establezca una dosificación del apixabán guiada
+      por genotipo. La guía accesible dosifica por edad, función renal, peso y
+      medicación concomitante, y no por variantes genéticas; tampoco hay una guía
+      CPIC de apixabán equivalente a la de TPMT y NUDT15 para las tiopurinas. La
+      ausencia de este apartado describe el estado del conocimiento, no una
+      búsqueda incompleta.
+    buscado_en: >-
+      Guía ACC/AHA/ACCP/HRS de fibrilación auricular de 2023 y ensayo pivotal
+      ARISTOTLE.
+    refs:
+      - 'pmid:38043043'
+      - 'pmid:21870978'
+
+refs:
+  - 'pmid:38043043'
+  - 'pmid:21870978'

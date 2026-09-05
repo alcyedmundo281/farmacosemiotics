@@ -3,6 +3,17 @@
 **Aquí y solo aquí van los precios.** Un `precio` dentro de `farmacos/` o
 `fichas/` es un error que `build.py` rechaza.
 
+## Cómo enlaza con el eje `costo` de un informe de selección
+
+El cuarto eje de `selecciones/` emite un **juicio comparativo**, no una cifra:
+«genérico oral multifuente» frente a «biológico de marca de administración
+hospitalaria». Ese juicio es internacional, no caduca y basta para ordenar los
+candidatos entre sí, que es lo que un informe de selección necesita.
+
+Lo que este directorio añade es la otra mitad de la pregunta —*cuánto cuesta
+aquí*— y la añade como capa, por país y con su fecha de consulta. Un informe
+sigue siendo válido sin ella; con ella se vuelve local.
+
 ## Por qué están fuera del núcleo
 
 No existe una fuente de precios internacional que sea a la vez libre,

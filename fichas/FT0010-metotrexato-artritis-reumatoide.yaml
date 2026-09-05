@@ -1,0 +1,310 @@
+# Guía: fármaco × indicación. La decisión situada.
+#
+# Aquí vive solo lo que cambia con la indicación. Lo que no cambia está en:
+#
+#   selecciones/SEL0002-artritis-reumatoide.yaml   por qué se eligió este fármaco
+#   farmacoterapia/FA0010-metotrexato.yaml         cómo se usa con seguridad
+#
+# La farmacoterapia no se enlaza: se deduce del fármaco. Esta ficha no declara
+# `variaciones` porque no las tiene: la artritis reumatoide es el contexto en
+# el que se escribió la farmacoterapia base, así que no se aparta de ella en
+# nada. La que sí se aparta es FT:0011, en artritis psoriásica.
+
+id: 'FT:0010'
+tipo: ficha
+farmaco: 'FS:0010'
+seleccion: 'SEL:0002'
+
+titulo: Metotrexato en la artritis reumatoide de actividad moderada a alta
+titulo_en: >-
+  Methotrexate in rheumatoid arthritis with moderate-to-high disease activity
+indicacion: Artritis reumatoide
+indicacion_en: Rheumatoid arthritis
+poblacion: >-
+  Personas adultas con artritis reumatoide, actividad de la enfermedad moderada
+  a alta y sin exposición previa a fármacos antirreumáticos modificadores de la
+  enfermedad. En actividad baja la recomendación cambia y esta guía no la
+  cubre: ahí se empieza por hidroxicloroquina o sulfasalazina.
+poblacion_en: >-
+  Adults with rheumatoid arthritis, moderate-to-high disease activity and no
+  previous DMARD exposure.
+cie11: FA20
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  fuerza: fuerte
+  perla_prescripcion: >-
+    Primera elección en monoterapia, y con fuerza también frente a alternativas
+    mucho más caras. Empezar por vía oral y titular hasta al menos 15 mg
+    semanales en cuatro a seis semanas: quedarse por debajo es la forma más
+    común de concluir que el metotrexato «no funcionó» sin haberlo probado.
+  alerta_seguridad_inmediata: >-
+    La pauta es SEMANAL. Confundirla con una diaria es la causa clásica de
+    toxicidad grave. Y no se inicia sin enzimas y función hepática normales.
+
+# ── Pregunta ────────────────────────────────────────────────────────────
+pico:
+  p: >-
+    Adultos con artritis reumatoide de actividad moderada a alta, sin DMARD
+    previo
+  i: Metotrexato en monoterapia
+  c: >-
+    Hidroxicloroquina, sulfasalazina o leflunomida; monoterapia con biológico o
+    con sintético dirigido; doble o triple terapia de csDMARD; metotrexato más
+    inhibidor del TNF
+  o: >-
+    Actividad de la enfermedad, función física, progresión radiográfica,
+    calidad de vida, eventos adversos
+
+estrategia:
+  - base: PubMed
+    consulta: '"arthritis, rheumatoid"[MeSH] AND practice guideline[pt]'
+    fecha: '2026-09-05'
+    nota: >-
+      La ficha se ancla en la guía de tratamiento de la ACR de 2021, que es la
+      que enfrenta explícitamente los comparadores entre sí, y en la
+      actualización EULAR de 2022 para la estrategia inicial y el objetivo
+      terapéutico.
+
+# ── Posología ───────────────────────────────────────────────────────────
+posologia:
+  inicio: >-
+    Vía oral. La administración oral se prefiere sobre la subcutánea al iniciar
+    por la facilidad de uso y una biodisponibilidad similar a las dosis de
+    partida habituales.
+  escalado: >-
+    Titular hasta al menos 15 mg semanales en cuatro a seis semanas, en vez de
+    quedarse por debajo de esa cifra. La recomendación se refiere solo a la
+    prescripción inicial y no limita el escalado posterior, que a menudo aporta
+    eficacia adicional.
+  nota: >-
+    Ante intolerancia a la pauta oral semanal, las medidas de rescate van antes
+    que el cambio de fármaco: repartir la dosis en 24 horas, pasar a inyección
+    subcutánea semanal o aumentar el ácido fólico o folínico. Y en quien no
+    alcanza el objetivo con metotrexato oral, pasar a subcutáneo se prefiere a
+    añadir o cambiar de DMARD.
+  ref: 'pmid:34101387'
+
+# ── Evidencia ───────────────────────────────────────────────────────────
+evidencia:
+  - desenlace: >-
+      Actividad de la enfermedad frente a hidroxicloroquina o sulfasalazina
+    criticidad: critico
+    diseno: guia
+    estudio: Guía de tratamiento de la artritis reumatoide de la ACR, 2021
+    comparador: Hidroxicloroquina o sulfasalazina en monoterapia
+    efecto: >-
+      Recomendación fuerte a favor del metotrexato pese a que la certeza de la
+      evidencia era muy baja para la hidroxicloroquina y baja para la
+      sulfasalazina. Lo que sostiene la fuerza no es la certeza sino el volumen
+      de datos que respaldan sus propiedades modificadoras de la enfermedad, y
+      la preocupación por la tolerabilidad a largo plazo de la sulfasalazina.
+    certeza: baja
+    razones_descenso:
+      - imprecision
+      - riesgo_de_sesgo
+    ref: 'pmid:34101387'
+
+  - desenlace: Actividad de la enfermedad frente a leflunomida
+    criticidad: critico
+    diseno: guia
+    estudio: Guía de tratamiento de la artritis reumatoide de la ACR, 2021
+    comparador: Leflunomida en monoterapia
+    efecto: >-
+      Eficacia comparable con evidencia de baja certeza. La recomendación a
+      favor del metotrexato es condicional y se apoya en su papel como DMARD
+      ancla de los regímenes de combinación, su mayor flexibilidad de
+      dosificación y su menor coste, no en una diferencia de eficacia.
+    certeza: baja
+    razones_descenso:
+      - imprecision
+    ref: 'pmid:34101387'
+
+  - desenlace: >-
+      Actividad de la enfermedad frente a monoterapia con biológico o con
+      sintético dirigido
+    criticidad: critico
+    diseno: guia
+    estudio: Guía de tratamiento de la artritis reumatoide de la ACR, 2021
+    comparador: Tocilizumab o inhibidor de JAK en monoterapia
+    efecto: >-
+      Aquí la evidencia favorece al comparador y la recomendación no la sigue,
+      y conviene leerlo entero: hay evidencia de baja certeza de superioridad
+      del tocilizumab y de certeza moderada de mayor eficacia de los
+      inhibidores de JAK. Aun así el metotrexato se recomienda con fuerza, por
+      su eficacia y seguridad establecidas como primer DMARD, su bajo coste, y
+      porque aquellos no están aprobados en pacientes sin csDMARD previo.
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    ref: 'pmid:34101387'
+
+  - desenlace: >-
+      Alcanzar el objetivo terapéutico con estrategia de tratamiento por
+      objetivos frente a cuidado habitual
+    criticidad: importante
+    diseno: guia
+    estudio: Guía de tratamiento de la artritis reumatoide de la ACR, 2021
+    comparador: Cuidado habitual, sin medición sistemática de la actividad
+    efecto: >-
+      Recomendación fuerte pese a evidencia de baja certeza, por la importancia
+      reconocida de monitorizar y ajustar el tratamiento de forma sistemática
+      para minimizar la inflamación y prevenir el daño articular, y también las
+      secuelas a largo plazo como la enfermedad cardiovascular y la
+      osteoporosis. Aplica tanto a optimizar la dosis de metotrexato como a
+      añadir DMARD después.
+    certeza: baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - imprecision
+    ref: 'pmid:34101387'
+
+# ── Posicionamiento terapéutico ─────────────────────────────────────────
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Es el DMARD ancla: no solo el primero, sino aquel sobre el que se construye
+    el escalón siguiente. La recomendación europea sitúa el metotrexato con
+    glucocorticoide como tratamiento inicial y reevalúa a los tres a seis meses
+    si la respuesta es insuficiente, estratificando entonces según factores de
+    mal pronóstico.
+  escalonado:
+    - linea: primera
+      opciones:
+        - Metotrexato en monoterapia
+      nota: >-
+        Preferido también sobre la doble o triple terapia de csDMARD, de forma
+        condicional: hay evidencia de calidad moderada de mayor mejoría con la
+        combinación, pero la carga de tomar varios fármacos y su coste pesan
+        más. Algunos pacientes eligen la combinación, y el panel de pacientes
+        de la guía así lo manifestó.
+    - linea: segunda
+      opciones:
+        - Añadir un biológico o un sintético dirigido al metotrexato
+        - Triple terapia con sulfasalazina e hidroxicloroquina
+      nota: >-
+        Cuando no se alcanza el objetivo con metotrexato a la dosis máxima
+        tolerada. La guía prefiere el biológico o el sintético dirigido de forma
+        condicional, pese a ensayos que muestran desenlaces equivalentes a largo
+        plazo con la triple terapia y a un coste social mucho menor: pesó que el
+        panel de pacientes priorizara la mejoría rápida. La triple terapia puede
+        preferirse en entornos de menos recursos.
+    - linea: tercera
+      opciones:
+        - Cambiar a un biológico o sintético dirigido de otra clase
+      nota: >-
+        En quien no alcanza el objetivo con el primero, cambiar de clase se
+        prefiere a cambiar dentro de la misma.
+  desescalamiento:
+    enunciado: >-
+      Solo tras al menos seis meses en el objetivo —actividad baja o remisión—;
+      quien lleva menos de seis meses en remisión no debe considerarse para
+      reducción ni retirada. El orden de preferencia es escalonado: mantener
+      todos los DMARD a la dosis actual antes que reducir, reducir antes que
+      retirar de forma gradual, y retirar de forma gradual antes que de forma
+      brusca. Si se retira algo en quien toma metotrexato más un biológico o un
+      sintético dirigido, se retira el metotrexato, porque el otro se añadió
+      justamente por respuesta insuficiente a este.
+    ref: 'pmid:34101387'
+  ref: 'pmid:36357155'
+
+# ── Balance ─────────────────────────────────────────────────────────────
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: moderado
+  certeza_global: baja
+  valores_preferencias: >-
+    Variabilidad documentada, y en dos puntos concretos donde el panel de
+    pacientes de la guía discrepó del de clínicos. Los pacientes prefirieron
+    empezar con csDMARD combinados antes que con metotrexato en monoterapia,
+    porque valoraron más el beneficio adicional. Y prefirieron suspender antes
+    que reducir dosis cuando se alcanza el objetivo, mientras los clínicos
+    preferían reducir. Ninguna de las dos discrepancias es un error de
+    información: son prioridades distintas.
+  equidad: >-
+    Favorable. Oral, genérico y el más barato del grupo junto con la
+    hidroxicloroquina. La barrera no es el fármaco sino el laboratorio: exige
+    función hepática antes de empezar y vigilarla después.
+  aceptabilidad: alta
+  factibilidad: >-
+    Alta donde hay acceso a bioquímica hepática. La estrategia por objetivos
+    que la guía recomienda con fuerza añade además la necesidad de medir la
+    actividad de la enfermedad con instrumentos validados, y no solo de
+    ajustar por impresión clínica.
+
+# ── Recomendación ───────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda el metotrexato en monoterapia como tratamiento inicial en el
+    adulto con artritis reumatoide de actividad moderada a alta sin DMARD
+    previo, por vía oral y titulado hasta al menos 15 mg semanales en cuatro a
+    seis semanas, dentro de una estrategia de tratamiento por objetivos.
+  enunciado_en: >-
+    Methotrexate monotherapy is recommended as initial treatment in DMARD-naive
+    adults with moderate-to-high rheumatoid arthritis disease activity, given
+    orally and titrated to at least 15 mg weekly within four to six weeks,
+    within a treat-to-target strategy.
+  ref: 'pmid:34101387'
+  justificacion_fuerza: >-
+    Recomendación fuerte sobre certeza global baja, que en GRADE es la
+    excepción y necesita argumento. Lo que la sostiene no es la certeza de un
+    ensayo comparativo sino el volumen acumulado de datos sobre sus propiedades
+    modificadoras de la enfermedad, su papel de ancla del escalón siguiente y
+    su coste. La propia guía lo hace explícito al recomendarlo con fuerza pese
+    a evidencia de certeza muy baja y baja para los comparadores.
+  nota_consenso: >-
+    La recomendación europea coincide en el fármaco pero no en el
+    acompañamiento: sitúa el metotrexato con glucocorticoide como tratamiento
+    inicial, mientras la guía de la ACR recomienda de forma condicional iniciar
+    el csDMARD sin glucocorticoide de corta duración, y con fuerza sin
+    glucocorticoide de larga duración. La diferencia no es menor y conviene
+    declararla en vez de promediarla.
+
+alternativas:
+  - dci: Sulfasalazina
+    atc: A07EC01
+    lme: false
+    nota: >-
+      Alternativa de elección ante deseo gestacional o lactancia: es la única
+      del grupo compatible sin maniobra previa. Ver el informe de selección.
+  - dci: Leflunomida
+    atc: L04AA13
+    lme: false
+    nota: >-
+      Eficacia comparable, pero exige lavado con colestiramina antes de
+      cualquier gestación buscada.
+  - dci: Hidroxicloroquina
+    atc: P01BA02
+    lme: false
+    nota: >-
+      Mejor tolerada y con perfil de riesgo más favorable, pero reservada a la
+      actividad baja, que no es la población de esta guía.
+
+conclusion: >-
+  En el adulto con artritis reumatoide de actividad moderada a alta y sin DMARD
+  previo, el metotrexato en monoterapia es el tratamiento inicial recomendado
+  con fuerza, y lo es pese a que la certeza de la evidencia comparativa es baja
+  y pese a que es el candidato con peor perfil de seguridad de su grupo. Lo que
+  decide no es un ensayo mejor sino su papel de ancla y su coste. Dos detalles
+  de ejecución valen tanto como la elección: la pauta es semanal, y titular
+  hasta al menos 15 mg en cuatro a seis semanas es lo que separa un fracaso
+  real de uno por infradosificación. Cuando el objetivo no se alcanza, la guía
+  prefiere añadir un biológico a la triple terapia, pero reconoce que los
+  desenlaces a largo plazo son equivalentes y el coste social muy distinto: en
+  entornos de menos recursos, esa preferencia se puede invertir sin salirse de
+  la evidencia.
+
+refs:
+  - 'pmid:34101387'
+  - 'pmid:36357155'

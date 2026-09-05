@@ -1,0 +1,87 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:36357155"
+clave_bibtex: smolen2022
+tipo: articulo
+titulo: "EULAR recommendations for the management of rheumatoid arthritis with synthetic and biological disease-modifying antirheumatic drugs: 2022 update"
+autores:
+  - "Smolen JS"
+  - "Landewé RBM"
+  - "Bergstra SA"
+  - "Kerschbaumer A"
+  - "Sepriano A"
+  - "Aletaha D"
+  - "Caporali R"
+  - "Edwards CJ"
+  - "Hyrich KL"
+  - "Pope JE"
+  - "de Souza S"
+  - "Stamm TA"
+  - "Takeuchi T"
+  - "Verschueren P"
+  - "Winthrop KL"
+  - "Balsa A"
+  - "Bathon JM"
+  - "Buch MH"
+  - "Burmester GR"
+  - "Buttgereit F"
+  - "Cardiel MH"
+  - "Chatzidionysiou K"
+  - "Codreanu C"
+  - "Cutolo M"
+  - "den Broeder AA"
+  - "El Aoufy K"
+  - "Finckh A"
+  - "Fonseca JE"
+  - "Gottenberg JE"
+  - "Haavardsholm EA"
+  - "Iagnocco A"
+  - "Lauper K"
+  - "Li Z"
+  - "McInnes IB"
+  - "Mysler EF"
+  - "Nash P"
+  - "Poor G"
+  - "Ristic GG"
+  - "Rivellese F"
+  - "Rubbert-Roth A"
+  - "Schulze-Koops H"
+  - "Stoilov N"
+  - "Strangfeld A"
+  - "van der Helm-van Mil A"
+  - "van Duuren E"
+  - "Vliet Vlieland TPM"
+  - "Westhovens R"
+  - "van der Heijde D"
+publicacion: "Ann Rheum Dis"
+anio: 2022
+volumen: "82"
+numero: "1"
+paginas: "3-18"
+
+identificadores:
+  pmid: 36357155
+  doi: "10.1136/ard-2022-223356"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

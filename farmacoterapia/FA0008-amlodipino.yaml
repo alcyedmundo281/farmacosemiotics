@@ -1,0 +1,217 @@
+# PARTE II — Farmacoterapia: cómo se usa el amlodipino con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# ADVERTENCIA DE PROCEDENCIA, y hay que leerla antes que el contenido.
+#
+# Al escribir este fichero se comprobó qué sostiene realmente `pmid:12479763`,
+# que es la referencia que más se cita sobre esta molécula en el repositorio.
+# Ese PMID es ALLHAT: un ensayo aleatorizado de 33.357 hipertensos que comparó
+# clortalidona, amlodipino y lisinopril durante una media de 4,9 años. Es un
+# ensayo de DESENLACES. En su resumen no hay mecanismo de acción, ni mecanismo
+# del edema maleolar, ni el enunciado de que el edema mejore al asociar un IECA
+# o un ARA-II. Esas tres afirmaciones estaban en FS:0008 citando a ALLHAT, y
+# esta farmacoterapia no las reutilizó: un enunciado cuyo PMID resuelve pero no
+# lo sostiene pasa la validación y falla la regla de oro, y copiarlo aquí lo
+# habría multiplicado en vez de detenerlo. Lo que sí sostiene ALLHAT está abajo,
+# y es justamente lo que faltaba: la señal de insuficiencia cardíaca.
+#
+# FS:0008 y FT:0008 se corrigieron después, en el mismo día y con la misma
+# comprobación: cada uno lleva su nota de procedencia en cabecera. Este párrafo
+# se conserva porque explica por qué este fichero nació sin conducta ante el
+# edema maleolar, que es su ausencia más visible.
+#
+# El texto completo de ALLHAT no resultó accesible en esta sesión, de modo que
+# no puede descartarse que sus tablas de efectos adversos contengan cifras que
+# el resumen no publica. Por eso lo de arriba se afirma de las tres frases
+# MECANÍSTICAS, que un ensayo de desenlaces no formula, y no de cualquier
+# porcentaje.
+
+id: 'FA:0008'
+tipo: farmacoterapia
+farmaco: 'FS:0008'
+
+titulo: Farmacoterapia con amlodipino
+titulo_en: Amlodipine pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del amlodipino como antagonista dihidropiridínico
+  de los canales de calcio. Lo que cubre es lo que las fuentes accesibles
+  sostienen sobre la molécula: qué comprobar antes de la primera dosis, la señal
+  de insuficiencia cardíaca que su ensayo pivotal encontró frente a la
+  clortalidona, la hipotensión excesiva y su población de riesgo, y su papel
+  como fármaco de combinación para alcanzar el objetivo de presión. Tres
+  ausencias que conviene tener presentes y que no se disimulan. La primera: no
+  hay cronograma, y está declarado como hueco. La segunda: no está la conducta
+  ante el edema maleolar, que es el efecto adverso más frecuente de esta
+  molécula, porque la fuente que se le atribuye en el repositorio no lo sostiene
+  —véase la advertencia de procedencia arriba— y no se localizó otra. La
+  tercera: `interacciones` trae una sola fila, la de la combinación
+  antihipertensiva, y le falta la lista de fármacos que alteran su exposición
+  por CYP3A4; el amlodipino se metaboliza extensamente por esa vía según
+  FS:0008, pero la vía metabólica no es una lista de interacciones y aquí no se
+  deduce una de la otra.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Presión arterial basal y objetivo individualizado
+    motivo: >-
+      Es la variable que se trata y la que decide la titulación. La fuente lo
+      plantea además como un problema de combinación y no de fármaco único: a
+      menudo hacen falta varios fármacos, y el inhibidor del sistema
+      renina-angiotensina, el antagonista dihidropiridínico y el diurético
+      pueden combinarse para alcanzar objetivos individualizados
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - prueba: Edad avanzada y estenosis aórtica grave
+    motivo: >-
+      Son las dos situaciones en que la hipotensión excesiva es más frecuente,
+      según el registro del principio activo. Identificarlas antes cambia la
+      dosis de inicio y el ritmo de titulación, no la indicación
+    responsable: compartida
+    ref: 'fda:label'
+
+  - prueba: >-
+      Antecedente de insuficiencia cardíaca o factores de riesgo para
+      desarrollarla
+    motivo: >-
+      Es el único desenlace en el que el amlodipino salió peor que su comparador
+      en ALLHAT, y conviene conocerlo antes de elegirlo como antihipertensivo de
+      primer paso en alguien que ya parte con ese riesgo
+    responsable: compartida
+    ref: 'pmid:12479763'
+
+# ── Qué hacer cuando el resultado se tuerce ─────────────────────────────
+umbrales_accion:
+  - parametro: Insuficiencia cardíaca
+    umbral: Aparición o empeoramiento durante el tratamiento
+    accion: >-
+      Reevaluar el régimen antihipertensivo a la luz de lo que ALLHAT encontró.
+      En ese ensayo, con 33.357 participantes y 4,9 años de seguimiento medio, el
+      amlodipino igualó a la clortalidona en el desenlace primario —enfermedad
+      coronaria mortal o infarto no mortal, RR 0,98; IC95 % 0,90-1,07— y en
+      mortalidad por cualquier causa, pero tuvo una tasa de insuficiencia
+      cardíaca a 6 años más alta: 10,2 % frente a 7,7 % (RR 1,38; IC95 %
+      1,25-1,52). La conclusión que el propio ensayo extrajo es que los
+      diuréticos de tipo tiazídico son superiores para prevenir una o más formas
+      mayores de enfermedad cardiovascular, además de más baratos, y que deberían
+      preferirse como tratamiento antihipertensivo de primer paso. Qué hacer con
+      ese dato en un paciente concreto es una decisión clínica; qué dice el
+      ensayo es esto y no otra cosa.
+    ref: 'pmid:12479763'
+
+  - parametro: Presión arterial
+    umbral: Hipotensión arterial excesiva
+    accion: >-
+      Reducir la dosis o revisar el resto del régimen. Es una reacción
+      infrecuente y de gravedad moderada según el registro del principio activo,
+      y su población de riesgo está identificada: el paciente de edad avanzada y
+      el que tiene estenosis aórtica grave.
+    ref: 'fda:label'
+
+# ── Interacciones que cambian la conducta ───────────────────────────────
+interacciones:
+  - con: >-
+      Inhibidor del sistema renina-angiotensina y diurético tiazídico o similar,
+      en combinación antihipertensiva
+    gravedad: menor
+    efecto: >-
+      Es la combinación prevista y no un problema: a menudo se necesitan varios
+      fármacos para controlar la presión, y las tres clases suelen hacer falta a
+      la vez para alcanzar los objetivos. El orden entre ellas sí depende del
+      paciente: con albuminuria presente, el IECA o el ARA-II a dosis máxima
+      tolerada es la primera línea; sin albuminuria, el antagonista
+      dihidropiridínico o el diurético también pueden considerarse, porque en esa
+      población los eventos cardiovasculares y la mortalidad son más frecuentes
+      que el fallo renal.
+    conducta: >-
+      Combinar según el objetivo individualizado, con la salvedad del orden
+      anterior. No es motivo de vigilancia añadida por sí misma.
+    ref: 'pmid:36189689'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - >-
+      Fijar el objetivo de presión de forma individualizada y decidir el orden de
+      las clases: con albuminuria, el inhibidor del sistema renina-angiotensina
+      va primero; sin ella, el dihidropiridínico o el diurético son opciones de
+      entrada
+    - >-
+      Valorar antes de elegirlo si el paciente parte con riesgo de insuficiencia
+      cardíaca, que es el desenlace en el que ALLHAT lo situó por detrás de la
+      clortalidona
+  seguimiento:
+    - >-
+      Ajustar y combinar hasta el objetivo sin caer en la inercia terapéutica:
+      hacen falta varios fármacos con frecuencia, y quedarse en la monoterapia
+      inicial es la forma más común de no llegar
+    - >-
+      Vigilar la hipotensión excesiva en el paciente de edad avanzada y en el
+      que tiene estenosis aórtica grave
+  suspension_inmediata: >-
+    Hipotensión arterial excesiva sintomática: se reduce la dosis o se suspende
+    sin esperar a la siguiente consulta, y se revisa el resto del régimen
+    antihipertensivo antes de reintroducirlo.
+  ref: 'pmid:36189689'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No se localizó fuente accesible que fije cada cuánto comprobar la presión
+      arterial tras iniciar o titular un antagonista dihidropiridínico. Existe y
+      está fijado en las guías de hipertensión, pero la de la ESH de 2023 y la de
+      la ESC de 2024 devolvieron registro sin texto completo en esta sesión, como
+      ya ocurrió con las guías de insuficiencia cardíaca al escribir FA:0006 y
+      FA:0007. El informe de consenso de la ADA y KDIGO, que sí fue accesible,
+      habla de titular y combinar pero no de periodicidad.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica, guía de hipertensión arterial de la ESH de 2023 y guía de presión
+      arterial elevada e hipertensión de la ESC de 2024.
+    refs:
+      - 'pmid:36189689'
+
+  - bloque: reproductivo
+    motivo: >-
+      Ninguna fuente accesible fija el perfil reproductivo del amlodipino, ni
+      periodo de lavado ni requisito anticonceptivo. Se resuelve con la ficha
+      técnica o con una guía obstétrica, y no por analogía con otros
+      antihipertensivos, que en el embarazo se comportan de forma muy distinta
+      entre clases: el ejemplo está en el mismo repositorio, donde el IECA tiene
+      una contraindicación clásica que no se extiende al dihidropiridínico.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica, y ensayo ALLHAT.
+    refs:
+      - 'pmid:36189689'
+      - 'pmid:12479763'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que establezca una dosificación del amlodipino
+      guiada por genotipo, ni existe guía CPIC para esta molécula. El amlodipino
+      se metaboliza extensamente por CYP3A4 según el registro del principio
+      activo, y esa vía tiene variantes descritas, pero de una vía metabólica no
+      se deduce una recomendación de dosificación por genotipo: hace falta que
+      alguien la haya estudiado y publicado.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica.
+    refs:
+      - 'pmid:36189689'
+
+refs:
+  - 'pmid:12479763'
+  - 'pmid:36189689'

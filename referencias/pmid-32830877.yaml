@@ -1,0 +1,81 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:32830877"
+clave_bibtex: joly2020
+tipo: articulo
+titulo: "Updated S2K guidelines on the management of pemphigus vulgaris and foliaceus initiated by the european academy of dermatology and venereology (EADV)"
+autores:
+  - "Joly P"
+  - "Horvath B"
+  - "Patsatsi A"
+  - "Uzun S"
+  - "Bech R"
+  - "Beissert S"
+  - "Bergman R"
+  - "Bernard P"
+  - "Borradori L"
+  - "Caproni M"
+  - "Caux F"
+  - "Cianchini G"
+  - "Daneshpazhooh M"
+  - "De D"
+  - "Dmochowski M"
+  - "Drenovska K"
+  - "Ehrchen J"
+  - "Feliciani C"
+  - "Goebeler M"
+  - "Groves R"
+  - "Guenther C"
+  - "Hofmann S"
+  - "Ioannides D"
+  - "Kowalewski C"
+  - "Ludwig R"
+  - "Lim YL"
+  - "Marinovic B"
+  - "Marzano AV"
+  - "Mascaró JM"
+  - "Mimouni D"
+  - "Murrell DF"
+  - "Pincelli C"
+  - "Squarcioni CP"
+  - "Sárdy M"
+  - "Setterfield J"
+  - "Sprecher E"
+  - "Vassileva S"
+  - "Wozniak K"
+  - "Yayli S"
+  - "Zambruno G"
+  - "Zillikens D"
+  - "Hertl M"
+  - "Schmidt E"
+publicacion: "J Eur Acad Dermatol Venereol"
+anio: 2020
+volumen: "34"
+numero: "9"
+paginas: "1900-1913"
+
+identificadores:
+  pmid: 32830877
+  doi: "10.1111/jdv.16752"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

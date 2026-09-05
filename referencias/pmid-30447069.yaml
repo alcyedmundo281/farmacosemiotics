@@ -1,0 +1,55 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:30447069"
+clave_bibtex: relling2019
+tipo: guia
+titulo: "Clinical Pharmacogenetics Implementation Consortium Guideline for Thiopurine Dosing Based on TPMT and NUDT15 Genotypes: 2018 Update"
+autores:
+  - "Relling MV"
+  - "Schwab M"
+  - "Whirl-Carrillo M"
+  - "Suarez-Kurtz G"
+  - "Pui CH"
+  - "Stein CM"
+  - "Moyer AM"
+  - "Evans WE"
+  - "Klein TE"
+  - "Antillon-Klussmann FG"
+  - "Caudle KE"
+  - "Kato M"
+  - "Yeoh AEJ"
+  - "Schmiegelow K"
+  - "Yang JJ"
+publicacion: "Clin Pharmacol Ther"
+anio: 2019
+volumen: "105"
+numero: "5"
+paginas: "1095-1105"
+
+identificadores:
+  pmid: 30447069
+  doi: "10.1002/cpt.1304"
+  pmc: "PMC6576267"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Practice Guideline"
+  - "Research Support, N.I.H., Extramural"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

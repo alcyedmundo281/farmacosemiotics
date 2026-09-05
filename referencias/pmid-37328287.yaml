@@ -1,0 +1,72 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:37328287"
+clave_bibtex: faak2023
+tipo: articulo
+titulo: "Selective immune suppression using interleukin-6 receptor inhibitors for management of immune-related adverse events"
+autores:
+  - "Fa'ak F"
+  - "Buni M"
+  - "Falohun A"
+  - "Lu H"
+  - "Song J"
+  - "Johnson DH"
+  - "Zobniw CM"
+  - "Trinh VA"
+  - "Awiwi MO"
+  - "Tahon NH"
+  - "Elsayes KM"
+  - "Ludford K"
+  - "Montazari EJ"
+  - "Chernis J"
+  - "Dimitrova M"
+  - "Sandigursky S"
+  - "Sparks JA"
+  - "Abu-Shawer O"
+  - "Rahma O"
+  - "Thanarajasingam U"
+  - "Zeman AM"
+  - "Talukder R"
+  - "Singh N"
+  - "Chung SH"
+  - "Grivas P"
+  - "Daher M"
+  - "Abudayyeh A"
+  - "Osman I"
+  - "Weber J"
+  - "Tayar JH"
+  - "Suarez-Almazor ME"
+  - "Abdel-Wahab N"
+  - "Diab A"
+publicacion: "J Immunother Cancer"
+anio: 2023
+volumen: "11"
+numero: "6"
+
+identificadores:
+  pmid: 37328287
+  doi: "10.1136/jitc-2023-006814"
+  pmc: "PMC10277540"
+
+tipos_pubmed:
+  - "Multicenter Study"
+  - "Journal Article"
+  - "Research Support, N.I.H., Extramural"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-05'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

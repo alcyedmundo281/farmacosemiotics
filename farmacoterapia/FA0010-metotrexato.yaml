@@ -1,0 +1,216 @@
+# PARTE II — Farmacoterapia: cómo se usa el metotrexato con seguridad.
+#
+# Es el CONCEPTO y va por molécula. Todo lo que sigue —qué se comprueba antes
+# de la primera dosis, dónde están los puntos de corte que impiden empezar, qué
+# se le dice a quien busca gestación— vale igual en la artritis reumatoide, en
+# la psoriasis o en la enfermedad inflamatoria intestinal. Lo que cambia con la
+# indicación (dosis diana, línea de tratamiento, balance) vive en cada ficha.
+#
+# El código FA: va 1:1 con su FS:. La ficha no lo enlaza: lo deduce.
+
+id: 'FA:0010'
+tipo: farmacoterapia
+farmaco: 'FS:0010'
+
+titulo: Farmacoterapia con metotrexato
+titulo_en: Methotrexate pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del metotrexato a dosis bajas semanales como
+  inmunomodulador. Lo que sigue depende de la molécula y no del problema
+  tratado: el hígado y el pulmón son los órganos que acotan su uso se trate una
+  artritis o una psoriasis, y el perfil reproductivo es el mismo en todas. La
+  primera regla, y la que más daño evita, tampoco cambia con la indicación: la
+  pauta es SEMANAL, y confundirla con una diaria es la causa clásica de
+  toxicidad grave por sobredosificación.
+
+estado: borrador
+fecha: '2026-09-04'
+actualizado: '2026-09-04'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Enzimas hepáticas y pruebas de función hepática
+    motivo: >-
+      Es el resultado que decide si se puede empezar. En el hígado graso no
+      alcohólico, el metotrexato queda restringido a quien las tiene normales
+    responsable: especialista
+    ref: 'pmid:34101387'
+
+  - prueba: Estadificación no invasiva de la fibrosis hepática
+    motivo: >-
+      Descartar fibrosis avanzada antes de exponer el hígado; conviene valorar
+      además la consulta con gastroenterología o hepatología
+    condicion: En el paciente con hígado graso no alcohólico
+    responsable: especialista
+    ref: 'pmid:34101387'
+
+  - prueba: Valoración de enfermedad pulmonar preexistente
+    motivo: >-
+      La enfermedad pulmonar previa es factor de riesgo de neumonitis por
+      metotrexato, y al paciente hay que informarle de ese riesgo aumentado
+      antes de iniciar
+    responsable: especialista
+    ref: 'pmid:34101387'
+
+  - prueba: Anticuerpo core y antígeno de superficie del virus de la hepatitis B
+    motivo: >-
+      El estado serológico frente al VHB decide si hace falta profilaxis
+      antiviral al escalar a un biológico, y conocerlo antes evita tener que
+      frenar el escalón cuando toque
+    responsable: especialista
+    ref: 'pmid:34101387'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Enzimas hepáticas y pruebas de función hepática
+      - Valoración de enfermedad pulmonar preexistente
+      - Serología del virus de la hepatitis B
+    responsable: especialista
+    ref: 'pmid:34101387'
+
+  - fase: mantenimiento
+    periodo: Durante todo el tratamiento
+    pruebas:
+      - Enzimas hepáticas y pruebas de función hepática
+    frecuencia: >-
+      Cada 4 a 8 semanas en el paciente con hígado graso no alcohólico. Para el
+      resto de los pacientes, la guía de 2021 no fija el intervalo: remite
+      explícitamente a sus ediciones de 2008, 2012 y 2015 para el cribado previo
+      y la monitorización analítica de rutina. Ese intervalo general es el hueco
+      declarado más abajo.
+    responsable: compartida
+    ref: 'pmid:34101387'
+
+# ── Qué hacer cuando el análisis se tuerce ──────────────────────────────
+umbrales_accion:
+  - parametro: Enzimas hepáticas o pruebas de función hepática, antes de iniciar
+    umbral: Fuera del rango normal
+    accion: >-
+      No iniciar metotrexato en el paciente con hígado graso no alcohólico. La
+      recomendación a favor del metotrexato en ese contexto está condicionada a
+      que ambas sean normales
+    ref: 'pmid:34101387'
+
+  - parametro: Fibrosis hepática
+    umbral: Estadio 3 o 4
+    accion: >-
+      No usar metotrexato. La restricción alcanza también a cualquier evidencia
+      de enfermedad hepática, no solo a la fibrosis avanzada
+    ref: 'pmid:34101387'
+
+  - parametro: Nódulos subcutáneos bajo tratamiento
+    umbral: Progresión
+    accion: >-
+      Cambiar a un DMARD distinto del metotrexato, sobre la premisa de que este
+      contribuye a la progresión. Con nódulos estables no hay estudios que
+      comparen estrategias y la conducta queda abierta
+    ref: 'pmid:34101387'
+
+  - parametro: Intolerancia a la pauta oral semanal
+    umbral: Efectos adversos que impiden mantenerla
+    accion: >-
+      Antes de cambiar de fármaco: repartir la dosis oral en 24 horas, pasar a
+      inyección subcutánea semanal o aumentar el ácido fólico o folínico.
+      Cambiar de DMARD es el último paso, no el primero
+    ref: 'pmid:34101387'
+
+# ── Seguridad reproductiva ──────────────────────────────────────────────
+# El apartado que más decisiones cambia en un fármaco que se prescribe sobre
+# todo a mujeres en edad fértil. Va entero y con su grado de recomendación,
+# porque la diferencia entre «evitar» y «contraindicado» aquí es real.
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Debe evitarse en el embarazo a cualquier dosis y suspenderse al menos un
+      mes antes de la concepción planificada, cambiando entonces a otro fármaco
+      compatible con el embarazo para no perder el control de la enfermedad
+      materna (GRADE 1A, grado de acuerdo 98 %). En la mujer tratada con dosis
+      bajas (≤25 mg por semana) en el mes previo a la concepción, el suplemento
+      de ácido fólico 5 mg al día se mantiene hasta la semana 12 (GRADE 1B,
+      grado de acuerdo 99,5 %). Ante una concepción no planificada con dosis
+      bajas el riesgo fetal es mínimo: se suspende de inmediato, se continúa el
+      ácido fólico y se valora la derivación precoz a medicina fetal (GRADE 1C,
+      grado de acuerdo 100 %).
+    ref: 'pmid:36318966'
+  lactancia:
+    compatibilidad: evitar
+    enunciado: >-
+      Aunque solo se excretan cantidades mínimas en la leche, no puede
+      recomendarse durante la lactancia por riesgos teóricos y datos
+      insuficientes sobre desenlaces (GRADE 2C, grado de acuerdo 99 %). El matiz
+      importa: lo que falta es evidencia, no es que exista daño demostrado.
+    ref: 'pmid:36318966'
+  washout:
+    mujer: >-
+      Al menos un mes antes de la concepción planificada, con cambio simultáneo
+      a un fármaco compatible con el embarazo
+    varon: >-
+      No se exige interrupción: la exposición paterna figura como aceptable en
+      la tabla de compatibilidad de la fuente
+    ref: 'pmid:36318966'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - Comprobar enzimas y función hepática antes de la primera dosis
+    - >-
+      Estadificar la fibrosis hepática y valorar consulta con gastroenterología
+      o hepatología en el paciente con hígado graso no alcohólico
+    - >-
+      Informar del riesgo aumentado de neumonitis al paciente con enfermedad
+      pulmonar preexistente, antes de iniciar
+    - >-
+      Comanejar con hepatología al paciente con riesgo de reactivación del virus
+      de la hepatitis B
+    - >-
+      Planificar con la paciente la suspensión un mes antes de cualquier
+      gestación buscada, y el fármaco compatible que la sustituirá
+  seguimiento:
+    - Repetir enzimas y función hepática según el cronograma
+    - >-
+      Reforzar en cada contacto que la pauta es SEMANAL, y verificar que el
+      paciente no la ha convertido en diaria
+    - >-
+      Ante intolerancia digestiva, aplicar primero las medidas de rescate
+      —dosis repartida, vía subcutánea, más ácido fólico— antes de plantear el
+      cambio de fármaco
+  ref: 'pmid:34101387'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: interacciones
+    motivo: >-
+      Ninguna de las fuentes accesibles para esta farmacoterapia enumera las
+      interacciones que cambian la dosis del metotrexato. Escribirlas de memoria
+      sería el fallo que este repositorio existe para impedir, y en este fármaco
+      concreto una interacción omitida o inventada se traduce en mielosupresión.
+    buscado_en: >-
+      Guía de tratamiento de la artritis reumatoide de la ACR de 2021, que
+      remite el cribado y la monitorización de rutina a sus ediciones previas, y
+      guía de la BSR de embarazo y lactancia, que no cubre interacciones.
+    refs:
+      - 'pmid:34101387'
+      - 'pmid:36318966'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó una guía de implementación farmacogenética que fije la
+      dosis de inicio del metotrexato por genotipo, como sí existe para las
+      tiopurinas. Declararlo evita que la ausencia se lea como que el fármaco no
+      tiene variabilidad genética conocida.
+    buscado_en: >-
+      Guías de práctica clínica de artritis reumatoide indexadas en PubMed.
+    refs:
+      - 'pmid:34101387'
+
+refs:
+  - 'pmid:34101387'
+  - 'pmid:36318966'

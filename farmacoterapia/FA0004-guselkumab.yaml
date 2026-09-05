@@ -1,0 +1,189 @@
+# PARTE II — Farmacoterapia: cómo se usa el guselkumab con seguridad.
+#
+# Es el CONCEPTO y va por molécula: lo que sigue vale igual en la artritis
+# psoriásica y en la psoriasis en placas. El código FA: va 1:1 con su FS: y la
+# ficha no lo enlaza, lo deduce.
+#
+# Esta farmacoterapia se escribió con una restricción que conviene leer antes
+# que su contenido: **casi nada de lo publicado sobre monitorización de
+# biológicos es trasladable al guselkumab sin extrapolar**, y aquí no se
+# extrapola. La guía S3 de psoriasis trae tablas de laboratorio por fármaco,
+# pero su parte 1 solo publica los capítulos revisados a fondo en esa
+# actualización —metotrexato, bimekizumab y deucravacitinib—, y el del
+# guselkumab no está. Copiar aquí la tabla del bimekizumab, que es un inhibidor
+# de IL-17 y no de IL-23p19, sería el error que este repositorio existe para
+# impedir. Por eso lo que hay es lo que sí aplica a cualquier biológico o a
+# cualquier sistémico de psoriasis, y lo que falta está declarado.
+
+id: 'FA:0004'
+tipo: farmacoterapia
+farmaco: 'FS:0004'
+
+titulo: Farmacoterapia con guselkumab
+titulo_en: Guselkumab pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del guselkumab como inhibidor de IL-23p19. Lo
+  que cubre es el seguimiento por objetivo terapéutico —que en psoriasis está
+  fijado con cifras y plazos— y la conducta ante la serología del virus de la
+  hepatitis B, que aplica a quien inicia cualquier biológico. Lo que NO cubre,
+  y queda declarado abajo, es el cronograma de laboratorio propio de la
+  molécula y su perfil reproductivo: no se localizó fuente que los fije para el
+  guselkumab, y las que existen se refieren a otros mecanismos.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: >-
+      Serología del virus de la hepatitis B: anticuerpo core y antígeno de
+      superficie
+    motivo: >-
+      Decide si hace falta profilaxis antiviral o basta la vigilancia, y es la
+      única comprobación previa que las fuentes accesibles fijan para quien
+      inicia un biológico, con independencia de su mecanismo
+    responsable: especialista
+    ref: 'pmid:34101387'
+
+  - prueba: >-
+      Medición basal de la gravedad con un instrumento estandarizado (PASI,
+      evaluación global del médico o superficie corporal afectada)
+    motivo: >-
+      Sin cifra de partida no se puede juzgar después si se alcanzó el objetivo,
+      que es lo que decide si el tratamiento continúa o se modifica
+    responsable: especialista
+    ref: 'pmid:41531416'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+# El cronograma que sí está fijado es el del OBJETIVO TERAPÉUTICO, no el de
+# laboratorio. Es una diferencia real y no una carencia de esta ficha: en
+# psoriasis el seguimiento se estructura alrededor de si el fármaco está
+# funcionando, con cifras y plazos, y esa parte sí se puede citar.
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Serología del virus de la hepatitis B
+      - Gravedad medida con un instrumento estandarizado
+    responsable: especialista
+    ref: 'pmid:41531416'
+
+  - fase: induccion
+    periodo: Hasta el final de la terapia de inducción
+    pruebas:
+      - Respuesta cutánea medida con el mismo instrumento que la basal
+    frecuencia: >-
+      Una comprobación al final de la inducción: a las 10-12 semanas en los
+      tratamientos de inicio de acción rápido y a las 16-24 semanas en los de
+      inicio lento. La guía no clasifica al guselkumab en ninguno de esos dos
+      grupos en el texto accesible, de modo que el plazo se elige por el
+      comportamiento observado y no por una asignación citable.
+    responsable: especialista
+    ref: 'pmid:41531416'
+
+  - fase: mantenimiento
+    periodo: Tras alcanzar el objetivo
+    pruebas:
+      - Respuesta cutánea medida con el mismo instrumento que la basal
+    frecuencia: >-
+      Cada 8 a 12 semanas, al mismo intervalo que la monitorización general.
+    responsable: compartida
+    ref: 'pmid:41531416'
+
+# ── Qué hacer cuando el resultado se tuerce ─────────────────────────────
+umbrales_accion:
+  - parametro: Respuesta cutánea al final de la inducción
+    umbral: Por debajo de PASI 75
+    accion: >-
+      Modificar el tratamiento. Las formas de ajuste son subir la dosis, iniciar
+      terapia combinada o pasar a otro fármaco o procedimiento. PASI 75 es el
+      objetivo mínimo que hay que alcanzar; PASI 90 o un PASI absoluto menor de
+      2 son los deseables.
+    ref: 'pmid:41531416'
+
+  - parametro: >-
+      Serología del virus de la hepatitis B antes de iniciar, con anticuerpo
+      core positivo y antígeno de superficie positivo
+    umbral: HBcAc positivo y HBsAg positivo
+    accion: >-
+      Profilaxis antiviral, recomendada con fuerza frente a la vigilancia
+      frecuente de la carga viral y las enzimas hepáticas por sí sola, en quien
+      inicia cualquier biológico o sintético dirigido. El paciente en riesgo de
+      reactivación debe comanejarse con hepatología.
+    ref: 'pmid:34101387'
+
+  - parametro: >-
+      Serología del virus de la hepatitis B antes de iniciar, con anticuerpo
+      core positivo y antígeno de superficie negativo
+    umbral: HBcAc positivo y HBsAg negativo
+    accion: >-
+      Vigilancia frecuente de la carga viral y las enzimas hepáticas por sí
+      sola, de forma condicional, en quien inicia un biológico distinto del
+      rituximab o un sintético dirigido: en esta situación es menos seguro que
+      el beneficio de la profilaxis compense su riesgo y su coste.
+    ref: 'pmid:34101387'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - >-
+      Medir la gravedad basal con un instrumento estandarizado y fijar el
+      objetivo terapéutico junto al paciente, en un proceso de decisión
+      compartida: el objetivo se determina individualmente y no por defecto
+    - >-
+      Comprobar el objetivo al final de la inducción y decidir si el tratamiento
+      continúa, se ajusta o se cambia
+  seguimiento:
+    - >-
+      Comprobar el objetivo durante el mantenimiento cada 8 a 12 semanas, al
+      mismo intervalo que la monitorización general
+    - >-
+      Señalar al especialista cualquier pérdida de respuesta: por debajo de PASI
+      75 el tratamiento se modifica, no se espera
+  ref: 'pmid:41531416'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+# Los dos que siguen son los que más pesan en un biológico, y por eso conviene
+# que se lean como lo que son: se buscó fuente y no la hubo para ESTA molécula.
+huecos_declarados:
+  - bloque: reproductivo
+    motivo: >-
+      La guía de la BSR de embarazo y lactancia tabula los inhibidores de
+      IL-12/23, que actúan sobre la cadena p40 y cuyo representante es el
+      ustekinumab. El guselkumab inhibe la subunidad p19 de la IL-23 y no
+      aparece en esa tabla. Trasladarle la fila del ustekinumab sería extrapolar
+      entre dos mecanismos distintos, y en seguridad reproductiva esa
+      extrapolación es exactamente la que no debe hacerse: se resuelve con la
+      ficha técnica del producto y con los registros de embarazo, no por
+      analogía de familia.
+    buscado_en: >-
+      Guía de la BSR sobre prescripción de fármacos en el embarazo y la
+      lactancia, y guía S3 de psoriasis, cuya parte 1 no incluye el capítulo del
+      guselkumab.
+    refs:
+      - 'pmid:36318966'
+      - 'pmid:41531416'
+
+  - bloque: interacciones
+    motivo: >-
+      No se localizó fuente accesible que enumere las interacciones del
+      guselkumab. La guía S3 publica en su parte 1 solo los capítulos de fármaco
+      revisados a fondo en esa actualización —metotrexato, bimekizumab y
+      deucravacitinib—, y el del guselkumab no está entre ellos.
+    buscado_en: >-
+      Guía S3 de psoriasis adaptada de EuroGuiDerm, parte 1, y recomendaciones
+      EULAR de artritis psoriásica de 2023.
+    refs:
+      - 'pmid:41531416'
+      - 'pmid:38499325'
+
+refs:
+  - 'pmid:41531416'
+  - 'pmid:34101387'
+  - 'pmid:36318966'
+  - 'pmid:38499325'

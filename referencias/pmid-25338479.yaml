@@ -1,0 +1,55 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:25338479"
+clave_bibtex: hertl2014
+tipo: guia
+titulo: "Pemphigus. S2 Guideline for diagnosis and treatment--guided by the European Dermatology Forum (EDF) in cooperation with the European Academy of Dermatology and Venereology (EADV)"
+autores:
+  - "Hertl M"
+  - "Jedlickova H"
+  - "Karpati S"
+  - "Marinovic B"
+  - "Uzun S"
+  - "Yayli S"
+  - "Mimouni D"
+  - "Borradori L"
+  - "Feliciani C"
+  - "Ioannides D"
+  - "Joly P"
+  - "Kowalewski C"
+  - "Zambruno G"
+  - "Zillikens D"
+  - "Jonkman MF"
+publicacion: "J Eur Acad Dermatol Venereol"
+anio: 2014
+volumen: "29"
+numero: "3"
+paginas: "405-14"
+
+identificadores:
+  pmid: 25338479
+  doi: "10.1111/jdv.12772"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Practice Guideline"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

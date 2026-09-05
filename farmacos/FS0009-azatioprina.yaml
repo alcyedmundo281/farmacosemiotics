@@ -1,0 +1,132 @@
+# Principio activo. Lo que NO depende de la indicación.
+#
+# El código FS: es permanente: no se renumera, no se reutiliza, no se reasigna.
+# La evidencia de eficacia no vive aquí, sino en las fichas que lo citan.
+#
+# Este fármaco se incorporó para estrenar la capa de guía de práctica clínica:
+# es el caso donde la dosis depende del genotipo, la monitorización manda sobre
+# la eficacia y la pregunta reproductiva llega antes que la terapéutica.
+
+id: 'FS:0009'
+tipo: farmaco
+dci: Azatioprina
+dci_en: Azathioprine
+sinonimos:
+  - azathioprine
+  - AZA
+
+atc: L04AX01
+clase_farmacologica: Tiopurina inmunosupresora
+clase_farmacologica_en: Thiopurine immunosuppressant
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+# Las fechas salen del historial del repositorio, no de la memoria de nadie:
+# `fecha` es la del commit que dio de alta el fichero y `actualizado` la del
+# último que lo tocó.
+estado: revisado
+fecha: '2026-09-04'
+actualizado: '2026-09-04'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+
+codigos:
+  rxcui: null
+  snomed: null
+  unii: null
+
+# ── Lista Modelo de la OMS ──────────────────────────────────────────────
+# `presente: null` no es `false`. Es el tercer estado que este repositorio
+# necesitaba y no tenía: no comprobado. La red de la sesión en que se creó
+# esta ficha no alcanzaba who.int, y afirmar la pertenencia a la Lista Modelo
+# de memoria es exactamente lo que la regla de oro impide. Se resuelve
+# consultando el anexo de la 24.ª Lista y poniendo `true` o `false` con su
+# `consultado`, no borrando el campo.
+lme:
+  presente: null
+  sin_comprobar: true
+  seccion_probable: '8.1'
+  seccion_titulo_en: Immunomodulators for non-malignant disease
+  nota: >-
+    La sección 8.1 es donde la Lista Modelo agrupa los inmunomoduladores para
+    enfermedad no maligna, y es donde correspondería. Queda como probable, no
+    como comprobado: `scripts/eml.py` lo cuenta fuera de la LME mientras siga
+    así, que es el sesgo conservador correcto.
+
+# ── Farmacología ────────────────────────────────────────────────────────
+mecanismo: >-
+  Profármaco de la mercaptopurina, con la que comparte por completo su
+  interacción con las dos enzimas que deciden su toxicidad. La TPMT cataboliza
+  la mercaptopurina a metilmercaptopurina inactiva, de modo que queda menos
+  fármaco disponible para anabolizarse a nucleótidos de tioguanina, que son los
+  metabolitos activos. La NUDT15, por su parte, convierte el trifosfato de
+  tioguanina citotóxico en monofosfato no tóxico. Quien tiene poca actividad de
+  cualquiera de las dos acumula metabolito activo con la dosis habitual, y ahí
+  es donde aparece la mielosupresión.
+mecanismo_en: >-
+  Azathioprine is a prodrug for mercaptopurine; TPMT catabolizes mercaptopurine
+  to inactive methylmercaptopurine, and NUDT15 converts cytotoxic thioguanine
+  triphosphate to non-toxic thioguanine monophosphate.
+mecanismo_ref: 'pmid:30447069'
+
+farmacocinetica:
+  activacion: >-
+    Requiere conversión a mercaptopurina y anabolismo posterior a nucleótidos
+    de tioguanina. Por eso el efecto no es inmediato y la dosis no se juzga por
+    la respuesta de la primera semana.
+  estado_estacionario: >-
+    Se alcanza en dos a cuatro semanas, que es el plazo por debajo del cual un
+    escalado de dosis todavía no puede leerse.
+  ref: 'pmid:30447069'
+
+formas:
+  - forma: comprimido
+    concentraciones: ['25 mg', '50 mg']
+    via: oral
+
+# ── Seguridad ───────────────────────────────────────────────────────────
+seguridad:
+  reacciones:
+    - evento: Mielosupresión
+      gravedad: mortal
+      nota: >-
+        Es el daño que ordena todo lo demás. Quien hereda dos alelos sin
+        función de TPMT tiene riesgo muy alto de mielosupresión potencialmente
+        mortal si recibe dosis convencionales. Entre los heterocigotos, solo un
+        30-60 % no tolera la dosis plena, y esa es justamente la razón de que
+        el heterocigoto se ajuste en vez de excluirse.
+      ref: 'pmid:30447069'
+
+    - evento: Hepatotoxicidad
+      gravedad: moderada
+      nota: >-
+        Se atribuye a los nucleótidos de metilmercaptopurina, que tienen
+        actividad propia. No depende de una actividad baja de TPMT, así que un
+        genotipo normal no la descarta.
+      ref: 'pmid:30447069'
+
+    - evento: Pancreatitis
+      gravedad: grave
+      nota: >-
+        Tampoco guarda relación con la actividad baja de TPMT. Genotipar no
+        sustituye a vigilarla.
+      ref: 'pmid:30447069'
+
+    - evento: Neoplasias secundarias
+      gravedad: grave
+      nota: >-
+        Se han asociado a actividad deficiente de TPMT sin que mediara
+        necesariamente una mielosupresión aguda grave. Si limitar la dosis en
+        el paciente con defecto de TPMT reduce ese riesgo tardío, no se sabe:
+        la fuente lo deja explícitamente abierto.
+      ref: 'pmid:30447069'
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+# Sin bloque `regulatorio` ni `etiqueta_fda`: se rellenan con
+# `python scripts/openfda.py azathioprine`, que necesita salida a la API de la
+# FDA. Escribirlos a mano dejaría un dato regulatorio sin fecha de consulta
+# verificable, que es peor que no tenerlo.
+
+fichas: ['FT:0009']

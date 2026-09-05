@@ -1,0 +1,63 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:36318966"
+clave_bibtex: russell2023
+tipo: guia
+titulo: "British Society for Rheumatology guideline on prescribing drugs in pregnancy and breastfeeding: immunomodulatory anti-rheumatic drugs and corticosteroids"
+autores:
+  - "Russell MD"
+  - "Dey M"
+  - "Flint J"
+  - "Davie P"
+  - "Allen A"
+  - "Crossley A"
+  - "Frishman M"
+  - "Gayed M"
+  - "Hodson K"
+  - "Khamashta M"
+  - "Moore L"
+  - "Panchal S"
+  - "Piper M"
+  - "Reid C"
+  - "Saxby K"
+  - "Schreiber K"
+  - "Senvar N"
+  - "Tosounidou S"
+  - "van de Venne M"
+  - "Warburton L"
+  - "Williams D"
+  - "Yee CS"
+  - "Gordon C"
+  - "Giles I"
+publicacion: "Rheumatology (Oxford)"
+anio: 2023
+volumen: "62"
+numero: "4"
+paginas: "e48-e88"
+
+identificadores:
+  pmid: 36318966
+  doi: "10.1093/rheumatology/keac551"
+  pmc: "PMC10070073"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Practice Guideline"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

@@ -1,3 +1,35 @@
+# CORRECCIÓN DE PROCEDENCIA (2026-09-05).
+#
+# Esta ficha citaba `pmid:12479763` —ALLHAT— para tres cosas, y solo una estaba
+# en el artículo.
+#
+# Lo que SÍ estaba y se conserva: el desenlace primario, sin diferencia frente a
+# clortalidona. Se le quitaron el NNT y las reducciones de riesgo, porque un NNT
+# sobre un intervalo de confianza que cruza el 1 afirma un beneficio que el
+# ensayo no demostró, y porque las tasas que publica el resumen son a 6 años y
+# no a 5.
+#
+# Lo que NO estaba: las incidencias de edema maleolar y de cefalea o rubefacción
+# —10,7 % frente a 3,2 %, NNH 14; 3,5 % frente a 1,5 %, NNH 50— y la conducta
+# de asociar un IECA o un ARA-II «que normaliza la presión capilar». El resumen
+# accesible de ALLHAT no publica tasas de efectos adversos, y su texto completo
+# no fue alcanzable en esta sesión, de modo que esas cifras no se pueden señalar
+# en ningún fichero de `referencias/`. Se retiran las cifras y la conducta; los
+# eventos se conservan, porque son reales, y quedan como reacciones sin
+# cuantificar, que es donde el desdoblamiento del repositorio los coloca: el
+# hecho cualitativo vive en FS:0008 y aquí solo debería estar lo que esta
+# indicación cuantifica.
+#
+# Lo que FALTABA, y es lo que más pesa: ALLHAT encontró con amlodipino una tasa
+# de insuficiencia cardíaca a 6 años más alta que con clortalidona. La ficha
+# citaba el ensayo para su resultado nulo favorable y omitía su hallazgo
+# desfavorable. Ahora está, con su NNH calculado sobre las tasas publicadas.
+#
+# Queda una cosa por decidir que NO se tocó, porque es un juicio clínico del
+# autor y no una cuestión de procedencia: `balance.efectos_indeseables` sigue en
+# `pequeno`, y se fijó antes de que constara esta señal de insuficiencia
+# cardíaca con NNH 40. Conviene releerlo.
+
 id: 'FT:0008'
 tipo: ficha
 farmaco: 'FS:0008'
@@ -21,8 +53,10 @@ decision_clinica:
     Especialmente eficaz en ancianos, personas de raza negra e hipertensión sistólica aislada.
     Reduce eventos cardiovasculares mayores e ictus (NNT 100 a 5.5 años).
   alerta_seguridad_inmediata: >-
-    Vigilar la aparición de edema maleolar (NNH 14 a 1 año), que responde a vasodilatación precapilar y no a sobrecarga hidrosalina
-    (no responde a diuréticos; mejora combinando con IECA/ARA-II).
+    En ALLHAT la tasa de insuficiencia cardíaca a 6 años fue más alta que con
+    clortalidona: 10,2 % frente a 7,7 % (RR 1,38; IC95 % 1,25-1,52), NNH 40.
+    Es el único desenlace en que salió peor que su comparador. Vigilar también
+    el edema maleolar, sin cifra: la que constaba aquí no tenía fuente.
 
 # ── Pregunta PICO ────────────────────────────────────────────────────────────
 pico:
@@ -75,13 +109,15 @@ evidencia:
     razones_descenso: []
     ref: 'pmid:16154016'
 
-  - desenlace: Enfermedad coronaria mortal o infarto de miocardio no mortal a 4.9 años
+  - desenlace: Enfermedad coronaria mortal o infarto de miocardio no mortal
     criticidad: critico
-    efecto: 'Eficacia equivalente a clortalidona (RR 0.98, IC 95 % 0.90–1.07), p = 0.65'
-    rra: '0.2%'
-    rrr: '1.8%'
-    nnt: 500
-    horizonte_nnt: a 5 años
+    efecto: >-
+      Sin diferencia frente a clortalidona: tasas a 6 años del 11,3 % con
+      amlodipino y del 11,5 % con clortalidona (RR 0,98; IC95 % 0,90-1,07).
+      Tampoco hubo diferencia en mortalidad por cualquier causa. Sin NNT: el
+      intervalo de confianza cruza el 1 y un NNT afirmaría un beneficio que el
+      ensayo no demostró.
+    seguimiento: media de 4,9 años; tasas publicadas a 6 años
     diseno: eca
     estudio: ALLHAT (2002)
     comparador: Clortalidona
@@ -92,25 +128,41 @@ evidencia:
 
 # ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
 seguridad_cuantitativa:
-  - evento: Edema periférico / maleolar dependiente de dosis
-    gravedad: leve
-    tasa_intervencion: '10.7 %'
-    tasa_control: '3.2 %'
-    ria: '7.5%'
-    nnh: 14
-    horizonte_nnh: a 1 año
-    conducta: 'No prescribir diuréticos para este edema. Reducir dosis a 5 mg o asociar un IECA/ARA-II que normaliza la presión capilar.'
+  # El daño cuantificado que ALLHAT sí publica, y que esta ficha no recogía.
+  - evento: Insuficiencia cardíaca
+    gravedad: grave
+    tasa_intervencion: '10.2 % a 6 años'
+    tasa_control: '7.7 % a 6 años'
+    ria: '2.5%'
+    nnh: 40
+    horizonte_nnh: a 6 años
+    conducta: >-
+      Tratar a 40 pacientes durante 6 años con amlodipino en lugar de
+      clortalidona produce un caso más de insuficiencia cardíaca (RR 1,38;
+      IC95 % 1,25-1,52). Es el único desenlace en que el amlodipino salió peor
+      que su comparador, y la conclusión del propio ensayo fue que los
+      diuréticos de tipo tiazídico deberían preferirse como tratamiento
+      antihipertensivo de primer paso. Valorarlo antes de elegirlo en quien ya
+      parte con riesgo de insuficiencia cardíaca.
     ref: 'pmid:12479763'
 
-  - evento: Cefalea / Rubefacción facial por vasodilatación
+  # Los dos siguientes conservan el evento y pierden las cifras: las
+  # incidencias que traían se atribuían a ALLHAT, cuyo resumen no publica tasas
+  # de efectos adversos. Sin fuente que señalar, el número no se escribe.
+  - evento: Edema periférico o maleolar dependiente de dosis
     gravedad: leve
-    tasa_intervencion: '3.5 %'
-    tasa_control: '1.5 %'
-    ria: '2.0%'
-    nnh: 50
-    horizonte_nnh: a 1 año
-    conducta: 'Suele ser transitoria en los primeros días; si persiste, revaluar pauta o reducir dosis.'
-    ref: 'pmid:12479763'
+    conducta: >-
+      Sin cuantificar en esta indicación y sin conducta escrita: la incidencia y
+      el manejo que constaban aquí citaban un ensayo de desenlaces que no los
+      publica. FA:0008 declara el hueco en su `alcance`. La reacción, como hecho
+      cualitativo de la molécula, sigue en FS:0008.
+    ref: 'fda:label'
+
+  - evento: Cefalea o rubefacción facial por vasodilatación
+    gravedad: leve
+    conducta: >-
+      Sin cuantificar en esta indicación, por la misma razón que el edema.
+    ref: 'fda:label'
 
 # ── Juicio de Balance GRADE ──────────────────────────────────────────────────
 balance:
@@ -145,8 +197,17 @@ alternativas:
     nota: 'Diurético tiazídico alternativo para terapia combinada de primera línea.'
 
 conclusion: >-
-  Amlodipino es un pilar esencial del tratamiento antihipertensivo con sólida evidencia de reducción de ictus (NNT 100 a 5.5 años).
-  Su principal efecto adverso, el edema maleolar (NNH 14), es benigno y se previene o atenúa eficazmente asociando un IECA o ARA-II.
+  Amlodipino es un pilar del tratamiento antihipertensivo, con evidencia sólida
+  de reducción de ictus frente a una pauta basada en atenolol (NNT 100 a 5,5
+  años, ASCOT-BPLA) y sin diferencia frente a clortalidona en enfermedad
+  coronaria ni en mortalidad (ALLHAT). El contrapeso está en el mismo ensayo y
+  esta ficha lo omitía: la tasa de insuficiencia cardíaca a 6 años fue más alta
+  con amlodipino que con clortalidona —10,2 % frente a 7,7 %; RR 1,38;
+  IC95 % 1,25-1,52; NNH 40—, y ALLHAT concluyó que los diuréticos de tipo
+  tiazídico deberían preferirse como tratamiento de primer paso. Su efecto
+  adverso más frecuente, el edema maleolar, queda sin cuantificar y sin conducta
+  escrita: la incidencia y el manejo que constaban aquí se atribuían a un ensayo
+  de desenlaces que no los publica, y no se localizó otra fuente.
 
 refs:
   - 'pmid:12479763'

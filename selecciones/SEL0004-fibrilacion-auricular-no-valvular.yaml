@@ -1,0 +1,448 @@
+# PARTE I — Informe de selección del medicamento.
+#
+# Este informe se lee mejor sabiendo dos cosas de antemano.
+#
+# La primera: el candidato más barato y más cómodo de la tabla —el ácido
+# acetilsalicílico— es el único que la guía rechaza con una recomendación de
+# clase 3 por daño. Es el mejor argumento de este repositorio contra decidir por
+# un solo eje: quien mirara la columna de costo elegiría exactamente lo que no
+# hay que dar.
+#
+# La segunda, y hay que decirla sin rodeos: la guía NO declara un anticoagulante
+# oral directo preferido sobre los otros tres. Recomienda la clase entera sobre
+# la warfarina (clase 1, nivel A) y deja la elección dentro de la clase al
+# criterio del clínico. La selección de apixabán que este informe emite no la
+# firma la guía; se apoya en los datos comparativos que la propia guía resume
+# frente al comparador común, y su límite está declarado en el criterio
+# decisorio: no hay ensayos cabeza a cabeza entre estos cuatro fármacos.
+
+id: 'SEL:0004'
+tipo: seleccion
+problema: Fibrilación auricular no valvular con riesgo tromboembólico
+problema_en: Non-valvular atrial fibrillation with thromboembolic risk
+cie11: BC81.3
+
+poblacion: >-
+  Personas adultas con fibrilación auricular y riesgo anual estimado de
+  tromboembolia del 2 % o superior —equivalente a una puntuación CHA₂DS₂-VASc de
+  2 o más en varones y de 3 o más en mujeres—, candidatas a anticoagulación. El
+  patrón de la arritmia no entra en la definición: paroxística, persistente,
+  persistente de larga duración y permanente se tratan igual, porque la
+  selección se basa en el riesgo de ictus y no en el patrón. Quedan fuera dos
+  poblaciones que cambian la respuesta por completo y que este informe no
+  cubre: la estenosis mitral reumática moderada o grave y el portador de válvula
+  cardíaca mecánica.
+
+pregunta: >-
+  En el adulto con fibrilación auricular no valvular y riesgo tromboembólico
+  anual del 2 % o superior, ¿qué antitrombótico se selecciona para prevenir el
+  ictus y la embolia sistémica, y qué ordena la elección entre la warfarina, los
+  cuatro anticoagulantes orales directos y la antiagregación, según eficacia,
+  seguridad, conveniencia y costo?
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Es la única indicación de este repositorio en la que los seis candidatos se
+  midieron contra el MISMO comparador —la warfarina— en cuatro ensayos
+  aleatorizados de decenas de miles de pacientes, y ninguno se midió contra
+  otro. Esa simetría es lo que permite comparar y lo que fija el límite de la
+  comparación: las diferencias entre los anticoagulantes directos son
+  diferencias frente a un tercero, no entre ellos, y los ensayos difirieron en
+  la calidad del control de la warfarina —el tiempo en rango terapéutico fue del
+  55 % en ROCKET AF y del 66 % en ARISTOTLE, el más alto de los cuatro—, que es
+  precisamente la variable que decide cuánto rinde el comparador.
+
+estrategia:
+  - base: PubMed
+    consulta: '"atrial fibrillation"[MeSH] AND "anticoagulants"[MeSH] AND practice guideline[pt]'
+    fecha: '2026-09-05'
+    nota: >-
+      El posicionamiento y las clases de recomendación salen de la guía
+      ACC/AHA/ACCP/HRS de fibrilación auricular de 2023. Las cifras de cada
+      candidato salen de su ensayo pivotal, recuperado por separado: ARISTOTLE,
+      RE-LY, ROCKET AF y ENGAGE AF-TIMI 48. La guía es además la fuente de los
+      datos de AVERROES, que comparó apixabán con aspirina y que no se recuperó
+      como artículo independiente.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+candidatos:
+  - dci: Apixabán
+    atc: B01AF02
+    farmaco: 'FS:0002'
+    clase: Anticoagulante oral directo, inhibidor del factor Xa
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Uno de los dos únicos candidatos que alcanzó la SUPERIORIDAD sobre la
+        warfarina y no solo la no inferioridad. En ARISTOTLE, con 18.201
+        pacientes y 1,8 años de mediana de seguimiento, el ictus o la embolia
+        sistémica ocurrió al 1,27 % por año frente al 1,60 % (HR 0,79;
+        IC95 % 0,66-0,95; p = 0,01 para superioridad), y la mortalidad por
+        cualquier causa fue del 3,52 % frente al 3,94 % (HR 0,89;
+        IC95 % 0,80-0,99; p = 0,047). Es también el único de los cuatro que
+        redujo la mortalidad total, y lo hizo contra el brazo de warfarina mejor
+        controlado de los cuatro ensayos.
+      ref: 'pmid:21870978'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Es el único candidato que gana en las tres dimensiones del sangrado a la
+        vez. Hemorragia mayor: 2,13 % frente a 3,09 % por año (HR 0,69;
+        IC95 % 0,60-0,80; p < 0,001). Hemorragia intracraneal: 0,24 % frente a
+        0,47 % por año (HR 0,51; IC95 % 0,35-0,75; p < 0,001). Y la tercera es
+        la que lo separa del resto: la guía consigna que, a diferencia del
+        dabigatrán 150 mg cada 12 horas, del edoxabán 60 mg y del rivaroxabán,
+        el grupo de apixabán NO aumentó de forma significativa el riesgo de
+        hemorragia digestiva frente a la warfarina. Es el sangrado que en la
+        práctica hace suspender el tratamiento.
+      ref: 'pmid:21870978'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Dos tomas al día, contra una del rivaroxabán y del edoxabán: en la
+        frecuencia pierde. Gana en todo lo demás. Es el ACOD que la guía
+        contempla explícitamente cuando el aclaramiento de creatinina baja de 15
+        mL/min o el paciente está en diálisis, donde los otros tres no aparecen.
+        Es uno de los admitidos en Child-Pugh B. Y andexanet alfa está aprobado
+        por la FDA para revertirlo, condición que solo comparte con el
+        rivaroxabán. Frente a un inhibidor potente de CYP3A4 y glucoproteína P
+        no queda contraindicado como el rivaroxabán: se sigue usando a 2,5 mg
+        cada 12 horas.
+      ref: 'pmid:38043043'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Anticoagulante directo de marca. Comparte el extremo caro de la tabla
+        con los otros tres ACOD, muy por encima de la warfarina y de la aspirina,
+        que son genéricos multifuente. La guía reconoce que el precio no es un
+        detalle: dice que la warfarina sigue siendo un anticoagulante apropiado
+        por su menor costo para el paciente que no puede pagar un ACOD.
+    veredicto: seleccionado
+    nota: >-
+      Seleccionado. FT:0002 lo desarrolla en esta indicación y FA:0002 dice cómo
+      se usa.
+
+  - dci: Dabigatrán etexilato
+    clase: Anticoagulante oral directo, inhibidor directo de la trombina
+    eficacia:
+      juicio: superior
+      sustento: >-
+        El otro candidato que alcanzó la superioridad y no solo la no
+        inferioridad. En RE-LY, con 18.113 pacientes y 2,0 años de mediana de
+        seguimiento, la dosis de 150 mg cada 12 horas dio un 1,11 % por año de
+        ictus o embolia sistémica frente al 1,69 % de la warfarina (riesgo
+        relativo 0,66; IC95 % 0,53-0,82; p < 0,001 para superioridad). La dosis
+        de 110 mg cada 12 horas solo alcanzó la no inferioridad (1,53 % por año;
+        RR 0,91; IC95 % 0,74-1,11). La mortalidad no bajó de forma significativa
+        con ninguna de las dos (3,64 % con 150 mg frente a 4,13 %; p = 0,051).
+      ref: 'pmid:19717844'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Su problema es que la dosis eficaz y la dosis segura no son la misma. Con
+        150 mg cada 12 horas la hemorragia mayor fue del 3,11 % por año frente al
+        3,36 % de la warfarina, sin diferencia significativa (p = 0,31); con 110
+        mg sí bajó, al 2,71 % (p = 0,003), pero esa es la dosis que no fue
+        superior en eficacia. El ictus hemorrágico bajó claramente con ambas
+        (0,10 % y 0,12 % frente a 0,38 % por año; p < 0,001). La guía añade el
+        contrapeso: la hemorragia digestiva fue significativamente MÁS frecuente
+        con 150 mg cada 12 horas que con warfarina.
+      ref: 'pmid:19717844'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Dos tomas al día, como el apixabán. A favor tiene un antídoto específico:
+        idarucizumab, recomendación de clase 1 para la hemorragia con riesgo
+        vital, y es además el único ACOD que puede eliminarse por hemodiálisis,
+        aunque la guía advierte de que hacerlo es difícil y poco práctico en un
+        paciente con coagulopatía e inestabilidad hemodinámica. En contra, es el
+        único que exige ajustar la dosis a 75 mg cada 12 horas cuando coinciden
+        un aclaramiento de 30 a 50 mL/min y dronedarona o ketoconazol.
+      ref: 'pmid:38043043'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Anticoagulante directo de marca, en el mismo extremo caro de la tabla
+        que los otros tres ACOD.
+    veredicto: alternativa
+    nota: >-
+      Alternativa razonable, y la primera a considerar cuando pesa disponer de un
+      antídoto específico de reversión directa.
+
+  - dci: Rivaroxabán
+    clase: Anticoagulante oral directo, inhibidor del factor Xa
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        No inferior, pero no superior. En ROCKET AF, con 14.264 pacientes, el
+        análisis por protocolo dio un 1,7 % por año frente al 2,2 % de la
+        warfarina (HR 0,79; IC95 % 0,66-0,96; p < 0,001 para no inferioridad),
+        pero el análisis por intención de tratar —el que no premia la
+        adherencia— quedó en 2,1 % frente a 2,4 % (HR 0,88; IC95 % 0,74-1,03;
+        p = 0,12 para superioridad). Hay que leerlo junto a un dato del propio
+        ensayo: su brazo de warfarina fue el peor controlado de los cuatro, con
+        un tiempo en rango terapéutico del 55 %.
+      ref: 'pmid:21830957'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Es el único candidato que no mejora el sangrado global: la hemorragia
+        mayor y la clínicamente relevante no mayor ocurrieron al 14,9 % por año
+        frente al 14,5 % de la warfarina (HR 1,03; IC95 % 0,96-1,11; p = 0,44).
+        Lo que sí bajó fue lo más grave: hemorragia intracraneal 0,5 % frente a
+        0,7 % (p = 0,02) y hemorragia mortal 0,2 % frente a 0,5 % (p = 0,003). A
+        eso la guía suma que la hemorragia digestiva fue significativamente más
+        frecuente que con warfarina. Frente al apixabán, que bajó las tres, la
+        comparación no le favorece.
+      ref: 'pmid:21830957'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Una sola toma diaria, de 20 mg, que es su ventaja real y la que comparte
+        solo con el edoxabán. La compensa una desventaja categórica: está
+        CONTRAINDICADO con ketoconazol o ritonavir, porque su coadministración
+        elevó los niveles plasmáticos un 158 % y un 153 % respectivamente. Donde
+        el apixabán se resuelve bajando la dosis, el rivaroxabán obliga a cambiar
+        de fármaco. A su favor, andexanet alfa está aprobado por la FDA también
+        para revertirlo.
+      ref: 'pmid:38043043'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Anticoagulante directo de marca, en el mismo extremo caro de la tabla
+        que los otros tres ACOD.
+    veredicto: alternativa
+    nota: >-
+      Alternativa cuando la toma única diaria sea determinante para la
+      adherencia, y siempre que no haya un inhibidor potente de CYP3A4 y
+      glucoproteína P en la lista de medicación.
+
+  - dci: Edoxabán
+    clase: Anticoagulante oral directo, inhibidor del factor Xa
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        No inferior, y sin llegar a superior. En ENGAGE AF-TIMI 48, con 21.105
+        pacientes y 2,8 años de mediana de seguimiento, la dosis alta dio un
+        1,18 % por año frente al 1,50 % de la warfarina (HR 0,79; IC97,5 %
+        0,63-0,99; p < 0,001 para no inferioridad), pero por intención de tratar
+        la tendencia favorable no alcanzó significación (HR 0,87; IC97,5 %
+        0,73-1,04; p = 0,08). La dosis baja fue peor: 1,61 % por año, con
+        tendencia desfavorable por intención de tratar (HR 1,13; IC97,5 %
+        0,96-1,34).
+      ref: 'pmid:24251359'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Es el mejor perfil de sangrado global de la tabla en cifras absolutas:
+        hemorragia mayor del 2,75 % por año con la dosis alta frente al 3,43 % de
+        la warfarina (HR 0,80; IC95 % 0,71-0,91; p < 0,001) y del 1,61 % con la
+        dosis baja (HR 0,47; IC95 % 0,41-0,55; p < 0,001). Bajó además la muerte
+        de causa cardiovascular con ambas dosis (HR 0,86 y 0,85). El matiz que
+        impide llamarlo el más seguro sin más: la guía consigna que la hemorragia
+        digestiva fue significativamente más frecuente con 60 mg al día que con
+        warfarina, y la dosis baja compra su seguridad al precio de la eficacia.
+      ref: 'pmid:24251359'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Una toma diaria, como el rivaroxabán, y ahí acaban las ventajas. La
+        reversión es su punto débil: andexanet alfa está aprobado por la FDA solo
+        para apixabán y rivaroxabán, porque los datos con los demás inhibidores
+        del factor Xa son limitados, de modo que la recomendación que lo cubre se
+        apoya en un nivel de evidencia más bajo que la de los otros dos. Y en
+        enfermedad hepática moderada la señal es contradictoria: la ficha técnica
+        de la FDA recomienda evitarlo por la coagulopatía subyacente, aunque su
+        AUC no aumentó de forma significativa en esos pacientes.
+      ref: 'pmid:38043043'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Anticoagulante directo de marca, en el mismo extremo caro de la tabla
+        que los otros tres ACOD.
+    veredicto: alternativa
+    nota: >-
+      Alternativa cuando el riesgo hemorrágico domine la decisión y se acepte que
+      la reversión está peor respaldada.
+
+  - dci: Warfarina sódica
+    clase: Antagonista de la vitamina K
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Es el comparador que los cuatro ACOD igualaron o batieron, y la guía lo
+        traduce en una recomendación de clase 1 con nivel de evidencia A: en el
+        paciente sin estenosis mitral reumática moderada o grave ni válvula
+        mecánica, se recomiendan los ACOD SOBRE la warfarina para reducir la
+        mortalidad, el ictus, la embolia sistémica y la hemorragia intracraneal.
+        Un metaanálisis sitúa el riesgo relativo de ictus de los ACOD frente a
+        warfarina en 0,81 (IC95 % 0,73-0,91; p < 0,0001) y el de mortalidad en
+        0,90 (IC95 % 0,85-0,95; p = 0,0003).
+      ref: 'pmid:38043043'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Todos los grupos de ACOD mostraron un riesgo significativamente menor de
+        hemorragia intracraneal que la warfarina, sin excepción: el metaanálisis
+        da un riesgo relativo de 0,48 (IC95 % 0,39-0,59; p < 0,0001). Su ventana
+        terapéutica es estrecha y el riesgo hemorrágico se hace sobre todo
+        evidente cuando el INR pasa de 4. El contrapeso honesto es que en
+        hemorragia digestiva la warfarina resiste: tres de los cuatro ACOD la
+        empeoraron.
+      ref: 'pmid:38043043'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Es el eje donde pierde por más margen, y por acumulación: ventana
+        terapéutica estrecha basada en el INR, monitorización frecuente,
+        interacciones farmacológicas más numerosas —sobre todo por CYP2C9— y
+        restricciones dietéticas. Lo que se pide para que funcione es alto: un
+        tiempo en rango terapéutico del 70 % o superior, cuando en los propios
+        ensayos pivotales no pasó del 66 %. Y sin embargo es el único
+        anticoagulante que sirve en todas partes: primera línea en estenosis
+        mitral reumática moderada o grave y en válvula mecánica, agente preferido
+        frente a inductores de CYP3A4 o glucoproteína P, y opción en el
+        aclaramiento menor de 15 mL/min y en diálisis.
+      ref: 'pmid:38043043'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente y el anticoagulante más barato de la tabla. La
+        guía lo convierte en argumento clínico explícito: la warfarina sigue
+        siendo un anticoagulante apropiado por su menor costo para el paciente
+        que no puede pagar un ACOD. Lo que ese menor precio no incluye es el
+        costo del control del INR, que es recurrente y recae sobre el sistema y
+        sobre el paciente.
+    veredicto: reservado
+    nota: >-
+      Reservada, y con reservas muy concretas: estenosis mitral reumática
+      moderada o grave, válvula cardíaca mecánica, tratamiento concomitante con
+      inductores de CYP3A4 o glucoproteína P, e imposibilidad de costear un ACOD.
+      Ninguna de esas cuatro es marginal.
+
+  - dci: Ácido acetilsalicílico, solo o con clopidogrel
+    clase: Antiagregante plaquetario
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        La antiagregación reduce el ictus y la embolia sistémica frente a
+        placebo, pero es INFERIOR a la warfarina, que a su vez es inferior a los
+        ACOD. AVERROES comparó apixabán con aspirina en pacientes no aptos para
+        antagonistas de la vitamina K y se detuvo antes de tiempo por el
+        beneficio del apixabán en la prevención del ictus o la embolia
+        sistémica. La combinación de clopidogrel y aspirina se comparó con
+        antagonistas de la vitamina K en ACTIVE-W, que también se detuvo
+        prematuramente, esta vez por la superioridad de la anticoagulación.
+      ref: 'pmid:38043043'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Este es el dato que cierra la discusión, y conviene leerlo despacio: en
+        AVERROES la hemorragia mayor fue SIMILAR entre la aspirina y el apixabán.
+        La antiagregación no compra seguridad a cambio de eficacia; sangra
+        parecido y previene menos. La idea de que la aspirina es «lo suave» no
+        sobrevive a su propio ensayo.
+      ref: 'pmid:38043043'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Oral, de venta libre en muchos países, sin monitorización analítica, sin
+        ajuste por función renal y sin restricción dietética. Es el candidato más
+        fácil de tomar de la tabla, y esa facilidad es justamente lo que explica
+        por qué se sigue prescribiendo donde no debe.
+      ref: 'pmid:38043043'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico multifuente y el más barato de los seis, por debajo incluso de
+        la warfarina, porque además no arrastra el costo recurrente del control
+        del INR.
+    veredicto: no_seleccionado
+    nota: >-
+      No seleccionado, y no por preferencia: la aspirina sola o combinada con
+      clopidogrel como ALTERNATIVA a la anticoagulación es recomendación de clase
+      3 por daño en el candidato a anticoagular sin indicación de antiagregación.
+      En el paciente con fibrilación auricular y sin factores de riesgo de ictus,
+      la aspirina en monoterapia es además de clase 3 por ausencia de beneficio.
+
+# ── Qué eje decidió ─────────────────────────────────────────────────────
+criterio_decisorio: >-
+  La decisión se toma en dos tiempos y cada uno la decide un eje distinto.
+
+  El primer tiempo lo deciden la eficacia y la seguridad juntas, y su resultado
+  es contraintuitivo desde el costo: los dos candidatos que ganan las columnas de
+  costo y conveniencia —la aspirina y la warfarina— son el rechazado y el
+  reservado. La aspirina sale con recomendación de clase 3 por daño pese a ser el
+  más barato y el más cómodo, porque previene menos que la anticoagulación y
+  sangra parecido. La warfarina sale reservada pese a ser el segundo más barato,
+  porque los ACOD la baten en mortalidad, ictus, embolia sistémica y hemorragia
+  intracraneal con nivel de evidencia A. Un informe que hubiera ponderado el
+  costo por delante habría seleccionado exactamente el candidato que la guía
+  desaconseja.
+
+  El segundo tiempo, ya dentro de los cuatro ACOD, lo decide la SEGURIDAD, y en
+  concreto una sola fila: la hemorragia digestiva. Los cuatro son al menos no
+  inferiores en eficacia y dos son superiores —apixabán y dabigatrán 150 mg—. Los
+  cuatro cuestan lo mismo, así que el costo no desempata. La conveniencia se
+  reparte: dos tomas diarias en apixabán y dabigatrán, una en rivaroxabán y
+  edoxabán. Lo que queda es el sangrado, y ahí el apixabán es el único que baja
+  las tres cosas a la vez —hemorragia mayor, hemorragia intracraneal y
+  mortalidad— sin aumentar significativamente la digestiva, que es la que en la
+  práctica hace suspender el tratamiento. El dabigatrán logra la superioridad en
+  eficacia solo con la dosis cuya hemorragia mayor no difiere de la warfarina; el
+  rivaroxabán no mejora el sangrado global; el edoxabán tiene el mejor perfil
+  absoluto de hemorragia mayor pero la reversión peor respaldada.
+
+  El límite de este razonamiento hay que decirlo con la misma claridad: NO hay
+  ensayos cabeza a cabeza entre estos cuatro fármacos, y la guía no declara
+  ninguno preferido sobre los demás. Todas las comparaciones de esta tabla son
+  indirectas, contra un comparador común cuya calidad de control varió entre
+  ensayos —del 55 % de tiempo en rango terapéutico en ROCKET AF al 66 % en
+  ARISTOTLE—, y esa variación empuja los resultados en direcciones opuestas: un
+  brazo de warfarina mal controlado favorece al ACOD en eficacia y lo perjudica
+  en sangrado. Que el apixabán ganara contra el brazo de warfarina MEJOR
+  controlado de los cuatro es el argumento más fuerte de este informe, y sigue
+  siendo un argumento indirecto.
+
+conclusion: >-
+  En el adulto con fibrilación auricular no valvular y riesgo tromboembólico
+  anual del 2 % o superior se selecciona el apixabán. La primera parte de esa
+  decisión la firma la guía con nivel de evidencia A: cualquier anticoagulante
+  oral directo antes que la warfarina, y nunca la antiagregación como
+  alternativa a anticoagular. La segunda parte —cuál de los cuatro directos— no
+  la firma la guía, que no declara preferido a ninguno; la firma este informe
+  sobre la evidencia indirecta, y el eje que la decide es la seguridad
+  hemorrágica: el apixabán es el único candidato que reduce la hemorragia mayor,
+  la intracraneal y la mortalidad sin aumentar de forma significativa la
+  hemorragia digestiva.
+
+  El dabigatrán, el rivaroxabán y el edoxabán quedan como alternativas plenas, y
+  cada uno tiene un escenario en el que pasa delante: el dabigatrán cuando pese
+  disponer de un antídoto de reversión directa, el rivaroxabán cuando la toma
+  única diaria sea determinante para la adherencia, el edoxabán cuando domine el
+  riesgo hemorrágico. La warfarina queda reservada para cuatro situaciones en las
+  que sigue siendo insustituible o preferible: estenosis mitral reumática
+  moderada o grave, válvula cardíaca mecánica, tratamiento con inductores de
+  CYP3A4 o glucoproteína P, e imposibilidad de costear un directo. Esa última
+  reserva no es un detalle administrativo: la propia guía la enuncia como razón
+  clínica válida.
+
+  El informe declara su hueco principal, que es de diseño y no de búsqueda:
+  ninguno de estos cuatro fármacos se comparó nunca con otro de ellos en un
+  ensayo aleatorizado. Mientras eso siga así, la elección dentro de la clase se
+  apoya en comparaciones indirectas, y cualquier informe que la presente como
+  algo más firme estará afirmando más de lo que la evidencia sostiene.
+
+refs:
+  - 'pmid:38043043'
+  - 'pmid:21870978'
+  - 'pmid:19717844'
+  - 'pmid:21830957'
+  - 'pmid:24251359'

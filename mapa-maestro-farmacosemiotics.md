@@ -11,6 +11,88 @@ frente a la LME.
 
 ---
 
+## El híbrido: primero se elige, luego se usa
+
+El repositorio dejó de ser un catálogo de fichas para ser dos cosas encadenadas,
+en el orden de la decisión clínica:
+
+**Parte I — Selección** (`selecciones/`, código `SEL:`). Un informe por problema
+de salud que compara los candidatos en **eficacia, seguridad, conveniencia y
+costo** y emite un veredicto. Los ejes van en ese orden y no en orden
+alfabético: un fármaco que no funciona no se salva por ser barato, y uno
+inseguro no se salva por ser cómodo.
+
+**Parte II — Farmacoterapia** (`farmacoterapia/`, código `FA:`, más `fichas/`).
+Cómo se usa la molécula elegida.
+
+La división entre `FA:` y `FT:` responde a la pregunta de siempre —¿de qué
+depende el dato?— y es la que estructura el libro:
+
+| | va por | es |
+|---|---|---|
+| `SEL:` | problema de salud | el informe |
+| `FA:` | molécula | el **concepto**: sirve a todas sus indicaciones |
+| `FT:` | fármaco × indicación | el **signo**: la decisión situada |
+
+Una farmacoterapia se escribe **una sola vez** y la usan todas las indicaciones
+de su fármaco. Lo poco que una cambie va en `variaciones`, dentro de su ficha.
+
+## Qué es ahora una entrada del índice
+
+El índice dejó de ser un catálogo de fichas de evidencia para ser un catálogo
+de **guías de práctica clínica farmacoterapéuticas**. La diferencia no es de
+extensión sino de pregunta: una ficha pesa el beneficio contra el daño; una
+guía dice además qué se pide antes de la primera dosis, cada cuánto se repite,
+qué se hace cuando el análisis se tuerce, qué se le dice a quien quiere
+quedarse embarazada y de quién es cada acto entre el especialista y el médico
+que sigue al paciente.
+
+El estándar de forma son las guías de las sociedades europeas y británicas
+—BSR para monitorización y para embarazo y lactancia, BAD para dermatología,
+EDF/EADV para las dermatosis autoinmunes graves— y la guía CPIC para la
+dosificación por genotipo.
+
+### Los ocho apartados de la capa de guía
+
+| Apartado | Responde a |
+|---|---|
+| `cribado_basal` | Qué pido antes de la primera dosis, y quién lo pide |
+| `farmacogenetica` | De qué genotipo depende la dosis de inicio |
+| `monitorizacion` | Qué analítica, cada cuánto, en qué fase |
+| `umbrales_accion` | Qué hago con este número anómalo delante |
+| `interacciones` | Qué asociación cambia la dosis o la contraindica |
+| `reproductivo` | Embarazo, lactancia, periodo de lavado, anticoncepción |
+| `atencion_compartida` | De quién es cada acto, y cuándo se suspende sin consultar |
+| `posicionamiento` | En qué línea va, y cómo se desescala |
+
+Ninguno es obligatorio, pero **en cuanto uno aparece se valida entero**: media
+tabla de monitorización es peor que ninguna, porque parece completa. Y lo que
+no tenga fuente publicada no se escribe: se declara en `huecos_declarados` con
+su motivo y las referencias que se consultaron sin éxito.
+
+**El trío del pénfigo vulgar es la plantilla:** `SEL0001` compara rituximab,
+azatioprina y micofenolato en los cuatro ejes; `FA0009` dice cómo se usa la
+azatioprina con seguridad; `FT0009` es la decisión situada en esa indicación.
+`FA0009` es además la primera que declara sus huecos en vez de rellenarlos.
+
+## El libro: un solo .qmd, un EPUB, dos partes
+
+`scripts/qmd.py` proyecta TODAS las guías a un único
+`build/quarto/guias-farmacoterapeuticas.qmd`, con la bibliografía derivada de
+`referencias/` en BibLaTeX y cada cifra citada como `[@clave]`. `scripts/epub.py`
+lo encuaderna con Quarto.
+
+El libro sale en dos partes: los informes de selección primero, y después las
+farmacoterapias agrupadas **por molécula**, con cada indicación como sección
+dentro de su capítulo. Agrupar por molécula es lo que hace visible el caso que
+motivó la estructura: una misma farmacoterapia sirviendo a varias indicaciones,
+escrita una sola vez.
+
+Que sea un solo fichero es deliberado: el libro se lee y se busca como un
+vademécum continuo, y el índice de Quarto ya da la navegación que daría el
+troceado. El vínculo con PubMed sobrevive a la encuadernación porque cada
+entrada del `.bib` lleva su PMID.
+
 ## El Modelo Editorial Ghost & Estándar de Contenido
 
 Cada ficha terapéutica (`fichas/FTxxxx.yaml`) se compila como un **artículo de blog editorial Ghost completo** (`build/sitio/fichas/FTxxxx.html`) y se indexa en el portal principal (`index.html`), revista/catálogo (`blog.html`) y banco de autoevaluación (`reto.html`).
@@ -47,6 +129,7 @@ manda, seguido de los antiinfecciosos AWaRe, dolor, salud mental y las terapias 
 | **2. Antiinfecciosos AWaRe** | Sección 6.2.1 (Antibióticos Access / Watch) | — | — | Pendiente |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | Pendiente |
 | **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | — | — | Pendiente |
+| **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `FS0009` (Azatioprina) | `FT0009` (Azatioprina en pénfigo vulgar) | **En curso (1/4)** — estrena la capa de GPC |
 | **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC) | **En curso (3/8)** |
 
 ---
@@ -89,14 +172,39 @@ manda, seguido de los antiinfecciosos AWaRe, dolor, salud mental y las terapias 
 - [ ] **Faricimab en Degeneración Macular Asociada a la Edad y Edema Macular Diabético**.
 - [ ] **Ruxolitinib en Mielofibrosis y Policitemia Vera**.
 
+### Oleada 6 — Inmunosupresión & Dermatosis Autoinmunes
+Es la oleada que estrena la capa de guía, porque es donde la monitorización
+manda sobre la eficacia y donde la pregunta reproductiva llega antes que la
+terapéutica.
+- [x] **`FT0009` Azatioprina en el pénfigo vulgar** (Dosis de inicio por
+  genotipo de TPMT y NUDT15, compatible con embarazo y lactancia, desplazada a
+  segunda línea por el rituximab. Huecos declarados: umbrales analíticos y
+  acuerdo de atención compartida).
+- [ ] **Rituximab en el pénfigo vulgar moderado y grave** (Primera línea
+  aprobada en Europa y Estados Unidos; es la comparación que FT0009 cita y
+  todavía no tiene guía propia).
+- [ ] **Micofenolato de mofetilo como adyuvante del corticoide** (El otro
+  ahorrador clásico, y el contrario de la azatioprina en seguridad
+  reproductiva: exige suspenderlo seis semanas antes de concebir).
+- [ ] **Metotrexato en artritis reumatoide** (El csDMARD con el cronograma de
+  monitorización mejor establecido; el candidato natural para ser la primera
+  guía con `umbrales_accion` completos).
+
+**Lo que hace falta para cerrar los huecos de esta oleada:** el texto completo
+de la guía BSR de csDMARD 2025 (`pmid:41235543`) y de la guía BAD de
+azatioprina (`pmid:21950502`). Ninguna de las dos estaba accesible desde el
+entorno de compilación cuando se escribió FT0009.
+
 ---
 
 ## Flujo de Trabajo para Cada Nuevo Tema
 
 ```bash
 # 1. Crear el principio activo y la ficha con la plantilla oficial
-python scripts/nuevo.py farmaco FS0006 "NombreMolecula" --atc C09AA02
-python scripts/nuevo.py ficha FT0006 "Título de la Ficha Clínica" --farmaco FS0006
+python scripts/nuevo.py seleccion      SEL0002 "Problema de salud"
+python scripts/nuevo.py farmaco        FS0010  "NombreMolecula" --atc C09AA02
+python scripts/nuevo.py farmacoterapia FA0010  "nombremolecula" --farmaco FS0010
+python scripts/nuevo.py ficha          FT0010  "Título de la guía" --farmaco FS0010
 
 # 2. Descargar y verificar referencias con PubMed
 python scripts/pubmed.py <PMID_EVIDENCIA>
@@ -113,4 +221,10 @@ python scripts/sitio.py
 
 # 6. Probar y verificar contratos
 python -m unittest discover -s tests -v
+
+# ...o los pasos 4-6 de una vez, cronometrados
+python scripts/pipeline.py
+
+# 7. Encuadernar el EPUB con todas las guías (necesita Quarto)
+python scripts/epub.py
 ```

@@ -1,0 +1,52 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:34210750"
+clave_bibtex: lee2021
+tipo: articulo
+titulo: "Association between ibrutinib treatment and hypertension"
+autores:
+  - "Lee DH"
+  - "Hawk F"
+  - "Seok K"
+  - "Gliksman M"
+  - "Emole J"
+  - "Rhea IB"
+  - "Viganego F"
+  - "Welter-Frost A"
+  - "Armanious M"
+  - "Shah B"
+  - "Chavez JC"
+  - "Pinilla-Ibarz J"
+  - "Schabath MB"
+  - "Fradley M"
+publicacion: "Heart"
+anio: 2021
+volumen: "108"
+numero: "6"
+paginas: "445-450"
+
+identificadores:
+  pmid: 34210750
+  doi: "10.1136/heartjnl-2021-319110"
+  pmc: "PMC9809112"
+
+tipos_pubmed:
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-05'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

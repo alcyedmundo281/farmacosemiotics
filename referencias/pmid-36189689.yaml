@@ -1,0 +1,49 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:36189689"
+clave_bibtex: deboer2022
+tipo: revision
+titulo: "Diabetes Management in Chronic Kidney Disease: A Consensus Report by the American Diabetes Association (ADA) and Kidney Disease: Improving Global Outcomes (KDIGO)"
+autores:
+  - "de Boer IH"
+  - "Khunti K"
+  - "Sadusky T"
+  - "Tuttle KR"
+  - "Neumiller JJ"
+  - "Rhee CM"
+  - "Rosas SE"
+  - "Rossing P"
+  - "Bakris G"
+publicacion: "Diabetes Care"
+anio: 2022
+volumen: "45"
+numero: "12"
+paginas: "3075-3090"
+
+identificadores:
+  pmid: 36189689
+  doi: "10.2337/dci22-0027"
+  pmc: "PMC9870667"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Review"
+  - "Consensus Statement"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-05'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

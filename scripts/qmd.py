@@ -31,7 +31,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).parent))
 
-from build import (cargar, RAIZ, es_gpc, EJES,  # noqa: E402
+from build import (cargar, RAIZ, es_gpc, huecos_de, EJES,  # noqa: E402
                    farmacoterapia_de)
 
 SALIDA = RAIZ / "build" / "quarto"
@@ -745,7 +745,12 @@ def portada(estado, hoy):
     n_sel = len(estado["selecciones"])
     n_fa = len(estado["farmacoterapias"])
     n_ft = len(estado["fichas"])
-    completas = sum(1 for r in estado["farmacoterapias"].values() if es_gpc(r))
+    # Dos cifras, no una: traer el cronograma y los umbrales es el formato;
+    # declarar huecos es el contenido. Son compatibles, y el texto lo explica.
+    con_formato = sum(1 for r in estado["farmacoterapias"].values()
+                      if es_gpc(r))
+    con_huecos = sum(1 for r in estado["farmacoterapias"].values()
+                     if huecos_de(r))
 
     return "\n".join([
         "---",
@@ -819,12 +824,16 @@ def portada(estado, hoy):
         "no pueda seguirse hasta su origen.",
         "",
         "La consecuencia se nota en los huecos. De las " + str(n_fa) + " "
-        "farmacoterapias, " + str(completas) + " traen ya el cronograma y los "
-        "umbrales que completan el formato; el resto declara, apartado por "
-        "apartado, qué falta y por qué no se encontró fuente. Un hueco "
-        "declarado informa; uno rellenado con lo verosímil, no. Lo mismo vale "
-        "en los informes de selección, donde un eje puede quedar «sin datos» "
-        "y eso también es un resultado.",
+        "farmacoterapias de este libro, " + str(con_formato) + " traen ya el "
+        "cronograma y los umbrales que completan el formato, y "
+        + str(con_huecos) + " declaran al menos un apartado vacío. Las dos "
+        "cifras no se contradicen ni se reparten el total: una guía puede "
+        "traer el cronograma entero y no tener fuente para el perfil "
+        "reproductivo, y entonces cuenta en las dos. Cada hueco dice qué "
+        "falta y por qué no se encontró fuente. Un hueco declarado informa; "
+        "uno rellenado con lo verosímil, no. Lo mismo vale en los informes "
+        "de selección, donde un eje puede quedar «sin datos» y eso también "
+        "es un resultado.",
         "",
         "## El precio no está aquí",
         "",
@@ -937,14 +946,14 @@ def main():
             return str(ruta)
 
     fa = estado["farmacoterapias"]
-    completas = sum(1 for f in fa.values() if es_gpc(f))
+    con_formato = sum(1 for f in fa.values() if es_gpc(f))
     print("proyección a Quarto")
     print("  " + corta(qmd))
     print("     parte I    " + str(len(estado["selecciones"]))
           + " informes de selección")
     print("     parte II   " + str(len(fa)) + " farmacoterapias ("
-          + str(completas) + " completas), " + str(len(estado["fichas"]))
-          + " guías")
+          + str(con_formato) + " con cronograma y umbrales), "
+          + str(len(estado["fichas"])) + " guías")
     print("     total      "
           + str(len(qmd.read_text(encoding="utf-8").splitlines())) + " líneas")
     print("  " + corta(bib) + "   " + str(len(estado["referencias"]))

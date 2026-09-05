@@ -934,16 +934,32 @@ def main():
     revisar_huerfanos(estado, inf)
 
     fa = estado["farmacoterapias"]
-    completas = [i for i, r in fa.items() if es_gpc(r)]
-    declarados = [i for i, r in fa.items() if not es_gpc(r) and huecos_de(r)]
+    # Tres conjuntos disjuntos y exhaustivos. Durante un tiempo fueron dos y
+    # se contaban mal: `es_gpc` dice que la farmacoterapia trae cronograma y
+    # umbrales —que es una propiedad del FORMATO— y se informaba como
+    # «completas», que se lee como una propiedad del CONTENIDO. No son lo
+    # mismo: una farmacoterapia puede traer los dos apartados enteros y
+    # declarar tres huecos en otros. Llamarla completa la daba por cerrada, y
+    # el resto por vacío, cuando lo cierto era lo contrario.
+    sin_huecos = [i for i, r in fa.items() if es_gpc(r) and not huecos_de(r)]
+    con_huecos = [i for i, r in fa.items() if huecos_de(r)]
+    mudas = [i for i, r in fa.items() if not es_gpc(r) and not huecos_de(r)]
+    con_formato = [i for i, r in fa.items() if es_gpc(r)]
 
     print("farmacosemiotics — validación")
     print("  fármacos          " + str(len(estado["farmacos"])))
     print("  selecciones       " + str(len(estado["selecciones"]))
           + "   parte I: qué fármaco gana, por problema de salud")
     print("  farmacoterapias   " + str(len(fa))
-          + "   parte II: " + str(len(completas)) + " completas, "
-          + str(len(declarados)) + " con huecos declarados")
+          + "   parte II: " + str(len(sin_huecos)) + " sin huecos, "
+          + str(len(con_huecos)) + " con huecos declarados")
+    print("                        " + str(len(con_formato)) + " de "
+          + str(len(fa)) + " traen ya cronograma y umbrales")
+    # Esta es la única de las tres cifras que señala un problema: falta algo y
+    # nadie ha dicho que falte. El aviso por fichero explica qué.
+    if mudas:
+        print("                        " + str(len(mudas))
+              + " sin declarar qué les falta")
     print("  guías             " + str(len(estado["fichas"]))
           + "   fármaco × indicación")
     print("  referencias       " + str(len(estado["referencias"])))

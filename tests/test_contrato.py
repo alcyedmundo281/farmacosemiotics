@@ -64,6 +64,72 @@ class ElRepositorioReal(unittest.TestCase):
             self.assertIn(ficha.get("farmaco"), estado["farmacos"],
                           ident + " apunta a un fármaco inexistente")
 
+    def test_el_recuento_de_farmacoterapias_reparte_el_total(self):
+        """El contador de build.py informó mal durante varias oleadas.
+
+        Contaba «completas» las que traían cronograma y umbrales —una
+        propiedad del formato— y «con huecos declarados» solo las demás, de
+        modo que una farmacoterapia con los dos apartados enteros y tres
+        huecos declarados se anunciaba como completa y no aparecía nunca en
+        la columna de los huecos. Las dos cifras se leían como un reparto del
+        total y no lo eran.
+
+        Los tres conjuntos que las sustituyen sí reparten el total, y esta
+        prueba existe para que sigan haciéndolo: sin solaparse y sin dejar
+        fuera a nadie.
+        """
+        estado = build.cargar()
+        fa = estado["farmacoterapias"]
+        sin_huecos = {i for i, r in fa.items()
+                      if build.es_gpc(r) and not build.huecos_de(r)}
+        con_huecos = {i for i, r in fa.items() if build.huecos_de(r)}
+        mudas = {i for i, r in fa.items()
+                 if not build.es_gpc(r) and not build.huecos_de(r)}
+
+        self.assertEqual(sin_huecos | con_huecos | mudas, set(fa),
+                         "hay farmacoterapias que no caen en ningún grupo")
+        for a, b in ((sin_huecos, con_huecos), (sin_huecos, mudas),
+                     (con_huecos, mudas)):
+            self.assertEqual(a & b, set(),
+                             "los grupos se solapan: " + str(a & b))
+
+        # Y lo que de verdad importa: que sea eso lo que build.py imprime.
+        # Comprobar solo las definiciones dejaría pasar un contador que
+        # volviera a repartir mal el total, que es el fallo que hubo.
+        salida = correr(RAIZ / "scripts" / "build.py").stdout
+        m = re.search(r"farmacoterapias\s+(\d+)\s+parte II: (\d+) sin "
+                      r"huecos, (\d+) con huecos declarados", salida)
+        self.assertIsNotNone(m, "no encuentro la línea del contador:\n"
+                                + salida[:400])
+        total, dice_sin, dice_con = (int(g) for g in m.groups())
+        self.assertEqual(total, len(fa))
+        self.assertEqual(dice_sin, len(sin_huecos))
+        self.assertEqual(dice_con, len(con_huecos))
+
+        m_mudas = re.search(r"(\d+) sin declarar qué les falta", salida)
+        self.assertEqual(int(m_mudas.group(1)) if m_mudas else 0, len(mudas),
+                         "el contador calla farmacoterapias a las que les "
+                         "falta un apartado sin declararlo")
+        self.assertEqual(dice_sin + dice_con + len(mudas), total,
+                         "las cifras del contador no reparten el total")
+
+    def test_el_formato_no_se_confunde_con_la_ausencia_de_huecos(self):
+        """`es_gpc` responde por el formato, no por el contenido.
+
+        Si alguna vez las dos preguntas coinciden para todos los registros,
+        la distinción deja de verse y es fácil volver a colapsarla en el
+        contador. Esta prueba no exige que difieran —eso dependería del
+        contenido del repositorio—, exige que el código no las trate como
+        sinónimos: una farmacoterapia con cronograma, umbrales y huecos
+        declarados tiene que salir `es_gpc` y a la vez con huecos.
+        """
+        reg = {"monitorizacion": [{"fase": "basal"}],
+               "umbrales_accion": [{"parametro": "x"}],
+               "huecos_declarados": [{"bloque": "reproductivo",
+                                      "motivo": "no hay fuente"}]}
+        self.assertTrue(build.es_gpc(reg))
+        self.assertEqual(build.huecos_de(reg), {"reproductivo"})
+
     def test_la_seccion_lme_existe_en_el_catalogo(self):
         estado = build.cargar()
         secciones = {str(s["numero"]) for s in estado["catalogo"]["secciones"]}

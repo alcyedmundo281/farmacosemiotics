@@ -54,9 +54,18 @@ fichero de `referencias/` del que sale?* Si no, no se escribe.
 
 1. `git status` y reporta el estado.
 2. Lee `mapa-maestro-farmacosemiotics.md` y di **qué oleada toca**.
-3. `python scripts/build.py` y reporta las alertas actuales. Fíjate en cuántas
-   guías salen «completas» y cuántas con huecos declarados: esa es la distancia
-   real que le queda al repositorio.
+3. `python scripts/build.py` y reporta las alertas actuales. El contador de
+   farmacoterapias da tres cifras, y son tres preguntas distintas: cuántas **sin
+   huecos** (no falta nada), cuántas **con huecos declarados** (falta algo y se
+   dice cuál) y cuántas **sin declarar qué les falta** (falta algo y nadie lo ha
+   dicho). Esa tercera cifra es la única que señala un descuido; las otras dos
+   miden la distancia real que le queda al repositorio.
+
+   La cuarta línea —«N de M traen ya cronograma y umbrales»— responde a otra
+   pregunta y no reparte el total: es el **formato**, no el contenido. Una
+   farmacoterapia puede traer los dos apartados enteros y declarar tres huecos
+   en otros, y entonces cuenta en las dos. Confundir ambas cosas fue un fallo
+   real del contador: daba por «completas» a guías con huecos declarados.
 
 ## Mapa del repositorio
 

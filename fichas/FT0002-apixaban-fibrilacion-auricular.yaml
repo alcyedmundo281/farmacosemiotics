@@ -2,6 +2,8 @@ id: 'FT:0002'
 tipo: ficha
 farmaco: 'FS:0002'
 
+seleccion: 'SEL:0004'
+
 titulo: Apixabán en la prevención de ictus en fibrilación auricular no valvular
 titulo_en: Apixaban for stroke prevention in non-valvular atrial fibrillation
 indicacion: Fibrilación auricular no valvular

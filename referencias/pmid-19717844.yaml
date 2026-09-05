@@ -1,0 +1,62 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:19717844"
+clave_bibtex: connolly2009
+tipo: eca
+titulo: "Dabigatran versus warfarin in patients with atrial fibrillation"
+autores:
+  - "Connolly SJ"
+  - "Ezekowitz MD"
+  - "Yusuf S"
+  - "Eikelboom J"
+  - "Oldgren J"
+  - "Parekh A"
+  - "Pogue J"
+  - "Reilly PA"
+  - "Themeles E"
+  - "Varrone J"
+  - "Wang S"
+  - "Alings M"
+  - "Xavier D"
+  - "Zhu J"
+  - "Diaz R"
+  - "Lewis BS"
+  - "Darius H"
+  - "Diener HC"
+  - "Joyner CD"
+  - "Wallentin L"
+publicacion: "N Engl J Med"
+anio: 2009
+volumen: "361"
+numero: "12"
+paginas: "1139-51"
+
+identificadores:
+  pmid: 19717844
+  doi: "10.1056/NEJMoa0905561"
+  pmc: null
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-05'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

@@ -98,9 +98,10 @@ cribado_basal:
 # hay un periodo inicial de riesgo hematológico que obligue a analíticas
 # seriadas, como sí lo hay en un antimetabolito. Lo que la guía convierte en
 # recomendación de clase 1 es la REEVALUACIÓN periódica de la indicación, la
-# elección y la dosis. El intervalo concreto vive en una tabla que el cuerpo del
-# artículo no reproduce, y por eso aquí se dice «a intervalos periódicos» y no
-# un número de meses: poner una cifra sería inventarla.
+# elección y la dosis, y sí fija su cadencia: una vez al año, con más frecuencia
+# si cambia la situación clínica. Lo que no reproduce el cuerpo del artículo es
+# la tabla de monitorización analítica; el intervalo de la reevaluación, en
+# cambio, está en el texto.
 monitorizacion:
   - fase: basal
     pruebas:
@@ -120,12 +121,13 @@ monitorizacion:
       - Beneficio clínico neto
       - Adecuación de la dosis
     frecuencia: >-
-      A intervalos periódicos, como recomendación de clase 1: el riesgo, la
-      elegibilidad y las preferencias del paciente cambian con el tiempo, de modo
-      que toda decisión de prevención del ictus se reevalúa, no se hereda. La
-      guía no fija en su texto cuántos meses median entre dos reevaluaciones;
-      remite a una tabla de monitorización analítica que no se reproduce en el
-      cuerpo del artículo.
+      Habitualmente una vez al año, y con más frecuencia cuando cambie la
+      situación clínica: una caída de la función renal o la aparición de nuevos
+      factores de riesgo son los dos ejemplos que da la propia guía. La
+      reevaluación periódica es recomendación de clase 1, porque la fibrilación
+      auricular es una condición de por vida y el riesgo, la elegibilidad y las
+      preferencias del paciente cambian con el tiempo: la decisión de prevención
+      del ictus se reevalúa, no se hereda.
     responsable: compartida
     ref: 'pmid:38043043'
 
@@ -302,9 +304,10 @@ atencion_compartida:
       mayor
   seguimiento:
     - >-
-      Reevaluar a intervalos periódicos la necesidad y la elección de la terapia,
-      el riesgo de ictus, el riesgo hemorrágico, el beneficio clínico neto y la
-      adecuación de la dosis
+      Reevaluar una vez al año —y antes si cae la función renal o aparecen nuevos
+      factores de riesgo— la necesidad y la elección de la terapia, el riesgo de
+      ictus, el riesgo hemorrágico, el beneficio clínico neto y la adecuación de
+      la dosis
     - >-
       Revisar la medicación en cada nueva prescripción buscando inhibidores e
       inductores potentes de CYP3A4 y de la glucoproteína P, que es donde la dosis

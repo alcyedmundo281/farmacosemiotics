@@ -1,0 +1,220 @@
+# PARTE II — Farmacoterapia: cómo se usa el enalapril con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# Esta farmacoterapia sale peor abastecida que las anteriores, y la razón es de
+# acceso y no de literatura. El inhibidor de la enzima convertidora de
+# angiotensina es de los fármacos mejor caracterizados de la medicina: su
+# cronograma de creatinina y potasio, sus puntos de corte y su
+# contraindicación en el embarazo están fijados desde hace décadas. Pero viven
+# en las guías de insuficiencia cardíaca de la ESC y de la AHA/ACC/HFSA y en la
+# guía KDIGO de enfermedad renal crónica, y ninguna de las tres resultó
+# accesible en esta sesión: todas devolvieron registro sin texto completo. La
+# guía de fibrilación auricular de la ACC y el informe de consenso de la ADA y
+# KDIGO sí lo estaban, y de este último sale lo que hay aquí.
+#
+# Conviene por eso leer este fichero sabiendo qué NO es: no es la
+# farmacoterapia del IECA, es la parte de ella que se pudo citar. Lo que falta
+# está declarado, y se cierra con cualquiera de esas tres guías en PDF.
+
+id: 'FA:0006'
+tipo: farmacoterapia
+farmaco: 'FS:0006'
+
+titulo: Farmacoterapia con enalapril
+titulo_en: Enalapril pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del enalapril como inhibidor de la enzima
+  convertidora de angiotensina. Lo que cubre es lo que el informe de consenso de
+  la ADA y KDIGO fija sobre la inhibición del sistema renina-angiotensina: qué
+  se mide antes de empezar, hasta dónde se titula, qué combinaciones se evitan y
+  cuál exige un protocolo de potasio propio. Y una conducta de retirada que ya
+  estaba documentada en FS:0006: el angioedema. Dos advertencias sobre lo que
+  NO cubre, porque leer el apartado sin ellas induce a error. Primera: no hay
+  cronograma —está declarado como hueco—, de modo que este documento no dice
+  cada cuánto repetir creatinina y potasio. Segunda: `umbrales_accion` contiene
+  una sola fila, la del angioedema, y le faltan los puntos de corte analíticos
+  —cuánto puede subir la creatinina sin suspender, con qué cifra de potasio se
+  retira—; esa carencia no cabe en `huecos_declarados`, porque ahí solo se
+  declara un apartado entero vacío y este tiene contenido, así que queda dicha
+  aquí. Quien busque esos dos datos no los encontrará abajo, y es mejor saberlo
+  antes que después.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Creatinina sérica y filtrado glomerular estimado
+    motivo: >-
+      El inhibidor del sistema renina-angiotensina produce una reducción
+      hemodinámica INICIAL del filtrado glomerular, que es esperada y no es
+      daño. Sin la cifra de partida esa caída no se puede distinguir de una
+      progresión de la enfermedad renal, y confundirlas lleva a retirar un
+      fármaco que estaba funcionando
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - prueba: Potasio sérico
+    motivo: >-
+      La hiperpotasemia es el efecto adverso que limita la inhibición del
+      sistema renina-angiotensina, y la cifra basal es además la que decide si
+      más adelante podrá añadirse encima un antagonista no esteroideo del
+      receptor mineralocorticoide, que exige potasio normal para iniciarse
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+# ── Qué hacer cuando el cuadro aparece ──────────────────────────────────
+# Una sola fila, y no por olvido: los puntos de corte analíticos —el ascenso de
+# creatinina que se tolera, la cifra de potasio que obliga a retirar— viven en
+# las guías que no se pudieron abrir. Lo que sigue es la conducta que sí consta
+# con fuente en el repositorio, y es la única que no admite demora.
+umbrales_accion:
+  - parametro: Angioedema de cabeza y cuello
+    umbral: Cualquier episodio de angioedema atribuible al fármaco
+    accion: >-
+      Suspensión inmediata y PERMANENTE, y contraindicación absoluta de
+      cualquier inhibidor de la enzima convertidora de angiotensina en adelante.
+      No es una suspensión a reevaluar: el reto posterior con otro fármaco de la
+      misma clase no procede. El registro del principio activo lo clasifica como
+      reacción rara y de gravedad mortal, que son las dos cosas que hay que
+      tener juntas en la cabeza para reconocerlo a tiempo.
+    ref: 'fda:label'
+
+# ── Interacciones que cambian la conducta ───────────────────────────────
+interacciones:
+  - con: >-
+      Antagonista del receptor de angiotensina II, en bloqueo dual del sistema
+      renina-angiotensina
+    gravedad: mayor
+    efecto: >-
+      Los estudios a corto plazo mostraron un beneficio añadido de la
+      combinación en la reducción de la albuminuria, pero los estudios a largo
+      plazo no mostraron beneficio y sí más efectos adversos, en particular
+      hiperpotasemia y lesión renal aguda. Es el caso de manual en que el
+      desenlace intermedio mejoró y el clínico no.
+    conducta: >-
+      Se recomienda evitar la combinación.
+    ref: 'pmid:36189689'
+
+  - con: >-
+      Antagonista no esteroideo del receptor mineralocorticoide (finerenona),
+      añadido sobre el IECA a dosis máxima tolerada
+    gravedad: moderada
+    efecto: >-
+      Aumenta el riesgo de hiperpotasemia: en FIDELIO-DKD, el 2,6 % de los
+      participantes interrumpió el tratamiento por hiperpotasemia con finerenona
+      frente al 0,9 % con placebo.
+    conducta: >-
+      Es una combinación recomendada, no prohibida, en el paciente con diabetes
+      tipo 2, TFGe de 25 mL/min/1,73 m² o superior, potasio normal y albuminuria
+      pese al IECA a dosis máxima tolerada. Lo que exige es un protocolo de
+      potasio, y conviene subrayar de quién son estas cifras: gobiernan la dosis
+      de la FINERENONA y no la del enalapril. Se inicia con potasio de 4,8
+      mmol/L o menos según el criterio del ensayo, o de 5,0 mmol/L o menos según
+      la ficha técnica estadounidense; el potasio se comprueba 4 semanas después
+      de cada cambio de dosis y con regularidad durante el tratamiento; con
+      potasio por encima de 5,5 mmol/L la finerenona se retira, y se reanuda a
+      10 mg al día cuando vuelve a 5,0 mmol/L o menos.
+    ref: 'pmid:36189689'
+
+  - con: Inhibidor de SGLT2
+    gravedad: menor
+    efecto: >-
+      Va en la dirección favorable, que es lo infrecuente en este apartado: en
+      el análisis combinado FIDELITY, la presencia de un inhibidor de SGLT2
+      redujo de forma significativa el riesgo de hiperpotasemia.
+    conducta: >-
+      No es motivo para separar los fármacos. Comparte con el IECA la reducción
+      hemodinámica inicial del filtrado glomerular, de modo que si se añaden de
+      forma secuencial hay que valorar la función renal entre un paso y otro.
+    ref: 'pmid:36189689'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - >-
+      Titular hasta la dosis antihipertensiva máxima o la máxima tolerada, que
+      es la condición con la que la recomendación está formulada: media dosis no
+      es media recomendación
+    - >-
+      Añadir y ajustar de forma secuencial los fármacos que comparten la
+      reducción hemodinámica inicial del filtrado —el propio inhibidor del
+      sistema renina-angiotensina, el inhibidor de SGLT2 y la finerenona—, con
+      valoraciones frecuentes entre un paso y el siguiente
+    - >-
+      No añadir un antagonista del receptor de angiotensina II encima del IECA
+  seguimiento:
+    - >-
+      Evitar la inercia terapéutica, que la fuente señala como el problema
+      central de esta población: el riesgo residual sigue siendo alto pese al
+      tratamiento y las opciones disponibles aumentan. Puede hacer falta ver al
+      paciente con frecuencia para instaurar y optimizar varias terapias
+    - >-
+      Comprobar el potasio antes de que nadie añada un antagonista no esteroideo
+      del receptor mineralocorticoide sobre el IECA
+  suspension_inmediata: >-
+    Angioedema: se suspende de inmediato y para siempre, y queda contraindicado
+    cualquier IECA en adelante. No se espera a la valoración del especialista ni
+    se reintroduce después.
+  ref: 'pmid:36189689'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No se localizó fuente accesible que fije cada cuánto repetir la creatinina
+      y el potasio tras iniciar un IECA o tras subir la dosis. Existe y está
+      fijado desde hace décadas, pero vive en las guías de insuficiencia
+      cardíaca de la ESC y de la AHA/ACC/HFSA y en la guía KDIGO de enfermedad
+      renal crónica, y las tres devolvieron registro sin texto completo en esta
+      sesión. El informe de consenso de la ADA y KDIGO, que sí fue accesible,
+      solo dice que hacen falta «valoraciones frecuentes», sin número. Escribir
+      aquí «a las una o dos semanas» de memoria sería reconstruir un documento
+      que no se abrió. Se cierra con el PDF de cualquiera de las tres.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica, guía de insuficiencia cardíaca de la ESC de 2021, guía
+      AHA/ACC/HFSA de 2022 y guía KDIGO de 2024 de enfermedad renal crónica.
+    refs:
+      - 'pmid:36189689'
+
+  - bloque: reproductivo
+    motivo: >-
+      Ninguna fuente accesible fija el perfil reproductivo del enalapril, y este
+      hueco es el que más pesa de los tres. La fetopatía por inhibidores de la
+      enzima convertidora de angiotensina es un efecto de clase conocido y la
+      contraindicación en el embarazo es clásica; precisamente porque el dato
+      parece sabido, escribirlo sin fuente sería el atajo más fácil de justificar
+      y el peor precedente. Una farmacoterapia que afirma una contraindicación
+      en el embarazo sin poder señalar de dónde sale no vale más que el recuerdo
+      de quien la escribió. Se resuelve con la ficha técnica o con una guía
+      obstétrica.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica, y búsqueda específica de literatura sobre fetopatía por IECA sin
+      resultado accesible.
+    refs:
+      - 'pmid:36189689'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que establezca una dosificación del enalapril guiada
+      por genotipo, ni existe guía CPIC para esta molécula. La estratificación
+      que la evidencia accesible sostiene es por función renal, potasio y
+      tolerancia a la titulación, no por variantes genéticas.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica.
+    refs:
+      - 'pmid:36189689'
+
+refs:
+  - 'pmid:36189689'

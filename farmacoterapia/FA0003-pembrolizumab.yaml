@@ -1,0 +1,244 @@
+# PARTE II — Farmacoterapia: cómo se usa el pembrolizumab con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# Esta es, de las seis farmacoterapias del repositorio, la que más apartados
+# deja declarados como huecos, y conviene entender por qué antes de leerla.
+#
+# El inhibidor de punto de control tiene una lógica de seguridad distinta de
+# todas las moléculas anteriores. En la azatioprina o el metotrexato, la
+# vigilancia es una analítica que se repite y un punto de corte que la
+# interpreta: neutrófilos, transaminasas, plaquetas. Aquí el evento adverso es
+# INMUNOMEDIADO, puede aparecer en casi cualquier órgano —piel, colon, hígado,
+# pulmón, tiroides, hipófisis, riñón, corazón, sistema nervioso, sangre— y no
+# hay una analítica única que lo anticipe. Lo que organiza la conducta no es un
+# umbral de laboratorio sino el GRADO CTCAE del cuadro clínico, y por eso el
+# apartado que aquí está completo es `umbrales_accion` y no `monitorizacion`.
+#
+# La fuente principal es la actualización de 2021 de la guía de la ASCO sobre
+# eventos adversos inmunomediados, cuyo texto completo no resultó accesible en
+# esta sesión: son 54 páginas de tablas órgano por órgano —con el estudio basal
+# y el seguimiento de cada toxicidad— y esas tablas no se pudieron leer. Lo que
+# sí publica el resumen, y de forma completa, es el ALGORITMO GENERAL por
+# grados, que es lo que está abajo. La distinción importa: no se ha resumido de
+# memoria un documento que no se pudo abrir; se ha usado la parte de ese
+# documento que sí estaba publicada, y se declara el resto.
+
+id: 'FA:0003'
+tipo: farmacoterapia
+farmaco: 'FS:0003'
+
+titulo: Farmacoterapia con pembrolizumab
+titulo_en: Pembrolizumab pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del pembrolizumab como anticuerpo anti-PD-1, y
+  de hecho a cualquier inhibidor de punto de control en monoterapia: la fuente
+  se dirige al paciente adulto con cáncer tratado con bloqueo de punto de
+  control en solitario, no en combinación, donde las tasas de toxicidad son
+  mayores. Lo que cubre es el algoritmo de conducta por grado CTCAE —cuándo se
+  continúa, cuándo se suspende, cuándo se retira para siempre y qué
+  inmunosupresión se administra— y el reparto de responsabilidades en un equipo
+  que necesariamente excede a la oncología. Lo que NO cubre es tan importante
+  como lo que cubre, y está declarado abajo: el estudio basal antes de la
+  primera dosis, el cronograma de vigilancia, las interacciones y el perfil
+  reproductivo.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Qué hacer cuando el cuadro aparece ──────────────────────────────────
+# El `parametro` de estas filas no es una analítica: es el grado CTCAE del
+# evento adverso inmunomediado, sea cual sea el órgano. Esa es la diferencia de
+# fondo con las otras farmacoterapias de este libro.
+umbrales_accion:
+  - parametro: Grado del evento adverso inmunomediado (CTCAE)
+    umbral: Grado 1
+    accion: >-
+      Continuar el inhibidor de punto de control con vigilancia estrecha. La
+      excepción está enunciada y no es menor: algunas toxicidades neurológicas,
+      hematológicas y cardíacas no se manejan así ni siquiera en grado 1. En
+      esos tres territorios, la regla general no aplica y hay que ir a la tabla
+      del órgano correspondiente.
+    ref: 'pmid:34724392'
+
+  - parametro: Grado del evento adverso inmunomediado (CTCAE)
+    umbral: Grado 2
+    accion: >-
+      Suspender el inhibidor de punto de control en la mayoría de los casos, y
+      considerar reanudarlo cuando los síntomas reviertan a grado 1 o menos.
+      Pueden administrarse corticosteroides. Nótese la formulación: la
+      suspensión en grado 2 es reversible por diseño, y el criterio de
+      reanudación es un grado alcanzado, no un plazo transcurrido.
+    ref: 'pmid:34724392'
+
+  - parametro: Grado del evento adverso inmunomediado (CTCAE)
+    umbral: Grado 3
+    accion: >-
+      Suspender el inhibidor de punto de control e iniciar corticosteroides a
+      dosis altas. Los corticosteroides se retiran de forma gradual a lo largo
+      de al menos 4 a 6 semanas: el descenso rápido es donde el cuadro rebota, y
+      por eso la guía fija un mínimo y no un máximo.
+    ref: 'pmid:34724392'
+
+  - parametro: Grado del evento adverso inmunomediado (CTCAE)
+    umbral: Grado 4
+    accion: >-
+      Suspender el inhibidor de punto de control de forma PERMANENTE, con una
+      excepción explícita: las endocrinopatías controladas con tratamiento
+      hormonal sustitutivo. La lógica de esa excepción se entiende bien: una
+      hipofisitis o un hipotiroidismo autoinmune no se resuelven suspendiendo el
+      fármaco, porque el daño glandular ya está hecho, pero sí se controlan
+      sustituyendo la hormona, y entonces retirar un tratamiento oncológico
+      eficaz no compra nada.
+    ref: 'pmid:34724392'
+
+  - parametro: Respuesta del evento adverso a los corticosteroides
+    umbral: Caso refractario a corticosteroides
+    accion: >-
+      Algunos casos refractarios requieren otra terapia inmunosupresora. Una
+      opción con datos publicados es el bloqueo del receptor de interleucina 6
+      con tocilizumab o sarilumab: en una serie retrospectiva multicéntrica de
+      92 pacientes —el 69 % en monoterapia anti-PD-1, y el 88 % ya tratados con
+      corticosteroides sin mejoría suficiente—, el 73 % resolvió el evento o
+      bajó a grado 1 o menos tras una mediana de 2,0 meses desde el inicio del
+      anti-IL-6R, y un 7 % lo suspendió por efectos adversos. El dato que
+      importa para la decisión oncológica es el otro: la tasa de respuesta
+      tumoral fue del 66 % antes y del 66 % después (IC95 % 54-77), es decir,
+      tratar la toxicidad por esta vía no se pagó con la eficacia antitumoral.
+      Es evidencia retrospectiva, no un ensayo, y así hay que leerla: los
+      ensayos que la pondrán a prueba están en marcha.
+    ref: 'pmid:37328287'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+# En un inhibidor de punto de control, «atención compartida» no significa el
+# reparto habitual entre un especialista que indica y un médico que sigue: el
+# evento puede debutar en cualquier órgano, y quien lo ve primero rara vez es
+# el oncólogo. Ese es el problema que este apartado organiza.
+atencion_compartida:
+  especialista:
+    - >-
+      Reconocer el evento de forma precoz y aplicar un abordaje adherente a la
+      guía, que son las dos condiciones que la fuente pone al manejo eficaz
+    - >-
+      Convocar al equipo multidisciplinar que corresponda al órgano afectado:
+      además del oncólogo, los subespecialistas del territorio implicado
+    - >-
+      Integrar el manejo del evento adverso en el circuito asistencial, con las
+      vías que las instituciones están desarrollando para ello: consultas de
+      atención urgente e interconsultas electrónicas, y modelos de centro y
+      radio que extienden la experiencia del centro académico al hospital
+      comunitario, que es una cuestión de equidad en el acceso y no solo de
+      organización
+  seguimiento:
+    - >-
+      Sospechar el origen inmunomediado ante un cuadro nuevo en cualquier
+      órgano de un paciente en tratamiento: el médico de atención primaria
+      figura de forma explícita en el equipo que la fuente describe
+    - >-
+      Educar al paciente, que la fuente considera crítico para mejorar el
+      reconocimiento del evento y la alfabetización en salud: quien no sabe qué
+      buscar consulta tarde, y en grado 3 o 4 la demora cambia el desenlace
+  suspension_inmediata: >-
+    Cualquier evento adverso inmunomediado de grado 3 o superior: se suspende el
+    inhibidor de punto de control y se inician corticosteroides a dosis altas
+    sin esperar. En grado 4 la suspensión es permanente, salvo endocrinopatía
+    controlada con sustitución hormonal.
+  ref: 'pmid:40408607'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+# Cuatro huecos, y los cuatro tienen la misma causa: viven en las tablas órgano
+# por órgano de la guía de la ASCO, que ocupan medio centenar de páginas y cuyo
+# texto completo no resultó accesible. No es que no exista fuente; es que no se
+# pudo abrir. La distinción cambia qué hay que hacer para cerrarlos: basta con
+# el PDF de la guía.
+huecos_declarados:
+  - bloque: cribado_basal
+    motivo: >-
+      El resumen accesible de la guía de la ASCO enuncia el algoritmo por grados
+      pero no el estudio previo a la primera dosis. Ese estudio existe y está en
+      las tablas por órgano del texto completo, que no se pudo leer. Escribir
+      aquí una batería basal plausible —función tiroidea, hepática, renal,
+      glucemia, cortisol, serologías— sería reconstruir de memoria un documento
+      que no se abrió, que es exactamente lo que este apartado existe para
+      impedir. Se cierra con el PDF de la guía, no por deducción.
+    buscado_en: >-
+      Actualización de 2021 de la guía de la ASCO sobre eventos adversos
+      inmunomediados, guía de práctica clínica de la ESMO sobre toxicidades de
+      la inmunoterapia y capítulo educativo de la ASCO de 2025 sobre manejo
+      multidisciplinar; ninguno con cuerpo accesible en esta sesión.
+    refs:
+      - 'pmid:34724392'
+      - 'pmid:40408607'
+
+  - bloque: monitorizacion
+    motivo: >-
+      La guía manda «vigilancia estrecha» en grado 1, pero el resumen accesible
+      no fija qué se vigila ni cada cuánto, y esa cadencia depende además del
+      órgano: no es la misma para la función tiroidea que para la enzima
+      hepática o el hemograma. Un cronograma inventado aquí daría una falsa
+      sensación de cobertura sobre un fármaco cuyo evento adverso puede debutar
+      en cualquier sistema. Sin cadencia citable, el apartado se declara.
+    buscado_en: >-
+      Actualización de 2021 de la guía de la ASCO, cuyas tablas por órgano —que
+      es donde vive el seguimiento— no resultaron accesibles.
+    refs:
+      - 'pmid:34724392'
+
+  - bloque: interacciones
+    motivo: >-
+      No se localizó fuente accesible que enumere las interacciones del
+      pembrolizumab. La pregunta clínicamente relevante en esta clase no es la
+      farmacocinética —es un anticuerpo monoclonal, catabolizado por el sistema
+      reticuloendotelial— sino si la inmunosupresión concomitante, y en
+      particular la corticoterapia previa al inicio, resta eficacia
+      antitumoral. Es una pregunta con literatura propia, y responderla sin
+      haberla leído sería opinar.
+    buscado_en: >-
+      Actualización de 2021 de la guía de la ASCO y serie multicéntrica sobre
+      bloqueo del receptor de interleucina 6 en eventos adversos inmunomediados.
+    refs:
+      - 'pmid:34724392'
+      - 'pmid:37328287'
+
+  - bloque: reproductivo
+    motivo: >-
+      Ninguna de las fuentes accesibles trata el embarazo, la lactancia, el
+      periodo de lavado ni el requisito anticonceptivo del pembrolizumab. La
+      vida media de la molécula es de unas 22 días según el registro FS:0003, lo
+      que hace que el periodo de lavado sea una cifra con consecuencias
+      prácticas, y precisamente por eso no se calcula aquí a ojo: se toma de la
+      ficha técnica o de una guía que lo fije.
+    buscado_en: >-
+      Actualización de 2021 de la guía de la ASCO y capítulo educativo de la
+      ASCO de 2025 sobre manejo multidisciplinar de la toxicidad por
+      inmunoterapia.
+    refs:
+      - 'pmid:34724392'
+      - 'pmid:40408607'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que establezca una dosificación del pembrolizumab
+      guiada por genotipo del paciente, ni existe una guía CPIC equivalente a la
+      de TPMT y NUDT15 para las tiopurinas. Conviene no confundir dos cosas que
+      se parecen: en esta clase el biomarcador que decide es TUMORAL —expresión
+      de PD-L1, inestabilidad de microsatélites, carga mutacional—, y ese es un
+      criterio de INDICACIÓN que vive en la ficha, no una dosificación por
+      genotipo germinal, que es lo que este apartado recoge.
+    buscado_en: >-
+      Actualización de 2021 de la guía de la ASCO sobre eventos adversos
+      inmunomediados.
+    refs:
+      - 'pmid:34724392'
+
+refs:
+  - 'pmid:34724392'
+  - 'pmid:37328287'
+  - 'pmid:40408607'

@@ -1,0 +1,71 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:34724392"
+clave_bibtex: schneider2021
+tipo: guia
+titulo: "Management of Immune-Related Adverse Events in Patients Treated With Immune Checkpoint Inhibitor Therapy: ASCO Guideline Update"
+autores:
+  - "Schneider BJ"
+  - "Naidoo J"
+  - "Santomasso BD"
+  - "Lacchetti C"
+  - "Adkins S"
+  - "Anadkat M"
+  - "Atkins MB"
+  - "Brassil KJ"
+  - "Caterino JM"
+  - "Chau I"
+  - "Davies MJ"
+  - "Ernstoff MS"
+  - "Fecher L"
+  - "Ghosh M"
+  - "Jaiyesimi I"
+  - "Mammen JS"
+  - "Naing A"
+  - "Nastoupil LJ"
+  - "Phillips T"
+  - "Porter LD"
+  - "Reichner CA"
+  - "Seigel C"
+  - "Song JM"
+  - "Spira A"
+  - "Suarez-Almazor M"
+  - "Swami U"
+  - "Thompson JA"
+  - "Vikas P"
+  - "Wang Y"
+  - "Weber JS"
+  - "Funchain P"
+  - "Bollin K"
+publicacion: "J Clin Oncol"
+anio: 2021
+volumen: "39"
+numero: "36"
+paginas: "4073-4126"
+
+identificadores:
+  pmid: 34724392
+  doi: "10.1200/JCO.21.01440"
+  pmc: null
+
+tipos_pubmed:
+  - "Guideline"
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-05'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

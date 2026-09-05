@@ -1,0 +1,263 @@
+# PARTE II — Farmacoterapia: cómo se usa la metformina con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# Toda esta farmacoterapia gira alrededor de un solo número, y conviene decirlo
+# antes que nada: el filtrado glomerular estimado. La metformina se elimina
+# íntegra por el riñón y sin metabolismo hepático, de modo que el TFGe no es una
+# precaución más de la lista sino la variable que decide si se inicia, a qué
+# dosis, cada cuánto se comprueba y cuándo se retira. Las cuatro decisiones
+# salen del mismo dato.
+#
+# La fuente es el informe de consenso conjunto de la ADA y KDIGO de 2022, que
+# armoniza los estándares de la ADA con la guía KDIGO y publica los umbrales de
+# TFGe, la cadencia de monitorización y la tabla de mitigación del riesgo. Su
+# población es la persona con diabetes tipo 2 y enfermedad renal crónica, y esa
+# procedencia hay que tenerla presente: son las recomendaciones escritas donde
+# el riñón ya está comprometido, que es exactamente donde esta molécula se
+# vuelve peligrosa. Lo que ese documento NO cubre —el perfil reproductivo y la
+# dosificación por genotipo— queda declarado abajo, no rellenado.
+
+id: 'FA:0001'
+tipo: farmacoterapia
+farmaco: 'FS:0001'
+
+titulo: Farmacoterapia con metformina
+titulo_en: Metformin pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación de la metformina como biguanida. Lo que cubre es
+  lo que no cambia con la indicación: el umbral de filtrado glomerular para
+  iniciarla, la reducción de dosis por tramos, la cadencia con que se repite la
+  comprobación renal, el protocolo de días de enfermedad, la vigilancia del
+  déficit de vitamina B₁₂ a partir del cuarto año y el reparto de actos en un
+  equipo multidisciplinar. Todo ello se ordena alrededor de la acidosis láctica
+  asociada a metformina, que es el daño raro pero mortal que estas medidas
+  existen para prevenir: la revisión sistemática registrada en FS:0001 no halló
+  un solo caso en 70.490 años-paciente de exposición, y aun así la etiqueta
+  estadounidense mantiene su advertencia en recuadro. Esta farmacoterapia no
+  resuelve esa tensión; la trabaja, previniendo el escenario en que el caso
+  aparece: la enfermedad aguda con lesión renal que frena el aclaramiento.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Filtrado glomerular estimado
+    motivo: >-
+      Decide las tres cosas a la vez: si se inicia —se recomienda tratar con
+      metformina a partir de un TFGe de 30 mL/min/1,73 m²—, con qué dosis y con
+      qué frecuencia se repetirá la comprobación. La selección cuidadosa del
+      paciente y el ajuste a la baja según el TFGe son la condición explícita
+      con la que la fuente recomienda su uso
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - prueba: >-
+      Búsqueda de condiciones que predisponen a hipoperfusión e hipoxemia
+    motivo: >-
+      Es lo que convierte un TFGe de 45 a 59 mL/min/1,73 m² —que por sí solo no
+      obligaría a bajar la dosis— en una indicación de reducirla. Sin este
+      cribado, el tramo intermedio se trata como si fuera normal
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+# Sin fase de inducción: el riesgo de la metformina no se concentra en las
+# primeras semanas sino en el momento en que la función renal cae, que puede
+# ocurrir a los diez años de tratamiento estable. Por eso el cronograma es una
+# vigilancia indefinida cuya frecuencia depende del TFGe alcanzado, y no una
+# batería densa al principio que después se espacia.
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Filtrado glomerular estimado
+      - Condiciones que predisponen a hipoperfusión e hipoxemia
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - fase: mantenimiento
+    periodo: Mientras dure el tratamiento
+    pruebas:
+      - Filtrado glomerular estimado
+      - Vitamina B₁₂
+    frecuencia: >-
+      El filtrado glomerular, al menos una vez al año en la persona con
+      enfermedad renal crónica, y cada 3 a 6 meses en cuanto baje de 60
+      mL/min/1,73 m²: la frecuencia aumenta a medida que el TFGe cae, porque es
+      la caída y no el valor estable lo que precipita el riesgo. La vitamina
+      B₁₂, en quien lleve más de 4 años de tratamiento, que es el plazo a partir
+      del cual la fuente sitúa la vigilancia del déficit por malabsorción.
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+# ── Qué hacer cuando el resultado se tuerce ─────────────────────────────
+umbrales_accion:
+  - parametro: Filtrado glomerular estimado
+    umbral: Entre 45 y 59 mL/min/1,73 m², con condición predisponente
+    accion: >-
+      Considerar la reducción de dosis en presencia de condiciones que
+      predisponen a la hipoperfusión y la hipoxemia. Es el único tramo en el que
+      la conducta no la fija el número sino el número junto a la comorbilidad:
+      el mismo TFGe, en un paciente sin esas condiciones, no obliga a reducir.
+    ref: 'pmid:36189689'
+
+  - parametro: Filtrado glomerular estimado
+    umbral: Entre 30 y 44 mL/min/1,73 m²
+    accion: >-
+      Reducir la dosis a 1.000 mg al día. No es una sugerencia de precaución: es
+      la dosis que la fuente fija para ese tramo.
+    ref: 'pmid:36189689'
+
+  - parametro: Filtrado glomerular estimado
+    umbral: Menor de 30 mL/min/1,73 m², o paciente en diálisis
+    accion: >-
+      Suspender. Por debajo de ese umbral la metformina está contraindicada, y
+      también lo está en tratamiento con diálisis. Si la indicación era el
+      control glucémico en enfermedad renal crónica, un inhibidor de SGLT2 sin
+      metformina puede ser razonable en quien tiene un TFGe demasiado bajo para
+      prescribirla con seguridad.
+    ref: 'pmid:36189689'
+
+  - parametro: Enfermedad aguda intercurrente
+    umbral: >-
+      Cualquier proceso agudo que pueda cursar con deshidratación,
+      hipoperfusión o lesión renal aguda
+    accion: >-
+      Instituir un protocolo de días de enfermedad que especifique suspender las
+      dosis de metformina mientras dure el proceso. Es la medida con el
+      razonamiento más directo de esta guía: la mayoría de los episodios de
+      acidosis láctica asociada a metformina ocurren durante otra enfermedad
+      aguda, a menudo cuando una lesión renal aguda reduce el aclaramiento del
+      fármaco. El paciente que no sabe que debe suspenderla ese día es el que
+      queda expuesto.
+    ref: 'pmid:36189689'
+
+  - parametro: Duración del tratamiento
+    umbral: Más de 4 años
+    accion: >-
+      Vigilar el déficit de vitamina B₁₂ por malabsorción. Es el otro daño de la
+      molécula, mucho más frecuente que la acidosis láctica y mucho menos
+      buscado, porque su latencia lo desconecta del inicio del tratamiento en la
+      cabeza de quien lo sigue.
+    ref: 'pmid:36189689'
+
+  - parametro: Contraste yodado por vía intravascular
+    umbral: Exploración con contraste yodado intravascular programada o urgente
+    accion: >-
+      Tratarlo como el resto de los precipitantes de lesión renal aguda y
+      aplicar el mismo criterio de suspensión temporal. El contraste yodado
+      intravascular figura entre los factores que aumentan el riesgo de acidosis
+      láctica en la advertencia en recuadro de la etiqueta estadounidense,
+      recogida y fechada en FS:0001. La fuente de consenso no fija un número de
+      horas de suspensión ni de recuperación, y aquí no se inventa: lo que sí
+      fija es que el mecanismo —la caída del aclaramiento renal— es el mismo del
+      protocolo de días de enfermedad.
+    ref: 'fda:label'
+
+# ── Interacciones que cambian la conducta ───────────────────────────────
+# Las dos que siguen no son interacciones farmacocinéticas: son condiciones
+# concomitantes que empujan el mismo mecanismo, la acumulación del fármaco por
+# caída del aclaramiento renal. Ambas están en la advertencia en recuadro
+# recogida en FS:0001, con su URL y su fecha de consulta.
+interacciones:
+  - con: Contraste yodado por vía intravascular
+    gravedad: mayor
+    efecto: >-
+      Figura entre los factores que aumentan el riesgo de acidosis láctica
+      asociada a metformina, por la vía de comprometer la función renal y con
+      ella la excreción del fármaco.
+    conducta: >-
+      Suspensión temporal alrededor de la exploración, con el mismo criterio del
+      protocolo de días de enfermedad, y comprobación del filtrado glomerular
+      antes de reanudar.
+    ref: 'fda:label'
+
+  - con: Consumo excesivo de alcohol
+    gravedad: mayor
+    efecto: >-
+      Figura igualmente entre los factores que aumentan el riesgo de acidosis
+      láctica asociada a metformina en la advertencia en recuadro.
+    conducta: >-
+      Interrogar por el consumo antes de iniciar y en el seguimiento, y
+      advertirlo de forma explícita al paciente: es el factor de riesgo que no
+      aparece en ninguna analítica.
+    ref: 'fda:label'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - >-
+      Fijar el objetivo glucémico de forma individualizada y decidir la dosis
+      inicial a partir del filtrado glomerular y de las condiciones que
+      predisponen a hipoperfusión e hipoxemia
+    - >-
+      Decidir el ajuste o la retirada cuando el TFGe cruce un tramo, y qué
+      ocupa su lugar cuando la metformina deja de ser prescribible con seguridad
+    - >-
+      Evitar la inercia terapéutica: la fuente la nombra como el problema
+      central de esta población, porque el riesgo residual sigue siendo alto
+      pese al tratamiento y las opciones disponibles aumentan
+  seguimiento:
+    - >-
+      Repetir el filtrado glomerular al menos una vez al año, y cada 3 a 6 meses
+      en cuanto baje de 60 mL/min/1,73 m²
+    - >-
+      Comprobar la vitamina B₁₂ a partir del cuarto año de tratamiento
+    - >-
+      Enseñar y repasar el protocolo de días de enfermedad, que es la única
+      medida de esta lista que ejecuta el propio paciente y sin la cual las demás
+      no llegan a tiempo
+  suspension_inmediata: >-
+    Filtrado glomerular por debajo de 30 mL/min/1,73 m², inicio de diálisis, o
+    enfermedad aguda que curse con deshidratación, hipoperfusión o lesión renal
+    aguda. En los tres casos se suspende sin esperar a la valoración del
+    especialista.
+  ref: 'pmid:36189689'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: reproductivo
+    motivo: >-
+      No se localizó fuente accesible que fije el perfil reproductivo de la
+      metformina. El informe de consenso de la ADA y KDIGO no trata el embarazo
+      ni la lactancia, y el capítulo de manejo de la diabetes en el embarazo de
+      los estándares de la ADA devolvió el texto completo vacío en esta sesión:
+      su resumen describe el documento pero no publica sus recomendaciones. El
+      hueco pesa más que en otras moléculas, porque la metformina se usa de
+      hecho en el embarazo y en el síndrome de ovario poliquístico, y decir aquí
+      «compatible» o «evitar» de memoria sería justamente lo que este apartado
+      existe para impedir. Se resuelve con el capítulo 15 de los estándares de
+      la ADA o con una guía obstétrica, no por analogía.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica, y capítulo de manejo de la diabetes en el embarazo de los
+      estándares de la ADA, cuyo cuerpo no resultó accesible.
+    refs:
+      - 'pmid:36189689'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que establezca una dosificación de la metformina
+      guiada por genotipo. Ni el informe de consenso ni la guía KDIGO dosifican
+      por variantes genéticas: dosifican por filtrado glomerular, y esa es toda
+      la estratificación que la evidencia accesible sostiene. Tampoco existe una
+      guía CPIC de metformina equivalente a la de TPMT y NUDT15 para las
+      tiopurinas. La ausencia describe el estado del conocimiento, no una
+      búsqueda incompleta.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica.
+    refs:
+      - 'pmid:36189689'
+
+refs:
+  - 'pmid:36189689'
+  - 'pmid:20393934'

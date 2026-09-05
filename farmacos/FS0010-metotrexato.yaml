@@ -109,4 +109,4 @@ seguridad:
 # `python scripts/openfda.py methotrexate`. Escribirlos a mano dejaría un dato
 # regulatorio sin fecha de consulta verificable, que es peor que no tenerlo.
 
-fichas: []
+fichas: ['FT:0010', 'FT:0011']

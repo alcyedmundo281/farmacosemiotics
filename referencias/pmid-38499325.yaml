@@ -1,0 +1,76 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+#
+# Obtenido por pubmed-mcp porque la red de este entorno deniega
+# la salida a eutils. PubMed sigue siendo la autoridad; lo que cambia
+# es el transporte. Rehazlo con --forzar cuando eutils sea alcanzable.
+#
+# `anio` es la fecha que devolvió esa vía, que en los artículos
+# publicados antes en electrónico es la del epub y no la del
+# fascículo. El PMID, el DOI y el volumen sí fijan el artículo.
+
+id: "pmid:38499325"
+clave_bibtex: gossec2024
+tipo: revision_sistematica
+titulo: "EULAR recommendations for the management of psoriatic arthritis with pharmacological therapies: 2023 update"
+autores:
+  - "Gossec L"
+  - "Kerschbaumer A"
+  - "Ferreira RJO"
+  - "Aletaha D"
+  - "Baraliakos X"
+  - "Bertheussen H"
+  - "Boehncke WH"
+  - "Esbensen BA"
+  - "McInnes IB"
+  - "McGonagle D"
+  - "Winthrop KL"
+  - "Balanescu A"
+  - "Balint PV"
+  - "Burmester GR"
+  - "Cañete JD"
+  - "Claudepierre P"
+  - "Eder L"
+  - "Hetland ML"
+  - "Iagnocco A"
+  - "Kristensen LE"
+  - "Lories R"
+  - "Queiro R"
+  - "Mauro D"
+  - "Marzo-Ortega H"
+  - "Mease PJ"
+  - "Nash P"
+  - "Wagenaar W"
+  - "Savage L"
+  - "Schett G"
+  - "Shoop-Worrall SJW"
+  - "Tanaka Y"
+  - "Van den Bosch FE"
+  - "van der Helm-van Mil A"
+  - "Zabotti A"
+  - "van der Heijde D"
+  - "Smolen JS"
+publicacion: "Ann Rheum Dis"
+anio: 2024
+volumen: "83"
+numero: "6"
+paginas: "706-719"
+
+identificadores:
+  pmid: 38499325
+  doi: "10.1136/ard-2024-225531"
+  pmc: "PMC11103320"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Practice Guideline"
+  - "Systematic Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-04'
+  retractado: false
+  via: pubmed-mcp
+  retractacion_completa: false   # el tipo de publicación es todo
+                                 # lo que esta vía deja comprobar
+  crossref: null   # no comprobado

@@ -1,0 +1,314 @@
+# Guía: fármaco × indicación. La decisión situada.
+#
+# Es la SEGUNDA indicación que se apoya en la misma farmacoterapia:
+#
+#   farmacoterapia/FA0010-metotrexato.yaml   cómo se usa con seguridad
+#
+# El cronograma hepático, los umbrales y el perfil reproductivo no se repiten
+# aquí: son de la molécula y ya están escritos una vez. Lo que esta indicación
+# SÍ cambia va en `variaciones`, y es poco pero importa: en artritis psoriásica
+# el acompañamiento con glucocorticoide no se recomienda como en la reumatoide,
+# el metotrexato no cubre la enfermedad axial ni la entesitis, y la estrategia
+# por objetivos añade un reloj de eficacia a los 3 y 6 meses.
+#
+# Sin `seleccion:` todavía: no hay informe de selección para la artritis
+# psoriásica. `build.py` lo avisa, y el aviso está bien puesto.
+
+id: 'FT:0011'
+tipo: ficha
+farmaco: 'FS:0010'
+
+titulo: Metotrexato en la artritis psoriásica periférica
+titulo_en: Methotrexate in peripheral psoriatic arthritis
+indicacion: Artritis psoriásica
+indicacion_en: Psoriatic arthritis
+poblacion: >-
+  Personas adultas con artritis psoriásica y afectación articular periférica:
+  poliartritis, o monoartritis y oligoartritis con factores de mal pronóstico
+  —daño estructural, reactantes de fase aguda elevados, dactilitis o afectación
+  ungueal—. La enfermedad axial y la entesitis quedan fuera: ahí la respuesta
+  no es el metotrexato, y esta guía lo dice en vez de dejarlo suponer.
+poblacion_en: >-
+  Adults with psoriatic arthritis and peripheral joint involvement:
+  polyarthritis, or mono/oligoarthritis with poor prognostic factors.
+cie11: FA21
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  fuerza: fuerte
+  perla_prescripcion: >-
+    En artritis periférica se inicia un csDMARD rápido, y el metotrexato es el
+    preferido cuando hay afectación cutánea clínicamente relevante. Esa
+    coletilla es la condición, no un adorno: sin psoriasis cutánea relevante la
+    guía recomienda csDMARD sin nombrar preferido entre metotrexato,
+    sulfasalazina y leflunomida.
+  alerta_seguridad_inmediata: >-
+    No sirve para todo el cuadro. En la enfermedad axial clínicamente relevante
+    los csDMARD se siguen juzgando no relevantes, y en la entesitis inequívoca
+    con respuesta insuficiente la propuesta es un biológico. Prescribir
+    metotrexato para una entesitis o una axial es tratar lo que no responde.
+
+# ── Pregunta ────────────────────────────────────────────────────────────
+pico:
+  p: >-
+    Adultos con artritis psoriásica periférica: poliartritis, o monoartritis y
+    oligoartritis con factores de mal pronóstico
+  i: Metotrexato como csDMARD inicial
+  c: Sulfasalazina o leflunomida; biológico; AINE en monoterapia
+  o: >-
+    Actividad de la enfermedad articular, afectación cutánea, entesitis,
+    dactilitis, alcanzar el objetivo terapéutico
+
+estrategia:
+  - base: PubMed
+    consulta: '"arthritis, psoriatic"[MeSH] AND practice guideline[pt]'
+    fecha: '2026-09-05'
+    nota: >-
+      La ficha se ancla en la actualización de 2023 de las recomendaciones
+      EULAR para el tratamiento farmacológico de la artritis psoriásica, que es
+      la que fija el lugar del metotrexato y, sobre todo, sus límites.
+
+# ── Posología ───────────────────────────────────────────────────────────
+posologia:
+  inicio: >-
+    La pauta de inicio y el escalado son los de la farmacoterapia de la
+    molécula: la guía de artritis psoriásica no fija una posología propia
+    distinta de la del metotrexato en otras indicaciones reumatológicas.
+  nota: >-
+    Lo que sí cambia es el plazo para juzgarla, y va en `variaciones`: si a los
+    tres meses no ha bajado al menos la mitad la actividad, o a los seis no se
+    ha alcanzado el objetivo, el csDMARD no debe continuarse.
+  ref: 'pmid:38499325'
+
+# ── Evidencia ───────────────────────────────────────────────────────────
+evidencia:
+  - desenlace: >-
+      Elección del csDMARD inicial en la artritis psoriásica periférica
+    criticidad: critico
+    diseno: guia
+    estudio: >-
+      Recomendaciones EULAR para el tratamiento farmacológico de la artritis
+      psoriásica, actualización de 2023
+    comparador: Sulfasalazina o leflunomida como csDMARD inicial
+    efecto: >-
+      En poliartritis, o en monoartritis y oligoartritis con factores de mal
+      pronóstico —daño estructural, reactantes de fase aguda elevados,
+      dactilitis o afectación ungueal—, debe iniciarse rápidamente un csDMARD,
+      y el metotrexato es el preferido en quienes tienen afectación cutánea
+      clínicamente relevante. La preferencia va condicionada a la piel: los tres
+      csDMARD licenciados para artritis psoriásica son metotrexato,
+      sulfasalazina y leflunomida.
+    certeza: baja
+    razones_descenso:
+      - imprecision
+      - evidencia_indirecta
+    ref: 'pmid:38499325'
+
+  - desenlace: Entesitis
+    criticidad: importante
+    diseno: guia
+    estudio: >-
+      Recomendaciones EULAR para el tratamiento farmacológico de la artritis
+      psoriásica, actualización de 2023
+    comparador: Biológico tras respuesta insuficiente a AINE o infiltración local
+    efecto: >-
+      Ante entesitis inequívoca con respuesta insuficiente a AINE o a
+      infiltración local de glucocorticoide, la propuesta es un biológico sin
+      preferencia de mecanismo, porque todos los aprobados han demostrado
+      eficacia sobre la entesitis con magnitudes similares —aunque faltan
+      ensayos comparativos directos—. El grupo redactor discutió datos que
+      indican de forma indirecta cierta eficacia del metotrexato y reconoce que
+      en algunos pacientes puede ser una opción, pero no es la propuesta.
+    certeza: muy_baja
+    razones_descenso:
+      - evidencia_indirecta
+      - imprecision
+    ref: 'pmid:38499325'
+
+  - desenlace: Enfermedad axial
+    criticidad: importante
+    diseno: guia
+    estudio: >-
+      Recomendaciones EULAR para el tratamiento farmacológico de la artritis
+      psoriásica, actualización de 2023
+    comparador: >-
+      Inhibidor de IL-17A, de TNF, de IL-17A/F o de JAK tras respuesta
+      insuficiente a AINE
+    efecto: >-
+      En la enfermedad axial clínicamente relevante los csDMARD se siguen
+      juzgando no relevantes, en concordancia con las recomendaciones ASAS/EULAR
+      para la espondiloartritis axial. La respuesta ahí es un biológico o un
+      inhibidor de JAK, no el metotrexato.
+    certeza: baja
+    razones_descenso:
+      - evidencia_indirecta
+    ref: 'pmid:38499325'
+
+# ── Posicionamiento terapéutico ─────────────────────────────────────────
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Primera línea, pero acotada a la artritis periférica y preferido cuando la
+    piel pesa. Solo los pacientes con enfermedad periférica muy leve, o con
+    predominio entesal o axial, pueden beneficiarse lo suficiente de un AINE en
+    monoterapia.
+  escalonado:
+    - linea: primera
+      opciones:
+        - Metotrexato como csDMARD, si hay afectación cutánea relevante
+        - Sulfasalazina o leflunomida como csDMARD alternativo
+      nota: >-
+        Inicio rápido en poliartritis, o en mono y oligoartritis con factores de
+        mal pronóstico.
+    - linea: segunda
+      opciones:
+        - Biológico, sin preferencia de mecanismo de acción
+      nota: >-
+        Si no se alcanza el objetivo con el csDMARD. Cuando hay psoriasis
+        cutánea relevante, orientar hacia inhibidores de IL-23p40, IL-23p19,
+        IL-17A o IL-17A/F. La enfermedad inflamatoria intestinal y la uveítis,
+        si están presentes, deben influir en la elección, con los anticuerpos
+        monoclonales anti-TNF como propuesta.
+    - linea: tercera
+      opciones:
+        - Inhibidor de JAK
+      nota: >-
+        Propuesto principalmente tras fracaso de un biológico, teniendo en
+        cuenta los factores de riesgo relevantes, o cuando un biológico no es
+        una opción apropiada.
+  desescalamiento:
+    enunciado: >-
+      En remisión sostenida puede considerarse la reducción de dosis. La guía
+      es explícita en el vocabulario: por «tapering» entiende reducción de
+      dosis y no suspensión del fármaco, porque suspender suele llevar a brote.
+      Faltan datos a largo plazo y hoy la reducción es un uso fuera de ficha
+      técnica; conviene decirlo porque a menudo la hace el propio paciente por
+      su cuenta.
+    ref: 'pmid:38499325'
+  ref: 'pmid:38499325'
+
+# ── En qué se aparta esta indicación ────────────────────────────────────
+# El apartado que justifica que exista `variaciones`: la farmacoterapia base es
+# la misma, y estas tres cosas son todo lo que cambia. Copiar el cronograma
+# entero aquí para decir esto habría sido el error.
+variaciones:
+  - bloque: posicionamiento
+    cambio: >-
+      El acompañamiento con glucocorticoide no se plantea igual que en la
+      artritis reumatoide. Aquí el grupo redactor decidió dejar de aludir a los
+      glucocorticoides sistémicos en un punto propio, porque los datos que
+      sostienen su prescripción en artritis psoriásica son escasos: se admiten
+      con precaución y a la dosis mínima eficaz, en casos seleccionados —formas
+      poliarticulares o como terapia puente—, y la infiltración local se
+      considera tratamiento adyuvante. En la reumatoide, en cambio, la
+      recomendación europea sitúa el metotrexato CON glucocorticoide como
+      tratamiento inicial.
+    ref: 'pmid:38499325'
+
+  - bloque: posicionamiento
+    cambio: >-
+      El metotrexato no cubre todo el cuadro. En la enfermedad axial
+      clínicamente relevante los csDMARD se juzgan no relevantes, y en la
+      entesitis inequívoca la propuesta es un biológico. La elección del csDMARD
+      vale para la artritis periférica y no debe extenderse al resto de
+      manifestaciones, que se evalúan por separado: la actividad debe valorarse
+      con regularidad en cada una —articulaciones, piel, entesitis, dactilitis,
+      enfermedad axial— y el ajuste depende de cuál predomine en ese momento.
+    ref: 'pmid:38499325'
+
+  - bloque: monitorizacion
+    cambio: >-
+      Se añade un reloj de eficacia sobre el cronograma hepático de la
+      farmacoterapia base. La estrategia por objetivos implica reducir la
+      actividad al menos un 50 % en tres meses y alcanzar el objetivo en seis;
+      un csDMARD no debe continuarse si esas metas no se alcanzan. Es una
+      revisión con fecha, y no la vigilancia de toxicidad, que sigue siendo la
+      de la molécula.
+    ref: 'pmid:38499325'
+
+# ── Balance ─────────────────────────────────────────────────────────────
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: moderado
+  certeza_global: baja
+  valores_preferencias: >-
+    Variabilidad esperable moderada, y concentrada en un punto: cuánto pesa la
+    piel para el paciente. Quien tiene psoriasis cutánea relevante gana con el
+    metotrexato frente a los otros csDMARD, y ese mismo criterio orienta después
+    la clase de biológico si hay que escalar. Quien tiene poca piel y mucha
+    articulación no tiene motivo para preferirlo sobre sulfasalazina o
+    leflunomida.
+  equidad: >-
+    Favorable: oral, genérico y disponible donde no hay biológicos. En artritis
+    psoriásica esa ventaja pesa más que en otras indicaciones, porque el escalón
+    siguiente es directamente un biológico y no otro fármaco oral barato.
+  aceptabilidad: alta
+  factibilidad: >-
+    Alta, con dos condiciones: acceso a bioquímica hepática para el cronograma
+    de la molécula, y capacidad de medir la actividad de la enfermedad por
+    manifestación para poder aplicar el reloj de tres y seis meses.
+
+# ── Recomendación ───────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda iniciar rápidamente un csDMARD en el adulto con artritis
+    psoriásica periférica —poliartritis, o mono y oligoartritis con factores de
+    mal pronóstico—, y que ese csDMARD sea metotrexato cuando exista afectación
+    cutánea clínicamente relevante. No se recomienda para la enfermedad axial ni
+    como primera respuesta a la entesitis inequívoca.
+  enunciado_en: >-
+    Rapid initiation of a csDMARD is recommended in adults with peripheral
+    psoriatic arthritis, with methotrexate preferred in those with clinically
+    relevant skin involvement. It is not recommended for axial disease or as
+    first response to unequivocal enthesitis.
+  ref: 'pmid:38499325'
+  justificacion_fuerza: >-
+    Fuerte sobre certeza global baja, que en GRADE es la excepción. Lo que la
+    sostiene es que la recomendación de iniciar rápido un csDMARD en artritis
+    periférica es firme y consensuada, y que la parte condicionada —cuál csDMARD—
+    está explícitamente acotada por la afectación cutánea. La certeza baja
+    refleja la ausencia de ensayos comparativos directos entre los tres csDMARD,
+    no una duda sobre si tratar.
+
+alternativas:
+  - dci: Sulfasalazina
+    atc: A07EC01
+    lme: false
+    nota: >-
+      csDMARD licenciado para artritis psoriásica. Alternativa cuando no hay
+      afectación cutánea relevante que incline hacia el metotrexato.
+  - dci: Leflunomida
+    atc: L04AA13
+    lme: false
+    nota: >-
+      El tercer csDMARD licenciado para esta indicación, en la misma posición
+      que la sulfasalazina.
+
+conclusion: >-
+  En la artritis psoriásica periférica el metotrexato es el csDMARD inicial
+  preferido, pero con una condición que la guía pone por escrito y conviene no
+  perder al citarla: solo en quienes tienen afectación cutánea clínicamente
+  relevante. Y con un límite igual de explícito: no cubre la enfermedad axial,
+  donde los csDMARD se juzgan no relevantes, ni es la primera respuesta a la
+  entesitis inequívoca, donde la propuesta es un biológico.
+
+  Esta ficha es además la segunda que se apoya en la misma farmacoterapia del
+  metotrexato, y sirve para ver qué se gana con esa separación: el cronograma
+  hepático, los umbrales de fibrosis y la suspensión un mes antes de la
+  concepción no se han vuelto a escribir. Lo que cambia entre una indicación y
+  la otra cabe en tres líneas de `variaciones`: el glucocorticoide acompañante,
+  el alcance por manifestación y el reloj de tres y seis meses.
+
+refs:
+  - 'pmid:38499325'

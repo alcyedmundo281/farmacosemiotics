@@ -1,6 +1,10 @@
 id: 'FT:0004'
 tipo: ficha
 farmaco: 'FS:0004'
+# El informe de selección del problema es SEL:0003. Esta ficha desarrolla el
+# candidato del SEGUNDO escalón: el que la guía elige cuando la piel pesa y ya
+# hubo respuesta inadecuada a un csDMARD. FT:0011 desarrolla el del primero.
+seleccion: 'SEL:0003'
 
 titulo: Guselkumab en la artritis psoriásica activa del adulto
 titulo_en: Guselkumab for active psoriatic arthritis in adults

@@ -1,0 +1,275 @@
+# PARTE I — Informe de selección del medicamento.
+#
+# Este informe tiene una forma distinta de los dos anteriores, y conviene verla
+# antes que la tabla: en artritis psoriásica la decisión no es «cuál de estos
+# funciona mejor» sino «cuál va primero», y después «cuál de los del segundo
+# escalón, según qué órgano acompañe a la articulación».
+#
+# Por eso el candidato con la mejor evidencia de eficacia de la tabla NO es el
+# seleccionado. No es una incoherencia del informe: es la estrategia escalonada
+# de la guía, y un informe que solo mirara la columna de eficacia elegiría mal.
+
+id: 'SEL:0003'
+tipo: seleccion
+problema: Artritis psoriásica periférica activa
+problema_en: Active peripheral psoriatic arthritis
+cie11: FA21
+
+poblacion: >-
+  Personas adultas con artritis psoriásica y afectación articular periférica
+  activa: poliartritis, o monoartritis y oligoartritis con factores de mal
+  pronóstico. Quedan fuera dos escenarios que la guía trata aparte y este
+  informe no cubre: la enfermedad axial y la entesitis predominantes, donde los
+  csDMARD se juzgan no relevantes, y la enfermedad leve —oligoarticular o
+  entesal, sin factores de mal pronóstico y con piel limitada—, donde se
+  contempla un inhibidor de PDE4 si no procede biológico ni inhibidor de JAK.
+
+pregunta: >-
+  En el adulto con artritis psoriásica periférica activa, ¿qué fármaco se
+  selecciona como tratamiento inicial, cuáles quedan para el escalón siguiente
+  y qué ordena la elección entre ellos, según eficacia, seguridad, conveniencia
+  y costo?
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  La artritis psoriásica no es una sola enfermedad en un solo tejido. La guía
+  insiste en que la actividad se valore por manifestación —articulaciones,
+  piel, entesitis, dactilitis, enfermedad axial— y en que el ajuste dependa de
+  cuál predomine en ese momento. Esa es la razón de que la elección del
+  mecanismo de acción en el segundo escalón no la decida la articulación sino
+  lo que la acompaña.
+
+estrategia:
+  - base: PubMed
+    consulta: '"arthritis, psoriatic"[MeSH] AND practice guideline[pt]'
+    fecha: '2026-09-05'
+    nota: >-
+      El posicionamiento y el orden de los escalones salen de la actualización
+      de 2023 de las recomendaciones EULAR. La eficacia del inhibidor de
+      IL-23p19 sale de su ensayo pivotal en pacientes sin biológico previo, que
+      es el que sostiene la ficha FT:0004.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+candidatos:
+  - dci: Metotrexato
+    atc: L04AX03
+    farmaco: 'FS:0010'
+    clase: csDMARD, antimetabolito antifolato
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Es el candidato con la base de eficacia más débil de la tabla, y la guía
+        no lo disimula: ante respuesta inadecuada a al menos un csDMARD manda
+        pasar a un biológico. En piel queda claramente por detrás, porque hay
+        datos sólidos, incluidos ensayos cabeza a cabeza, que muestran que los
+        fármacos dirigidos a IL-23 e IL-17 son superiores a los anti-TNF y a los
+        inhibidores de JAK para la psoriasis cutánea. Su preferencia entre los
+        tres csDMARD va además condicionada a que haya afectación cutánea
+        clínicamente relevante.
+      ref: 'pmid:38499325'
+    seguridad:
+      juicio: sin_datos
+      sustento: >-
+        La guía no compara la seguridad del csDMARD frente a la del biológico:
+        ordena el escalón por eficacia y por manifestación acompañante, no por
+        toxicidad. El perfil del metotrexato —hepático, pulmonar, teratógeno—
+        está documentado aparte, en su farmacoterapia FA:0010, pero no frente a
+        estos comparadores.
+      ref: 'pmid:38499325'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Oral, y es el paso que la guía manda dar primero y rápido. Añade además
+        una flexibilidad que ningún biológico tiene: donde la afectación
+        periférica es limitada y sin factores de mal pronóstico, no es
+        descabellado aplicar un segundo curso de csDMARD antes de iniciar un
+        biológico o un sintético dirigido.
+      ref: 'pmid:38499325'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral de administración domiciliaria, el extremo barato de una
+        tabla en la que los otros tres son fármacos de marca. En esta indicación
+        esa distancia pesa más que en otras, porque el escalón siguiente es
+        directamente un biológico y no otro oral barato.
+    veredicto: seleccionado
+    nota: >-
+      Seleccionado como tratamiento inicial de la artritis periférica, y
+      preferido entre los csDMARD cuando hay afectación cutánea clínicamente
+      relevante. FT:0011 lo desarrolla.
+
+  - dci: Guselkumab
+    atc: L04AC16
+    clase: Inhibidor de IL-23p19
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Es la mejor evidencia de eficacia de la tabla, y con diferencia: en
+        artritis psoriásica activa sin biológico previo alcanzó un NNT de 4 para
+        la respuesta articular ACR 20 y de 2 para el aclaramiento cutáneo PASI
+        90 a las 24 semanas, con certeza alta en ambos. A eso se suma que su vía
+        —IL-23— está entre las que los ensayos cabeza a cabeza sitúan por encima
+        de los anti-TNF y de los inhibidores de JAK para la psoriasis cutánea.
+      ref: 'pmid:32178766'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        La guía la califica de satisfactoria, en línea con ustekinumab, que
+        interfiere la misma citocina por la cadena p40 y cuyo perfil de efectos
+        adversos es bien conocido y también satisfactorio. Es el único candidato
+        de la tabla del que la guía dice algo favorable y explícito sobre
+        seguridad.
+      ref: 'pmid:38499325'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Parenteral, como el resto de los biológicos. A favor: es la clase hacia
+        la que la guía orienta cuando hay afectación cutánea clínicamente
+        relevante, y una de las admitidas si coexiste enfermedad inflamatoria
+        intestinal. En contra: no cubre la enfermedad axial, porque ante los
+        ensayos negativos de la inhibición de IL-12/23 en espondiloartritis
+        axial la vía de IL-23 no se recomienda ahí.
+      ref: 'pmid:38499325'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Biológico de marca sin biosimilares en la tabla de opciones de la guía,
+        a diferencia de los anti-TNF. Es el extremo caro junto con el inhibidor
+        de JAK.
+    veredicto: alternativa
+    nota: >-
+      Alternativa de elección en el segundo escalón cuando la piel pesa.
+      FT:0004 la desarrolla, en la población con respuesta inadecuada o
+      intolerancia a csDMARD.
+
+  - dci: Anticuerpos monoclonales anti-TNF
+    clase: bDMARD, inhibidores del factor de necrosis tumoral
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        En la articulación no hay preferencia declarada por mecanismo de acción
+        y compiten de igual a igual con el resto de biológicos. En piel quedan
+        por debajo de IL-23 e IL-17 según los ensayos cabeza a cabeza. Pero en
+        uveítis son superiores a todo lo demás por una razón categórica: es el
+        único mecanismo con prueba directa de eficacia sobre ella.
+      ref: 'pmid:38499325'
+    seguridad:
+      juicio: sin_datos
+      sustento: >-
+        La guía ordena los biológicos entre sí por manifestación acompañante y
+        no por seguridad comparada, y no señala ninguna desventaja de los
+        anti-TNF frente a los demás. Deducir de ese silencio una equivalencia
+        sería justamente lo que este campo existe para evitar.
+      ref: 'pmid:38499325'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Es el mecanismo que resuelve dos problemas con un fármaco cuando hay
+        comorbilidad: preferido si coexiste uveítis, y una de las opciones si
+        coexiste enfermedad inflamatoria intestinal. En un paciente con esas
+        manifestaciones, elegir otra clase obliga a tratar la comorbilidad
+        aparte.
+      ref: 'pmid:38499325'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Biológico, pero el único grupo que la tabla de opciones de la guía
+        recoge tanto en su versión original como en biosimilares. Eso lo sitúa
+        por debajo del resto de biológicos y aun así muy por encima del csDMARD
+        oral.
+    veredicto: alternativa
+    nota: >-
+      Alternativa de elección en el segundo escalón cuando coexiste uveítis, y
+      una de las opciones cuando coexiste enfermedad inflamatoria intestinal.
+
+  - dci: Inhibidores de JAK
+    clase: tsDMARD, inhibidores de la Janus cinasa
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Desde 2019 se han acumulado datos de eficacia, con la publicación de
+        ensayos positivos de upadacitinib en artritis psoriásica. En piel, sin
+        embargo, quedan por debajo de IL-23 e IL-17 en los ensayos cabeza a
+        cabeza.
+      ref: 'pmid:38499325'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Es el eje que los desplaza al final de la fila. Existe una advertencia
+        mundial emitida por la FDA y por la agencia europea, y el grupo redactor
+        los sitúa después del fracaso de los biológicos precisamente porque
+        varios biológicos nuevos con excelente efecto sobre la piel y datos de
+        seguridad relativamente buenos ya están disponibles, y porque hacen
+        falta más datos a largo plazo de eficacia y seguridad de los inhibidores
+        de JAK en artritis psoriásica.
+      ref: 'pmid:38499325'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        La guía los contempla no solo tras el fracaso de un biológico sino
+        también cuando un biológico no es apropiado, lo que los convierte en la
+        salida disponible donde aquel no encaja. Son además una de las opciones
+        cuando coexiste enfermedad inflamatoria intestinal.
+      ref: 'pmid:38499325'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Sintético dirigido de marca. Comparte el extremo caro de la tabla con el
+        inhibidor de IL-23p19.
+    veredicto: reservado
+    nota: >-
+      Reservados para después de una respuesta inadecuada a al menos un
+      biológico, o para cuando un biológico no es apropiado, teniendo en cuenta
+      las consideraciones de seguridad.
+
+# ── Qué eje decidió ─────────────────────────────────────────────────────
+criterio_decisorio: >-
+  No decidió la eficacia, y eso es lo más instructivo de este informe. El
+  candidato con la mejor evidencia de eficacia de la tabla —guselkumab, con
+  ensayo aleatorizado, certeza alta, NNT 4 para la articulación y 2 para la
+  piel— no es el seleccionado. Decidió la secuencia: la guía manda probar un
+  csDMARD antes de escalar, y el metotrexato es el csDMARD preferido cuando la
+  piel pesa. La distancia entre «cuál funciona mejor» y «cuál va primero» es
+  todo lo que separa a este informe de uno que eligiera mal.
+
+  Hay además una segunda decisión, dentro del escalón biológico, que no la toma
+  la articulación. La elección del mecanismo debe reflejar las manifestaciones
+  no musculoesqueléticas: con afectación cutánea clínicamente relevante se
+  prefiere un inhibidor de IL-17A, IL-17A/F, IL-23 o IL-12/23; con uveítis, un
+  anticuerpo monoclonal anti-TNF; con enfermedad inflamatoria intestinal, un
+  anti-TNF monoclonal, un inhibidor de IL-23 o de IL-12/23, o un inhibidor de
+  JAK. Dicho de otro modo: en el segundo escalón, el eje que decide es la
+  conveniencia entendida como cobertura de la comorbilidad, no la eficacia
+  articular, que la guía considera pareja entre mecanismos.
+
+conclusion: >-
+  En el adulto con artritis psoriásica periférica activa se selecciona el
+  metotrexato como tratamiento inicial, pese a ser el candidato con la evidencia
+  de eficacia más débil de la tabla: la guía manda agotar un csDMARD antes de
+  escalar, y él es el preferido de los tres cuando hay afectación cutánea
+  clínicamente relevante. Ante respuesta inadecuada a al menos un csDMARD se
+  pasa a un biológico, y cuál depende de lo que acompañe a la articulación:
+  guselkumab u otro inhibidor de IL-23 o IL-17 si pesa la piel, anticuerpo
+  monoclonal anti-TNF si hay uveítis. Los inhibidores de JAK quedan reservados
+  para después del fracaso de un biológico, o para cuando un biológico no es
+  apropiado, por la advertencia de seguridad de la FDA y la agencia europea.
+
+  El informe declara sus huecos. La seguridad comparada del csDMARD frente al
+  biológico, y la de los anti-TNF frente a los demás biológicos, quedaron sin
+  datos: la guía ordena el escalón por eficacia y por manifestación acompañante,
+  no por toxicidad comparada. Y quedan fuera de su alcance dos escenarios que la
+  propia guía trata aparte: la enfermedad axial y la entesitis predominantes,
+  donde los csDMARD no son relevantes, y la enfermedad leve, donde se contempla
+  un inhibidor de PDE4. Decidir con este informe en esos tres casos sería usarlo
+  fuera de la población que evaluó.
+
+refs:
+  - 'pmid:38499325'
+  - 'pmid:32178766'

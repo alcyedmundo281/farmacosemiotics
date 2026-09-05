@@ -11,12 +11,15 @@
 # el metotrexato no cubre la enfermedad axial ni la entesitis, y la estrategia
 # por objetivos añade un reloj de eficacia a los 3 y 6 meses.
 #
-# Sin `seleccion:` todavía: no hay informe de selección para la artritis
-# psoriásica. `build.py` lo avisa, y el aviso está bien puesto.
+# El informe de selección de la indicación es SEL:0003, que compara el
+# metotrexato con el inhibidor de IL-23p19, los anti-TNF monoclonales y los
+# inhibidores de JAK. Ahí se ve por qué esta ficha va primero pese a tener la
+# evidencia de eficacia más débil de las cuatro.
 
 id: 'FT:0011'
 tipo: ficha
 farmaco: 'FS:0010'
+seleccion: 'SEL:0003'
 
 titulo: Metotrexato en la artritis psoriásica periférica
 titulo_en: Methotrexate in peripheral psoriatic arthritis

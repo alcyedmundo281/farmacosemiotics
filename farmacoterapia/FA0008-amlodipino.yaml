@@ -11,11 +11,16 @@
 # clortalidona, amlodipino y lisinopril durante una media de 4,9 años. Es un
 # ensayo de DESENLACES. En su resumen no hay mecanismo de acción, ni mecanismo
 # del edema maleolar, ni el enunciado de que el edema mejore al asociar un IECA
-# o un ARA-II. Esas tres afirmaciones aparecen en FS:0008 citando a ALLHAT, y
-# esta farmacoterapia NO las reutiliza: un enunciado cuyo PMID resuelve pero no
+# o un ARA-II. Esas tres afirmaciones estaban en FS:0008 citando a ALLHAT, y
+# esta farmacoterapia no las reutilizó: un enunciado cuyo PMID resuelve pero no
 # lo sostiene pasa la validación y falla la regla de oro, y copiarlo aquí lo
 # habría multiplicado en vez de detenerlo. Lo que sí sostiene ALLHAT está abajo,
 # y es justamente lo que faltaba: la señal de insuficiencia cardíaca.
+#
+# FS:0008 y FT:0008 se corrigieron después, en el mismo día y con la misma
+# comprobación: cada uno lleva su nota de procedencia en cabecera. Este párrafo
+# se conserva porque explica por qué este fichero nació sin conducta ante el
+# edema maleolar, que es su ausencia más visible.
 #
 # El texto completo de ALLHAT no resultó accesible en esta sesión, de modo que
 # no puede descartarse que sus tablas de efectos adversos contengan cifras que

@@ -1,0 +1,284 @@
+# PARTE II — Farmacoterapia: cómo se usa la empagliflozina con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# Hay una particularidad de esta molécula que conviene tener presente al leer lo
+# que sigue: el inhibidor de SGLT2 pierde eficacia HIPOGLUCEMIANTE a medida que
+# cae el filtrado glomerular, pero CONSERVA el beneficio renal y cardiovascular.
+# Esa disociación explica casi todas las reglas de abajo. Explica que se
+# recomiende con independencia de la hemoglobina glucosilada y del objetivo
+# glucémico alcanzado; explica que se inicie con filtrados en los que ya casi no
+# baja la glucosa; y explica que se continúe por debajo del umbral de inicio si
+# ya estaba puesto y se tolera. Un fármaco que se juzgara solo por la glucemia se
+# retiraría exactamente cuando más protege.
+#
+# La fuente es el informe de consenso conjunto de la ADA y KDIGO de 2022, el
+# mismo que sostiene FA:0001 y FA:0006. Su población es la persona con diabetes
+# tipo 2 y enfermedad renal crónica, y eso acota lo que aquí puede afirmarse: la
+# empagliflozina tiene además una indicación en insuficiencia cardíaca —la que
+# desarrolla FT:0007—, y las guías de insuficiencia cardíaca de la ESC y de la
+# AHA/ACC/HFSA, que son las que fijarían el seguimiento en ese escenario, no
+# resultaron accesibles en esta sesión. Lo que hay abajo vale como propiedad de
+# la molécula; lo que falta está declarado.
+
+id: 'FA:0007'
+tipo: farmacoterapia
+farmaco: 'FS:0007'
+
+titulo: Farmacoterapia con empagliflozina
+titulo_en: Empagliflozin pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación de la empagliflozina como inhibidor del
+  cotransportador sodio-glucosa tipo 2. Lo que cubre es el umbral de filtrado
+  glomerular para iniciarla y la regla —distinta— para continuarla, y las cuatro
+  consideraciones de seguridad que la fuente tabula para la clase con su medida
+  de mitigación: infección micótica genital, depleción de volumen, cetoacidosis
+  diabética e hipoglucemia. Cubre también las combinaciones que obligan a
+  ajustar otro fármaco y no este. Lo que NO cubre, y queda declarado abajo, es
+  el cronograma: la fuente nombra qué vigilar pero no con qué periodicidad, y
+  por eso no hay aquí una tabla de fases. Un lector que busque «cada cuánto»
+  no lo encontrará, y es mejor decirlo aquí que dejarlo suponer.
+
+estado: borrador
+fecha: '2026-09-05'
+actualizado: '2026-09-05'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Filtrado glomerular estimado
+    motivo: >-
+      Decide si se inicia, y con una regla que no es la misma que la de
+      continuar: se recomienda en la mayoría de los pacientes con diabetes tipo 2
+      y enfermedad renal crónica con TFGe de 20 mL/min/1,73 m² o superior, con
+      independencia de la hemoglobina glucosilada y de si hace falta bajar más
+      la glucosa
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - prueba: >-
+      Estado de volumen y revisión del tratamiento diurético concomitante
+    motivo: >-
+      La depleción de volumen es una de las cuatro consideraciones de seguridad
+      de la clase, y su medida de mitigación se aplica ANTES de la primera dosis
+      en quien tiene alto riesgo: valorar una reducción proactiva de la dosis de
+      diurético
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - prueba: >-
+      Tratamiento hipoglucemiante de base, en particular insulina y
+      sulfonilurea
+    motivo: >-
+      Determina dos ajustes distintos y ambos previos: bajar el riesgo de
+      hipoglucemia ajustando el fármaco de base, y —en quien depende de la
+      insulina— asegurar que se mantendrá al menos una dosis baja, que es la
+      condición con la que se previene la cetoacidosis
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+# ── Qué hacer cuando el resultado se tuerce ─────────────────────────────
+umbrales_accion:
+  - parametro: Filtrado glomerular estimado, para INICIAR
+    umbral: Entre 20 y 29 mL/min/1,73 m²
+    accion: >-
+      Se puede iniciar. En ese rango el efecto sobre la glucemia es mínimo y el
+      fármaco sirve sobre todo por sus beneficios renales y cardiovasculares, que
+      no están mediados por la glucemia. Es la situación en la que el inhibidor
+      de SGLT2 sin metformina resulta razonable: cuando el filtrado ya es
+      demasiado bajo para prescribir metformina con seguridad, cuando la
+      metformina no se tolera, o cuando no hace falta para alcanzar el objetivo
+      glucémico.
+    ref: 'pmid:36189689'
+
+  - parametro: Filtrado glomerular estimado, para CONTINUAR
+    umbral: Por debajo de 20 mL/min/1,73 m²
+    accion: >-
+      Se continúa si ya estaba iniciado y se tolera bien. Esta es la regla que
+      más se incumple en la práctica, porque invierte el reflejo habitual: el
+      umbral de inicio y el de retirada no coinciden, y suspenderlo al cruzar
+      hacia abajo el umbral de inicio retira el beneficio renal y cardiovascular
+      justo donde el riesgo es mayor.
+    ref: 'pmid:36189689'
+
+  - parametro: Enfermedad aguda intercurrente
+    umbral: Cualquier proceso agudo
+    accion: >-
+      Suspender el inhibidor de SGLT2 mientras dure la enfermedad e instituir un
+      protocolo de días de enfermedad. La medida aparece dos veces en la tabla de
+      mitigación de la fuente, bajo depleción de volumen y bajo cetoacidosis
+      diabética, que son los dos mecanismos por los que el proceso agudo se
+      complica.
+    ref: 'pmid:36189689'
+
+  - parametro: Riesgo de cetoacidosis diabética
+    umbral: Paciente de muy alto riesgo, o sospecha clínica
+    accion: >-
+      Educar al paciente sobre los signos y síntomas para facilitar el
+      reconocimiento precoz; medir cetonas en sangre u orina en el caso de muy
+      alto riesgo; instituir el protocolo de días de enfermedad; y mantener al
+      menos una dosis baja de insulina en quien la necesita. Esa última es la
+      medida que se olvida: retirar del todo la insulina en un paciente con
+      inhibidor de SGLT2 es como se llega a la cetoacidosis con glucemia poco
+      elevada.
+    ref: 'pmid:36189689'
+
+  - parametro: Riesgo de hipovolemia
+    umbral: Paciente con alto riesgo de depleción de volumen
+    accion: >-
+      Vigilar la hipovolemia y valorar una reducción proactiva de la dosis de
+      diurético. Obsérvese la dirección del ajuste: se baja el diurético, no el
+      inhibidor de SGLT2.
+    ref: 'pmid:36189689'
+
+  - parametro: Infección micótica genital
+    umbral: Riesgo presente en todo paciente tratado
+    accion: >-
+      Aconsejar sobre higiene genital. Es la única medida de mitigación que la
+      fuente asigna a esta consideración, y es preventiva y no reactiva: se da al
+      inicio, no cuando la infección aparece.
+    ref: 'pmid:36189689'
+
+# ── Interacciones que cambian la conducta ───────────────────────────────
+# Las tres primeras comparten un rasgo que conviene notar: lo que se ajusta es
+# el fármaco ACOMPAÑANTE, no la empagliflozina.
+interacciones:
+  - con: Insulina o sulfonilurea
+    gravedad: moderada
+    efecto: >-
+      Aumentan el riesgo de hipoglucemia en combinación con el inhibidor de
+      SGLT2, que es una de las cuatro consideraciones de seguridad de la clase.
+    conducta: >-
+      Ajustar los hipoglucemiantes de base según corresponda. En quien depende de
+      la insulina, ese ajuste tiene un suelo: se mantiene al menos una dosis
+      baja, porque retirarla del todo abre la puerta a la cetoacidosis.
+    ref: 'pmid:36189689'
+
+  - con: Diurético
+    gravedad: moderada
+    efecto: >-
+      Suma efecto sobre el volumen y contribuye a la depleción, que puede
+      precipitar hipovolemia sintomática.
+    conducta: >-
+      Vigilar la hipovolemia y valorar una reducción proactiva de la dosis de
+      diurético en el paciente de alto riesgo, antes de que el problema aparezca.
+    ref: 'pmid:36189689'
+
+  - con: >-
+      Antagonista no esteroideo del receptor mineralocorticoide (finerenona)
+    gravedad: menor
+    efecto: >-
+      Va en dirección favorable: en el análisis combinado FIDELITY, la presencia
+      de un inhibidor de SGLT2 redujo de forma significativa el riesgo de
+      hiperpotasemia, que es el efecto adverso que limita a la finerenona.
+    conducta: >-
+      No es motivo para separarlos. Comparte con la finerenona y con el
+      inhibidor del sistema renina-angiotensina la reducción hemodinámica inicial
+      del filtrado glomerular, de modo que si se añaden de forma secuencial hay
+      que valorar la función renal entre un paso y el siguiente.
+    ref: 'pmid:36189689'
+
+  - con: Inmunosupresión del trasplante renal
+    gravedad: moderada
+    efecto: >-
+      Hay una preocupación TEÓRICA de que el riesgo de infección —micótica
+      genital, urinaria y gangrena de Fournier— aumente por la inmunosupresión.
+      No está resuelta: la fuente dice expresamente que hacen falta más datos
+      antes de recomendar a favor o en contra en el receptor de trasplante renal,
+      pese a que el fármaco resulta prometedor en esa población porque reduce la
+      presión intraglomerular, que puede estar elevada en un riñón único
+      funcionante.
+    conducta: >-
+      Decisión individualizada con el equipo de trasplante. Ni recomendarlo por
+      el beneficio esperado ni descartarlo por el riesgo teórico: la fuente no
+      autoriza ninguna de las dos conclusiones.
+    ref: 'pmid:36189689'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+atencion_compartida:
+  especialista:
+    - >-
+      Decidir el inicio por el filtrado glomerular y no por la hemoglobina
+      glucosilada: el inhibidor de SGLT2 se usa incluso con el objetivo glucémico
+      ya alcanzado, porque sus beneficios renales y cardiovasculares no pasan por
+      la glucemia
+    - >-
+      Ajustar a la baja el diurético y el hipoglucemiante de base ANTES de la
+      primera dosis en quien lo necesite, no después del primer susto
+    - >-
+      Añadir y ajustar de forma secuencial los fármacos que comparten la
+      reducción hemodinámica inicial del filtrado, con valoraciones frecuentes
+      entre un paso y otro, evitando la inercia terapéutica que la fuente señala
+      como el problema central de esta población
+  seguimiento:
+    - >-
+      No suspenderlo cuando el filtrado baje del umbral de inicio: por debajo de
+      20 mL/min/1,73 m² se continúa si ya estaba puesto y se tolera
+    - >-
+      Aconsejar sobre higiene genital al inicio, como prevención y no como
+      respuesta a la primera infección
+    - >-
+      Enseñar y repasar el protocolo de días de enfermedad y los signos de
+      cetoacidosis: son las dos cosas de esta lista que ejecuta el paciente, y
+      sin ellas las demás no llegan a tiempo
+  suspension_inmediata: >-
+    Cualquier enfermedad aguda intercurrente: se suspende mientras dure el
+    proceso, por el doble riesgo de depleción de volumen y de cetoacidosis, y se
+    aplica el protocolo de días de enfermedad. La caída del filtrado glomerular,
+    en cambio, NO es criterio de suspensión si el fármaco ya estaba puesto y se
+    tolera.
+  ref: 'pmid:36189689'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      La fuente accesible nombra qué vigilar —hipovolemia, cetonas en el paciente
+      de muy alto riesgo, función renal entre pasos de titulación— pero no con
+      qué periodicidad, y sin cadencia no hay cronograma. El seguimiento en la
+      indicación de insuficiencia cardíaca, que es la que desarrolla FT:0007,
+      tampoco se pudo citar: las guías de la ESC de 2021 y de la AHA/ACC/HFSA de
+      2022 devolvieron registro sin texto completo en esta sesión, como ya
+      ocurrió al escribir FA:0006. Poner aquí unas fases con intervalos
+      plausibles daría al lector la impresión de un cronograma respaldado que no
+      existe.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica, guía de insuficiencia cardíaca de la ESC de 2021 y guía
+      AHA/ACC/HFSA de 2022.
+    refs:
+      - 'pmid:36189689'
+
+  - bloque: reproductivo
+    motivo: >-
+      El informe de consenso no trata el embarazo ni la lactancia con inhibidores
+      de SGLT2, ni fija periodo de lavado ni requisito anticonceptivo. Se resuelve
+      con la ficha técnica del producto o con una guía obstétrica, y no por
+      analogía con otro antidiabético: el mecanismo —glucosuria inducida— no se
+      parece al de ninguno de los demás.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica.
+    refs:
+      - 'pmid:36189689'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que establezca una dosificación de la empagliflozina
+      guiada por genotipo, ni existe guía CPIC para esta molécula. La
+      estratificación que la evidencia accesible sostiene es por filtrado
+      glomerular, y con la particularidad de que separa el umbral de inicio del
+      de continuación.
+    buscado_en: >-
+      Informe de consenso de la ADA y KDIGO sobre diabetes en enfermedad renal
+      crónica.
+    refs:
+      - 'pmid:36189689'
+
+refs:
+  - 'pmid:36189689'

@@ -1,0 +1,57 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:31751012"
+clave_bibtex: ramalingam2020
+tipo: eca
+titulo: "Overall Survival with Osimertinib in Untreated, EGFR-Mutated Advanced NSCLC"
+autores:
+  - "Ramalingam SS"
+  - "Vansteenkiste J"
+  - "Planchard D"
+  - "Cho BC"
+  - "Gray JE"
+  - "Ohe Y"
+  - "Zhou C"
+  - "Reungwetwattana T"
+  - "Cheng Y"
+  - "Chewaskulyong B"
+  - "Shah R"
+  - "Cobo M"
+  - "Lee KH"
+  - "Cheema P"
+  - "Tiseo M"
+  - "John T"
+  - "Lin MC"
+  - "Imamura F"
+  - "Kurata T"
+  - "Todd A"
+  - "Hodge R"
+  - "Saggese M"
+  - "Rukazenkov Y"
+  - "Soria JC"
+  - "FLAURA Investigators"
+publicacion: "N Engl J Med"
+anio: 2020
+volumen: "382"
+numero: "1"
+paginas: "41-50"
+
+identificadores:
+  pmid: 31751012
+  doi: "10.1056/NEJMoa1913662"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

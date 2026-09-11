@@ -1,0 +1,210 @@
+# PARTE II — Farmacoterapia: cómo se usa la finerenona con seguridad.
+#
+# Es el CONCEPTO y va por molécula.
+# Todo lo que sigue —cribado basal, umbrales de potasio, monitorización a las 4 semanas
+# y reglas de seguridad frente a inhibidores de CYP3A4— gobierna cualquier indicación
+# de la finerenona como antagonista selectivo no esteroideo del receptor mineralocorticoide.
+
+id: 'FA:0011'
+tipo: farmacoterapia
+farmaco: 'FS:0011'
+
+titulo: Farmacoterapia con finerenona
+titulo_en: Finerenone pharmacotherapy
+
+alcance: >-
+  Establece las directrices de prescripción segura y monitorización analítica de la
+  finerenona. Cubre los requisitos indispensables de seguridad: cribado de potasio y TFGe,
+  cronograma analítico a las 4 semanas, umbrales de interrupción por hiperpotasemia,
+  interacciones con inhibidores de CYP3A4 y delimitación de funciones en atención compartida.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Potasio sérico
+    motivo: >-
+      El potasio sérico debe ser ≤ 4.8 mEq/L para autorizar el inicio. Un nivel basal superior
+      multiplica el riesgo de hiperpotasemia precoz no controlable.
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - prueba: Filtrado glomerular estimado (TFGe)
+    motivo: >-
+      Debe ser ≥ 25 mL/min/1.73 m² para comenzar el fármaco y define la dosis inicial: 10 mg/día
+      si el TFGe está entre 25 y 59 mL/min/1.73 m², o 20 mg/día si es ≥ 60 mL/min/1.73 m².
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - prueba: Cociente albúmina/creatinina en orina (UACR)
+    motivo: >-
+      Confirmar la presencia de albuminuria persistente (UACR ≥ 30 mg/g) a pesar de la dosis máxima
+      tolerada de IECA o ARA-II, delimitando la población con beneficio cardiorrenal comprobado.
+    responsable: especialista
+    ref: 'pmid:36189689'
+
+  - prueba: Revisión de medicación concomitante
+    motivo: >-
+      Descartar el uso concomitante de inhibidores potentes del CYP3A4 y suspender otros diuréticos
+      ahorradores de potasio o suplementos orales de potasio.
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Potasio sérico
+      - Filtrado glomerular estimado (TFGe)
+      - Presión arterial
+    responsable: compartida
+    ref: 'pmid:36189689'
+
+  - fase: induccion
+    periodo: A las 4 semanas del inicio o tras cualquier ajuste de dosis
+    frecuencia: A las 4 semanas post-inicio o post-titulación
+    pruebas:
+      - Potasio sérico
+      - Filtrado glomerular estimado (TFGe)
+    responsable: seguimiento
+    ref: 'pmid:36189689'
+
+  - fase: mantenimiento
+    periodo: Durante el tratamiento continuado estable
+    frecuencia: Cada 4 meses de manera rutinaria
+    pruebas:
+      - Potasio sérico
+      - Filtrado glomerular estimado (TFGe)
+      - Presión arterial
+    responsable: seguimiento
+    ref: 'pmid:36189689'
+
+# ── Qué hacer cuando el análisis se tuerce ──────────────────────────────
+umbrales_accion:
+  - parametro: Potasio sérico previo al inicio
+    umbral: '> 4.8 mEq/L'
+    accion: >-
+      No iniciar finerenona. Optimizar tratamiento no farmacológico, evaluar diuréticos tiazídicos
+      o de asa y reevaluar cuando el potasio sérico se encuentre en ≤ 4.8 mEq/L.
+    ref: 'pmid:36189689'
+
+  - parametro: Potasio sérico durante el tratamiento
+    umbral: '> 5.5 mEq/L'
+    accion: >-
+      Suspender inmediatamente la finerenona. Investigar transgresiones dietéticas o fármacos
+      hiperpotasemiantes. Reanudar con 10 mg/día sólo cuando el potasio sérico descienda a ≤ 4.8 mEq/L.
+    ref: 'pmid:36189689'
+
+  - parametro: Potasio sérico durante el tratamiento
+    umbral: 4.9 a 5.5 mEq/L
+    accion: >-
+      Mantener la dosis actual (no titular al alza). Monitorizar potasio sérico cada 4 semanas
+      hasta confirmar estabilidad.
+    ref: 'pmid:36189689'
+
+  - parametro: Potasio sérico con dosis de 10 mg/día
+    umbral: '≤ 4.8 mEq/L con TFGe estable'
+    accion: >-
+      Titular la dosis a 20 mg/día si el objetivo terapéutico lo requiere, programando nuevo control
+      de potasio y TFGe a las 4 semanas.
+    ref: 'pmid:36189689'
+
+  - parametro: Filtrado glomerular estimado (TFGe)
+    umbral: Descenso hemodinámico < 30% respecto al basal
+    accion: >-
+      Continuar finerenona. El descenso inicial moderado refleja descompresión intraglomerular
+      esperada y no toxicidad tubular.
+    ref: 'pmid:38490803'
+
+  - parametro: Filtrado glomerular estimado (TFGe)
+    umbral: '< 15 mL/min/1.73 m² o necesidad de terapia sustitutiva renal'
+    accion: >-
+      Suspender definitivamente finerenona por ausencia de evidencia de beneficio en ERC estadio 5
+      y riesgo prohibitivo de hiperpotasemia.
+    ref: 'pmid:33264825'
+
+# ── Interacciones que cambian la dosis o la contraindican ─────────────
+interacciones:
+  - con: Inhibidores potentes del CYP3A4 (ej. ketoconazol, claritromicina, itraconazol)
+    gravedad: contraindicada
+    efecto: >-
+      Aumento drástico del AUC de finerenona (hasta 500%), induciendo hiperpotasemia grave o letal.
+    conducta: >-
+      Uso estrictamente contraindicado; no asociar.
+    ref: 'pmid:36189689'
+
+  - con: Inhibidores moderados del CYP3A4 (ej. eritromicina, diltiazem, verapamilo)
+    gravedad: mayor
+    efecto: >-
+      Incremento del AUC plasmático de finerenona y mayor susceptibilidad a retención de potasio.
+    conducta: >-
+      Iniciar con 10 mg/día y monitorizar potasio sérico estrechamente; evitar ingesta de zumo de pomelo.
+    ref: 'pmid:36189689'
+
+  - con: Diuréticos ahorradores de potasio y suplementos de potasio
+    gravedad: contraindicada
+    efecto: >-
+      Efecto sumatorio sobre la retención tubular distal de potasio con riesgo crítico de arritmias.
+    conducta: >-
+      Suspender diuréticos ahorradores de potasio y suplementos antes de la primera dosis de finerenona.
+    ref: 'pmid:36189689'
+
+# ── Seguridad reproductiva ────────────────────────────────────────────
+reproductivo:
+  gestacion:
+    compatibilidad: evitar
+    enunciado: >-
+      Datos insuficientes en mujeres embarazadas; toxicidad fetal descrita en modelos animales preclínicos.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: evitar
+    enunciado: >-
+      Se desconoce su excreción en leche humana. Se desaconseja amamantar durante el tratamiento.
+    ref: 'fda:label'
+  anticoncepcion:
+    enunciado: >-
+      Mujeres con capacidad de gestación deben utilizar métodos anticonceptivos de alta eficacia durante el tratamiento.
+    ref: 'fda:label'
+
+# ── Atención compartida: de quién es cada acto ────────────────────────
+atencion_compartida:
+  especialista: >-
+    Confirma el diagnóstico de ERC en DM2 con albuminuria persistente tras dosis máxima tolerada de
+    IECA/ARA-II, valida TFGe ≥ 25 y K ≤ 4.8 mEq/L, e indica la dosis de inicio.
+  seguimiento: >-
+    Verifica el control analítico obligatorio a las 4 semanas post-inicio o titulación, gestiona la
+    monitorización periódica cada 4 meses y asegura la ausencia de interacciones farmacológicas.
+  suspension_inmediata: >-
+    Potasio sérico > 5.5 mEq/L, deterioro renal agudo intercurrente o prescripción inapelable de un inhibidor potente del CYP3A4.
+  ref: 'pmid:36189689'
+
+# ── Posicionamiento terapéutico y desescalamiento ─────────────────────
+posicionamiento:
+  linea: segunda
+  escalonado:
+    - linea: primera
+      opciones: >-
+        Inhibidor del SRA (IECA o ARA-II a dosis máxima tolerada) + iSGLT2 (empagliflozina/dapagliflozina) + metformina o arGLP-1.
+    - linea: segunda
+      opciones: >-
+        Finerenona añadida en pacientes con DM2 y ERC que mantienen albuminuria persistente (UACR ≥ 30 mg/g) con potasio sérico ≤ 4.8 mEq/L.
+  desescalamiento:
+    enunciado: >-
+      Si el potasio excede 5.5 mEq/L, suspender finerenona. Una vez resuelto (≤ 4.8 mEq/L), reanudar a dosis baja de 10 mg/día. Si el TFGe progresa a < 15 mL/min/1.73 m², suspender definitivamente.
+    ref: 'pmid:36189689'
+  ref: 'pmid:36189689'
+
+# ── Huecos declarados ─────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      Finerenona se metaboliza por CYP3A4 sin polimorfismos accionables clasificados por guías CPIC;
+      la variabilidad cinética está determinada por interacciones competitivas y función orgánica, no por genotipo.
+    referencias_consultadas:
+      - 'pmid:36189689'

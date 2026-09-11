@@ -157,12 +157,12 @@ su informe de selección dice cómo usar un fármaco sin decir por qué se eligi
 | Oleada | Temática / Área Clínica | Selección (`SEL`) | Fármacos (`FS`) | Guías (`FT`) | Estado |
 |---|---|---|---|---|---|
 | **0. Piloto** | Fármaco modelo y validación de contrato | — *(precede al híbrido)* | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
-| **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `SEL0004` (FA no valvular) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA) | **En curso (4/6)** |
+| **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `SEL0004` (FA no valvular)<br>`SEL0005` (ERC en DM2)<br>`SEL0006` (IC-FEr) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino)<br>`FS0011` (Finerenona)<br>`FS0012` (Dapagliflozina) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA)<br>`FT0012` (Finerenona en ERC-DM2)<br>`FT0013` (Dapagliflozina en IC-FEr) | **En curso (6/8)** |
 | **2. Antiinfecciosos AWaRe** | Sección 6.2.1 (Antibióticos Access / Watch) | — | — | — | Pendiente |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | — | Pendiente |
 | **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | — | — | — | Pendiente |
 | **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs) | **En curso (3/5)** — estrena la capa de GPC |
-| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `SEL0003` *(compartida con la 6)* | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC) | **En curso (3/8)** |
+| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `SEL0003` *(compartida con la 6)*<br>`SEL0007` (CPRCnm)<br>`SEL0008` (CPNM EGFR)<br>`SEL0009` (Mama HER2+) | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib)<br>`FS0013` (Secukinumab)<br>`FS0014` (Darolutamida)<br>`FS0015` (Osimertinib)<br>`FS0016` (Trastuzumab deruxtecán) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC)<br>`FT0014` (Secukinumab en psoriasis)<br>`FT0015` (Darolutamida en CPRCnm)<br>`FT0016` (Osimertinib en CPNM)<br>`FT0017` (T-DXd en mama HER2+) | **En curso (7/10)** |
 
 Que `SEL0003` aparezca en dos oleadas no es un error de clasificación: es el
 híbrido funcionando. Un mismo problema de salud —la artritis psoriásica—
@@ -178,6 +178,8 @@ guía en la oleada que le corresponde por coste y por vía.
 - [x] **`FT0006` Enalapril en Insuficiencia Cardíaca con FEVI reducida** (IECA: NNT 23 mortalidad global, NNT 10 hospitalización por IC, NNH 53 tos).
 - [x] **`FT0007` Empagliflozina en Insuficiencia Cardíaca crónica** (iSGLT2: NNT 20 muerte CV u hospitalización en 16 meses, NNH 56 micosis).
 - [x] **`FT0008` Amlodipino en Hipertensión Arterial Esencial** (DHP-CCB: NNT 100 ictus a 5.5 años, NNH 14 edema maleolar).
+- [x] **`FT0012` Finerenona en Enfermedad Renal Crónica asociada a Diabetes Tipo 2** (nsMRA: NNT 31 fallo renal o muerte renal a 2.6 años, NNT 56 eventos CV, NNH 72 hiperpotasemia).
+- [x] **`FT0013` Dapagliflozina en Insuficiencia Cardíaca con FEVI reducida** (iSGLT2: NNT 21 muerte CV o empeoramiento de IC a 18 meses, NNT 53 muerte CV, NNH 112 micosis).
 - [ ] **Atorvastatina / Rosuvastatina en Prevención Secundaria y Primaria** (Estatinas de alta potencia: NNT eventos vasculares mayores vs NNH miopatía).
 - [ ] **Ácido Acetilsalicílico en Prevención Secundaria Cardiovascular** (Antiagregación plaquetaria: NNT eventos isquémicos vs NNH hemorragia digestiva).
 
@@ -203,9 +205,10 @@ guía en la oleada que le corresponde por coste y por vía.
 - [x] **`FT0003` Pembrolizumab en Cáncer de Pulmón no Microcítico metastásico** (Anti-PD-1: NNT 8 supervivencia global).
 - [x] **`FT0004` Guselkumab en Artritis Psoriásica activa** (Anti-IL-23: NNT 4 respuesta ACR20).
 - [x] **`FT0005` Ibrutinib en Leucemia Linfocítica Crónica en primera línea** (Inhibidor BTK: NNT 10 supervivencia libre de progresión).
-- [ ] **Secukinumab / Ixekizumab en Espondiloartritis y Psoriasis**.
-- [ ] **Trastuzumab Deruxtecán en Cáncer de Mama HER2-positivo y HER2-low**.
-- [ ] **Darolutamida / Enzalutamida en Cáncer de Próstata Resistente a la Castración**.
+- [x] **`FT0014` Secukinumab en Psoriasis en Placas moderada a grave** (Anti-IL-17A: NNT 2 respuesta PASI 75 a 12 semanas, NNH 29 candidiasis).
+- [x] **`FT0015` Darolutamida en Cáncer de Próstata no metastásico resistente a la castración** (Antiandrógeno 2ª gen: NNT 3 MFS a 2 años, NNT 17 SG a 3 años, sin neurotoxicidad).
+- [x] **`FT0016` Osimertinib en Cáncer de Pulmón no Microcítico avanzado EGFR mutado** (TKI 3ª gen: NNT 4 SLP a 18 meses vs TKI activo, NNT 10 SG a 3 años, NNH 48 neumonitis).
+- [x] **`FT0017` Trastuzumab Deruxtecán en Cáncer de Mama Metastásico HER2-positivo** (ADC anti-HER2: NNT 3 SLP a 12 meses vs T-DM1, NNT 13 SG, NNH 12 neumonitis).
 - [ ] **Faricimab en Degeneración Macular Asociada a la Edad y Edema Macular Diabético**.
 - [ ] **Ruxolitinib en Mielofibrosis y Policitemia Vera**.
 

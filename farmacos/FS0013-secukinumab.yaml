@@ -1,0 +1,57 @@
+id: 'FS:0013'
+tipo: farmaco
+dci: Secukinumab
+dci_en: Secukinumab
+sinonimos:
+  - Cosentyx
+  - AIN457
+
+atc: L04AC10
+clase_farmacologica: Anticuerpo monoclonal inhibidor de la interleucina-17A
+clase_farmacologica_en: Interleukin-17A inhibitor monoclonal antibody
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Anticuerpo monoclonal humano IgG1κ selectivo que se une a la citocina interleucina-17A
+  y neutraliza su interacción con el receptor IL-17R, bloqueando la liberación de quimiocinas,
+  citocinas proinflamatorias y mediadores del daño tisular y la hiperproliferación queratinocítica.
+mecanismo_ref: 'pmid:25007392'
+
+farmacocinetica:
+  eliminacion: 'Degradación proteica no específica a través de vías del catabolismo de inmunoglobulinas'
+  vida_media: 'Aproximadamente 27 días (22 a 31 días)'
+  implicacion: >-
+    No requiere ajuste posológico en insuficiencia renal ni hepática. Administración por vía subcutánea
+    con pauta de inducción semanal durante 5 dosis y mantenimiento mensual posterior.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Infecciones por Candida mucocutáneas (oral, genital)
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Consecuencia del bloqueo de la inmunidad mediada por IL-17 en mucosas; habitualmente responde a tratamiento antifúngico estándar sin requerir suspender el biológico.
+      ref: 'pmid:25007392'
+    - evento: Infecciones de vías respiratorias superiores (nasofaringitis)
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Infecciones víricas o bacterianas leves autolimitadas.
+      ref: 'pmid:25007392'
+    - evento: Exacerbación o nueva aparición de enfermedad inflamatoria intestinal
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        La vía de la IL-17 preserva la barrera mucosa intestinal; su bloqueo puede desencadenar o agravar enfermedad de Crohn o colitis ulcerosa.
+      ref: 'fda:label'

@@ -1,0 +1,116 @@
+id: 'FT:0016'
+tipo: ficha
+farmaco: 'FS:0015'
+seleccion: 'SEL:0008'
+titulo: Osimertinib en el cáncer de pulmón no microcítico avanzado con mutación de EGFR
+indicacion: Cáncer de pulmón no microcítico avanzado con mutación de EGFR en primera línea
+indicacion_en: Advanced EGFR-mutated non-small cell lung cancer in first-line
+poblacion: Adultos con CPNM localmente avanzado o metastásico con mutación EGFR (exón 19 del o L858R) no tratados previamente
+cie11: 2C25
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Estándar de oro en primera línea de CPNM EGFR mutado: 80 mg/día oral; duplica la supervivencia libre
+    de progresión frente a TKIs clásicos (18.9 vs 10.2 meses; NNT 4 a 18 meses) y prolonga la supervivencia global (NNT 10 a 3 años)
+    con excelente control de metástasis cerebrales.
+  alerta_seguridad_inmediata: >-
+    Descartar síndrome de QT largo basal; monitorizar ECG. Suspender inmediatamente y de forma permanente
+    ante cualquier sospecha de enfermedad pulmonar intersticial / neumonitis (NNH 48).
+
+pico:
+  p: Adultos con CPNM localmente avanzado o metastásico con mutación sensibilizante de EGFR no tratados con TKI
+  i: Osimertinib 80 mg por vía oral una vez al día
+  c: Inhibidores de EGFR de 1ª generación (gefitinib 250 mg o erlotinib 150 mg una vez al día)
+  o: Supervivencia libre de progresión (SLP), supervivencia global (SG), respuesta en SNC y seguridad
+
+posologia:
+  inicio: 80 mg por vía oral una vez al día (a la misma hora, con o sin comida)
+  escalado: >-
+    Dosis completa desde el inicio; no requiere escalado posológico.
+  mantenimiento: 80 mg una vez al día
+  maxima: 80 mg al día (en caso de toxicidad Grado 3 resuelta se reduce a 40 mg/día)
+  ajuste_renal: >-
+    No requiere ajuste en insuficiencia renal leve a moderada; precaución en TFGe < 15 mL/min/1.73 m² por escasez de datos.
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Supervivencia libre de progresión a los 18 meses (SLP)
+    criticidad: critico
+    efecto: 'Reducción del 54 % en el riesgo de progresión o muerte frente a TKI activos (HR 0.46, IC 95 % 0.37–0.57), p < 0.001; 54.2 % vs 27.0 % libres de progresión'
+    rra: '27.2%'
+    rrr: '50.2%'
+    nnt: 4
+    horizonte_nnt: a 18 meses
+    diseno: eca
+    estudio: FLAURA (2018)
+    comparador: Gefitinib 250 mg o Erlotinib 150 mg
+    n: 556
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:29151359'
+
+  - desenlace: Supervivencia global a los 3 años (SG)
+    criticidad: critico
+    efecto: 'Reducción del 20 % en el riesgo de muerte (HR 0.80, IC 95 % 0.64–1.00), p = 0.046; 54.0 % vs 44.0 % vivos a 3 años; mediana 38.6 vs 31.8 meses'
+    rra: '10.0%'
+    rrr: '17.9%'
+    nnt: 10
+    horizonte_nnt: a 3 años
+    diseno: eca
+    estudio: FLAURA OS (2020)
+    comparador: Gefitinib o Erlotinib
+    n: 556
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:31751012'
+
+seguridad_cuantitativa:
+  - evento: Enfermedad pulmonar intersticial (neumonitis)
+    gravedad: grave
+    tasa_intervencion: '3.9 %'
+    tasa_control: '1.8 %'
+    ria: '2.1%'
+    nnh: 48
+    horizonte_nnh: a 18 meses
+    conducta: >-
+      Suspender inmediatamente osimertinib ante síntomas respiratorios inexplicables (tos seca, disnea con infiltrados en TC); si se confirma EPI, suspender de forma definitiva.
+    ref: 'pmid:29151359'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda fuertemente Osimertinib (80 mg una vez al día) como tratamiento de primera línea
+    en pacientes con cáncer de pulmón no microcítico avanzado con mutación sensibilizante de EGFR (exón 19 del o L858R),
+    por su superioridad demostrada en supervivencia libre de progresión (NNT 4), supervivencia global (NNT 10) y eficacia intracraneal.
+  ref: 'pmid:29151359'
+
+alternativas:
+  - dci: Gefitinib
+    atc: L01EB01
+    nota: 'TKI de primera generación con menor supervivencia libre de progresión, menor paso al SNC y riesgo de resistencia secundaria por T790M.'
+
+conclusion: >-
+  Osimertinib establece el estándar de tratamiento en CPNM avanzado EGFR mutado frente a comparadores activos (NNT 4 en SLP, NNT 10 en SG),
+  con un perfil de tolerabilidad globalmente superior y vigilando la neumonitis intersticial (NNH 48).
+
+refs:
+  - 'pmid:29151359'
+  - 'pmid:31751012'
+  - 'fda:label'

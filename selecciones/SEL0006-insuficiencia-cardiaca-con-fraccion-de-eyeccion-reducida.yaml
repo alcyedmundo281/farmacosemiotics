@@ -1,0 +1,95 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0006'
+tipo: seleccion
+problema: Insuficiencia cardíaca sintomática con fracción de eyección reducida
+problema_en: Symptomatic heart failure with reduced ejection fraction
+cie11: BD11
+
+poblacion: >-
+  Adultos con insuficiencia cardíaca crónica sintomática en clase funcional NYHA II a IV
+  y fracción de eyección ventricular izquierda (FEVI) ≤ 40 %, con o sin diabetes tipo 2.
+
+pregunta: >-
+  En pacientes con insuficiencia cardíaca y FEVI reducida que reciben terapia médica estándar,
+  ¿qué beneficio aporta la incorporación de un inhibidor del cotransportador SGLT2 (dapagliflozina)
+  frente al tratamiento médico clásico sin iSGLT2 sobre la mortalidad cardiovascular y las hospitalizaciones?
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  El tratamiento farmacológico de la IC-FEr se basa en cuatro pilares modificadores de la enfermedad
+  con beneficio independiente y aditivo sobre la supervivencia. La adición de dapagliflozina demostró
+  una reducción rápida y consistente de la mortalidad y de las descompensaciones cardíacas.
+
+estrategia:
+  - base: PubMed
+    consulta: 'dapagliflozin AND heart failure AND reduced ejection fraction AND randomized controlled trial'
+    fecha: '2026-09-11'
+    nota: 'Ensayo pivotal DAPA-HF (PMID: 31535829).'
+
+criterio_decisorio: >-
+  Se selecciona la intervención que logre reducir significativamente la mortalidad cardiovascular y el
+  reingreso hospitalario por IC con un NNT favorable, tolerabilidad excelente y pauta posológica fija.
+
+conclusion: >-
+  Dapagliflozina queda seleccionada como componente de primera línea de la terapia cuádruple en IC-FEr,
+  reduciendo el desenlace compuesto de empeoramiento de IC o muerte cardiovascular con un NNT de 21 a 18 meses.
+
+candidatos:
+  - dci: Dapagliflozina
+    atc: A10BK01
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Demostró en DAPA-HF una reducción relativa del 26 % en el compuesto primario de muerte cardiovascular
+        o empeoramiento de insuficiencia cardíaca (HR 0.74, IC 95 % 0.65-0.85; NNT 21 a 18 meses), y un
+        descenso significativo de la mortalidad cardiovascular (HR 0.82; NNT 53) y total (HR 0.83).
+      ref: 'pmid:31535829'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Excelente perfil de tolerancia: la tasa de suspensión por eventos adversos fue similar al placebo (10.5 % vs 10.9 %).
+        La incidencia de micosis genital fue del 1.2 % vs 0.3 % (NNH 112), fácilmente controlable con tratamiento tópico.
+      ref: 'pmid:31535829'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Dosis fija única de 10 mg al día por vía oral en toma matutina, sin necesidad de titulación posológica
+        ni ajuste por peso o filtrado glomerular (hasta 20 mL/min/1.73 m²).
+      ref: 'pmid:31535829'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Aunque de desarrollo reciente, ha sido incorporada a la Lista Modelo de Medicamentos Esenciales de la OMS
+        y cuenta con creciente disponibilidad internacional.
+
+  - dci: Terapia estándar sin iSGLT2 (triple terapia clásica)
+    atc: C09AA02
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Prescindir del cuarto pilar farmacológico priva al paciente de una reducción adicional del 26 % en
+        descompensaciones de IC y muerte CV ya demostrada sobre la triple terapia óptima.
+      ref: 'pmid:31535829'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Presenta menor riesgo de infecciones micóticas genitales pero tasas idénticas de deterioro renal o síncope.
+      ref: 'pmid:31535829'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Múltiples tomas diarias con esquemas complejos de titulación para los otros fármacos neurohumorales.
+      ref: 'pmid:31535829'
+    costo:
+      juicio: superior
+      sustento: >-
+        Opciones genéricas multifuente tradicionales de bajo precio de adquisición inicial.

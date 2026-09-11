@@ -1,0 +1,115 @@
+id: 'FT:0015'
+tipo: ficha
+farmaco: 'FS:0014'
+seleccion: 'SEL:0007'
+titulo: Darolutamida en el cáncer de próstata no metastásico resistente a la castración
+indicacion: Cáncer de próstata no metastásico resistente a la castración (CPRCnm) de alto riesgo
+indicacion_en: High-risk nonmetastatic castration-resistant prostate cancer
+poblacion: Varones con CPRCnm y tiempo de duplicación de PSA (PSADT) ≤ 10 meses bajo terapia de deprivación androgénica
+cie11: 2C82
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Retraso masivo de la diseminación metastásica sin neurotoxicidad: 600 mg cada 12 horas con comida junto a TDA;
+    prolonga la supervivencia libre de metástasis de 18.4 a 40.4 meses (NNT 3 a 2 años) y reduce mortalidad (NNT 17).
+  alerta_seguridad_inmediata: >-
+    Mantener la castración farmacológica con análogos LHRH en todo momento (testosterona < 50 ng/dL).
+    Tomar siempre con las comidas. Contraindicado con inductores potentes del CYP3A4.
+
+pico:
+  p: Varones con cáncer de próstata no metastásico resistente a castración y PSADT ≤ 10 meses bajo terapia de deprivación androgénica
+  i: Darolutamida 600 mg por vía oral dos veces al día (con alimentos) junto a TDA
+  c: Placebo dos veces al día junto a TDA continuada
+  o: Supervivencia libre de metástasis (MFS), supervivencia global (SG) y seguridad
+
+posologia:
+  inicio: 600 mg por vía oral dos veces al día (dos comprimidos de 300 mg cada 12 horas, deglutidos enteros con comida)
+  escalado: >-
+    Dosis plena desde el inicio; no requiere escalado posológico.
+  mantenimiento: 600 mg cada 12 horas con alimentos junto a terapia continuada de deprivación androgénica
+  maxima: 600 mg cada 12 horas (1200 mg/día)
+  ajuste_renal: >-
+    No requiere ajuste en insuficiencia renal leve a moderada; dosis inicial de 300 mg c/12h si TFGe < 30 mL/min/1.73 m².
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Supervivencia libre de metástasis a los 2 años (MFS)
+    criticidad: critico
+    efecto: 'Reducción del 59 % en el riesgo de metástasis o muerte (HR 0.41, IC 95 % 0.34–0.50), p < 0.001; mediana 40.4 vs 18.4 meses'
+    rra: '33.0%'
+    rrr: '53.2%'
+    nnt: 3
+    horizonte_nnt: a 2 años
+    diseno: eca
+    estudio: ARAMIS (2019)
+    comparador: Placebo + TDA
+    n: 1509
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:30763142'
+
+  - desenlace: Supervivencia global a los 3 años
+    criticidad: critico
+    efecto: 'Reducción del 31 % en el riesgo de muerte (HR 0.69, IC 95 % 0.53–0.88), p = 0.003; 83.0 % vs 77.0 % vivos a 3 años'
+    rra: '6.0%'
+    rrr: '26.1%'
+    nnt: 17
+    horizonte_nnt: a 3 años
+    diseno: eca
+    estudio: ARAMIS OS (2020)
+    comparador: Placebo + TDA
+    n: 1509
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32905676'
+
+seguridad_cuantitativa:
+  - evento: Astenia y fatiga
+    gravedad: leve
+    tasa_intervencion: '12.1 %'
+    tasa_control: '8.7 %'
+    ria: '3.4%'
+    nnh: 30
+    horizonte_nnh: a 2 años
+    conducta: >-
+      Medidas de soporte y ejercicio físico adaptado; muy baja incidencia de fatiga grado 3 (< 1 %).
+    ref: 'pmid:30763142'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: trivial
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda añadir Darolutamida (600 mg cada 12 horas con comida) a la terapia de deprivación androgénica
+    en varones con cáncer de próstata no metastásico resistente a la castración y tiempo de duplicación de PSA ≤ 10 meses,
+    por su prolongación excepcional de la supervivencia libre de metástasis (NNT 3 a 2 años) y perfil de seguridad sin neurotoxicidad.
+  ref: 'pmid:30763142'
+
+alternativas:
+  - dci: Enzalutamida
+    atc: L02BB04
+    nota: 'Antiandrógeno de segunda generación con beneficio oncológico similar pero mayor penetración en SNC y mayor tasa de fatiga, caídas y convulsiones.'
+
+conclusion: >-
+  Darolutamida ofrece un retraso sobresaliente de la diseminación metastásica (NNT 3) y beneficio en supervivencia global (NNT 17),
+  distinguiéndose por una tolerabilidad superior al evitar la toxicidad sobre el SNC de sus alternativas de clase.
+
+refs:
+  - 'pmid:30763142'
+  - 'pmid:32905676'
+  - 'fda:label'

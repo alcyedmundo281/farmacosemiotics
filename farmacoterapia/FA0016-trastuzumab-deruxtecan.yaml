@@ -1,0 +1,153 @@
+# PARTE II — Farmacoterapia: cómo se usa el trastuzumab deruxtecán con seguridad.
+id: 'FA:0016'
+tipo: farmacoterapia
+farmaco: 'FS:0016'
+
+titulo: Farmacoterapia con trastuzumab deruxtecán
+titulo_en: Trastuzumab deruxtecan pharmacotherapy
+
+alcance: >-
+  Establece las directrices de prescripción y vigilancia estrecha de trastuzumab deruxtecán:
+  cribado de neumopatía y FEVI basal, prevención antiemética, monitorización tomográfica proactiva
+  para detección precoz de neumonitis intersticial y pauta de manejo inmediato con corticoides.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Confirmación patológica de sobreexpresión de HER2 (IHC 3+ o IHC 2+ con ISH positivo)
+    motivo: >-
+      Verificar el estado tumoral de HER2 que fundamenta la acción del inmunoconjugado.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Tomografía computarizada de tórax de alta resolución basal
+    motivo: >-
+      Establecer el patrón radiológico pulmonar de referencia y descartar fibrosis pulmonar o enfermedad intersticial activa previa.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Ecocardiograma basal para fracción de eyección ventricular izquierda (FEVI)
+    motivo: >-
+      Verificar FEVI basal ≥ 50 % antes de iniciar el tratamiento con anticuerpos dirigidos a HER2.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - TC torácica de alta resolución
+      - Ecocardiograma para FEVI
+      - Hemograma completo con recuento de neutrófilos
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Cada ciclo de 21 días (semanas 1 a 12)
+    frecuencia: Antes de cada ciclo de tratamiento (cada 3 semanas)
+    pruebas:
+      - Hemograma completo
+      - Vigilancia respiratoria dirigida (tos seca, disnea, dolor torácico, fiebre)
+      - Evaluación de náuseas y tolerancia gastrointestinal
+    responsable: seguimiento
+    ref: 'pmid:35320644'
+
+  - fase: mantenimiento
+    periodo: Durante el tratamiento continuado
+    frecuencia: Cada 6 a 9 semanas para TC torácica y cada 12 semanas para ecocardiograma
+    pruebas:
+      - TC torácica para despistaje precoz de infiltrados intersticiales asintomáticos
+      - Ecocardiograma periódico
+      - Hemograma antes de cada ciclo
+    responsable: seguimiento
+    ref: 'pmid:35320644'
+
+umbrales_accion:
+  - parametro: Sospecha de enfermedad pulmonar intersticial (neumonitis) Grado 1 (asintomática, solo hallazgo en TC)
+    umbral: Infiltrados intersticiales radiológicos sin síntomas clínicos
+    accion: >-
+      Suspender temporalmente T-DXd. Realizar seguimiento tomográfico estrecho; si se resuelve completamente en ≤ 28 días, puede considerarse reanudar a la misma dosis o reducir un escalón (4.4 mg/kg).
+    ref: 'fda:label'
+
+  - parametro: Enfermedad pulmonar intersticial (neumonitis) Grado ≥ 2 (sintomática)
+    umbral: Presencia de disnea, tos persistente o fiebre atribuible a EPI
+    accion: >-
+      Suspender definitivamente e irreversiblemente trastuzumab deruxtecán. Iniciar de inmediato corticosteroides sistémicos (prednisona ≥ 1 mg/kg/día o equivalente) durante al menos 14 días, seguidos de descenso gradual en un mínimo de 4 semanas.
+    ref: 'fda:label'
+
+  - parametro: Fracción de eyección ventricular izquierda (FEVI)
+    umbral: Caída absoluta ≥ 16% respecto al basal o FEVI < 40%
+    accion: >-
+      Suspender temporalmente T-DXd y repetir ecocardiograma en 3 semanas; si la FEVI no se recupera a ≥ 40 %, suspender de forma permanente.
+    ref: 'fda:label'
+
+  - parametro: Neutropenia absoluta
+    umbral: Recuento absoluto de neutrófilos < 1000/µL antes del ciclo
+    accion: >-
+      Posponer el ciclo hasta recuperación a RAN ≥ 1000/µL; si la neutropenia Grado 4 es recurrente o febril, reducir la dosis a 4.4 mg/kg.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Fármacos hepatotóxicos o inhibidores/inductores muy potentes de CYP3A4
+    gravedad: mayor
+    efecto: Modificación de la tasa de aclaramiento plasmático del derivado libre de deruxtecán (DXd).
+    conducta: Precaución y monitorización clínica estricta de toxicidades hematológicas y gastrointestinales.
+    ref: 'fda:label'
+
+  - con: Medicamentos conocidos con toxicidad pulmonar concomitante
+    gravedad: mayor
+    efecto: Potenciación del daño alveolar y aumento del riesgo de neumonitis intersticial fulminante.
+    conducta: Evitar la administración concomitante de agentes con toxicidad pulmonar documentada.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Causa daño fetal grave y embriolexicidad letal por daño genotóxico de la topoisomerasa I y bloqueo de HER2.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desaconseja totalmente la lactancia materna durante el tratamiento y hasta al menos 7 meses tras la última dosis.
+    ref: 'fda:label'
+  anticoncepcion:
+    enunciado: >-
+      Mujeres con potencial fértil deben emplear métodos anticonceptivos eficaces durante el tratamiento y hasta 7 meses posteriores; los varones con parejas fértiles deben emplear anticoncepción hasta 4 meses después.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Oncólogo médico prescribe y programa ciclos trisemanales a 5.4 mg/kg IV, planifica TC de control cada 6-9 semanas y coordina la premedicación antiemética obligatoria.
+  seguimiento: >-
+    Supervisa hemograma pre-ciclo y alerta de inmediato ante cualquier tos seca de nueva aparición o dificultad respiratoria, interrogando proactivamente por síntomas de neumonitis.
+  suspension_inmediata: >-
+    Aparición de tos seca persistente, disnea aguda inexplicable o infiltrados intersticiales en TC, o neutropenia febril.
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: segunda
+  escalonado:
+    - linea: primera
+      opciones: >-
+        Trastuzumab + Pertuzumab + Docetaxel / Paclitaxel (CLEOPATRA).
+    - linea: segunda
+      opciones: >-
+        Trastuzumab deruxtecán (5.4 mg/kg IV cada 3 semanas) como estándar de elección indiscutible tras progresión a trastuzumab y taxano.
+  desescalamiento:
+    enunciado: >-
+      En caso de toxicidad Grado 3 hematológica o no hematológica resuelta, reducir primer escalón a 4.4 mg/kg y segundo escalón a 3.2 mg/kg.
+    ref: 'pmid:35320644'
+  ref: 'pmid:35320644'
+
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      Trastuzumab deruxtecán no cuenta con guías de farmacogenética clínica CPIC; la respuesta depende de la amplificación génica tumoral de HER2.
+    referencias_consultadas:
+      - 'pmid:35320644'

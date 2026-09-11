@@ -1,0 +1,116 @@
+id: 'FT:0013'
+tipo: ficha
+farmaco: 'FS:0012'
+seleccion: 'SEL:0006'
+titulo: Dapagliflozina en la insuficiencia cardíaca con fracción de eyección reducida
+indicacion: Insuficiencia cardíaca crónica con fracción de eyección reducida (IC-FEr)
+indicacion_en: Heart failure with reduced ejection fraction
+poblacion: Adultos con IC sintomática (NYHA II-IV) y FEVI ≤ 40 % con o sin diabetes mellitus tipo 2
+cie11: BD11
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Cuarto pilar obligado en IC-FEr: dosis única matutina de 10 mg/día sin titulación, con o sin diabetes;
+    reduce muerte cardiovascular y hospitalizaciones por IC (NNT 21 a 18 meses).
+  alerta_seguridad_inmediata: >-
+    Instruir sobre higiene perineal para prevenir micosis genitales (NNH 112). Suspender temporalmente 3 días
+    antes de cirugías mayores electivas o ante deshidratación aguda para prevenir cetoacidosis euglucémica.
+
+pico:
+  p: Adultos con insuficiencia cardíaca sintomática (NYHA II-IV) y FEVI ≤ 40 % recibiendo tratamiento médico estándar
+  i: Dapagliflozina 10 mg por vía oral una vez al día
+  c: Placebo añadido a la terapia médica óptima
+  o: Compuesto de empeoramiento de insuficiencia cardíaca (hospitalización o visita urgente con diurético IV) o muerte cardiovascular
+
+posologia:
+  inicio: 10 mg por vía oral una vez al día (por la mañana, con o sin alimentos)
+  escalado: >-
+    No requiere titulación de dosis: 10 mg/día es la dosis terapéutica completa desde el inicio.
+  mantenimiento: 10 mg una vez al día
+  maxima: 10 mg una vez al día
+  ajuste_renal: >-
+    Iniciar y mantener con TFGe ≥ 20 mL/min/1.73 m². No requiere ajuste por función hepática leve-moderada ni por edad.
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Compuesto primario de empeoramiento de IC o muerte cardiovascular
+    criticidad: critico
+    efecto: 'Reducción relativa del 26 % (HR 0.74, IC 95 % 0.65–0.85), p < 0.001'
+    rra: '4.9%'
+    rrr: '23.2%'
+    nnt: 21
+    horizonte_nnt: a 18 meses
+    diseno: eca
+    estudio: DAPA-HF (2019)
+    comparador: Placebo + terapia médica estándar
+    n: 4744
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:31535829'
+
+  - desenlace: Muerte por causas cardiovasculares
+    criticidad: critico
+    efecto: 'Reducción relativa del 18 % (HR 0.82, IC 95 % 0.69–0.98), p = 0.029'
+    rra: '1.9%'
+    rrr: '16.5%'
+    nnt: 53
+    horizonte_nnt: a 18 meses
+    diseno: eca
+    estudio: DAPA-HF (2019)
+    comparador: Placebo
+    n: 4744
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:31535829'
+
+seguridad_cuantitativa:
+  - evento: Infección micótica genital (candidiasis)
+    gravedad: leve
+    tasa_intervencion: '1.2 %'
+    tasa_control: '0.3 %'
+    ria: '0.9%'
+    nnh: 112
+    horizonte_nnh: a 18 meses
+    conducta: >-
+      Tratamiento antifúngico tópico o fluconazol 150 mg vía oral en dosis única; no suele obligar a retirar dapagliflozina.
+    ref: 'pmid:31535829'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda añadir dapagliflozina (10 mg una vez al día) a la terapia médica óptima en pacientes con
+    insuficiencia cardíaca sintomática y fracción de eyección reducida (≤ 40 %), con o sin diabetes,
+    para reducir el riesgo de muerte cardiovascular y rehospitalización por insuficiencia cardíaca.
+  ref: 'pmid:31535829'
+
+alternativas:
+  - dci: Empagliflozina
+    atc: A10BK03
+    lme: true
+    lme_seccion: '18.5.2'
+    nota: 'iSGLT2 con beneficio equivalente de clase en IC-FEr (ensayo EMPEROR-Reduced, 10 mg/día).'
+
+conclusion: >-
+  Dapagliflozina aporta un beneficio robusto sobre la morbimortalidad en IC-FEr (NNT 21 a 18 meses)
+  con un balance de seguridad ampliamente favorable (NNH 112) y pauta fija sin titulación.
+
+refs:
+  - 'pmid:31535829'
+  - 'fda:label'

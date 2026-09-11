@@ -1,0 +1,143 @@
+# PARTE II — Farmacoterapia: cómo se usa el osimertinib con seguridad.
+id: 'FA:0015'
+tipo: farmacoterapia
+farmaco: 'FS:0015'
+
+titulo: Farmacoterapia con osimertinib
+titulo_en: Osimertinib pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de uso seguro de osimertinib en cáncer de pulmón: cribado molecular obligatorio
+  de mutación sensibilizante de EGFR, monitorización del intervalo QTc por ECG, control ecocardiográfico
+  de FEVI y protocolo estricto de suspensión definitiva ante sospecha de enfermedad pulmonar intersticial.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Confirmación molecular de mutación activadora de EGFR (exón 19 del o L858R)
+    motivo: >-
+      Condición biológica indispensable para el inicio; realizar por NGS o PCR en tejido tumoral o ADN circulante en plasma.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Electrocardiograma con medición del intervalo QTc
+    motivo: >-
+      Descartar síndrome de QT largo congénito o prolongación basal (QTc > 470 ms) antes de exponer al fármaco.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Ecocardiograma basal para fracción de eyección ventricular izquierda
+    motivo: >-
+      Evaluar contractilidad miocárdica previa al tratamiento en pacientes con antecedentes cardiovasculares.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - ECG basal con cálculo de QTc
+      - Ecocardiograma basal
+      - TC de tórax basal
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Primeras 4 a 8 semanas
+    frecuencia: Control a las 4 semanas
+    pruebas:
+      - Electrocardiograma (intervalo QTc)
+      - Vigilancia de síntomas respiratorios (tos, disnea)
+      - Evaluación cutánea y control de diarrea
+    responsable: seguimiento
+    ref: 'pmid:29151359'
+
+  - fase: mantenimiento
+    periodo: Durante el tratamiento continuado
+    frecuencia: Cada 8 a 12 semanas
+    pruebas:
+      - Evaluación de respuesta tumoral por TC
+      - ECG periódico en pacientes con medicación concomitante proarrítmica
+    responsable: seguimiento
+    ref: 'pmid:29151359'
+
+umbrales_accion:
+  - parametro: Sospecha de enfermedad pulmonar intersticial (neumonitis)
+    umbral: Aparición o empeoramiento agudo de tos, disnea o infiltrados pulmonares
+    accion: >-
+      Suspender inmediatamente osimertinib. Si se confirma neumonitis inducida por el fármaco, suspender de forma permanente y tratar con corticosteroides sistémicos.
+    ref: 'fda:label'
+
+  - parametro: Intervalo QTc en electrocardiograma
+    umbral: '> 500 ms en al menos dos trazados independientes'
+    accion: >-
+      Suspender temporalmente osimertinib hasta que el QTc descienda a < 480 ms; reanudar a dosis reducida de 40 mg/día. Si se asocia a arritmia ventricular grave, suspender definitivamente.
+    ref: 'fda:label'
+
+  - parametro: Fracción de eyección ventricular izquierda (FEVI)
+    umbral: Caída asintomática absoluta ≥ 10% y valor de FEVI < 50%
+    accion: >-
+      Suspender temporalmente hasta recuperación de FEVI a ≥ 50%; reanudar con 40 mg/día.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Inductores potentes de CYP3A4 (ej. rifampicina, fenitoína, carbamazepina, hierba de San Juan)
+    gravedad: contraindicada
+    efecto: Descenso marcado del AUC de osimertinib (hasta un 78 %), reduciendo gravemente la eficacia antitumoral.
+    conducta: Contraindicada la combinación; evitar de forma absoluta.
+    ref: 'fda:label'
+
+  - con: Medicamentos que prolongan el intervalo QT (antiarrítmicos, psicotrópicos)
+    gravedad: mayor
+    efecto: Riesgo acumulativo de prolongación patológica del QTc y torsades de pointes.
+    conducta: Monitorizar ECG seriado y corregir desequilibrios electrolíticos (hipopotasemia, hipomagnesemia).
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Puede causar daño fetal grave y letalidad embrionaria según su mecanismo de acción y modelos animales.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desconoce la excreción en leche materna; interrumpir la lactancia durante el tratamiento y hasta 2 semanas después.
+    ref: 'fda:label'
+  anticoncepcion:
+    enunciado: >-
+      Mujeres en edad fértil deben emplear anticoncepción eficaz durante el tratamiento y hasta 6 semanas tras la última dosis; los varones con parejas fértiles deben emplear anticoncepción hasta 4 meses después.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Oncólogo médico prescribe osimertinib 80 mg/día tras confirmar la mutación de EGFR, realiza cribado basal y planifica el seguimiento oncológico.
+  seguimiento: >-
+    Supervisa adherencia a la toma oral diaria, coordina ECG de control y alerta precozmente ante cualquier disnea aguda o tos persistente.
+  suspension_inmediata: >-
+    Aparición brusca de disnea o sospecha clínica/radiológica de neumonitis intersticial, o síncope con sospecha de arritmia ventricular.
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: >-
+        Tratamiento estándar de elección en primera línea para pacientes con CPNM avanzado con mutación sensibilizante de EGFR (exón 19 del o L858R).
+  desescalamiento:
+    enunciado: >-
+      Mantener 80 mg/día hasta progresión de la enfermedad o toxicidad inaceptable; en caso de toxicidad Grado 3 o prolongación de QTc resuelta, reanudar a 40 mg/día.
+    ref: 'pmid:29151359'
+  ref: 'pmid:29151359'
+
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      El metabolismo por CYP3A4 de osimertinib no cuenta con guías CPIC de dosificación por genotipo; la selección depende de la mutación somática tumoral de EGFR.
+    referencias_consultadas:
+      - 'pmid:29151359'

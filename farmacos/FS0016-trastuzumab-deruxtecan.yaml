@@ -1,0 +1,59 @@
+id: 'FS:0016'
+tipo: farmaco
+dci: Trastuzumab deruxtecan
+dci_en: Trastuzumab deruxtecan
+sinonimos:
+  - Enhertu
+  - T-DXd
+  - DS-8201a
+
+atc: L01FD04
+clase_farmacologica: Inmunoconjugado anticuerpo-fármaco anti-HER2
+clase_farmacologica_en: HER2-directed antibody-drug conjugate (ADC)
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inmunoconjugado compuesto por un anticuerpo monoclonal humanizado anti-HER2 unido mediante
+  un enlazador escindible a deruxtecán (DXd), un potente inhibidor de la topoisomerasa I derivado del exatecán.
+  Tras la unión al receptor HER2 y su internalización, las catepsinas lisosomales escinden el enlazador,
+  liberando el DXd que induce daño letal en el ADN y apoptosis, ejerciendo además un potente efecto citotóxico transeúnte sobre células tumorales vecinas (efecto bystander).
+mecanismo_ref: 'pmid:35320644'
+
+farmacocinetica:
+  eliminacion: 'Catabolismo proteico general de la fracción anticuerpo y eliminación hepática de la carga citotóxica libre vía CYP3A4'
+  vida_media: 'Aproximadamente 5.7 días'
+  implicacion: >-
+    Administración intravenosa a dosis de 5.4 mg/kg cada 3 semanas (ciclos de 21 días).
+    Requiere premedicación antiemética obligatoria antes de cada perfusión.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Enfermedad pulmonar intersticial / neumonitis
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Toxicidad limitante y potencialmente mortal (incidencia global ~10 %); exige monitorización tomográfica activa y suspensión inmediata ante cualquier síntoma.
+      ref: 'pmid:35320644'
+    - evento: Neutropenia y toxicidad hematológica
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Control de hemograma antes de cada ciclo; considerar uso de factores estimulantes de colonias (G-CSF) si neutropenia Grado 3 o 4.
+      ref: 'pmid:35320644'
+    - evento: Náuseas y emesis
+      frecuencia: muy_frecuente
+      gravedad: moderada
+      nota: >-
+        Fármaco de potencial emetógeno moderado-alto; requiere pauta preventiva con antagonistas 5-HT3 y dexametasona.
+      ref: 'pmid:35320644'

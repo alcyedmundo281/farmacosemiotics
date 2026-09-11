@@ -1,0 +1,111 @@
+# PARTE I — Informe de selección del medicamento.
+#
+# Compara las opciones terapéuticas adyuvantes dirigidas al receptor mineralocorticoide
+# para frenar la progresión renal y reducir el riesgo cardiovascular en pacientes con
+# diabetes mellitus tipo 2 y enfermedad renal crónica con albuminuria persistente.
+
+id: 'SEL:0005'
+tipo: seleccion
+problema: Enfermedad renal crónica con albuminuria persistente en diabetes tipo 2
+problema_en: Chronic kidney disease with persistent albuminuria in type 2 diabetes
+cie11: GB61
+
+poblacion: >-
+  Adultos con diabetes tipo 2 y enfermedad renal crónica caracterizada por albuminuria
+  persistente (cociente albúmina/creatinina en orina UACR ≥ 30 mg/g) a pesar del tratamiento
+  optimizado con la dosis máxima tolerada de un inhibidor del sistema renina-angiotensina
+  (IECA o ARA-II), con filtrado glomerular estimado (TFGe) ≥ 25 mL/min/1.73 m² y potasio
+  sérico basal ≤ 4.8 mEq/L.
+
+pregunta: >-
+  En pacientes con diabetes tipo 2 y enfermedad renal crónica con albuminuria persistente
+  bajo dosis máxima tolerada de IECA o ARA-II, ¿qué antagonista del receptor mineralocorticoide
+  se selecciona para frenar la progresión a fallo renal y reducir eventos cardiovasculares,
+  según eficacia, seguridad, conveniencia y costo?
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  El bloqueo del sistema renina-angiotensina con IECA o ARA-II y el empleo de inhibidores
+  de SGLT2 constituyen la base del tratamiento, pero persiste un riesgo residual importante
+  de progresión renal mediado por hiperactividad del receptor mineralocorticoide. La elección
+  se plantea entre la finerenona (antagonista no esteroideo con evidencia de desenlaces duros)
+  y la espironolactona (antagonista esteroideo tradicional sin ensayos de desenlaces duros en esta población).
+
+estrategia:
+  - base: PubMed
+    consulta: 'finerenone AND Diabetic Nephropathies AND randomized controlled trial'
+    fecha: '2026-09-11'
+    nota: >-
+      Evidencia primaria recuperada del ensayo pivotal FIDELIO-DKD (PMID: 33264825) y consenso ADA/KDIGO 2022 (PMID: 36189689).
+
+criterio_decisorio: >-
+  Se selecciona el fármaco que ha demostrado beneficio estadísticamente significativo sobre
+  desenlaces renales mayores (evitar la terapia sustitutiva renal y el descenso sostenido del eGFR)
+  con un perfil de seguridad sin efectos antiandrógenos y con protocolo validado de control de potasio.
+
+conclusion: >-
+  Finerenona queda seleccionada como el fármaco de elección para añadir a la terapia basal
+  en pacientes con DM2, ERC y albuminuria persistente (UACR ≥ 30 mg/g) con potasio ≤ 4.8 mEq/L.
+  La espironolactona queda desestimada para esta indicación por carecer de ensayos clínicos de
+  desenlaces renales duros y presentar una tasa sustancialmente mayor de hiperpotasemia grave y ginecomastia.
+
+candidatos:
+  - dci: Finerenona
+    atc: C03DA05
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Demostró en FIDELIO-DKD una reducción relativa del 18 % en el desenlace renal compuesto primario
+        (fallo renal terminal, descenso sostenido de TFGe ≥40 % o muerte renal; HR 0.82, IC 95 % 0.73-0.93;
+        NNT 31 a 2.6 años) y del 14 % en eventos cardiovasculares mayores (HR 0.86; NNT 55).
+      ref: 'pmid:33264825'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Al ser un antagonista no esteroideo altamente selectivo, no produce ginecomastia ni trastornos
+        menstruales o sexuales. El riesgo de hiperpotasemia con retirada del tratamiento fue del 2.3 %
+        (vs 0.9 % en placebo; NNH 72 a 2.6 años), manejable con monitorización protocolizada a 4 semanas.
+      ref: 'pmid:33264825'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Toma oral única diaria (10 o 20 mg/día) con o sin alimentos. Exige analítica de potasio y creatinina
+        a las 4 semanas post-inicio o post-titulación.
+      ref: 'pmid:36189689'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Fármaco innovador protegido por patente comercial con coste de adquisición superior a las opciones genéricas.
+
+  - dci: Espironolactona
+    atc: C03DA01
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Reduce la albuminuria como desenlace subrogado, pero carece de ensayos clínicos aleatorizados con
+        potencia estadística para demostrar reducción de progresión a diálisis o mortalidad renal en nefropatía diabética.
+      ref: 'pmid:36189689'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Riesgo marcadamente más elevado de hiperpotasemia grave y tasas altas de ginecomastia dolorosa,
+        disfunción eréctil y mastodinia por antagonismo no selectivo del receptor de andrógenos y agonismo de progesterona.
+      ref: 'pmid:36189689'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Toma oral diaria, pero requiere monitorización analítica frecuente y presenta menor tolerabilidad a largo plazo.
+      ref: 'pmid:36189689'
+    costo:
+      juicio: superior
+      sustento: >-
+        Principio activo genérico multifuente de bajísimo coste en el mercado internacional.

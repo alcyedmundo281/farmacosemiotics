@@ -1,0 +1,134 @@
+id: 'FT:0012'
+tipo: ficha
+farmaco: 'FS:0011'
+seleccion: 'SEL:0005'
+titulo: Finerenona en la enfermedad renal crónica asociada a diabetes tipo 2
+indicacion: Enfermedad renal crónica con albuminuria persistente en diabetes mellitus tipo 2
+indicacion_en: Chronic kidney disease with persistent albuminuria in type 2 diabetes
+poblacion: Adultos con diabetes tipo 2 y ERC con albuminuria persistente (UACR ≥ 30 mg/g) bajo dosis máxima tolerada de IECA o ARA-II
+cie11: GB61
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Nefroprotección no esteroidea: añadir a dosis máxima tolerada de IECA/ARA-II si potasio ≤ 4.8 mEq/L
+    y TFGe ≥ 25 mL/min/1.73 m²; reduce el riesgo de fallo renal terminal (NNT 31 a 2.6 años) y muerte o
+    eventos cardiovasculares (NNT 56). Obligatorio control de potasio y TFGe a las 4 semanas.
+  alerta_seguridad_inmediata: >-
+    No iniciar si potasio sérico > 4.8 mEq/L. Suspender inmediatamente si supera 5.5 mEq/L (NNH 72
+    para retirada por hiperpotasemia). Contraindicado de forma absoluta con inhibidores potentes de CYP3A4
+    y suplementos o diuréticos ahorradores de potasio.
+
+# ── Pregunta PICO ────────────────────────────────────────────────────────────
+pico:
+  p: Adultos con diabetes mellitus tipo 2 y enfermedad renal crónica con albuminuria persistente (UACR 30-5000 mg/g) bajo dosis máxima tolerada de IECA o ARA-II y TFGe ≥ 25 mL/min/1.73 m²
+  i: Finerenona (10 o 20 mg por vía oral una vez al día) añadida al tratamiento estándar
+  c: Placebo añadido al tratamiento estándar óptimo
+  o: Fallo renal (enfermedad renal terminal, caída sostenida del TFGe a <15 o descenso ≥40%, muerte renal), eventos cardiovasculares mayores, hiperpotasemia
+
+# ── Posología Práctica ───────────────────────────────────────────────────────
+posologia:
+  inicio: >-
+    10 mg una vez al día si TFGe entre 25 y 59 mL/min/1.73 m²; 20 mg una vez al día si TFGe ≥ 60 mL/min/1.73 m².
+    Solo iniciar si potasio sérico es ≤ 4.8 mEq/L.
+  escalado: >-
+    Titular de 10 mg a 20 mg una vez al día tras 4 semanas si el potasio sérico se mantiene ≤ 4.8 mEq/L
+    y el filtrado glomerular permanece estable.
+  mantenimiento: 20 mg por vía oral una vez al día (o 10 mg/día si el potasio se sitúa entre 4.9 y 5.5 mEq/L)
+  maxima: 20 mg una vez al día
+  ajuste_renal: >-
+    No iniciar si TFGe < 25 mL/min/1.73 m². Si el paciente progresa durante el tratamiento a TFGe < 15 mL/min/1.73 m²
+    o entra en diálisis, suspender definitivamente el fármaco.
+  ref: 'fda:label'
+
+# ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
+evidencia:
+  - desenlace: Compuesto renal primario (fallo renal terminal, descenso sostenido de TFGe ≥40% o muerte renal)
+    criticidad: critico
+    efecto: 'Reducción relativa del 18 % (HR 0.82, IC 95 % 0.73–0.93), p = 0.001'
+    rra: '3.3%'
+    rrr: '15.8%'
+    nnt: 31
+    horizonte_nnt: a 2.6 años
+    diseno: eca
+    estudio: FIDELIO-DKD (2020)
+    comparador: Placebo + dosis máxima tolerada de IECA o ARA-II
+    n: 5734
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:33264825'
+
+  - desenlace: Compuesto cardiovascular secundario clave (muerte cardiovascular, IAM no fatal, ictus no fatal o ingreso por insuficiencia cardíaca)
+    criticidad: critico
+    efecto: 'Reducción relativa del 14 % (HR 0.86, IC 95 % 0.75–0.99), p = 0.03'
+    rra: '1.8%'
+    rrr: '14.0%'
+    nnt: 56
+    horizonte_nnt: a 2.6 años
+    diseno: eca
+    estudio: FIDELIO-DKD (2020)
+    comparador: Placebo + tratamiento estándar
+    n: 5734
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:33264825'
+
+# ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Hiperpotasemia que conduce a la suspensión permanente del tratamiento
+    gravedad: moderada
+    tasa_intervencion: '2.3 %'
+    tasa_control: '0.9 %'
+    ria: '1.4%'
+    nnh: 72
+    horizonte_nnh: a 2.6 años
+    conducta: >-
+      Suspender inmediatamente finerenona si potasio sérico > 5.5 mEq/L. Reiniciar con 10 mg/día
+      únicamente cuando el potasio sérico descienda a ≤ 4.8 mEq/L.
+    ref: 'pmid:33264825'
+
+# ── Juicio de Balance GRADE ──────────────────────────────────────────────────
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+# ── Recomendación Formal ─────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda añadir Finerenona (10 o 20 mg/día) al tratamiento estándar en pacientes con diabetes
+    tipo 2 y enfermedad renal crónica con albuminuria persistente (UACR ≥ 30 mg/g) a pesar de la dosis
+    máxima tolerada de IECA o ARA-II (con TFGe ≥ 25 mL/min/1.73 m² y potasio sérico basal ≤ 4.8 mEq/L)
+    para enlentecer la progresión a diálisis y reducir la morbimortalidad cardiovascular.
+  ref: 'pmid:36189689'
+
+# ── Alternativas Terapéuticas ────────────────────────────────────────────────
+alternativas:
+  - dci: Empagliflozina
+    atc: A10BK03
+    lme: true
+    lme_seccion: '18.5.2'
+    nota: 'iSGLT2 de primera línea con nefroprotección y reducción de eventos cardiovasculares en diabetes tipo 2 con ERC.'
+
+conclusion: >-
+  Finerenona aporta protección cardiorrenal complementaria demostrada en desenlaces duros (NNT 31 en progresión renal,
+  NNT 56 en eventos cardiovasculares) con una seguridad manejable protocolizando el control de potasio a las 4 semanas (NNH 72).
+
+refs:
+  - 'pmid:33264825'
+  - 'pmid:34449181'
+  - 'pmid:36189689'
+  - 'fda:label'

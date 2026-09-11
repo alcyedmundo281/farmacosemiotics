@@ -1,0 +1,154 @@
+# PARTE II — Farmacoterapia: cómo se usa la dapagliflozina con seguridad.
+id: 'FA:0012'
+tipo: farmacoterapia
+farmaco: 'FS:0012'
+
+titulo: Farmacoterapia con dapagliflozina
+titulo_en: Dapagliflozin pharmacotherapy
+
+alcance: >-
+  Establece las directrices de prescripción segura y monitorización de la dapagliflozina en
+  insuficiencia cardíaca y nefropatía: cribado basal de TFGe, posología de 10 mg sin titulación,
+  manejo del descenso hemodinámico inicial de TFGe y reglas de suspensión temporal perioperatoria.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Filtrado glomerular estimado (TFGe)
+    motivo: >-
+      Confirmar TFGe ≥ 20 mL/min/1.73 m² para iniciar en insuficiencia cardíaca y disponer de la cifra basal
+      para interpretar el descenso hemodinámico esperado inicial.
+    responsable: compartida
+    ref: 'pmid:31535829'
+
+  - prueba: Presión arterial y estado de volemia
+    motivo: >-
+      Descartar depleción de volumen o hipotensión sintomática antes de iniciar, para ajustar si procede
+      la dosis de diuréticos de asa concomitantes.
+    responsable: compartida
+    ref: 'pmid:31535829'
+
+  - prueba: Inspección y antecedentes de infecciones urogenitales
+    motivo: >-
+      Identificar y tratar micosis activas previas e instruir al paciente en higiene preventiva.
+    responsable: compartida
+    ref: 'pmid:31535829'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Filtrado glomerular estimado (TFGe)
+      - Electrolitos séricos
+      - Presión arterial
+    responsable: compartida
+    ref: 'pmid:31535829'
+
+  - fase: induccion
+    periodo: Entre las 4 y 8 semanas tras el inicio
+    frecuencia: Control único a las 4-8 semanas
+    pruebas:
+      - Filtrado glomerular estimado (TFGe)
+      - Presión arterial
+    responsable: seguimiento
+    ref: 'pmid:31535829'
+
+  - fase: mantenimiento
+    periodo: Durante el tratamiento continuado
+    frecuencia: Cada 6 a 12 meses
+    pruebas:
+      - Filtrado glomerular estimado (TFGe)
+      - Presión arterial
+    responsable: seguimiento
+    ref: 'pmid:31535829'
+
+umbrales_accion:
+  - parametro: Filtrado glomerular estimado previo al inicio
+    umbral: '< 20 mL/min/1.73 m²'
+    accion: >-
+      No iniciar dapagliflozina por falta de evidencia de beneficio y reducción acusada de eficacia natriurética.
+    ref: 'pmid:31535829'
+
+  - parametro: Descenso hemodinámico del TFGe tras inicio
+    umbral: Descenso < 30% respecto al valor basal
+    accion: >-
+      Mantener dapagliflozina. Refleja la caída funcional reversible de la hiperfiltración intraglomerular,
+      asociada a preservación nefrónica a largo plazo.
+    ref: 'pmid:38490803'
+
+  - parametro: Síntomas de hipovolemia o mareo ortostático
+    umbral: Hipotensión sintomática
+    accion: >-
+      Reducir la dosis de diuréticos de asa concomitantes si el paciente se encuentra euvolémico antes de considerar suspender el iSGLT2.
+    ref: 'pmid:31535829'
+
+  - parametro: Infección micótica genital
+    umbral: Presencia de prurito / flujo vulvovaginal o balanitis
+    accion: >-
+      Tratar con antifúngico tópico o fluconazol oral en dosis única; continuar el tratamiento con dapagliflozina.
+    ref: 'pmid:31535829'
+
+interacciones:
+  - con: Diuréticos de asa (furosemida, torasemida)
+    gravedad: moderada
+    efecto: Sinergia natriurética con mayor propensión a deshidratación o hipotensión ortostática.
+    conducta: Evaluar estado de volemia y considerar reducir la dosis del diurético de asa.
+    ref: 'pmid:31535829'
+
+  - con: Insulina y secretagogos de insulina (sulfonilureas) en pacientes diabéticos
+    gravedad: moderada
+    efecto: Riesgo incrementado de hipoglucemia al sumar efectos glucosúricos.
+    conducta: Reducir preventivamente la dosis de insulina o sulfonilurea al añadir dapagliflozina.
+    ref: 'pmid:31535829'
+
+reproductivo:
+  gestacion:
+    compatibilidad: evitar
+    enunciado: >-
+      Evitar durante el segundo y tercer trimestre del embarazo por riesgo de toxicidad renal fetal demostrado en modelos preclínicos.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: evitar
+    enunciado: >-
+      Se desaconseja amamantar durante el tratamiento por riesgo potencial para el lactante en desarrollo.
+    ref: 'fda:label'
+  anticoncepcion:
+    enunciado: >-
+      Se aconseja a las mujeres en edad reproductiva asegurar medidas anticonceptivas eficaces durante el tratamiento.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Indica dapagliflozina 10 mg/día como uno de los 4 pilares fundamentales de la insuficiencia cardíaca
+    con FEVI reducida y verifica TFGe ≥ 20 mL/min/1.73 m².
+  seguimiento: >-
+    Verifica tolerancia hemodinámica, monitoriza la función renal periódica y asegura educación sobre suspensión
+    en ayuno, estrés quirúrgico mayor o gastroenteritis aguda.
+  suspension_inmediata: >-
+    Sospecha de cetoacidosis euglucémica, cirugía mayor programada (interrumpir 3 días antes) o cuadro de sepsis grave/deshidratación severa.
+  ref: 'pmid:31535829'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: >-
+        Cuádruple terapia fundamental obligatoria en IC-FEr: iSGLT2 (dapagliflozina 10 mg/día) + ARNI/IECA + betabloqueante + antagonista de mineralocorticoide.
+  desescalamiento:
+    enunciado: >-
+      No se desescala tras la mejoría de la fracción de eyección; debe mantenerse de forma indefinida para evitar recaídas y descompensaciones.
+    ref: 'pmid:31535829'
+  ref: 'pmid:31535829'
+
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      Dapagliflozina no cuenta con variantes genéticas clasificadas en guías CPIC con impacto en la dosificación;
+      su respuesta terapéutica y seguridad no dependen de polimorfismos accionables.
+    referencias_consultadas:
+      - 'pmid:31535829'

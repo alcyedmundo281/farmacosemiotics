@@ -1,0 +1,57 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:35320644"
+clave_bibtex: corts2022
+tipo: eca
+titulo: "Trastuzumab Deruxtecan versus Trastuzumab Emtansine for Breast Cancer"
+autores:
+  - "Cortés J"
+  - "Kim SB"
+  - "Chung WP"
+  - "Im SA"
+  - "Park YH"
+  - "Hegg R"
+  - "Kim MH"
+  - "Tseng LM"
+  - "Petry V"
+  - "Chung CF"
+  - "Iwata H"
+  - "Hamilton E"
+  - "Curigliano G"
+  - "Xu B"
+  - "Huang CS"
+  - "Kim JH"
+  - "Chiu JWY"
+  - "Pedrini JL"
+  - "Lee C"
+  - "Liu Y"
+  - "Cathcart J"
+  - "Bako E"
+  - "Verma S"
+  - "Hurvitz SA"
+  - "DESTINY-Breast03 Trial Investigators"
+publicacion: "N Engl J Med"
+anio: 2022
+volumen: "386"
+numero: "12"
+paginas: "1143-1154"
+
+identificadores:
+  pmid: 35320644
+  doi: "10.1056/NEJMoa2115022"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

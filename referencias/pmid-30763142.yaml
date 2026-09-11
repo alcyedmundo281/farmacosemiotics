@@ -1,0 +1,46 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:30763142"
+clave_bibtex: fizazi2019
+tipo: eca
+titulo: "Darolutamide in Nonmetastatic, Castration-Resistant Prostate Cancer"
+autores:
+  - "Fizazi K"
+  - "Shore N"
+  - "Tammela TL"
+  - "Ulys A"
+  - "Vjaters E"
+  - "Polyakov S"
+  - "Jievaltas M"
+  - "Luz M"
+  - "Alekseev B"
+  - "Kuss I"
+  - "Kappeler C"
+  - "Snapir A"
+  - "Sarapohja T"
+  - "Smith MR"
+  - "ARAMIS Investigators"
+publicacion: "N Engl J Med"
+anio: 2019
+volumen: "380"
+numero: "13"
+paginas: "1235-1246"
+
+identificadores:
+  pmid: 30763142
+  doi: "10.1056/NEJMoa1815671"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

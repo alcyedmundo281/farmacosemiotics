@@ -1,0 +1,96 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0008'
+tipo: seleccion
+problema: Cáncer de pulmón no microcítico avanzado con mutación activadora de EGFR
+problema_en: Advanced non-small cell lung cancer with activating EGFR mutation
+cie11: 2C25
+
+poblacion: >-
+  Adultos con cáncer de pulmón no microcítico (CPNM) localmente avanzado o metastásico
+  que presentan mutaciones sensibilizantes en el receptor EGFR (deleción del exón 19 o
+  mutación L858R en el exón 21), vírgenes de tratamiento previo con inhibidores de tirosina quinasa.
+
+pregunta: >-
+  En pacientes con CPNM avanzado y mutación activadora de EGFR en primera línea, ¿qué inhibidor de tirosina
+  quinasa (osimertinib vs TKIs de primera generación como gefitinib o erlotinib) se selecciona para maximizar
+  la supervivencia libre de progresión y global con óptima penetración en el sistema nervioso central?
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Los TKIs de primera generación (gefitinib y erlotinib) cambiaron el paradigma del tratamiento, pero sufren
+  de resistencia secundaria mediada por la mutación T790M en más del 50 % de los casos y tienen baja penetración
+  en la barrera hematoencefálica. Osimertinib fue diseñado para inhibir tanto las mutaciones sensibilizantes
+  como T790M, con selectividad frente a EGFR nativo y excelente paso al sistema nervioso central.
+
+estrategia:
+  - base: PubMed
+    consulta: 'osimertinib AND FLAURA AND untreated EGFR-mutated advanced NSCLC'
+    fecha: '2026-09-11'
+    nota: 'Ensayos pivotales FLAURA SLP (PMID: 29151359) y FLAURA OS (PMID: 31751012).'
+
+criterio_decisorio: >-
+  Se selecciona el fármaco que demuestre superioridad estadísticamente significativa en supervivencia libre de progresión
+  y supervivencia global frente a un comparador activo de clase, con eficacia confirmada sobre metástasis en SNC y menor toxicidad grado ≥ 3.
+
+conclusion: >-
+  Osimertinib queda seleccionado como el estándar indiscutible de primera línea en CPNM avanzado EGFR mutado:
+  prolonga la supervivencia libre de progresión (18.9 vs 10.2 meses; HR 0.46, NNT 4 a 18 meses frente a comparadores activos),
+  reduce la mortalidad global (HR 0.80, NNT 10 a 3 años) y ofrece protección superior frente a metástasis cerebrales.
+
+candidatos:
+  - dci: Osimertinib
+    atc: L01EB04
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Demostró en FLAURA duplicar casi la mediana de supervivencia libre de progresión (18.9 meses vs 10.2 meses con gefitinib/erlotinib;
+        HR 0.46, IC 95 % 0.37-0.57; NNT 4 a 18 meses) y prolongó significativamente la supervivencia global (38.6 vs 31.8 meses; HR 0.80; NNT 10 a 3 años),
+        reduciendo la progresión en el sistema nervioso central en un 52 % (HR 0.48).
+      ref: 'pmid:29151359'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Tasa de eventos adversos grado ≥ 3 inferior a los comparadores de primera generación (34 % vs 45 %)
+        gracias a su selectividad por el EGFR mutado frente al silvestre, con menor incidencia de diarrea severa y erupción acneiforme.
+      ref: 'pmid:29151359'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Toma oral única de 80 mg al día sin requerimiento de ayuno estricto.
+      ref: 'pmid:29151359'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Terapia dirigida de tercera generación de marca protegida bajo patente comercial.
+
+  - dci: Inhibidores de EGFR de primera generación (Gefitinib o Erlotinib)
+    atc: L01EB01
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Supervivencia libre de progresión significativamente inferior (10.2 meses) y menor penetración cerebral,
+        con desarrollo predecible de resistencia secundaria por T790M al cabo de un año.
+      ref: 'pmid:29151359'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Mayor tasa de diarrea grave y erupción cutánea al inhibir el EGFR nativo expresado en piel e intestino.
+      ref: 'pmid:29151359'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Toma oral diaria (erlotinib exige ayuno estricto 1 hora antes o 2 horas después de comer).
+      ref: 'pmid:29151359'
+    costo:
+      juicio: superior
+      sustento: >-
+        Moléculas que cuentan con opciones genéricas multifuente en mercados internacionales.

@@ -1,0 +1,114 @@
+id: 'FT:0017'
+tipo: ficha
+farmaco: 'FS:0016'
+seleccion: 'SEL:0009'
+titulo: Trastuzumab deruxtecán en el cáncer de mama metastásico HER2-positivo
+indicacion: Cáncer de mama metastásico o irresecable HER2-positivo previamente tratado
+indicacion_en: HER2-positive metastatic or unresectable breast cancer previously treated
+poblacion: Adultos con cáncer de mama metastásico HER2-positivo que progresaron tras recibir al menos una línea previa con trastuzumab y taxano
+cie11: 2C61
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Estándar de elección en segunda línea HER2+: 5.4 mg/kg IV cada 3 semanas con premedicación antiemética;
+    triplica la supervivencia libre de progresión al año frente a T-DM1 (75.8 % vs 34.1 %, HR 0.28; NNT 3 a 12 meses).
+  alerta_seguridad_inmediata: >-
+    Alerta máxima por enfermedad pulmonar intersticial (EPI/neumonitis; NNH 12). Monitorizar con TC de tórax periódica.
+    Suspender inmediatamente ante cualquier síntoma respiratorio; si se confirma EPI ≥ Grado 2, suspender de por vida y dar corticoides.
+
+pico:
+  p: Adultos con cáncer de mama metastásico HER2-positivo previamente tratado con trastuzumab y un taxano
+  i: Trastuzumab deruxtecán (T-DXd) 5.4 mg/kg por vía intravenosa cada 3 semanas
+  c: Trastuzumab emtansina (T-DM1) 3.6 mg/kg por vía intravenosa cada 3 semanas
+  o: Supervivencia libre de progresión (SLP), supervivencia global (SG), tasa de respuesta objetiva y neumonitis
+
+posologia:
+  inicio: 5.4 mg/kg administrados mediante perfusión intravenosa durante 90 minutos en el día 1 de cada ciclo de 21 días
+  escalado: >-
+    Dosis plena desde el primer ciclo; si las perfusiones iniciales se toleran bien, las posteriores pueden administrarse en 30 minutos.
+  mantenimiento: 5.4 mg/kg IV cada 3 semanas hasta progresión de la enfermedad o toxicidad inaceptable
+  maxima: '5.4 mg/kg cada 3 semanas (primer escalón de reducción: 4.4 mg/kg; segundo escalón: 3.2 mg/kg)'
+  ajuste_renal: >-
+    No se requiere ajuste en insuficiencia renal leve a moderada. No hay datos en insuficiencia renal grave.
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Supervivencia libre de progresión a los 12 meses (SLP)
+    criticidad: critico
+    efecto: 'Reducción del 72 % en el riesgo de progresión o muerte frente a T-DM1 (HR 0.28, IC 95 % 0.22–0.37), p < 0.001; 75.8 % vs 34.1 % vivas sin progresión'
+    rra: '41.7%'
+    rrr: '63.3%'
+    nnt: 3
+    horizonte_nnt: a 12 meses
+    diseno: eca
+    estudio: DESTINY-Breast03 (2022)
+    comparador: Trastuzumab emtansina 3.6 mg/kg
+    n: 524
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:35320644'
+
+  - desenlace: Supervivencia global a los 12 meses (SG)
+    criticidad: critico
+    efecto: 'Reducción del 45 % en el riesgo de muerte (HR 0.55, IC 95 % 0.36–0.86); 94.1 % vs 85.9 % vivas al año'
+    rra: '8.2%'
+    rrr: '58.2%'
+    nnt: 13
+    horizonte_nnt: a 12 meses
+    diseno: eca
+    estudio: DESTINY-Breast03 (2022)
+    comparador: Trastuzumab emtansina
+    n: 524
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:35320644'
+
+seguridad_cuantitativa:
+  - evento: Enfermedad pulmonar intersticial / neumonitis adjudicada
+    gravedad: grave
+    tasa_intervencion: '10.5 %'
+    tasa_control: '1.9 %'
+    ria: '8.6%'
+    nnh: 12
+    horizonte_nnh: a 12 meses
+    conducta: >-
+      Suspender inmediatamente T-DXd si se detecta infiltrado en TC de tórax o síntomas respiratorios; si es Grado ≥ 2, suspender definitivamente e iniciar prednisona ≥ 1 mg/kg/día.
+    ref: 'pmid:35320644'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda fuertemente Trastuzumab Deruxtecán (5.4 mg/kg IV cada 3 semanas) como tratamiento de segunda línea
+    en pacientes con cáncer de mama metastásico HER2-positivo que han progresado a esquemas basados en trastuzumab y taxano,
+    por su superioridad sobresaliente en supervivencia libre de progresión (NNT 3 a 12 meses) con vigilancia protocolizada de toxicidad pulmonar.
+  ref: 'pmid:35320644'
+
+alternativas:
+  - dci: Trastuzumab emtansina
+    atc: L01FD01
+    nota: 'Estándar histórico de segunda línea; reservado para pacientes donde T-DXd esté contraindicado por neumopatía intersticial previa.'
+
+conclusion: >-
+  Trastuzumab deruxtecán transforma la segunda línea del cáncer de mama metastásico HER2+ con un beneficio clínico masivo frente a T-DM1 (NNT 3 en SLP),
+  requiriendo estricta adherencia al protocolo de despistaje y manejo precoz de la neumonitis intersticial (NNH 12).
+
+refs:
+  - 'pmid:35320644'
+  - 'fda:label'

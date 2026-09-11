@@ -1,0 +1,42 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:33264825"
+clave_bibtex: bakris2020
+tipo: eca
+titulo: "Effect of Finerenone on Chronic Kidney Disease Outcomes in Type 2 Diabetes"
+autores:
+  - "Bakris GL"
+  - "Agarwal R"
+  - "Anker SD"
+  - "Pitt B"
+  - "Ruilope LM"
+  - "Rossing P"
+  - "Kolkhof P"
+  - "Nowack C"
+  - "Schloemer P"
+  - "Joseph A"
+  - "Filippatos G"
+  - "FIDELIO-DKD Investigators"
+publicacion: "N Engl J Med"
+anio: 2020
+volumen: "383"
+numero: "23"
+paginas: "2219-2229"
+
+identificadores:
+  pmid: 33264825
+  doi: "10.1056/NEJMoa2025845"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

@@ -1,0 +1,62 @@
+id: 'FS:0011'
+tipo: farmaco
+dci: Finerenona
+dci_en: Finerenone
+sinonimos:
+  - Kerendia
+  - BAY 94-8862
+
+atc: C03DA05
+clase_farmacologica: Antagonista del receptor mineralocorticoide no esteroideo
+clase_farmacologica_en: Nonsteroidal mineralocorticoid receptor antagonist (nsMRA)
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Antagonista selectivo y no esteroideo del receptor mineralocorticoide que bloquea
+  la transcripción mediada por aldosterona de mediadores proinflamatorios y profibróticos
+  en las células renales y vasculares, reduciendo la inflamación intersticial, la fibrosis
+  y la albuminuria.
+mecanismo_ref: 'pmid:33264825'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático dependiente de CYP3A4 (90%) y CYP2C8 (10%); eliminación de metabolitos inactivos por orina (80%) y heces (20%)'
+  vida_media: '2 a 3 horas'
+  implicacion: >-
+    No requiere ajuste por función renal basal por farmacocinética pura, pero su empleo
+    está condicionado a TFGe ≥ 25 mL/min/1.73 m² y potasio sérico ≤ 4.8 mEq/L por el
+    riesgo de hiperpotasemia. Contraindicado con inhibidores potentes de CYP3A4.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Hiperpotasemia
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Efecto de clase por inhibición del receptor mineralocorticoide. Raras veces grave si
+        se respeta el umbral de inicio (≤ 4.8 mEq/L) y el control de potasio a las 4 semanas.
+      ref: 'pmid:33264825'
+    - evento: Hipotensión arterial
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Descenso tensional modesto asociado al leve efecto natriurético.
+      ref: 'pmid:33264825'
+    - evento: Reducción hemodinámica inicial del filtrado glomerular
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Descenso reversible de 2 a 3 mL/min/1.73 m² en las primeras semanas por reducción
+        de la hiperfiltración intraglomerular, no indicativo de lesión parenquimatosa.
+      ref: 'pmid:33264825'

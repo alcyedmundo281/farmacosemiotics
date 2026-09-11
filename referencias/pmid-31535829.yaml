@@ -1,0 +1,70 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:31535829"
+clave_bibtex: mcmurray2019
+tipo: eca
+titulo: "Dapagliflozin in Patients with Heart Failure and Reduced Ejection Fraction"
+autores:
+  - "McMurray JJV"
+  - "Solomon SD"
+  - "Inzucchi SE"
+  - "Køber L"
+  - "Kosiborod MN"
+  - "Martinez FA"
+  - "Ponikowski P"
+  - "Sabatine MS"
+  - "Anand IS"
+  - "Bělohlávek J"
+  - "Böhm M"
+  - "Chiang CE"
+  - "Chopra VK"
+  - "de Boer RA"
+  - "Desai AS"
+  - "Diez M"
+  - "Drozdz J"
+  - "Dukát A"
+  - "Ge J"
+  - "Howlett JG"
+  - "Katova T"
+  - "Kitakaze M"
+  - "Ljungman CEA"
+  - "Merkely B"
+  - "Nicolau JC"
+  - "O'Meara E"
+  - "Petrie MC"
+  - "Vinh PN"
+  - "Schou M"
+  - "Tereshchenko S"
+  - "Verma S"
+  - "Held C"
+  - "DeMets DL"
+  - "Docherty KF"
+  - "Jhund PS"
+  - "Bengtsson O"
+  - "Sjöstrand M"
+  - "Langkilde AM"
+  - "DAPA-HF Trial Committees and Investigators"
+publicacion: "N Engl J Med"
+anio: 2019
+volumen: "381"
+numero: "21"
+paginas: "1995-2008"
+
+identificadores:
+  pmid: 31535829
+  doi: "10.1056/NEJMoa1911303"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

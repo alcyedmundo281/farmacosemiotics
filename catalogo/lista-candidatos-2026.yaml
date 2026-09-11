@@ -1,0 +1,287 @@
+# LISTA DE MOLÉCULAS Y CANDIDATOS TERAPÉUTICOS (2026)
+#
+# AVISO DE INDEPENDENCIA:
+# Farmacosemiotics es una obra científica y educativa independiente. El contenido
+# no implica aval, patrocinio, afiliación ni representación de ninguna institución
+# sanitaria, regulatoria ni gubernamental.
+#
+# Este archivo se utiliza EXCLUSIVAMENTE como un inventario temático de principios
+# activos, formas farmacéuticas y concentraciones de interés para priorizar la
+# redacción independiente de guías de práctica clínica basadas en evidencia
+# (GRADE, balance NNT/NNH y referencias ancladas a PubMed).
+
+lista: candidatos_terapeuticos_prioritarios
+fecha_catalogo: '2026-08-21'
+
+resumen:
+  nuevos_principios_activos: 18
+  nuevas_indicaciones_en_nuevos: 22
+  principios_activos_con_ampliacion_indicacion: 10
+  nuevas_indicaciones_en_existentes: 15
+  modificaciones_posologicas: 16
+  moleculas_en_desuso: 6
+
+nuevos_principios_activos:
+  - item: 1
+    dci: Paliperidona
+    atc: N05AX13
+    forma: líquido parenteral
+    concentracion: 50 mg/0.5 mL
+    indicaciones_recuento: 1
+    indicacion_objetivo: Esquizofrenia (antipsicótico inyectable de acción prolongada)
+    area_clinica: Salud Mental & Neuropsiquiatría
+
+  - item: 2
+    dci: Metotrexato
+    atc: L04AX03
+    forma: líquido parenteral
+    concentracion: 50 mg/mL
+    indicaciones_recuento: 1
+    indicacion_objetivo: Artritis reumatoide / Psoriasis grave refractaria / Oncología
+    area_clinica: Inmunosupresión & Oncohematología
+    repositorio: FS0010 (oral/subcutáneo cubierto en FT0010 y FT0011)
+
+  - item: 3
+    dci: Inmunoglobulina humana normal para administración extravascular
+    atc: J06BA01
+    forma: líquido parenteral
+    concentracion: 165 mg/mL - 200 mg/mL
+    indicaciones_recuento: 1
+    indicacion_objetivo: Inmunodeficiencias primarias / Polineuropatías inflamatorias
+    area_clinica: Inmunología & Hematología
+
+  - item: 4
+    dci: Apixabán
+    atc: B01AF02
+    forma: sólido oral
+    concentracion: 5 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Fibrilación auricular no valvular / Prevención de ETV
+    area_clinica: Cardiometabólico & Trombosis
+    repositorio: FS0002 / FA0002 / FT0002 (cubierto en FA no valvular)
+
+  - item: 5
+    dci: Nimodipina
+    atc: C08CA06
+    forma: sólido oral
+    concentracion: 60 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Prevención de déficits isquémicos neurológicos post-HSA
+    area_clinica: Neurología & Cuidados Críticos
+
+  - item: 6
+    dci: Vasopresina
+    atc: H01BA01
+    forma: líquido parenteral
+    concentracion: 20 UI/mL
+    indicaciones_recuento: 1
+    indicacion_objetivo: Shock vasodilatador / séptico refractario
+    area_clinica: Medicina Crítica
+
+  - item: 7
+    dci: Darifenacina
+    atc: G04BD10
+    forma: sólido oral
+    concentracion: 7.5 mg y 15 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Vejiga hiperactiva (antimuscarínico M3)
+    area_clinica: Urología
+
+  - item: 8
+    dci: Eltrombopag
+    atc: B02BX05
+    forma: sólido oral
+    concentracion: 25 mg y 50 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Trombocitopenia inmune primaria crónica / Aplasia medular
+    area_clinica: Hematología
+
+  - item: 9
+    dci: Secukinumab
+    atc: L04AC10
+    forma: líquido parenteral
+    concentracion: 75 mg/0.5 mL
+    indicaciones_recuento: 1
+    indicacion_objetivo: Psoriasis en placas moderada-grave / Espondiloartritis
+    area_clinica: Reumatología & Dermatología
+
+  - item: 10
+    dci: Tofacitinib
+    atc: L04AF01
+    forma: sólido oral
+    concentracion: 5 mg y 11 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Artritis reumatoide activa / Colitis ulcerosa
+    area_clinica: Reumatología & Gastroenterología
+
+  - item: 11
+    dci: Ofatumumab
+    atc: L04AA52
+    forma: líquido parenteral
+    concentracion: 20 mg/0.4 mL
+    indicaciones_recuento: 1
+    indicacion_objetivo: Esclerosis múltiple remitente recurrente
+    area_clinica: Neurología & Terapias Biológicas
+
+  - item: 12
+    dci: Darolutamida
+    atc: L02BB07
+    forma: sólido oral
+    concentracion: 300 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Cáncer de próstata no metastásico resistente a la castración (CPRCnm) / CPmHS
+    area_clinica: Uro-Oncología
+
+  - item: 13
+    dci: Osimertinib
+    atc: L01EB04
+    forma: sólido oral
+    concentracion: 40 mg y 80 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Cáncer de pulmón no microcítico con mutación de EGFR
+    area_clinica: Onco-Torácica
+
+  - item: 14
+    dci: Finerenona
+    atc: C03DA05
+    forma: sólido oral
+    concentracion: 10 mg y 20 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Enfermedad renal crónica con albuminuria en diabetes tipo 2
+    area_clinica: Cardiometabólico & Nefrología
+    repositorio: FS0011 / FA0011 / FT0012 (completado con SEL0005)
+
+  - item: 15
+    dci: Ribociclib
+    atc: L01EF02
+    forma: sólido oral
+    concentracion: 200 mg
+    indicaciones_recuento: 3
+    indicacion_objetivo: Cáncer de mama metastásico o adyuvante HR+/HER2-
+    area_clinica: Onco-Mama
+
+  - item: 16
+    dci: Trastuzumab deruxtecán
+    atc: L01FD04
+    forma: sólido parenteral
+    concentracion: 100 mg
+    indicaciones_recuento: 2
+    indicacion_objetivo: Cáncer de mama HER2-positivo y HER2-low metastásico
+    area_clinica: Onco-Mama
+
+  - item: 17
+    dci: Blinatumomab
+    atc: L01FX07
+    forma: sólido parenteral
+    concentracion: 38.5 mg
+    indicaciones_recuento: 2
+    indicacion_objetivo: Leucemia linfoblástica aguda de precursores B (ERM+ y R/R)
+    area_clinica: Onco-Hematología
+
+  - item: 18
+    dci: Asciminib
+    atc: L01EA06
+    forma: sólido oral
+    concentracion: 20 mg y 40 mg
+    indicaciones_recuento: 1
+    indicacion_objetivo: Leucemia mieloide crónica Ph+ tratada previamente con ≥2 TKIs o mutación T315I
+    area_clinica: Onco-Hematología
+
+ampliaciones_indicacion:
+  - dci: Ruxolitinib
+    atc: L01EJ01
+    forma: sólido oral
+    concentracion: 5 mg y 15 mg
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Enfermedad injerto contra huésped (EICH) o Policitemia vera
+
+  - dci: Levonorgestrel
+    atc: G02BB01
+    forma: sistema intrauterino de liberación
+    concentracion: 52 mg
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Sangrado menstrual abundante idiopático
+
+  - dci: Ceftazidima / Avibactam
+    atc: J01DD52
+    forma: sólido parenteral
+    concentracion: 2 g + 0.5 g
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Infecciones complicadas por enterobacterias resistentes productoras de carbapenemasas KPC
+
+  - dci: Apalutamida
+    atc: L02BB05
+    forma: sólido oral
+    concentracion: 60 mg
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Cáncer de próstata metastásico sensible a la castración
+
+  - dci: Olaparib
+    atc: L01XX46
+    forma: sólido oral
+    concentracion: 100 mg - 150 mg
+    indicaciones_adicionales: 3
+    indicacion_objetivo: Cáncer de ovario BRCAm, cáncer de mama BRCAm, cáncer de próstata mCRPC
+
+  - dci: Pembrolizumab
+    atc: L01FF02
+    forma: líquido parenteral
+    concentracion: 25 mg/mL
+    indicaciones_adicionales: 4
+    indicacion_objetivo: Melanoma, cáncer colorrectal MSI-H/dMMR, cáncer urotelial, cáncer de mama triple negativo
+    repositorio: FS0003 / FA0003 / FT0003 (cubierto en CPNM)
+
+  - dci: Trastuzumab emtansina
+    atc: L01FD01
+    forma: sólido parenteral
+    concentracion: 100 mg y 160 mg
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Cáncer de mama HER2+ adyuvante con enfermedad invasiva residual tras neoadyuvancia
+
+  - dci: Guselkumab
+    atc: L04AC16
+    forma: líquido parenteral
+    concentracion: 100 mg/mL
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Psoriasis en placas moderada a grave
+    repositorio: FS0004 / FA0004 / FT0004 (cubierto en artritis psoriásica)
+
+  - dci: Empagliflozina
+    atc: A10BK03
+    forma: sólido oral
+    concentracion: 10 mg - 25 mg
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Enfermedad renal crónica
+    repositorio: FS0007 / FA0007 / FT0007 (cubierto en insuficiencia cardíaca)
+
+  - dci: Dapagliflozina
+    atc: A10BK01
+    forma: sólido oral
+    concentracion: 10 mg
+    indicaciones_adicionales: 1
+    indicacion_objetivo: Enfermedad renal crónica o Insuficiencia cardíaca con FEVI preservada
+
+modificaciones_posologicas:
+  - Multienzimas pancreáticas: ampliación de concentración y equivalencias
+  - Complejo de protrombina: ampliación de disponibilidad clínica
+  - Pirimetamina: ampliación de disponibilidad clínica
+  - Sulfadiazina: ampliación de disponibilidad clínica
+  - Insulina glargina: ampliación de rango de concentración (100 a 300 UI/mL)
+  - Ondansetrón: ampliación de concentración 0.16 mg/mL
+  - Ácido zoledrónico: concentración 5 mg
+  - Somatropina: rango 1.33 mg a 20 mg
+  - Tacrolimus: rango 1 mg a 5 mg
+  - Albúmina: especificación de indicación
+  - Empagliflozina: ajuste de indicación
+  - Dapagliflozina: ajuste de indicación
+  - Mesna: ampliación de disponibilidad clínica
+  - Citarabina: forma farmacéutica y concentración
+  - Sevoflurano: expresión de concentración
+  - Folinato cálcico: forma farmacéutica
+
+moleculas_en_desuso:
+  motivo: Obsolescencia terapéutica y sustitución en guías de práctica clínica internacionales
+  farmacos:
+    - Atazanavir 150 mg y 200 mg
+    - Etravirina 100 mg y 200 mg
+    - Emtricitabina 200 mg y solución 10 mg/mL

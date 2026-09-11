@@ -1,0 +1,43 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:34449181"
+clave_bibtex: pitt2021
+tipo: eca
+titulo: "Cardiovascular Events with Finerenone in Kidney Disease and Type 2 Diabetes"
+autores:
+  - "Pitt B"
+  - "Filippatos G"
+  - "Agarwal R"
+  - "Anker SD"
+  - "Bakris GL"
+  - "Rossing P"
+  - "Joseph A"
+  - "Kolkhof P"
+  - "Nowack C"
+  - "Schloemer P"
+  - "Ruilope LM"
+  - "FIGARO-DKD Investigators"
+publicacion: "N Engl J Med"
+anio: 2021
+volumen: "385"
+numero: "24"
+paginas: "2252-2263"
+
+identificadores:
+  pmid: 34449181
+  doi: "10.1056/NEJMoa2110956"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

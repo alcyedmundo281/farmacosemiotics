@@ -1,0 +1,144 @@
+# PARTE II — Farmacoterapia: cómo se usa la darolutamida con seguridad.
+id: 'FA:0014'
+tipo: farmacoterapia
+farmaco: 'FS:0014'
+
+titulo: Farmacoterapia con darolutamida
+titulo_en: Darolutamide pharmacotherapy
+
+alcance: >-
+  Establece los requisitos de uso seguro de la darolutamida en cáncer de próstata: confirmación de
+  castración química o quirúrgica concomitante obligatoria, cribado de tiempo de duplicación de PSA,
+  administración cada 12 horas con comida, monitorización hepática y pauta ante progresión metastásica.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Determinación de testosterona sérica
+    motivo: >-
+      Confirmar niveles de castración (< 50 ng/dL o < 1.7 nmol/L); la darolutamida debe administrarse
+      siempre junto con terapia de deprivación androgénica continuada.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Tiempo de duplicación del PSA (PSADT) y pruebas de imagen
+    motivo: >-
+      Confirmar tiempo de duplicación de PSA ≤ 10 meses y ausencia de metástasis a distancia en TC y gammagrafía ósea convencional.
+    responsable: especialista
+    ref: 'pmid:30763142'
+
+  - prueba: Perfil bioquímico y función hepática (AST, ALT, bilirrubina)
+    motivo: >-
+      Descartar disfunción hepática basal grave que condicione reducción de la dosis de inicio a 300 mg c/12h.
+    responsable: compartida
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - PSA sérico
+      - Testosterona sérica
+      - Transaminasas y bilirrubina
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Primeras 4 a 12 semanas
+    frecuencia: Control a las 4 y a las 12 semanas
+    pruebas:
+      - PSA sérico
+      - Transaminasas
+      - Presión arterial y tolerancia clínica
+    responsable: seguimiento
+    ref: 'pmid:30763142'
+
+  - fase: mantenimiento
+    periodo: Durante el tratamiento continuado
+    frecuencia: Cada 3 meses
+    pruebas:
+      - PSA sérico
+      - Evaluación clínica de astenia y síntomas musculoesqueléticos
+    responsable: seguimiento
+    ref: 'pmid:30763142'
+
+umbrales_accion:
+  - parametro: Testosterona sérica durante el seguimiento
+    umbral: '≥ 50 ng/dL'
+    accion: >-
+      Verificar adherencia al análogo de LHRH o agonista/antagonista gonadotrófico; restablecer la castración química de inmediato.
+    ref: 'fda:label'
+
+  - parametro: Elevación de enzimas hepáticas (AST o ALT)
+    umbral: '> 5 veces el límite superior de la normalidad'
+    accion: >-
+      Suspender temporalmente darolutamida hasta normalización o descenso a < 2.5 x LSN; reanudar con dosis reducida de 300 mg cada 12 horas.
+    ref: 'fda:label'
+
+  - parametro: Detección de metástasis a distancia en pruebas de imagen
+    umbral: Progresión metastásica confirmada
+    accion: >-
+      Suspender darolutamida para esta indicación y revaluar esquema de tratamiento para cáncer de próstata metastásico resistente a la castración.
+    ref: 'pmid:30763142'
+
+interacciones:
+  - con: Inductores potentes de CYP3A4 (ej. rifampicina, carbamazepina, fenitoína, hierba de San Juan)
+    gravedad: contraindicada
+    efecto: Reducción drástica del AUC y concentraciones plasmáticas de darolutamida, anulando su eficacia antitumoral.
+    conducta: Evitar de forma absoluta el uso concomitante; buscar alternativas terapéuticas para la comorbilidad.
+    ref: 'fda:label'
+
+  - con: Sustratos de BCRP y OATP1B1/1B3 (ej. rosuvastatina)
+    gravedad: mayor
+    efecto: Aumento de la exposición plasmática de rosuvastatina con riesgo incrementado de miopatía o rabdomiólisis.
+    conducta: Limitar la dosis de rosuvastatina a un máximo de 5 mg/día o cambiar de hipolipemiante.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Darolutamida no está indicada en mujeres; produce daño fetal y teratogenicidad grave por bloqueo androgénico.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      No aplicable a la población diana; contraindicado en caso de contacto accidental.
+    ref: 'fda:label'
+  anticoncepcion:
+    enunciado: >-
+      Los varones tratados deben utilizar preservativo y medidas anticonceptivas de alta eficacia durante las relaciones sexuales con mujeres en edad fértil durante el tratamiento y hasta 1 semana después de la última dosis.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Establece el diagnóstico de CPRCnm, evalúa el tiempo de duplicación de PSA, pauta análogo LHRH y prescribe darolutamida 600 mg cada 12 horas con comida.
+  seguimiento: >-
+    Supervisa la adherencia a la toma con alimentos, realiza el seguimiento analítico trimestral de PSA y enzimas hepáticas, y comprueba la continuidad de la terapia de castración.
+  suspension_inmediata: >-
+    Toxicidad hepática grave (transaminasas > 5 x LSN) o confirmación de progresión a enfermedad metastásica diseminada.
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: >-
+        Tratamiento estándar de primera línea en CPRCnm de alto riesgo (PSADT ≤ 10 meses) añadido a la terapia de deprivación androgénica continuada.
+  desescalamiento:
+    enunciado: >-
+      Mantener hasta progresión metastásica o toxicidad inaceptable; no se reduce dosis por respuesta bioquímica favorable.
+    ref: 'pmid:30763142'
+  ref: 'pmid:30763142'
+
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      Darolutamida no tiene recomendaciones de ajuste posológico dependientes de genotipo descritas por el consorcio CPIC.
+    referencias_consultadas:
+      - 'pmid:30763142'

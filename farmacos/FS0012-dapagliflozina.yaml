@@ -1,0 +1,57 @@
+id: 'FS:0012'
+tipo: farmaco
+dci: Dapagliflozina
+dci_en: Dapagliflozin
+sinonimos:
+  - Forxiga
+  - Farxiga
+  - BMS-512148
+
+atc: A10BK01
+clase_farmacologica: Inhibidor del cotransportador sodio-glucosa tipo 2 (iSGLT2)
+clase_farmacologica_en: Sodium-glucose co-transporter 2 (SGLT2) inhibitor
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '18.5.2'
+  categoria: core
+
+mecanismo: >-
+  Inhibidor selectivo y reversible del cotransportador SGLT2 en el túbulo proximal renal,
+  que induce glucosuria y natriuresis, reduce la precarga y poscarga ventricular, disminuye la
+  presión intraglomerular y optimiza la bioenergética miocárdica independientemente de la glucemia.
+mecanismo_ref: 'pmid:31535829'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo por glucuronidación vía UGT1A9 a metabolito 3-O-glucurónido inactivo; eliminación renal (75%) y fecal (21%)'
+  vida_media: '12.9 horas'
+  implicacion: >-
+    No requiere ajuste posológico por edad, peso ni función renal hasta un TFGe de 20 mL/min/1.73 m²
+    en insuficiencia cardíaca. Posología fija de 10 mg/día sin fase de titulación.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Infección micótica genital (candidiasis)
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Consecuencia de la glucosuria continuada; tratable con antimicóticos tópicos o fluconazol oral sin requerir suspensión.
+      ref: 'pmid:31535829'
+    - evento: Hipovolemia y mareo ortostático
+      frecuencia: infrecuente
+      gravedad: moderada
+      nota: >-
+        Mayor incidencia al asociar dosis altas de diuréticos de asa; requiere reducir el diurético si el paciente está euvolémico.
+      ref: 'pmid:31535829'

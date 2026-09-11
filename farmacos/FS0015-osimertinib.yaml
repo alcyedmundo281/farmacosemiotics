@@ -1,0 +1,58 @@
+id: 'FS:0015'
+tipo: farmaco
+dci: Osimertinib
+dci_en: Osimertinib
+sinonimos:
+  - Tagrisso
+  - AZD9291
+
+atc: L01EB04
+clase_farmacologica: Inhibidor de tirosina quinasa de EGFR de tercera generación
+clase_farmacologica_en: Third-generation EGFR tyrosine kinase inhibitor
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor irreversible y potente de la tirosina quinasa de EGFR que se une covalentemente
+  al residuo Cys797 en el sitio de unión al ATP, con alta afinidad frente a mutaciones sensibilizantes
+  (deleción exón 19, L858R) y la mutación de resistencia T790M, preservando selectivamente el EGFR nativo
+  y atravesando eficazmente la barrera hematoencefálica.
+mecanismo_ref: 'pmid:29151359'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático dependiente de CYP3A4 y CYP3A5; eliminación fecal (68%) y renal (14%)'
+  vida_media: 'Aproximadamente 48 horas'
+  implicacion: >-
+    Toma oral única de 80 mg al día, con o sin comida. No precisa ajuste en insuficiencia renal
+    leve a moderada ni en insuficiencia hepática leve.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Diarrea y toxicidad cutánea (erupción acneiforme, paroniquia, piel seca)
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Habitualmente de grado 1 o 2, con menor severidad que los TKI de 1ª generación por menor afinidad hacia el EGFR nativo; responde a hidratación, emolientes y loperamida.
+      ref: 'pmid:29151359'
+    - evento: Prolongación del intervalo QTc
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Monitorizar ECG basal y periódico; suspender temporalmente si QTc > 500 ms.
+      ref: 'pmid:29151359'
+    - evento: Enfermedad pulmonar intersticial (neumonitis)
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Cuadro potencialmente mortal que exige suspensión permanente e inmediata de osimertinib si se confirma.
+      ref: 'pmid:29151359'

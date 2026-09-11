@@ -1,0 +1,113 @@
+id: 'FT:0014'
+tipo: ficha
+farmaco: 'FS:0013'
+seleccion: 'SEL:0003'
+titulo: Secukinumab en la psoriasis en placas moderada a grave
+indicacion: Psoriasis en placas de moderada a grave en adultos candidatos a tratamiento sistémico
+indicacion_en: Moderate-to-severe plaque psoriasis in adults
+poblacion: Adultos con psoriasis en placas moderada a grave candidatos a tratamiento sistémico o fototerapia
+cie11: EA90
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Aclaramiento cutáneo rápido y de alta eficacia: 300 mg SC semanal en semanas 0, 1, 2, 3 y 4, seguido de 300 mg
+    cada 4 semanas; logra aclaramiento PASI 75 en más del 80 % de pacientes a 12 semanas (NNT 2 vs placebo, NNT 4 vs etanercept).
+  alerta_seguridad_inmediata: >-
+    Descartar tuberculosis latente antes de iniciar. Vigilar candidiasis mucocutánea (NNH 29). Contraindicado en
+    pacientes con enfermedad de Crohn o colitis ulcerosa activa por riesgo de reactivación grave.
+
+pico:
+  p: Adultos con psoriasis en placas moderada a grave candidatos a terapia biológica sistémica
+  i: Secukinumab 300 mg subcutáneo (semanas 0, 1, 2, 3, 4 y luego mensual)
+  c: Placebo subcutáneo (o etanercept 50 mg dos veces por semana)
+  o: Respuesta PASI 75 a semana 12 y puntuación IGA 0 o 1 (aclaramiento completo o casi completo)
+
+posologia:
+  inicio: 300 mg mediante dos inyecciones subcutáneas de 150 mg administradas en las semanas 0, 1, 2, 3 y 4
+  escalado: >-
+    Tras la inducción de 5 semanas iniciales, se pasa directamente a la pauta de mantenimiento sin ajustes adicionales.
+  mantenimiento: 300 mg por vía subcutánea cada 4 semanas
+  maxima: 300 mg cada 4 semanas
+  ajuste_renal: >-
+    No requiere ajuste en insuficiencia renal o hepática. En pacientes con peso < 60 kg puede considerarse dosis de 150 mg.
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Respuesta PASI 75 a las 12 semanas (reducción ≥ 75 % del área y gravedad)
+    criticidad: critico
+    efecto: 'Tasa de respuesta del 81.6 % vs 4.5 % con placebo en ERASURE (p < 0.001); y 77.1 % vs 44.0 % con etanercept en FIXTURE'
+    rra: '77.1%'
+    rrr: '94.5%'
+    nnt: 2
+    horizonte_nnt: a 12 semanas
+    diseno: eca
+    estudio: ERASURE (2014)
+    comparador: Placebo subcutáneo
+    n: 738
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:25007392'
+
+  - desenlace: Aclaramiento cutáneo completo o casi completo (IGA 0 o 1 a las 12 semanas)
+    criticidad: importante
+    efecto: 'Tasa de respuesta del 65.3 % vs 2.4 % con placebo (p < 0.001)'
+    rra: '62.9%'
+    rrr: '96.3%'
+    nnt: 2
+    horizonte_nnt: a 12 semanas
+    diseno: eca
+    estudio: ERASURE (2014)
+    comparador: Placebo subcutáneo
+    n: 738
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:25007392'
+
+seguridad_cuantitativa:
+  - evento: Candidiasis mucocutánea (oral o genital)
+    gravedad: leve
+    tasa_intervencion: '4.7 %'
+    tasa_control: '1.2 %'
+    ria: '3.5%'
+    nnh: 29
+    horizonte_nnh: a 12 semanas
+    conducta: >-
+      Tratar con antifúngico tópico (nistatina, clotrimazol) o fluconazol oral en dosis única; raras veces obliga a suspender el biológico.
+    ref: 'pmid:25007392'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda Secukinumab (300 mg SC semanal x 5 y luego cada 4 semanas) en pacientes adultos con psoriasis
+    en placas de moderada a grave que requieran terapia sistémica, por su eficacia superior en aclaramiento lesional precoz y sostenido.
+  ref: 'pmid:25007392'
+
+alternativas:
+  - dci: Guselkumab
+    atc: L04AC16
+    nota: 'Inhibidor de IL-23p19 de gran eficacia en aclaramiento cutáneo sostenido y menor riesgo de desencadenar EII.'
+
+conclusion: >-
+  Secukinumab representa un estándar de alta eficacia biológica en psoriasis en placas con NNT de 2 para PASI 75
+  a las 12 semanas, con un perfil de tolerabilidad bien caracterizado y vigilando la candidiasis mucocutánea (NNH 29).
+
+refs:
+  - 'pmid:25007392'
+  - 'fda:label'

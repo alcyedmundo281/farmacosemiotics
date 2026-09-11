@@ -1,0 +1,53 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:25007392"
+clave_bibtex: langley2014
+tipo: eca
+titulo: "Secukinumab in plaque psoriasis--results of two phase 3 trials"
+autores:
+  - "Langley RG"
+  - "Elewski BE"
+  - "Lebwohl M"
+  - "Reich K"
+  - "Griffiths CE"
+  - "Papp K"
+  - "Puig L"
+  - "Nakagawa H"
+  - "Spelman L"
+  - "Sigurgeirsson B"
+  - "Rivas E"
+  - "Tsai TF"
+  - "Wasel N"
+  - "Tyring S"
+  - "Salko T"
+  - "Hampele I"
+  - "Notter M"
+  - "Karpov A"
+  - "Helou S"
+  - "Papavassilis C"
+  - "ERASURE Study Group"
+  - "FIXTURE Study Group"
+publicacion: "N Engl J Med"
+anio: 2014
+volumen: "371"
+numero: "4"
+paginas: "326-38"
+
+identificadores:
+  pmid: 25007392
+  doi: "10.1056/NEJMoa1314258"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

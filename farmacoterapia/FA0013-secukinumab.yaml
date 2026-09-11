@@ -1,0 +1,154 @@
+# PARTE II — Farmacoterapia: cómo se usa el secukinumab con seguridad.
+id: 'FA:0013'
+tipo: farmacoterapia
+farmaco: 'FS:0013'
+
+titulo: Farmacoterapia con secukinumab
+titulo_en: Secukinumab pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de uso seguro del inhibidor de IL-17A en psoriasis y espondiloartritis:
+  cribado de tuberculosis e infecciones latentes, detección de enfermedad inflamatoria intestinal,
+  cronograma de inducción a semanas 0-1-2-3-4 y mantenimiento cada 4 semanas, y manejo de micosis.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Despistaje de tuberculosis activa o latente (IGRA o PPD y radiografía de tórax)
+    motivo: >-
+      Descartar tuberculosis activa antes de iniciar cualquier terapia biológica; en caso de infección latente,
+      iniciar quimioprofilaxis al menos 4 semanas antes de la primera dosis.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Serologías para hepatitis B (HBsAg, anti-HBc), hepatitis C y VIH
+    motivo: >-
+      Verificar estado inmune y descartar reactivación vírica antes de la inmunosupresión biológica.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Anamnesis dirigida sobre enfermedad inflamatoria intestinal
+    motivo: >-
+      El bloqueo de IL-17 está contraindicado o desaconsejado en pacientes con enfermedad de Crohn activa
+      por riesgo documentado de exacerbaciones graves.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Despistaje de tuberculosis
+      - Serologías virales
+      - Hemograma con recuento de neutrófilos
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Semanas 0, 1, 2, 3 y 4
+    frecuencia: Semanal durante las primeras 5 semanas
+    pruebas:
+      - Evaluación clínica de tolerancia local
+      - Vigilancia de síntomas mucosos (candidiasis oral o genital)
+    responsable: seguimiento
+    ref: 'pmid:25007392'
+
+  - fase: mantenimiento
+    periodo: A partir de la semana 8
+    frecuencia: Cada 4 semanas
+    pruebas:
+      - Evaluación de respuesta cutánea / articular
+      - Vigilancia de infecciones y síntomas gastrointestinales
+    responsable: seguimiento
+    ref: 'pmid:25007392'
+
+umbrales_accion:
+  - parametro: Infección tuberculosa activa detectada en cribado
+    umbral: Presencia de infección activa
+    accion: >-
+      No iniciar secukinumab. Tratar la tuberculosis completa y reevaluar posteriormente.
+    ref: 'fda:label'
+
+  - parametro: Síntomas gastrointestinales sugestivos de enfermedad inflamatoria intestinal
+    umbral: Diarrea persistente, rectorragia o dolor abdominal con calambres
+    accion: >-
+      Suspender inmediatamente secukinumab y derivar a gastroenterología para estudio endoscópico.
+    ref: 'fda:label'
+
+  - parametro: Infección mucocutánea por Candida (muguet, candidiasis vulvovaginal)
+    umbral: Lesiones micóticas mucocutáneas confirmadas
+    accion: >-
+      Tratar con antifúngico tópico o fluconazol oral. Mantener secukinumab salvo en infecciones micóticas graves o refractarias.
+    ref: 'pmid:25007392'
+
+  - parametro: Infección sistémica bacteriana grave o sepsis
+    umbral: Fiebre elevada, neumonía o infección que requiera antibióticos parenterales
+    accion: >-
+      Suspender temporalmente secukinumab hasta la resolución completa del cuadro infeccioso.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Vacunas de microorganismos vivos atenuados
+    gravedad: contraindicada
+    efecto: Riesgo de infección vacunal diseminada por atenuación de la respuesta defensiva.
+    conducta: Completar esquema vacunal al menos 4 semanas antes de iniciar secukinumab; no administrar durante el tratamiento.
+    ref: 'fda:label'
+
+  - con: Otros inmunosupresores biológicos o inhibidores de JAK concomitantes
+    gravedad: mayor
+    efecto: Inmunosupresión acumulativa con multiplicación del riesgo de infecciones oportunistas graves.
+    conducta: Evitar la combinación simultánea.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: evitar
+    enunciado: >-
+      Datos clínicos limitados en gestantes; las IgG cruzan la barrera placentaria a partir del segundo trimestre.
+      Evitar su uso a menos que el beneficio materno supere el riesgo fetal potencial.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: evitar
+    enunciado: >-
+      Se desconoce si se excreta en leche materna humana; evaluar suspender la lactancia o el fármaco.
+    ref: 'fda:label'
+  anticoncepcion:
+    enunciado: >-
+      Se recomienda a las mujeres con potencial reproductivo utilizar anticoncepción efectiva durante el tratamiento y hasta 20 semanas tras la última dosis.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Realiza el diagnóstico de psoriasis moderada a grave o espondiloartritis, solicita cribado de infecciones
+    e indica la pauta de inducción y mantenimiento con 300 mg SC.
+  seguimiento: >-
+    Vigila el cumplimiento de la pauta de administración mensual, supervisa la ausencia de candidiasis o síntomas
+    de EII y asegura la suspensión temporal ante cuadros infecciosos agudos.
+  suspension_inmediata: >-
+    Infección grave que requiera hospitalización o antibioterapia, o aparición de sospecha de enfermedad inflamatoria intestinal.
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: >-
+        Biológico de primera elección en psoriasis en placas moderada a grave candidata a terapia sistémica,
+        o en espondiloartritis axial / artritis psoriásica con afectación axial o cutánea predominante.
+  desescalamiento:
+    enunciado: >-
+      En pacientes que alcanzan remisión clínica completa y sostenida (PASI 100 durante > 1 año), se puede considerar espaciar el intervalo de mantenimiento de 4 a 6 semanas bajo supervisión dermatológica.
+    ref: 'pmid:25007392'
+  ref: 'pmid:25007392'
+
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      Secukinumab es un anticuerpo monoclonal degradado por pinocitosis celular; no presenta enzimas polimórficas clasificadas por el consorcio CPIC.
+    referencias_consultadas:
+      - 'pmid:25007392'

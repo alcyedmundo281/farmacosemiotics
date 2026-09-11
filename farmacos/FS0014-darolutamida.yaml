@@ -1,0 +1,53 @@
+id: 'FS:0014'
+tipo: farmaco
+dci: Darolutamida
+dci_en: Darolutamide
+sinonimos:
+  - Nubeqa
+  - ODM-201
+  - BAY 1841788
+
+atc: L02BB07
+clase_farmacologica: Antagonista del receptor de andrógenos no esteroideo
+clase_farmacologica_en: Nonsteroidal androgen receptor antagonist
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor competitivo de alta afinidad del receptor de andrógenos que bloquea la unión de andrógenos,
+  la translocación nuclear del receptor y su interacción con el ADN transcripcional, induciendo
+  apoptosis en células tumorales prostáticas. Posee una estructura química que le confiere una mínima
+  penetración a través de la barrera hematoencefálica.
+mecanismo_ref: 'pmid:30763142'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo oxidativo dependiente de CYP3A4 y glucuronidación por UGT1A9; excreción urinaria (63%) y fecal (34%)'
+  vida_media: 'Aproximadamente 20 horas'
+  implicacion: >-
+    Debe ingerirse con alimentos (duplica la biodisponibilidad). No precisa ajuste en insuficiencia renal
+    leve a moderada ni en insuficiencia hepática leve; en caso de insuficiencia renal o hepática grave la dosis inicial recomendada es 300 mg cada 12 horas.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Astenia y fatiga
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Habitualmente leve o moderada; la tasa de fatiga grave y caídas es sustancialmente menor que con otros antiandrógenos de segunda generación.
+      ref: 'pmid:30763142'
+    - evento: Elevación transitoria de transaminasas (AST / ALT)
+      frecuencia: infrecuente
+      gravedad: moderada
+      nota: >-
+        Raras veces severa; vigilar perfil hepático y ajustar dosis si transaminasas exceden 5 veces el límite superior.
+      ref: 'pmid:30763142'

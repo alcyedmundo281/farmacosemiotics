@@ -1,0 +1,92 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0009'
+tipo: seleccion
+problema: Cáncer de mama metastásico HER2-positivo previamente tratado con trastuzumab y taxano
+problema_en: HER2-positive metastatic breast cancer previously treated with trastuzumab and a taxane
+cie11: 2C61
+
+poblacion: >-
+  Pacientes adultas con cáncer de mama no resecable o metastásico HER2-positivo (IHC 3+ o IHC 2+/ISH+)
+  que han progresado durante o después de un esquema previo basado en trastuzumab y un taxano.
+
+pregunta: >-
+  En pacientes con cáncer de mama metastásico HER2-positivo previamente tratadas, ¿qué anticuerpo
+  inmunoconjugado (trastuzumab deruxtecán vs trastuzumab emtansina) se selecciona como tratamiento
+  de segunda línea para maximizar la supervivencia libre de progresión y la supervivencia global?
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Trastuzumab emtansina (T-DM1) fue el estándar histórico de segunda línea durante una década (ensayo EMILIA).
+  Trastuzumab deruxtecán (T-DXd) incorpora un inhibidor de topoisomerasa I con una relación fármaco-anticuerpo (DAR)
+  sustancialmente mayor (~8 vs ~3.5) y un efecto citotóxico bystander que le confiere una eficacia antitumoral sin precedentes.
+
+estrategia:
+  - base: PubMed
+    consulta: 'trastuzumab deruxtecan AND trastuzumab emtansine AND DESTINY-Breast03'
+    fecha: '2026-09-11'
+    nota: 'Ensayo clínico pivotal fase 3 DESTINY-Breast03 (PMID: 35320644).'
+
+criterio_decisorio: >-
+  Se selecciona el fármaco que logre una prolongación estadísticamente significativa y clínicamente
+  relevante de la supervivencia libre de progresión frente al estándar activo previo, con toxicidad controlable mediante monitorización protocolizada.
+
+conclusion: >-
+  Trastuzumab deruxtecán queda seleccionado como el tratamiento de elección en segunda línea para cáncer de mama metastásico HER2+:
+  reduce el riesgo de progresión o muerte en un 72 % frente a T-DM1 (HR 0.28, NNT 3 a 12 meses) y prolonga la supervivencia global (HR 0.55, NNT 13).
+
+candidatos:
+  - dci: Trastuzumab deruxtecan
+    atc: L01FD04
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Demostró en DESTINY-Breast03 una superioridad categórica frente a T-DM1: supervivencia libre de progresión a 12 meses
+        del 75.8 % frente al 34.1 % (HR 0.28, IC 95 % 0.22-0.37; NNT 3 a 12 meses), con una tasa de respuesta objetiva del 79.7 % vs 34.2 %
+        y reducción del 45 % en el riesgo de muerte (HR 0.55; NNT 13 a 12 meses).
+      ref: 'pmid:35320644'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Mayor tasa de eventos adversos gastrointestinales, alopecia y neutropenia Grado 3-4 (45 % vs 40 %).
+        Presenta un riesgo específico de enfermedad pulmonar intersticial / neumonitis (10.5 % vs 1.9 %; NNH 12) que exige monitorización tomográfica proactiva.
+      ref: 'pmid:35320644'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Perfusión intravenosa cada 3 semanas (5.4 mg/kg), idéntica cadencia a su comparador.
+      ref: 'pmid:35320644'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Inmunoconjugado innovador de alta tecnología bajo protección de patente comercial.
+
+  - dci: Trastuzumab emtansina
+    atc: L01FD01
+    veredicto: alternativa
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Supervivencia libre de progresión categóricamente inferior a T-DXd (34.1 % vs 75.8 % al año; mediana de SLP significativamente más corta).
+      ref: 'pmid:35320644'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Menor incidencia de neumonitis intersticial (1.9 % vs 10.5 %) y ausencia de alopecia o emesis severa; mayor incidencia de trombocitopenia.
+      ref: 'pmid:35320644'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Perfusión intravenosa cada 3 semanas (3.6 mg/kg).
+      ref: 'pmid:35320644'
+    costo:
+      juicio: superior
+      sustento: >-
+        Molécula con mayor tiempo en el mercado y acuerdos de acceso consolidados, aunque sigue siendo biológico de alto costo.

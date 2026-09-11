@@ -1,0 +1,57 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:29151359"
+clave_bibtex: soria2018
+tipo: eca
+titulo: "Osimertinib in Untreated EGFR-Mutated Advanced Non-Small-Cell Lung Cancer"
+autores:
+  - "Soria JC"
+  - "Ohe Y"
+  - "Vansteenkiste J"
+  - "Reungwetwattana T"
+  - "Chewaskulyong B"
+  - "Lee KH"
+  - "Dechaphunkul A"
+  - "Imamura F"
+  - "Nogami N"
+  - "Kurata T"
+  - "Okamoto I"
+  - "Zhou C"
+  - "Cho BC"
+  - "Cheng Y"
+  - "Cho EK"
+  - "Voon PJ"
+  - "Planchard D"
+  - "Su WC"
+  - "Gray JE"
+  - "Lee SM"
+  - "Hodge R"
+  - "Marotti M"
+  - "Rukazenkov Y"
+  - "Ramalingam SS"
+  - "FLAURA Investigators"
+publicacion: "N Engl J Med"
+anio: 2018
+volumen: "378"
+numero: "2"
+paginas: "113-125"
+
+identificadores:
+  pmid: 29151359
+  doi: "10.1056/NEJMoa1713137"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

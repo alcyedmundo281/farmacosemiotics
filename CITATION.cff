@@ -23,6 +23,12 @@ authors:
     given-names: Alcy Edmundo
     orcid: https://orcid.org/0000-0002-9742-375X
     alias: alcyedmundo281
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22700662
+    description: >-
+      DOI de concepto; resuelve siempre a la última versión depositada
+doi: 10.5281/zenodo.22700662
 repository-code: https://github.com/alcyedmundo281/farmacosemiotics
 url: https://powersemiotics.com/farmacosemiotics/
 license: CC-BY-SA-4.0

@@ -160,9 +160,9 @@ su informe de selección dice cómo usar un fármaco sin decir por qué se eligi
 | **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `SEL0004` (FA no valvular)<br>`SEL0005` (ERC en DM2)<br>`SEL0006` (IC-FEr) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino)<br>`FS0011` (Finerenona)<br>`FS0012` (Dapagliflozina) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA)<br>`FT0012` (Finerenona en ERC-DM2)<br>`FT0013` (Dapagliflozina en IC-FEr) | **En curso (6/8)** |
 | **2. Antiinfecciosos AWaRe** | Sección 6.2.1 (Antibióticos Access / Watch) | — | — | — | Pendiente |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | — | Pendiente |
-| **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | — | — | — | Pendiente |
-| **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs) | **En curso (3/5)** — estrena la capa de GPC |
-| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `SEL0003` *(compartida con la 6)*<br>`SEL0007` (CPRCnm)<br>`SEL0008` (CPNM EGFR)<br>`SEL0009` (Mama HER2+) | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib)<br>`FS0013` (Secukinumab)<br>`FS0014` (Darolutamida)<br>`FS0015` (Osimertinib)<br>`FS0016` (Trastuzumab deruxtecán) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC)<br>`FT0014` (Secukinumab en psoriasis)<br>`FT0015` (Darolutamida en CPRCnm)<br>`FT0016` (Osimertinib en CPNM)<br>`FT0017` (T-DXd en mama HER2+) | **En curso (7/10)** |
+| **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | `SEL0010` (Esquizofrenia LAI) | `FS0017` (Paliperidona) | `FT0018` (Paliperidona en Esquizofrenia) | **Iniciada (1/3)** |
+| **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato)<br>`FS0018` (Tofacitinib) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs)<br>`FT0019` (Tofacitinib en AR) | **En curso (4/6)** — estrena la capa de GPC |
+| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `SEL0003` *(compartida con la 6)*<br>`SEL0007` (CPRCnm)<br>`SEL0008` (CPNM EGFR)<br>`SEL0009` (Mama HER2+)<br>`SEL0011` (LLC R/R) | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib)<br>`FS0013` (Secukinumab)<br>`FS0014` (Darolutamida)<br>`FS0015` (Osimertinib)<br>`FS0016` (Trastuzumab deruxtecán)<br>`FS0019` (Acalabrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC)<br>`FT0014` (Secukinumab en psoriasis)<br>`FT0015` (Darolutamida en CPRCnm)<br>`FT0016` (Osimertinib en CPNM)<br>`FT0017` (T-DXd en mama HER2+)<br>`FT0020` (Acalabrutinib en LLC)<br>`FT0021` (Gusel en psoriasis) | **En curso (9/12)** |
 
 Que `SEL0003` aparezca en dos oleadas no es un error de clasificación: es el
 híbrido funcionando. Un mismo problema de salud —la artritis psoriásica—
@@ -198,6 +198,7 @@ guía en la oleada que le corresponde por coste y por vía.
 - [ ] **Tramadol en Dolor Moderado** (Límite de uso, NNH mareo/náuseas/interacciones serotoninérgicas).
 
 ### Oleada 4 — Salud Mental & Neuropsiquiatría
+- [x] **`FT0018` Palmitato de Paliperidona en Esquizofrenia** (LAI atípico: NNT 5 prevención de recaídas a 1 año, HR 3.60, baja carga extrapiramidal).
 - [ ] **Sertralina / Escitalopram en Trastorno Depresivo Mayor y Ansiedad Generalizada** (ISRS: tiempo de latencia, NNT remisión vs NNH disfunción sexual/síndrome serotoninérgico).
 - [ ] **Risperidona en Psicosis y Agitación Aguda** (Antipsicótico: NNT control síntomas vs NNH extrapiramidalismo/metabólico).
 
@@ -209,6 +210,8 @@ guía en la oleada que le corresponde por coste y por vía.
 - [x] **`FT0015` Darolutamida en Cáncer de Próstata no metastásico resistente a la castración** (Antiandrógeno 2ª gen: NNT 3 MFS a 2 años, NNT 17 SG a 3 años, sin neurotoxicidad).
 - [x] **`FT0016` Osimertinib en Cáncer de Pulmón no Microcítico avanzado EGFR mutado** (TKI 3ª gen: NNT 4 SLP a 18 meses vs TKI activo, NNT 10 SG a 3 años, NNH 48 neumonitis).
 - [x] **`FT0017` Trastuzumab Deruxtecán en Cáncer de Mama Metastásico HER2-positivo** (ADC anti-HER2: NNT 3 SLP a 12 meses vs T-DM1, NNT 13 SG, NNH 12 neumonitis).
+- [x] **`FT0020` Acalabrutinib en Leucemia Linfocítica Crónica en recaída o refractaria** (Inhibidor selectivo BTK 2ª gen: no-inferioridad SLP vs ibrutinib, NNT 16 daño arrítmico evitado a 41 meses).
+- [x] **`FT0021` Guselkumab en Psoriasis en Placas moderada a grave** (Anti-IL-23p19: NNT 2 PASI 90 vs placebo a 16 semanas, NNT 5 vs adalimumab).
 - [ ] **Faricimab en Degeneración Macular Asociada a la Edad y Edema Macular Diabético**.
 - [ ] **Ruxolitinib en Mielofibrosis y Policitemia Vera**.
 
@@ -220,12 +223,6 @@ terapéutica.
   genotipo de TPMT y NUDT15, compatible con embarazo y lactancia, desplazada a
   segunda línea por el rituximab. Huecos declarados: umbrales analíticos y
   acuerdo de atención compartida).
-- [ ] **Rituximab en el pénfigo vulgar moderado y grave** (Primera línea
-  aprobada en Europa y Estados Unidos; es la comparación que FT0009 cita y
-  todavía no tiene guía propia).
-- [ ] **Micofenolato de mofetilo como adyuvante del corticoide** (El otro
-  ahorrador clásico, y el contrario de la azatioprina en seguridad
-  reproductiva: exige suspenderlo seis semanas antes de concebir).
 - [x] **`FT0010` Metotrexato en artritis reumatoide** (El csDMARD con el
   cronograma de monitorización mejor establecido, y el seleccionado de
   `SEL0002` contra leflunomida, sulfasalazina e hidroxicloroquina).
@@ -233,6 +230,13 @@ terapéutica.
   `FA0010`: el caso que motivó desdoblar la farmacoterapia de la ficha. Lo
   poco que esta indicación cambia del cronograma común va en `variaciones`,
   no en una segunda copia).
+- [x] **`FT0019` Tofacitinib en artritis reumatoide tras respuesta inadecuada a metotrexato** (Inhibidor de JAK oral: NNT 5 respuesta ACR20 a 6 meses; balance de seguridad cardiovascular ORAL Surveillance con NNH 34 en herpes zóster).
+- [ ] **Rituximab en el pénfigo vulgar moderado y grave** (Primera línea
+  aprobada en Europa y Estados Unidos; es la comparación que FT0009 cita y
+  todavía no tiene guía propia).
+- [ ] **Micofenolato de mofetilo como adyuvante del corticoide** (El otro
+  ahorrador clásico, y el contrario de la azatioprina en seguridad
+  reproductiva: exige suspenderlo seis semanas antes de concebir).
 
 **El hueco más visible de esta oleada** es que `SEL0001` selecciona el
 rituximab y el rituximab no tiene todavía ni `FS:` ni guía. El informe elige

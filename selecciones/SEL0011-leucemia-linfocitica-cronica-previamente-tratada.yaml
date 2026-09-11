@@ -1,0 +1,96 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0011'
+tipo: seleccion
+problema: Leucemia linfocítica crónica previamente tratada o de alto riesgo genético
+problema_en: Relapsed or refractory chronic lymphocytic leukemia
+cie11: 2A70.0
+
+poblacion: >-
+  Pacientes adultos con leucemia linfocítica crónica (LLC) o linfoma linfocítico pequeño en recaída o refractarios
+  a líneas previas, o con características genéticas de alto riesgo (deleción 17p13.1 o deleción 11q22.3), candidatos a inhibidores continuos de BTK.
+
+pregunta: >-
+  En adultos con LLC previamente tratada que requieren tratamiento dirigido con inhibidores covalentes de BTK,
+  ¿qué agente se selecciona para optimizar la supervivencia libre de progresión minimizando la toxicidad cardiovascular (arritmias/FA) y la suspensión precoz?
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  El tratamiento continuo con inhibidores de BTK ha transformado el pronóstico de la LLC. Sin embargo, el tratamiento
+  crónico prolongado con ibrutinib (1ª generación) se asocia a toxicidades cardiovasculares significativas (fibrilación
+  auricular en 12-16% e hipertensión arterial) mediadas por inhibición fuera de diana (off-target) de quinasas cardíacas
+  (como TEC y ERBB4). Acalabrutinib, como inhibidor selectivo de 2ª generación, fue diseñado para mitigar estas toxicidades
+  manteniendo la eficacia antitumoral.
+
+estrategia:
+  - base: PubMed
+    consulta: 'acalabrutinib AND ibrutinib AND chronic lymphocytic leukemia AND ELEVATE-RR'
+    fecha: '2026-09-11'
+    nota: 'Ensayo comparativo directo de fase 3 ELEVATE-RR (PMID: 34310172).'
+
+criterio_decisorio: >-
+  Se selecciona el inhibidor de BTK que garantice la no-inferioridad en eficacia oncológica (supervivencia libre de progresión)
+  demostrando simultáneamente una reducción clínicamente relevante en la tasa acumulada de fibrilación auricular y eventos cardiovasculares.
+
+conclusion: >-
+  Acalabrutinib queda seleccionado como el inhibidor de BTK preferente en LLC previamente tratada o de alto riesgo genético:
+  demostró en el ensayo cara a cara ELEVATE-RR no-inferioridad en supervivencia libre de progresión frente a ibrutinib
+  (mediana 38.4 meses en ambos brazos; HR 1.00), reduciendo casi a la mitad la incidencia acumulada de fibrilación auricular
+  (9.4% vs 16.0%, p = 0.02; RRA 6.6%, NNH de daño evitado 16 a 41 meses) y disminuyendo las suspensiones por toxicidad.
+
+candidatos:
+  - dci: Acalabrutinib
+    atc: L01EL02
+    veredicto: seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        En el ensayo fase 3 ELEVATE-RR (Byrd 2021), acalabrutinib demostró no-inferioridad estadística estricta frente
+        a ibrutinib con una mediana idéntica de SLP de 38.4 meses y un hazard ratio de 1.00 (IC 95% 0.79-1.27; límite de no-inferioridad predefinido < 1.529).
+      ref: 'pmid:34310172'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Incidencia de fibrilación o flutter auricular significativamente inferior (9.4% vs 16.0%, p = 0.02; RRA 6.6%),
+        menor tasa de hipertensión arterial y menor tasa de interrupción permanente del tratamiento por toxicidad.
+      ref: 'pmid:34310172'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Pauta de 100 mg dos veces al día por vía oral (frente a la toma única diaria de ibrutinib); precisa precaución con IBP por absorción ácido-dependiente.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Coste directo comparable al de otros inhibidores de BTK, con ahorro asociado por menor consumo de recursos cardiológicos y complicaciones arrítmicas.
+      ref: 'pmid:34310172'
+
+  - dci: Ibrutinib
+    atc: L01EL01
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        Excelente eficacia en control de enfermedad en monoterapia continua (mediana de SLP 38.4 meses).
+      ref: 'pmid:34310172'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Mayor tasa de fibrilación auricular (16.0%), hipertensión, sangrados y mayor tasa de suspensiones prematuras no programadas.
+      ref: 'pmid:34310172'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Toma oral única al día (420 mg una vez al día) sin restricción por fármacos antisecretores gástricos.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Coste farmacológico análogo pero penalizado por el manejo de toxicidad cardiovascular secundaria.
+      ref: 'pmid:34310172'

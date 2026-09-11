@@ -1,0 +1,118 @@
+id: 'FT:0020'
+tipo: ficha
+farmaco: 'FS:0019'
+seleccion: 'SEL:0011'
+titulo: Acalabrutinib en la leucemia linfocítica crónica en recaída o refractaria
+indicacion: Leucemia linfocítica crónica o linfoma linfocítico pequeño en pacientes previamente tratados
+indicacion_en: Relapsed or refractory chronic lymphocytic leukemia
+poblacion: Adultos con LLC en recaída o refractaria, incluyendo pacientes con alteraciones citogenéticas de alto riesgo del(17p) o del(11q)
+cie11: 2A70.0
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Inhibidor de BTK de segunda generación con alta selectividad enzimática: 100 mg por vía oral dos veces al día de forma continua.
+    Demuestra no-inferioridad en supervivencia libre de progresión frente a ibrutinib (mediana 38.4 meses en ambos grupos; HR 1.00)
+    con una reducción del 41 % en la tasa de fibrilación/flutter auricular (9.4 % vs 16.0 %; NNT de daño evitado 16 a 41 meses)
+    y menor incidencia de hipertensión y sangrado.
+  alerta_seguridad_inmediata: >-
+    Contraindicado el uso concomitante con inhibidores de la bomba de protones (IBP) por disminución crítica de absorción.
+    Suspender al menos 3 días antes de cirugía menor y 7 días antes de cirugía mayor por riesgo hemorrágico.
+
+pico:
+  p: Adultos con LLC previamente tratada con del(17p) o del(11q) confirmada (N=533)
+  i: Acalabrutinib 100 mg por vía oral dos veces al día en monoterapia continua
+  c: Ibrutinib 420 mg por vía oral una vez al día en monoterapia continua
+  o: Supervivencia libre de progresión (SLP), incidencia de fibrilación auricular y eventos adversos cardiovasculares
+
+posologia:
+  inicio: 100 mg por vía oral dos veces al día (cada 12 horas aproximadamente, con o sin comida)
+  escalado: Dosis plena desde el inicio sin escalado
+  mantenimiento: 100 mg dos veces al día hasta progresión de la enfermedad o toxicidad inaceptable
+  maxima: 100 mg dos veces al día
+  ajuste_renal: No requiere ajuste en insuficiencia renal leve o moderada; precaución en TFGe < 30 mL/min.
+  ajuste_hepatico: >-
+    No requiere ajuste en insuficiencia hepática leve o moderada (Child-Pugh A o B); no recomendado en insuficiencia hepática grave (Child-Pugh C).
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Supervivencia libre de progresión a mediana de 40.9 meses (no-inferioridad)
+    criticidad: critico
+    efecto: 'Mediana de SLP idéntica de 38.4 meses con acalabrutinib frente a 38.4 meses con ibrutinib (HR 1.00, IC 95 % 0.79–1.27, p < 0.0001 para no-inferioridad)'
+    rra: '0.0%'
+    rrr: '0.0%'
+    nnt: 1
+    horizonte_nnt: a 41 meses
+    diseno: eca
+    estudio: ELEVATE-RR (2021)
+    comparador: Ibrutinib 420 mg oral una vez al día
+    n: 533
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:34310172'
+
+  - desenlace: Fibrilación auricular o flutter auricular de cualquier grado a 41 meses
+    criticidad: critico
+    efecto: 'Incidencia significativamente menor con acalabrutinib frente a ibrutinib: 9.4 % frente a 16.0 % (p = 0.02; RRA 6.6 %)'
+    rra: '6.6%'
+    rrr: '41.3%'
+    nnt: 16
+    horizonte_nnt: a 41 meses
+    diseno: eca
+    estudio: ELEVATE-RR (2021)
+    comparador: Ibrutinib 420 mg una vez al día
+    n: 533
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:34310172'
+
+  - desenlace: Cefalea de cualquier grado (toxicidad precoz transitoria)
+    criticidad: importante
+    efecto: 'Mayor incidencia en el brazo de acalabrutinib que con ibrutinib (34.6 % vs 20.2 %, RRA 14.4 %, predominantemente grado 1-2 autolimitada)'
+    rra: '14.4%'
+    rrr: '71.3%'
+    nnt: 7
+    horizonte_nnt: a 41 meses
+    diseno: eca
+    estudio: ELEVATE-RR (2021)
+    comparador: Ibrutinib
+    n: 533
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:34310172'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda acalabrutinib (100 mg cada 12 horas) como inhibidor de BTK preferente en adultos con leucemia linfocítica crónica
+    previamente tratada o con deleción 17p/11q, por demostrar eficacia antitumoral equivalente a ibrutinib con un perfil de cardiotoxicidad y arritmias significativamente inferior.
+  ref: 'pmid:34310172'
+
+conclusion: >-
+  Acalabrutinib confirma la no-inferioridad en control de la leucemia linfocítica crónica frente a ibrutinib aportando un beneficio cardiológico incuestionable (NNT de daño arrítmico evitado 16).
+
+guias:
+  - organizacion: NCCN / ESMO
+    anio: 2023
+    titulo: 'Clinical Practice Guidelines in Oncology: Chronic Lymphocytic Leukemia'
+    posicion: 'Acalabrutinib es un inhibidor de BTK de categoría preferente (Categoría 1) tanto en primera línea como en enfermedad en recaída o refractaria, destacando su perfil de seguridad cardiovascular superior frente a ibrutinib.'
+    cita: 'NCCN Guidelines CLL/SLL'
+
+refs:
+  - 'pmid:34310172'

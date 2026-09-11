@@ -1,0 +1,136 @@
+# PARTE II — Farmacoterapia: cómo se usa la paliperidona con seguridad.
+id: 'FA:0017'
+tipo: farmacoterapia
+farmaco: 'FS:0017'
+
+titulo: Farmacoterapia con palmitato de paliperidona
+titulo_en: Paliperidone palmitate pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad y administración de palmitato de paliperidona inyectable: pauta de carga inicial
+  en deltoides para rápida estabilización sin solapamiento oral, monitorización metabólica (peso, glucosa, lípidos),
+  detección de síntomas extrapiramidales/acatisia, control de hiperprolactinemia y ajuste por función renal.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Tolerabilidad oral previa a paliperidona o risperidona
+    motivo: >-
+      Comprobar la ausencia de hipersensibilidad o reacciones alérgicas graves a risperidona o paliperidona oral antes de aplicar una inyección depot irreversible.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Perfil metabólico basal (peso corporal, IMC, glucemia basal, HbA1c y perfil lipídico)
+    motivo: >-
+      Establecer la línea de base para vigilar la propensión al aumento de peso y alteraciones glucometabólicas inducidas por antipsicóticos atípicos.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Función renal (creatinina sérica y filtrado glomerular estimado por CKD-EPI)
+    motivo: >-
+      La paliperidona se elimina predominantemente por excreción renal intacta; permite ajustar la pauta de carga y mantenimiento.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Peso corporal, talla e IMC
+      - Presión arterial en decúbito y bipedestación (ortostatismo)
+      - Glucemia en ayunas y perfil lipídico
+      - Función renal basal (eGFR)
+      - Prolactina sérica si hay síntomas basales de disfunción sexual o galactorrea
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Primer mes (días 1, 8 y semana 5)
+    frecuencia: En cada dosis del régimen de carga
+    pruebas:
+      - Confirmación de inyección intramuscular en músculo deltoides estricto con aguja adecuada al IMC
+      - Evaluación de signos de acatisia precoz, distonía aguda o rigidez parkinsoniana
+      - Vigilancia de hipotensión ortostática en pacientes ancianos o lábiles
+    responsable: seguimiento
+    ref: 'pmid:19959339'
+
+  - fase: mantenimiento
+    periodo: Tratamiento mensual continuado
+    frecuencia: Mensual en cada inyección, analítica semestral
+    pruebas:
+      - Control de peso mensual e IMC
+      - Evaluación periódica de síntomas extrapiramidales y escala AIMS anual (discinesia tardía)
+      - Glucemia, perfil lipídico y función renal cada 6-12 meses
+    responsable: seguimiento
+    ref: 'fda:label'
+
+umbrales_accion:
+  - parametro: Filtrado glomerular estimado (eGFR) 50-79 mL/min
+    umbral: Insuficiencia renal leve
+    accion: >-
+      Dosis de carga reducida: 100 mg eq en día 1 y 75 mg eq en día 8 (ambas en deltoides). Mantenimiento mensual recomendado: 50 mg eq (rango 25-100 mg).
+    ref: 'fda:label'
+
+  - parametro: Filtrado glomerular estimado (eGFR) < 50 mL/min
+    umbral: Insuficiencia renal moderada o grave
+    accion: >-
+      Uso no recomendado de la formulación de palmitato inyectable de acción prolongada por acumulación prolongada de fármaco.
+    ref: 'fda:label'
+
+  - parametro: Sospecha de Síndrome Neuroléptico Maligno (hipertermia, rigidez extrema, inestabilidad autonómica, elevación de CPK)
+    umbral: Emergencia psiquiátrica / médica
+    accion: >-
+      Suspender inmediatamente el tratamiento antipsicótico, ingreso en UCI para medidas de soporte vital, hidratación intensiva y administración de dantroleno o bromocriptina.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Fármacos que prolongan el intervalo QTc (antiarrítmicos clase IA/III, ciertos antibióticos macrólidos o fluoroquinolonas)
+    gravedad: moderada
+    efecto: Sumación potencial de efectos sobre la repolarización cardíaca
+    conducta: Evitar la combinación o monitorizar estrechamente con electrocardiograma basal y seriado
+    ref: 'fda:label'
+
+  - con: Depresores del SNC y alcohol
+    gravedad: moderada
+    efecto: Sinergia sedante y potenciación del deterioro psicomotor
+    conducta: Advertir sobre el riesgo aumentado de sedación profunda, caídas y evitar la conducción de vehículos
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Los recién nacidos expuestos a antipsicóticos durante el tercer trimestre tienen riesgo de síntomas extrapiramidales o de abstinencia neonatales. Usar solo si el beneficio materno supera el riesgo potencial fetal.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Paliperidona pasa a la leche materna. Se recomienda precaución y vigilar sedación o dificultades de alimentación en el lactante.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Indicación, pauta de carga inicial (días 1 y 8 en deltoides) y titulación de dosis a cargo del psiquiatra en salud mental comunitaria o unidad hospitalaria.
+  seguimiento: >-
+    Administración mensual por enfermería comunitaria en centro de salud; detección de signos de alarma (descompensación psicótica, temblores, ganancia de peso) y registro de adherencia.
+  suspension_inmediata:
+    - Sospecha de Síndrome Neuroléptico Maligno (rigidez cérea, fiebre inexplicable, sudoración profusa)
+    - Reacción anafiláctica o angioedema post-inyección
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: segunda
+  escalonado:
+    - linea: primera
+      opciones: 'Antipsicóticos orales de segunda generación (risperidona, olanzapina, aripiprazol) en fase aguda.'
+    - linea: segunda
+      opciones: 'Antipsicótico inyectable de acción prolongada (palmitato de paliperidona) ante recaídas por mala adherencia oral o preferencia del paciente.'
+  ref: 'pmid:19959339'
+
+refs:
+  - 'pmid:19959339'

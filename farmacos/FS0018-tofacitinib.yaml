@@ -1,0 +1,76 @@
+id: 'FS:0018'
+tipo: farmaco
+dci: Tofacitinib
+dci_en: Tofacitinib
+sinonimos:
+  - Xeljanz
+  - CP-690550
+
+atc: L04AF01
+clase_farmacologica: Inhibidor selectivo de las quinasas asociadas a Janus (JAK1 y JAK3)
+clase_farmacologica_en: Janus kinase (JAK) inhibitor
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '1357536'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-11'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor oral de molécula pequeña que bloquea preferentemente JAK1 y JAK3, modulando la vía de señalización
+  JAK-STAT. Esta inhibición interrumpe la transducción de señales de múltiples citoquinas proinflamatorias
+  (incluyendo IL-2, IL-4, IL-6, IL-7, IL-9, IL-15, IL-21 y los interferones tipo I), reduciendo la activación
+  linfocitaria y la inflamación sinovial en la artritis reumatoide.
+mecanismo_ref: 'pmid:22873531'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático mayoritario vía CYP3A4 (~70%) y excreción renal (~30%)'
+  vida_media: 'Aproximadamente 3 horas (formulación estándar de liberación inmediata)'
+  implicacion: >-
+    Administración oral de 5 mg dos veces al día (o formulación retard de 11 mg una vez al día).
+    Requiere reducción de dosis a 5 mg una vez al día en insuficiencia renal moderada o grave,
+    o insuficiencia hepática moderada, o cuando se coadministra con inhibidores potentes de CYP3A4 (ej. ketoconazol).
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Infecciones graves y reactivación de herpes zóster
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Riesgo aumentado de infecciones oportunistas (tuberculosis latente) y aumento sustancial de herpes zóster (hasta 3 a 4 veces mayor que con anti-TNF); se recomienda vacunación previa con vacuna recombinante de zóster.
+      ref: 'pmid:35081280'
+    - evento: Eventos cardiovasculares adversos mayores (MACE)
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Identificado en el ensayo ORAL Surveillance en pacientes ≥ 50 años con factores de riesgo CV; se aconseja precaución y evitar en pacientes con antecedentes cardiovasculares ateroscleróticos activos o tabaquismo prolongado.
+      ref: 'pmid:35081280'
+    - evento: Neoplasias malignas (excluyendo cáncer de piel no melanoma)
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Mayor incidencia de linfomas y cáncer de pulmón en pacientes de alto riesgo en comparación con inhibidores de TNF.
+      ref: 'pmid:35081280'
+    - evento: Tromboembolismo venoso (trombosis venosa profunda y embolismo pulmonar)
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Alerta de seguridad regulatoria asociada a dosis elevadas o comorbilidad protrombótica.
+      ref: 'pmid:35081280'
+    - evento: Dislipidemia y alteraciones en laboratorio
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Elevación de colesterol total, LDL y HDL detectable en las primeras 4-8 semanas; neutropenia y elevación asintomática de transaminasas.
+      ref: 'pmid:22873531'

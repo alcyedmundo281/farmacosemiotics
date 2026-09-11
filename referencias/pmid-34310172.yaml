@@ -1,0 +1,58 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:34310172"
+clave_bibtex: byrd2021
+tipo: eca
+titulo: "Acalabrutinib Versus Ibrutinib in Previously Treated Chronic Lymphocytic Leukemia: Results of the First Randomized Phase III Trial"
+autores:
+  - "Byrd JC"
+  - "Hillmen P"
+  - "Ghia P"
+  - "Kater AP"
+  - "Chanan-Khan A"
+  - "Furman RR"
+  - "O'Brien S"
+  - "Yenerel MN"
+  - "Illés A"
+  - "Kay N"
+  - "Garcia-Marco JA"
+  - "Mato A"
+  - "Pinilla-Ibarz J"
+  - "Seymour JF"
+  - "Lepretre S"
+  - "Stilgenbauer S"
+  - "Robak T"
+  - "Rothbaum W"
+  - "Izumi R"
+  - "Hamdy A"
+  - "Patel P"
+  - "Higgins K"
+  - "Sohoni S"
+  - "Jurczak W"
+publicacion: "J Clin Oncol"
+anio: 2021
+volumen: "39"
+numero: "31"
+paginas: "3441-3452"
+
+identificadores:
+  pmid: 34310172
+  doi: "10.1200/JCO.21.01210"
+  pmc: "PMC8547923"
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, N.I.H., Extramural"
+  - "Research Support, Non-U.S. Gov't"
+  - "Equivalence Trial"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

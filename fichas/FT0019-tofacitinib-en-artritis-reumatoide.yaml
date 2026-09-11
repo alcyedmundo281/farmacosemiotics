@@ -1,0 +1,122 @@
+id: 'FT:0019'
+tipo: ficha
+farmaco: 'FS:0018'
+seleccion: 'SEL:0002'
+titulo: Tofacitinib en la artritis reumatoide activa tras respuesta inadecuada a metotrexato
+indicacion: Artritis reumatoide activa de moderada a grave con respuesta insuficiente o intolerancia a metotrexato
+indicacion_en: Moderate-to-severe active rheumatoid arthritis with inadequate response to methotrexate
+poblacion: Adultos con artritis reumatoide moderada a grave refractarios o intolerantes a metotrexato
+cie11: FA20
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: amarillo
+  fuerza: condicional
+  perla_prescripcion: >-
+    Inhibidor oral de JAK (5 mg dos veces al día en combinación con MTX o monoterapia): logra respuesta ACR 20
+    en el 51.5 % a los 6 meses (NNT 5 vs placebo), eficacia comparable a adalimumab pero por vía oral.
+    Semáforo AMARILLO por alertas del estudio ORAL Surveillance: riesgo incrementado de MACE, neoplasias e infecciones graves
+    (herpes zóster NNH 33) en pacientes ≥ 50 años con factores de riesgo cardiovascular o tabaquismo.
+  alerta_seguridad_inmediata: >-
+    Cribado obligatorio de tuberculosis latente y hepatitis virales antes del inicio.
+    Evitar su uso en pacientes ≥ 50 años con alto riesgo cardiovascular o fumadores crónicos salvo ausencia de alternativa adecuada. Vacunar previamente frente a herpes zóster.
+
+pico:
+  p: Adultos con artritis reumatoide activa a pesar de dosis estables de metotrexato (N=717)
+  i: Tofacitinib 5 mg por vía oral dos veces al día en adición a metotrexato
+  c: Placebo oral (con opción de rescate a los 3 meses) o adalimumab 40 mg SC cada 2 semanas
+  o: Respuesta ACR 20 a los 6 meses, mejoría funcional (HAQ-DI) e infecciones adversas
+
+posologia:
+  inicio: 5 mg por vía oral dos veces al día (o formulación retard de 11 mg una vez al día)
+  escalado: Dosis fija; no requiere escalado
+  mantenimiento: 5 mg dos veces al día
+  maxima: 5 mg dos veces al día (la dosis de 10 mg bid está restringida por mayor riesgo trombótico y de MACE)
+  ajuste_renal: >-
+    Reducir a 5 mg una vez al día en insuficiencia renal moderada o grave (TFGe < 50 mL/min).
+  ajuste_hepatico: >-
+    Reducir a 5 mg una vez al día en insuficiencia hepática moderada (Child-Pugh B); contraindicado en Child-Pugh C.
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Respuesta clínica articular ACR 20 a los 6 meses
+    criticidad: critico
+    efecto: 'Tasa de respuesta del 51.5 % con tofacitinib 5 mg bid frente a 28.3 % con placebo (p < 0.001); y 47.2 % con adalimumab en ORAL Standard'
+    rra: '23.2%'
+    rrr: '45.0%'
+    nnt: 5
+    horizonte_nnt: a 6 meses
+    diseno: eca
+    estudio: ORAL Standard (2012)
+    comparador: Placebo oral sobre fondo de MTX
+    n: 717
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:22873531'
+
+  - desenlace: Eventos cardiovasculares adversos mayores (MACE) a 4 años
+    criticidad: critico
+    efecto: 'Incidencia de MACE del 3.4 % con tofacitinib combinado frente a 2.5 % con inhibidores de TNF (HR 1.33, IC 95 % 0.91–1.94, no demostró no-inferioridad en ORAL Surveillance)'
+    rra: '0.9%'
+    rrr: '26.5%'
+    nnt: 112
+    horizonte_nnt: a 4 años
+    diseno: eca
+    estudio: ORAL Surveillance (2022)
+    comparador: Inhibidor de TNF (adalimumab / etanercept)
+    n: 4362
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:35081280'
+
+  - desenlace: Infección por herpes zóster a 4 años
+    criticidad: importante
+    efecto: 'Incidencia significativamente mayor con tofacitinib que con anti-TNF (incidencia acumulada ~3.0 % de exceso)'
+    rra: '3.0%'
+    rrr: '60.0%'
+    nnt: 34
+    horizonte_nnt: a 4 años
+    diseno: eca
+    estudio: ORAL Surveillance (2022)
+    comparador: Inhibidor de TNF
+    n: 4362
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:35081280'
+
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: hay_incertidumbre_o_variabilidad_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: condicional
+  enunciado: >-
+    Se sugiere el uso de tofacitinib (5 mg dos veces al día) como alternativa oral en pacientes con artritis reumatoide activa
+    que no han alcanzado el objetivo terapéutico con metotrexato, condicionando su prescripción a la exclusión previa de alto riesgo cardiovascular o neoplasias según los hallazgos de ORAL Surveillance.
+  ref: 'pmid:35081280'
+
+conclusion: >-
+  Tofacitinib ofrece una alternativa oral de alta eficacia en artritis reumatoide refractaria a metotrexato (NNT 5 en ACR20),
+  pero su perfil de seguridad exige ponderar el riesgo cardiovascular (MACE) y el incremento notable de herpes zóster (NNH 34).
+
+guias:
+  - organizacion: EULAR / ACR
+    anio: 2022
+    titulo: 'EULAR recommendations for the management of rheumatoid arthritis / ACR Guideline'
+    posicion: 'Los inhibidores de JAK pueden considerarse tras fallo de csDMARD, pero deben prescribirse con cautela en pacientes con factores de riesgo cardiovascular o tromboembólico.'
+    cita: 'EULAR RA Recommendations'
+
+refs:
+  - 'pmid:22873531'
+  - 'pmid:35081280'

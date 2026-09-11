@@ -1,0 +1,47 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:22873531"
+clave_bibtex: vanvollenhoven2012
+tipo: eca
+titulo: "Tofacitinib or adalimumab versus placebo in rheumatoid arthritis"
+autores:
+  - "van Vollenhoven RF"
+  - "Fleischmann R"
+  - "Cohen S"
+  - "Lee EB"
+  - "García Meijide JA"
+  - "Wagner S"
+  - "Forejtova S"
+  - "Zwillich SH"
+  - "Gruben D"
+  - "Koncz T"
+  - "Wallenstein GV"
+  - "Krishnaswami S"
+  - "Bradley JD"
+  - "Wilkinson B"
+  - "ORAL Standard Investigators"
+publicacion: "N Engl J Med"
+anio: 2012
+volumen: "367"
+numero: "6"
+paginas: "508-19"
+
+identificadores:
+  pmid: 22873531
+  doi: "10.1056/NEJMoa1112072"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

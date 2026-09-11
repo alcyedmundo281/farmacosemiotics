@@ -1,0 +1,163 @@
+# PARTE II — Farmacoterapia: cómo se usa el tofacitinib con seguridad.
+id: 'FA:0018'
+tipo: farmacoterapia
+farmaco: 'FS:0018'
+
+titulo: Farmacoterapia con tofacitinib
+titulo_en: Tofacitinib pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad para inhibidores de JAK (tofacitinib) en artritis reumatoide: cribado estricto
+  de infecciones latentes (tuberculosis, hepatitis virales), estratificación de riesgo cardiovascular mayor (MACE)
+  y tromboembólico venoso (TEV), monitorización analítica de perfil lipídico, enzimas hepáticas y citopenias,
+  y pauta de vacunación frente a herpes zóster.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Cribado de infección tuberculosa latente (IGRA o Mantoux) y radiografía de tórax
+    motivo: >-
+      Riesgo de reactivación tuberculosa grave con inhibición de vías dependientes de interferón; tratar infección latente antes de iniciar tofacitinib.
+    responsable: especialista
+    ref: 'pmid:22873531'
+
+  - prueba: Serología de hepatitis B (HBsAg, anti-HBc) y hepatitis C
+    motivo: >-
+      Descartar hepatitis crónica activa o riesgo de reactivación viral por inmunomodulación.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Evaluación del riesgo cardiovascular global, antecedentes de trombosis venosa y hábito tabáquico
+    motivo: >-
+      Identificar pacientes con alto riesgo cardiovascular (≥ 50 años con factores adicionales o fumadores activos/pasados) para evaluar alternativas terapéuticas según alertas del estudio ORAL Surveillance.
+    responsable: especialista
+    ref: 'pmid:35081280'
+
+  - prueba: Hemograma completo, transaminasas (ALT, AST), creatinina sérica y perfil lipídico en ayunas
+    motivo: >-
+      Establecer valores basales antes de la exposición por posible mielosupresión, hepatotoxicidad e hiperlipidemia.
+    responsable: especialista
+    ref: 'pmid:22873531'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Cribado TBC e imágenes pulmonares
+      - Hemograma con recuento absoluto de neutrófilos y linfocitos
+      - ALT, AST, fosfatasa alcalina y bilirrubina
+      - Perfil lipídico completo (colesterol total, LDL, HDL, triglicéridos)
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Semanas 4 a 8 de tratamiento
+    frecuencia: A las 4 y 8 semanas tras iniciar
+    pruebas:
+      - Hemograma (descartar neutropenia, anemia y linfopenia)
+      - Transaminasas hepáticas
+      - Perfil lipídico (se produce elevación fisiológica temprana de lípidos)
+    responsable: seguimiento
+    ref: 'pmid:22873531'
+
+  - fase: mantenimiento
+    periodo: Tratamiento crónico continuado
+    frecuencia: Cada 3 meses
+    pruebas:
+      - Hemograma completo y bioquímica básica (transaminasas, creatinina)
+      - Evaluación clínica de síntomas de infección o reactivación herpética (herpes zóster)
+      - Reevaluación anual de factores de riesgo cardiovascular y tamizaje oncológico por edad
+    responsable: seguimiento
+    ref: 'pmid:35081280'
+
+umbrales_accion:
+  - parametro: Recuento absoluto de neutrófilos (RAN) 500-1000/mcL
+    umbral: Neutropenia moderada
+    accion: Suspender temporalmente tofacitinib hasta que el RAN supere 1000/mcL, luego reiniciar dosis según criterio clínico.
+    ref: 'fda:label'
+
+  - parametro: Recuento absoluto de neutrófilos (RAN) < 500/mcL
+    umbral: Neutropenia grave
+    accion: Interrumpir permanentemente tofacitinib.
+    ref: 'fda:label'
+
+  - parametro: Recuento de linfocitos < 500/mcL
+    umbral: Linfopenia grave
+    accion: Interrumpir el tratamiento hasta resolución de la linfopenia.
+    ref: 'fda:label'
+
+  - parametro: Hemoglobina < 8 g/dL o caída > 2 g/dL
+    umbral: Anemia significativa
+    accion: Suspender hasta normalización de cifras y estudio etiológico.
+    ref: 'fda:label'
+
+  - parametro: Elevación de transaminasas ALT o AST > 3 veces el límite superior normal
+    umbral: Hepatotoxicidad farmacológica
+    accion: Suspender tofacitinib e investigar causas alternativas (fármacos concomitantes, reactivación viral).
+    ref: 'fda:label'
+
+  - parametro: Aparición de lesiones vesiculares cutáneas metaméricas (herpes zóster)
+    umbral: Infección viral aguda
+    accion: Suspender inmediatamente tofacitinib e iniciar terapia antiviral precoz (valaciclovir / aciclovir oral); reiniciar solo tras cicatrización completa.
+    ref: 'pmid:35081280'
+
+interacciones:
+  - con: Inhibidores potentes de CYP3A4 (ej. ketoconazol, claritromicina)
+    gravedad: mayor
+    efecto: Aumento notable de la exposición plasmática a tofacitinib
+    conducta: Reducir la dosis a 5 mg una vez al día
+    ref: 'fda:label'
+
+  - con: Inductores potentes de CYP3A4 (ej. rifampicina, carbamazepina)
+    gravedad: mayor
+    efecto: Disminución marcada de los niveles plasmáticos y pérdida de eficacia
+    conducta: Evitar la administración conjunta
+    ref: 'fda:label'
+
+  - con: Terapias biológicas inmunomoduladoras (anti-TNF, anti-IL-6, rituximab) u otros inhibidores de JAK
+    gravedad: mayor
+    efecto: Inmunosupresión profunda aditiva
+    conducta: Contraindicada la combinación concomitante
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Tofacitinib demostró teratogenicidad y embriofetotoxicidad en estudios preclínicos. Debe suspenderse al menos 4 semanas antes de la concepción planificada. Exige método anticonceptivo eficaz en mujeres en edad fértil.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desconoce la excreción en leche humana pero presenta potencial de reacciones adversas graves en el lactante. Se desaconseja la lactancia materna durante el tratamiento y hasta al menos 18 horas tras la última dosis.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Prescripción y evaluación basal exhaustiva exclusiva por especialista en Reumatología tras fracaso de metotrexato u otros FARME.
+  seguimiento: >-
+    Monitorización trimestral de laboratorio en atención primaria; detección precoz de herpes zóster, disnea o dolor torácico (riesgo MACE/TEV).
+  suspension_inmediata:
+    - Sospecha de infección bacteriana grave o sepsis
+    - Erupción compatible con herpes zóster metamérico
+    - Dolor torácico sugestivo de síndrome coronario agudo o síntomas de embolismo pulmonar / TVP
+    - Dolor abdominal agudo con sospecha de perforación gastrointestinal (riesgo con antecedentes de diverticulitis)
+  ref: 'pmid:35081280'
+
+posicionamiento:
+  linea: segunda
+  escalonado:
+    - linea: primera
+      opciones: 'FARME convencionales (metotrexato como pilar inicial).'
+    - linea: segunda
+      opciones: 'Inhibidores de JAK (tofacitinib) o biológicos anti-TNF en pacientes con fracaso a metotrexato, evaluando el perfil cardiovascular previo.'
+  ref: 'pmid:35081280'
+
+refs:
+  - 'pmid:22873531'
+  - 'pmid:35081280'

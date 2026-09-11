@@ -1,0 +1,46 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:35081280"
+clave_bibtex: ytterberg2022
+tipo: eca
+titulo: "Cardiovascular and Cancer Risk with Tofacitinib in Rheumatoid Arthritis"
+autores:
+  - "Ytterberg SR"
+  - "Bhatt DL"
+  - "Mikuls TR"
+  - "Koch GG"
+  - "Fleischmann R"
+  - "Rivas JL"
+  - "Germino R"
+  - "Menon S"
+  - "Sun Y"
+  - "Wang C"
+  - "Shapiro AB"
+  - "Kanik KS"
+  - "Connell CA"
+  - "ORAL Surveillance Investigators"
+publicacion: "N Engl J Med"
+anio: 2022
+volumen: "386"
+numero: "4"
+paginas: "316-326"
+
+identificadores:
+  pmid: 35081280
+  doi: "10.1056/NEJMoa2109927"
+  pmc: null
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Equivalence Trial"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

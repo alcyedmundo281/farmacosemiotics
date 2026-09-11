@@ -1,0 +1,102 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0010'
+tipo: seleccion
+problema: Prevención de recaídas en personas adultas con esquizofrenia
+problema_en: Relapse prevention in adults with schizophrenia
+cie11: 6A20
+
+poblacion: >-
+  Adultos con diagnóstico de esquizofrenia estabilizados clínicamente tras un episodio agudo o con antecedentes
+  de recaídas recurrentes vinculadas a dificultades de adherencia terapéutica a antipsicóticos orales diarios.
+
+pregunta: >-
+  En adultos con esquizofrenia que han alcanzado estabilidad clínica pero presentan riesgo elevado de recaída por
+  baja adherencia, ¿qué estrategia antipsicótica inyectable de acción prolongada de segunda generación (LAI) se selecciona
+  para prolongar el tiempo hasta la recaída y reducir hospitalizaciones psiquiátricas con mejor tolerabilidad neurológica?
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  La falta de adherencia al tratamiento antipsicótico oral es el determinante evitable más importante de recaídas
+  psicóticas, hospitalizaciones involuntarias y deterioro cognitivo/funcional progresivo en la esquizofrenia.
+  Los antipsicóticos inyectables de acción prolongada (LAI) garantizan la biodisponibilidad continua y alertan precozmente
+  al equipo asistencial ante la inasistencia. Frente a los LAI clásicos de primera generación (haloperidol decanoato),
+  los LAI atípicos ofrecen un perfil con menor carga de síntomas extrapiramidales y discinesia tardía.
+
+estrategia:
+  - base: PubMed
+    consulta: 'paliperidone palmitate AND schizophrenia AND relapse prevention AND randomized controlled trial'
+    fecha: '2026-09-11'
+    nota: 'Ensayo pivotal de prevención de recaídas Hough et al. (PMID: 19959339).'
+
+criterio_decisorio: >-
+  Se selecciona el antipsicótico inyectable de acción prolongada que demuestre eficacia robusta en la prevención de recaídas
+  y hospitalización en ensayos con diseño de retirada aleatorizada, con pauta posológica que facilite la transición
+  sin requerir solapamiento oral prolongado y con perfil de tolerabilidad neurológica favorable.
+
+conclusion: >-
+  El palmitato de paliperidona queda seleccionado como antipsicótico LAI de referencia en mantenimiento de esquizofrenia:
+  reduce sustancialmente el riesgo de recaída frente a placebo (HR 3.60 a favor del fármaco, RRA 24%, NNT 5 a 1 año),
+  permite un inicio rápido mediante pauta de carga en deltoides sin necesidad de suplementación oral concomitante
+  y presenta menor riesgo extrapiramidal que los antipsicóticos típicos de depósito.
+
+candidatos:
+  - dci: Paliperidona (palmitato)
+    atc: N05AX13
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        En el ensayo pivotal doble ciego de prevención de recaídas (Hough 2010), el palmitato de paliperidona redujo la tasa
+        de recaída sintomática al 10% frente al 34% en el grupo placebo (HR 3.60, IC 95% 2.45-5.28; p < 0.0001; RRA 24%, NNT 5 a 1 año),
+        motivando la interrupción precoz del estudio por beneficio incuestionable.
+      ref: 'pmid:19959339'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Tasa de acontecimientos adversos extrapiramidales y uso de anticolinérgicos significativamente inferior a los LAI
+        de primera generación (haloperidol decanoato); perfil metabólico con ganancia ponderal moderada (~1.9 kg) y riesgo
+        conocido de hiperprolactinemia monitorizable.
+      ref: 'pmid:19959339'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Régimen de dosificación mensual (tras dos dosis de carga en días 1 y 8 en deltoides) que no requiere solapamiento con
+        antipsicóticos orales ni refrigeración del inyectable, facilitando la logística comunitaria.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Aunque el coste de adquisición del inyectable es superior a los neurolépticos clásicos o comprimidos orales genéricos,
+        el ahorro neto derivado de evitar hospitalizaciones psiquiátricas y urgencias compensa la inversión en pacientes con adherencia irregular.
+      ref: 'pmid:19959339'
+
+  - dci: Haloperidol (decanoato)
+    atc: N05AD01
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        Eficacia antipsicótica contrastada en la prevención de recaídas en pacientes crónicos con adherencia monitorizada.
+      ref: 'pmid:19959339'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Elevada tasa de acatisia, parkinsonismo y riesgo acumulativo anual de discinesia tardía incapacitante (hasta 5% por año de exposición).
+      ref: 'pmid:19959339'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Requiere administración exclusivamente glútea profunda y a menudo periodo prolongado de titulación oral por su lenta cinética de acumulación.
+      ref: 'fda:label'
+    costo:
+      juicio: superior
+      sustento: >-
+        Bajo costo directo de adquisición, pero penalizado por costes derivados del manejo de efectos extrapiramidales y discinesias.
+      ref: 'pmid:19959339'

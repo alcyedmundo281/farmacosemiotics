@@ -1,0 +1,70 @@
+id: 'FS:0019'
+tipo: farmaco
+dci: Acalabrutinib
+dci_en: Acalabrutinib
+sinonimos:
+  - Calquence
+  - ACP-196
+
+atc: L01EL02
+clase_farmacologica: Inhibidor selectivo de segunda generación de la tirosina quinasa de Bruton (BTK)
+clase_farmacologica_en: Second-generation Bruton's tyrosine kinase (BTK) inhibitor
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '1986808'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-11'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor oral irreversible de molécula pequeña de la tirosina quinasa de Bruton (BTK) de segunda generación.
+  Forma un enlace covalente con el residuo Cys481 en el sitio activo de BTK con notable selectividad enzimática,
+  presentando mínima o nula actividad inhibitoria fuera de diana sobre quinasas alternativas (EGFR, TEC, ERBB4, ITK),
+  lo que preserva la señalización cardíaca y disminuye significativamente la cardiotoxicidad y hemorragias frente a ibrutinib.
+mecanismo_ref: 'pmid:34310172'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático oxidativo predominante vía CYP3A4; 84% excreción fecal y 12% urinaria'
+  vida_media: 'Aproximadamente 1 a 2 horas (con inhibición sostenida de BTK durante 24 horas)'
+  implicacion: >-
+    Posología oral continua de 100 mg cada 12 horas (dos veces al día). Su absorción oral depende del pH gástrico:
+    evitar la coadministración con inhibidores de la bomba de protones (IBP). Los antagonistas H2 deben separarse
+    2 horas después o 10 horas antes, y los antiácidos locales separarse al menos 2 horas.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Cefalea precoz autolimitada
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Efecto secundario característico en las primeras semanas de tratamiento (hasta 35-40%); habitualmente cede espontáneamente o responde a paracetamol y cafeína.
+      ref: 'pmid:34310172'
+    - evento: Fibrilación auricular y arritmias cardíacas
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Incidencia significativamente inferior a ibrutinib (9.4% vs 16.0%, p = 0.02 en ELEVATE-RR); menor cardiotoxicidad acumulada.
+      ref: 'pmid:34310172'
+    - evento: Diarrea e infecciones respiratorias
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Frecuentes pero de grado predominantemente 1 o 2; infecciones de grado ≥ 3 comparables a otros regímenes dirigidos (~30%).
+      ref: 'pmid:34310172'
+    - evento: Eventos hemorrágicos leves (equimosis, epistaxis)
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Debido a interferencia sobre la agregación plaquetaria mediada por colágeno; menor sangrado severo que con inhibidores de BTK de primera generación.
+      ref: 'pmid:34310172'

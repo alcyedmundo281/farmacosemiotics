@@ -1,0 +1,71 @@
+id: 'FS:0017'
+tipo: farmaco
+dci: Paliperidona
+dci_en: Paliperidone
+sinonimos:
+  - Invega Sustenna
+  - 9-hidroxirisperidona
+  - Palmitato de paliperidona
+
+atc: N05AX13
+clase_farmacologica: Antipsicótico atípico (antagonista dopaminérgico D2 y serotoninérgico 5-HT2A) de acción prolongada
+clase_farmacologica_en: Atypical antipsychotic, long-acting injectable
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '858045'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-11'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Metabolito activo principal de la risperidona (9-hidroxirisperidona) formulado como éster palmitato
+  en suspensión de nanopartículas de liberación sostenida. Actúa como antagonista selectivo monoaminérgico
+  con alta afinidad por receptores serotoninérgicos 5-HT2A y dopaminérgicos D2, y afinidad moderada por
+  receptores adrenérgicos alfa-1 y alfa-2 e histaminérgicos H1.
+mecanismo_ref: 'pmid:19959339'
+
+farmacocinetica:
+  eliminacion: 'Aclaramiento renal primario sin metabolización extensa por citocromos P450; 80% excretado inalterado o mínimamente metabolizado en orina'
+  vida_media: 'Aproximadamente 25 a 49 días tras administración intramuscular'
+  implicacion: >-
+    La formulación en suspensión acuosa de palmitato se disuelve lentamente en el sitio de inyección
+    y se hidroliza a paliperidona libre. Requiere régimen de carga en deltoides (150 mg eq día 1 y 100 mg eq día 8)
+    para alcanzar niveles terapéuticos rápidos sin necesidad de suplementación oral. Mantenimiento mensual (deltoides o glúteo).
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Síntomas extrapiramidales y acatisia
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Incidencia de acatisia y temblor significativamente menor que los antipsicóticos de 1ª generación de depósito; responde a ajuste de dosis o betabloqueantes.
+      ref: 'pmid:19959339'
+    - evento: Ganancia de peso y alteraciones metabólicas
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Aumento medio de peso ponderal (~1.9 kg) y riesgo de descompensación glucémica/lipídica en tratamientos prolongados; vigilar IMC y perfil glucémico basal y semestral.
+      ref: 'pmid:19959339'
+    - evento: Hiperprolactinemia
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Elevación sostenida de prolactina por bloqueo D2 tuberoinfundibular; puede cursar con galactorrea, amenorrea, disfunción eréctil o ginecomastia.
+      ref: 'pmid:19959339'
+    - evento: Dolor en el sitio de inyección
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Habitualmente leve y autolimitado; ligeramente más frecuente en inyecciones deltoideas que glúteas.
+      ref: 'pmid:19959339'

@@ -1,0 +1,140 @@
+# PARTE II — Farmacoterapia: cómo se usa el acalabrutinib con seguridad.
+id: 'FA:0019'
+tipo: farmacoterapia
+farmaco: 'FS:0019'
+
+titulo: Farmacoterapia con acalabrutinib
+titulo_en: Acalabrutinib pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad para acalabrutinib en leucemia linfocítica crónica: manejo de la dependencia
+  de pH gástrico para la absorción oral, profilaxis de infecciones oportunistas, monitorización de arritmias cardíacas
+  (fibrilación auricular) y protocolo de suspensión periprocedimiento quirúrgico por riesgo hemorrágico.
+
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Electrocardiograma basal y antecedentes de arritmias cardíacas
+    motivo: >-
+      Establecer ritmo de base y detectar fibrilación o flutter auricular preexistente; aunque acalabrutinib tiene menor cardiotoxicidad que ibrutinib, requiere vigilancia.
+    responsable: especialista
+    ref: 'pmid:34310172'
+
+  - prueba: Serología para virus de la hepatitis B (HBsAg y anti-HBc)
+    motivo: >-
+      Riesgo de reactivación grave de VHB con inhibidores de la tirosina quinasa de Bruton; indicar profilaxis antiviral con entecavir si anti-HBc es positivo.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Hemograma completo y bioquímica hepática y renal
+    motivo: >-
+      Determinar grado de citopenias basales por infiltración medular leucémica y función orgánica para ajuste.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Hemograma con diferencial leucocitario
+      - ECG de 12 derivaciones
+      - Serologías virales (VHB, VHC, VIH)
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Primeras 4 a 8 semanas
+    frecuencia: Quincenal o mensual
+    pruebas:
+      - Vigilancia y alivio de la cefalea precoz (frecuente en primeras semanas, transitoria)
+      - Hemograma (posible linfocitosis redistributiva transitoria benigna por desprendimiento ganglionar)
+      - Control de presión arterial y pulso
+    responsable: seguimiento
+    ref: 'pmid:34310172'
+
+  - fase: mantenimiento
+    periodo: Tratamiento crónico continuo hasta progresión
+    frecuencia: Cada 1 a 3 meses
+    pruebas:
+      - Hemograma completo (neutropenia, trombocitopenia)
+      - Auscultación cardíaca y detección de pulso irregular (palpitaciones)
+      - Vigilancia de sangrados cutáneos o mucosos
+    responsable: seguimiento
+    ref: 'pmid:34310172'
+
+umbrales_accion:
+  - parametro: Fibrilación auricular / Flutter de nueva aparición
+    umbral: Grado 2 o sintomático
+    accion: >-
+      Suspender temporalmente acalabrutinib hasta resolución; valoración cardiológica para control de frecuencia y evaluación cuidadosa del riesgo trombótico vs hemorrágico antes de indicar anticoagulantes (evitar antagonistas de vitamina K tipo warfarina por alto riesgo de sangrado mayor).
+    ref: 'pmid:34310172'
+
+  - parametro: Cirugía mayor planificada o procedimientos dentales invasivos
+    umbral: Riesgo de hemorragia perioperatoria
+    accion: >-
+      Suspender acalabrutinib al menos 3 días antes y 3 días después de procedimientos menores; suspender al menos 7 días antes y 7 días después de cirugía mayor.
+    ref: 'fda:label'
+
+  - parametro: Neutropenia absoluta grado 4 (< 500/mcL) que dure > 7 días
+    umbral: Toxicidad hematológica severa
+    accion: Interrumpir hasta recuperación a grado 1 o valor basal; considerar factor estimulante de colonias (G-CSF) y reducir dosis si es recurrente.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Inhibidores de la bomba de protones (omeprazol, esomeprazol, pantoprazol)
+    gravedad: mayor
+    efecto: Reducción drástica de la solubilidad y biodisponibilidad de acalabrutinib por aumento del pH intragástrico
+    conducta: Evitar de forma estricta la administración conjunta. Si se requiere antiácido, usar antagonistas H2 (tomar acalabrutinib 2 h antes o 10 h después) o antiácidos locales (separar 2 h).
+    ref: 'fda:label'
+
+  - con: Inhibidores potentes de CYP3A4 (ej. posaconazol, voriconazol, claritromicina)
+    gravedad: mayor
+    efecto: Aumento marcado de la exposición sistémica a acalabrutinib
+    conducta: Evitar si es posible; si es indispensable su uso, suspender acalabrutinib o reducir dosis a 100 mg una vez al día.
+    ref: 'fda:label'
+
+  - con: Anticoagulantes orales (especialmente warfarina)
+    gravedad: mayor
+    efecto: Sumación de riesgo hemorrágico por inhibición plaquetaria mediada por BTK
+    conducta: Warfarina está formalmente contraindicada. Con ACOD o antiagregantes, monitorizar signos de sangrado.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Basado en estudios en animales, acalabrutinib puede causar daño fetal (distocia y retraso del crecimiento). Recomendar métodos anticonceptivos altamente eficaces durante el tratamiento y hasta al menos 1 semana tras la última dosis.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      No amamantar durante el tratamiento y hasta 2 semanas después de la última dosis debido al riesgo de reacciones adversas graves en el lactante.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Indicación y seguimiento de eficacia oncológica a cargo del especialista en Hematología.
+  seguimiento: >-
+    Atención primaria o farmacia hospitalaria: vigilar estrictamente que el paciente no se automedique con IBP o antiácidos sin consultar; control de presión arterial y detección de palpitaciones.
+  suspension_inmediata:
+    - Sangrado severo activo (hemorragia digestiva, hematuria macroscópica, sospecha de sangrado intracraneal)
+    - Infección grave con shock o neutropenia febril
+    - Fibrilación auricular rápida descompensada hemodinámicamente
+  ref: 'pmid:34310172'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: 'Acalabrutinib en monoterapia o en combinación con obinutuzumab en primera línea en pacientes con o sin del(17p)/mutación TP53.'
+    - linea: segunda
+      opciones: 'Acalabrutinib en monoterapia continua tras recaída a quimioinmunoterapia previa.'
+  ref: 'pmid:34310172'
+
+refs:
+  - 'pmid:34310172'

@@ -1,0 +1,124 @@
+id: 'FT:0018'
+tipo: ficha
+farmaco: 'FS:0017'
+seleccion: 'SEL:0010'
+titulo: Palmitato de paliperidona en la prevención de recaídas en la esquizofrenia
+indicacion: Prevención de recaídas y mantenimiento en personas adultas con esquizofrenia
+indicacion_en: Relapse prevention and maintenance in adults with schizophrenia
+poblacion: Adultos con esquizofrenia estabilizados tras un episodio o con dificultades de adherencia terapéutica oral
+cie11: 6A20
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Antipsicótico inyectable de acción prolongada mensual (LAI): régimen de carga obligatorio en deltoides
+    (150 mg eq día 1 y 100 mg eq día 8) sin necesidad de suplementación oral; mantenimiento flexible (75 mg eq/mes, rango 25-150 mg eq).
+    Reduce de forma contundente la tasa de recaída a un tercio frente a placebo (10 % vs 34 %; NNT 5 a 1 año; HR 3.60).
+  alerta_seguridad_inmediata: >-
+    Confirmar tolerancia oral previa a risperidona o paliperidona antes de la primera inyección.
+    Contraindicado el uso inyectable depot si eGFR < 50 mL/min. Vigilar signos precoces de acatisia y síndrome metabólico.
+
+pico:
+  p: Adultos con esquizofrenia clínicamente estabilizados tras fase abierta de ajuste posológico
+  i: Palmitato de paliperidona intramuscular mensual (dosis estabilizada entre 25 y 100 mg eq)
+  c: Placebo intramuscular mensual
+  o: Tiempo transcurrido hasta la primera recaída psicótica, tasa de recaídas acumuladas y eventos adversos
+
+posologia:
+  inicio: >-
+    Día 1: 150 mg eq (234 mg de palmitato) en músculo deltoides. Día 8: 100 mg eq (156 mg de palmitato) en músculo deltoides.
+  escalado: >-
+    La pauta de carga en deltoides es obligatoria para alcanzar concentraciones terapéuticas rápidas sin suplemento oral.
+  mantenimiento: >-
+    75 mg eq (117 mg de palmitato) una vez al mes por vía intramuscular (en deltoides o glúteo), con rango terapéutico de 25 a 150 mg eq según respuesta clínica.
+  maxima: 150 mg eq al mes
+  ajuste_renal: >-
+    En insuficiencia renal leve (TFGe 50 a 79 mL/min): carga de 100 mg eq día 1 y 75 mg eq día 8 (ambas en deltoides); mantenimiento mensual de 50 mg eq.
+    No recomendado si TFGe < 50 mL/min.
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Prevención de recaída sintomática de esquizofrenia a 1 año
+    criticidad: critico
+    efecto: 'Reducción marcada de recaídas: 10.0 % en el grupo paliperidona frente a 34.0 % en el grupo placebo (HR 3.60 a favor del fármaco, IC 95 % 2.45–5.28, p < 0.0001)'
+    rra: '24.0%'
+    rrr: '70.6%'
+    nnt: 5
+    horizonte_nnt: a 1 año
+    diseno: eca
+    estudio: Hough et al. (2010)
+    comparador: Placebo intramuscular mensual
+    n: 408
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:19959339'
+
+  - desenlace: Ganancia ponderal significativa (aumento de peso medio ≥ 7 %)
+    criticidad: importante
+    efecto: 'Aumento de peso superior al placebo (aumento medio de 1.9 kg; incidencia de eventos adversos relacionados con peso 9 % vs 3 %)'
+    rra: '6.0%'
+    rrr: '66.7%'
+    nnt: 17
+    horizonte_nnt: a 1 año
+    diseno: eca
+    estudio: Hough et al. (2010)
+    comparador: Placebo intramuscular
+    n: 408
+    certeza: moderada
+    razones_descenso:
+      - imprecision
+    ref: 'pmid:19959339'
+
+  - desenlace: Síntomas extrapiramidales / Acatisia clínicamente relevante
+    criticidad: importante
+    efecto: 'Baja incidencia en comparación con formulaciones típicas clásicas (acatisia en 4 % con paliperidona vs 1 % con placebo)'
+    rra: '3.0%'
+    rrr: '75.0%'
+    nnt: 34
+    horizonte_nnt: a 1 año
+    diseno: eca
+    estudio: Hough et al. (2010)
+    comparador: Placebo intramuscular
+    n: 408
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:19959339'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda el uso de palmitato de paliperidona inyectable mensual en pacientes adultos con esquizofrenia
+    que presentan dificultades de cumplimiento con la vía oral o prefieren un régimen de administración prolongada,
+    iniciando con pauta de carga deltoidea (150 mg eq día 1 y 100 mg eq día 8) y monitorización metabólica periódica.
+  ref: 'pmid:19959339'
+
+conclusion: >-
+  El palmitato de paliperidona previene eficazmente las recaídas sintomáticas en la esquizofrenia (NNT 5 a 1 año, HR 3.60),
+  ofreciendo un perfil neurológico favorable frente a los inyectables de primera generación a costa de vigilancia metabólica y ponderal.
+
+guias:
+  - organizacion: American Psychiatric Association (APA)
+    anio: 2021
+    titulo: 'Practice Guideline for the Treatment of Patients With Schizophrenia'
+    posicion: 'Recomienda ofrecer antipsicóticos inyectables de acción prolongada a pacientes que prefieran esta vía o presenten historia de adherencia irregular.'
+    cita: 'APA Schizophrenia Guidelines'
+
+refs:
+  - 'pmid:19959339'
+  - 'fda:label'

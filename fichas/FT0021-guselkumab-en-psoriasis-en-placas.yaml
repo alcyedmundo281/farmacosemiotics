@@ -1,0 +1,115 @@
+id: 'FT:0021'
+tipo: ficha
+farmaco: 'FS:0004'
+seleccion: 'SEL:0003'
+titulo: Guselkumab en la psoriasis en placas moderada a grave
+indicacion: Psoriasis en placas moderada a grave en adultos candidatos a terapia sistémica
+indicacion_en: Moderate-to-severe plaque psoriasis in adults
+poblacion: Adultos con psoriasis en placas moderada a grave candidatos a tratamiento sistémico o fototerapia
+cie11: EA90
+estado: revisado
+fecha: '2026-09-11'
+actualizado: '2026-09-11'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Inhibidor selectivo de la subunidad p19 de la IL-23: 100 mg subcutáneo en semanas 0, 4 y luego cada 8 semanas.
+    Logra tasas muy elevadas de respuesta PASI 90 a la semana 16 superiores tanto a placebo (73.3 % vs 2.9 %; NNT 2)
+    como a adalimumab (73.3 % vs 49.7 %; NNT 5), manteniendo el blanqueamiento cutáneo hasta la semana 48 con excelente tolerabilidad.
+  alerta_seguridad_inmediata: >-
+    Descartar tuberculosis activa o latente antes de iniciar. No requiere analíticas rutinarias frecuentes
+    más allá de la vigilancia clínica estándar en pacientes seleccionados.
+
+pico:
+  p: Adultos con psoriasis en placas de moderada a grave candidatos a tratamiento biológico (N=837)
+  i: Guselkumab 100 mg por vía subcutánea en las semanas 0, 4 y posteriormente cada 8 semanas
+  c: Placebo subcutáneo (con cruce a guselkumab en semana 16) o adalimumab activo
+  o: Aclaramiento cutáneo PASI 90 a semana 16, respuesta IGA 0/1 y seguridad a 48 semanas
+
+posologia:
+  inicio: 100 mg mediante inyección subcutánea en la semana 0 y en la semana 4
+  escalado: Tras la dosis de semana 4 pasa directamente a la pauta bimestral
+  mantenimiento: 100 mg por vía subcutánea cada 8 semanas
+  maxima: 100 mg cada 8 semanas
+  ajuste_renal: No requiere ajuste en insuficiencia renal o hepática
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Respuesta PASI 90 a las 16 semanas (blanqueamiento cutáneo profundo frente a placebo)
+    criticidad: critico
+    efecto: 'Tasa de respuesta del 73.3 % con guselkumab frente al 2.9 % con placebo (p < 0.001 en VOYAGE-1)'
+    rra: '70.4%'
+    rrr: '96.0%'
+    nnt: 2
+    horizonte_nnt: a 16 semanas
+    diseno: eca
+    estudio: VOYAGE-1 (2017)
+    comparador: Placebo subcutáneo
+    n: 503
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:28057360'
+
+  - desenlace: Respuesta PASI 90 a las 16 semanas frente a comparador activo (adalimumab)
+    criticidad: critico
+    efecto: 'Superioridad frente a adalimumab: 73.3 % con guselkumab frente a 49.7 % con adalimumab (p < 0.001)'
+    rra: '23.6%'
+    rrr: '32.2%'
+    nnt: 5
+    horizonte_nnt: a 16 semanas
+    diseno: eca
+    estudio: VOYAGE-1 (2017)
+    comparador: Adalimumab 40 mg SC cada 2 semanas
+    n: 663
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:28057360'
+
+  - desenlace: Aclaramiento completo o casi completo (puntuación IGA 0 o 1) a la semana 16
+    criticidad: importante
+    efecto: 'Tasa de respuesta del 85.1 % con guselkumab frente a 6.9 % con placebo (p < 0.001 en VOYAGE-1)'
+    rra: '78.2%'
+    rrr: '91.9%'
+    nnt: 2
+    horizonte_nnt: a 16 semanas
+    diseno: eca
+    estudio: VOYAGE-1 (2017)
+    comparador: Placebo subcutáneo
+    n: 503
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:28057360'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda fuertemente guselkumab (100 mg subcutáneo semanas 0, 4 y luego cada 8 semanas) en personas adultas con psoriasis
+    en placas moderada a grave candidatas a terapia sistémica, dada su alta tasa de aclaramiento cutáneo PASI 90 sostenido (NNT 2 vs placebo y NNT 5 vs adalimumab) con óptimo perfil de seguridad.
+  ref: 'pmid:28057360'
+
+conclusion: >-
+  Guselkumab establece un estándar de alta eficacia y durabilidad en psoriasis en placas moderada a grave con pauta bimestral de mantenimiento y bajo riesgo de efectos adversos graves.
+
+guias:
+  - organizacion: EuroGuiDerm / S3 Guideline
+    anio: 2021
+    titulo: 'S3 Guideline for the treatment of psoriasis vulgaris'
+    posicion: 'Recomienda los inhibidores de IL-23p19 (guselkumab, risankizumab) como opciones de primera línea entre los biológicos para psoriasis en placas moderada a grave por su alta eficacia duradera y pauta cómoda cada 8 semanas.'
+    cita: 'EuroGuiDerm Psoriasis Guideline'
+
+refs:
+  - 'pmid:28057360'

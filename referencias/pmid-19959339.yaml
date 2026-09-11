@@ -1,0 +1,36 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:19959339"
+clave_bibtex: hough2010
+tipo: eca
+titulo: "Paliperidone palmitate maintenance treatment in delaying the time-to-relapse in patients with schizophrenia: a randomized, double-blind, placebo-controlled study"
+autores:
+  - "Hough D"
+  - "Gopal S"
+  - "Vijapurkar U"
+  - "Lim P"
+  - "Morozova M"
+  - "Eerdekens M"
+publicacion: "Schizophr Res"
+anio: 2010
+volumen: "116"
+numero: "2-3"
+paginas: "107-17"
+
+identificadores:
+  pmid: 19959339
+  doi: "10.1016/j.schres.2009.10.026"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

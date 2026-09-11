@@ -1,0 +1,38 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:28057360"
+clave_bibtex: blauvelt2017
+tipo: eca
+titulo: "Efficacy and safety of guselkumab, an anti-interleukin-23 monoclonal antibody, compared with adalimumab for the continuous treatment of patients with moderate to severe psoriasis: Results from the phase III, double-blinded, placebo- and active comparator-controlled VOYAGE 1 trial"
+autores:
+  - "Blauvelt A"
+  - "Papp KA"
+  - "Griffiths CE"
+  - "Randazzo B"
+  - "Wasfi Y"
+  - "Shen YK"
+  - "Li S"
+  - "Kimball AB"
+publicacion: "J Am Acad Dermatol"
+anio: 2017
+volumen: "76"
+numero: "3"
+paginas: "405-417"
+
+identificadores:
+  pmid: 28057360
+  doi: "10.1016/j.jaad.2016.11.041"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-11'
+  retractado: false
+  crossref: true

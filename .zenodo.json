@@ -1,20 +1,40 @@
 {
-  "title": "farmacosemiotics: fichas de terapéutica racional ancladas a PubMed",
-  "description": "Banco de fichas de uso racional de medicamentos en YAML, con cada enunciado de eficacia y seguridad anclado a un PMID verificado. Motor en Python que deriva un índice JSON-LD, un depósito JATS y un sitio estático. La meta de contenido es la Lista Modelo de Medicamentos Esenciales de la OMS, 24.a lista (2025).",
+  "title": "farmacosemiotics: guías de práctica clínica farmacoterapéuticas ancladas a PubMed",
+  "description": "Guías de práctica clínica farmacoterapéuticas en fuente abierta, escritas en YAML verificable y encadenadas en el orden de la decisión clínica. Parte I, selección: un informe por problema de salud que compara los candidatos en eficacia, seguridad, conveniencia y costo y emite un veredicto. Parte II, farmacoterapia: cómo se usa la molécula elegida —cribado previo a la primera dosis, dosificación por genotipo, cronograma de monitorización, umbrales de acción, interacciones, perfil reproductivo y reparto entre el especialista y el médico de seguimiento—, escrita una sola vez por molécula y servida a todas sus indicaciones. La regla de gobierno es una sola: ningún enunciado de eficacia o seguridad sin PMID resoluble, y el validador lo trata como error y no como advertencia. Lo que no tiene fuente publicada no se rellena: se declara como hueco, con su motivo y las referencias que se consultaron sin éxito. El motor en Python deriva de esa única fuente un índice JSON-LD, un depósito JATS, un sitio estático y un EPUB con todas las guías. El estándar de forma son las guías de las sociedades europeas y británicas (BSR, BAD, EDF/EADV) y la guía CPIC para lo farmacogenético. La meta de contenido es la Lista Modelo de Medicamentos Esenciales de la OMS, 24.ª lista (2025). El alcance es internacional: lo que depende de un país vive en una capa de costos aparte y nunca en el núcleo.",
   "upload_type": "dataset",
   "access_right": "open",
   "license": "cc-by-sa-4.0",
   "language": "spa",
+  "version": "v0.1.0",
   "creators": [
-    { "name": "Torres, Alcy" }
+    {
+      "name": "Torres Guerrero, Alcy Edmundo",
+      "orcid": "0000-0002-9742-375X"
+    }
+  ],
+  "communities": [
+    { "identifier": "powersemiotics" }
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSourceOf",
+      "identifier": "https://powersemiotics.com/farmacosemiotics/",
+      "resource_type": "other"
+    }
   ],
   "keywords": [
+    "guías de práctica clínica",
     "uso racional de medicamentos",
-    "terapeutica",
-    "farmacologia clinica",
+    "terapéutica",
+    "farmacología clínica",
+    "farmacovigilancia",
+    "farmacogenética",
     "medicamentos esenciales",
     "GRADE",
     "PubMed",
-    "openFDA"
-  ]
+    "openFDA",
+    "datos abiertos",
+    "ciencia reproducible"
+  ],
+  "notes": "Material educativo. No sustituye el juicio clínico ni la ficha técnica aprobada por la agencia reguladora que corresponda al lugar de uso. Autor y responsable clínico: Dr. Alcy Edmundo Torres Guerrero. El contenido se distribuye bajo CC BY-SA 4.0 y el código del motor bajo MIT."
 }

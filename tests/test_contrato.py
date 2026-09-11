@@ -501,5 +501,68 @@ class ElValidadorFalla(unittest.TestCase):
         self.assertIn("lista cerrada", r.stdout)
 
 
+class LosMetadatosDeCita(unittest.TestCase):
+    """
+    Lo que se deposita en Zenodo queda citable para siempre, así que los dos
+    ficheros que lo describen tienen que decir lo mismo. Se desincronizan por el
+    camino de siempre: se sube la versión en uno y se olvida el otro, y entonces
+    el DOI archiva un estado que no es el que su propia cita anuncia.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        import yaml
+        cls.zen = json.loads((RAIZ / ".zenodo.json").read_text(encoding="utf-8"))
+        cls.cff = yaml.safe_load((RAIZ / "CITATION.cff").read_text(encoding="utf-8"))
+
+    def test_ambos_ficheros_declaran_la_misma_version(self):
+        self.assertEqual(self.zen["version"], self.cff["version"],
+                         ".zenodo.json y CITATION.cff no coinciden en la versión")
+
+    def test_ambos_ficheros_declaran_la_misma_licencia(self):
+        # Zenodo la quiere en minúsculas y CITATION.cff en SPDX, así que no se
+        # comparan en crudo: se comparan normalizadas, y además se fija cuál es.
+        self.assertEqual(self.zen["license"].lower(), self.cff["license"].lower(),
+                         "la licencia del depósito no es la del repositorio")
+        self.assertEqual(self.cff["license"], "CC-BY-SA-4.0")
+
+    def test_la_autoria_es_la_misma_en_los_dos(self):
+        autor_cff = self.cff["authors"][0]
+        esperado = f"{autor_cff['family-names']}, {autor_cff['given-names']}"
+        self.assertEqual(self.zen["creators"][0]["name"], esperado,
+                         "el nombre del depósito no es el de la cita")
+
+    def test_el_orcid_es_el_mismo_y_su_digito_de_control_cuadra(self):
+        # Un ORCID mal copiado apunta a otra persona, o a nadie. Se comprueba
+        # como se comprueba un PMID: que el identificador sea válido, no que
+        # tenga forma de identificador. El dígito de control es ISO 7064 MOD 11-2.
+        suelto = self.zen["creators"][0]["orcid"]
+        self.assertEqual(self.cff["authors"][0]["orcid"],
+                         f"https://orcid.org/{suelto}",
+                         "el ORCID de la cita no es el del depósito")
+        self.assertRegex(suelto, r"^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$")
+
+        digitos = suelto.replace("-", "")
+        total = 0
+        for d in digitos[:15]:
+            total = (total + int(d)) * 2
+        control = (12 - total % 11) % 11
+        self.assertEqual("X" if control == 10 else str(control), digitos[15],
+                         f"el ORCID {suelto} no supera su propio dígito de control")
+
+    def test_el_deposito_apunta_a_la_comunidad_powersemiotics(self):
+        ids = [c["identifier"] for c in self.zen.get("communities", [])]
+        self.assertIn("powersemiotics", ids,
+                      "el depósito no reclama su comunidad de Zenodo")
+
+    def test_el_readme_no_anuncia_un_doi_de_plantilla(self):
+        # Un DOI con las equis de la plantilla es un identificador con formato
+        # científico que no resuelve: el mismo fallo que un HR sin PMID.
+        readme = (RAIZ / "README.md").read_text(encoding="utf-8")
+        for doi in re.findall(r"10\.5281/zenodo\.(\S+?)[)\s\]]", readme):
+            self.assertRegex(doi, r"^\d+$",
+                             f"el README anuncia un DOI sin acuñar: {doi}")
+
+
 if __name__ == "__main__":
     unittest.main()

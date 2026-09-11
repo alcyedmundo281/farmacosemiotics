@@ -185,6 +185,9 @@ siempre— está en [deposito-zenodo.md](deposito-zenodo.md).
 
 ## Aviso
 
+**Plataforma independiente.** El contenido no implica aval ni representación
+de ninguna institución sanitaria ni académica.
+
 Material educativo. No sustituye el juicio clínico ni la ficha técnica
 aprobada por la agencia reguladora que corresponda al lugar de uso. Autor y
 responsable clínico: Dr. Alcy Torres.

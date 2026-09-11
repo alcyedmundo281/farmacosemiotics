@@ -93,6 +93,34 @@ vademécum continuo, y el índice de Quarto ya da la navegación que daría el
 troceado. El vínculo con PubMed sobrevive a la encuadernación porque cada
 entrada del `.bib` lleva su PMID.
 
+## El depósito: el DOI y la comunidad
+
+El repositorio está archivado en **Zenodo**, dentro de la comunidad
+**powersemiotics**, desde el 11 de septiembre de 2026.
+
+| DOI | Qué identifica | Cuándo usarlo |
+|---|---|---|
+| [`10.5281/zenodo.22700661`](https://doi.org/10.5281/zenodo.22700661) | Todas las versiones | Por defecto. Resuelve siempre a la última |
+| [`10.5281/zenodo.22700662`](https://doi.org/10.5281/zenodo.22700662) | Sólo `v0.1.0` | Cuando importe reproducir ese estado exacto del corpus |
+
+Que sean dos números y no uno es lo único que hay que recordar de todo esto, y
+es justo lo que ya se confundió una vez: se anunció el de versión como si fuera
+el de concepto, y quien hubiera citado por esa etiqueta habría citado la
+`v0.1.0` congelada creyendo citar la última. Una prueba del contrato lo vigila
+desde entonces —`doi` y la insignia del README han de ser el de concepto—,
+porque un identificador que no lleva adonde dice es un `HR` sin PMID con otro
+formato.
+
+**Cada release nueva acuña su propio DOI de versión** y lo cuelga del mismo DOI
+de concepto. El procedimiento entero está en
+[deposito-zenodo.md](deposito-zenodo.md), con la trampa de orden por delante:
+Zenodo sólo acuña DOI para las releases posteriores a activar su integración
+con GitHub, así que una release cortada antes queda sin DOI para siempre.
+
+Antes de cortar una: subir `version` en `.zenodo.json` **y** en `CITATION.cff`
+—los dos, que es lo que se olvida— y `build.py` en verde. Lo que se deposita
+queda citable para siempre.
+
 ## El Modelo Editorial Ghost & Estándar de Contenido
 
 Cada ficha terapéutica (`fichas/FTxxxx.yaml`) se compila como un **artículo de blog editorial Ghost completo** (`build/sitio/fichas/FTxxxx.html`) y se indexa en el portal principal (`index.html`), revista/catálogo (`blog.html`) y banco de autoevaluación (`reto.html`).
@@ -122,15 +150,24 @@ manda, seguido de los antiinfecciosos AWaRe, dolor, salud mental y las terapias 
 
 ## Estado Actual de las Oleadas
 
-| Oleada | Temática / Área Clínica | Fármacos (`FS`) | Fichas (`FT`) | Estado |
-|---|---|---|---|---|
-| **0. Piloto** | Fármaco modelo y validación de contrato | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
-| **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA) | **En curso (4/6)** |
-| **2. Antiinfecciosos AWaRe** | Sección 6.2.1 (Antibióticos Access / Watch) | — | — | Pendiente |
-| **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | Pendiente |
-| **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | — | — | Pendiente |
-| **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `FS0009` (Azatioprina) | `FT0009` (Azatioprina en pénfigo vulgar) | **En curso (1/4)** — estrena la capa de GPC |
-| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC) | **En curso (3/8)** |
+La tabla lleva la Parte I delante, que es el orden de la decisión: una guía sin
+su informe de selección dice cómo usar un fármaco sin decir por qué se eligió
+ése, y `build.py` lo avisa.
+
+| Oleada | Temática / Área Clínica | Selección (`SEL`) | Fármacos (`FS`) | Guías (`FT`) | Estado |
+|---|---|---|---|---|---|
+| **0. Piloto** | Fármaco modelo y validación de contrato | — *(precede al híbrido)* | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
+| **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `SEL0004` (FA no valvular) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA) | **En curso (4/6)** |
+| **2. Antiinfecciosos AWaRe** | Sección 6.2.1 (Antibióticos Access / Watch) | — | — | — | Pendiente |
+| **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | — | Pendiente |
+| **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | — | — | — | Pendiente |
+| **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs) | **En curso (3/5)** — estrena la capa de GPC |
+| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `SEL0003` *(compartida con la 6)* | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC) | **En curso (3/8)** |
+
+Que `SEL0003` aparezca en dos oleadas no es un error de clasificación: es el
+híbrido funcionando. Un mismo problema de salud —la artritis psoriásica—
+compara un csDMARD clásico contra un biológico, y cada candidato acaba con su
+guía en la oleada que le corresponde por coste y por vía.
 
 ---
 
@@ -186,9 +223,18 @@ terapéutica.
 - [ ] **Micofenolato de mofetilo como adyuvante del corticoide** (El otro
   ahorrador clásico, y el contrario de la azatioprina en seguridad
   reproductiva: exige suspenderlo seis semanas antes de concebir).
-- [ ] **Metotrexato en artritis reumatoide** (El csDMARD con el cronograma de
-  monitorización mejor establecido; el candidato natural para ser la primera
-  guía con `umbrales_accion` completos).
+- [x] **`FT0010` Metotrexato en artritis reumatoide** (El csDMARD con el
+  cronograma de monitorización mejor establecido, y el seleccionado de
+  `SEL0002` contra leflunomida, sulfasalazina e hidroxicloroquina).
+- [x] **`FT0011` Metotrexato en artritis psoriásica** (Misma molécula, misma
+  `FA0010`: el caso que motivó desdoblar la farmacoterapia de la ficha. Lo
+  poco que esta indicación cambia del cronograma común va en `variaciones`,
+  no en una segunda copia).
+
+**El hueco más visible de esta oleada** es que `SEL0001` selecciona el
+rituximab y el rituximab no tiene todavía ni `FS:` ni guía. El informe elige
+uno y lo único escrito es su alternativa, la azatioprina. Mientras siga así, la
+Parte I y la Parte II de esta oleada no se dan la mano.
 
 **Lo que hace falta para cerrar los huecos de esta oleada:** el texto completo
 de la guía BSR de csDMARD 2025 (`pmid:41235543`) y de la guía BAD de

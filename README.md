@@ -87,6 +87,7 @@ sí pertenecen al fármaco, y valen para todas sus indicaciones.
 farmacosemiotics/
 ├── CLAUDE.md                          manual de operación de la sesión
 ├── mapa-maestro-farmacosemiotics.md   QUÉ poblar y en qué orden
+├── deposito-zenodo.md                 cómo se acuña el DOI y en qué orden
 ├── farmacos/      FS0001-metformina.yaml
 ├── fichas/        FT0001-metformina-diabetes-tipo-2.yaml
 ├── referencias/   pmid-9742977.yaml            verificadas contra PubMed
@@ -150,12 +151,29 @@ motor lo superpone solo si se lo pides.
 
 | capa | registros |
 |---|---|
-| fármacos | 1 |
-| fichas | 1 |
-| referencias | 0 |
-| cobertura LME | 1 / ~600 |
+| fármacos | 10 |
+| selecciones (Parte I) | 4 |
+| farmacoterapias (Parte II) | 10 |
+| guías fármaco × indicación | 11 |
+| referencias verificadas | 32 |
+| cobertura LME | 6 fármacos · 3 de 30 secciones |
 
 Ver [mapa-maestro-farmacosemiotics.md](mapa-maestro-farmacosemiotics.md).
+
+## Cómo citar
+
+Los metadatos de cita viven en [`CITATION.cff`](CITATION.cff) —GitHub los lee y
+ofrece «Cite this repository» en la barra lateral— y los de depósito en
+[`.zenodo.json`](.zenodo.json).
+
+El repositorio se archiva en **Zenodo**, dentro de la comunidad
+**powersemiotics**, y cada release acuña su DOI. Se citan dos cosas distintas:
+el **DOI de concepto**, que resuelve siempre a la última versión y es el que se
+cita por defecto, y el **DOI de versión**, que fija un estado exacto del corpus
+y es el que se usa cuando hay que reproducir un resultado.
+
+El procedimiento —y la trampa de orden que deja una release sin DOI para
+siempre— está en [deposito-zenodo.md](deposito-zenodo.md).
 
 ## Aviso
 

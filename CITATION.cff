@@ -1,24 +1,38 @@
 cff-version: 1.2.0
 message: Si utiliza este repositorio, por favor cítelo así.
 title: >-
-  farmacosemiotics: fichas de terapéutica racional en fuente abierta,
+  farmacosemiotics: guías de práctica clínica farmacoterapéuticas
   ancladas a PubMed
 abstract: >-
-  Banco de fichas de uso racional de medicamentos en YAML, con cada enunciado
-  de eficacia y seguridad anclado a un PMID verificado. Motor en Python que
-  deriva un índice JSON-LD, un depósito JATS y un sitio estático. La meta de
-  contenido es la Lista Modelo de Medicamentos Esenciales de la OMS.
+  Guías de práctica clínica farmacoterapéuticas en fuente abierta, en YAML
+  verificable y encadenadas en el orden de la decisión clínica: primero el
+  informe de selección que compara los candidatos en eficacia, seguridad,
+  conveniencia y costo; después la farmacoterapia de la molécula elegida
+  —cribado, farmacogenética, cronograma de monitorización, umbrales de acción,
+  interacciones, perfil reproductivo y atención compartida—. Ningún enunciado
+  de eficacia o seguridad sin PMID resoluble, y lo que carece de fuente se
+  declara como hueco en vez de rellenarse. El motor en Python deriva de esa
+  única fuente un índice JSON-LD, un depósito JATS, un sitio estático y un
+  EPUB. La meta de contenido es la Lista Modelo de Medicamentos Esenciales de
+  la OMS, 24.ª lista (2025).
 type: dataset
+version: v0.1.0
+date-released: '2026-09-11'
 authors:
-  - family-names: Torres
-    given-names: Alcy
+  - family-names: Torres Guerrero
+    given-names: Alcy Edmundo
+    orcid: https://orcid.org/0000-0002-9742-375X
     alias: alcyedmundo281
 repository-code: https://github.com/alcyedmundo281/farmacosemiotics
+url: https://powersemiotics.com/farmacosemiotics/
 license: CC-BY-SA-4.0
 keywords:
+  - guías de práctica clínica
   - uso racional de medicamentos
   - terapéutica
   - farmacología clínica
+  - farmacogenética
   - medicamentos esenciales
   - GRADE
+  - PubMed
   - datos abiertos

@@ -1,6 +1,6 @@
 # farmacosemiotics
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22700662.svg)](https://doi.org/10.5281/zenodo.22700662)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22700661.svg)](https://doi.org/10.5281/zenodo.22700661)
 
 **Uso racional de medicamentos, en fuente abierta y verificable.** Fichas
 terapéuticas en YAML, cada enunciado de eficacia o seguridad anclado a un PMID
@@ -174,11 +174,14 @@ el **DOI de concepto**, que resuelve siempre a la última versión y es el que s
 cita por defecto, y el **DOI de versión**, que fija un estado exacto del corpus
 y es el que se usa cuando hay que reproducir un resultado.
 
-**DOI de concepto:** [`10.5281/zenodo.22700662`](https://doi.org/10.5281/zenodo.22700662)
+| DOI | Qué identifica | Cuándo usarlo |
+|---|---|---|
+| [`10.5281/zenodo.22700661`](https://doi.org/10.5281/zenodo.22700661) | Todas las versiones | Por defecto. Resuelve siempre a la última |
+| [`10.5281/zenodo.22700662`](https://doi.org/10.5281/zenodo.22700662) | Sólo v0.1.0 | Cuando importe reproducir este estado exacto del corpus |
 
 > Torres Guerrero, A. E. (2026). *farmacosemiotics: guías de práctica clínica
-> farmacoterapéuticas ancladas a PubMed* (v0.1.0) [Data set]. Zenodo.
-> <https://doi.org/10.5281/zenodo.22700662>
+> farmacoterapéuticas ancladas a PubMed*. Zenodo.
+> <https://doi.org/10.5281/zenodo.22700661>
 
 El procedimiento —y la trampa de orden que deja una release sin DOI para
 siempre— está en [deposito-zenodo.md](deposito-zenodo.md).

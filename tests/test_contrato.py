@@ -555,19 +555,31 @@ class LosMetadatosDeCita(unittest.TestCase):
         self.assertIn("powersemiotics", ids,
                       "el depósito no reclama su comunidad de Zenodo")
 
-    def test_el_doi_es_el_mismo_en_la_cita_y_en_el_readme(self):
-        # El DOI vive en dos sitios —CITATION.cff y la insignia del README— y
-        # por eso puede divergir. Uno de los dos llevaría entonces a un registro
-        # que no es el que dice ser.
-        doi = self.cff.get("doi")
-        self.assertIsNotNone(doi, "CITATION.cff no declara el DOI del depósito")
-        self.assertEqual(self.cff["identifiers"][0]["value"], doi,
-                         "`doi` e `identifiers` no dicen lo mismo en CITATION.cff")
+    def test_el_doi_de_concepto_manda_en_la_cita_y_en_la_insignia(self):
+        # Zenodo acuña dos DOI por depósito y van consecutivos, así que
+        # confundirlos es fácil y no se nota: el de concepto sigue a la última
+        # versión y el de versión congela una. Ya se etiquetó mal una vez —el
+        # `22700662` se anunció como de concepto siendo el de la v0.1.0—, y
+        # quien citara por esa etiqueta habría citado algo distinto de lo que
+        # prometía. `doi` y la insignia han de ser el de concepto.
+        concepto = self.cff.get("doi")
+        self.assertIsNotNone(concepto, "CITATION.cff no declara el DOI del depósito")
+        self.assertEqual(self.cff["identifiers"][0]["value"], concepto,
+                         "el primer `identifiers` no es el DOI de concepto")
+        self.assertIn("concepto", self.cff["identifiers"][0]["description"].lower())
+
         readme = (RAIZ / "README.md").read_text(encoding="utf-8")
-        self.assertIn(doi, readme, "el README no anuncia el DOI del depósito")
-        encontrados = set(re.findall(r"10\.5281/zenodo\.\d+", readme))
-        self.assertEqual(encontrados, {doi},
-                         f"el README anuncia más de un DOI: {encontrados}")
+        declarados = {i["value"] for i in self.cff["identifiers"]}
+        anunciados = set(re.findall(r"10\.5281/zenodo\.\d+", readme))
+        self.assertTrue(anunciados, "el README no anuncia ningún DOI")
+        self.assertLessEqual(anunciados, declarados,
+                             f"el README anuncia DOI que CITATION.cff no declara: "
+                             f"{anunciados - declarados}")
+
+        insignia = re.search(r"zenodo\.org/badge/DOI/(10\.5281/zenodo\.\d+)", readme)
+        self.assertIsNotNone(insignia, "el README no lleva insignia de DOI")
+        self.assertEqual(insignia.group(1), concepto,
+                         "la insignia apunta a una versión, no al DOI de concepto")
 
     def test_el_readme_no_anuncia_un_doi_de_plantilla(self):
         # Un DOI con las equis de la plantilla es un identificador con formato

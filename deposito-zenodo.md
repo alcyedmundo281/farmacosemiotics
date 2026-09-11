@@ -2,7 +2,7 @@
 
 El repositorio **ya está depositado**. La `v0.1.0` se publicó el 11 de
 septiembre de 2026 y su DOI de concepto es
-[`10.5281/zenodo.22700662`](https://doi.org/10.5281/zenodo.22700662).
+[`10.5281/zenodo.22700661`](https://doi.org/10.5281/zenodo.22700661).
 
 Lo que sigue documenta cómo se hizo —porque el orden no se puede invertir y el
 error se paga caro— y sirve de procedimiento para cada versión siguiente.
@@ -72,14 +72,14 @@ Con el DOI de concepto en la mano, se añade a `CITATION.cff`:
 ```yaml
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.22700662
+    value: 10.5281/zenodo.22700661
     description: DOI de concepto; resuelve siempre a la última versión
 ```
 
 y la insignia al `README.md`, bajo el título:
 
 ```markdown
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22700662.svg)](https://doi.org/10.5281/zenodo.22700662)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22700661.svg)](https://doi.org/10.5281/zenodo.22700661)
 ```
 
 `.zenodo.json` no se toca: el DOI lo pone Zenodo, no el repositorio.

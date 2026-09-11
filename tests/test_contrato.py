@@ -555,11 +555,30 @@ class LosMetadatosDeCita(unittest.TestCase):
         self.assertIn("powersemiotics", ids,
                       "el depósito no reclama su comunidad de Zenodo")
 
+    def test_el_doi_es_el_mismo_en_la_cita_y_en_el_readme(self):
+        # El DOI vive en dos sitios —CITATION.cff y la insignia del README— y
+        # por eso puede divergir. Uno de los dos llevaría entonces a un registro
+        # que no es el que dice ser.
+        doi = self.cff.get("doi")
+        self.assertIsNotNone(doi, "CITATION.cff no declara el DOI del depósito")
+        self.assertEqual(self.cff["identifiers"][0]["value"], doi,
+                         "`doi` e `identifiers` no dicen lo mismo en CITATION.cff")
+        readme = (RAIZ / "README.md").read_text(encoding="utf-8")
+        self.assertIn(doi, readme, "el README no anuncia el DOI del depósito")
+        encontrados = set(re.findall(r"10\.5281/zenodo\.\d+", readme))
+        self.assertEqual(encontrados, {doi},
+                         f"el README anuncia más de un DOI: {encontrados}")
+
     def test_el_readme_no_anuncia_un_doi_de_plantilla(self):
         # Un DOI con las equis de la plantilla es un identificador con formato
         # científico que no resuelve: el mismo fallo que un HR sin PMID.
+        # \w+ y no \S+: el sufijo de la insignia (`.svg`) no forma parte del
+        # identificador, y tomarlo por parte de él hacía fallar la prueba sobre
+        # un DOI perfectamente válido.
         readme = (RAIZ / "README.md").read_text(encoding="utf-8")
-        for doi in re.findall(r"10\.5281/zenodo\.(\S+?)[)\s\]]", readme):
+        sufijos = re.findall(r"10\.5281/zenodo\.(\w+)", readme)
+        self.assertTrue(sufijos, "el README no anuncia ningún DOI")
+        for doi in sufijos:
             self.assertRegex(doi, r"^\d+$",
                              f"el README anuncia un DOI sin acuñar: {doi}")
 

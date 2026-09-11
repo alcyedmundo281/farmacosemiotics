@@ -1,8 +1,11 @@
 # Depósito en Zenodo: cómo se acuña el DOI
 
-El repositorio ya trae sus metadatos de depósito escritos —[`.zenodo.json`](.zenodo.json)
-y [`CITATION.cff`](CITATION.cff)—. Lo que falta es el acto de publicar, y ese
-tiene un orden que no se puede invertir.
+El repositorio **ya está depositado**. La `v0.1.0` se publicó el 11 de
+septiembre de 2026 y su DOI de concepto es
+[`10.5281/zenodo.22700662`](https://doi.org/10.5281/zenodo.22700662).
+
+Lo que sigue documenta cómo se hizo —porque el orden no se puede invertir y el
+error se paga caro— y sirve de procedimiento para cada versión siguiente.
 
 ## La trampa, primero
 
@@ -15,7 +18,7 @@ Por eso el paso 1 no es etiquetar. Es el interruptor.
 
 ## El orden
 
-### 1. Activar la integración (una sola vez, en el navegador)
+### 1. Activar la integración (una sola vez, en el navegador) — ✅ hecho
 
 1. Entrar en <https://zenodo.org/> con **Log in with GitHub**, de modo que la
    cuenta de Zenodo quede ligada a `alcyedmundo281`.
@@ -34,12 +37,12 @@ Con el interruptor ya en ON:
 ```bash
 git checkout main && git pull origin main
 python scripts/build.py      # no se publica un repositorio con errores
-git tag -a v0.1.0 -m "Primer depósito citable: 4 selecciones, 10 farmacoterapias, 11 guías"
-git push origin v0.1.0
 ```
 
-Y publicar la release en GitHub a partir de ese tag. **Release**, no solo tag:
-el webhook escucha el evento `release.published`, y un tag suelto no lo dispara.
+Y publicar la release desde <https://github.com/alcyedmundo281/farmacosemiotics/releases/new>,
+escribiendo el tag nuevo en `Choose a tag` y dejando que GitHub lo cree al
+publicar. **Release**, no solo tag: el webhook escucha `release.published`, y un
+tag suelto no lo dispara.
 
 En un par de minutos el registro aparece en
 <https://zenodo.org/account/settings/github/> con su DOI.
@@ -69,14 +72,14 @@ Con el DOI de concepto en la mano, se añade a `CITATION.cff`:
 ```yaml
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.XXXXXXX
+    value: 10.5281/zenodo.22700662
     description: DOI de concepto; resuelve siempre a la última versión
 ```
 
 y la insignia al `README.md`, bajo el título:
 
 ```markdown
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22700662.svg)](https://doi.org/10.5281/zenodo.22700662)
 ```
 
 `.zenodo.json` no se toca: el DOI lo pone Zenodo, no el repositorio.

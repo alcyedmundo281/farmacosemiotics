@@ -1,0 +1,89 @@
+id: SEL:0021
+tipo: seleccion
+problema: Trastorno depresivo mayor en fase aguda en pacientes adultos
+problema_en: Acute major depressive disorder in adult patients
+cie11: 6A70
+poblacion: Adultos de 18 o más años diagnosticados con episodio depresivo mayor moderado
+  o grave según criterios DSM o CIE.
+pregunta: En adultos con depresión mayor aguda que precisan tratamiento farmacológico,
+  ¿qué antidepresivo (ISRS sertralina vs otros antidepresivos de segunda generación
+  / placebo) se selecciona por su equilibrio óptimo entre tasa de respuesta clínica
+  y aceptabilidad terapéutica?
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+contexto: El gran metaanálisis en red de Cipriani et al. en The Lancet (2018) evaluó
+  522 ensayos clínicos con 21 antidepresivos y determinó que sertralina y escitalopram
+  ofrecen el mejor equilibrio en términos de eficacia clínica (reducción ≥ 50 % en
+  escalas de depresión) y aceptabilidad (menor tasa de abandonos prematuros por cualquier
+  causa).
+estrategia:
+- base: PubMed
+  consulta: sertraline comparative efficacy acceptability depression Cipriani Lancet
+    2018
+  fecha: '2026-09-16'
+  nota: 'Revisión sistemática y metaanálisis en red de 21 antidepresivos (Cipriani
+    et al., Lancet 2018; PMID: 29477251).'
+criterio_decisorio: Se selecciona el antidepresivo que demuestre un odds ratio de
+  respuesta clínica significativamente superior al placebo (OR ≥ 1.60) con el perfil
+  de aceptabilidad más favorable (OR de abandono menor a 1.0 respecto al promedio
+  de antidepresivos) y bajo potencial de interacciones farmacocinéticas.
+conclusion: 'La sertralina queda seleccionada como el fármaco antidepresivo de primera
+  línea de elección en el trastorno depresivo mayor: destaca en el metaanálisis de
+  Cipriani (PMID: 29477251) por su alta eficacia (OR de respuesta 1.67 frente a placebo;
+  NNT 8 a 8 semanas) combinada con una de las mejores tasas de aceptabilidad y retención
+  del tratamiento (OR 0.96 frente a otros antidepresivos), posología sencilla de una
+  toma diaria matutina y perfil cardiovascular y de interacciones altamente seguro.'
+candidatos:
+- dci: Sertralina
+  atc: N06AB06
+  farmaco: FS:0030
+  veredicto: seleccionado
+  eficacia:
+    juicio: superior
+    sustento: 'En el metaanálisis en red de Cipriani (PMID: 29477251), la sertralina
+      demostró superioridad frente a placebo en respuesta terapéutica aguda (OR 1.67,
+      IC 95 % 1.49-1.87; NNT 8 a 8 semanas), ubicándose en el cuartil superior de
+      eficacia de los 21 antidepresivos.'
+    ref: pmid:29477251
+  seguridad:
+    juicio: superior
+    sustento: Aceptabilidad superior al promedio de antidepresivos (OR de abandono
+      por cualquier causa 0.96 vs otros fármacos activos); bajo riesgo de prolongación
+      del intervalo QTc a dosis terapéuticas y mínima interferencia con CYP2D6/CYP3A4.
+    ref: pmid:29477251
+  conveniencia:
+    juicio: superior
+    sustento: Dosis única diaria de 50 mg (titulable a 100-200 mg), administración
+      por la mañana con o sin alimentos.
+    ref: fda:label
+  costo:
+    juicio: superior
+    sustento: Medicamento genérico esencial multifuente de muy bajo coste en la atención
+      primaria.
+    ref: pmid:29477251
+- dci: Placebo
+  veredicto: no_seleccionado
+  eficacia:
+    juicio: inferior
+    sustento: Tasa de respuesta clínica claramente inferior en el episodio moderado-grave
+      (35 % vs 48 % en activos).
+    ref: pmid:29477251
+  seguridad:
+    juicio: superior
+    sustento: Ausencia de eventos adversos farmacológicos específicos (náuseas transitorias,
+      disfunción sexual).
+    ref: pmid:29477251
+  conveniencia:
+    juicio: equivalente
+    sustento: Toma oral diaria.
+    ref: pmid:29477251
+  costo:
+    juicio: superior
+    sustento: Sin coste farmacológico pero con elevado gasto social y pérdida de productividad
+      por cronicidad de la depresión.
+    ref: pmid:29477251

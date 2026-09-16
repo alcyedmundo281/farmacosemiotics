@@ -1,0 +1,89 @@
+id: SEL:0020
+tipo: seleccion
+problema: Prevención secundaria de eventos vasculares oclusivos aterotrombóticos
+problema_en: Secondary prevention of occlusive atherothrombotic vascular events
+cie11: BA80
+poblacion: Pacientes adultos con antecedente de enfermedad cardiovascular aterosclerótica
+  (infarto de miocardio previo, ictus isquémico o ataque isquémico transitorio, arteriopatía
+  periférica sintomática).
+pregunta: En personas con enfermedad vascular oclusiva previa, ¿qué terapia antiagregante
+  plaquetaria de referencia (ácido acetilsalicílico a dosis bajas 75-100 mg/día vs
+  control/no antiagregación) se selecciona para prevenir infarto, ictus y muerte vascular
+  con un balance hemorrágico favorable?
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+contexto: El metaanálisis colaborativo del Antithrombotic Trialists (ATT) en 16 ensayos
+  clínicos aleatorizados de prevención secundaria demostró de forma concluyente que
+  la inhibición plaquetaria selectiva con aspirina a dosis bajas disminuye marcadamente
+  las recidivas isquémicas vasculares graves superando ampliamente el riesgo de hemorragia
+  digestiva.
+estrategia:
+- base: PubMed
+  consulta: aspirin secondary prevention vascular disease Antithrombotic Trialists
+    Lancet 2009
+  fecha: '2026-09-16'
+  nota: 'Metaanálisis colaborativo individualizado ATT (Baigent et al., Lancet 2009;
+    PMID: 19482214).'
+criterio_decisorio: Se selecciona la intervención que logre una reducción de al menos
+  1/6 (alrededor del 19-20 %) en la tasa anual de eventos vasculares graves, con una
+  tasa anual de sangrado mayor extracraneal inferior al 0.5 %.
+conclusion: 'El ácido acetilsalicílico a dosis bajas (75 a 100 mg/día) queda seleccionado
+  como el antiagregante plaquetario estándar de referencia universal en prevención
+  secundaria cardiovascular: reduce la tasa de eventos vasculares mayores del 8.2
+  % al 6.7 % al año (reducción de riesgo relativo del 19 %, RRA 1.5 % anual, NNT 67
+  anual), con un incremento muy modesto del sangrado mayor extracraneal (0.36 % vs
+  0.23 % anual; NNH 770 anual), lo que confiere un beneficio clínico neto contundente.'
+candidatos:
+- dci: Ácido acetilsalicílico (75-100 mg/día)
+  atc: B01AC06
+  farmaco: FS:0029
+  veredicto: seleccionado
+  eficacia:
+    juicio: superior
+    sustento: 'En el metaanálisis colaborativo ATT (PMID: 19482214) de 17 000 pacientes
+      en prevención secundaria, el AAS redujo los eventos vasculares graves a 6.7
+      % anual vs 8.2 % anual en controles (p < 0.0001; RRR 19 %, RRA 1.5 % anual,
+      NNT 67 anual).'
+    ref: pmid:19482214
+  seguridad:
+    juicio: inferior
+    sustento: 'Aumento significativo de hemorragias mayores extracraneales (principalmente
+      gastrointestinales: 0.36 % al año vs 0.23 % en control; RRA -0.13 % anual, NNH
+      770 anual).'
+    ref: pmid:19482214
+  conveniencia:
+    juicio: superior
+    sustento: Comprimido oral único diario de liberación entérica de 100 mg, de fácil
+      administración.
+    ref: fda:label
+  costo:
+    juicio: superior
+    sustento: Fármaco esencial histórico de accesibilidad universal y coste de adquisición
+      ínfimo en todo el mundo.
+    ref: pmid:19482214
+- dci: Control sin antiagregación plaquetaria
+  veredicto: no_seleccionado
+  eficacia:
+    juicio: inferior
+    sustento: Tasa elevada de recidiva trombótica, ictus y muerte coronaria (8.2 %
+      al año).
+    ref: pmid:19482214
+  seguridad:
+    juicio: superior
+    sustento: Menor tasa basal de complicaciones hemorrágicas gastrointestinales (0.23
+      % anual).
+    ref: pmid:19482214
+  conveniencia:
+    juicio: equivalente
+    sustento: Sin requerimiento de toma farmacológica diaria.
+    ref: pmid:19482214
+  costo:
+    juicio: superior
+    sustento: Sin coste farmacológico directo, pero elevado gasto hospitalario secundario
+      derivado de eventos vasculares recurrentes.
+    ref: pmid:19482214

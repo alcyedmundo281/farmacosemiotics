@@ -1,0 +1,158 @@
+id: FA:0030
+tipo: farmacoterapia
+farmaco: FS:0030
+titulo: Farmacoterapia con sertralina en trastornos del estado de ánimo
+titulo_en: Sertraline pharmacotherapy in mood disorders
+alcance: 'Establece el protocolo clínico de titulación, seguridad y seguimiento para
+  inhibidores selectivos de la recaptación de serotonina (sertralina) en el trastorno
+  depresivo mayor y trastornos de ansiedad: tiempo de latencia de respuesta, prevención
+  del síndrome serotoninérgico, manejo de náuseas precoces y disfunción sexual, evaluación
+  del riesgo suicida paradójico en jóvenes y protocolo de retirada gradual para evitar
+  síndrome de discontinuación.'
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+cribado_basal:
+- prueba: Evaluación estructurada del riesgo suicida y antecedentes de ideación o
+    tentativas previas
+  motivo: Alerta sanitaria sobre riesgo paradójico de incremento de ideación suicida
+    en las primeras semanas de tratamiento, en particular en menores de 25 años.
+  responsable: seguimiento
+  ref: fda:label
+- prueba: Despistaje de antecedentes personales o familiares de trastorno bipolar
+    (episodios hipomaníacos o maníacos previos)
+  motivo: Evitar el viraje maníaco iatrogénico inducido por antidepresivos en monoterapia
+    en pacientes con trastorno bipolar no diagnosticado.
+  responsable: seguimiento
+  ref: fda:label
+- prueba: Ionograma sérico basal (sodio plasmático)
+  motivo: Recomendable en pacientes de edad avanzada o usuarios de diuréticos por
+    riesgo de hiponatremia por SIADH secundario a ISRS.
+  responsable: seguimiento
+  ref: pmid:29477251
+monitorizacion:
+- fase: basal
+  pruebas:
+  - Cuantificación de severidad depresiva con escala validada (PHQ-9 o Hamilton D)
+  - Evaluación de medicación serotoninérgica concomitante (triptanes, tramadol, IMAO,
+    litio)
+  - Sodio sérico en ancianos y comorbilidad hepática
+  responsable: seguimiento
+  ref: fda:label
+- fase: induccion
+  periodo: Semanas 1 a 6 de inicio o escalado de dosis
+  frecuencia: Revisión clínica a las 2 semanas y a las 4-6 semanas
+  pruebas:
+  - Reevaluación del estado anímico, inquietud motora inicial y refuerzo del cumplimiento
+    farmacológico
+  - Explicación anticipada de que la mejoría clínica tarda típicamente 2 a 4 semanas
+    en manifestarse
+  - Detección de náuseas o diarrea (suelen remitir en los primeros 7-10 días)
+  responsable: seguimiento
+  ref: pmid:29477251
+- fase: mantenimiento
+  periodo: Fase de consolidación (6 a 12 meses tras remisión en primer episodio; más
+    prolongado en recurrentes)
+  frecuencia: Cada 3 meses
+  pruebas:
+  - Confirmación del mantenimiento de la remisión completa (PHQ-9 < 5)
+  - Interrogatorio específico sobre disfunción sexual (anorgasmia, disminución de
+    líbido)
+  - Planificación de la retirada muy progresiva (reducción gradual de dosis a lo largo
+    de 4 a 8 semanas)
+  responsable: seguimiento
+  ref: pmid:29477251
+umbrales_accion:
+- parametro: Aparición de inquietud psicomotriz extrema, temblor, hiperreflexia, clonus,
+    diaforesis y fiebre
+  umbral: Sospecha de Síndrome Serotoninérgico
+  accion: Suspender inmediatamente la sertralina y cualquier otro agente serotoninérgico.
+    Traslado a urgencias para monitorización, enfriamiento activo y soporte con benzodiacepinas
+    o antagonistas serotoninérgicos (ciproheptadina).
+  ref: fda:label
+- parametro: Empeoramiento agudo de la ideación suicida o agitación psicomotriz en
+    las semanas iniciales
+  umbral: Riesgo autolítico agudo
+  accion: Evaluación psiquiátrica inmediata. Considerar ingreso protector o supervisión
+    familiar estrecha de la toma de medicación, asociando ansiolíticos a corto plazo.
+  ref: fda:label
+- parametro: Hiponatremia asintomática o leve (Na 130-134 mEq/L) en ancianos
+  umbral: SIADH por ISRS incipiente
+  accion: Restricción hídrica y control del ionograma en 7 días; si progresa o es
+    sintomática (< 130 mEq/L), suspender sertralina y sustituir por antidepresivo
+    de otra familia.
+  ref: fda:label
+- parametro: Disfunción sexual severa persistente que amenaza la adherencia
+  umbral: Efecto adverso limitante
+  accion: Valorar reducción de dosis o sustitución / adición de bupropión como modulador
+    dopaminérgico.
+  ref: fda:label
+interacciones:
+- con: Inhibidores de la monoaminooxidasa (IMAO como tranilcipromina, moclobemida
+    o linezolid)
+  gravedad: contraindicada
+  efecto: Riesgo letal de síndrome serotoninérgico hiperpirético grave.
+  conducta: Contraindicación absoluta. Respetar una ventana de lavado de al menos
+    14 días entre la retirada de un IMAO y el inicio de sertralina (y al menos 14
+    días al cambiar de sertralina a IMAO).
+  ref: fda:label
+- con: Fármacos que prolongan el intervalo QTc o agentes serotoninérgicos (tramadol,
+    triptanes, litio)
+  gravedad: mayor
+  efecto: Potenciación del riesgo de toxicidad serotoninérgica y arritmias ventriculares.
+  conducta: Evitar la asociación o extremar la monitorización clínica de síntomas
+    neurológicos y electrocardiograma.
+  ref: fda:label
+- con: Antiagregantes plaquetarios y anticoagulantes orales
+  gravedad: moderada
+  efecto: Aumento del riesgo de sangrado gastrointestinal por inhibición de la recaptación
+    plaquetaria de serotonina.
+  conducta: Asociar gastroprotección con IBP si coexisten factores de riesgo digestivo.
+  ref: pmid:29477251
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: Sertralina es uno de los antidepresivos de elección en el embarazo
+      cuando la gravedad del cuadro materno justifica el tratamiento. No se asocia
+      a incremento clínicamente significativo de malformaciones congénitas mayores,
+      aunque el uso en tercer trimestre conlleva un riesgo leve de síndrome de adaptación
+      neonatal transitorio e hipertensión pulmonar persistente del recién nacido.
+    ref: fda:label
+  lactancia:
+    compatibilidad: compatible
+    enunciado: 'Es el ISRS de primera elección durante la lactancia materna: su paso
+      a la leche es extremadamente bajo y las concentraciones plasmáticas en el lactante
+      suelen ser indetectables.'
+    ref: fda:label
+atencion_compartida:
+  especialista: 'Psiquiatra: interviene en casos de depresión resistente, riesgo suicida
+    elevado, comorbilidad psiquiátrica compleja o diagnóstico diferencial con trastorno
+    bipolar.'
+  seguimiento: 'Médico de atención primaria: diagnostica y maneja la mayoría de episodios
+    depresivos leves a moderados, pauta la titulación de 50 a 100 mg/día, refuerza
+    la adherencia y vigila la duración del tratamiento de mantenimiento.'
+  suspension_inmediata:
+  - Sospecha de síndrome serotoninérgico
+  - Viraje a fase maníaca o hipomaníaca aguda
+  - Convulsiones o hiponatremia severa con alteración de consciencia
+  ref: pmid:29477251
+posicionamiento:
+  linea: primera
+  escalonado:
+  - linea: primera
+    opciones: Sertralina (50 mg/día de inicio, titulable hasta 150-200 mg/día) como
+      ISRS de primera línea de elección en el episodio depresivo mayor.
+  - linea: segunda
+    opciones: Cambio a otro antidepresivo de clase diferente (ej. venlafaxina, duloxetina,
+      bupropión o mirtazapina) en caso de ineficacia tras 4 a 6 semanas a dosis plena.
+  - linea: tercera
+    opciones: Estrategias de potenciación (adición de litio, antipsicóticos atípicos
+      a dosis bajas como aripiprazol/quetiapina) o TEC en depresión refractaria.
+  ref: pmid:29477251
+refs:
+- pmid:29477251
+- fda:label

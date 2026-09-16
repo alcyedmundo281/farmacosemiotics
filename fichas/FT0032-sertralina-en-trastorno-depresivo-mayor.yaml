@@ -1,0 +1,107 @@
+id: FT:0032
+tipo: ficha
+farmaco: FS:0030
+seleccion: SEL:0021
+titulo: Sertralina en el tratamiento del episodio depresivo mayor
+indicacion: Episodio depresivo mayor agudo en adultos de intensidad moderada o grave
+indicacion_en: Acute major depressive episode of moderate or severe intensity in adults
+poblacion: Adultos a partir de 18 años con diagnóstico clínico de depresión mayor
+cie11: 6A70
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: 'Inhibidor selectivo de la recaptación de serotonina (ISRS):
+    iniciar con 50 mg una vez al día por la mañana. En el metaanálisis de Cipriani
+    (Lancet 2018) demostró una respuesta clínica superior a placebo (OR 1.67; NNT
+    8 a 8 semanas) con una aceptabilidad y retención del tratamiento entre las más
+    elevadas de los 21 antidepresivos evaluados.'
+  alerta_seguridad_inmediata: Contraindicación absoluta con IMAO (ventana de lavado
+    de 14 días). Vigilancia del riesgo suicida en las primeras semanas de tratamiento;
+    advertir que la mejoría anímica tiene un retraso biológico de 2 a 4 semanas.
+pico:
+  p: Adultos con trastorno depresivo mayor en fase aguda en ensayos doble ciego aleatorizados
+    (N=522 ensayos clínicos)
+  i: Sertralina oral (rango terapéutico 50 a 200 mg/día)
+  c: Placebo oral o comparadores activos
+  o: Respuesta clínica (reducción ≥ 50 % en la puntuación total de depresión) y tasa
+    de abandonos por cualquier causa
+posologia:
+  inicio: 50 mg por vía oral una vez al día por la mañana con o sin alimentos
+  escalado: Si no se alcanza respuesta a las 3-4 semanas, aumentar en escalones de
+    50 mg cada 1-2 semanas hasta un máximo de 200 mg/día
+  mantenimiento: 50 a 100 mg al día durante al menos 6 a 9 meses tras la remisión
+    del episodio
+  maxima: 200 mg al día
+  ajuste_renal: No requiere ajuste en insuficiencia renal
+  ajuste_hepatico: Reducir la dosis o distanciar la frecuencia en insuficiencia hepática
+    leve-moderada
+  ref: fda:label
+evidencia:
+- desenlace: Respuesta terapéutica clínica a las 8 semanas de tratamiento (reducción
+    ≥ 50 % en síntomas)
+  criticidad: critico
+  efecto: 'Superioridad marcada de sertralina frente a placebo: odds ratio de respuesta
+    clínica de 1.67 (IC 95 % 1.49–1.87 en Cipriani 2018; tasa aproximada de respuesta
+    48 % vs 35 %; NNT 8)'
+  rra: 13.0%
+  rrr: 27.1%
+  nnt: 8
+  horizonte_nnt: a 8 semanas
+  diseno: metaanalisis
+  estudio: Cipriani et al. Network Meta-Analysis (Lancet 2018)
+  comparador: Placebo oral
+  n: 116477
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:29477251
+- desenlace: Aceptabilidad del tratamiento (abandono de la terapia por cualquier causa)
+  criticidad: critico
+  efecto: Excelente tolerabilidad con menor tasa de abandono frente a otros antidepresivos
+    activos (OR 0.96; IC 95 % 0.81–1.14; una de las 3 moléculas con mejor perfil de
+    retención)
+  rra: 1.0%
+  rrr: 4.8%
+  nnt: 100
+  horizonte_nnt: a 8 semanas
+  diseno: metaanalisis
+  estudio: Cipriani et al. Network Meta-Analysis (Lancet 2018)
+  comparador: Promedio de antidepresivos activos
+  n: 116477
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:29477251
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: aumenta
+  aceptabilidad: si
+  factibilidad: si
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: Se recomienda sertralina oral (50 a 100 mg/día en toma matutina) como
+    antidepresivo de primera línea de elección en el episodio depresivo mayor en adultos,
+    por su óptima combinación de eficacia terapéutica aguda (NNT 8) y excelente aceptabilidad
+    y retención del tratamiento.
+  ref: pmid:29477251
+conclusion: 'La sertralina ofrece el mejor balance clínico global entre los antidepresivos
+  de segunda generación: eficacia robusta comprobada en grandes metaanálisis, baja
+  toxicidad cardiovascular y sobredosificación segura, convirtiéndose en el fármaco
+  de anclaje de la salud mental.'
+guias:
+- organizacion: NICE / APA
+  anio: 2022
+  titulo: 'Depression in adults: treatment and management (NICE guideline NG222)'
+  posicion: Los ISRS (con mención específica de sertralina por su balance de eficacia
+    y coste) son la opción farmacológica de primera línea recomendada.
+  cita: NICE NG222
+refs:
+- pmid:29477251
+- fda:label

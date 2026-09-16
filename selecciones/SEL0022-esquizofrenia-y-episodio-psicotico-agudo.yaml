@@ -1,0 +1,91 @@
+id: SEL:0022
+tipo: seleccion
+problema: Esquizofrenia y episodio psicótico agudo
+problema_en: Schizophrenia and acute psychotic episode
+cie11: 6A20
+poblacion: Adultos con esquizofrenia o trastorno psicótico agudo que presentan reagudización
+  psicótica con delirios, alucinaciones y desorganización conductual.
+pregunta: En adultos con esquizofrenia en fase aguda, ¿qué antipsicótico oral (antipsicótico
+  atípico risperidona vs antipsicótico clásico haloperidol) se selecciona para alcanzar
+  el control sintomático reduciendo la carga de efectos adversos extrapiramidales
+  y disquinesia tardía?
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+contexto: Los antipsicóticos de segunda generación (atípicos) como la risperidona
+  surgieron para mantener la potencia antipsicótica de los neurolépticos clásicos
+  de alta potencia (haloperidol) reduciendo el riesgo de acatisia, parkinsonismo secundario
+  y disquinesia tardía invalidante. En los ensayos clínicos CATIE y metaanálisis de
+  dosis-respuesta de Leucht, la risperidona confirmó una eficacia sólida con menor
+  riesgo motor cuando se titula dentro del rango óptimo de 2 a 6 mg/día.
+estrategia:
+- base: PubMed
+  consulta: risperidone haloperidol schizophrenia CATIE Leucht dose response
+  fecha: '2026-09-16'
+  nota: 'Ensayo clínico CATIE (Lieberman et al., NEJM 2005; PMID: 16172203) y metaanálisis
+    de dosis-respuesta (Leucht et al., Schizophr Bull 2020; PMID: 31838873).'
+criterio_decisorio: Se selecciona el antipsicótico que demuestre igual o superior
+  reducción de la sintomatología psicótica global (escala PANSS) con una reducción
+  de al menos el 50 % en la necesidad de fármacos antiparkinsonianos anticolinérgicos.
+conclusion: 'La risperidona oral queda seleccionada como antipsicótico oral de primera
+  línea de elección en la esquizofrenia y crisis psicóticas: ofrece una eficacia antipsicótica
+  equiparable o discretamente superior al haloperidol (NNT 3 frente a placebo para
+  respuesta PANSS ≥ 20 % en agudo; pmid:31838873), con un perfil neurológico significativamente
+  más seguro al reducir a la mitad la incidencia de temblor, rigidez y acatisia cuando
+  se mantiene en dosis moderadas de 2 a 4 mg/día (NNT de extrapiramidalismo evitado
+  6 frente a haloperidol).'
+candidatos:
+- dci: Risperidona
+  atc: N05AX08
+  farmaco: FS:0031
+  veredicto: seleccionado
+  eficacia:
+    juicio: superior
+    sustento: 'En el ensayo CATIE (PMID: 16172203) y metaanálisis de Leucht (PMID:
+      31838873), risperidona demostró una sólida eficacia antipsicótica aguda (reducción
+      de PANSS) comparable a olanzapina y superior a haloperidol en síntomas negativos
+      y afectivos.'
+    ref: pmid:16172203
+  seguridad:
+    juicio: superior
+    sustento: Tasa significativamente menor de distonía aguda, parkinsonismo y acatisia
+      que haloperidol a dosis terapéuticas óptimas (2-4 mg/día), con menor necesidad
+      de biperideno (NNT de extrapiramidalismo evitado 6).
+    ref: pmid:16172203
+  conveniencia:
+    juicio: superior
+    sustento: Administración en toma única diaria nocturna (o en dos tomas iniciales),
+      disponible en comprimidos bucodispersables y solución oral.
+    ref: fda:label
+  costo:
+    juicio: superior
+    sustento: Medicamento genérico multifuente en la Lista Modelo de la OMS con coste
+      de adquisición mínimo.
+    ref: pmid:16172203
+- dci: Haloperidol
+  atc: N05AD01
+  veredicto: no_seleccionado
+  eficacia:
+    juicio: equivalente
+    sustento: Potente eficacia sobre síntomas positivos (delirios y alucinaciones),
+      pero eficacia escasa sobre síntomas negativos y disfunción cognitiva.
+    ref: pmid:16172203
+  seguridad:
+    juicio: inferior
+    sustento: Alta tasa de parkinsonismo inducido por fármacos, distonías agudas,
+      acatisia invalidante y riesgo acumulativo elevado de disquinesia tardía irreversible.
+    ref: pmid:16172203
+  conveniencia:
+    juicio: equivalente
+    sustento: Disponible en formulaciones orales e inyectables pero penalizado por
+      la necesidad de añadir medicación anticolinérgica de rescate.
+    ref: pmid:16172203
+  costo:
+    juicio: superior
+    sustento: Coste unitario insignificante pero con sobrecoste por el tratamiento
+      de complicaciones neurológicas motoras.
+    ref: pmid:16172203

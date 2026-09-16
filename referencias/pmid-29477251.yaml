@@ -1,0 +1,49 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:29477251"
+clave_bibtex: cipriani2018
+tipo: revision_sistematica
+titulo: "Comparative efficacy and acceptability of 21 antidepressant drugs for the acute treatment of adults with major depressive disorder: a systematic review and network meta-analysis"
+autores:
+  - "Cipriani A"
+  - "Furukawa TA"
+  - "Salanti G"
+  - "Chaimani A"
+  - "Atkinson LZ"
+  - "Ogawa Y"
+  - "Leucht S"
+  - "Ruhe HG"
+  - "Turner EH"
+  - "Higgins JPT"
+  - "Egger M"
+  - "Takeshima N"
+  - "Hayasaka Y"
+  - "Imai H"
+  - "Shinohara K"
+  - "Tajika A"
+  - "Ioannidis JPA"
+  - "Geddes JR"
+publicacion: "Lancet"
+anio: 2018
+volumen: "391"
+numero: "10128"
+paginas: "1357-1366"
+
+identificadores:
+  pmid: 29477251
+  doi: "10.1016/S0140-6736(17)32802-7"
+  pmc: "PMC5889788"
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Research Support, Non-U.S. Gov't"
+  - "Systematic Review"
+  - "Network Meta-Analysis"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

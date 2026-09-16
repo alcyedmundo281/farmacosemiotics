@@ -1,0 +1,34 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:31838873"
+clave_bibtex: leucht2020
+tipo: metaanalisis
+titulo: "Dose-Response Meta-Analysis of Antipsychotic Drugs for Acute Schizophrenia"
+autores:
+  - "Leucht S"
+  - "Crippa A"
+  - "Siafis S"
+  - "Patel MX"
+  - "Orsini N"
+  - "Davis JM"
+publicacion: "Am J Psychiatry"
+anio: 2020
+volumen: "177"
+numero: "4"
+paginas: "342-353"
+
+identificadores:
+  pmid: 31838873
+  doi: "10.1176/appi.ajp.2019.19010034"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

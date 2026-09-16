@@ -1,0 +1,47 @@
+id: FS:0030
+tipo: farmaco
+dci: Sertralina
+dci_en: Sertraline
+sinonimos:
+- Zoloft
+- Besitran
+- Aremis
+atc: N06AB06
+clase_farmacologica: Inhibidor selectivo de la recaptación de serotonina (ISRS)
+clase_farmacologica_en: Selective serotonin reuptake inhibitor (SSRI)
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+codigos:
+  rxcui: '36437'
+  fuente_rxcui: rxnav:rxcui
+  consultado_rxcui: '2026-09-16'
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: 24.2.1
+  categoria: core
+mecanismo: Inhibe de forma potente y altamente selectiva el transportador presináptico
+  de serotonina (SERT), bloqueando la recaptación de 5-hidroxitriptamina en la hendidura
+  sináptica y potenciando la neurotransmisión serotoninérgica en el sistema nervioso
+  central. Presenta una inhibición débil complementaria del transportador de dopamina
+  (DAT), con mínima afinidad por receptores muscarínicos, colinérgicos o histaminérgicos.
+mecanismo_ref: pmid:29477251
+farmacocinetica:
+  eliminacion: Metabolismo hepático extenso vía desmetilación mediada por CYP2B6,
+    CYP2C19, CYP3A4 y CYP2D6 a N-desmetilsertralina (metabolito sustancialmente menos
+    activo); excreción equilibrada en orina (45 %) y heces (45 %)
+  vida_media: 26 horas (62 a 104 horas para N-desmetilsertralina)
+  implicacion: Permite posología en dosis única diaria (mañana o noche); bajo potencial
+    de inhibición enzimática de CYP2D6 frente a fluoxetina o paroxetina, con menor
+    tasa de interacciones clínicamente relevantes.
+  ref: fda:label
+refs:
+- pmid:29477251
+- fda:label

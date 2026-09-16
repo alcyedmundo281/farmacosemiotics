@@ -1,0 +1,124 @@
+id: FT:0031
+tipo: ficha
+farmaco: FS:0029
+seleccion: SEL:0020
+titulo: Ácido acetilsalicílico a dosis bajas en la prevención secundaria vascular
+indicacion: Prevención secundaria de infarto de miocardio, ictus isquémico y muerte
+  vascular en adultos con enfermedad aterotrombótica
+indicacion_en: Secondary prevention of myocardial infarction, ischemic stroke, and
+  vascular death in adults with atherothrombotic disease
+poblacion: Adultos con antecedentes de infarto agudo de miocardio, ictus isquémico,
+  AIT o enfermedad vascular periférica
+cie11: BA80
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: 'Inhibidor plaquetario irreversible: 75 a 100 mg por vía oral
+    una vez al día con alimentos. En el metaanálisis ATT redujo la tasa anual de eventos
+    vasculares graves de 8.2 % a 6.7 % (reducción del riesgo relativo del 19 %; RRA
+    1.5 % anual, NNT 67 anual).'
+  alerta_seguridad_inmediata: 'Riesgo de sangrado mayor gastrointestinal: 0.36 % vs
+    0.23 % anual (NNH 770 anual). Asociar inhibidor de la bomba de protones si coexisten
+    antecedentes ulcerosos, edad > 65 años o anticoagulación/corticoides.'
+pico:
+  p: Adultos con enfermedad vascular oclusiva previa en ensayos aleatorizados de prevención
+    secundaria (N=17 000)
+  i: Ácido acetilsalicílico a dosis bajas (75 a 150 mg/día)
+  c: Control / Placebo sin antiagregación
+  o: Eventos vasculares graves (infarto de miocardio no mortal, ictus no mortal o
+    muerte vascular) y sangrado mayor
+posologia:
+  inicio: 100 mg por vía oral una vez al día (formulación gastrorresistente de liberación
+    entérica)
+  escalado: En síndrome coronario agudo o ictus agudo se administra dosis de carga
+    inicial de 150 a 300 mg masticada
+  mantenimiento: 100 mg una vez al día de forma indefinida
+  maxima: 100-150 mg al día en prevención secundaria crónica
+  ajuste_renal: No requiere ajuste en insuficiencia renal leve o moderada; evitar
+    en insuficiencia renal terminal grave
+  ajuste_hepatico: Contraindicado en insuficiencia hepática grave con coagulopatía
+  ref: fda:label
+evidencia:
+- desenlace: Eventos vasculares graves anuales (infarto, ictus o muerte por causa
+    vascular)
+  criticidad: critico
+  efecto: Reducción de eventos vasculares del 8.2 % anual en controles al 6.7 % anual
+    con AAS (reducción de riesgo relativo del 19 %, IC 95 % 13–24 %; p < 0.0001 en
+    ATT)
+  rra: 1.5%
+  rrr: 18.3%
+  nnt: 67
+  horizonte_nnt: anual
+  diseno: metaanalisis
+  estudio: Antithrombotic Trialists Collaboration (Lancet 2009)
+  comparador: Control / Placebo
+  n: 17000
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:19482214
+- desenlace: Infarto de miocardio no mortal anual
+  criticidad: critico
+  efecto: 'Reducción altamente significativa de infartos recurrentes: 3.23 % anual
+    vs 4.41 % anual (reducción del 31 %, p < 0.0001; RRA 1.2 % anual)'
+  rra: 1.2%
+  rrr: 27.3%
+  nnt: 84
+  horizonte_nnt: anual
+  diseno: metaanalisis
+  estudio: Antithrombotic Trialists Collaboration (Lancet 2009)
+  comparador: Control / Placebo
+  n: 17000
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:19482214
+- desenlace: Hemorragias mayores extracraneales anuales (predominio digestivo)
+  criticidad: importante
+  efecto: 'Incremento modesto de sangrados mayores: 0.36 % anual con AAS frente a
+    0.23 % anual en controles (p < 0.01; RRA -0.13 % anual)'
+  rra: 0.13%
+  rrr: 36.1%
+  nnt: 770
+  horizonte_nnt: anual
+  diseno: metaanalisis
+  estudio: Antithrombotic Trialists Collaboration (Lancet 2009)
+  comparador: Control / Placebo
+  n: 17000
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:19482214
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: aumenta
+  aceptabilidad: si
+  factibilidad: si
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: Se recomienda ácido acetilsalicílico a dosis bajas (75 a 100 mg/día)
+    de forma continuada en pacientes adultos con enfermedad cardiovascular oclusiva
+    establecida, por su prevención demostrada de infarto, ictus y muerte vascular
+    (NNT 67 anual) frente a un incremento muy reducido de sangrado mayor (NNH 770
+    anual).
+  ref: pmid:19482214
+conclusion: 'El ácido acetilsalicílico a dosis bajas es el estándar universal de oro
+  en antiagregación para prevención secundaria: previene alrededor de 15 eventos vasculares
+  mayores por cada 1000 pacientes tratados al año a cambio de apenas 1 evento hemorrágico
+  extracraneal añadido.'
+guias:
+- organizacion: ESC / AHA / ACC
+  anio: 2021
+  titulo: ESC Guidelines on cardiovascular disease prevention in clinical practice
+  posicion: Se recomienda ácido acetilsalicílico (75-100 mg/día) en todos los pacientes
+    con enfermedad cardiovascular aterosclerótica documentada.
+  cita: Eur Heart J 2021
+refs:
+- pmid:19482214
+- fda:label

@@ -1,0 +1,161 @@
+id: FA:0031
+tipo: farmacoterapia
+farmaco: FS:0031
+titulo: Farmacoterapia con risperidona oral en psicosis y esquizofrenia
+titulo_en: Oral risperidone pharmacotherapy in psychosis and schizophrenia
+alcance: 'Establece el protocolo de seguridad y manejo clínico de la risperidona oral
+  en la fase aguda y de mantenimiento de la esquizofrenia y psicosis: titulación lenta
+  en rango óptimo (2 a 4-6 mg/día), monitorización metabólica periódica (peso, glucemia,
+  perfil lipídico), cribado de hiperprolactinemia sintomática, prevención y detección
+  precoz de síntomas extrapiramidales y disquinesia tardía, y advertencias sobre el
+  síndrome neuroléptico maligno.'
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+cribado_basal:
+- prueba: Evaluación antropométrica y metabólica (peso, índice de masa corporal IMC,
+    perímetro abdominal, glucemia y lípidos)
+  motivo: Los antipsicóticos atípicos inducen incremento ponderal y alteraciones del
+    metabolismo hidrocarbonado y lipídico.
+  responsable: seguimiento
+  ref: pmid:16172203
+- prueba: Electrocardiograma basal (medición de intervalo QTc) y presión arterial
+  motivo: Descartar prolongación preexistente de la repolarización cardíaca e hipotensión
+    ortostática previa por bloqueo alfa-1 adrenérgico.
+  responsable: seguimiento
+  ref: fda:label
+- prueba: Examen neurológico basal con escala de movimientos involuntarios anormales
+    (AIMS)
+  motivo: Registrar movimientos basales para diferenciar discinesias espontáneas de
+    parkinsonismo o discinesia tardía farmacológica.
+  responsable: especialista
+  ref: pmid:16172203
+monitorizacion:
+- fase: basal
+  pruebas:
+  - Peso e IMC basal
+  - Glucemia basal en ayunas y perfil lipídico
+  - Prolactina sérica (opcional en ausencia de síntomas)
+  - Presión arterial sentado y de pie
+  responsable: seguimiento
+  ref: fda:label
+- fase: induccion
+  periodo: Primeras 4 a 8 semanas de titulación
+  frecuencia: Revisión semanal durante la titulación, luego mensual
+  pruebas:
+  - Monitorización del peso a las 4, 8 y 12 semanas
+  - Exploración neurológica específica de rigidez en rueda dentada, temblor de reposo
+    y acatisia
+  - Interrogatorio sobre hipotensión ortostática al ponerse de pie
+  - Interrogatorio sobre galactorrea, amenorrea o disfunción eréctil
+  responsable: seguimiento
+  ref: pmid:16172203
+- fase: mantenimiento
+  periodo: Tratamiento de prevención de recaídas a largo plazo
+  frecuencia: Cada 3 a 6 meses
+  pruebas:
+  - Control de peso e IMC cada 3 meses
+  - Glucemia y perfil lipídico anual (o semestral si hay ganancia ponderal relevante)
+  - Evaluación neurológica anual con escala AIMS para cribado de disquinesia tardía
+    orofacial o de extremidades
+  responsable: seguimiento
+  ref: fda:label
+umbrales_accion:
+- parametro: Fiebre alta inexplicable, rigidez muscular extrema («en tubo de plomo»),
+    alteración de consciencia y elevación de CK > 1000 U/L
+  umbral: Sospecha de Síndrome Neuroléptico Maligno (SNM)
+  accion: Emergencia médica. Suspender risperidona inmediatamente de forma definitiva.
+    Ingreso en UCI para enfriamiento activo, soporte hidroelectrolítico y administración
+    de agonistas dopaminérgicos (bromocriptina) o dantroleno.
+  ref: fda:label
+- parametro: Síntomas extrapiramidales (parkinsonismo, distonía aguda, acatisia) a
+    dosis > 4 mg/día
+  umbral: Toxicidad motora dopaminérgica Grado 2-3
+  accion: Reducir la dosis diaria de risperidona hacia el rango de 2 a 4 mg/día. Si
+    no ceden, considerar uso transitorio de anticolinérgicos (biperideno) o cambio
+    a antipsicótico con menor potencial motor (olanzapina, quetiapina o aripiprazol).
+  ref: pmid:16172203
+- parametro: Hiperprolactinemia sintomática marcada (galactorrea abundante, amenorrea
+    mantenida, ginecomastia)
+  umbral: Hiperprolactinemia Grado 2-3
+  accion: Medir prolactina sérica y descartar prolactinoma. Si es atribuible a risperidona,
+    considerar reducción posológica o cambio/adición a dosis bajas de aripiprazol
+    (agonista parcial D2 que normaliza prolactina).
+  ref: fda:label
+- parametro: Movimientos coreoatetoides involuntarios peribucales o linguales persistentes
+    tras meses de uso
+  umbral: Sospecha de Disquinesia Tardía
+  accion: No administrar anticolinérgicos (empeoran el cuadro). Considerar cambio
+    paulatino a clozapina o uso de inhibidores de VMAT2.
+  ref: fda:label
+interacciones:
+- con: Inhibidores potentes de CYP2D6 (ej. fluoxetina, paroxetina, bupropión)
+  gravedad: mayor
+  efecto: Aumento significativo de las concentraciones plasmáticas de risperidona,
+    con mayor riesgo de sedación y síntomas extrapiramidales.
+  conducta: Reducir la dosis de risperidona y monitorizar estrechamente la aparición
+    de efectos motores.
+  ref: fda:label
+- con: Fármacos que prolongan el intervalo QT (ej. antiarrítmicos de clase Ia/III,
+    macrólidos, citalopram)
+  gravedad: mayor
+  efecto: Riesgo potenciado de prolongación patológica del QTc y arritmias ventriculares
+    polimorfas (Torsades de Pointes).
+  conducta: Evitar la coadministración o realizar ECG seriados.
+  ref: fda:label
+- con: Agonistas dopaminérgicos (levodopa, pramipexol)
+  gravedad: mayor
+  efecto: Antagonismo farmacodinámico mutuo con pérdida de control del parkinsonismo
+    y reagudización psicótica.
+  conducta: Evitar la combinación; si se requiere antipsicótico en enfermedad de Parkinson,
+    emplear quetiapina o clozapina a dosis mínimas.
+  ref: fda:label
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: Los datos acumulados no muestran un aumento claro de malformaciones
+      estructurales congénitas. Sin embargo, la exposición en el tercer trimestre
+      puede ocasionar síntomas extrapiramidales y síndrome de abstinencia neonatal
+      transitorio. Debe sopesarse cuidadosamente el riesgo materno de recaída psicótica
+      frente al riesgo neonatal.
+    ref: fda:label
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: Risperidona y su metabolito activo 9-hidroxirisperidona se excretan
+      en la leche en pequeñas cantidades. Se puede considerar su uso manteniendo vigilancia
+      de somnolencia, dificultades en la succión o síntomas extrapiramidales en el
+      lactante.
+    ref: fda:label
+atencion_compartida:
+  especialista: 'Psiquiatra: confirma el diagnóstico de trastorno psicótico o esquizofrenia,
+    lidera la fase aguda de estabilización, ajusta la titulación y valora el cambio
+    a presentaciones inyectables de liberación prolongada (LAI) en caso de baja adherencia.'
+  seguimiento: 'Médico de atención primaria: realiza el seguimiento metabólico regular
+    (control de peso, lípidos y glucemia), detecta signos iniciales de extrapiramidalismo
+    o hiperprolactinemia y garantiza la continuidad del tratamiento.'
+  suspension_inmediata:
+  - Sospecha de Síndrome Neuroléptico Maligno
+  - Aparición de arritmia ventricular o síncope cardiogénico
+  - Reacción distónica laríngea aguda (estridor respiratorio)
+  ref: pmid:16172203
+posicionamiento:
+  linea: primera
+  escalonado:
+  - linea: primera
+    opciones: Risperidona oral (iniciar con 1-2 mg/día, titular a 2-4 mg/día) como
+      antipsicótico de primera línea en esquizofrenia y episodios psicóticos agudos.
+  - linea: segunda
+    opciones: Cambio a otro antipsicótico de 2ª generación (ej. olanzapina, aripiprazol)
+      ante falta de eficacia o intolerancia.
+  - linea: tercera
+    opciones: Clozapina en esquizofrenia resistente tras fracaso de al menos dos antipsicóticos
+      diferentes a dosis plenas durante al menos 6 semanas.
+  ref: pmid:16172203
+refs:
+- pmid:16172203
+- pmid:31838873
+- fda:label

@@ -1,0 +1,110 @@
+id: FT:0033
+tipo: ficha
+farmaco: FS:0031
+seleccion: SEL:0022
+titulo: Risperidona oral en la esquizofrenia y el episodio psicótico agudo
+indicacion: Tratamiento de la esquizofrenia y control de episodios psicóticos agudos
+  en adultos
+indicacion_en: Treatment of schizophrenia and acute psychotic episodes in adults
+poblacion: Adultos con esquizofrenia o trastorno esquizoafectivo en fase aguda o de
+  mantenimiento
+cie11: 6A20
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: 'Antipsicótico atípico dual 5-HT2A/D2: iniciar con 2 mg/día
+    (en una toma nocturna o dos tomas de 1 mg), titulando hasta el rango óptimo de
+    4 a 6 mg/día. En el metaanálisis de dosis-respuesta de Leucht (2020) y en CATIE
+    demostró control rápido de síntomas positivos y negativos (NNT 3 frente a placebo
+    para respuesta PANSS ≥ 20 %).'
+  alerta_seguridad_inmediata: Dosis superiores a 6 mg/día incrementan exponencialmente
+    el riesgo de parkinsonismo, distonía y acatisia perdiendo la ventaja atípica.
+    Controlar prolactina si aparece galactorrea/amenorrea y vigilar aumento ponderal.
+pico:
+  p: Adultos con esquizofrenia o episodio psicótico agudo que requieren tratamiento
+    antipsicótico oral (N=1460 en CATIE)
+  i: Risperidona por vía oral (rango 2 a 6 mg/día)
+  c: Haloperidol u otros antipsicóticos de primera/segunda generación / placebo
+  o: Respuesta clínica global en escala PANSS, tiempo hasta interrupción del tratamiento
+    y efectos extrapiramidales
+posologia:
+  inicio: 2 mg por vía oral al día (puede pautarse 1 mg cada 12 h o 2 mg por la noche)
+  escalado: Incrementar a 4 mg al día al segundo o tercer día según tolerancia clínica;
+    ajuste posterior en escalones de 1 mg semanal
+  mantenimiento: '2 a 6 mg al día (dosis habitual más eficaz y segura: 4 mg/día)'
+  maxima: 16 mg al día (en práctica clínica habitual rara vez se superan los 6-8 mg/día)
+  ajuste_renal: Iniciar con 0.5 mg dos veces al día en insuficiencia renal moderada-grave
+    (ClCr < 50 mL/min)
+  ajuste_hepatico: Iniciar con 0.5 mg dos veces al día en insuficiencia hepática
+  ref: fda:label
+evidencia:
+- desenlace: Respuesta clínica significativa en la fase aguda (reducción ≥ 20 % en
+    escala PANSS a 6 semanas)
+  criticidad: critico
+  efecto: Tasa de respuesta del 65 % con risperidona en dosis óptima (4 mg/día) frente
+    al 30 % con placebo en metaanálisis de Leucht 2020 (RRA 35.0 %, NNT 3 en agudo)
+  rra: 35.0%
+  rrr: 53.8%
+  nnt: 3
+  horizonte_nnt: a 6 semanas
+  diseno: metaanalisis
+  estudio: Leucht et al. Dose-Response Meta-Analysis (Schizophr Bull 2020)
+  comparador: Placebo oral
+  n: 2552
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:31838873
+- desenlace: Efectos adversos extrapiramidales que requieren tratamiento anticolinérgico
+  criticidad: critico
+  efecto: 'Tasa significativamente menor de extrapiramidalismo motor que haloperidol:
+    reducción absoluta del riesgo del 16.5 % (NNT de toxicidad motora evitada 6 frente
+    a haloperidol)'
+  rra: 16.5%
+  rrr: 50.0%
+  nnt: 6
+  horizonte_nnt: a 18 meses
+  diseno: eca
+  estudio: CATIE Schizophrenia Trial (NEJM 2005)
+  comparador: Haloperidol oral
+  n: 1460
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:16172203
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: aumenta
+  aceptabilidad: si
+  factibilidad: si
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: Se recomienda risperidona oral (rango 2 a 4-6 mg/día en toma única) en
+    adultos con esquizofrenia o episodio psicótico agudo, por su eficacia antipsicótica
+    contrastada (NNT 3 en fase aguda) y su perfil neurológico significativamente más
+    seguro que los antipsicóticos típicos de primera generación.
+  ref: pmid:16172203
+conclusion: 'La risperidona oral es el antipsicótico atípico prototípico en la Lista
+  Modelo de Medicamentos Esenciales: proporciona control sintomático completo y prevención
+  de recaídas con excelente accesibilidad universal y menor riesgo extrapiramidal
+  cuando se dosifica con precisión.'
+guias:
+- organizacion: NICE / WFSBP
+  anio: 2020
+  titulo: 'Psychosis and schizophrenia in adults: prevention and management (NICE
+    guideline CG178)'
+  posicion: Se recomienda iniciar tratamiento antipsicótico oral con un agente de
+    segunda generación como risperidona en discusión con el paciente sobre su perfil
+    de efectos adversos.
+  cita: NICE CG178
+refs:
+- pmid:16172203
+- pmid:31838873
+- fda:label

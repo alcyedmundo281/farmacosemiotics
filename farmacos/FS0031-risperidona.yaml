@@ -1,0 +1,52 @@
+id: FS:0031
+tipo: farmaco
+dci: Risperidona
+dci_en: Risperidone
+sinonimos:
+- Risperdal
+- Diafusor
+- Rispolept
+atc: N05AX08
+clase_farmacologica: Antipsicótico atípico benzisoxazólico (antagonista dual serotoninérgico
+  5-HT2A y dopaminérgico D2)
+clase_farmacologica_en: Atypical benzisoxazole antipsychotic (dual 5-HT2A and D2 dopamine
+  antagonist)
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+codigos:
+  rxcui: '35636'
+  fuente_rxcui: rxnav:rxcui
+  consultado_rxcui: '2026-09-16'
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '24.1'
+  categoria: core
+mecanismo: Antagonista monoaminérgico selectivo con alta afinidad por receptores serotoninérgicos
+  5-HT2A y dopaminérgicos D2. Su potente antagonismo central 5-HT2A modula la liberación
+  dopaminérgica en la corteza prefrontal y la vía nigroestriada, reduciendo la incidencia
+  de efectos extrapiramidales y mejorando los síntomas negativos y afectivos en comparación
+  con neurolépticos clásicos, mientras que el bloqueo D2 mesolímbico confiere eficacia
+  antipsicótica robusta.
+mecanismo_ref: pmid:16172203
+farmacocinetica:
+  eliminacion: Metabolismo hepático oxidativo mediado predominantemente por CYP2D6
+    hacia 9-hidroxirisperidona (paliperidona, metabolito con actividad farmacológica
+    equipotente); excreción mayoritariamente renal (70 %) y fecal (14 %)
+  vida_media: 3 horas para risperidona en metabolizadores rápidos; 24 horas para la
+    fracción antipsicótica activa global (risperidona + 9-OH-risperidona)
+  implicacion: Requiere ajuste de dosis en insuficiencia renal y hepática moderada-grave;
+    riesgo de elevación dosis-dependiente de prolactina y síntomas extrapiramidales
+    a dosis superiores a 6 mg/día.
+  ref: fda:label
+refs:
+- pmid:16172203
+- pmid:31838873
+- fda:label

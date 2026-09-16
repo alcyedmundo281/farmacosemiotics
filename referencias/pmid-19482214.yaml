@@ -1,0 +1,43 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:19482214"
+clave_bibtex: antithrombotic2009
+tipo: metaanalisis
+titulo: "Aspirin in the primary and secondary prevention of vascular disease: collaborative meta-analysis of individual participant data from randomised trials"
+autores:
+  - "Antithrombotic Trialists' (ATT) Collaboration"
+  - "Baigent C"
+  - "Blackwell L"
+  - "Collins R"
+  - "Emberson J"
+  - "Godwin J"
+  - "Peto R"
+  - "Buring J"
+  - "Hennekens C"
+  - "Kearney P"
+  - "Meade T"
+  - "Patrono C"
+  - "Roncaglioni MC"
+  - "Zanchetti A"
+publicacion: "Lancet"
+anio: 2009
+volumen: "373"
+numero: "9678"
+paginas: "1849-60"
+
+identificadores:
+  pmid: 19482214
+  doi: "10.1016/S0140-6736(09)60503-1"
+  pmc: "PMC2715005"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

@@ -1,0 +1,123 @@
+id: FT:0030
+tipo: ficha
+farmaco: FS:0028
+seleccion: SEL:0019
+titulo: Atorvastatina en la prevención secundaria cardiovascular de alta intensidad
+indicacion: Prevención secundaria de eventos cardiovasculares mayores en adultos con
+  enfermedad coronaria establecida
+indicacion_en: Secondary prevention of major cardiovascular events in adults with
+  established coronary heart disease
+poblacion: Adultos con cardiopatía isquémica documentada que precisan reducción intensiva
+  de c-LDL
+cie11: BA80
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: 'Estatina de alta intensidad: 80 mg una vez al día por vía oral.
+    En el ensayo TNT redujo en un 22 % los eventos cardiovasculares mayores a 4.9
+    años frente a 10 mg (8.7 % vs 10.9 %; HR 0.78; RRA 2.2 %, NNT 45 a 4.9 años),
+    reduciendo infartos de miocardio no mortales e ictus.'
+  alerta_seguridad_inmediata: 'Monitorizar ALT basal y a las 8-12 semanas: elevación
+    persistente > 3x LSN en el 1.2 % vs 0.2 % (NNH 98). Contraindicado con inhibidores
+    potentes de CYP3A4 por riesgo de rabdomiólisis.'
+pico:
+  p: Adultos con enfermedad coronaria clínicamente estable y c-LDL < 130 mg/dL (N=10
+    001)
+  i: Atorvastatina 80 mg/día por vía oral
+  c: Atorvastatina 10 mg/día por vía oral
+  o: Primer evento cardiovascular mayor (muerte por cardiopatía coronaria, infarto
+    no mortal, parada cardíaca o ictus)
+posologia:
+  inicio: 80 mg por vía oral una vez al día (o 40 mg en pacientes de edad avanzada
+    o fragilidad)
+  escalado: Dosis plena de 80 mg de entrada en pacientes con evento coronario agudo
+    reciente o muy alto riesgo
+  mantenimiento: 80 mg una vez al día de forma continuada e indefinida
+  maxima: 80 mg al día
+  ajuste_renal: No requiere ajuste de dosis en insuficiencia renal
+  ajuste_hepatico: Contraindicado en enfermedad hepática activa o elevación persistente
+    inexplicable de transaminasas
+  ref: fda:label
+evidencia:
+- desenlace: Primer evento cardiovascular mayor a 4.9 años de seguimiento medio
+  criticidad: critico
+  efecto: Reducción significativa del 8.7 % (434/4995) con atorvastatina 80 mg frente
+    al 10.9 % (548/5006) con atorvastatina 10 mg (HR 0.78, IC 95 % 0.69–0.89; p <
+    0.001 en TNT)
+  rra: 2.2%
+  rrr: 20.6%
+  nnt: 45
+  horizonte_nnt: a 4.9 años
+  diseno: eca
+  estudio: TNT (NEJM 2005)
+  comparador: Atorvastatina 10 mg/día
+  n: 10001
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:15755765
+- desenlace: Infarto de miocardio no mortal a 4.9 años
+  criticidad: critico
+  efecto: Incidencia del 4.9 % con 80 mg frente al 6.2 % con 10 mg (HR 0.78; p = 0.004;
+    RRA 1.3 %)
+  rra: 1.3%
+  rrr: 21.0%
+  nnt: 77
+  horizonte_nnt: a 4.9 años
+  diseno: eca
+  estudio: TNT (NEJM 2005)
+  comparador: Atorvastatina 10 mg/día
+  n: 10001
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:15755765
+- desenlace: Elevación persistente de aminotransferasas hepáticas (> 3 veces el LSN)
+  criticidad: importante
+  efecto: Incidencia del 1.2 % (60/4995) con 80 mg frente al 0.2 % (9/5006) con 10
+    mg (p < 0.001; RRA -1.0 %)
+  rra: 1.0%
+  rrr: 83.3%
+  nnt: 100
+  horizonte_nnt: a 4.9 años
+  diseno: eca
+  estudio: TNT (NEJM 2005)
+  comparador: Atorvastatina 10 mg/día
+  n: 10001
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:15755765
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: aumenta
+  aceptabilidad: si
+  factibilidad: si
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: Se recomienda atorvastatina oral a dosis alta (80 mg/día) en pacientes
+    adultos con enfermedad cardiovascular aterosclerótica establecida de muy alto
+    riesgo, por su beneficio superior en prevención de eventos cardiovasculares mayores
+    recurrentes (NNT 45 a 4.9 años) y perfil de seguridad hepatomuscular favorable.
+  ref: pmid:15755765
+conclusion: La pauta intensiva con atorvastatina 80 mg/día consolida la máxima evidencia
+  de protección endotelial y reducción del c-LDL en prevención secundaria, con una
+  relación beneficio-riesgo plenamente favorable frente a dosis bajas.
+guias:
+- organizacion: ESC / EAS
+  anio: 2019
+  titulo: 'ESC/EAS Guidelines for the management of dyslipidaemias: lipid modification
+    to reduce cardiovascular risk'
+  posicion: Se recomienda tratamiento con estatina de alta intensidad hasta la dosis
+    máxima tolerada para alcanzar una reducción ≥ 50 % en c-LDL y un objetivo < 55
+    mg/dL en muy alto riesgo.
+  cita: Eur Heart J 2020
+refs:
+- pmid:15755765
+- fda:label

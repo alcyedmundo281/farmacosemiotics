@@ -1,0 +1,43 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:15755765"
+clave_bibtex: larosa2005
+tipo: eca
+titulo: "Intensive lipid lowering with atorvastatin in patients with stable coronary disease"
+autores:
+  - "LaRosa JC"
+  - "Grundy SM"
+  - "Waters DD"
+  - "Shear C"
+  - "Barter P"
+  - "Fruchart JC"
+  - "Gotto AM"
+  - "Greten H"
+  - "Kastelein JJ"
+  - "Shepherd J"
+  - "Wenger NK"
+  - "Treating to New Targets (TNT) Investigators"
+publicacion: "N Engl J Med"
+anio: 2005
+volumen: "352"
+numero: "14"
+paginas: "1425-35"
+
+identificadores:
+  pmid: 15755765
+  doi: "10.1056/NEJMoa050461"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

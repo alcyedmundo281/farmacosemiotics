@@ -1,0 +1,49 @@
+id: FS:0028
+tipo: farmaco
+dci: Atorvastatina
+dci_en: Atorvastatin
+sinonimos:
+- Lipitor
+- Cardyl
+- Zarator
+atc: C10AA05
+clase_farmacologica: Inhibidor competitivo de la 3-hidroxi-3-metilglutaril-coenzima
+  A reductasa (estatina)
+clase_farmacologica_en: HMG-CoA reductase inhibitor (statin)
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+codigos:
+  rxcui: '83367'
+  fuente_rxcui: rxnav:rxcui
+  consultado_rxcui: '2026-09-16'
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '12.6'
+  categoria: core
+mecanismo: Inhibe de forma competitiva y reversible la enzima HMG-CoA reductasa, paso
+  limitante en la biosíntesis intracelular de colesterol en el hepatocito. La disminución
+  del colesterol intracelular induce una sobreexpresión compensatoria de receptores
+  de LDL en la membrana hepática, aumentando la depuración plasmática de partículas
+  aterogénicas (LDL, VLDL, apolipoproteína B) y reduciendo las concentraciones de
+  triglicéridos séricos.
+mecanismo_ref: pmid:15755765
+farmacocinetica:
+  eliminacion: Metabolismo hepático extenso mediado principalmente por CYP3A4 formando
+    metabolitos orto y parahidroxilados activos; eliminación biliar/fecal (> 98 %),
+    excreción renal mínima (< 2 %)
+  vida_media: '14 horas (actividad inhibitoria efectiva de metabolitos: 20 a 30 horas)'
+  implicacion: No requiere ajuste de dosis en insuficiencia renal; susceptible a interacciones
+    mayores con inhibidores potentes de CYP3A4 que eleven su concentración plasmática
+    y aumenten el riesgo de miopatía.
+  ref: fda:label
+refs:
+- pmid:15755765
+- fda:label

@@ -1,0 +1,49 @@
+id: FS:0029
+tipo: farmaco
+dci: Ácido acetilsalicílico
+dci_en: Acetylsalicylic acid
+sinonimos:
+- Aspirina
+- AAS
+- Aspirin
+atc: B01AC06
+clase_farmacologica: Inhibidor irreversible de la ciclooxigenasa plaquetaria (antiagregante
+  plaquetario)
+clase_farmacologica_en: Irreversible platelet cyclooxygenase inhibitor (antiplatelet
+  agent)
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+codigos:
+  rxcui: '1191'
+  fuente_rxcui: rxnav:rxcui
+  consultado_rxcui: '2026-09-16'
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: 12.5.1
+  categoria: core
+mecanismo: Acetila de manera irreversible el residuo de serina-529 en el sitio catalítico
+  de la ciclooxigenasa-1 (COX-1) plaquetaria, bloqueando de forma permanente la síntesis
+  de tromboxano A2 (TXA2, potente agonista plaquetario y vasoconstrictor) durante
+  toda la vida media de la plaqueta circulante (7 a 10 días).
+mecanismo_ref: pmid:19482214
+farmacocinetica:
+  eliminacion: Rápida hidrólisis sistémica y hepática a ácido salicílico por esterasas
+    séricas y tisulares; posterior conjugación hepática a ácido salicilúrico y excreción
+    renal dependiente del pH urinario
+  vida_media: 15 a 20 minutos para el AAS; 2 a 3 horas para el salicilato a dosis
+    bajas (75-100 mg)
+  implicacion: La inhibición plaquetaria es permanente y persiste días tras la suspensión;
+    a dosis de 75 a 100 mg diarios preserva la producción endotelial de prostaciclina
+    (PGI2) vasodilatadora mediada por COX-2.
+  ref: fda:label
+refs:
+- pmid:19482214
+- fda:label

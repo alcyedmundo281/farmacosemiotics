@@ -1,0 +1,93 @@
+id: SEL:0019
+tipo: seleccion
+problema: Enfermedad coronaria establecida y prevención secundaria cardiovascular
+problema_en: Established coronary heart disease and secondary cardiovascular prevention
+cie11: BA80
+poblacion: Adultos con cardiopatía isquémica documentada (antecedente de infarto agudo
+  de miocardio, angina estable o revascularización coronaria percutánea/quirúrgica)
+  con colesterol LDL que precisan reducción intensiva del riesgo aterotrombótico.
+pregunta: En pacientes adultos con enfermedad coronaria clínicamente estable, ¿qué
+  régimen terapéutico de hipolipemiantes (estatina de alta intensidad atorvastatina
+  80 mg/día vs pauta de intensidad moderada atorvastatina 10 mg/día) se selecciona
+  para reducir eventos cardiovasculares mayores con aceptable tolerancia hepática
+  y muscular?
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+contexto: La reducción de colesterol LDL es una de las intervenciones con mayor respaldo
+  epidemiológico en prevención secundaria cardiovascular. El ensayo TNT evaluó si
+  forzar el descenso del LDL por debajo de 80 mg/dL mediante atorvastatina a dosis
+  plenas de 80 mg/día aportaba beneficio clínico neto frente a la dosis estándar de
+  10 mg/día en pacientes coronarios estables.
+estrategia:
+- base: PubMed
+  consulta: atorvastatin 80 10 TNT coronary disease LaRosa
+  fecha: '2026-09-16'
+  nota: 'Ensayo clínico fase 3 aleatorizado doble ciego TNT (LaRosa et al., N Engl
+    J Med 2005; PMID: 15755765).'
+criterio_decisorio: Se selecciona la estrategia hipolipemiante intensiva que demuestre
+  una reducción relativa de al menos el 20 % en eventos cardiovasculares mayores (muerte
+  coronaria, infarto no mortal, parada cardíaca resucitada o ictus), manteniendo una
+  tasa baja de miopatía o elevación persistente de transaminasas.
+conclusion: 'Atorvastatina a dosis alta (80 mg/día) queda seleccionada como la terapia
+  de elección en prevención secundaria cardiovascular: reduce en un 22 % el riesgo
+  relativo de eventos cardiovasculares mayores a 4.9 años frente a la dosis moderada
+  de 10 mg/día (8.7 % vs 10.9 %; RRA 2.2 %, NNT 45 a 4.9 años), reduciendo específicamente
+  infartos no mortales e ictus isquémicos, con una baja tasa de elevación transitoria
+  de transaminasas (NNH 98) y sin incremento de rabdomiólisis.'
+candidatos:
+- dci: 'Atorvastatina (dosis alta: 80 mg/día)'
+  atc: C10AA05
+  farmaco: FS:0028
+  veredicto: seleccionado
+  eficacia:
+    juicio: superior
+    sustento: 'En el ensayo TNT (PMID: 15755765), atorvastatina 80 mg redujo significativamente
+      la incidencia de eventos cardiovasculares mayores a 4.9 años frente a atorvastatina
+      10 mg (8.7 % vs 10.9 %; HR 0.78, IC 95 % 0.69-0.89; p < 0.001; RRA 2.2 %, NNT
+      45).'
+    ref: pmid:15755765
+  seguridad:
+    juicio: inferior
+    sustento: Mayor elevación persistente de transaminasas séricas (> 3 veces el LSN)
+      en el 1.2 % con 80 mg frente al 0.2 % con 10 mg (RRA -1.0 %, NNH 98), sin casos
+      de rabdomiólisis grave atribuible.
+    ref: pmid:15755765
+  conveniencia:
+    juicio: equivalente
+    sustento: Toma única diaria oral de 80 mg en un solo comprimido en cualquier momento
+      del día, con o sin alimentos.
+    ref: fda:label
+  costo:
+    juicio: equivalente
+    sustento: Medicamento genérico multifuente de bajo coste de adquisición con excelente
+      relación coste-efectividad demostrada internacionalmente.
+    ref: pmid:15755765
+- dci: 'Atorvastatina (dosis moderada: 10 mg/día)'
+  atc: C10AA05
+  farmaco: FS:0028
+  veredicto: no_seleccionado
+  eficacia:
+    juicio: inferior
+    sustento: Tasa de eventos cardiovasculares mayores del 10.9 % a 4.9 años, insuficiente
+      para alcanzar los objetivos de reducción de c-LDL (< 55 mg/dL) exigidos en pacientes
+      coronarios de muy alto riesgo.
+    ref: pmid:15755765
+  seguridad:
+    juicio: superior
+    sustento: Excelente tolerabilidad hepática con tasa de elevación persistente de
+      transaminasas de tan solo el 0.2 %.
+    ref: pmid:15755765
+  conveniencia:
+    juicio: equivalente
+    sustento: Toma única oral diaria equivalente.
+    ref: fda:label
+  costo:
+    juicio: equivalente
+    sustento: Genérico oral multifuente de precio equivalente a la presentación de
+      80 mg.
+    ref: pmid:15755765

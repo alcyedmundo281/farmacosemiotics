@@ -1,0 +1,153 @@
+id: FA:0029
+tipo: farmacoterapia
+farmaco: FS:0029
+titulo: Farmacoterapia con ácido acetilsalicílico en prevención secundaria
+titulo_en: Acetylsalicylic acid pharmacotherapy in secondary prevention
+alcance: 'Establece el protocolo de seguridad y administración clínica para el ácido
+  acetilsalicílico a dosis bajas (75 a 100 mg/día) en prevención secundaria cardiovascular
+  y cerebrovascular: protección de la mucosa gastroduodenal, profilaxis con inhibidores
+  de la bomba de protones (IBP) en pacientes de riesgo, manejo de hemorragias menores
+  y mayores, y manejo perioperatorio de la antiagregación.'
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+cribado_basal:
+- prueba: Antecedentes de úlcera péptica o hemorragia digestiva alta previa
+  motivo: Identificar a pacientes con alto riesgo de resangrado digestivo que requieren
+    gastroprotección obligatoria con IBP.
+  responsable: seguimiento
+  ref: pmid:19482214
+- prueba: Historia de hipersensibilidad a salicilatos o tríada de Widal (asma, pólipos
+    nasales y rinitis por intolerancia a AINEs)
+  motivo: Evitar broncoespasmo grave o anafilaxia por inhibición de COX-1 y desviación
+    del metabolismo del ácido araquidónico hacia leucotrienos.
+  responsable: seguimiento
+  ref: fda:label
+- prueba: Hemograma completo y coagulación basal
+  motivo: Descartar trombocitopenia o coagulopatía basal antes de iniciar antiagregación
+    crónica.
+  responsable: seguimiento
+  ref: fda:label
+monitorizacion:
+- fase: basal
+  pruebas:
+  - Hemograma con recuento plaquetario
+  - Evaluación de factores de riesgo hemorrágico (edad > 65 años, uso de AINEs o anticoagulantes,
+    corticoides)
+  - Presión arterial basal (la hipertensión arterial grave no controlada aumenta el
+    riesgo de ictus hemorrágico)
+  responsable: seguimiento
+  ref: pmid:19482214
+- fase: induccion
+  periodo: Primeros 3 meses de tratamiento
+  frecuencia: Consulta clínica a las 4-8 semanas
+  pruebas:
+  - Interrogatorio sobre síntomas dispépticos, pirosis, dolor epigástrico o melenas
+  - Detección de sangrados mucocutáneos menores (equimosis, gingivorragia)
+  - Control tensional para asegurar PA < 140/90 mmHg
+  responsable: seguimiento
+  ref: pmid:19482214
+- fase: mantenimiento
+  periodo: Prevención secundaria crónica de por vida
+  frecuencia: Anual
+  pruebas:
+  - Hemograma anual para despistaje de anemia ferropénica silente por microsangrado
+    digestivo
+  - Revisión continuada de la indicación de gastroprotección con IBP
+  responsable: seguimiento
+  ref: fda:label
+umbrales_accion:
+- parametro: Hemorragia digestiva alta activa comprobada (hematemesis o melenas)
+  umbral: Sangrado mayor Grado 3
+  accion: Suspender inmediatamente el AAS. Endoscopia digestiva diagnóstica y terapéutica
+    urgente con estabilización hemodinámica e infusión de IBP a dosis altas. Reevaluar
+    reinicio de AAS en 3 a 7 días según riesgo trombótico vs resangrado.
+  ref: pmid:19482214
+- parametro: Anemia ferropénica de nueva aparición sin sangrado evidente
+  umbral: Anemia microcítica Grado 2
+  accion: Realizar estudio endoscópico digestivo completo (gastroscopia y colonoscopia).
+    Iniciar IBP y suplementación de hierro sin suspender AAS salvo que se identifique
+    lesión de alto riesgo.
+  ref: fda:label
+- parametro: Intervención quirúrgica programada menor (cirugía dermatológica, catarata,
+    odontología)
+  umbral: Procedimiento quirúrgico con bajo riesgo de sangrado
+  accion: 'No suspender el ácido acetilsalicílico: el riesgo trombótico de rebote
+    supera ampliamente el incremento de sangrado local controlable.'
+  ref: pmid:19482214
+- parametro: Cirugía mayor de alto riesgo hemorrágico (neurocirugía intracraneal,
+    cirugía espinal)
+  umbral: Riesgo hemorrágico severo o en cavidad cerrada
+  accion: Suspender el AAS 5 a 7 días antes de la intervención programada para permitir
+    la regeneración de nuevas plaquetas circulantes activas.
+  ref: fda:label
+interacciones:
+- con: Anticoagulantes orales (apixabán, rivaroxabán, dabigatrán, warfarina)
+  gravedad: mayor
+  efecto: Incremento exponencial del riesgo de hemorragia digestiva mayor e intracraneal.
+  conducta: Evitar la doble terapia (antiagregante + anticoagulante) en prevención
+    secundaria crónica de cardiopatía isquémica estable; el anticoagulante en monoterapia
+    es habitualmente suficiente salvo tras síndrome coronario agudo o stenting reciente.
+  ref: pmid:19482214
+- con: Antiinflamatorios no esteroideos (ibuprofeno, naproxeno)
+  gravedad: mayor
+  efecto: Interferencia competitiva por el canal catalítico de la COX-1 plaquetaria
+    que impide la acetilación irreversible por el AAS, perdiéndose el efecto cardioprotector,
+    además de sinergia ulcerogénica.
+  conducta: Evitar el uso crónico de AINEs. Si se precisa ibuprofeno ocasional, administrar
+    AAS al menos 2 horas antes del AINE.
+  ref: fda:label
+- con: Inhibidores selectivos de la recaptación de serotonina (ISRS)
+  gravedad: moderada
+  efecto: Depleción de serotonina intraplaquetaria que potencia el riesgo de sangrado
+    de mucosas.
+  conducta: Prescribir gastroprotección con IBP en pacientes que combinan AAS con
+    antidepresivos ISRS.
+  ref: pmid:19482214
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: El ácido acetilsalicílico a dosis bajas (75 a 150 mg/día) es seguro
+      y se prescribe ampliamente a partir de las semanas 12-16 para la prevención
+      de preeclampsia en gestantes de alto riesgo. Dosis analgésicas plenas (> 500
+      mg) en el tercer trimestre están contraindicadas por riesgo de cierre prematuro
+      del ductus arterioso y hemorragia perinatal.
+    ref: fda:label
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: A dosis bajas de 75 a 100 mg diarios, la excreción en leche es mínima
+      y se considera compatible con la lactancia con vigilancia de sangrado en el
+      lactante.
+    ref: fda:label
+atencion_compartida:
+  especialista: 'Cardiólogo, neurólogo o cirujano vascular: define la indicación precisa
+    de la antiagregación y la duración de la doble antiagregación inicial tras un
+    evento isquémico agudo o angioplastia.'
+  seguimiento: 'Atención primaria: asegura la adherencia indefinida en monoterapia
+    (100 mg/día), prescribe IBP en pacientes con factores de riesgo gastrointestinal
+    y gestiona la continuidad perioperatoria en procedimientos ambulatorios.'
+  suspension_inmediata:
+  - Hemorragia digestiva mayor o hematemesis activa
+  - Sospecha de hemorragia intracraneal o ictus hemorrágico
+  - Reacción de hipersensibilidad respiratoria grave (broncoespasmo agudo)
+  ref: pmid:19482214
+posicionamiento:
+  linea: primera
+  escalonado:
+  - linea: primera
+    opciones: Ácido acetilsalicílico 75-100 mg/día como monoterapia antiagregante
+      de primera elección en prevención secundaria cardiovascular.
+  - linea: segunda
+    opciones: Clopidogrel 75 mg/día en pacientes con verdadera alergia o intolerancia
+      gástrica grave al ácido acetilsalicílico.
+  - linea: tercera
+    opciones: Doble antiagregación plaquetaria (AAS + inhibidor P2Y12) durante 1 a
+      12 meses tras síndrome coronario agudo o revascularización coronaria percutánea.
+  ref: pmid:19482214
+refs:
+- pmid:19482214
+- fda:label

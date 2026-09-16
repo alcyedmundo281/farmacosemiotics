@@ -1,0 +1,47 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:16172203"
+clave_bibtex: lieberman2005
+tipo: eca
+titulo: "Effectiveness of antipsychotic drugs in patients with chronic schizophrenia"
+autores:
+  - "Lieberman JA"
+  - "Stroup TS"
+  - "McEvoy JP"
+  - "Swartz MS"
+  - "Rosenheck RA"
+  - "Perkins DO"
+  - "Keefe RS"
+  - "Davis SM"
+  - "Davis CE"
+  - "Lebowitz BD"
+  - "Severe J"
+  - "Hsiao JK"
+  - "Clinical Antipsychotic Trials of Intervention Effectiveness (CATIE) Investigators"
+publicacion: "N Engl J Med"
+anio: 2005
+volumen: "353"
+numero: "12"
+paginas: "1209-23"
+
+identificadores:
+  pmid: 16172203
+  doi: "10.1056/NEJMoa051688"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, N.I.H., Extramural"
+  - "Research Support, Non-U.S. Gov't"
+  - "Research Support, U.S. Gov't, P.H.S."
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

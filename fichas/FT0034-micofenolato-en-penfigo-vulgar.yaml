@@ -1,0 +1,107 @@
+id: FT:0034
+tipo: ficha
+farmaco: FS:0032
+seleccion: SEL:0001
+titulo: Micofenolato de mofetilo como adyuvante inmunosupresor en el pénfigo vulgar
+indicacion: Pénfigo vulgar en pacientes adultos como ahorrador de corticoides sistémicos
+indicacion_en: Pemphigus vulgaris in adult patients as a corticosteroid-sparing adjuvant
+poblacion: Adultos con pénfigo vulgar leve a moderado o refractario a corticoterapia
+cie11: EB40
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+decision_clinica:
+  semaforo: amarillo
+  perla_prescripcion: 'Inhibidor reversible de la IMPDH: 2 a 3 g/día por vía oral
+    fraccionados en dos tomas. En el ensayo clínico aleatorizado de Beissert (2010),
+    el 69.0 % de los pacientes con MMF + prednisona alcanzaron respuesta completa/control
+    con prednisona ≤ 10 mg/día frente al 63.9 % con placebo + prednisona (p = 0.65;
+    NNT 20 para respuesta; respuestas más rápidas y sostenidas).'
+  alerta_seguridad_inmediata: Potente teratogénesis comprobada (Black Box Warning,
+    malformaciones congénitas en 25 % y abortos en 45 %). Exigir doble método anticonceptivo
+    eficaz y ventana de lavado previa de 6 semanas.
+pico:
+  p: Adultos con pénfigo vulgar leve a moderado de nuevo diagnóstico o recaída (N=94)
+  i: Micofenolato de mofetilo oral (2 a 3 g/día) + pauta decreciente de prednisona
+    oral
+  c: Placebo oral + pauta decreciente de prednisona oral
+  o: Control de la enfermedad con dosis de prednisona ≤ 10 mg/día en semanas 48-52
+    y durabilidad de la remisión
+posologia:
+  inicio: 1 g por vía oral al día (500 mg cada 12 horas) la primera semana para mejorar
+    la tolerancia digestiva
+  escalado: Incrementar a 2 g al día (1 g cada 12 horas) a partir de la segunda semana;
+    puede titularse hasta 3 g/día si la respuesta es incompleta
+  mantenimiento: 2 g al día de forma continuada mientras se desescala la corticoterapia
+    oral
+  maxima: 3 g al día (fraccionados en dos tomas)
+  ajuste_renal: Evitar dosis superiores a 2 g/día si TFGe < 25 mL/min/1.73 m²
+  ajuste_hepatico: No requiere ajuste en enfermedad parenquimatosa hepática
+  ref: fda:label
+evidencia:
+- desenlace: Control clínico de la enfermedad con dosis bajas de corticoide (prednisona
+    ≤ 10 mg/día) al año
+  criticidad: critico
+  efecto: Tasa de respuesta clínica al año del 69.0 % (40/58) en el grupo MMF frente
+    al 63.9 % (23/36) con placebo (diferencia +5.1 %, IC 95 % -17.4 a 27.6; p = 0.6558
+    en ensayo de Beissert)
+  rra: 5.1%
+  rrr: 7.4%
+  nnt: 20
+  horizonte_nnt: a 52 semanas
+  diseno: eca
+  estudio: Beissert et al. Multicenter Trial (J Invest Dermatol 2010)
+  comparador: Placebo oral + prednisona
+  n: 94
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:20410913
+- desenlace: Respuesta clínica sostenida durante al menos 6 meses consecutivos
+  criticidad: critico
+  efecto: Mayor proporción de pacientes con respuesta sostenida a 6 meses con MMF
+    frente a placebo (41.4 % vs 25.0 %; p = 0.088; RRA 16.4 %, NNT 7 para respuesta
+    sostenida duradera)
+  rra: 16.4%
+  rrr: 39.6%
+  nnt: 7
+  horizonte_nnt: a 52 semanas
+  diseno: eca
+  estudio: Beissert et al. Multicenter Trial (J Invest Dermatol 2010)
+  comparador: Placebo oral + prednisona
+  n: 94
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:20410913
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: hay_incertidumbre_o_variabilidad_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+recomendacion:
+  direccion: a_favor
+  fuerza: condicional
+  enunciado: Se sugiere micofenolato de mofetilo oral (2 a 3 g/día) como tratamiento
+    adyuvante ahorrador de corticoides en pacientes adultos con pénfigo vulgar cuando
+    rituximab no esté disponible o no sea adecuado y azatioprina esté contraindicada
+    o no se tolere, siempre que se descarte formalmente cualquier deseo gestacional.
+  ref: pmid:32830877
+conclusion: El micofenolato de mofetilo es un inmunosupresor adyuvante oral útil que
+  ofrece ahorro de corticoide sin depender del genotipo de TPMT, pero supeditado a
+  un riguroso control reproductivo por su extrema teratogenicidad frente a azatioprina.
+guias:
+- organizacion: EADV / EDF
+  anio: 2020
+  titulo: Consensus on the management of pemphigus vulgaris and foliaceus
+  posicion: Micofenolato de mofetilo se recomienda como inmunosupresor adyuvante de
+    segunda línea junto a corticosteroides.
+  cita: J Eur Acad Dermatol Venereol 2020
+refs:
+- pmid:20410913
+- pmid:32830877
+- fda:label

@@ -146,6 +146,7 @@ candidatos:
 
   - dci: Micofenolato de mofetilo
     atc: L04AA06
+    farmaco: 'FS:0032'
     clase: Inhibidor de la inosina monofosfato deshidrogenasa
     eficacia:
       juicio: sin_datos

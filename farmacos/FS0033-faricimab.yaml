@@ -1,0 +1,46 @@
+id: FS:0033
+tipo: farmaco
+dci: Faricimab
+dci_en: Faricimab
+sinonimos:
+- Vabysmo
+- Faricimab-svoa
+atc: S01LA09
+clase_farmacologica: Anticuerpo biespecífico humanizado anti-Angiopoyetina-2 (Ang-2)
+  y anti-Factor de Crecimiento Endotelial Vascular A (VEGF-A)
+clase_farmacologica_en: Bispecific humanized antibody targeting angiopoietin-2 and
+  vascular endothelial growth factor A
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+codigos:
+  rxcui: '2591519'
+  fuente_rxcui: rxnav:rxcui
+  consultado_rxcui: '2026-09-16'
+lme:
+  presente: false
+mecanismo: 'Anticuerpo biespecífico diseñado con tecnología CrossMAb que neutraliza
+  simultáneamente dos vías clave de la patología vascular retiniana: Angiopoyetina-2
+  (Ang-2) y VEGF-A. La inhibición dual de Ang-2 restaura la estabilidad de los vasos
+  coriorretinianos y reduce la inflamación perivascular, mientras que el bloqueo de
+  VEGF-A inhibe la angiogénesis neovascular aberrante y la permeabilidad microvascular,
+  permitiendo una durabilidad anatómica y funcional extendida hasta intervalos de
+  16 semanas.'
+mecanismo_ref: pmid:35085502
+farmacocinetica:
+  eliminacion: Administración local intravítrea directa; aclaramiento ocular lento
+    por difusión hacia la cámara anterior y eliminación por vía de salida del humor
+    acuoso y circulación sistémica; aclaramiento sistémico por catabolismo celular
+    proteolítico no dependiente de citocromos
+  vida_media: Vida media ocular aparente estimada en 7.5 días
+  implicacion: Mínima exposición sistémica; la región Fc modificada carece de unión
+    a receptores Fcγ y reduce el riesgo de efectos adversos trombóticos sistémicos
+    manteniendo la potencia intraocular.
+  ref: fda:label
+refs:
+- pmid:35085502
+- fda:label

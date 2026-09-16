@@ -1,0 +1,159 @@
+id: FA:0032
+tipo: farmacoterapia
+farmaco: FS:0032
+titulo: Farmacoterapia con micofenolato de mofetilo
+titulo_en: Mycophenolate mofetil pharmacotherapy
+alcance: 'Establece el protocolo de seguridad y administración clínica para inhibidores
+  de la IMPDH (micofenolato de mofetilo) en enfermedades autoinmunes y dermatosis
+  ampollares: monitorización hematológica periódica (citopenias), vigilancia de toxicidad
+  gastrointestinal (diarrea, dolor abdominal), prevención de infecciones oportunistas
+  y un programa estricto de prevención del embarazo (REMS/teratogenicidad grave) con
+  doble anticoncepción y lavado previo.'
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+cribado_basal:
+- prueba: Prueba de embarazo en suero u orina de alta sensibilidad (hCG) obligatoria
+    en mujeres con potencial fértil
+  motivo: Riesgo extremadamente elevado de teratogenicidad (malformaciones faciales,
+    microtia, cardiopatías congénitas) y aborto espontáneo (45-50 %). Se requieren
+    dos pruebas negativas antes de la primera dosis.
+  responsable: especialista
+  ref: pmid:36318966
+- prueba: Hemograma completo con recuento de leucocitos y neutrófilos basales
+  motivo: Descartar neutropenia o anemia preexistente antes de iniciar un fármaco
+    con potencial citostático sobre médula ósea.
+  responsable: especialista
+  ref: pmid:20410913
+- prueba: Serología de Hepatitis B (HBsAg, anti-HBc), Hepatitis C y cribado de tuberculosis
+    latente
+  motivo: Descartar infecciones virales crónicas o latentes antes de inducir inmunosupresión
+    de células T y B.
+  responsable: especialista
+  ref: fda:label
+monitorizacion:
+- fase: basal
+  pruebas:
+  - Hemograma completo con diferencial
+  - Creatinina sérica y transaminasas
+  - Doble prueba de embarazo negativa y firma de consentimiento de anticoncepción
+    informada
+  responsable: especialista
+  ref: fda:label
+- fase: induccion
+  periodo: Primeros 3 meses de titulación y estabilización
+  frecuencia: Hemograma quincenal el primer mes, luego mensual
+  pruebas:
+  - Hemograma con recuento absoluto de neutrófilos mensual
+  - Interrogatorio sobre diarrea, dispepsia y náuseas (repartir dosis con comidas
+    o cambiar a ácido micofenólico entérico)
+  - Vigilancia de signos de infección bacteriana o reactivación herpética
+  responsable: seguimiento
+  ref: pmid:20410913
+- fase: mantenimiento
+  periodo: Tratamiento inmunosupresor crónico
+  frecuencia: Cada 2 a 3 meses
+  pruebas:
+  - Hemograma completo trimestral
+  - Función renal y hepática periódica
+  - Refuerzo continuado del cumplimiento de medidas anticonceptivas en pacientes en
+    edad fértil
+  responsable: seguimiento
+  ref: fda:label
+umbrales_accion:
+- parametro: Neutropenia severa con recuento absoluto de neutrófilos < 1300/mcL
+  umbral: Toxicidad hematológica Grado 3
+  accion: Interrumpir temporalmente o reducir la dosis de micofenolato. Monitorizar
+    hemograma semanalmente hasta recuperación > 1500/mcL. Reanudar con dosis reducida.
+  ref: fda:label
+- parametro: Diarrea severa persistente o dolor cólico abdominal intolerable
+  umbral: Toxicidad gastrointestinal Grado 2-3
+  accion: Fraccionar la dosis diaria en 3 o 4 tomas, administrar con alimentos o sustituir
+    por micofenolato sódico con recubrimiento entérico (Myfortic). Si persiste, reducir
+    dosis diaria a 1.5 o 1.0 g/día.
+  ref: pmid:20410913
+- parametro: Confirmación o sospecha de embarazo durante el tratamiento
+  umbral: Riesgo teratogénico crítico
+  accion: Suspensión inmediata de micofenolato. Derivación urgente a obstetricia y
+    genética para evaluación ecográfica detallada y asesoramiento sobre riesgo malformativo
+    severo.
+  ref: pmid:36318966
+- parametro: Infección oportunista grave o sepsis sistémica activa
+  umbral: Infección Grado ≥ 3
+  accion: Suspender temporalmente el micofenolato e iniciar tratamiento antimicrobiano
+    específico.
+  ref: fda:label
+interacciones:
+- con: Quelantes orales de cationes (antiácidos con hidróxido de aluminio/magnesio,
+    suplementos de hierro)
+  gravedad: mayor
+  efecto: Disminución drástica de la absorción oral y biodisponibilidad de ácido micofenólico
+    (reducción del AUC hasta un 30-40 %).
+  conducta: 'Espaciar la administración: tomar el micofenolato al menos 2 horas antes
+    o 4 horas después de quelantes o suplementos de hierro.'
+  ref: fda:label
+- con: Vacunas vivas atenuadas (fiebre amarilla, sarampión, varicela)
+  gravedad: contraindicada
+  efecto: Riesgo de infección vírica vacunal diseminada grave por incapacidad de generar
+    respuesta citotóxica.
+  conducta: Contraindicadas formalmente durante el tratamiento inmunosupresor.
+  ref: fda:label
+- con: Antibióticos que alteran la flora intestinal que hidroliza glucurónidos (amoxicilina/clavulánico,
+    ciprofloxacino)
+  gravedad: moderada
+  efecto: Interrupción de la recirculación enterohepática con descenso transitorio
+    del AUC de MPA del 30-50 %.
+  conducta: Monitorizar estrechamente la respuesta clínica inmunosupresora durante
+    el tratamiento antibiótico.
+  ref: fda:label
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: Micofenolato es un potente teratógeno humano clasificado con advertencia
+      de recuadro negro (Black Box Warning). Se asocia a una tasa de abortos espontáneos
+      de hasta el 45 % y anomalías congénitas en el 23-27 % de los nacidos vivos (atresia
+      del conducto auditivo, microtia, cardiopatías congénitas, labio leporino y defectos
+      esqueléticos). Las mujeres en edad fértil deben emplear dos métodos anticonceptivos
+      complementarios y mantener una ventana de lavado de al menos 6 semanas antes
+      de concebir.
+    ref: pmid:36318966
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: Se desconoce si el ácido micofenólico se excreta en leche humana, pero
+      por su potencial mutagénico y citotóxico se contraindica la lactancia natural
+      durante el tratamiento y hasta 6 semanas tras la última dosis.
+    ref: pmid:36318966
+atencion_compartida:
+  especialista: 'Dermatólogo o reumatólogo: prescribe como inmunosupresor adyuvante
+    ahorrador de corticoide (típicamente 2 a 3 g/día) tras comprobar pruebas de embarazo
+    negativas, titula la posología y programa la retirada paulatina.'
+  seguimiento: 'Atención primaria: supervisa el cumplimiento estricto del programa
+    de prevención del embarazo, solicita los controles periódicos de hemograma y detecta
+    toxicidad digestiva precoz.'
+  suspension_inmediata:
+  - Test de embarazo positivo en cualquier momento del tratamiento
+  - Neutropenia severa con recuento absoluto de neutrófilos < 1000/mcL
+  - Sospecha clínica de leucoencefalopatía multifocal progresiva (LMP) o sepsis
+  ref: pmid:20410913
+posicionamiento:
+  linea: segunda
+  escalonado:
+  - linea: primera
+    opciones: Rituximab asociado a corticoides sistémicos de ciclo corto en pénfigo
+      vulgar moderado a grave.
+  - linea: segunda
+    opciones: Azatioprina o micofenolato de mofetilo (2-3 g/día) como ahorradores
+      de corticoides de elección cuando rituximab no está disponible o existe contraindicación
+      biológica.
+  - linea: tercera
+    opciones: Inmunoglobulinas intravenosas o plasmaféresis de rescate en refractariedad.
+  ref: pmid:32830877
+refs:
+- pmid:20410913
+- pmid:32830877
+- pmid:36318966
+- fda:label

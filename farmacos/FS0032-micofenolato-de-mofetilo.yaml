@@ -1,0 +1,51 @@
+id: FS:0032
+tipo: farmaco
+dci: Micofenolato de mofetilo
+dci_en: Mycophenolate mofetil
+sinonimos:
+- CellCept
+- Myfortic
+- MMF
+atc: L04AA06
+clase_farmacologica: Inhibidor reversible y selectivo de la inosina monofosfato deshidrogenasa
+  (IMPDH)
+clase_farmacologica_en: Selective reversible inosine monophosphate dehydrogenase inhibitor
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+codigos:
+  rxcui: '68149'
+  fuente_rxcui: rxnav:rxcui
+  consultado_rxcui: '2026-09-16'
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '8.1'
+  categoria: complementary
+mecanismo: Profármaco del ácido micofenólico (MPA). El MPA inhibe de manera no competitiva,
+  potente y reversible la isoforma II de la inosina monofosfato deshidrogenasa (IMPDH),
+  bloqueando la vía de novo de síntesis de nucleótidos de guanina. Dado que los linfocitos
+  T y B proliferantes dependen críticamente de esta vía y carecen de vía de rescate
+  eficaz, el micofenolato induce un efecto citostático linfocitario selectivo, suprimiendo
+  la síntesis de autoanticuerpos y la inmunidad celular sin mielotoxicidad cruzada
+  masiva.
+mecanismo_ref: pmid:20410913
+farmacocinetica:
+  eliminacion: Rápida hidrólisis presistémica a ácido micofenólico activo por esterasas
+    plasmáticas; posterior glucuronidación hepática por UGT1A9 a glucurónido fenólico
+    de MPA (MPAG, inactivo); eliminación renal del MPAG (93 %) con recirculación enterohepática
+    secundaria
+  vida_media: 16 a 18 horas
+  implicacion: No depende de TPMT/NUDT15 (a diferencia de azatioprina); susceptible
+    a reducción de absorción por quelantes orales (hierro, antiácidos con magnesio/aluminio);
+    riesgo teratogénico mayor que contraindica su uso sin anticoncepción estricta.
+  ref: fda:label
+refs:
+- pmid:20410913
+- fda:label

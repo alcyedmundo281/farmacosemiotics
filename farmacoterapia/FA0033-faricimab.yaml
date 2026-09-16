@@ -1,0 +1,145 @@
+id: FA:0033
+tipo: farmacoterapia
+farmaco: FS:0033
+titulo: Farmacoterapia con faricimab intravítreo
+titulo_en: Intravitreal faricimab pharmacotherapy
+alcance: 'Establece el protocolo de administración y seguridad para el anticuerpo
+  biespecífico anti-Ang-2 / anti-VEGF-A (faricimab) en patología macular neovascular
+  (DMAE exudativa y edema macular diabético): técnica de inyección intravítrea estéril,
+  monitorización de la presión intraocular (PIO), cribado de inflamación intraocular
+  y endoftalmitis, y régimen de dosificación por treat-and-extend hasta 16 semanas.'
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+cribado_basal:
+- prueba: Exploración oftalmológica completa con lámpara de hendidura, tonometría
+    y fondo de ojo
+  motivo: Descartar infección ocular o periocular activa (blefaritis, conjuntivitis),
+    inflamación intraocular previa o glaucoma no controlado.
+  responsable: especialista
+  ref: pmid:35085502
+- prueba: Tomografía de coherencia óptica (OCT) macular y angiografía fluoresceínica
+    / angio-OCT
+  motivo: Confirmar neovascularización macular activa (fluido intrarretiniano o subretiniano)
+    y medir el espesor foveal central basal.
+  responsable: especialista
+  ref: pmid:35085502
+monitorizacion:
+- fase: basal
+  pruebas:
+  - Agudeza visual mejor corregida (BCVA en escala ETDRS)
+  - OCT macular con medición de espesor central
+  - Presión intraocular (PIO) pre-inyección
+  responsable: especialista
+  ref: pmid:35085502
+- fase: induccion
+  periodo: 'Fase de carga inicial (primeras 4 inyecciones mensuales: semanas 0, 4,
+    8 y 12)'
+  frecuencia: Cada 4 semanas durante la inducción
+  pruebas:
+  - Medición de PIO a los 30 minutos post-inyección intravítrea
+  - Control de agudeza visual y examen de cámara anterior
+  - OCT a las semanas 20 y 24 para evaluar resolución de fluido y determinar el intervalo
+    de extensión (8, 12 o 16 semanas)
+  responsable: especialista
+  ref: pmid:35085502
+- fase: mantenimiento
+  periodo: Régimen personalizado de extensión (treat-and-extend)
+  frecuencia: Cada 8, 12 o 16 semanas según estabilidad en OCT
+  pruebas:
+  - OCT macular en cada visita para detectar recidiva de fluido intrarretiniano/subretiniano
+  - Tonometría ocular periódica
+  - Exploración de la retina periférica para despistaje de desgarros retinianos o
+    desprendimiento
+  responsable: especialista
+  ref: pmid:35085502
+umbrales_accion:
+- parametro: Dolor ocular intenso de instauración rápida, pérdida visual brusca, hiperemia
+    ciliar marcada e hipopion en los primeros 2 a 7 días post-inyección
+  umbral: Sospecha de endoftalmitis infecciosa aguda
+  accion: Urgencia oftalmológica inmediata. Toma de muestra de humor vítreo para cultivo
+    y tinción de Gram, e inyección intravítrea inmediata de antibióticos de amplio
+    espectro (vancomicina + ceftazidima) o vitrectomía según gravedad.
+  ref: fda:label
+- parametro: Elevación aguda de presión intraocular ≥ 30 mmHg a los 30 minutos post-procedimiento
+  umbral: Hipertensión ocular aguda post-inyección
+  accion: Administrar hipotensores tópicos (betabloqueantes, agonistas alfa-2, inhibidores
+    de anhidrasa carbónica); si persiste muy elevada con compromiso de perfusión del
+    nervio óptico, considerar paracentesis de cámara anterior.
+  ref: fda:label
+- parametro: Presencia de células o tyndall en cámara anterior o vítreo anterior (inflamación
+    intraocular no infecciosa)
+  umbral: Uveítis anterior / vitritis leve-moderada
+  accion: Pautar colirio de corticoide tópico (acetato de prednisolona al 1 %); suspender
+    o demorar la siguiente inyección de faricimab hasta la resolución completa.
+  ref: pmid:35085502
+- parametro: Reaparición de fluido subretiniano o pérdida de ≥ 5 letras de BCVA en
+    visita de mantenimiento
+  umbral: Reactivación neovascular exudativa
+  accion: Acortar el intervalo de tratamiento en 4 semanas (ej. reducir de cada 16
+    a cada 12 semanas, o de cada 12 a cada 8 semanas) según protocolo de extensión.
+  ref: pmid:35085502
+interacciones:
+- con: Otros fármacos antiangiogénicos intravítreos coadministrados en el mismo ojo
+  gravedad: mayor
+  efecto: Potenciación innecesaria y no evaluada del bloqueo de la vía VEGF con aumento
+    del riesgo inflamatorio o hipertensivo.
+  conducta: No combinar faricimab con otros agentes intravítreos simultáneamente en
+    la misma intervención.
+  ref: fda:label
+- con: Anticoagulantes orales o antiagregantes plaquetarios sistémicos
+  gravedad: menor
+  efecto: Ligero incremento del riesgo de hemorragia subconjuntival benigna en el
+    punto de punción escleral.
+  conducta: No suspender la anticoagulación/antiagregación sistémica para la inyección
+    intravítrea.
+  ref: pmid:35085502
+reproductivo:
+  gestacion:
+    compatibilidad: evitar
+    enunciado: Aunque la absorción sistémica tras inyección intravítrea es mínima,
+      los inhibidores del VEGF pueden interferir teóricamente con la angiogénesis
+      placentaria y el desarrollo embrionario. Se recomienda evitar durante la gestación
+      y emplear anticoncepción eficaz durante el tratamiento y hasta al menos 3 meses
+      tras la última inyección.
+    ref: fda:label
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: Dada la baja concentración plasmática materna tras inyección ocular,
+      es improbable su presencia en cantidades significativas en leche materna humana.
+      Se aconseja precaución y vigilancia del lactante.
+    ref: fda:label
+atencion_compartida:
+  especialista: 'Oftalmólogo especialista en retina médica: realiza el diagnóstico
+    por imagen (OCT/angiografía), ejecuta las inyecciones intravítreas bajo condiciones
+    de estricta asepsia quirúrgica y calibra la extensión del régimen según el fluido
+    residual.'
+  seguimiento: 'Atención primaria y médicos de urgencias: reconocen los signos de
+    alarma inmediata post-punción (ojo rojo doloroso, pérdida brusca de visión, halos
+    de colores) y derivan al paciente de forma inmediata a urgencias oftalmológicas.'
+  suspension_inmediata:
+  - Sospecha de endoftalmitis o inflamación intraocular grave
+  - Desprendimiento de retina regmatógeno o desgarro periférico
+  - Evento trombótico arterial sistémico reciente (ictus o infarto agudo de miocardio
+    en los últimos 3 meses)
+  ref: pmid:35085502
+posicionamiento:
+  linea: primera
+  escalonado:
+  - linea: primera
+    opciones: Faricimab intravítreo (6.0 mg) en régimen extendido (treat-and-extend
+      hasta cada 16 semanas) como terapia biológica de primera línea en DMAE neovascular.
+  - linea: segunda
+    opciones: Aflibercept (2.0 mg u 8.0 mg) o ranibizumab en pautas bimensuales o
+      mensuales.
+  - linea: tercera
+    opciones: Terapia fotodinámica combinada con anti-VEGF en casos seleccionados
+      de vasculopatía polipoidea coroidea refractaria.
+  ref: pmid:35085502
+refs:
+- pmid:35085502
+- fda:label

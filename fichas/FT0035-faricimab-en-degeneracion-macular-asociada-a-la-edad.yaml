@@ -1,0 +1,127 @@
+id: FT:0035
+tipo: ficha
+farmaco: FS:0033
+seleccion: SEL:0023
+titulo: Faricimab intravítreo en la degeneración macular asociada a la edad neovascular
+indicacion: Degeneración macular asociada a la edad neovascular (exudativa) en adultos
+indicacion_en: Neovascular (wet) age-related macular degeneration in adult patients
+poblacion: Adultos a partir de 50 años con DMAE neovascular activa tratada o virgen
+  de tratamiento
+cie11: 9B70.0
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: 'Anticuerpo biespecífico anti-Ang-2/VEGF-A: 6.0 mg (0.05 mL)
+    en inyección intravítrea. Tras 4 dosis mensuales de carga, permite extender los
+    intervalos a 12 o 16 semanas en casi el 80 % de los pacientes, con no-inferioridad
+    en ganancia visual (+5.8 letras vs +5.1 letras en TENAYA; NNT 1 para no-inferioridad)
+    y excelente secado anatómico foveal.'
+  alerta_seguridad_inmediata: Técnica aséptica rigurosa para prevenir endoftalmitis
+    (< 0.5 %). Monitorizar presión intraocular antes y 30 minutos después de la inyección.
+pico:
+  p: Adultos ≥ 50 años con DMAE neovascular activa sin tratamiento previo (N=1329
+    en TENAYA y LUCERNE)
+  i: Faricimab intravítreo 6.0 mg cada 8, 12 o 16 semanas según algoritmo de actividad
+  c: Aflibercept intravítreo 2.0 mg cada 8 semanas tras 3 dosis de carga
+  o: Cambio medio en agudeza visual mejor corregida (BCVA) a la semana 48 y proporción
+    con intervalos extendidos
+posologia:
+  inicio: 6.0 mg (0.05 mL de solución de 120 mg/mL) mediante inyección intravítrea
+    cada 4 semanas durante las primeras 4 dosis (semanas 0, 4, 8 y 12)
+  escalado: 'Evaluación en semanas 20 y 24: extender a cada 16 semanas si no hay actividad,
+    a cada 12 semanas si hay actividad leve, o mantener cada 8 semanas si persiste
+    exudación activa'
+  mantenimiento: 6.0 mg cada 8, 12 o 16 semanas en pauta personalizada según OCT
+  maxima: 6.0 mg cada 4 semanas (frecuencia no recomendada en mantenimiento salvo
+    reactivación severa)
+  ajuste_renal: No requiere ajuste en disfunción renal o hepática
+  ajuste_hepatico: No procede ajuste por metabolismo sistémico proteolítico mínimo
+  ref: fda:label
+evidencia:
+- desenlace: Cambio medio en agudeza visual mejor corregida (BCVA) en letras ETDRS
+    a la semana 48
+  criticidad: critico
+  efecto: 'No-inferioridad confirmada frente a aflibercept: ganancia media de +5.8
+    letras con faricimab vs +5.1 letras con aflibercept (diferencia ajustada 0.7 letras,
+    IC 95 % -1.1 a 2.5; límite de no-inferioridad predefinido en -3.5 letras en TENAYA;
+    NNT 1)'
+  rra: 0.0%
+  rrr: 0.0%
+  nnt: 1
+  horizonte_nnt: a 48 semanas
+  diseno: eca
+  estudio: TENAYA Phase 3 Trial (Lancet 2022)
+  comparador: Aflibercept 2.0 mg cada 8 semanas
+  n: 671
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:35085502
+- desenlace: Mantenimiento de intervalo de tratamiento extendido a ≥ 12 semanas a
+    la semana 48
+  criticidad: critico
+  efecto: El 77.8 % de los pacientes tratados con faricimab lograron intervalos de
+    inyección de ≥ 12 semanas (45.7 % a cada 16 semanas y 34.0 % a cada 12 semanas)
+    manteniendo el control visual
+  rra: 77.8%
+  rrr: 100.0%
+  nnt: 2
+  horizonte_nnt: a 48 semanas
+  diseno: eca
+  estudio: TENAYA Phase 3 Trial (Lancet 2022)
+  comparador: Aflibercept obligatorio cada 8 semanas
+  n: 671
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:35085502
+- desenlace: Incidencia de inflamación intraocular (uveítis, vitritis o iridociclitis)
+  criticidad: importante
+  efecto: 'Incidencia baja y comparable: 2.0 % con faricimab frente a 1.2 % con aflibercept,
+    sin casos de vasculitis retiniana oclusiva severa'
+  rra: 0.8%
+  rrr: 40.0%
+  nnt: 125
+  horizonte_nnt: a 48 semanas
+  diseno: eca
+  estudio: TENAYA Phase 3 Trial (Lancet 2022)
+  comparador: Aflibercept 2.0 mg cada 8 semanas
+  n: 671
+  certeza: alta
+  razones_descenso: []
+  ref: pmid:35085502
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: Se recomienda faricimab intravítreo (6.0 mg) en régimen extendido (hasta
+    cada 16 semanas) en adultos con degeneración macular asociada a la edad neovascular
+    activa, por su eficacia funcional y anatómica no inferior a aflibercept bimestral
+    (NNT 1 para no-inferioridad visual) con una reducción a la mitad en la frecuencia
+    de inyecciones intraoculares requeridas.
+  ref: pmid:35085502
+conclusion: 'Faricimab representa un avance cualitativo en la farmacoterapia retiniana
+  mediante la inhibición biespecífica de Ang-2 y VEGF-A: preserva la visión de los
+  pacientes al tiempo que reduce a la mitad la carga asistencial de inyecciones para
+  el paciente y el sistema sanitario.'
+guias:
+- organizacion: EURETINA / AAO
+  anio: 2023
+  titulo: EURETINA Guidelines for the management of neovascular age-related macular
+    degeneration
+  posicion: Faricimab se incluye como opción de primera línea recomendada con capacidad
+    demostrada de extender intervalos hasta cada 16 semanas.
+  cita: Ophthalmologica 2023
+refs:
+- pmid:35085502
+- fda:label

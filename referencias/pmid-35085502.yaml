@@ -1,0 +1,49 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:35085502"
+clave_bibtex: heier2022
+tipo: eca
+titulo: "Efficacy, durability, and safety of intravitreal faricimab up to every 16 weeks for neovascular age-related macular degeneration (TENAYA and LUCERNE): two randomised, double-masked, phase 3, non-inferiority trials"
+autores:
+  - "Heier JS"
+  - "Khanani AM"
+  - "Quezada Ruiz C"
+  - "Basu K"
+  - "Ferrone PJ"
+  - "Brittain C"
+  - "Figueroa MS"
+  - "Lin H"
+  - "Holz FG"
+  - "Patel V"
+  - "Lai TYY"
+  - "Silverman D"
+  - "Regillo C"
+  - "Swaminathan B"
+  - "Viola F"
+  - "Cheung CMG"
+  - "Wong TY"
+  - "TENAYA and LUCERNE Investigators"
+publicacion: "Lancet"
+anio: 2022
+volumen: "399"
+numero: "10326"
+paginas: "729-740"
+
+identificadores:
+  pmid: 35085502
+  doi: "10.1016/S0140-6736(22)00010-1"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Equivalence Trial"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

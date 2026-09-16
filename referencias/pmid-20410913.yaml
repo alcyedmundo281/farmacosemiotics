@@ -1,0 +1,36 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:20410913"
+clave_bibtex: beissert2010
+tipo: eca
+titulo: "Treating pemphigus vulgaris with prednisone and mycophenolate mofetil: a multicenter, randomized, placebo-controlled trial"
+autores:
+  - "Beissert S"
+  - "Mimouni D"
+  - "Kanwar AJ"
+  - "Solomons N"
+  - "Kalia V"
+  - "Anhalt GJ"
+publicacion: "J Invest Dermatol"
+anio: 2010
+volumen: "130"
+numero: "8"
+paginas: "2041-8"
+
+identificadores:
+  pmid: 20410913
+  doi: "10.1038/jid.2010.91"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

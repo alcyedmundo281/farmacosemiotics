@@ -161,8 +161,8 @@ su informe de selección dice cómo usar un fármaco sin decir por qué se eligi
 | **2. Antiinfecciosos AWaRe** | Sección 6.2 (Antibacterianos Access / Watch / Reserve) | `SEL0017` (Enterobacterias KPC/BLEE) | `FS0026` (Ceftazidima / Avibactam) | `FT0028` (Ceftazidima/Avibactam en BLEE/KPC) | **Iniciada (1/6)** |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | — | Pendiente |
 | **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | `SEL0010` (Esquizofrenia LAI)<br>`SEL0021` (Depresión mayor)<br>`SEL0022` (Psicosis aguda) | `FS0017` (Paliperidona)<br>`FS0030` (Sertralina)<br>`FS0031` (Risperidona) | `FT0018` (Paliperidona en Esquizofrenia)<br>`FT0032` (Sertralina en Depresión)<br>`FT0033` (Risperidona en Psicosis) | **Completada (3/3)** |
-| **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato)<br>`FS0018` (Tofacitinib)<br>`FS0024` (Rituximab) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs)<br>`FT0019` (Tofacitinib en AR)<br>`FT0026` (Rituximab en pénfigo) | **En curso (5/6)** — hueco de Rituximab cerrado |
-| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `SEL0003` *(compartida con la 6)*<br>`SEL0007` (CPRCnm)<br>`SEL0008` (CPNM EGFR)<br>`SEL0009` (Mama HER2+)<br>`SEL0011` (LLC R/R)<br>`SEL0012` (Mama HR+/HER2-)<br>`SEL0013` (EMRR)<br>`SEL0014` (LLA B R/R)<br>`SEL0015` (LMC STAMP)<br>`SEL0016` (Mielofibrosis)<br>`SEL0018` (Ovario BRCAm) | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib)<br>`FS0013` (Secukinumab)<br>`FS0014` (Darolutamida)<br>`FS0015` (Osimertinib)<br>`FS0016` (Trastuzumab deruxtecán)<br>`FS0019` (Acalabrutinib)<br>`FS0020` (Ribociclib)<br>`FS0021` (Ofatumumab)<br>`FS0022` (Blinatumomab)<br>`FS0023` (Asciminib)<br>`FS0025` (Ruxolitinib)<br>`FS0027` (Olaparib) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC)<br>`FT0014` (Secukinumab en psoriasis)<br>`FT0015` (Darolutamida en CPRCnm)<br>`FT0016` (Osimertinib en CPNM)<br>`FT0017` (T-DXd en mama HER2+)<br>`FT0020` (Acalabrutinib en LLC)<br>`FT0021` (Gusel en psoriasis)<br>`FT0022` (Ribociclib en mama)<br>`FT0023` (Ofatumumab en EMRR)<br>`FT0024` (Blinatumomab en LLA)<br>`FT0025` (Asciminib en LMC)<br>`FT0027` (Ruxolitinib en mielofibrosis)<br>`FT0029` (Olaparib en cáncer de ovario) | **En curso (15/16)** |
+| **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato)<br>`FS0018` (Tofacitinib)<br>`FS0024` (Rituximab)<br>`FS0032` (Micofenolato) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs)<br>`FT0019` (Tofacitinib en AR)<br>`FT0026` (Rituximab en pénfigo)<br>`FT0034` (Micofenolato en pénfigo) | **Completada (6/6)** |
+| **5. Terapias Dirigidas & Alto Costo** | Terapias biológicas, oncológicas e inmunomoduladores | `SEL0003` *(compartida con la 6)*<br>`SEL0007` (CPRCnm)<br>`SEL0008` (CPNM EGFR)<br>`SEL0009` (Mama HER2+)<br>`SEL0011` (LLC R/R)<br>`SEL0012` (Mama HR+/HER2-)<br>`SEL0013` (EMRR)<br>`SEL0014` (LLA B R/R)<br>`SEL0015` (LMC STAMP)<br>`SEL0016` (Mielofibrosis)<br>`SEL0018` (Ovario BRCAm)<br>`SEL0023` (DMAE neovascular) | `FS0003` (Pembro)<br>`FS0004` (Gusel)<br>`FS0005` (Ibrutinib)<br>`FS0013` (Secukinumab)<br>`FS0014` (Darolutamida)<br>`FS0015` (Osimertinib)<br>`FS0016` (Trastuzumab deruxtecán)<br>`FS0019` (Acalabrutinib)<br>`FS0020` (Ribociclib)<br>`FS0021` (Ofatumumab)<br>`FS0022` (Blinatumomab)<br>`FS0023` (Asciminib)<br>`FS0025` (Ruxolitinib)<br>`FS0027` (Olaparib)<br>`FS0033` (Faricimab) | `FT0003` (Pembro en CPNM)<br>`FT0004` (Gusel en PsA)<br>`FT0005` (Ibrutinib en LLC)<br>`FT0014` (Secukinumab en psoriasis)<br>`FT0015` (Darolutamida en CPRCnm)<br>`FT0016` (Osimertinib en CPNM)<br>`FT0017` (T-DXd en mama HER2+)<br>`FT0020` (Acalabrutinib en LLC)<br>`FT0021` (Gusel en psoriasis)<br>`FT0022` (Ribociclib en mama)<br>`FT0023` (Ofatumumab en EMRR)<br>`FT0024` (Blinatumomab en LLA)<br>`FT0025` (Asciminib en LMC)<br>`FT0027` (Ruxolitinib en mielofibrosis)<br>`FT0029` (Olaparib en cáncer de ovario)<br>`FT0035` (Faricimab en DMAE) | **Completada (16/16)** |
 
 Que `SEL0003` aparezca en dos oleadas no es un error de clasificación: es el
 híbrido funcionando. Un mismo problema de salud —la artritis psoriásica—
@@ -219,7 +219,7 @@ guía en la oleada que le corresponde por coste y por vía.
 - [x] **`FT0025` Asciminib en Leucemia Mieloide Crónica en fase crónica tras ≥ 2 TKIs** (Inhibidor alostérico STAMP: NNT 8 respuesta molecular mayor a 24 semanas, NNT 7 toxicidad evitada vs bosutinib).
 - [x] **`FT0027` Ruxolitinib en Mielofibrosis de riesgo intermedio o alto** (Inhibidor selectivo JAK1/JAK2: NNT 3 reducción esplénica ≥ 35 % a 24 semanas, NNT 3 mejoría sintomática TSS ≥ 50 % en COMFORT-I).
 - [x] **`FT0029` Olaparib en Cáncer de Ovario Avanzado BRCA mutado** (Inhibidor de PARP en mantenimiento de 1ª línea: NNT 3 SLP a 3 años en SOLO-1, HR 0.30, NNH 5 anemia severa).
-- [ ] **Faricimab en Degeneración Macular Asociada a la Edad y Edema Macular Diabético**.
+- [x] **`FT0035` Faricimab en Degeneración Macular Asociada a la Edad neovascular** (Anticuerpo biespecífico anti-Ang-2/VEGF-A: NNT 1 no-inferioridad visual vs aflibercept en TENAYA, NNT 2 mantenimiento de intervalo extendido ≥ 12 semanas).
 
 ### Oleada 6 — Inmunosupresión & Dermatosis Autoinmunes
 Es la oleada que estrena la capa de guía, porque es donde la monitorización
@@ -238,13 +238,11 @@ terapéutica.
   no en una segunda copia).
 - [x] **`FT0019` Tofacitinib en artritis reumatoide tras respuesta inadecuada a metotrexato** (Inhibidor de JAK oral: NNT 5 respuesta ACR20 a 6 meses; balance de seguridad cardiovascular ORAL Surveillance con NNH 34 en herpes zóster).
 - [x] **`FT0026` Rituximab en el pénfigo vulgar moderado y grave** (Anticuerpo anti-CD20: NNT 2 en remisión completa libre de corticoides a 24 meses en Ritux 3, cierra el hueco estructural clave de SEL0001).
-- [ ] **Micofenolato de mofetilo como adyuvante del corticoide** (El otro
-  ahorrador clásico, y el contrario de la azatioprina en seguridad
-  reproductiva: exige suspenderlo seis semanas antes de concebir).
+- [x] **`FT0034` Micofenolato de mofetilo como adyuvante del corticoide en pénfigo vulgar** (Inhibidor IMPDH: NNT 20 en control anual en ensayo de Beissert 2010, NNT 7 para respuesta sostenida de 6 meses; contraindicación absoluta en embarazo).
 
-**El hueco estructural histórico de esta oleada queda cerrado**: `SEL0001` seleccionaba el
-rituximab y ahora cuenta con `FS0024`, `FA0024` y la guía `FT0026`, articulando perfectamente
-la Parte I y la Parte II de la decisión clínica.
+**Todos los candidatos y huecos estructurales de esta oleada quedan completamente cerrados**:
+`SEL0001` cuenta con los tres candidatos plenamente desarrollados en Parte I (`SEL`), Parte II (`FA`) y guías (`FT`),
+confrontando el perfil reproductivo de azatioprina frente a la teratogenicidad de micofenolato y la eficacia de rituximab.
 
 **Lo que hace falta para cerrar los huecos de esta oleada:** el texto completo
 de la guía BSR de csDMARD 2025 (`pmid:41235543`) y de la guía BAD de

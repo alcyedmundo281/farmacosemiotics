@@ -1,0 +1,99 @@
+id: SEL:0023
+tipo: seleccion
+problema: Degeneración macular asociada a la edad neovascular (DMAE exudativa)
+problema_en: Neovascular (wet) age-related macular degeneration
+cie11: 9B70.0
+poblacion: Adultos a partir de 50 años con degeneración macular asociada a la edad
+  neovascular activa que requieren tratamiento antiangiogénico intravítreo para preservar
+  o mejorar la agudeza visual.
+pregunta: En adultos con DMAE neovascular activa no tratada previamente, ¿qué agente
+  biológico intravítreo (anticuerpo biespecífico anti-Ang-2/VEGF-A faricimab con pauta
+  extendida hasta cada 16 semanas vs inhibidor de VEGF aflibercept cada 8 semanas)
+  se selecciona para mantener la agudeza visual reduciendo la carga de inyecciones
+  intraoculares?
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+- nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+contexto: Las terapias anti-VEGF tradicionales (aflibercept, ranibizumab) exigen inyecciones
+  intravítreas frecuentes (cada 4 a 8 semanas) durante años para evitar la ceguera
+  legal, lo que genera una enorme carga asistencial y pérdida de adherencia en la
+  vida real. Faricimab bloquea simultáneamente la angiopoyetina-2 y el VEGF-A, estabilizando
+  la microvasculatura retiniana y demostrando en los ensayos TENAYA y LUCERNE no-inferioridad
+  visual con regímenes de tratamiento extendidos hasta cada 16 semanas en cerca del
+  80 % de los pacientes.
+estrategia:
+- base: PubMed
+  consulta: faricimab aflibercept neovascular age-related macular degeneration TENAYA
+    LUCERNE Lancet 2022
+  fecha: '2026-09-16'
+  nota: 'Ensayos clínicos fase 3 aleatorizados doble ciego TENAYA y LUCERNE (Heier
+    et al., Lancet 2022; PMID: 35085502).'
+criterio_decisorio: Se selecciona el agente que demuestre no-inferioridad visual frente
+  al comparador activo de referencia (margen de no-inferioridad de 3.5 letras ETDRS),
+  permitiendo un intervalo terapéutico inter-inyección extendido (≥ 12 semanas) en
+  la mayoría de los pacientes sin incremento de inflamación intraocular.
+conclusion: 'Faricimab queda seleccionado como terapia biológica de elección en DMAE
+  neovascular: demuestra no-inferioridad funcional y anatómica frente a aflibercept
+  bimestral (ganancia media de agudeza visual de +5.8 letras vs +5.1 letras en TENAYA;
+  NNT 1 para no-inferioridad clínica), logrando que un 78 % de los pacientes mantengan
+  intervalos de tratamiento de 12 o 16 semanas al año, lo que reduce a la mitad las
+  visitas hospitalarias e inyecciones intraoculares con una tasa de inflamación intraocular
+  comparable y baja.'
+candidatos:
+- dci: Faricimab (6.0 mg intravítreo extendido hasta cada 16 semanas)
+  atc: S01LA09
+  farmaco: FS:0033
+  veredicto: seleccionado
+  eficacia:
+    juicio: equivalente
+    sustento: 'En el ensayo TENAYA (PMID: 35085502), faricimab demostró no-inferioridad
+      frente a aflibercept en cambio de agudeza visual mejor corregida (BCVA) a la
+      semana 48 (+5.8 letras vs +5.1 letras; diferencia ajustada 0.7 letras, IC 95
+      % -1.1 a 2.5; NNT 1 para no-inferioridad), con un 77.8 % de pacientes manteniendo
+      intervalos de inyección de ≥ 12 semanas (45.7 % a 16 semanas y 34.0 % a 12 semanas).'
+    ref: pmid:35085502
+  seguridad:
+    juicio: equivalente
+    sustento: Tasas de inflamación intraocular (2.0 % vs 1.2 %) y endoftalmitis (<
+      0.5 %) comparables a los anti-VEGF estándar, sin incremento de toxicidad retiniana
+      ni vasculitis oclusiva severa.
+    ref: pmid:35085502
+  conveniencia:
+    juicio: superior
+    sustento: Permite espaciar las inyecciones intravítreas hasta intervalos de 12
+      o 16 semanas según actividad evaluada en OCT, reduciendo drásticamente la carga
+      de pinchazos oculares y visitas para ancianos y cuidadores.
+    ref: pmid:35085502
+  costo:
+    juicio: inferior
+    sustento: Biológico de alta tecnología con coste por vial elevado, compensado
+      en la gestión clínica por un menor número total de procedimientos invasivos
+      intravítreos anuales.
+    ref: pmid:35085502
+- dci: Aflibercept (2.0 mg intravítreo cada 8 semanas)
+  atc: S01LA05
+  veredicto: no_seleccionado
+  eficacia:
+    juicio: equivalente
+    sustento: Excelente ganancia visual (+5.1 letras en TENAYA), pero supeditada a
+      un régimen estricto de inyección obligatoria cada 8 semanas tras la fase de
+      carga.
+    ref: pmid:35085502
+  seguridad:
+    juicio: equivalente
+    sustento: Perfil de seguridad ocular contrastado y consolidado a largo plazo.
+    ref: pmid:35085502
+  conveniencia:
+    juicio: inferior
+    sustento: Exige inyecciones bimensuales continuas, duplicando la frecuencia de
+      actos invasivos respecto a la pauta cuatrimestral de faricimab.
+    ref: pmid:35085502
+  costo:
+    juicio: equivalente
+    sustento: Coste unitario por vial similar, pero mayor coste acumulado por año
+      por la mayor frecuencia de inyecciones y actos médicos requeridos.
+    ref: pmid:35085502

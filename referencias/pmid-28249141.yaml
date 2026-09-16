@@ -1,0 +1,58 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:28249141"
+clave_bibtex: kantarjian2017
+tipo: eca
+titulo: "Blinatumomab versus Chemotherapy for Advanced Acute Lymphoblastic Leukemia"
+autores:
+  - "Kantarjian H"
+  - "Stein A"
+  - "Gökbuget N"
+  - "Fielding AK"
+  - "Schuh AC"
+  - "Ribera JM"
+  - "Wei A"
+  - "Dombret H"
+  - "Foà R"
+  - "Bassan R"
+  - "Arslan Ö"
+  - "Sanz MA"
+  - "Bergeron J"
+  - "Demirkan F"
+  - "Lech-Maranda E"
+  - "Rambaldi A"
+  - "Thomas X"
+  - "Horst HA"
+  - "Brüggemann M"
+  - "Klapper W"
+  - "Wood BL"
+  - "Fleishman A"
+  - "Nagorsen D"
+  - "Holland C"
+  - "Zimmerman Z"
+  - "Topp MS"
+publicacion: "N Engl J Med"
+anio: 2017
+volumen: "376"
+numero: "9"
+paginas: "836-847"
+
+identificadores:
+  pmid: 28249141
+  doi: "10.1056/NEJMoa1609783"
+  pmc: "PMC5881572"
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

@@ -1,0 +1,156 @@
+# PARTE II — Farmacoterapia: cómo se usa el ribociclib con seguridad.
+id: 'FA:0020'
+tipo: farmacoterapia
+farmaco: 'FS:0020'
+
+titulo: Farmacoterapia con ribociclib
+titulo_en: Ribociclib pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad para inhibidores de CDK4/6 (ribociclib) en cáncer de mama avanzado:
+  monitorización estrecha de hemograma por neutropenia cíclica, control electrocardiográfico seriado del intervalo QTc,
+  evaluación bioquímica de la función hepática e interacciones farmacológicas dependientes de CYP3A4.
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Electrocardiograma basal de 12 derivaciones con cálculo de QTc (Fórmula de Fridericia)
+    motivo: >-
+      Comprobar que el QTc basal sea < 450 ms antes de la primera dosis; ribociclib prolonga de forma dosis-dependiente la repolarización ventricular.
+    responsable: especialista
+    ref: 'pmid:35263519'
+
+  - prueba: Electrolitos séricos basales (potasio, calcio, magnesio y fósforo)
+    motivo: >-
+      Corregir cualquier anomalía electrolítica antes del inicio para minimizar el riesgo de torsades de pointes y arritmias ventriculares.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Hemograma completo con recuento diferencial leucocitario y bioquímica hepática (ALT, AST, bilirrubina)
+    motivo: >-
+      Determinar valores basales previos por propensión a neutropenia y hepatotoxicidad medicamentosa temprana.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - ECG basal con cálculo de Fridericia (QTcF)
+      - Hemograma completo con fórmula
+      - Perfil hepático (ALT, AST, bilirrubina total)
+      - Iones (potasio, magnesio)
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Primeros 2 ciclos (primeras 8 semanas)
+    frecuencia: Hemograma cada 2 semanas; ECG y enzimas hepáticas en día 14 de ciclo 1 y día 1 de ciclo 2
+    pruebas:
+      - Hemograma completo en días 1 y 14 de los ciclos 1 y 2
+      - ECG el día 14 del ciclo 1 y al inicio del ciclo 2
+      - Pruebas de función hepática cada 2 semanas durante los primeros 2 ciclos
+    responsable: seguimiento
+    ref: 'pmid:35263519'
+
+  - fase: mantenimiento
+    periodo: A partir del ciclo 3 en adelante
+    frecuencia: Al inicio de cada ciclo de 28 días
+    pruebas:
+      - Hemograma completo antes de iniciar cada nuevo ciclo de tratamiento
+      - Pruebas de función hepática antes de cada ciclo durante los ciclos 3 a 6, luego según criterio clínico
+      - ECG periódico únicamente si se agregan fármacos que prolongan el QT o en caso de desequilibrio hidroelectrolítico
+    responsable: seguimiento
+    ref: 'fda:label'
+
+umbrales_accion:
+  - parametro: Neutropenia absoluta Grado 3 (RAN 500-1000/mcL)
+    umbral: Toxicidad hematológica Grado 3
+    accion: >-
+      Si no hay fiebre: interrumpir la dosis hasta que el RAN se recupere a ≥ 1000/mcL. Si es la primera vez, reanudar a la misma dosis (600 mg); si es recurrente, reducir un escalón de dosis a 400 mg/día.
+    ref: 'fda:label'
+
+  - parametro: Neutropenia absoluta Grado 4 (RAN < 500/mcL) o neutropenia febril
+    umbral: Emergencia hematológica
+    accion: >-
+      Suspender inmediatamente el tratamiento. Manejo antibiótico urgente si hay neutropenia febril. Al recuperar RAN ≥ 1000/mcL, reducir obligatoriamente la dosis al siguiente nivel (de 600 a 400 mg/día, o de 400 a 200 mg/día). Si no se tolera 200 mg/día, suspender definitivamente.
+    ref: 'fda:label'
+
+  - parametro: Prolongación del intervalo QTcF > 480 ms en cualquier momento
+    umbral: Prolongación significativa de la repolarización
+    accion: >-
+      Interrumpir ribociclib. Corregir hipopotasemia o hipomagnesemia si existen. Suspender medicamentos concomitantes que prolonguen el QT. Reanudar a dosis reducida de 400 mg solo cuando el QTcF descienda a < 481 ms.
+    ref: 'fda:label'
+
+  - parametro: Prolongación del intervalo QTcF > 500 ms o incremento de QTcF > 60 ms respecto al basal
+    umbral: Alto riesgo de arritmia ventricular / TdP
+    accion: >-
+      Interrumpir de inmediato ribociclib y realizar ECG continuo de monitorización. Si el QTcF se confirma > 500 ms en una segunda toma, suspender definitivamente ribociclib.
+    ref: 'fda:label'
+
+  - parametro: Elevación de transaminasas ALT/AST > 5 veces el límite superior normal (Grado 3)
+    umbral: Hepatotoxicidad farmacológica Grado 3
+    accion: >-
+      Interrumpir ribociclib hasta que las transaminasas desciendan a ≤ 2.5 veces el LSN. Reanudar con un escalón de reducción de dosis. Si se acompaña de bilirrubina > 2 veces el LSN sin colestasis (criterio de Ley de Hy), suspender definitivamente.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Inhibidores potentes de CYP3A4 (claritromicina, ketoconazol, itraconazol, ritonavir, zumo de pomelo)
+    gravedad: mayor
+    efecto: Aumento drástico de la exposición sistémica a ribociclib, con alto riesgo de neutropenia letal y prolongación del QT.
+    conducta: Evitar la administración concomitante. Si no puede sustituirse, reducir la dosis de ribociclib a 200 mg una vez al día.
+    ref: 'fda:label'
+
+  - con: Inductores potentes de CYP3A4 (rifampicina, carbamazepina, fenitoína, hierba de San Juan)
+    gravedad: mayor
+    efecto: Disminución de más del 80 % de los niveles plasmáticos de ribociclib con pérdida completa de la eficacia antitumoral.
+    conducta: Evitar estrictamente la coadministración.
+    ref: 'fda:label'
+
+  - con: Medicamentos que prolongan el intervalo QT (antiarrítmicos clase IA/III, haloperidol, citalopram, domperidona, cloroquina)
+    gravedad: mayor
+    efecto: Sumación del riesgo arrítmico ventricular y riesgo de taquicardia ventricular polimórfica (TdP).
+    conducta: Evitar la combinación; sustituir por alternativas que no alteren el intervalo QT.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Ribociclib es embriotóxico y teratogénico basado en su mecanismo de acción antiproliferativo sobre el ciclo celular. Se debe exigir prueba de embarazo negativa antes del inicio y uso de métodos anticonceptivos eficaces durante el tratamiento y hasta al menos 21 días tras la última dosis.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desconoce si pasa a la leche humana pero presenta riesgo de reacciones adversas graves en el lactante por inmunosupresión. Se desaconseja amamantar durante el tratamiento y hasta 21 días tras la última toma.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Oncólogo médico prescribe el régimen cíclico (21 días on / 7 días off), ajusta reducciones de dosis (600 -> 400 -> 200 mg/día) y evalúa la respuesta tumoral por imagen.
+  seguimiento: >-
+    Supervisa los hemogramas quincenales iniciales y mensuales posteriores; detecta fiebre en paciente neutropénico o síncope/palpitaciones para derivación inmediata a urgencias.
+  suspension_inmediata:
+    - Neutropenia febril (temperatura ≥ 38.3 °C con RAN < 1000/mcL)
+    - Síncope, mareo presincopal o palpitaciones con QTcF > 500 ms en ECG
+    - Ictericia clínica o elevación de transaminasas > 5 veces el LSN
+    - Sospecha de enfermedad pulmonar intersticial / neumonitis por CDK4/6
+  ref: 'pmid:35263519'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: 'Ribociclib (600 mg/día, 3 sem on / 1 sem off) + inhibidor de aromatasa (letrozol 2.5 mg/día o anastrozol 1 mg/día).'
+    - linea: segunda
+      opciones: 'Fulvestrant solo o en combinación con inhibidor de PI3K / AKT o cambio de línea endocrina tras progresión.'
+  ref: 'pmid:35263519'
+
+refs:
+  - 'pmid:35263519'
+  - 'fda:label'

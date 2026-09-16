@@ -1,0 +1,118 @@
+id: 'FT:0023'
+tipo: ficha
+farmaco: 'FS:0021'
+seleccion: 'SEL:0013'
+titulo: Ofatumumab en la esclerosis múltiple remitente-recurrente activa
+indicacion: Tratamiento de pacientes adultos con formas recurrentes de esclerosis múltiple con enfermedad activa
+indicacion_en: Treatment of adults with relapsing forms of multiple sclerosis with active disease
+poblacion: Adultos con diagnóstico confirmado de esclerosis múltiple remitente-recurrente con brotes recientes o lesiones activas en RM
+cie11: 8A40.0
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Anticuerpo anti-CD20 totalmente humano autoadministrable por vía subcutánea: pauta de carga de 20 mg en semanas 0, 1 y 2,
+    seguida de mantenimiento mensual de 20 mg SC en domicilio. Reduce a la mitad la tasa anualizada de brotes frente a teriflunomida
+    (ARR 0.11 vs 0.22; p < 0.001; NNT 9 anual) y retrasa el avance de la discapacidad a 6 meses (NNT 26 a 2.5 años).
+  alerta_seguridad_inmediata: >-
+    Descartar infección activa o latente por virus de la hepatitis B (HBsAg y anti-HBc) antes de iniciar.
+    Completar esquema de vacunación antes de la primera dosis; no administrar vacunas de virus vivos durante el tratamiento.
+
+pico:
+  p: Adultos con esclerosis múltiple remitente-recurrente activa (N=1882)
+  i: Ofatumumab 20 mg por vía subcutánea mensual (tras dosis de carga)
+  c: Teriflunomida 14 mg por vía oral una vez al día
+  o: Tasa anualizada de brotes (ARR), empeoramiento de discapacidad confirmado a 3 y 6 meses, y lesiones activas en RM
+
+posologia:
+  inicio: 20 mg mediante inyección subcutánea en las semanas 0 (día 1), 1 (día 7) y 2 (día 14)
+  escalado: Descanso en la semana 3; primera dosis mensual regular a partir de la semana 4
+  mantenimiento: 20 mg por vía subcutánea una vez al mes mediante autoinyector Sensoready
+  maxima: 20 mg al mes
+  ajuste_renal: No requiere ajuste en insuficiencia renal o hepática
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Tasa anualizada de brotes (ARR) a 1.6 años de seguimiento medio
+    criticidad: critico
+    efecto: 'Reducción relativa superior al 50 % en la tasa de brotes en ambos ensayos: 0.11 vs 0.22 en ensayo 1 y 0.10 vs 0.25 en ensayo 2 (p < 0.001 en ambos)'
+    rra: '11.0%'
+    rrr: '50.0%'
+    nnt: 9
+    horizonte_nnt: a 1 año
+    diseno: eca
+    estudio: ASCLEPIOS I/II (2020)
+    comparador: Teriflunomida 14 mg oral al día
+    n: 1882
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32757523'
+
+  - desenlace: Empeoramiento de la discapacidad confirmado a los 6 meses
+    criticidad: critico
+    efecto: 'Reducción del 32 % en el riesgo de progresión de discapacidad confirmada a 6 meses (8.1 % vs 12.0 %; HR 0.68, IC 95 % 0.50–0.92; p = 0.01)'
+    rra: '3.9%'
+    rrr: '32.5%'
+    nnt: 26
+    horizonte_nnt: a 2.5 años
+    diseno: eca
+    estudio: ASCLEPIOS I/II (2020)
+    comparador: Teriflunomida oral
+    n: 1882
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32757523'
+
+  - desenlace: Reacciones sistémicas asociadas a la primera inyección
+    criticidad: importante
+    efecto: 'Síntomas pseudogripales autolimitados en la primera inyección más frecuentes que con placebo inyectable (20.2 % vs 15.0 %); baja incidencia en dosis posteriores'
+    rra: '5.2%'
+    rrr: '34.7%'
+    nnt: 19
+    horizonte_nnt: a primera inyeccion
+    diseno: eca
+    estudio: ASCLEPIOS I/II (2020)
+    comparador: Inyección de placebo
+    n: 1882
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:32757523'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda ofatumumab subcutáneo mensual (20 mg SC) en pacientes adultos con esclerosis múltiple remitente-recurrente activa,
+    dada su superioridad contundente frente a comparadores orales clásicos en reducción de brotes (NNT 9 anual) y prevención del avance de la discapacidad,
+    con la ventaja de autoadministración domiciliaria sin requerir infusiones hospitalarias.
+  ref: 'pmid:32757523'
+
+conclusion: >-
+  Ofatumumab redefine el tratamiento de alta eficacia en la esclerosis múltiple al combinar la potencia de depleción de células B de los anti-CD20
+  con la conveniencia y autonomía de la vía subcutánea mensual en el hogar.
+
+guias:
+  - organizacion: ECTRIMS / EAN
+    anio: 2023
+    titulo: 'ECTRIMS/EAN Guideline on the pharmacological treatment of people with multiple sclerosis'
+    posicion: 'Recomienda ofrecer terapias de alta eficacia (incluyendo anticuerpos anti-CD20 como ofatumumab) tempranamente a pacientes con enfermedad activa.'
+    cita: 'ECTRIMS Multiple Sclerosis Guideline'
+
+refs:
+  - 'pmid:32757523'
+  - 'fda:label'

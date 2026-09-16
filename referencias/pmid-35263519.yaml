@@ -1,0 +1,51 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:35263519"
+clave_bibtex: hortobagyi2022
+tipo: eca
+titulo: "Overall Survival with Ribociclib plus Letrozole in Advanced Breast Cancer"
+autores:
+  - "Hortobagyi GN"
+  - "Stemmer SM"
+  - "Burris HA"
+  - "Yap YS"
+  - "Sonke GS"
+  - "Hart L"
+  - "Campone M"
+  - "Petrakova K"
+  - "Winer EP"
+  - "Janni W"
+  - "Conte P"
+  - "Cameron DA"
+  - "André F"
+  - "Arteaga CL"
+  - "Zarate JP"
+  - "Chakravartty A"
+  - "Taran T"
+  - "Le Gac F"
+  - "Serra P"
+  - "O'Shaughnessy J"
+publicacion: "N Engl J Med"
+anio: 2022
+volumen: "386"
+numero: "10"
+paginas: "942-950"
+
+identificadores:
+  pmid: 35263519
+  doi: "10.1056/NEJMoa2114663"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

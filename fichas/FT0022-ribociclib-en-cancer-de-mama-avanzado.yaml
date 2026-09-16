@@ -1,0 +1,119 @@
+id: 'FT:0022'
+tipo: ficha
+farmaco: 'FS:0020'
+seleccion: 'SEL:0012'
+titulo: Ribociclib en el cáncer de mama metastásico hormonosensible HER2-negativo
+indicacion: Cáncer de mama localmente avanzado o metastásico HR+/HER2- en primera línea en combinación con un inhibidor de aromatasa
+indicacion_en: First-line HR-positive, HER2-negative advanced breast cancer with aromatase inhibitor
+poblacion: Mujeres adultas posmenopáusicas con cáncer de mama metastásico HR+/HER2- no tratadas previamente con terapia endocrina sistémica
+cie11: 2C61
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Inhibidor selectivo de CDK4/6 con prolongación comprobada de la supervivencia global: 600 mg al día por vía oral
+    (pauta cíclica 21 días de tratamiento y 7 días de descanso) asociado a letrozol (2.5 mg/día).
+    Añade más de un año a la mediana de supervivencia global (63.9 vs 51.4 meses; HR 0.76, p = 0.008; RRA 11.4 %, NNT 9 a 6.6 años).
+  alerta_seguridad_inmediata: >-
+    Realizar ECG basal y en día 14 del ciclo 1 para monitorizar el intervalo QTcF.
+    Suspender temporalmente si QTcF > 480 ms y definitivamente si > 500 ms. Control de hemograma quincenal en primeros 2 ciclos.
+
+pico:
+  p: Mujeres posmenopáusicas con cáncer de mama avanzado HR+/HER2- sin terapia previa (N=668)
+  i: Ribociclib 600 mg/día (pauta 21 días on / 7 días off) más letrozol 2.5 mg/día continuo
+  c: Placebo cíclico más letrozol 2.5 mg/día continuo
+  o: Supervivencia libre de progresión (SLP), supervivencia global (SG) y tolerabilidad
+
+posologia:
+  inicio: 600 mg por vía oral una vez al día (tres comprimidos de 200 mg) durante 21 días consecutivos, seguidos de 7 días sin tratamiento (ciclo de 28 días)
+  escalado: Dosis completa de inicio; no requiere escalado
+  mantenimiento: 600 mg al día en pauta cíclica 3 semanas on / 1 semana off
+  maxima: 600 mg al día (reducciones secuenciales a 400 mg/día y 200 mg/día en caso de toxicidad)
+  ajuste_renal: No requiere ajuste en insuficiencia renal leve o moderada; dosis inicial de 400 mg/día en insuficiencia renal grave (TFGe < 30 mL/min).
+  ajuste_hepatico: Dosis inicial reducida a 400 mg/día en pacientes con insuficiencia hepática moderada o grave (Child-Pugh B o C).
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Supervivencia global a los 6.6 años de seguimiento mediano (SG final MONALEESA-2)
+    criticidad: critico
+    efecto: 'Prolongación de más de 12 meses en la mediana de SG (63.9 vs 51.4 meses; HR 0.76, IC 95 % 0.63–0.93; p = 0.008; mortalidad 54.2 % vs 65.6 %)'
+    rra: '11.4%'
+    rrr: '17.4%'
+    nnt: 9
+    horizonte_nnt: a 6.6 años
+    diseno: eca
+    estudio: MONALEESA-2 (2022)
+    comparador: Placebo más letrozol
+    n: 668
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:35263519'
+
+  - desenlace: Neutropenia Grado 3 o 4 (mielosupresión reversible por inhibición de CDK4/6)
+    criticidad: importante
+    efecto: 'Tasa notablemente superior en el grupo ribociclib (63.8 % vs 1.2 % con placebo, con neutropenia febril infrecuente < 2 %)'
+    rra: '62.6%'
+    rrr: '98.1%'
+    nnt: 2
+    horizonte_nnt: a 2 años
+    diseno: eca
+    estudio: MONALEESA-2 (2022)
+    comparador: Placebo más letrozol
+    n: 668
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:35263519'
+
+  - desenlace: Prolongación del intervalo QTcF > 480 ms posbasal
+    criticidad: importante
+    efecto: 'Incidencia del 4.5 % con ribociclib frente al 2.1 % con placebo; prolongación de QTcF > 500 ms en 3.3 %'
+    rra: '2.4%'
+    rrr: '53.3%'
+    nnt: 42
+    horizonte_nnt: a 2 años
+    diseno: eca
+    estudio: MONALEESA-2 (2022)
+    comparador: Placebo más letrozol
+    n: 668
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:35263519'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda fuertemente ribociclib (600 mg/día, 21 días on / 7 días off) en combinación con un inhibidor de la aromatasa (letrozol)
+    como tratamiento de primera línea en pacientes con cáncer de mama avanzado HR+/HER2-, dado su beneficio estadísticamente demostrado
+    en supervivencia global (> 12 meses añadidos, NNT 9), condicionando el tratamiento a la monitorización del intervalo QTc y hemogramas seriados.
+  ref: 'pmid:35263519'
+
+conclusion: >-
+  Ribociclib asociado a letrozol representa un estándar de excelencia en cáncer de mama metastásico HR+/HER2- al superar por primera vez
+  los 5 años de mediana de supervivencia global (NNT 9 en SG), con toxicidad neutropénica predecible y protocolo estricto de seguridad cardiovascular.
+
+guias:
+  - organizacion: ESMO / ASCO
+    anio: 2023
+    titulo: 'ESMO Clinical Practice Guideline for the diagnosis, staging and treatment of patients with metastatic breast cancer'
+    posicion: 'Los inhibidores de CDK4/6 combinados con terapia endocrina son el estándar de primera línea preferente en cáncer de mama avanzado HR+/HER2-.'
+    cita: 'ESMO Advanced Breast Cancer Guidelines'
+
+refs:
+  - 'pmid:35263519'
+  - 'fda:label'

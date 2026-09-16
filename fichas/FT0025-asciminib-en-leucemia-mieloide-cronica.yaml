@@ -1,0 +1,119 @@
+id: 'FT:0025'
+tipo: ficha
+farmaco: 'FS:0023'
+seleccion: 'SEL:0015'
+titulo: Asciminib en la leucemia mieloide crónica resistente a dos o más inhibidores de tirosina quinasa
+indicacion: Leucemia mieloide crónica con cromosoma Filadelfia en fase crónica en pacientes tratados previamente con dos o más TKI
+indicacion_en: Philadelphia chromosome-positive chronic myeloid leukemia in chronic phase treated with two or more TKIs
+poblacion: Adultos con LMC en fase crónica resistentes o intolerantes a ≥ 2 inhibidores de tirosina quinasa previos
+cie11: 2A71.0
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Inhibidor alostérico STAMP del bolsillo de miristoilo de BCR::ABL1: 40 mg por vía oral cada 12 horas en ayunas riguroso.
+    Casi duplica la tasa de respuesta molecular mayor a la semana 24 frente a bosutinib (25.5 % vs 13.2 %; p = 0.029; RRA 12.3 %, NNT 8 a 24 semanas)
+    y reduce drásticamente las interrupciones por toxicidad a un tercio (5.8 % vs 21.1 %; NNT de toxicidad evitada 7).
+  alerta_seguridad_inmediata: >-
+    Toma oral obligatoria con el estómago vacío (al menos 2 horas antes y 1 hora después de cualquier ingesta calórica).
+    Monitorizar amilasa y lipasa pancreáticas; suspender si lipasa > 2 veces el LSN o sospecha de pancreatitis aguda.
+
+pico:
+  p: Adultos con LMC en fase crónica multitratados con fracaso a ≥ 2 TKIs previos (N=233)
+  i: Asciminib 40 mg por vía oral dos veces al día en ayunas
+  c: Bosutinib 500 mg por vía oral una vez al día con alimentos
+  o: Respuesta molecular mayor (RMM, BCR::ABL1 ≤ 0.1 %) a la semana 24, seguridad y abandonos por efectos adversos
+
+posologia:
+  inicio: 40 mg por vía oral dos veces al día (cada 12 horas aproximadamente) en ayunas estricto (o 80 mg una vez al día)
+  escalado: Dosis plena de inicio; en caso de mutación T315I se titula a 200 mg dos veces al día
+  mantenimiento: 40 mg dos veces al día de forma continuada hasta pérdida de respuesta o toxicidad
+  maxima: 80 mg al día en LMC sin mutación T315I (400 mg/día en portadores de T315I)
+  ajuste_renal: No requiere ajuste en insuficiencia renal leve o moderada
+  ajuste_hepatico: No requiere ajuste en insuficiencia hepática leve, moderada o grave
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Respuesta molecular mayor (RMM, BCR::ABL1 ≤ 0.1 % en Escala Internacional) a la semana 24
+    criticidad: critico
+    efecto: 'Tasa casi duplicada con asciminib frente a bosutinib: 25.5 % vs 13.2 % (diferencia ajustada 12.2 %, IC 95 % 2.19–22.30; p = 0.029 en ASCEMBL)'
+    rra: '12.3%'
+    rrr: '48.2%'
+    nnt: 8
+    horizonte_nnt: a 24 semanas
+    diseno: eca
+    estudio: ASCEMBL (2021)
+    comparador: Bosutinib 500 mg oral al día
+    n: 233
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:34407542'
+
+  - desenlace: Discontinuación permanente del tratamiento por acontecimientos adversos
+    criticidad: critico
+    efecto: 'Tasa de abandono por toxicidad tres veces menor con asciminib que con bosutinib: 5.8 % frente al 21.1 % (RRA 15.3 %)'
+    rra: '15.3%'
+    rrr: '72.5%'
+    nnt: 7
+    horizonte_nnt: a 15 meses
+    diseno: eca
+    estudio: ASCEMBL (2021)
+    comparador: Bosutinib 500 mg al día
+    n: 233
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:34407542'
+
+  - desenlace: Trombocitopenia Grado ≥ 3 (toxicidad hematológica limitante)
+    criticidad: importante
+    efecto: 'Incidencia del 22.4 % con asciminib frente al 9.2 % con bosutinib (habitualmente manejable con interrupción transitoria o reducción a 20 mg bid)'
+    rra: '13.2%'
+    rrr: '58.9%'
+    nnt: 8
+    horizonte_nnt: a 15 meses
+    diseno: eca
+    estudio: ASCEMBL (2021)
+    comparador: Bosutinib
+    n: 233
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:34407542'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda asciminib oral (40 mg cada 12 horas en ayunas) en pacientes adultos con leucemia mieloide crónica en fase crónica
+    previamente tratados con dos o más inhibidores de tirosina quinasa, por su superioridad en respuesta molecular mayor (NNT 8 a 24 semanas)
+    y su perfil de seguridad notablemente superior con menor tasa de discontinuación por toxicidad frente a bosutinib.
+  ref: 'pmid:34407542'
+
+conclusion: >-
+  Asciminib ofrece una solución terapéutica alostérica de alta especificidad para pacientes con LMC multirresistente,
+  superando la resistencia cruzada de los inhibidores tradicionales del sitio del ATP con una tolerabilidad clínica sin precedentes (NNT de toxicidad evitada 7).
+
+guias:
+  - organizacion: ELN / NCCN
+    anio: 2023
+    titulo: 'European LeukemiaNet (ELN) recommendations for managing chronic myeloid leukemia'
+    posicion: 'Asciminib se posiciona como el inhibidor de tercera línea preferente tras fracaso o intolerancia a ≥ 2 TKIs, así como en pacientes con mutación T315I.'
+    cita: 'ELN CML Recommendations'
+
+refs:
+  - 'pmid:34407542'
+  - 'fda:label'

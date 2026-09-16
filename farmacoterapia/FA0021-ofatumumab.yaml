@@ -1,0 +1,134 @@
+# PARTE II — Farmacoterapia: cómo se usa el ofatumumab con seguridad.
+id: 'FA:0021'
+tipo: farmacoterapia
+farmaco: 'FS:0021'
+
+titulo: Farmacoterapia con ofatumumab
+titulo_en: Ofatumumab pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad para la administración subcutánea de ofatumumab en esclerosis múltiple:
+  pauta de carga domiciliaria, cribado de virus de la hepatitis B, control de inmunoglobulinas séricas (IgG/IgM),
+  manejo de reacciones asociadas a la inyección y vigilancia de infecciones oportunistas y leucoencefalopatía multifocal progresiva (LMP).
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Serología completa para el virus de la hepatitis B (HBsAg y anticuerpos anti-HBc totales)
+    motivo: >-
+      Riesgo de reactivación fulminante de hepatitis B inducida por agentes anti-CD20; contraindicado en presencia de infección activa por VHB. En pacientes anti-HBc positivos, consultar con hepatólogo para profilaxis con entecavir antes de la primera dosis.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Niveles basales de inmunoglobulinas séricas (cuantificación de IgG e IgM)
+    motivo: >-
+      La depleción crónica de células B puede provocar hipogammaglobulinemia con mayor susceptibilidad a infecciones bacterianas respiratorias graves.
+    responsable: especialista
+    ref: 'pmid:32757523'
+
+  - prueba: Estado vacunal completo (completar vacunas de virus vivos atenuados al menos 4 semanas antes y vacunas inactivadas al menos 2 semanas antes)
+    motivo: >-
+      La respuesta humoral a vacunas queda severamente comprometida una vez instaurada la depleción de células B.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Serología VHB (HBsAg, anti-HBc) y VHC
+      - Hemograma con recuento de neutrófilos y linfocitos
+      - Cuantificación sérica de IgG e IgM
+      - Resonancia magnética basal cerebral con gadolinio
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Primer mes de tratamiento (semanas 0, 1, 2 y 4)
+    frecuencia: En cada inyección de carga y primera mensual
+    pruebas:
+      - Adiestramiento del paciente en técnica de inyección subcutánea en abdomen o muslo
+      - Detección de reacciones sistémicas a la inyección (fiebre, cefalea, mialgias) y uso de paracetamol o antihistamínicos preventivos
+    responsable: seguimiento
+    ref: 'pmid:32757523'
+
+  - fase: mantenimiento
+    periodo: Tratamiento crónico continuado
+    frecuencia: Cada 6 a 12 meses
+    pruebas:
+      - Cuantificación anual de inmunoglobulinas séricas (IgG e IgM)
+      - Hemograma completo periódico
+      - Detección proactiva de signos neurológicos atípicos nuevos que sugieran LMP (leucoencefalopatía multifocal progresiva por virus JC)
+    responsable: seguimiento
+    ref: 'pmid:32757523'
+
+umbrales_accion:
+  - parametro: Infección bacteriana, fúngica o viral activa grave
+    umbral: Infección clínica aguda severa
+    accion: Posponer o suspender la dosis mensual de ofatumumab hasta que la infección esté totalmente resuelta y tratada.
+    ref: 'fda:label'
+
+  - parametro: Descenso de IgG sérica por debajo del límite inferior normal con infecciones respiratorias recurrentes
+    umbral: Hipogammaglobulinemia sintomática
+    accion: Suspender temporalmente ofatumumab; valoración por inmunología para considerar infusión sustitutiva de inmunoglobulinas intravenosas o subcutáneas.
+    ref: 'fda:label'
+
+  - parametro: Sospecha clínica o radiológica de leucoencefalopatía multifocal progresiva (LMP)
+    umbral: Nuevos déficits neurológicos asimétricos progresivos no atribuibles a brote de EM
+    accion: Suspender de inmediato y de forma definitiva ofatumumab; realizar RM cerebral urgente y punción lumbar con PCR para virus JC en líquido cefalorraquídeo.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Otros tratamientos inmunomoduladores o inmunosupresores biológicos para la EM (natalizumab, fingolimod, ocrelizumab)
+    gravedad: mayor
+    efecto: Inmunosupresión profunda aditiva y riesgo exponencial de infecciones oportunistas graves.
+    conducta: Evitar la combinación; respetar periodos de lavado biológico adecuados según la vida media del fármaco previo.
+    ref: 'fda:label'
+
+  - con: Vacunas de virus vivos o vivos atenuados (fiebre amarilla, sarampión, triple vírica, varicela)
+    gravedad: mayor
+    efecto: Riesgo de infección vacunal diseminada por incapacidad de generar respuesta humoral neutralizante.
+    conducta: No administrar durante el tratamiento con ofatumumab ni hasta la recuperación confirmada del recuento de linfocitos B.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: evitar
+    enunciado: >-
+      Los anticuerpos IgG1 atraviesan la placenta a partir del segundo trimestre, causando depleción de células B en el feto y recién nacido. Se recomienda evitar el embarazo y usar métodos anticonceptivos eficaces durante el tratamiento y hasta al menos 6 meses después de la última dosis.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      La excreción de inmunoglobulinas en la leche materna es escasa y se degrada en el tracto gastrointestinal del lactante; valorar riesgo-beneficio individual.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Neurólogo especialista prescribe, confirma criterios diagnósticos de EMRR activa, comprueba serología de hepatitis B y evalúa la respuesta por resonancia magnética periódica.
+  seguimiento: >-
+    Enfermería comunitaria o farmacia ambulatoria educa en la técnica aséptica de punción del autoinyector (pluma precargada Sensoready) y vigila la conservación a 2-8 °C protegida de la luz.
+  suspension_inmediata:
+    - Reacción anafiláctica o angioedema severo post-inyección
+    - Reactivación documentada de virus de la hepatitis B
+    - Sospecha clínica de leucoencefalopatía multifocal progresiva (LMP)
+    - Sepsis o infección sistémica grave no controlada
+  ref: 'pmid:32757523'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: 'Ofatumumab 20 mg SC mensual (tras pauta de carga) en pacientes con EMRR con actividad clínica o radiológica alta o preferente de inicio.'
+    - linea: segunda
+      opciones: 'Cambio de línea a agentes de mecanismo alternativo si hay fracaso terapéutico o intolerancia.'
+  ref: 'pmid:32757523'
+
+refs:
+  - 'pmid:32757523'
+  - 'fda:label'

@@ -1,0 +1,56 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:32757523"
+clave_bibtex: hauser2020
+tipo: eca
+titulo: "Ofatumumab versus Teriflunomide in Multiple Sclerosis"
+autores:
+  - "Hauser SL"
+  - "Bar-Or A"
+  - "Cohen JA"
+  - "Comi G"
+  - "Correale J"
+  - "Coyle PK"
+  - "Cross AH"
+  - "de Seze J"
+  - "Leppert D"
+  - "Montalban X"
+  - "Selmaj K"
+  - "Wiendl H"
+  - "Kerloeguen C"
+  - "Willi R"
+  - "Li B"
+  - "Kakarieka A"
+  - "Tomic D"
+  - "Goodyear A"
+  - "Pingili R"
+  - "Häring DA"
+  - "Ramanathan K"
+  - "Merschhemke M"
+  - "Kappos L"
+  - "ASCLEPIOS I and ASCLEPIOS II Trial Groups"
+publicacion: "N Engl J Med"
+anio: 2020
+volumen: "383"
+numero: "6"
+paginas: "546-557"
+
+identificadores:
+  pmid: 32757523
+  doi: "10.1056/NEJMoa1917246"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

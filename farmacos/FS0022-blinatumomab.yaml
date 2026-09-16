@@ -1,0 +1,73 @@
+id: 'FS:0022'
+tipo: farmaco
+dci: Blinatumomab
+dci_en: Blinatumomab
+sinonimos:
+  - Blincyto
+  - AMG103
+  - MT103
+
+atc: L01FX07
+clase_farmacologica: Anticuerpo biespecífico acoplador de células T (BiTE CD19/CD3) antineoplásico
+clase_farmacologica_en: Bispecific T-cell engager (BiTE) antibody
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '1597258'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Constructor biespecífico de cadena única (BiTE, Bispecific T-cell Engager) que une de forma simultánea y transitoria
+  el antígeno CD19 presente en la superficie de los linfocitos B y blastos leucémicos de estirpe B, y el receptor CD3
+  del complejo del receptor de células T (TCR) en los linfocitos T citotóxicos. Esta aproximación física induce una sinapsis
+  inmunológica artificial que desencadena la activación policlonal del linfocito T, la liberación de perforinas y granzimas,
+  y la lisis selectiva de la célula leucémica diana de forma independiente del complejo mayor de histocompatibilidad (MHC).
+mecanismo_ref: 'pmid:28249141'
+
+farmacocinetica:
+  eliminacion: 'Catabolismo proteico rápido en péptidos pequeños sin implicación hepática CYP ni aclaramiento renal activo'
+  vida_media: 'Extremadamente corta, aproximadamente 2.1 horas'
+  implicacion: >-
+    Debido a su rápida eliminación plasmática, requiere administración en infusión intravenosa continua (IVC)
+    durante 28 días ininterrumpidos por ciclo (mediante bomba de infusión portátil ambulatoria con bolsa de 24, 48 o 96 horas).
+    Requiere escalado de dosis obligatorio en ciclo 1 (9 mcg/día días 1-7, luego 28 mcg/día días 8-28) y premedicación con
+    dexametasona para prevenir el síndrome de liberación de citoquinas (SLC).
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Síndrome de liberación de citoquinas (SLC / CRS)
+      frecuencia: muy_frecuente
+      gravedad: grave
+      nota: >-
+        Reacción inflamatoria sistémica severa (fiebre alta, taquicardia, hipotensión, hipoxia) mediada por liberación masiva de IL-6, TNF-alfa e IFN-gamma tras la activación inicial de células T; exige escalado escalonado de dosis, premedicación con dexametasona y disponibilidad inmediata de tocilizumab.
+      ref: 'pmid:28249141'
+    - evento: Toxicidad neurológica / ICANS (síndrome de neurotoxicidad asociado a células efectoras inmunes)
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Encefalopatía, afasia, temblor, convulsiones y confusión (grado ≥3 en ~9%); reversible con interrupción temporal de la infusión y dexametasona a dosis altas.
+      ref: 'pmid:28249141'
+    - evento: Citopenias e infecciones secundarias
+      frecuencia: muy_frecuente
+      gravedad: grave
+      nota: >-
+        Neutropenia febril, trombocitopenia e infecciones oportunistas por hipogammaglobulinemia secundaria a depleción prolongada de células B sanas (CD19+); monitorizar hemograma y valorar inmunoglobulina humana sustitutiva.
+      ref: 'pmid:28249141'
+    - evento: Fiebre y cefalea
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Eventos comunes durante los primeros días de cada ciclo de infusión; ceden habitualmente con paracetamol.
+      ref: 'pmid:28249141'

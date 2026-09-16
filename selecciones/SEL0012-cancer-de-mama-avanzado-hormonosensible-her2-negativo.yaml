@@ -1,0 +1,97 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0012'
+tipo: seleccion
+problema: Cáncer de mama avanzado con receptores hormonales positivos y HER2 negativo en primera línea
+problema_en: First-line hormone receptor-positive, HER2-negative advanced breast cancer
+cie11: 2C61
+
+poblacion: >-
+  Mujeres posmenopáusicas (o pre/perimenopáusicas con supresión ovárica) con cáncer de mama localmente avanzado
+  o metastásico con receptores hormonales positivos (HR+) y receptor 2 del factor de crecimiento epidérmico humano
+  negativo (HER2-), no tratadas previamente con terapia sistémica para la enfermedad metastásica.
+
+pregunta: >-
+  En pacientes con cáncer de mama metastásico HR+/HER2- en primera línea, ¿qué inhibidor de CDK4/6 añadido a la terapia
+  endocrina (inhibidor de aromatasa no esteroideo) se selecciona para prolongar de forma estadísticamente significativa
+  la supervivencia libre de progresión y la supervivencia global manteniendo la calidad de vida?
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  La combinación de un inhibidor de CDK4/6 (ribociclib, palbociclib, abemaciclib) con terapia endocrina constituye el estándar
+  indiscutible de tratamiento de primera línea en cáncer de mama avanzado HR+/HER2-. Sin embargo, mientras que todos prolongan
+  la supervivencia libre de progresión, ribociclib demostró en el ensayo MONALEESA-2 una prolongación sin precedentes y estadísticamente
+  significativa de la supervivencia global superior a 12 meses frente a letrozol en monoterapia.
+
+estrategia:
+  - base: PubMed
+    consulta: 'ribociclib AND letrozole AND advanced breast cancer AND MONALEESA-2 AND overall survival'
+    fecha: '2026-09-16'
+    nota: 'Ensayo clínico pivotal MONALEESA-2 con análisis final de supervivencia global (PMID: 35263519).'
+
+criterio_decisorio: >-
+  Se selecciona el inhibidor de CDK4/6 que demuestre beneficio contundente y estadísticamente significativo en supervivencia
+  global (el desenlace final más crítico en oncología médica) con un perfil de toxicidad manejable mediante monitorización protocolizada.
+
+conclusion: >-
+  Ribociclib queda seleccionado como el inhibidor de CDK4/6 preferente en primera línea de cáncer de mama avanzado HR+/HER2-:
+  añadido a letrozol, prolonga la mediana de supervivencia global de 51.4 a 63.9 meses (+12.5 meses; HR 0.76, p = 0.008; RRA 11.4%, NNT 9 a 6.6 años),
+  convirtiéndose en la primera combinación en superar los 5 años de mediana de supervivencia en esta población,
+  a expensas de toxicidad hematológica (neutropenia) reversible y monitorización electrocardiográfica del intervalo QTc.
+
+candidatos:
+  - dci: Ribociclib
+    atc: L01EF02
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        En el ensayo MONALEESA-2 (Hortobagyi 2022), la adición de ribociclib a letrozol redujo el riesgo de muerte en un 24 %
+        (HR 0.76, IC 95% 0.63-0.93; p = 0.008), con una mediana de supervivencia global de 63.9 meses vs 51.4 meses (RRA 11.4%, NNT 9 a 6.6 años).
+      ref: 'pmid:35263519'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Neutropenia grado 3/4 frecuente (~60%) pero de etiología medular no mielodisplásica (baja tasa de neutropenia febril < 2%);
+        requiere control electrocardiográfico del intervalo QTc y bioquímica hepática quincenal inicial.
+      ref: 'pmid:35263519'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Toma oral de 600 mg una vez al día con pauta cíclica 3 semanas de tratamiento y 1 semana de descanso.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Coste de adquisición elevado propio de las terapias dirigidas, respaldado por el aumento clínicamente masivo en supervivencia global confirmada.
+      ref: 'pmid:35263519'
+
+  - dci: Letrozol (monoterapia endocrina)
+    atc: L02BG04
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Mediana de supervivencia global significativamente inferior (51.4 meses vs 63.9 meses con la combinación; mortalidad 65.6% vs 54.2%).
+      ref: 'pmid:35263519'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Ausencia de mielosupresión ni riesgo de prolongación del intervalo QTc.
+      ref: 'pmid:35263519'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Comprimido oral diario continuo sin necesidad de analíticas quincenales ni electrocardiogramas seriados.
+      ref: 'fda:label'
+    costo:
+      juicio: superior
+      sustento: >-
+        Bajo costo genérico directo, pero con resultados oncológicos subóptimos en la era de los inhibidores CDK4/6.
+      ref: 'pmid:35263519'

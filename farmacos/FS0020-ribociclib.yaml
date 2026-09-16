@@ -1,0 +1,70 @@
+id: 'FS:0020'
+tipo: farmaco
+dci: Ribociclib
+dci_en: Ribociclib
+sinonimos:
+  - Kisqali
+  - LEE011
+
+atc: L01EF02
+clase_farmacologica: Inhibidor selectivo de las quinasas dependientes de ciclinas 4 y 6 (CDK4/CDK6)
+clase_farmacologica_en: Cyclin-dependent kinase 4/6 (CDK4/6) inhibitor
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '1873916'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor oral selectivo y potente de las quinasas dependientes de ciclinas 4 y 6 (CDK4 y CDK6).
+  Al bloquear la formación del complejo ciclina D-CDK4/6, impide la fosforilación de la proteína del retinoblastoma (Rb),
+  deteniendo la progresión del ciclo celular desde la fase G1 a la fase S de síntesis de ADN, suprimiendo la proliferación
+  tumoral en carcinomas mamarios con expresión de receptores hormonales (HR+).
+mecanismo_ref: 'pmid:35263519'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático extenso mediado principalmente por CYP3A4; 69% excretado en heces y 24% en orina'
+  vida_media: 'Aproximadamente 32 a 55 horas'
+  implicacion: >-
+    Pauta cíclica de 600 mg (tres comprimidos de 200 mg) por vía oral una vez al día durante 21 días consecutivos
+    seguidos de 7 días de descanso (ciclo de 28 días). La pauta cíclica permite la recuperación de la médula ósea de la neutropenia.
+    Requiere ECG basal y en día 14 del ciclo 1 por riesgo de prolongación dosis-dependiente del intervalo QTc.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Neutropenia reversible no acumulativa
+      frecuencia: muy_frecuente
+      gravedad: grave
+      nota: >-
+        Efecto farmacodinámico de clase mediado por inhibición de precursores hematopoyéticos en médula ósea; neutropenia grado 3/4 en ~60% de pacientes, pero con baja tasa de neutropenia febril (<2-3%) que revierte con la semana de descanso o reducción de dosis.
+      ref: 'pmid:35263519'
+    - evento: Prolongación del intervalo QTc
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Efecto propio de la molécula de ribociclib (prolongación de QTc > 60 ms o QTc > 500 ms en 4-5%); requiere monitorización electrocardiográfica en ciclos 1 y 2, y corrección estricta de hipopotasemia e hipomagnesemia.
+      ref: 'pmid:35263519'
+    - evento: Hepatotoxicidad (elevación de transaminasas ALT/AST)
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Elevación grado 3/4 de transaminasas en ~10% de pacientes; exige control bioquímico hepático quincenal en los dos primeros ciclos.
+      ref: 'pmid:35263519'
+    - evento: Náuseas, fatiga y alopecia leve
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Habitualmente de grado 1 o 2, manejables sintomáticamente sin requerir suspensión definitiva.
+      ref: 'pmid:35263519'

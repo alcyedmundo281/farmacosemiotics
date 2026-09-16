@@ -1,0 +1,96 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0014'
+tipo: seleccion
+problema: Leucemia linfoblástica aguda de precursores B en recaída o refractaria
+problema_en: Relapsed or refractory B-cell precursor acute lymphoblastic leukemia
+cie11: 2A60.0
+
+poblacion: >-
+  Pacientes adultos con leucemia linfoblástica aguda (LLA) de precursores de células B con expresión de CD19,
+  en recaída o refractarios (R/R) a quimioterapia convencional intensiva de primera línea o de rescate, independientemente del estatus de cromosoma Filadelfia.
+
+pregunta: >-
+  En adultos con LLA de estirpe B en recaída o refractaria, ¿qué aproximación de inmunoterapia dirigida (biespecífico BiTE CD19/CD3)
+  se selecciona frente a los regímenes de poliquimioterapia estándar de rescate para incrementar la tasa de remisiones completas y prolongar la supervivencia global como puente al trasplante alogénico?
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Los adultos con LLA B en recaída o refractaria tratados con esquemas tradicionales de poliquimioterapia intensiva (FLAG-Ida, hiper-CVAD)
+  presentan un pronóstico infausto, con tasas de remisión completa inferiores al 25%, alta mortalidad por toxicidad y medianas de supervivencia
+  global de apenas 3 a 4 meses. Blinatumomab introduce la tecnología BiTE para redirigir la citotoxicidad inmune autóloga de células T
+  directamente contra blastos CD19+, prescindiendo de la mielotoxicidad destructiva de los citostáticos tradicionales.
+
+estrategia:
+  - base: PubMed
+    consulta: 'blinatumomab AND chemotherapy AND acute lymphoblastic leukemia AND TOWER'
+    fecha: '2026-09-16'
+    nota: 'Ensayo de fase 3 aleatorizado multicéntrico TOWER (PMID: 28249141).'
+
+criterio_decisorio: >-
+  Se selecciona la terapia que demuestre duplicar la tasa de remisión hematológica completa y prolongar significativamente la supervivencia
+  global, facilitando el acceso al trasplante alogénico de progenitores hematopoyéticos consolidativo con toxicidad orgánica no solapante.
+
+conclusion: >-
+  Blinatumomab queda seleccionado como inmunoterapia de rescate de elección en LLA de precursores B R/R en adultos:
+  casi duplica la tasa de remisión completa frente a quimioterapia estándar (44 % vs 25 %, p < 0.001; RRA 19.0 %, NNT 5 a 12 semanas)
+  y prolonga la mediana de supervivencia global de 4.0 a 7.7 meses (HR 0.71, p = 0.01; RRA 11.0 %, NNT 9 a 1 año),
+  permitiendo que un 24 % de los pacientes alcancen con éxito el trasplante alogénico curativo.
+
+candidatos:
+  - dci: Blinatumomab
+    atc: L01FX07
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        En el ensayo TOWER (Kantarjian 2017), blinatumomab logró una tasa de remisión completa significativamente superior
+        (44 % vs 25 %; p < 0.001; RRA 19.0 %, NNT 5 a 12 semanas) y prolongó la mediana de supervivencia global a casi el doble
+        (7.7 meses vs 4.0 meses; HR 0.71, IC 95% 0.55-0.93, p = 0.01; NNT 9 a 1 año).
+      ref: 'pmid:28249141'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Menor mielosupresión profunda y menor mortalidad infecciosa que la quimioterapia intensiva; requiere manejo estricto
+        del síndrome de liberación de citoquinas y toxicidad neurológica mediante escalado de dosis y corticoides.
+      ref: 'pmid:28249141'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Exige infusión intravenosa continua durante 28 días mediante bomba de infusión ambulatoria y hospitalización inicial para monitorización del escalado de dosis.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Coste de adquisición farmacológica elevado, compensado por menor estancia hospitalaria en UCI por aplasia infecciosa y mayor tasa de derivación exitosa a trasplante alogénico.
+      ref: 'pmid:28249141'
+
+  - dci: Quimioterapia convencional de rescate (FLAG-Ida / Hiper-CVAD)
+    atc: L01AA01
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Baja tasa de respuesta (remisión completa del 25%) y supervivencia global muy precaria (mediana de 4.0 meses).
+      ref: 'pmid:28249141'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Mielotoxicidad destructiva severa, mucositis grado 4 y elevada mortalidad precoz relacionada con sepsis neutropénica.
+      ref: 'pmid:28249141'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Infusiones intermitentes pero con prolongados ingresos hospitalarios en régimen de aislamiento por neutropenia post-quimioterapia.
+      ref: 'pmid:28249141'
+    costo:
+      juicio: superior
+      sustento: >-
+        Fármacos citostáticos de bajo coste directo pero gravados con elevados costes indirectos de hospitalización e infecciones en neutropenia prolongada.
+      ref: 'pmid:28249141'

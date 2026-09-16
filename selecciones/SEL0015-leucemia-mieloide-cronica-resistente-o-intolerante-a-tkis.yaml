@@ -1,0 +1,95 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0015'
+tipo: seleccion
+problema: Leucemia mieloide crónica resistente o intolerante a dos o más inhibidores de tirosina quinasa
+problema_en: Chronic myeloid leukemia resistant or intolerant to two or more tyrosine kinase inhibitors
+cie11: 2A71.0
+
+poblacion: >-
+  Pacientes adultos con leucemia mieloide crónica con cromosoma Filadelfia positivo (LMC Ph+) en fase crónica (LMC-FC),
+  que han presentado resistencia o intolerancia clínica a dos o más inhibidores de la tirosina quinasa (TKI) previos.
+
+pregunta: >-
+  En adultos con LMC en fase crónica multitratados con fracaso a $\ge 2$ TKIs del sitio de unión al ATP,
+  ¿qué agente dirigido (inhibidor alostérico STAMP vs TKI de 2ª generación bosutinib) se selecciona para alcanzar una respuesta molecular mayor (RMM) con mejor perfil de seguridad y menor tasa de abandono terapéutico?
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  El tratamiento secuencial con TKIs convencionales competitivos del ATP (imatinib, dasatinib, nilotinib, bosutinib) selecciona
+  mutaciones en el dominio quinasa y acumula toxicidades cruzadas (gastrointestinales, cardiovasculares, pulmonares).
+  Asciminib, al inhibir alostéricamente la proteína de fusión BCR::ABL1 mediante unión al bolsillo de miristoilo (STAMP),
+  rompe este patrón de resistencia cruzada y ofrece una tolerabilidad clínica superior frente a bosutinib.
+
+estrategia:
+  - base: PubMed
+    consulta: 'asciminib AND bosutinib AND chronic myeloid leukemia AND ASCEMBL'
+    fecha: '2026-09-16'
+    nota: 'Ensayo clínico fase 3 aleatorizado ASCEMBL (PMID: 34407542).'
+
+criterio_decisorio: >-
+  Se selecciona el agente que duplique la tasa de respuesta molecular mayor (BCR::ABL1 ≤ 0.1 % en escala internacional)
+  a las 24 semanas y reduzca significativamente la tasa de interrupción permanente del tratamiento por efectos adversos.
+
+conclusion: >-
+  Asciminib queda seleccionado como el fármaco de elección en LMC en fase crónica tras el fracaso de $\ge 2$ TKIs previos:
+  casi duplica la tasa de respuesta molecular mayor a las 24 semanas frente a bosutinib (25.5 % vs 13.2 %; p = 0.029; RRA 12.3 %, NNT 8 a 24 semanas)
+  y reduce las discontinuaciones por toxicidad a menos de un tercio (5.8 % vs 21.1 %; RRA 15.3 %, NNT de toxicidad evitada 7),
+  precisando únicamente administración rigurosa en ayunas y monitorización de amilasa/lipasa y hemograma.
+
+candidatos:
+  - dci: Asciminib
+    atc: L01EA06
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        En el ensayo ASCEMBL (Réa 2021), asciminib casi duplicó la tasa de RMM a la semana 24 frente a bosutinib
+        (25.5 % vs 13.2 %; diferencia ajustada 12.2 %, p = 0.029; RRA 12.3 %, NNT 8 a 24 semanas).
+      ref: 'pmid:34407542'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Tasa drásticamente inferior de acontecimientos adversos grado ≥ 3 (50.6 % vs 60.5 %) y de abandonos definitivos
+        por toxicidad farmacológica (5.8 % vs 21.1 %; RRA 15.3 %, NNT de abandono evitado 7).
+      ref: 'pmid:34407542'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Requiere posología de 40 mg dos veces al día (o 80 mg qd) en condiciones estrictas de ayuno (2 horas antes y 1 hora después).
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Coste de terapia innovadora dirigida, con balance favorable por evitar la progresión a fase acelerada/crisis blástica o trasplante.
+      ref: 'pmid:34407542'
+
+  - dci: Bosutinib
+    atc: L01EA01
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Tasa de respuesta molecular mayor de tan solo el 13.2 % a la semana 24 en pacientes politratados.
+      ref: 'pmid:34407542'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Alta incidencia de diarrea severa, toxicidad gastrointestinal precoz, elevación de transaminasas y un 21.1 % de suspensiones por toxicidad.
+      ref: 'pmid:34407542'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Toma única oral diaria con alimentos (500 mg una vez al día).
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Coste farmacológico similar pero penalizado por el fracaso terapéutico prematuro y manejo de toxicidad gastrointestinal.
+      ref: 'pmid:34407542'

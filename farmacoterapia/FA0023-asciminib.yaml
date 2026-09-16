@@ -1,0 +1,150 @@
+# PARTE II — Farmacoterapia: cómo se usa el asciminib con seguridad.
+id: 'FA:0023'
+tipo: farmacoterapia
+farmaco: 'FS:0023'
+
+titulo: Farmacoterapia con asciminib
+titulo_en: Asciminib pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad para inhibidores alostéricos de BCR::ABL1 (asciminib) en leucemia mieloide crónica:
+  requisito estricto de toma oral en ayunas, monitorización de enzimas pancreáticas (lipasa y amilasa),
+  control hematológico de citopenias (trombocitopenia y neutropenia) y vigilancia de eventos cardiovasculares arteriales oclusivos.
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Amilasa y lipasa pancreáticas basales
+    motivo: >-
+      Asciminib puede inducir elevación enzimática asintomática de lipasa y amilasa; descartar pancreatitis previa o elevación basal.
+    responsable: especialista
+    ref: 'pmid:34407542'
+
+  - prueba: Hemograma completo con diferencial y recuento plaquetario
+    motivo: >-
+      Establecer el punto de partida en pacientes multitratados con reserva medular potencialmente reducida.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Presión arterial basal y evaluación de factores de riesgo vascular arterial
+    motivo: >-
+      Despistaje de hipertensión no controlada y comorbilidad cardiovascular aterosclerótica.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Hemograma completo con fórmula leucocitaria
+      - Lipasa y amilasa séricas
+      - Pruebas de función hepática y renal
+      - Determinación basal cuantitativa de transcrito BCR::ABL1 por RT-qPCR (Escala Internacional)
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Primeros 3 meses de tratamiento
+    frecuencia: Hemograma cada 2 semanas; lipasa mensual
+    pruebas:
+      - Hemograma completo quincenal durante las primeras 8 semanas, luego mensual
+      - Lipasa y amilasa sérica mensual
+      - Refuerzo verbal de la toma rigurosa en ayunas (2 h antes y 1 h después sin alimentos)
+    responsable: seguimiento
+    ref: 'pmid:34407542'
+
+  - fase: mantenimiento
+    periodo: Tratamiento crónico continuado
+    frecuencia: Cada 1 a 3 meses (determinación de BCR::ABL1 trimestral)
+    pruebas:
+      - RT-qPCR trimestral de BCR::ABL1 para valorar respuesta molecular mayor (RMM, ≤ 0.1 %)
+      - Hemograma completo trimestral
+      - Monitorización de presión arterial y detección de síntomas isquémicos arteriales
+    responsable: seguimiento
+    ref: 'pmid:34407542'
+
+umbrales_accion:
+  - parametro: Trombocitopenia Grado 3 o 4 (recuento de plaquetas < 50 000/mcL)
+    umbral: Toxicidad hematológica severa
+    accion: >-
+      Interrumpir asciminib hasta que las plaquetas se recuperen a ≥ 50 000/mcL. Si se recupera en ≤ 2 semanas, reanudar a la misma dosis (40 mg bid); si tarda > 2 semanas o es recurrente, reducir la dosis a 20 mg bid.
+    ref: 'fda:label'
+
+  - parametro: Neutropenia Grado 3 o 4 (recuento absoluto de neutrófilos < 1000/mcL)
+    umbral: Neutropenia significativa
+    accion: >-
+      Suspender temporalmente hasta RAN ≥ 1000/mcL; considerar reducción de dosis a 20 mg bid si es persistente o recurrente.
+    ref: 'fda:label'
+
+  - parametro: Elevación asintomática de lipasa o amilasa sérica > 2 veces el LSN (Grado ≥ 3)
+    umbral: Hiperlipasemia Grado ≥ 3
+    accion: >-
+      Suspender temporalmente asciminib y monitorizar niveles semanalmente. Descartar pancreatitis clínica mediante anamnesis (dolor epigástrico en cinturón) y ecografía/TC si procede. Al normalizar a Grado ≤ 1, reanudar con reducción de dosis a 20 mg bid.
+    ref: 'fda:label'
+
+  - parametro: Pancreatitis aguda confirmada clínicamente o por imagen
+    umbral: Pancreatitis aguda
+    accion: Suspender permanentemente asciminib.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Inhibidores potentes de CYP3A4 (ej. ketoconazol, itraconazol, voriconazol, claritromicina)
+    gravedad: mayor
+    efecto: Aumento sustancial de la concentración plasmática de asciminib con mayor riesgo de mielosupresión y pancreatitis.
+    conducta: Evitar la administración concomitante. Si no es posible sustituir, monitorizar estrechamente hemograma y lipasa.
+    ref: 'fda:label'
+
+  - con: Inductores potentes de CYP3A4 (ej. rifampicina, carbamazepina, hierba de San Juan)
+    gravedad: mayor
+    efecto: Disminución marcada de la exposición plasmática a asciminib con pérdida de la respuesta molecular.
+    conducta: Contraindicada la combinación concomitante.
+    ref: 'fda:label'
+
+  - con: Alimentos o comidas ricas en grasas concomitantes
+    gravedad: mayor
+    efecto: Reducción drástica de la absorción y concentración máxima (Cmax) de asciminib (disminución del AUC en más del 60%).
+    conducta: Instruir al paciente para tomar las dosis estrictamente con el estómago vacío (ayuno de 2 h previas y 1 h posterior).
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Basado en estudios preclínicos, asciminib puede causar daño embriofetal y malformaciones cardíacas y viscerales. Exigir prueba de embarazo negativa previa y uso de métodos anticonceptivos de alta eficacia durante el tratamiento y hasta al menos 3 días tras la última dosis.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desconoce su excreción en leche materna humana pero existe potencial de reacciones adversas graves en el lactante. Se desaconseja amamantar durante el tratamiento y hasta 3 días tras la dosis final.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Hematólogo prescribe la posología STAMP (40 mg dos veces al día o 80 mg qd), monitoriza trimestralmente la respuesta molecular profunda por PCR en escala internacional y ajusta dosis en caso de citopenias.
+  seguimiento: >-
+    Atención primaria o farmacia hospitalaria: refuerza activamente la pauta horaria de ayuno estricto antes y después de cada toma; detecta dolor abdominal persistente o síntomas cardiovasculares.
+  suspension_inmediata:
+    - Dolor abdominal epigástrico intenso irradiado a espalda sugerente de pancreatitis aguda
+    - Sospecha de evento oclusivo vascular arterial (claudicación aguda, angina inestable, ictus)
+    - Trombocitopenia grave con sangrado activo o neutropenia febril
+  ref: 'pmid:34407542'
+
+posicionamiento:
+  linea: tercera
+  escalonado:
+    - linea: primera
+      opciones: 'TKI competitivos del ATP de 1ª o 2ª generación (imatinib, dasatinib, nilotinib).'
+    - linea: segunda
+      opciones: 'Cambio a TKI alternativo de 2ª generación según perfil de mutaciones y comorbilidades.'
+    - linea: tercera
+      opciones: 'Asciminib (inhibidor STAMP de bolsillo de miristoilo) tras fracaso o intolerancia a dos o más TKIs previos, o en presencia de mutación T315I.'
+  ref: 'pmid:34407542'
+
+refs:
+  - 'pmid:34407542'
+  - 'fda:label'

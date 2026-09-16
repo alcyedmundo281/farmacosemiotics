@@ -1,0 +1,73 @@
+id: 'FS:0021'
+tipo: farmaco
+dci: Ofatumumab
+dci_en: Ofatumumab
+sinonimos:
+  - Kesimpta
+  - Arzerra
+  - OMB157
+
+atc: L04AA52
+clase_farmacologica: Anticuerpo monoclonal humano anti-CD20 inmunosupresor selectivo de células B
+clase_farmacologica_en: Human anti-CD20 monoclonal antibody
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '712566'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Anticuerpo monoclonal IgG1 totalmente humano recombinante que se une específicamente a un epítopo novedoso
+  formado por los bucles extracelulares pequeño y grande de la molécula CD20 expresada en linfocitos pre-B y B maduros.
+  Induce una lisis celular B potente mediada principalmente por citotoxicidad dependiente de complemento (CDC) y
+  citotoxicidad celular dependiente de anticuerpos (ADCC), provocando una depleción rápida y selectiva de células B
+  circulantes implicadas en la neuroinflamación de la esclerosis múltiple.
+mecanismo_ref: 'pmid:32757523'
+
+farmacocinetica:
+  eliminacion: 'Degradación proteolítica no específica por el sistema reticuloendotelial tras endocitosis y aclaramiento mediado por diana (CD20)'
+  vida_media: 'Aproximadamente 16 días tras dosis repetidas subcutáneas'
+  implicacion: >-
+    Formulación subcutánea en pluma precargada autoadministrada por el propio paciente en domicilio:
+    dosis de carga de 20 mg en días 1, 7 y 14 (semanas 0, 1 y 2), descanso en semana 3, y a partir de semana 4
+    dosis de mantenimiento mensual de 20 mg SC. No requiere premedicación obligatoria tras la primera inyección
+    ni estancia hospitalaria en sala de infusión intravenosa.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Reacciones asociadas a la inyección (sistémicas y locales)
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Síntomas pseudogripales leves o moderados (fiebre, cefalea, mialgias) en la primera inyección (hasta 20%), que disminuyen drásticamente en inyecciones posteriores (<3-5%); eritema o dolor local en el punto de punción.
+      ref: 'pmid:32757523'
+    - evento: Infecciones de vías respiratorias superiores y urinarias
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Nasofaringitis e infecciones leves en ~15-20% de pacientes; tasa de infecciones graves comparable a comparadores activos (~2.5%).
+      ref: 'pmid:32757523'
+    - evento: Disminución de inmunoglobulinas séricas (IgM e IgG)
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Descenso progresivo con el tratamiento continuado a largo plazo; monitorizar niveles basales y anuales de IgG/IgM.
+      ref: 'pmid:32757523'
+    - evento: Riesgo potencial de reactivación de hepatitis B
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Efecto de clase anti-CD20; requiere despistaje serológico previo obligatorio (HBsAg y anti-HBc).
+      ref: 'fda:label'

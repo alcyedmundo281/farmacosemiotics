@@ -1,0 +1,56 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:34407542"
+clave_bibtex: ra2021
+tipo: eca
+titulo: "A phase 3, open-label, randomized study of asciminib, a STAMP inhibitor, vs bosutinib in CML after 2 or more prior TKIs"
+autores:
+  - "Réa D"
+  - "Mauro MJ"
+  - "Boquimpani C"
+  - "Minami Y"
+  - "Lomaia E"
+  - "Voloshin S"
+  - "Turkina A"
+  - "Kim DW"
+  - "Apperley JF"
+  - "Abdo A"
+  - "Fogliatto LM"
+  - "Kim DDH"
+  - "le Coutre P"
+  - "Saussele S"
+  - "Annunziata M"
+  - "Hughes TP"
+  - "Chaudhri N"
+  - "Sasaki K"
+  - "Chee L"
+  - "García-Gutiérrez V"
+  - "Cortes JE"
+  - "Aimone P"
+  - "Allepuz A"
+  - "Quenet S"
+  - "Bédoucha V"
+  - "Hochhaus A"
+publicacion: "Blood"
+anio: 2021
+volumen: "138"
+numero: "21"
+paginas: "2031-2041"
+
+identificadores:
+  pmid: 34407542
+  doi: "10.1182/blood.2020009984"
+  pmc: "PMC9728405"
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

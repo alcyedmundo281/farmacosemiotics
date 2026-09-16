@@ -1,0 +1,95 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0013'
+tipo: seleccion
+problema: Esclerosis múltiple remitente-recurrente activa en adultos
+problema_en: Active relapsing-remitting multiple sclerosis in adults
+cie11: 8A40.0
+
+poblacion: >-
+  Adultos con diagnóstico confirmado de esclerosis múltiple remitente-recurrente (EMRR) con enfermedad activa,
+  definida por la presencia de brotes clínicos recientes o actividad inflamatoria en resonancia magnética (lesiones captantes de gadolinio o nuevas lesiones en T2).
+
+pregunta: >-
+  En adultos con esclerosis múltiple recurrente activa, ¿qué terapia modificadora de la enfermedad de alta eficacia
+  (anti-CD20 selectivo subcutáneo autoadministrado) se selecciona para reducir la tasa anualizada de brotes y retrasar la progresión de la discapacidad con óptima autonomía del paciente?
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Las terapias de depleción selectiva de linfocitos B dirigidas contra CD20 han demostrado una eficacia sobresaliente
+  frente a los inmunomoduladores clásicos orales o inyectables. Mientras que otros anti-CD20 (como ocrelizumab) precisan
+  infusiones intravenosas semestrales en hospital de día con premedicación esteroidea prolongada, ofatumumab introduce una formulación
+  subcutánea de aplicación mensual en el domicilio mediante autoinyector precargado, combinando alta eficacia neuroinmunológica con independencia asistencial.
+
+estrategia:
+  - base: PubMed
+    consulta: 'ofatumumab AND teriflunomide AND multiple sclerosis AND ASCLEPIOS'
+    fecha: '2026-09-16'
+    nota: 'Ensayos gemelos de fase 3 ASCLEPIOS I y ASCLEPIOS II (PMID: 32757523).'
+
+criterio_decisorio: >-
+  Se selecciona el agente modificador de la enfermedad que maximice la supresión de la tasa anualizada de brotes y el avance de la discapacidad
+  con un perfil de seguridad favorable y un régimen de administración que evite la dependencia hospitalaria continua.
+
+conclusion: >-
+  Ofatumumab queda seleccionado como terapia preferente de alta eficacia en EMRR activa: reduce a la mitad la tasa anualizada de brotes
+  frente a teriflunomida (0.11 vs 0.22 en ensayo 1 y 0.10 vs 0.25 en ensayo 2; p < 0.001; RRA 0.11, NNT 9 anual),
+  disminuye significativamente el riesgo de progresión de discapacidad confirmada a 6 meses (HR 0.68, p = 0.01; RRA 3.9%, NNT 26 a 2.5 años)
+  y suprime casi por completo las lesiones activas en RM cerebral (>90% de reducción), administrándose mensualmente por vía subcutánea domiciliaria.
+
+candidatos:
+  - dci: Ofatumumab
+    atc: L04AA52
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        En los ensayos combinados ASCLEPIOS I/II (Hauser 2020), ofatumumab redujo la tasa anualizada de brotes en un 50-58 %
+        (ARR 0.11 vs 0.22 y 0.10 vs 0.25; p < 0.001; NNT 9 anual) y redujo el empeoramiento de discapacidad a 6 meses en un 32 % (HR 0.68, p = 0.01; NNT 26 a 2.5 años).
+      ref: 'pmid:32757523'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Tasa de infecciones graves baja y comparable a teriflunomida (2.5% vs 1.8%); las reacciones locales y sistémicas a la inyección
+        se concentran en la primera dosis (20%) y caen drásticamente después.
+      ref: 'pmid:32757523'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Inyección subcutánea mensual domiciliaria mediante pluma precargada sin necesidad de acudir a un hospital de día.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Coste de terapia biológica de alta eficacia, compensado por la menor necesidad de visitas hospitalarias para infusión y prevención de secuelas neurológicas permanentes.
+      ref: 'pmid:32757523'
+
+  - dci: Teriflunomida
+    atc: L04AA31
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Eficacia moderada con el doble de tasa de brotes anualizados (0.22-0.25) y mayor riesgo de progresión acumulativa de la discapacidad neurológica.
+      ref: 'pmid:32757523'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Riesgo de hepatotoxicidad, alopecia y teratogenicidad estricta con necesidad de procedimientos de lavado acelerado prolongados (colestiramina).
+      ref: 'pmid:32757523'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Comprimido oral diario de 14 mg.
+      ref: 'fda:label'
+    costo:
+      juicio: superior
+      sustento: >-
+        Menor coste de adquisición pero con menor capacidad de frenar la neurodegeneración en formas activas de la enfermedad.
+      ref: 'pmid:32757523'

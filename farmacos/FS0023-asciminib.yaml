@@ -1,0 +1,72 @@
+id: 'FS:0023'
+tipo: farmaco
+dci: Asciminib
+dci_en: Asciminib
+sinonimos:
+  - Scemblix
+  - ABL001
+
+atc: L01EA06
+clase_farmacologica: Inhibidor alostérico de la tirosina quinasa BCR::ABL1 (STAMP)
+clase_farmacologica_en: Allosteric BCR::ABL1 tyrosine kinase inhibitor (STAMP)
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '2584304'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Primer inhibidor de su clase que actúa específicamente sobre el bolsillo de miristoilo de la tirosina quinasa ABL1
+  (mecanismo STAMP, Specifically Targeting the ABL Myristoyl Pocket). A diferencia de los inhibidores de tirosina quinasa (TKI)
+  convencionales (imatinib, dasatinib, nilotinib, bosutinib, ponatinib) que compiten por el sitio de unión al ATP,
+  asciminib restaura la conformación autoinhibitoria inactiva nativa de la quinasa mediante unión alostérica al bolsillo miristoilo C-terminal.
+  Esta singularidad molecular le confiere actividad frente a la gran mayoría de mutaciones de resistencia del dominio quinasa del ATP
+  (incluyendo la mutación puerta de enlace T315I a dosis ajustadas) y una selectividad sobresaliente sin inhibición de quinasas no diana (off-target).
+mecanismo_ref: 'pmid:34407542'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático oxidativo mediado por CYP3A4 y conjugación UGT2B7/UGT2B17; eliminación fecal mayoritaria (~80%)'
+  vida_media: 'Aproximadamente 5.5 horas'
+  implicacion: >-
+    Posología oral estándar de 40 mg dos veces al día (cada 12 horas) o 80 mg una vez al día en LMC resistente sin mutación T315I
+    (en presencia de mutación T315I se emplean 200 mg dos veces al día). Requiere toma estricta en ayunas: al menos 2 horas después
+    de cualquier alimento y esperando al menos 1 hora antes de la siguiente comida, ya que los alimentos reducen significativamente su biodisponibilidad.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Trombocitopenia y neutropenia
+      frecuencia: muy_frecuente
+      gravedad: grave
+      nota: >-
+        Trombocitopenia grado 3/4 en ~22% y neutropenia en ~18%; se maneja con interrupciones temporales de dosis o reducciones escalonadas a 20 mg bid.
+      ref: 'pmid:34407542'
+    - evento: Elevación asintomática de amilasa y lipasa pancreática
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Elevación enzimática de lipasa grado 3/4 en ~8-10% sin pancreatitis clínica evidente en la mayoría; monitorizar enzimas pancreáticas periódicamente.
+      ref: 'pmid:34407542'
+    - evento: Hipertensión arterial y eventos oclusivos vasculares
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Incidencia de eventos vasculares arteriales baja (~3-4%), notablemente menor que con ponatinib o nilotinib; vigilar presión arterial basal y periódica.
+      ref: 'pmid:34407542'
+    - evento: Cefalea, artralgias y fatiga
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Leves o moderadas, generalmente autolimitadas; mejor tolerabilidad global que los TKI clásicos de 2ª generación.
+      ref: 'pmid:34407542'

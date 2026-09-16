@@ -1,0 +1,144 @@
+# PARTE II — Farmacoterapia: cómo se usa el blinatumomab con seguridad.
+id: 'FA:0022'
+tipo: farmacoterapia
+farmaco: 'FS:0022'
+
+titulo: Farmacoterapia con blinatumomab
+titulo_en: Blinatumomab pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de administración intravenosa continua de 28 días de blinatumomab en leucemia linfoblástica aguda:
+  escalado obligatorio de dosis en ciclo 1, premedicación esteroidea para prevención de síndrome de liberación de citoquinas (SLC),
+  monitorización neurológica para detección precoz de neurotoxicidad (ICANS), manejo de bombas de infusión ambulatoria y soporte de hipogammaglobulinemia.
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Porcentaje de blastos en médula ósea y sangre periférica
+    motivo: >-
+      Una carga tumoral muy elevada (> 50% de blastos en médula o blastos periféricos circulantes) multiplica exponencialmente el riesgo de síndrome de liberación de citoquinas fulminante; se recomienda citorreducción previa con dexametasona si la carga es excesiva.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Examen neurológico basal exhaustivo y antecedentes convulsivos
+    motivo: >-
+      Establecer el estado basal para identificar precozmente signos de encefalopatía, temblor fino, disartria o apraxia de la escritura inducidos por BiTE.
+    responsable: especialista
+    ref: 'pmid:28249141'
+
+  - prueba: Cribado serológico de hepatitis B (HBsAg, anti-HBc) y niveles basales de IgG
+    motivo: >-
+      Riesgo de reactivación viral e hipogammaglobulinemia grave secundaria a lisis de linfocitos B sanos CD19+.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Punción y aspirado de médula ósea con citometría de flujo (confirmación de CD19+)
+      - Evaluación neurológica basal
+      - Hemograma con diferencial y frotis periférico
+      - Pruebas hepáticas, coagulación y fibrinógeno
+    responsable: especialista
+    ref: 'fda:label'
+
+  - fase: induccion
+    periodo: Días 1 a 9 del Ciclo 1 (hospitalización obligatoria al menos los primeros 3 a 9 días)
+    frecuencia: Monitorización continua o cada 4 horas
+    pruebas:
+      - Constantes vitales cada 4 horas (temperatura, presión arterial, saturación O2) para despistaje de SLC
+      - Escala de neurotoxicidad diaria (escritura, orientación, habla, comprensión)
+      - Verificación del flujo de la bomba de infusión continua intravenosa y permeabilidad de la vía central (catéter Hickman / PICC)
+    responsable: seguimiento
+    ref: 'pmid:28249141'
+
+  - fase: mantenimiento
+    periodo: Resto del Ciclo 1 y Ciclos posteriores (días 10-28 y ciclos subsiguientes ambulatorios)
+    frecuencia: Visitas para recambio de bolsa de infusión (cada 24, 48 o 96 horas)
+    pruebas:
+      - Hemograma completo y control de coagulación
+      - Supervisión del catéter venoso central y alarma de bomba de infusión
+      - Medición de inmunoglobulinas séricas (IgG)
+    responsable: seguimiento
+    ref: 'fda:label'
+
+umbrales_accion:
+  - parametro: Síndrome de liberación de citoquinas (SLC) Grado 2 (fiebre con hipotensión que responde a fluidos o necesidad de O2 < 40%)
+    umbral: Reacción inflamatoria sistémica moderada
+    accion: >-
+      Interrumpir de inmediato la infusión de blinatumomab. Administrar dexametasona 8 mg IV cada 8 horas. Al resolver los síntomas a Grado ≤ 1, reiniciar a 9 mcg/día y reescalar tras 3 días estables.
+    ref: 'fda:label'
+
+  - parametro: Síndrome de liberación de citoquinas (SLC) Grado 3 o 4 (hipotensión que requiere vasopresores o hipoxia severa)
+    umbral: Emergencia vital por hiperinflamación
+    accion: >-
+      Suspender inmediatamente blinatumomab de forma permanente o hasta resolución completa. Traslado a UCI. Iniciar dexametasona 8 mg IV cada 8 horas y administrar tocilizumab (anti-IL-6R) a dosis de 8 mg/kg IV (máx 800 mg).
+    ref: 'fda:label'
+
+  - parametro: Toxicidad neurológica / ICANS Grado 2 (confusión leve, afasia motora transitoria, somnolencia)
+    umbral: Disfunción cognitiva / neurológica aguda
+    accion: >-
+      Interrumpir blinatumomab. Administrar dexametasona 8 mg IV cada 8 horas durante un mínimo de 3 días. Reiniciar solo tras resolución completa a grado basal, comenzando con 9 mcg/día.
+    ref: 'fda:label'
+
+  - parametro: Toxicidad neurológica Grado 3 o 4 (convulsiones, estupor, coma o encefalopatía severa)
+    umbral: Daño cerebral neurotóxico grave
+    accion: >-
+      Suspender de forma permanente blinatumomab. Iniciar tratamiento anticonvulsivante profiláctico/terapéutico (levetiracetam) y dexametasona a dosis altas (hasta 24 mg/día).
+    ref: 'fda:label'
+
+interacciones:
+  - con: Fármacos mielosupresores citotóxicos concomitantes
+    gravedad: mayor
+    efecto: Sinergia de neutropenia destructiva y retraso en la recuperación hematopoyética.
+    conducta: Evitar la quimioterapia intensiva durante el ciclo de 28 días de infusión continua de blinatumomab.
+    ref: 'fda:label'
+
+  - con: Medicamentos que disminuyen el umbral convulsivo o sedantes mayores
+    gravedad: moderada
+    efecto: Potenciación del riesgo convulsivo o dificultad para evaluar el estado de alerta mental en el seguimiento de neurotoxicidad.
+    conducta: Precaución y monitorización clínica frecuente.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Puede causar depleción prolongada de linfocitos B fetales y toxicidad embriofetal por su mecanismo de acción biespecífico. Exigir prueba de gestación negativa y anticoncepción eficaz durante el tratamiento y hasta al menos 48 horas tras finalizar la infusión.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desconoce su excreción en leche materna humana pero existe potencial de efectos adversos inmunológicos graves en el lactante. Interrumpir la lactancia durante y hasta al menos 48 horas tras el fin del ciclo.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Hematólogo especialista prescribe el ciclo de infusión continua de 28 días, monitoriza el ingreso hospitalario obligatorio del inicio del Ciclo 1 y programa la citorreducción previa si hay leucocitosis.
+  seguimiento: >-
+    Unidad de hospitalización a domicilio (HAD) o enfermería hematológica especializada: realiza los recambios asépticos periódicos de la bolsa de infusión cada 24 a 96 horas, vigila la integridad del reservorio/bomba y detecta signos de alarma febril o neurológica.
+  suspension_inmediata:
+    - Fiebre alta persistente con hipotensión refractaria a volumen o disnea aguda (SLC)
+    - Afasia motora, temblor severo, confusión aguda o convulsiones (ICANS)
+    - Infección sistémica fulminante o sepsis neutropénica
+    - Fallo o desconexión no programada de la bomba de infusión
+  ref: 'pmid:28249141'
+
+posicionamiento:
+  linea: segunda
+  escalonado:
+    - linea: primera
+      opciones: 'Quimioterapia intensiva de inducción multicomponente para LLA de estirpe B.'
+    - linea: segunda
+      opciones: 'Blinatumomab en infusión continua (28 días por ciclo) como terapia de rescate y puente a trasplante alogénico de progenitores hematopoyéticos.'
+  ref: 'pmid:28249141'
+
+refs:
+  - 'pmid:28249141'
+  - 'fda:label'

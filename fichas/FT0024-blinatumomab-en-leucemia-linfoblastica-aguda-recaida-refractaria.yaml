@@ -1,0 +1,119 @@
+id: 'FT:0024'
+tipo: ficha
+farmaco: 'FS:0022'
+seleccion: 'SEL:0014'
+titulo: Blinatumomab en la leucemia linfoblástica aguda de precursores B en recaída o refractaria
+indicacion: Leucemia linfoblástica aguda de precursores de células B con CD19 positivo en recaída o refractaria en adultos
+indicacion_en: Relapsed or refractory CD19-positive B-cell precursor acute lymphoblastic leukemia in adults
+poblacion: Adultos con LLA B en recaída o refractaria a quimioterapia previa, candidatos a inmunoterapia dirigida o rescate hacia trasplante
+cie11: 2A60.0
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Anticuerpo biespecífico BiTE CD19/CD3 administrado en infusión intravenosa continua de 28 días por ciclo:
+    escalado obligatorio en Ciclo 1 (9 mcg/día días 1-7, luego 28 mcg/día días 8-28) con 2 semanas de descanso interciclos.
+    Casi duplica la tasa de remisión completa frente a quimioterapia intensiva (44 % vs 25 %; NNT 5 a 12 semanas)
+    y prolonga la supervivencia global (7.7 vs 4.0 meses; HR 0.71; NNT 9 a 1 año) sirviendo de puente a trasplante curativo.
+  alerta_seguridad_inmediata: >-
+    Hospitalización obligatoria para monitorización durante los primeros 9 días del ciclo 1 y primeros 2 días del ciclo 2.
+    Premedicación con dexametasona y vigilancia estrecha de síndrome de liberación de citoquinas (SLC) y neurotoxicidad (ICANS).
+
+pico:
+  p: Adultos con LLA B en recaída o refractaria politratados (N=405)
+  i: Blinatumomab en infusión IV continua durante 4 semanas (9 mcg/d escalando a 28 mcg/d)
+  c: Quimioterapia estándar de rescate (FLAG-Ida u otros esquemas)
+  o: Supervivencia global (SG), tasa de remisión completa (RC/RCh) y eventos adversos graves
+
+posologia:
+  inicio: 'Ciclo 1: 9 mcg/día en infusión intravenosa continua (IVC) durante los días 1 a 7, escalando a 28 mcg/día en IVC continua desde el día 8 hasta el día 28'
+  escalado: El escalado escalonado es indispensable para prevenir el síndrome de liberación de citoquinas fulminante
+  mantenimiento: 'Ciclos posteriores: 28 mcg/día en infusión IV continua durante 28 días, seguidos de 14 días de descanso (ciclo de 42 días)'
+  maxima: 28 mcg al día en infusión continua
+  ajuste_renal: No requiere ajuste específico; monitorizar en insuficiencia renal grave
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Remisión completa con recuperación hematológica completa o parcial (RC / RCh a 12 semanas)
+    criticidad: critico
+    efecto: 'Tasa significativamente mayor con blinatumomab frente a quimioterapia (44.0 % vs 25.0 %; p < 0.001 en TOWER)'
+    rra: '19.0%'
+    rrr: '43.2%'
+    nnt: 5
+    horizonte_nnt: a 12 semanas
+    diseno: eca
+    estudio: TOWER (2017)
+    comparador: Quimioterapia estándar de rescate
+    n: 405
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:28249141'
+
+  - desenlace: Supervivencia global a 1 año
+    criticidad: critico
+    efecto: 'Mediana de SG de 7.7 meses con blinatumomab frente a 4.0 meses con quimioterapia (HR 0.71, IC 95 % 0.55–0.93; p = 0.01; SG a 1 año ~35 % vs ~24 %)'
+    rra: '11.0%'
+    rrr: '31.4%'
+    nnt: 9
+    horizonte_nnt: a 1 año
+    diseno: eca
+    estudio: TOWER (2017)
+    comparador: Quimioterapia estándar de rescate
+    n: 405
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:28249141'
+
+  - desenlace: Acontecimientos neurológicos Grado ≥ 3 (ICANS / Encefalopatía / Convulsiones)
+    criticidad: importante
+    efecto: 'Incidencia de neurotoxicidad severa del 9.4 % con blinatumomab frente al 7.8 % con quimioterapia'
+    rra: '1.6%'
+    rrr: '17.0%'
+    nnt: 63
+    horizonte_nnt: a 12 semanas
+    diseno: eca
+    estudio: TOWER (2017)
+    comparador: Quimioterapia estándar
+    n: 405
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:28249141'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda fuertemente blinatumomab en infusión continua (28 días por ciclo) en adultos con LLA B en recaída o refractaria,
+    por duplicar las tasas de remisión completa (NNT 5 a 12 semanas) y prolongar significativamente la supervivencia global (NNT 9 a 1 año),
+    actuando como el puente inmunológico preferente hacia el trasplante alogénico curativo.
+  ref: 'pmid:28249141'
+
+conclusion: >-
+  Blinatumomab marca un cambio de paradigma frente a la quimioterapia tradicional en la LLA de células B refractaria,
+  ofreciendo una remisión hematológica profunda y duradera con toxicidad celular manejable bajo monitorización especializada.
+
+guias:
+  - organizacion: NCCN / ESMO
+    anio: 2023
+    titulo: 'NCCN Clinical Practice Guidelines in Oncology: Acute Lymphoblastic Leukemia'
+    posicion: 'Blinatumomab es régimen preferente de Categoría 1 para pacientes con LLA B CD19+ en recaída o refractarios o con enfermedad mínima residual (EMR) persistente.'
+    cita: 'NCCN ALL Guidelines'
+
+refs:
+  - 'pmid:28249141'
+  - 'fda:label'

@@ -1,0 +1,159 @@
+# PARTE II — Farmacoterapia: cómo se usa el rituximab con seguridad en pénfigo vulgar.
+id: 'FA:0024'
+tipo: farmacoterapia
+farmaco: 'FS:0024'
+
+titulo: Farmacoterapia con rituximab en enfermedades ampollares autoinmunes
+titulo_en: Rituximab pharmacotherapy in autoimmune bullous diseases
+
+alcance: >-
+  Establece el protocolo de administración segura del anticuerpo monoclonal anti-CD20 rituximab en pénfigo vulgar y pénfigo foliáceo:
+  premedicación obligatoria para prevenir reacciones relacionadas con la infusión (RRI), cribado serológico previo de hepatitis B y tuberculosis,
+  profilaxis infecciosa oportunista (Pneumocystis jirovecii), monitorización de inmunoglobulinas y vigilancia de leucoencefalopatía multifocal progresiva (LMP).
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Serología de Hepatitis B (HBsAg, anti-HBc total, anti-HBs)
+    motivo: >-
+      Riesgo crítico de reactivación fulminante de VHB con fallo hepático agudo tras la depleción prolongada de linfocitos B; si anti-HBc es positivo, requiere profilaxis antiviral con entecavir o tenofovir.
+    responsable: especialista
+    ref: 'pmid:28342637'
+
+  - prueba: Serología de Hepatitis C (anti-VHC) y VIH
+    motivo: >-
+      Descartar inmunodeficiencia subyacente y coinfecciones virales crónicas antes de iniciar inmunosupresión biológica profunda.
+    responsable: especialista
+    ref: 'pmid:28342637'
+
+  - prueba: Cribado de infección latente por Mycobacterium tuberculosis (IGRA o prueba de tuberculina)
+    motivo: >-
+      Descartar tuberculosis activa o latente que requiera quimioprofilaxis previa a la depleción de células B y corticoterapia concomitante.
+    responsable: especialista
+    ref: 'pmid:28342637'
+
+  - prueba: Cuantificación de inmunoglobulinas séricas (IgG, IgA, IgM) y hemograma completo
+    motivo: >-
+      Identificar hipogammaglobulinemia basal o neutropenia preexistente para estratificar el riesgo infeccioso grave.
+    responsable: especialista
+    ref: 'pmid:28342637'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Serologías virales completas (VHB, VHC, VIH)
+      - Hemograma con recuento de neutrófilos y linfocitos
+      - Inmunoglobulinas séricas basales (IgG, IgM)
+      - Títulos basales de anticuerpos antidesmogleína 1 y 3 (anti-Dsg1, anti-Dsg3) por ELISA
+    responsable: especialista
+    ref: 'pmid:28342637'
+
+  - fase: induccion
+    periodo: Semanas 0 a 4 (ciclo de infusión d0 y d14)
+    frecuencia: Monitorización durante cada infusión y control clínico a las 4 semanas
+    pruebas:
+      - Constantes vitales cada 15-30 minutos durante la infusión intravenosa hospitalaria
+      - Premedicación 30 a 60 minutos antes con paracetamol, antihistamínico H1 (difenhidramina) y metilprednisolona IV
+      - Vigilancia de signos de infección bacteriana o viral aguda
+    responsable: especialista
+    ref: 'pmid:28342637'
+
+  - fase: mantenimiento
+    periodo: Meses 2 a 24 de seguimiento
+    frecuencia: Cada 3 meses
+    pruebas:
+      - Exploración cutánea y mucosa exhaustiva para evaluar remisión de ampollas y erosiones
+      - Desescalada pautada y progresiva de prednisona oral hasta suspensión a mes 3-6
+      - Hemograma e inmunoglobulinas séricas periódicas (vigilancia de hipogammaglobulinemia secundaria y neutropenia tardía)
+      - Títulos de anti-Dsg1 y anti-Dsg3 para anticipar recaídas serológicas
+    responsable: seguimiento
+    ref: 'pmid:28342637'
+
+umbrales_accion:
+  - parametro: Reacción infusional moderada-severa (broncoespasmo, hipotensión, urticaria generalizada, angioedema)
+    umbral: Grado ≥ 2
+    accion: >-
+      Detener inmediatamente la infusión. Administrar corticoides IV, antihistamínicos y soporte con fluidos/oxígeno. Si se resuelve completamente, reanudar a la mitad del ritmo de infusión previo.
+    ref: 'pmid:28342637'
+
+  - parametro: Infección bacteriana o viral activa grave (sepsis, neumonía)
+    umbral: Infección sistémica Grado ≥ 3
+    accion: >-
+      Aplazar o suspender la segunda infusión de rituximab hasta resolución clínica y microbiológica completa de la infección. Iniciar antibioterapia dirigida.
+    ref: 'pmid:28342637'
+
+  - parametro: Síntomas o signos neurológicos focales nuevos (alteración cognitiva, hemiparesia, ataxia, trastornos visuales)
+    umbral: Sospecha de Leucoencefalopatía Multifocal Progresiva (LMP)
+    accion: >-
+      Suspender rituximab inmediatamente de forma permanente. Derivar a neurología urgente, solicitar RM cerebral con contraste y PCR para virus JC en líquido cefalorraquídeo.
+    ref: 'pmid:28342637'
+
+  - parametro: Hipogammaglobulinemia severa persistente (IgG < 400 mg/dL con infecciones recurrentes)
+    umbral: Déficit humoral secundario sintomático
+    accion: >-
+      Valorar profilaxis antibiótica o reposición con inmunoglobulinas intravenosas o subcutáneas en consulta de inmunología clínica.
+    ref: 'pmid:28342637'
+
+interacciones:
+  - con: Vacunas vivas atenuadas (ej. fiebre amarilla, triple vírica, varicela, polio oral)
+    gravedad: mayor
+    efecto: Riesgo de infección vacunal diseminada grave por incapacidad de generar respuesta inmune de células B.
+    conducta: Contraindicadas absolutamente durante el tratamiento y hasta la recuperación de linfocitos B periféricos (al menos 6-12 meses tras rituximab).
+    ref: 'pmid:28342637'
+
+  - con: Antihipertensivos orales administrados el día de la infusión
+    gravedad: moderada
+    efecto: Potenciación del riesgo de hipotensión transitoria durante la infusión de rituximab.
+    conducta: Considerar suspender el fármaco antihipertensivo la mañana de la infusión intravenosa.
+    ref: 'fda:label'
+
+  - con: Fármacos biológicos inmunosupresores concomitantes
+    gravedad: mayor
+    efecto: Inmunosupresión celular y humoral profunda con incremento exponencial del riesgo de infecciones oportunistas graves.
+    conducta: Evitar la combinación salvo en protocolos hematológicos/reumatológicos específicos bajo estricta vigilancia.
+    ref: 'pmid:28342637'
+
+reproductivo:
+  gestacion:
+    compatibilidad: evitar
+    enunciado: >-
+      Los anticuerpos monoclonales IgG atraviesan la barrera placentaria a partir del segundo trimestre, provocando depleción transitoria de linfocitos B y linfocitopenia en el feto humano. Se recomienda utilizar métodos anticonceptivos eficaces durante el tratamiento y hasta 12 meses después de la última infusión.
+    ref: 'pmid:28342637'
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Rituximab se excreta en cantidades mínimas en la leche materna y al ser una macromolécula proteica se degrada sustancialmente en el tracto gastrointestinal neonatal; no obstante, por cautela se aconseja vigilancia de infecciones en el lactante.
+    ref: 'pmid:36318966'
+
+atencion_compartida:
+  especialista: >-
+    Dermatólogo hospitalario indica rituximab en pénfigo vulgar moderado-grave (pauta de 1000 mg IV los días 0 y 14, con prednisona oral a dosis decrecientes rápidas); prescribe premedicación y profilaxis infecciosa (trimetoprim/sulfametoxazol).
+  seguimiento: >-
+    Atención primaria y enfermería: vigilancia de signos tempranos de infección respiratoria o cutánea; verificación del cumplimiento de la reducción gradual de prednisona; consulta prioritaria ante cualquier focalidad neurológica.
+  suspension_inmediata:
+    - Reacción anafiláctica grave o disnea aguda durante la infusión intravenosa
+    - Sospecha de LMP (alteración motora, del habla o cognitiva progresiva)
+    - Reactivación de hepatitis B aguda o sepsis bacteriana
+  ref: 'pmid:28342637'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: 'Rituximab (1000 mg IV d0 y d14) asociado a ciclo corto de corticoterapia oral en pénfigo vulgar moderado a grave.'
+    - linea: segunda
+      opciones: 'Azatioprina o micofenolato de mofetilo asociados a corticoides orales en casos leves, contraindicación formal a rituximab o falta de disponibilidad de infusión biológica.'
+    - linea: tercera
+      opciones: 'Inmunoglobulinas intravenosas o plasmaféresis de rescate en recaídas refractarias multirresistentes.'
+  ref: 'pmid:28342637'
+
+refs:
+  - 'pmid:28342637'
+  - 'pmid:36318966'
+  - 'fda:label'

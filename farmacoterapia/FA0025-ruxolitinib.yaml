@@ -1,0 +1,152 @@
+# PARTE II — Farmacoterapia: cómo se usa el ruxolitinib con seguridad.
+id: 'FA:0025'
+tipo: farmacoterapia
+farmaco: 'FS:0025'
+
+titulo: Farmacoterapia con ruxolitinib
+titulo_en: Ruxolitinib pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad clínica para inhibidores selectivos de JAK1 y JAK2 (ruxolitinib) en neoplasias mieloproliferativas (mielofibrosis y policitemia vera):
+  dosificación individualizada guiada por recuento basal de plaquetas, manejo de anemia y trombocitopenia dosis-dependientes,
+  prevención de síndrome de abstinencia/rebote sintomático por suspensión brusca, y profilaxis/cribado de reactivaciones virales (herpes zóster, VHB, tuberculosis).
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Hemograma completo con recuento diferencial de leucocitos y plaquetas
+    motivo: >-
+      Determinar la dosis de inicio obligatoria: 20 mg bid si plaquetas > 200 000/mcL; 15 mg bid si plaquetas 100 000 - 200 000/mcL; 5 mg bid si plaquetas 50 000 - < 100 000/mcL.
+    responsable: especialista
+    ref: 'pmid:22375971'
+
+  - prueba: Serología de Hepatitis B (HBsAg y anti-HBc) y prueba de tuberculosis latente (IGRA)
+    motivo: >-
+      Riesgo de reactivación de infecciones crónicas latentes secundario a la inmunosupresión selectiva celular mediada por la inhibición de JAK1.
+    responsable: especialista
+    ref: 'fda:label'
+
+  - prueba: Perfil lipídico y funcional hepático (ALT, AST, bilirrubina)
+    motivo: >-
+      Identificar dislipemia previa (ruxolitinib puede aumentar colesterol total y LDL) o hepatopatía basal que exija ajuste de dosis.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Hemograma completo con plaquetas y reticulocitos
+      - Palpación bimanual y medición en centímetros del polo inferior del bazo bajo el reborde costal izquierdo
+      - Evaluación basal de síntomas constitucionales mediante cuestionario estandarizado (escala TSS/MPN-SAF)
+      - Bioquímica sérica con función renal y hepática
+    responsable: especialista
+    ref: 'pmid:22375971'
+
+  - fase: induccion
+    periodo: Primeras 8 a 12 semanas de tratamiento
+    frecuencia: Hemograma cada 2 a 4 semanas
+    pruebas:
+      - Hemograma completo quincenal durante las primeras 8 semanas, luego mensual
+      - Monitorización de descenso fisiológico temprano de hemoglobina (nadir habitual entre semanas 8 y 12)
+      - Evaluación clínica de reducción del bazo y mejoría de astenia y sudores nocturnos
+    responsable: especialista
+    ref: 'pmid:22375971'
+
+  - fase: mantenimiento
+    periodo: Tratamiento crónico continuado
+    frecuencia: Cada 4 a 8 semanas
+    pruebas:
+      - Hemograma completo periódico para titulación de dosis según tolerancia hematológica
+      - Medición periódica del bazo en cm bajo el reborde costal
+      - Cribado cutáneo para detección precoz de cáncer de piel no melanoma
+      - Detección de reactivación de herpes zóster (iniciar aciclovir/valaciclovir si se presentan vesículas metaméricas)
+    responsable: seguimiento
+    ref: 'pmid:22375971'
+
+umbrales_accion:
+  - parametro: Trombocitopenia con recuento de plaquetas < 50 000/mcL
+    umbral: Trombocitopenia severa Grado 4
+    accion: >-
+      Interrumpir temporalmente ruxolitinib. Al recuperarse las plaquetas por encima de 50 000/mcL, reanudar a una dosis inferior (reducir 5 mg bid respecto a la previa).
+    ref: 'pmid:22375971'
+
+  - parametro: Descenso de plaquetas entre 50 000 y 100 000/mcL
+    umbral: Trombocitopenia Grado 3
+    accion: >-
+      Reducir la dosis a 5 mg bid o 10 mg bid para evitar suspensión completa y prevenir rebote del volumen esplénico.
+    ref: 'pmid:22375971'
+
+  - parametro: Anemia severa sintomática (Hb < 8 g/dL)
+    umbral: Anemia Grado 3
+    accion: >-
+      Considerar soporte transfusional de concentrados de hematíes sin reducir ruxolitinib salvo que no se logre estabilización, dado que el nadir de hemoglobina suele remontar parcialmente tras la semana 12.
+    ref: 'pmid:22375971'
+
+  - parametro: Necesidad de retirada o suspensión del fármaco
+    umbral: Cualquier causa de interrupción no urgente
+    accion: >-
+      Desescalar la dosis de forma paulatina y gradual a lo largo de varias semanas (por ejemplo, reducir 5 mg bid cada semana). Nunca suspender bruscamente por riesgo de síndrome hiperinflamatorio agudo por rebote de citocinas (esplenomegalia fulminante, shock y fiebre alta).
+    ref: 'fda:label'
+
+interacciones:
+  - con: Inhibidores potentes de CYP3A4 (ej. ketoconazol, itraconazol, claritromicina)
+    gravedad: mayor
+    efecto: Incremento marcado de la exposición plasmática de ruxolitinib con riesgo elevado de mielotoxicidad grave.
+    conducta: Reducir la dosis de ruxolitinib al 50 % (administrar dos veces al día a la mitad de la dosis calculada).
+    ref: 'fda:label'
+
+  - con: Inductores potentes de CYP3A4 (ej. rifampicina, carbamazepina, fenitoína)
+    gravedad: mayor
+    efecto: Disminución sustancial de la concentración sérica de ruxolitinib y pérdida de control esplénico y sintomático.
+    conducta: Evitar la combinación o monitorizar estrechamente la respuesta esplénica, valorando incremento posológico escalonado.
+    ref: 'fda:label'
+
+  - con: Fármacos mielosupresores adyuvantes
+    gravedad: moderada
+    efecto: Sinergia de toxicidad medular con citopenias bicitopénicas o pancitopenia.
+    conducta: Evitar la coadministración de hidroxiurea u otros citostáticos salvo períodos de transición monitorizados.
+    ref: 'pmid:22375971'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Los estudios en modelos animales han demostrado toxicidad embriofetal, incluyendo abortos y retraso en el desarrollo esquelético. Ruxolitinib está contraindicado durante el embarazo. Las mujeres con potencial fértil deben emplear métodos anticonceptivos eficaces durante el tratamiento.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desconoce si ruxolitinib se excreta en leche humana, pero los datos en modelos animales confirman excreción en leche con potencial de toxicidad grave en el lactante. Se debe interrumpir la lactancia durante el tratamiento.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Hematólogo estratifica el riesgo pronóstico (IPSS/DIPSS), pauta la dosis inicial según plaquetas, titula las reducciones por citopenia y planifica la monitorización molecular y eventual trasplante alogénico de progenitores hematopoyéticos en candidatos jóvenes.
+  seguimiento: >-
+    Atención primaria y farmacia: alerta absoluta contra la interrupción brusca de la medicación (riesgo de crisis por rebote); detección precoz de infecciones cutáneas o zóster; control tensional y hemogramas ambulatorios pautados.
+  suspension_inmediata:
+    - Plaquetas inferiores a 50 000/mcL persistentes
+    - Infección sistémica severa activa no controlada
+    - Sospecha de sangrado mayor activo atribuible a trombocitopenia
+  ref: 'pmid:22375971'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: 'Ruxolitinib en pacientes con mielofibrosis de riesgo intermedio-2 o alto con esplenomegalia palpable sintomática o síntomas constitucionales debilitantes.'
+    - linea: segunda
+      opciones: 'Inhibidores alternativos de JAK2 (fedratinib, momelotinib, pacritinib) en pacientes refractarios, intolerantes o con trombocitopenia grave basal.'
+    - linea: rescate
+      opciones: 'Trasplante alogénico de médula ósea en pacientes jóvenes seleccionados elegibles.'
+  ref: 'pmid:22375971'
+
+refs:
+  - 'pmid:22375971'
+  - 'fda:label'

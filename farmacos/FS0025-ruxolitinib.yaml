@@ -1,0 +1,72 @@
+id: 'FS:0025'
+tipo: farmaco
+dci: Ruxolitinib
+dci_en: Ruxolitinib
+sinonimos:
+  - Jakavi
+  - Jakafi
+  - INCB018424
+
+atc: L01EJ01
+clase_farmacologica: Inhibidor selectivo y potente de las quinasas asociadas a Janus (JAK1 y JAK2)
+clase_farmacologica_en: Selective JAK1 and JAK2 kinase inhibitor
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '1193326'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor oral de molécula pequeña que bloquea de manera potente y selectiva las quinasas asociadas a Janus JAK1 y JAK2,
+  mediadoras de la transducción de señales de numerosas citoquinas y factores de crecimiento esenciales para la hematopoyesis
+  y la respuesta inmunitaria (vía JAK-STAT). En neoplasias mieloproliferativas (mielofibrosis primaria y secundaria a policitemia vera o trombocitemia esencial),
+  la desregulación constitutiva de JAK2 (incluyendo la mutación V617F) promueve proliferación clonal y tormenta de citoquinas proinflamatorias.
+  Ruxolitinib suprime la señalización anormal, reduciendo drásticamente la esplenomegalia y los síntomas sistémicos debilitantes.
+mecanismo_ref: 'pmid:22375971'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático oxidativo extenso catalizado predominantemente por CYP3A4 y en menor grado por CYP2C9; excreción urinaria (74%) y fecal (22%)'
+  vida_media: 'Aproximadamente 3 horas para la molécula madre y 5.8 horas sumando metabolitos activos'
+  implicacion: >-
+    Posología oral dos veces al día (cada 12 horas, con o sin alimentos), ajustada rigurosamente según el recuento basal de plaquetas:
+    20 mg bid si plaquetas > 200 000/mcL; 15 mg bid si plaquetas 100 000-200 000/mcL; 5 mg bid si plaquetas 50 000-<100 000/mcL.
+    Nunca suspender de forma brusca por riesgo de síndrome de rebote de citoquinas con esplenomegalia aguda e hipotensión.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Trombocitopenia y anemia dependientes de la dosis
+      frecuencia: muy_frecuente
+      gravedad: grave
+      nota: >-
+        Efecto farmacodinámico por inhibición fisiológica de JAK2 en precursores eritroides y megacariocíticos; el nadir se alcanza entre las semanas 8 y 12, con estabilización posterior; requiere ajuste posológico según hemogramas periódicos.
+      ref: 'pmid:22375971'
+    - evento: Mayor susceptibilidad a infecciones (herpes zóster y neumonías)
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Inhibición de la inmunidad mediada por JAK1/STAT; vigilar reactivación de herpes zóster e infecciones respiratorias oportunistas.
+      ref: 'pmid:22375971'
+    - evento: Mareos y cefalea leves
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Habitualmente transitorios en las primeras semanas de tratamiento.
+      ref: 'pmid:22375971'
+    - evento: Síndrome de retirada / rebote de ruxolitinib
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Reaparición explosiva de síntomas mieloproliferativos, fiebre y rápida recaída del tamaño esplénico si se interrumpe abruptamente sin pauta descendente gradual.
+      ref: 'fda:label'

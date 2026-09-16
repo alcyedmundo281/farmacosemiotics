@@ -1,0 +1,105 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0016'
+tipo: seleccion
+problema: Mielofibrosis primaria o secundaria de riesgo intermedio o alto
+problema_en: Primary or secondary myelofibrosis of intermediate or high risk
+cie11: 2A22
+
+poblacion: >-
+  Pacientes adultos con mielofibrosis primaria, mielofibrosis post-policitemia vera
+  o mielofibrosis post-trombocitemia esencial de riesgo intermedio-2 o alto (IPSS o DIPSS),
+  con esplenomegalia palpable sintomática y/o síntomas constitucionales graves.
+
+pregunta: >-
+  En adultos con mielofibrosis de riesgo intermedio-2 o alto con esplenomegalia y síntomas sistémicos,
+  ¿qué intervención farmacológica (inhibidor selectivo de JAK1/JAK2 ruxolitinib vs placebo / mejor terapia disponible)
+  se selecciona para reducir el volumen esplénico, mitigar la carga sintomática constitucional y mejorar la supervivencia global?
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  La mielofibrosis se asocia a activación patológica y aberrante de la vía JAK-STAT (mutaciones en JAK2, CALR o MPL),
+  conduciendo a esplenomegalia masiva dolorosa, caquexia y citopenias progresivas. Los tratamientos previos
+  (hidroxiurea, interferón) no ofrecen alivio sintomático profundo ni modifican el curso evolutivo de la enfermedad.
+  Ruxolitinib es el primer inhibidor selectivo de JAK1 y JAK2 con demostración de control esplénico y beneficio en supervivencia.
+
+estrategia:
+  - base: PubMed
+    consulta: 'ruxolitinib AND myelofibrosis AND COMFORT-I'
+    fecha: '2026-09-16'
+    nota: 'Ensayo clínico fase 3 aleatorizado doble ciego COMFORT-I (Verstovsek et al., N Engl J Med 2012; PMID: 22375971).'
+
+criterio_decisorio: >-
+  Se selecciona el agente que logre una reducción del volumen esplénico ≥ 35 % por resonancia o tomografía computarizada
+  a las 24 semanas (equivalente a una reducción del 50 % de la masa esplénica palpable), mejoría clínica relevante
+  (≥ 50 %) del Total Symptom Score y reducción de la mortalidad por cualquier causa.
+
+conclusion: >-
+  Ruxolitinib queda seleccionado como el tratamiento de elección en mielofibrosis de riesgo intermedio-2 o alto:
+  alcanza la reducción esplénica diana ≥ 35 % en el 41.9 % de los pacientes frente a 0.7 % con placebo a 24 semanas
+  (RRA 41.2 %, NNT 3), proporciona mejoría de síntomas constitucionales ≥ 50 % en 45.9 % vs 5.3 % (RRA 40.6 %, NNT 3)
+  y confiere beneficio temprano en supervivencia global (HR 0.50, p = 0.04), requiriendo ajuste estrecho de dosis según recuento plaquetario basal
+  y monitorización de citopenias sin suspenderlo bruscamente.
+
+candidatos:
+  - dci: Ruxolitinib
+    atc: L01EJ01
+    farmaco: 'FS:0025'
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        En el ensayo COMFORT-I (PMID: 22375971), el 41.9 % de los pacientes tratados con ruxolitinib lograron una reducción
+        del volumen esplénico ≥ 35 % a las 24 semanas frente al 0.7 % con placebo (p < 0.001; RRA 41.2 %, NNT 3).
+        Asimismo, el 45.9 % alcanzó mejoría ≥ 50 % en la escala TSS de síntomas constitucionales vs 5.3 % con placebo (NNT 3),
+        con reducción estadísticamente significativa de la mortalidad (HR 0.50; IC 95 % 0.25-0.98; p = 0.04).
+      ref: 'pmid:22375971'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Provoca anemia Grado 3-4 en el 45.2 % de los pacientes (vs 19.2 % con placebo; RRA -26.0 %, NNH 4)
+        y trombocitopenia Grado 3-4 en el 12.9 % (vs 1.3 %; RRA -11.6 %, NNH 9), secundarias a la inhibición farmacológica
+        fisiológica de JAK2 en hematopoyesis, las cuales se manejan con ajuste escalonado de dosis y soporte transfusional transitorio.
+      ref: 'pmid:22375971'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Administración oral dos veces al día en comprimidos (5, 10, 15, 20 mg) ajustada individualmente al recuento plaquetario,
+        independiente de las comidas.
+      ref: 'pmid:22375971'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Inhibidor de quinasa innovador con coste terapéutico relevante, justificado por la reducción drástica de hospitalizaciones,
+        alivio del dolor esplénico discapacitante y prolongación de la supervivencia global.
+      ref: 'pmid:22375971'
+
+  - dci: Placebo / Mejor terapia disponible
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Tasa de reducción esplénica diana casi nula (0.7 %) y mejoría sintomática transitoria o ausente (5.3 %),
+        con progresión continua de caquexia y mortalidad temprana.
+      ref: 'pmid:22375971'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Menor incidencia de anemia o trombocitopenia farmacológica a corto plazo, pero a expensas de la progresión de la mieloptisis subyacente.
+      ref: 'pmid:22375971'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Manejo conservador oral o sintomático pero con consultas médicas frecuentes por caquexia y complicaciones del bazo gigante.
+      ref: 'pmid:22375971'
+    costo:
+      juicio: superior
+      sustento: >-
+        Carente de coste farmacológico innovador, aunque genera elevado gasto secundario por complicaciones y hospitalizaciones.
+      ref: 'pmid:22375971'

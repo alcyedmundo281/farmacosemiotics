@@ -1,0 +1,36 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:27107460"
+clave_bibtex: carmeli2016
+tipo: eca
+titulo: "Ceftazidime-avibactam or best available therapy in patients with ceftazidime-resistant Enterobacteriaceae and Pseudomonas aeruginosa complicated urinary tract infections or complicated intra-abdominal infections (REPRISE): a randomised, pathogen-directed, phase 3 study"
+autores:
+  - "Carmeli Y"
+  - "Armstrong J"
+  - "Laud PJ"
+  - "Newell P"
+  - "Stone G"
+  - "Wardman A"
+  - "Gasink LB"
+publicacion: "Lancet Infect Dis"
+anio: 2016
+volumen: "16"
+numero: "6"
+paginas: "661-673"
+
+identificadores:
+  pmid: 27107460
+  doi: "10.1016/S1473-3099(16)30004-4"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

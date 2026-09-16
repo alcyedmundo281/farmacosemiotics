@@ -1,0 +1,151 @@
+# PARTE II — Farmacoterapia: cómo se usa el olaparib con seguridad.
+id: 'FA:0027'
+tipo: farmacoterapia
+farmaco: 'FS:0027'
+
+titulo: Farmacoterapia con olaparib
+titulo_en: Olaparib pharmacotherapy
+
+alcance: >-
+  Establece el protocolo de seguridad clínica para inhibidores de poli(ADP-ribosa) polimerasa (PARP, olaparib) en cáncer ginecológico:
+  administración oral continua de 300 mg dos veces al día, prevención y manejo de toxicidad hematológica (anemia severa dependiente de transfusión, trombocitopenia),
+  vigilancia a largo plazo de síndrome mielodisplásico y leucemia mieloide aguda (SMD/LMA), y ajuste de dosis en insuficiencia renal moderada.
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Test genético germinal o somático de mutaciones en genes BRCA1 y BRCA2
+    motivo: >-
+      Requisito biológico indispensable para predecir respuesta terapéutica por letalidad sintética en tumores con deficiencia de recombinación homóloga.
+    responsable: especialista
+    ref: 'pmid:30345884'
+
+  - prueba: Hemograma completo basal con recuento de reticulocitos
+    motivo: >-
+      Confirmar recuperación hematológica completa de la médula ósea tras la quimioterapia previa basada en platino (hemoglobina ≥ 9-10 g/dL, plaquetas ≥ 100 000/mcL, neutrófilos ≥ 1500/mcL).
+    responsable: especialista
+    ref: 'pmid:30345884'
+
+  - prueba: Aclaramiento de creatinina sérica basal
+    motivo: >-
+      Ajustar la dosis a 200 mg bid si el filtrado glomerular está entre 31 y 50 mL/min (insuficiencia renal moderada).
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Confirmación de mutación patogénica en BRCA1/2
+      - Hemograma completo con diferencial y plaquetas
+      - Bioquímica sérica con creatinina, urea y transaminasas
+      - TAC toracoabdominopélvico basal que demuestre respuesta completa o parcial al platino
+    responsable: especialista
+    ref: 'pmid:30345884'
+
+  - fase: induccion
+    periodo: Primeros 3 meses de tratamiento de mantenimiento
+    frecuencia: Hemograma mensual y control clínico de náuseas/astenia
+    pruebas:
+      - Hemograma completo mensual durante los primeros 12 meses, luego periódico
+      - Detección de anemia rápidamente progresiva o astenia invalidante
+      - Manejo sintomático de náuseas leves con antieméticos habituales (metoclopramida u ondansetrón según necesidad)
+    responsable: especialista
+    ref: 'pmid:30345884'
+
+  - fase: mantenimiento
+    periodo: Tratamiento continuado hasta 2 años (o hasta progresión tumoral si persiste enfermedad residual)
+    frecuencia: Cada 1 a 3 meses
+    pruebas:
+      - Hemograma completo mensual o bimensual
+      - Monitorización de antígeno CA-125 y evaluación radiológica semestral o ante sospecha de progresión
+      - Vigilancia de citopenias persistentes inexplicadas para descartar SMD/LMA
+    responsable: seguimiento
+    ref: 'pmid:30345884'
+
+umbrales_accion:
+  - parametro: Anemia Grado 3 (hemoglobina < 8.0 g/dL) o sintomática grave
+    umbral: Toxicidad hematológica Grado ≥ 3
+    accion: >-
+      Interrumpir olaparib hasta recuperación de hemoglobina ≥ 9.0 g/dL. Administrar soporte transfusional de concentrados de hematíes según criterios clínicos. Al reanudar, reducir la dosis a 250 mg dos veces al día (primer escalón) o 200 mg dos veces al día (segundo escalón).
+    ref: 'pmid:30345884'
+
+  - parametro: Neutropenia Grado 3 o 4 (recuento absoluto de neutrófilos < 1000/mcL) o trombocitopenia (< 50 000/mcL)
+    umbral: Citopenia severa
+    accion: >-
+      Suspender olaparib temporalmente hasta recuperación de parámetros a Grado ≤ 1. Reanudar con un escalón de reducción de dosis (250 mg bid).
+    ref: 'pmid:30345884'
+
+  - parametro: Citopenias prolongadas no resueltas tras 4 semanas de suspensión de olaparib
+    umbral: Sospecha de Síndrome Mielodisplásico / Leucemia Mieloide Aguda (SMD/LMA)
+    accion: >-
+      Suspender olaparib de forma definitiva. Derivar inmediatamente a hematología para realización de aspirado y biopsia de médula ósea con análisis citogenético.
+    ref: 'fda:label'
+
+  - parametro: Aclaramiento de creatinina entre 31 y 50 mL/min
+    umbral: Insuficiencia renal moderada
+    accion: >-
+      Reducir la dosis inicial a 200 mg dos veces al día en comprimidos.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Inhibidores potentes o moderados de CYP3A4 (ej. ketoconazol, itraconazol, claritromicina, diltiazem, zumo de pomelo)
+    gravedad: mayor
+    efecto: Aumento marcado de las concentraciones plasmáticas de olaparib con riesgo elevado de mielotoxicidad grave.
+    conducta: Evitar la administración concomitante. Si el inhibidor no puede evitarse, reducir la dosis de olaparib a 100 mg bid (con inhibidor potente) o 150 mg bid (con inhibidor moderado).
+    ref: 'fda:label'
+
+  - con: Inductores potentes o moderados de CYP3A4 (ej. rifampicina, carbamazepina, fenitoína, hierba de San Juan, efavirenz)
+    gravedad: mayor
+    efecto: Disminución drástica de la exposición sistémica a olaparib con pérdida de la eficacia antitumoral.
+    conducta: Evitar completamente la administración concomitante.
+    ref: 'fda:label'
+
+  - con: Fármacos mielosupresores adyuvantes concomitantes
+    gravedad: mayor
+    efecto: Potenciación sinérgica de la depresión medular.
+    conducta: No administrar simultáneamente con otros agentes de quimioterapia mielosupresores durante el período de mantenimiento.
+    ref: 'pmid:30345884'
+
+reproductivo:
+  gestacion:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Olaparib tiene un mecanismo de acción basado en interferencia de la reparación del ADN genómico y demostró teratogenicidad y letalidad embriofetal en animales. Contraindicado en el embarazo. Exigir prueba de embarazo negativa previa y uso de anticoncepción eficaz durante el tratamiento y hasta 6 meses tras finalizarlo (3 meses para parejas masculinas).
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: contraindicado
+    enunciado: >-
+      Se desconoce si olaparib se excreta en la leche materna, pero debido al potencial de toxicidad grave en el lactante se contraindica la lactancia durante el tratamiento y hasta 1 mes después de la última dosis.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Oncólogo médico: indica el mantenimiento tras respuesta a quimioterapia con platino basándose en el estado mutacional de BRCA1/2, programa los ajustes de dosis por anemia y evalúa periódicamente la respuesta oncológica.
+  seguimiento: >-
+    Atención primaria y farmacia hospitalaria: refuerzan la adherencia a la pauta de 300 mg bid cada 12 horas; detectan signos clínicos tempranos de anemia (astenia, disnea de esfuerzo, palidez) y tramitan hemogramas mensuales de control.
+  suspension_inmediata:
+    - Sospecha clínica o confirmación medular de síndrome mielodisplásico o leucemia mieloide aguda
+    - Neumonitis intersticial / enfermedad pulmonar inflamatoria aguda
+    - Anemia severa que requiere ingreso hospitalario o soporte intensivo continuo
+  ref: 'pmid:30345884'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: 'Olaparib en monoterapia de mantenimiento en cáncer de ovario avanzado con mutación patogénica en BRCA1/2 en respuesta completa o parcial a primera línea de platino.'
+    - linea: segunda
+      opciones: 'Inhibidores de PARP alternativos (niraparib) en pacientes sin mutación BRCA pero con déficit de recombinación homóloga (HRD positivo).'
+    - linea: rescate
+      opciones: 'Líneas sucesivas de quimioterapia sistémica citotóxica en caso de progresión tras inhibidores de PARP.'
+  ref: 'pmid:30345884'
+
+refs:
+  - 'pmid:30345884'
+  - 'fda:label'

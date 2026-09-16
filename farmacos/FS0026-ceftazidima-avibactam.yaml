@@ -1,0 +1,78 @@
+id: 'FS:0026'
+tipo: farmaco
+dci: Ceftazidima / Avibactam
+dci_en: Ceftazidime / Avibactam
+sinonimos:
+  - Zavicefta
+  - Avycaz
+  - CAZ-AVI
+
+atc: J01DD52
+clase_farmacologica: Cefalosporina de 3ª generación combinada con inhibidor no betalactámico de betalactamasas (diazabiciclooctano)
+clase_farmacologica_en: Third-generation cephalosporin and non-beta-lactam beta-lactamase inhibitor combination
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '2191'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '6.2.3'
+  categoria: complementary
+
+mecanismo: >-
+  Combinación de ceftazidima (cefalosporina de 3ª generación bactericida que inhibe la síntesis de la pared bacteriana
+  mediante unión a proteínas fijadoras de penicilina PBP3 y PBP1a/1b) con avibactam, un inhibidor sintético de betalactamasas
+  de estructura diazabiciclooctano (DBO) no betalactámica. Avibactam inhibe de forma potente y reversible mediante unión covalente
+  las betalactamasas de clase A (incluyendo betalactamasas de espectro extendido BLEE y carbapenemasas KPC de Klebsiella pneumoniae),
+  de clase C (AmpC cromosómicas y plasmídicas) y ciertas carbapenemasas de clase D (como OXA-48), restaurando plenamente
+  la actividad antibacteriana de ceftazidima frente a bacilos gramnegativos multirresistentes (carece de actividad frente a metalobetalactamasas de clase B tipo NDM, VIM o IMP).
+mecanismo_ref: 'pmid:27107460'
+
+farmacocinetica:
+  eliminacion: 'Excreción renal casi exclusiva por filtración glomerular intacta tanto para ceftazidima (~80-90%) como para avibactam (~85%)'
+  vida_media: 'Aproximadamente 2.7 horas para ambos componentes en sujetos con función renal normal'
+  implicacion: >-
+    Posología de 2 g de ceftazidima + 0.5 g de avibactam (vial combinado de 2.5 g) administrados mediante infusión intravenosa
+    de 2 horas cada 8 horas. Requiere ajuste posológico preciso según el aclaramiento de creatinina (reducción de dosis y/o
+    espaciamiento de intervalos si ClCr < 50 mL/min) para evitar acumulación y neurotoxicidad.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Positividad en la prueba directa de Coombs (con o sin anemia hemolítica)
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Seroconversión de Coombs directo en hasta un 3-10% de pacientes tratados; la hemólisis franca es extremadamente infrecuente.
+      ref: 'pmid:27107460'
+    - evento: Trastornos gastrointestinales (diarrea, náuseas, vómitos)
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Habitualmente leves o moderados (~10-15%); vigilar diarrea por Clostridioides difficile.
+      ref: 'pmid:27107460'
+    - evento: Elevación asintomática y reversible de transaminasas (ALT/AST) y fosfatasa alcalina
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Transitoria en ~5% de pacientes, normalizando tras el fin del ciclo antimicrobiano.
+      ref: 'pmid:27107460'
+    - evento: Neurotoxicidad (encefalopatía, mioclonías, crisis convulsivas)
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Riesgo concentrado casi exclusivamente en pacientes con insuficiencia renal en los que no se realizó el ajuste de dosis adecuado.
+      ref: 'fda:label'

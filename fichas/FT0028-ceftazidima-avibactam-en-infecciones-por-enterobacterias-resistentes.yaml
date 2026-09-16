@@ -1,0 +1,105 @@
+id: 'FT:0028'
+tipo: ficha
+farmaco: 'FS:0026'
+seleccion: 'SEL:0017'
+titulo: Ceftazidima / avibactam en infecciones por enterobacterias resistentes a carbapenémicos
+indicacion: Infecciones intraabdominales complicadas e infecciones complicadas del tracto urinario por enterobacterias multirresistentes
+indicacion_en: Complicated intra-abdominal and urinary tract infections caused by multidrug-resistant Enterobacterales
+poblacion: Pacientes adultos con infecciones complicadas causadas por enterobacterias resistentes a ceftazidima y productoras de carbapenemasas
+cie11: 1C60
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Combinación de cefalosporina antipseudomónica e inhibidor diazabiciclooctano: 2.5 g IV en infusión de 2 horas cada 8 horas.
+    Activo frente a enterobacterias productoras de carbapenemasas de clase A (KPC) y clase D (OXA-48), así como BLEE y AmpC.
+    Iguala la tasa de curación de la mejor terapia disponible (91 % vs 91 % en REPRISE; NNT 1 para no-inferioridad) evitando la nefrotoxicidad de colistina.
+  alerta_seguridad_inmediata: >-
+    Inactivo frente a metalo-beta-lactamasas (clase B: NDM, VIM, IMP); requiere adición de aztreonam si se sospecha o confirma coproducción de metaloenzimas.
+    Ajuste de dosis obligatorio según el aclaramiento de creatinina para evitar neurotoxicidad y convulsiones.
+
+pico:
+  p: Adultos con IIAc o ITUc por enterobacterias Gram-negativas resistentes a ceftazidima (N=333)
+  i: Ceftazidima / avibactam 2.5 g (2.0 g / 0.5 g) IV en perfusión de 2 horas cada 8 horas
+  c: Mejor terapia disponible seleccionada por el investigador (principalmente carbapenémicos)
+  o: Curación clínica en la visita de prueba de curación (TOC), erradicación microbiológica y seguridad
+posologia:
+  inicio: 2.5 g (2000 mg ceftazidima / 500 mg avibactam) por vía intravenosa cada 8 horas
+  escalado: Perfusión intravenosa continua de 120 minutos (2 horas) en cada administración
+  mantenimiento: 2.5 g cada 8 horas durante 5 a 14 días según el foco y gravedad de la infección
+  maxima: 7.5 g al día (6 g ceftazidima / 1.5 g avibactam)
+  ajuste_renal: 1.25 g cada 8 h si ClCr 31-50 mL/min; 0.9375 g cada 12 h si ClCr 16-30 mL/min; 0.9375 g cada 24 h si ClCr 6-15 mL/min
+  ajuste_hepatico: No requiere ajuste en disfunción hepática
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Curación clínica en la visita de prueba de curación (test of cure, TOC)
+    criticidad: critico
+    efecto: 'Tasa de curación clínica idéntica: 90.9 % (140/154) con ceftazidima/avibactam frente al 91.2 % (135/148) con la mejor terapia disponible (diferencia -0.3 %, IC 95 % -6.6 a 6.0; no-inferioridad confirmada en REPRISE)'
+    rra: '0.0%'
+    rrr: '0.0%'
+    nnt: 1
+    horizonte_nnt: al test de curación (TOC)
+    diseno: eca
+    estudio: REPRISE (Lancet Infect Dis 2016)
+    comparador: Mejor terapia disponible (carbapenémicos)
+    n: 333
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:27107460'
+
+  - desenlace: Erradicación microbiológica favorable en patógenos resistentes a ceftazidima
+    criticidad: critico
+    efecto: 'Tasa de respuesta microbiológica favorable sostenida en el 82.5 % con ceftazidima/avibactam frente al 84.5 % con comparador'
+    rra: '0.0%'
+    rrr: '0.0%'
+    nnt: 1
+    horizonte_nnt: al test de curación (TOC)
+    diseno: eca
+    estudio: REPRISE (Lancet Infect Dis 2016)
+    comparador: Mejor terapia disponible
+    n: 333
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:27107460'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda ceftazidima / avibactam intravenoso (2.5 g en infusión de 2 h cada 8 horas con ajuste renal)
+    como tratamiento dirigido de primera elección en pacientes adultos con infecciones complicadas (intraabdominales o urinarias)
+    causadas por enterobacterias productoras de carbapenemasas KPC o OXA-48, por su eficacia equivalente a los esquemas de referencia
+    y su perfil de seguridad exento de la nefrotoxicidad de las polimixinas.
+  ref: 'pmid:27107460'
+
+conclusion: >-
+  Ceftazidima / avibactam constituye un pilar esencial del grupo de Reserva de la OMS para combatir patógenos multirresistentes:
+  restaura la eficacia del beta-lactámico inhibiendo las carbapenemasas de clase A y D y rescata a pacientes con sepsis grave
+  sin incurrir en el daño tubular agudo propio de colistina o aminoglucósidos.
+
+guias:
+  - organizacion: IDSA / ESCMID
+    anio: 2023
+    titulo: 'Infectious Diseases Society of America Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections'
+    posicion: 'Ceftazidima/avibactam es el régimen preferente recomendado para infecciones por Enterobacterales productoras de KPC y OXA-48.'
+    cita: 'Clin Infect Dis 2023'
+
+refs:
+  - 'pmid:27107460'
+  - 'fda:label'

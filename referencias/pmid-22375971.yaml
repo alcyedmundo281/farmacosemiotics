@@ -1,0 +1,56 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:22375971"
+clave_bibtex: verstovsek2012
+tipo: eca
+titulo: "A double-blind, placebo-controlled trial of ruxolitinib for myelofibrosis"
+autores:
+  - "Verstovsek S"
+  - "Mesa RA"
+  - "Gotlib J"
+  - "Levy RS"
+  - "Gupta V"
+  - "DiPersio JF"
+  - "Catalano JV"
+  - "Deininger M"
+  - "Miller C"
+  - "Silver RT"
+  - "Talpaz M"
+  - "Winton EF"
+  - "Harvey JH"
+  - "Arcasoy MO"
+  - "Hexner E"
+  - "Lyons RM"
+  - "Paquette R"
+  - "Raza A"
+  - "Vaddi K"
+  - "Erickson-Viitanen S"
+  - "Koumenis IL"
+  - "Sun W"
+  - "Sandor V"
+  - "Kantarjian HM"
+publicacion: "N Engl J Med"
+anio: 2012
+volumen: "366"
+numero: "9"
+paginas: "799-807"
+
+identificadores:
+  pmid: 22375971
+  doi: "10.1056/NEJMoa1110557"
+  pmc: "PMC4822164"
+
+tipos_pubmed:
+  - "Clinical Trial, Phase III"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

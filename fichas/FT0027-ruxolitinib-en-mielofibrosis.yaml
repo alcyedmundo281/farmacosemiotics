@@ -1,0 +1,119 @@
+id: 'FT:0027'
+tipo: ficha
+farmaco: 'FS:0025'
+seleccion: 'SEL:0016'
+titulo: Ruxolitinib en la mielofibrosis de riesgo intermedio o alto
+indicacion: Mielofibrosis primaria, mielofibrosis post-policitemia vera o post-trombocitemia esencial de riesgo intermedio-2 o alto
+indicacion_en: Intermediate or high-risk primary myelofibrosis, post-polycythemia vera or post-essential thrombocythemia myelofibrosis
+poblacion: Adultos con mielofibrosis con esplenomegalia palpable y síntomas constitucionales
+cie11: 2A22
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Inhibidor selectivo de JAK1 y JAK2 oral: dosificación basal guiada por plaquetas (15 a 20 mg cada 12 horas).
+    Alcanza reducción esplénica diana ≥ 35 % en el 41.9 % frente a 0.7 % con placebo a 24 semanas (RRA 41.2 %, NNT 3)
+    y alivio profundo de síntomas constitucionales ≥ 50 % en el 45.9 % (NNT 3), prolongando la supervivencia global temprana.
+  alerta_seguridad_inmediata: >-
+    Nunca suspender bruscamente por riesgo de síndrome de abstinencia hiperinflamatorio severo (rebote agudo del bazo, shock y fiebre).
+    Monitorizar hemograma quincenal los primeros 2 meses por riesgo de anemia y trombocitopenia dosis-dependientes.
+
+pico:
+  p: Adultos con mielofibrosis de riesgo intermedio-2 o alto con esplenomegalia palpable (N=309)
+  i: Ruxolitinib oral dos veces al día (15 mg o 20 mg bid según plaquetas basales)
+  c: Placebo oral dos veces al día
+  o: Reducción del volumen esplénico ≥ 35 % a las 24 semanas por RM/TC y mejoría de síntomas en escala TSS
+posologia:
+  inicio: 20 mg dos veces al día (plaquetas > 200 000/mcL) o 15 mg dos veces al día (plaquetas 100 000-200 000/mcL)
+  escalado: Titulación gradual cada 4 semanas en incrementos de 5 mg bid según respuesta clínica y hemograma
+  mantenimiento: 5 mg a 25 mg dos veces al día de forma continuada
+  maxima: 25 mg dos veces al día (50 mg/día)
+  ajuste_renal: 10 mg dos veces al día si ClCr 15-59 mL/min con plaquetas 100 000-150 000/mcL
+  ajuste_hepatico: Reducción de la dosis de inicio a aproximadamente el 50 %
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Reducción del volumen esplénico ≥ 35 % evaluada por RM o TC a las 24 semanas
+    criticidad: critico
+    efecto: 'Respuesta esplénica alcanzada en el 41.9 % (65/155) con ruxolitinib frente al 0.7 % (1/154) con placebo (p < 0.001 en COMFORT-I)'
+    rra: '41.2%'
+    rrr: '98.3%'
+    nnt: 3
+    horizonte_nnt: a 24 semanas
+    diseno: eca
+    estudio: COMFORT-I (NEJM 2012)
+    comparador: Placebo oral
+    n: 309
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:22375971'
+
+  - desenlace: Reducción ≥ 50 % en la puntuación total de síntomas (TSS) a las 24 semanas
+    criticidad: critico
+    efecto: 'Alivio sintomático sustancial en el 45.9 % con ruxolitinib frente al 5.3 % con placebo (p < 0.001; resolución de sudores nocturnos, dolor y prurito)'
+    rra: '40.6%'
+    rrr: '88.5%'
+    nnt: 3
+    horizonte_nnt: a 24 semanas
+    diseno: eca
+    estudio: COMFORT-I (NEJM 2012)
+    comparador: Placebo oral
+    n: 309
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:22375971'
+
+  - desenlace: Supervivencia global a las 24 semanas de seguimiento
+    criticidad: critico
+    efecto: 'Mortalidad por cualquier causa del 8.4 % con ruxolitinib vs 15.6 % con placebo (HR 0.50, IC 95 % 0.25–0.98; p = 0.04)'
+    rra: '7.2%'
+    rrr: '46.2%'
+    nnt: 14
+    horizonte_nnt: a 24 semanas
+    diseno: eca
+    estudio: COMFORT-I (NEJM 2012)
+    comparador: Placebo oral
+    n: 309
+    certeza: moderada
+    razones_descenso:
+      - imprecision
+    ref: 'pmid:22375971'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda ruxolitinib oral (15 a 20 mg cada 12 horas según recuento plaquetario basal) en pacientes adultos
+    con mielofibrosis de riesgo intermedio-2 o alto con esplenomegalia sintomática o síntomas constitucionales,
+    por su capacidad probada para reducir drásticamente el volumen del bazo (NNT 3), aliviar la carga sintomática (NNT 3) y mejorar la supervivencia global.
+  ref: 'pmid:22375971'
+
+conclusion: >-
+  Ruxolitinib es el tratamiento estándar de referencia en mielofibrosis sintomática: inhibe de forma potente la hiperactivación de la vía JAK-STAT,
+  consiguiendo retracción esplénica masiva y control del estado caquéctico e hipercatabólico con una ganancia demostrada en supervivencia frente a las terapias previas.
+
+guias:
+  - organizacion: ELN / NCCN
+    anio: 2023
+    titulo: 'Clinical practice guidelines in myeloproliferative neoplasms: Myelofibrosis'
+    posicion: 'Ruxolitinib es la terapia de primera línea estándar recomendada para pacientes con esplenomegalia y síntomas sistémicos significativos.'
+    cita: 'NCCN Myeloproliferative Neoplasms Guidelines'
+
+refs:
+  - 'pmid:22375971'
+  - 'fda:label'

@@ -1,0 +1,98 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0018'
+tipo: seleccion
+problema: Cáncer de ovario avanzado con mutación en BRCA1/2 en primera línea de mantenimiento
+problema_en: Advanced BRCA-mutated ovarian cancer in first-line maintenance
+cie11: 2C73
+
+poblacion: >-
+  Mujeres adultas con cáncer de ovario seroso de alto grado o endometrioide avanzado (estadio FIGO III-IV),
+  cáncer de trompa de Falopio o peritoneal primario, con mutación deletérea germinal o somática en BRCA1 o BRCA2,
+  que han alcanzado una respuesta clínica completa o parcial tras quimioterapia de primera línea basada en platino.
+
+pregunta: >-
+  En pacientes con cáncer de ovario avanzado con mutación BRCA en respuesta a platino de primera línea,
+  ¿qué tratamiento de mantenimiento (inhibidor de PARP olaparib vs observación/placebo) se selecciona para prolongar
+  la supervivencia libre de progresión minimizando la toxicidad hematológica severa?
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Aproximadamente el 70 % de las pacientes con cáncer de ovario avanzado en estadio III-IV recaen en los primeros 3 años tras quimioterapia con platino.
+  Las mutaciones en BRCA1 y BRCA2 provocan deficiencia en la reparación por recombinación homóloga (HRD). Olaparib atrapa a PARP-1 en el ADN dañado
+  generando letalidad sintética en células con deficiencia HRD, transformando el pronóstico al evitar recaídas precoces en monoterapia de mantenimiento.
+
+estrategia:
+  - base: PubMed
+    consulta: 'olaparib AND ovarian cancer AND SOLO-1'
+    fecha: '2026-09-16'
+    nota: 'Ensayo clínico fase 3 aleatorizado doble ciego SOLO-1 (Moore et al., N Engl J Med 2018; PMID: 30345884).'
+
+criterio_decisorio: >-
+  Se selecciona la estrategia que reduzca en al menos un 50 % el riesgo de progresión de la enfermedad o muerte (hazard ratio ≤ 0.50),
+  manteniendo una tasa de supervivencia libre de progresión superior al 50 % a los 3 años y con toxicidad manejable mediante reducción de dosis.
+
+conclusion: >-
+  Olaparib queda seleccionado como el estándar de mantenimiento de primera línea en cáncer de ovario avanzado con mutación BRCA:
+  redujo el riesgo de progresión o muerte en un 70 % en el ensayo SOLO-1 (HR 0.30; IC 95 % 0.23-0.41; p < 0.001),
+  con un 60.4 % de pacientes libres de progresión a 3 años frente al 26.9 % con placebo (RRA 33.5 %, NNT 3 a 3 años; NNT 4 al redondear conservativemente),
+  con un perfil de seguridad caracterizado por anemia grado ≥ 3 (21.9 %, NNH 5) y náuseas manejables, sin menoscabo de la calidad de vida global.
+
+candidatos:
+  - dci: Olaparib
+    atc: L01XX46
+    farmaco: 'FS:0027'
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        En el ensayo SOLO-1 (PMID: 30345884), olaparib redujo el riesgo de progresión o muerte en un 70 % frente a placebo
+        (HR 0.30; IC 95 % 0.23-0.41; p < 0.001). A 3 años, la tasa libre de progresión fue del 60.4 % con olaparib vs 26.9 % con placebo
+        (RRA 33.5 %, NNT 3 a 3 años).
+      ref: 'pmid:30345884'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Frecuente toxicidad hematológica (anemia Grado ≥ 3 en el 21.9 % vs 1.5 % con placebo; RRA -20.4 %, NNH 5)
+        y gastrointestinal (náuseas leves-moderadas en 77.3 %), requiriendo soporte con transfusiones y reducciones posológicas
+        sin condicionar una alta tasa de abandono definitivo (11.5 %).
+      ref: 'pmid:30345884'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Administración oral ambulatoria en comprimidos (300 mg dos veces al día), mantenida durante 2 años en pacientes con respuesta completa.
+      ref: 'pmid:30345884'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Terapia dirigida de alto impacto económico, compensada clínicamente por la prevención de recaídas tempranas, retraso en segundas líneas de quimioterapia y prolongación de la supervivencia global a largo plazo.
+      ref: 'pmid:30345884'
+
+  - dci: Placebo / Observación clínica
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Mediana de SLP de solo 13.8 meses, con el 73.1 % de pacientes que progresaron a los 3 años de seguimiento.
+      ref: 'pmid:30345884'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Ausencia de toxicidad hematológica inducida por fármaco (anemia grado ≥ 3 en 1.5 %).
+      ref: 'pmid:30345884'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Ausencia de tratamiento activo diario, pero necesidad de revisiones oncológicas y tomografías trimestrales por alto riesgo de recidiva tumoral.
+      ref: 'pmid:30345884'
+    costo:
+      juicio: superior
+      sustento: >-
+        Sin coste de adquisición de fármaco oral, pero gasto asistencial precoz y reiterado por recaídas y reingresos para quimioterapia de rescate.
+      ref: 'pmid:30345884'

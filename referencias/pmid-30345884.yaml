@@ -1,0 +1,52 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:30345884"
+clave_bibtex: moore2018
+tipo: eca
+titulo: "Maintenance Olaparib in Patients with Newly Diagnosed Advanced Ovarian Cancer"
+autores:
+  - "Moore K"
+  - "Colombo N"
+  - "Scambia G"
+  - "Kim BG"
+  - "Oaknin A"
+  - "Friedlander M"
+  - "Lisyanskaya A"
+  - "Floquet A"
+  - "Leary A"
+  - "Sonke GS"
+  - "Gourley C"
+  - "Banerjee S"
+  - "Oza A"
+  - "González-Martín A"
+  - "Aghajanian C"
+  - "Bradley W"
+  - "Mathews C"
+  - "Liu J"
+  - "Lowe ES"
+  - "Bloomfield R"
+  - "DiSilvestro P"
+publicacion: "N Engl J Med"
+anio: 2018
+volumen: "379"
+numero: "26"
+paginas: "2495-2505"
+
+identificadores:
+  pmid: 30345884
+  doi: "10.1056/NEJMoa1810858"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial, Phase II"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

@@ -1,0 +1,151 @@
+# PARTE II — Farmacoterapia: cómo se usa la ceftazidima / avibactam con seguridad.
+id: 'FA:0026'
+tipo: farmacoterapia
+farmaco: 'FS:0026'
+
+titulo: Farmacoterapia con ceftazidima / avibactam en infecciones multirresistentes
+titulo_en: Ceftazidime / avibactam pharmacotherapy in multidrug-resistant infections
+
+alcance: >-
+  Establece el protocolo de dosificación y seguridad hospitalaria para la combinación de cefalosporina antipseudomónica e inhibidor diazabiciclooctano de beta-lactamasas (ceftazidima / avibactam):
+  administración en perfusión intravenosa prolongada de 2 horas cada 8 horas, ajuste posológico estricto según el aclaramiento de creatinina para evitar neurotoxicidad,
+  y uso racional restringido según perfil de sensibilidad antimicrobiana (carbapenemasas de clase A KPC y clase D OXA-48).
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Aclaramiento de creatinina (Cockcroft-Gault) o tasa de filtrado glomerular estimada basal
+    motivo: >-
+      Ambos principios activos se eliminan casi exclusivamente por excreción renal inalterada; la dosificación depende críticamente del aclaramiento para evitar sobredosificación y neurotoxicidad.
+    responsable: especialista
+    ref: 'pmid:27107460'
+
+  - prueba: Estudio microbiológico con antibiograma y detección fenotípica o genotípica de carbapenemasas
+    motivo: >-
+      Verificar la presencia de enzimas sensibles a avibactam (KPC, OXA-48) y confirmar ausencia de metalo-beta-lactamasas (NDM, VIM, IMP), frente a las cuales avibactam es inactivo (requeriría aztreonam concomitante).
+    responsable: especialista
+    ref: 'pmid:27107460'
+
+  - prueba: Antecedentes de hipersensibilidad a cefalosporinas o penicilinas
+    motivo: >-
+      Descartar reacciones anafilácticas o mediadas por IgE a beta-lactámicos antes de iniciar la perfusión.
+    responsable: especialista
+    ref: 'fda:label'
+
+monitorizacion:
+  - fase: basal
+    pruebas:
+      - Creatinina sérica y cálculo de aclaramiento de creatinina por Cockcroft-Gault
+      - Hemocultivos y cultivos del foco infeccioso primario (urocultivo, líquido peritoneal)
+      - Hemograma con recuento leucocitario y diferencial
+      - Biomarcadores inflamatorios (proteína C reactiva, procalcitonina)
+    responsable: especialista
+    ref: 'pmid:27107460'
+
+  - fase: induccion
+    periodo: Primeras 48 a 72 horas de tratamiento hospitalario
+    frecuencia: Monitorización clínica diaria de la respuesta infecciosa y función renal
+    pruebas:
+      - Reevaluación diaria de creatinina sérica para reajuste posológico inmediato en caso de deterioro o mejoría renal aguda
+      - Vigilancia de respuesta febril y estabilidad hemodinámica
+      - Monitorización de signos neurológicos (mioclonías, confusión, convulsiones) si ClCr < 50 mL/min
+    responsable: especialista
+    ref: 'pmid:27107460'
+
+  - fase: mantenimiento
+    periodo: Curso terapéutico completo (típicamente 7 a 14 días)
+    frecuencia: Cada 48 horas
+    pruebas:
+      - Control de función renal cada 48 horas
+      - Vigilancia de diarrea nosocomial (descartar infección por Clostridioides difficile)
+      - Test de curación clínico y microbiológico tras finalizar el ciclo
+    responsable: especialista
+    ref: 'pmid:27107460'
+
+umbrales_accion:
+  - parametro: Aclaramiento de creatinina entre 31 y 50 mL/min
+    umbral: Insuficiencia renal moderada
+    accion: >-
+      Ajustar la dosis a 1.25 g (1000 mg ceftazidima / 250 mg avibactam) por vía intravenosa cada 8 horas en infusión de 2 horas.
+    ref: 'fda:label'
+
+  - parametro: Aclaramiento de creatinina entre 16 y 30 mL/min
+    umbral: Insuficiencia renal grave
+    accion: >-
+      Ajustar la dosis a 0.9375 g (750 mg ceftazidima / 187.5 mg avibactam) por vía intravenosa cada 12 horas en infusión de 2 horas.
+    ref: 'fda:label'
+
+  - parametro: Aclaramiento de creatinina entre 6 y 15 mL/min o hemodiálisis intermitente
+    umbral: Enfermedad renal terminal
+    accion: >-
+      Ajustar a 0.9375 g cada 24 horas (en hemodiálisis, administrar tras finalizar la sesión de diálisis).
+    ref: 'fda:label'
+
+  - parametro: Aparición de encefalopatía, mioclonías o estatus epiléptico no convulsivo
+    umbral: Neurotoxicidad por cefalosporinas
+    accion: >-
+      Suspender inmediatamente la perfusión de ceftazidima/avibactam. Medir función renal urgente y administrar benzodiacepinas y soporte según proceda.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Probenecid
+    gravedad: moderada
+    efecto: Inhibición de la secreción tubular renal de avibactam con incremento de su AUC plasmática.
+    conducta: Se desaconseja la coadministración.
+    ref: 'fda:label'
+
+  - con: Fármacos nefrotóxicos concomitantes (aminoglucósidos, colistina, anfotericina B)
+    gravedad: moderada
+    efecto: Riesgo acumulativo de lesión renal aguda que podría alterar la depuración de ceftazidima y avibactam.
+    conducta: Monitorizar estrechamente la creatinina sérica y ajustar la dosis del antibiótico precozmente.
+    ref: 'pmid:27107460'
+
+  - con: Anticoagulantes orales (antagonistas de la vitamina K)
+    gravedad: menor
+    efecto: Posible prolongación del INR por alteración de la flora bacteriana intestinal productora de vitamina K.
+    conducta: Controlar el INR y ajustar dosis de anticoagulante si fuera necesario.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Los estudios de reproducción en animales no han evidenciado efectos teratogénicos directos con ceftazidima ni con avibactam a dosis clínicamente relevantes. No obstante, al existir datos clínicos limitados en mujeres embarazadas, solo debe emplearse en infecciones graves si el beneficio materno justifica el posible riesgo fetal.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Ceftazidima se excreta en leche materna en concentraciones bajas y se desconoce si avibactam pasa a la leche humana. Dada la escasa absorción enteral de ambos compuestos por el lactante, puede considerarse su uso con monitorización de la microbiota intestinal y aparición de diarrea en el recién nacido.
+    ref: 'fda:label'
+
+atencion_compartida:
+  especialista: >-
+    Infectólogo o intensivista: valida la indicación microbiológica dentro del programa de optimización de antimicrobianos (PROA), calcula el ajuste renal diario y define la duración del tratamiento.
+  seguimiento: >-
+    Servicio de farmacia hospitalaria y enfermería de planta/UCI: preparan y administran la solución en perfusión exacta de 2 horas; aseguran que los ajustes de dosis se apliquen inmediatamente ante cambios en el aclaramiento renal.
+  suspension_inmediata:
+    - Reacción anafiláctica aguda con colapso hemodinámico
+    - Encefalopatía o convulsiones de instauración aguda secundarias a sobredosis de ceftazidima
+    - Colitis pseudomembranosa fulminante
+  ref: 'pmid:27107460'
+
+posicionamiento:
+  linea: primera
+  escalonado:
+    - linea: primera
+      opciones: 'Ceftazidima / avibactam como antimicrobiano de primera elección dirigida en infecciones documentadas por Enterobacterales productores de carbapenemasas KPC o OXA-48.'
+    - linea: segunda
+      opciones: 'Ceftolozano / tazobactam o meropenem / vaborbactam según espectro microbiológico específico.'
+    - linea: rescate
+      opciones: 'Ceftazidima / avibactam combinada con aztreonam en infecciones graves por productores de metalo-beta-lactamasas (NDM).'
+  ref: 'pmid:27107460'
+
+refs:
+  - 'pmid:27107460'
+  - 'fda:label'

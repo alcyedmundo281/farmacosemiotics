@@ -1,0 +1,100 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0017'
+tipo: seleccion
+problema: Infecciones complicadas por enterobacterias resistentes a carbapenémicos y ceftazidima
+problema_en: Complicated infections caused by carbapenem-resistant and ceftazidime-resistant Enterobacterales
+cie11: 1C60
+
+poblacion: >-
+  Pacientes adultos con infección intraabdominal complicada (IIAc) o infección complicada del tracto urinario (ITUc, incluyendo pielonefritis aguda)
+  causada por enterobacterias Gram-negativas resistentes a ceftazidima y con sospecha o confirmación de producción de carbapenemasas de clase A (KPC) o D (OXA-48), o BLEE.
+
+pregunta: >-
+  En adultos hospitalizados con infecciones complicadas (ITUc o IIAc) por enterobacterias multirresistentes productoras de BLEE o carbapenemasas KPC/OXA-48,
+  ¿qué tratamiento antibiótico dirigido (ceftazidima/avibactam vs mejor terapia disponible basada en carbapenémicos o polimixinas) se selecciona para alcanzar curación clínica con menor toxicidad renal?
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  La diseminación global de Klebsiella pneumoniae y Escherichia coli productoras de carbapenemasas (KPC) ha comprometido
+  la eficacia de los carbapenémicos tradicionales (meropenem, imipenem). Avibactam es un inhibidor de beta-lactamasas no beta-lactámico
+  (diazabiciclooctano) que restaura la actividad de ceftazidima frente a carbapenemasas de clase A (KPC) y clase D (OXA-48),
+  así como BLEE y AmpC, ofreciendo una alternativa curativa que ahorra y sustituye esquemas nefrotóxicos basados en colistina/polimixina B o aminoglucósidos.
+
+estrategia:
+  - base: PubMed
+    consulta: 'ceftazidime avibactam AND REPRISE'
+    fecha: '2026-09-16'
+    nota: 'Ensayo clínico fase 3 aleatorizado REPRISE (Carmeli et al., Lancet Infect Dis 2016; PMID: 27107460).'
+
+criterio_decisorio: >-
+  Se selecciona el esquema que demuestre no-inferioridad en curación clínica al test de curación (TOC) frente a la mejor terapia disponible,
+  con resolución microbiológica y preservación de la función renal frente a regímenes basados en polimixinas.
+
+conclusion: >-
+  Ceftazidima/avibactam queda seleccionado como antimicrobiano de reserva de elección para infecciones complicadas por enterobacterias
+  resistentes a ceftazidima / productoras de carbapenemasas de clase A y D: demostró curación clínica idéntica a la mejor terapia disponible
+  en el ensayo REPRISE (91 % [140/154] vs 91 % [135/148]; NNT 1 para no-inferioridad), con excelente tolerancia y menor nefrotoxicidad
+  que las combinaciones históricas basadas en colistina, requiriendo infusión intravenosa prolongada de 2 horas cada 8 horas
+  y ajuste protocolizado estricto al aclaramiento de creatinina.
+
+candidatos:
+  - dci: Ceftazidima / Avibactam
+    atc: J01DD52
+    farmaco: 'FS:0026'
+    veredicto: seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        En el ensayo REPRISE (PMID: 27107460), ceftazidima/avibactam demostró una tasa de curación clínica en el test de curación (TOC)
+        del 91 % (140/154) frente al 91 % (135/148) con la mejor terapia disponible (diferencia 0.2 %; IC 95 % -5.6 a 6.0; NNT 1 para no-inferioridad),
+        con erradicación microbiológica robusta frente a patógenos productores de BLEE y KPC.
+      ref: 'pmid:27107460'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Perfil de tolerabilidad favorable propio de las cefalosporinas, sin la elevada nefrotoxicidad ni neurotoxicidad
+        características de las terapias de rescate tradicionales basadas en polimixinas o aminoglucósidos.
+      ref: 'pmid:27107460'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Requiere infusión intravenosa de 2 horas administrada cada 8 horas en medio hospitalario, con ajuste mandatorio según función renal.
+      ref: 'pmid:27107460'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Antimicrobiano innovador de reserva (grupo Reserva AWaRe de la OMS) con precio elevado por tratamiento,
+        justificado clínicamente para evitar el fracaso terapéutico y la toxicidad de cuidados intensivos en sepsis multirresistente.
+      ref: 'pmid:27107460'
+
+  - dci: Mejor terapia disponible basada en carbapenémicos / polimixinas
+    atc: J01DH51
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        Alcanzó el 91 % de respuesta clínica en REPRISE en cepas seleccionadas sensibles a carbapenémicos,
+        pero pierde eficacia clínica frente a cepas resistentes a carbapenémicos con KPC donde las polimixinas son subóptimas.
+      ref: 'pmid:27107460'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Riesgo sustancialmente mayor de deterioro de función renal y nefrotoxicidad cuando se recurre a polimixinas o aminoglucósidos adyuvantes.
+      ref: 'pmid:27107460'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Requiere vías venosas centrales y monitorización farmacoterapéutica estrecha de niveles plasmáticos en el caso de aminoglucósidos/colistina.
+      ref: 'pmid:27107460'
+    costo:
+      juicio: superior
+      sustento: >-
+        Menor coste de adquisición farmacológica inicial, pero penalizado por costes de monitorización y manejo de daño renal agudo.
+      ref: 'pmid:27107460'

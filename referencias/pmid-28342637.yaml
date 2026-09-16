@@ -1,0 +1,68 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:28342637"
+clave_bibtex: joly2017
+tipo: eca
+titulo: "First-line rituximab combined with short-term prednisone versus prednisone alone for the treatment of pemphigus (Ritux 3): a prospective, multicentre, parallel-group, open-label randomised trial"
+autores:
+  - "Joly P"
+  - "Maho-Vaillant M"
+  - "Prost-Squarcioni C"
+  - "Hebert V"
+  - "Houivet E"
+  - "Calbo S"
+  - "Caillot F"
+  - "Golinski ML"
+  - "Labeille B"
+  - "Picard-Dahan C"
+  - "Paul C"
+  - "Richard MA"
+  - "Bouaziz JD"
+  - "Duvert-Lehembre S"
+  - "Bernard P"
+  - "Caux F"
+  - "Alexandre M"
+  - "Ingen-Housz-Oro S"
+  - "Vabres P"
+  - "Delaporte E"
+  - "Quereux G"
+  - "Dupuy A"
+  - "Debarbieux S"
+  - "Avenel-Audran M"
+  - "D'Incan M"
+  - "Bedane C"
+  - "Bénéton N"
+  - "Jullien D"
+  - "Dupin N"
+  - "Misery L"
+  - "Machet L"
+  - "Beylot-Barry M"
+  - "Dereure O"
+  - "Sassolas B"
+  - "Vermeulin T"
+  - "Benichou J"
+  - "Musette P"
+  - "French study group on autoimmune bullous skin diseases"
+publicacion: "Lancet"
+anio: 2017
+volumen: "389"
+numero: "10083"
+paginas: "2031-2040"
+
+identificadores:
+  pmid: 28342637
+  doi: "10.1016/S0140-6736(17)30070-3"
+  pmc: null
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-16'
+  retractado: false
+  crossref: true

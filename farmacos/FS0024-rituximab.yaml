@@ -1,0 +1,77 @@
+id: 'FS:0024'
+tipo: farmaco
+dci: Rituximab
+dci_en: Rituximab
+sinonimos:
+  - MabThera
+  - Rituxan
+  - IDEC-C2B8
+
+atc: L01FA01
+clase_farmacologica: Anticuerpo monoclonal quimérico anti-CD20 inmunosupresor y antineoplásico
+clase_farmacologica_en: Chimeric anti-CD20 monoclonal antibody
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '121191'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '8.2'
+  categoria: core
+
+mecanismo: >-
+  Anticuerpo monoclonal quimérico murino/humano (IgG1-kappa) dirigido contra el antígeno transmembrana CD20,
+  expresado selectivamente en linfocitos pre-B y B maduros (pero ausente en células plasmáticas productoras de inmunoglobulinas
+  y células madre hematopoyéticas pluripotenciales). Tras su unión, desencadena la depleción profunda de células B autorreactivas
+  productoras de autoanticuerpos patogénicos (anti-desmogleína 1 y 3 en pénfigo vulgar) mediante citotoxicidad celular dependiente
+  de anticuerpos (ADCC), citotoxicidad dependiente de complemento (CDC) e inducción directa de apoptosis.
+mecanismo_ref: 'pmid:28342637'
+
+farmacocinetica:
+  eliminacion: 'Aclaramiento mediado por células diana (CD20) y catabolismo por el sistema fagocítico mononuclear; vida media dependiente del recuento de células B'
+  vida_media: 'Aproximadamente 18 a 22 días tras infusiones repetidas'
+  implicacion: >-
+    En pénfigo vulgar: protocolo específico consistente en dos infusiones intravenosas de 1000 mg separadas por 14 días (días 0 y 14)
+    combinadas con una pauta corta y decreciente de prednisona oral, seguidas de dosis de mantenimiento de 500 mg a los 12 y 18 meses.
+    Requiere premedicación obligatoria con paracetamol, antihistamínico H1 y metilprednisolona IV previa a cada infusión para mitigar reacciones infusionales.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Reacciones asociadas a la infusión intravenosa (RRI)
+      frecuencia: muy_frecuente
+      gravedad: grave
+      nota: >-
+        Fiebre, escalofríos, rigidez, hipotensión o broncoespasmo durante la primera infusión (hasta 30-40%); requiere inicio a velocidad lenta (50 mg/h) y escalado paulatino tras premedicación.
+      ref: 'pmid:28342637'
+    - evento: Infecciones graves bacterianas y virales
+      frecuencia: frecuente
+      gravedad: grave
+      nota: >-
+        Neumonías e infecciones cutáneas; riesgo de reactivación de hepatitis B potencialmente mortal.
+      ref: 'pmid:28342637'
+    - evento: Hipogammaglobulinemia secundaria
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Descenso de IgG sérica por depleción sostenida de células B; monitorizar niveles basales y periódicos.
+      ref: 'pmid:28342637'
+    - evento: Leucoencefalopatía multifocal progresiva (LMP)
+      frecuencia: muy_rara
+      gravedad: grave
+      nota: >-
+        Infección oportunista por virus JC en SNC; suspender de inmediato ante cualquier déficit neurológico focal progresivo.
+      ref: 'fda:label'

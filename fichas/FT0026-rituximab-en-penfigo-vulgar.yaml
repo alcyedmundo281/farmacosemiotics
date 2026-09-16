@@ -1,0 +1,106 @@
+id: 'FT:0026'
+tipo: ficha
+farmaco: 'FS:0024'
+seleccion: 'SEL:0001'
+titulo: Rituximab en el pénfigo vulgar moderado a grave
+indicacion: Pénfigo vulgar y pénfigo foliáceo moderado o grave en pacientes adultos
+indicacion_en: Moderate to severe pemphigus vulgaris and pemphigus foliaceus in adult patients
+poblacion: Pacientes adultos con pénfigo vulgar o foliáceo moderado a grave de nuevo diagnóstico o refractario
+cie11: EB40
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Anticuerpo monoclonal anti-CD20: 1000 mg IV en infusión los días 0 y 14 asociado a pauta descendente rápida de prednisona oral.
+    Multiplica por 2.6 la probabilidad de remisión completa sin corticoides a los 24 meses (89.1 % vs 34.1 %; RRA 55.0 %, NNT 2)
+    con la mitad de efectos adversos graves grado 3-4 debidos al menor uso acumulado de corticoides sistémicos.
+  alerta_seguridad_inmediata: >-
+    Premedicación intravenosa obligatoria con paracetamol, antihistamínico H1 y corticoide para prevenir reacciones asociadas a la infusión.
+    Cribado serológico previo estricto de hepatitis B (HBsAg y anti-HBc) para prevenir reactivación hepática letal.
+
+pico:
+  p: Adultos con pénfigo vulgar o foliáceo moderado a grave recién diagnosticado (N=90)
+  i: Rituximab 1000 mg IV (días 0 y 14) + prednisona oral en descenso rápido a 3-6 meses
+  c: Prednisona oral en monoterapia a dosis estándar en descenso prolongado (12-18 meses)
+  o: Remisión completa libre de corticoides a los 24 meses y acontecimientos adversos graves
+posologia:
+  inicio: 1000 mg por infusión intravenosa hospitalaria el día 0 y el día 14
+  escalado: Se coadministra prednisona oral 0.5 a 1.0 mg/kg/día con retirada progresiva acelerada
+  mantenimiento: Infusiones de mantenimiento de 500 mg a los meses 12 y 18 si persisten síntomas o en caso de recaída clínica
+  maxima: 2000 mg en el ciclo de inducción inicial
+  ajuste_renal: No requiere ajuste en insuficiencia renal
+  ajuste_hepatico: No requiere ajuste en insuficiencia hepática
+  ref: 'pmid:28342637'
+
+evidencia:
+  - desenlace: Remisión completa sin tratamiento corticoideo a los 24 meses de seguimiento
+    criticidad: critico
+    efecto: 'Tasa de remisión completa libre de esteroides del 89.1 % (41/46) con rituximab frente al 34.1 % (15/44) con prednisona sola (diferencia 55.0 %; p < 0.0001 en Ritux 3)'
+    rra: '55.0%'
+    rrr: '61.7%'
+    nnt: 2
+    horizonte_nnt: a 24 meses
+    diseno: eca
+    estudio: Ritux 3 (Lancet 2017)
+    comparador: Prednisona oral en monoterapia
+    n: 90
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:28342637'
+
+  - desenlace: Acontecimientos adversos graves Grado 3 o 4 (toxicidad severa global)
+    criticidad: critico
+    efecto: '27 eventos adversos graves en 16 pacientes con rituximab frente a 53 eventos en 29 pacientes con prednisona sola (reducción sustancial de diabetes, miopatía e infecciones por ahorro corticoideo)'
+    rra: '31.1%'
+    rrr: '47.2%'
+    nnt: 3
+    horizonte_nnt: a 24 meses
+    diseno: eca
+    estudio: Ritux 3 (Lancet 2017)
+    comparador: Prednisona oral en monoterapia
+    n: 90
+    certeza: moderada
+    razones_descenso:
+      - imprecision
+    ref: 'pmid:28342637'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: pequeno
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda rituximab intravenoso (1000 mg los días 0 y 14) asociado a pauta corta de corticoides sistémicos
+    como tratamiento de primera línea de elección en pacientes adultos con pénfigo vulgar moderado a grave,
+    por su contundente superioridad en remisión completa libre de esteroides (NNT 2 a 2 años) y su reducción del daño derivado del corticoide crónico.
+  ref: 'pmid:28342637'
+
+conclusion: >-
+  Rituximab ha transformado el paradigma del pénfigo vulgar, convirtiéndose en el tratamiento de elección de primera línea:
+  induce remisiones completas duraderas en 9 de cada 10 pacientes y permite retirar los corticoides sistémicos precozmente,
+  disminuyendo a la mitad las complicaciones graves asociadas a la inmunosupresión esteroidea prolongada.
+
+guias:
+  - organizacion: EADV / EDF
+    anio: 2020
+    titulo: 'Consensus on the management of pemphigus vulgaris and foliaceus'
+    posicion: 'Rituximab se recomienda formalmente como primera línea de tratamiento de elección en pénfigo moderado a grave.'
+    cita: 'J Eur Acad Dermatol Venereol 2020'
+
+refs:
+  - 'pmid:28342637'
+  - 'pmid:32830877'
+  - 'fda:label'

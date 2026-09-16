@@ -1,0 +1,73 @@
+id: 'FS:0027'
+tipo: farmaco
+dci: Olaparib
+dci_en: Olaparib
+sinonimos:
+  - Lynparza
+  - AZD2281
+  - KU-0059436
+
+atc: L01XX46
+clase_farmacologica: Inhibidor selectivo de las poli(ADP-ribosa) polimerasas 1 y 2 (PARP1/PARP2)
+clase_farmacologica_en: Poly (ADP-ribose) polymerase (PARP) inhibitor
+
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '1597582'
+  fuente_rxcui: 'rxnav:rxcui'
+  consultado_rxcui: '2026-09-16'
+
+lme:
+  presente: false
+
+mecanismo: >-
+  Inhibidor oral potente de las enzimas nucleares poli(ADP-ribosa) polimerasas PARP-1, PARP-2 y PARP-3,
+  que desempeñan un papel crucial en la reparación del ADN por escisión de bases de roturas de cadena simple.
+  Olaparib atrapa las enzimas PARP inactivas en los sitios de daño del ADN, bloqueando la replicación y generando
+  roturas de doble cadena. En células tumorales deficientes en recombinación homóloga (HRD) por mutaciones deletéreas
+  en los genes supresores tumorales BRCA1 o BRCA2, estas lesiones no pueden repararse con fidelidad, desencadenando
+  una muerte celular selectiva por letalidad sintética mientras las células normales heterocigotas sobreviven.
+mecanismo_ref: 'pmid:30345884'
+
+farmacocinetica:
+  eliminacion: 'Metabolismo hepático oxidativo extenso mediado predominantemente por CYP3A4 y CYP3A5; excreción urinaria (44%) y fecal (42%)'
+  vida_media: 'Aproximadamente 14.9 horas tras dosis orales repetidas'
+  implicacion: >-
+    Posología de mantenimiento en comprimidos de 300 mg (dos comprimidos de 150 mg) por vía oral dos veces al día
+    (dosis diaria total de 600 mg), tomada de forma continua con o sin alimentos. Requiere reducción de dosis a 200 mg dos veces
+    al día en insuficiencia renal moderada (aclaramiento de creatinina 31 a 50 mL/min).
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Anemia y toxicidad hematológica (neutropenia y trombocitopenia)
+      frecuencia: muy_frecuente
+      gravedad: grave
+      nota: >-
+        Anemia grado ≥3 en ~20-22% de pacientes (frecuente requerimiento transfusional en primeros meses); monitorizar hemograma basal y mensual.
+      ref: 'pmid:30345884'
+    - evento: Náuseas, vómitos y fatiga/astenia
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Náuseas en hasta el 77% de pacientes, predominantemente grado 1 o 2 en primeras 4-8 semanas; responde a antieméticos orales o toma con alimentos.
+      ref: 'pmid:30345884'
+    - evento: Síndrome mielodisplásico y leucemia mieloide aguda (SMD/LMA)
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Aparición tardía en ~1-1.5% de pacientes expuestos a terapia prolongada con inhibidores de PARP; requiere suspensión permanente y biopsia medular ante citopenias inexplicadas prolongadas.
+      ref: 'pmid:30345884'
+    - evento: Neumonitis farmacológica
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Casos raros de infiltrados pulmonares y tos seca; suspender de inmediato ante sospecha de daño alveolar.
+      ref: 'fda:label'

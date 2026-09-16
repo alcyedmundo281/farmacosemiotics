@@ -63,6 +63,7 @@ estrategia:
 candidatos:
   - dci: Rituximab
     atc: L01FA01
+    farmaco: 'FS:0024'
     clase: Anticuerpo monoclonal anti-CD20
     eficacia:
       juicio: superior

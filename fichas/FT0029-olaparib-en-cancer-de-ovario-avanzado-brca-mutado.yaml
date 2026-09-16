@@ -1,0 +1,104 @@
+id: 'FT:0029'
+tipo: ficha
+farmaco: 'FS:0027'
+seleccion: 'SEL:0018'
+titulo: Olaparib en el cáncer de ovario avanzado con mutación de BRCA en mantenimiento de primera línea
+indicacion: Cáncer de ovario epitelial de alto grado, trompa de Falopio o peritoneal primario con mutación germinal o somática en BRCA1/2
+indicacion_en: Advanced BRCA-mutated epithelial ovarian, fallopian tube, or primary peritoneal cancer in first-line maintenance
+poblacion: Mujeres adultas con cáncer de ovario avanzado con mutación en BRCA en respuesta completa o parcial a quimioterapia con platino
+cie11: 2C73
+estado: revisado
+fecha: '2026-09-16'
+actualizado: '2026-09-16'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Inhibidor de PARP oral continuo: 300 mg (dos comprimidos de 150 mg) dos veces al día hasta progresión o hasta 2 años en respuesta completa.
+    Reduce el riesgo de progresión o muerte en un 70 % en SOLO-1 (HR 0.30; p < 0.001), logrando un 60.4 % de pacientes libres de progresión a 3 años
+    frente a solo 26.9 % con placebo (RRA 33.5 %, NNT 3 a 3 años).
+  alerta_seguridad_inmediata: >-
+    Monitorizar hemograma mensual durante el primer año: anemia Grado ≥ 3 en el 21.9 % (NNH 5) que requiere transfusiones y ajuste de dosis.
+    Riesgo infrecuente pero potencialmente mortal de síndrome mielodisplásico o leucemia mieloide aguda (SMD/LMA); suspender definitivamente si se confirma.
+
+pico:
+  p: Mujeres con cáncer de ovario seroso/endometrioide avanzado con mutación patogénica en BRCA1/2 en respuesta tras quimioterapia con platino (N=391)
+  i: Olaparib comprimidos 300 mg dos veces al día en monoterapia de mantenimiento
+  c: Placebo oral dos veces al día
+  o: Supervivencia libre de progresión (SLP) evaluada por investigador según RECIST y toxicidad hematológica
+posologia:
+  inicio: 300 mg (dos comprimidos de 150 mg) por vía oral dos veces al día (600 mg diarios)
+  escalado: Dosis fija continuada; en caso de toxicidad Grado 3 se reduce a 250 mg bid (escalón 1) y luego a 200 mg bid (escalón 2)
+  mantenimiento: 300 mg dos veces al día durante un máximo de 2 años en caso de respuesta completa clínica
+  maxima: 600 mg al día
+  ajuste_renal: Reducir dosis inicial a 200 mg bid en insuficiencia renal moderada (ClCr 31-50 mL/min)
+  ajuste_hepatico: No requiere ajuste en insuficiencia hepática leve o moderada
+  ref: 'fda:label'
+
+evidencia:
+  - desenlace: Supervivencia libre de progresión a los 3 años de seguimiento
+    criticidad: critico
+    efecto: 'Tasa de SLP a 3 años del 60.4 % con olaparib frente al 26.9 % con placebo (HR 0.30, IC 95 % 0.23–0.41; p < 0.001 en SOLO-1)'
+    rra: '33.5%'
+    rrr: '55.5%'
+    nnt: 3
+    horizonte_nnt: a 3 años
+    diseno: eca
+    estudio: SOLO-1 (NEJM 2018)
+    comparador: Placebo oral
+    n: 391
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:30345884'
+
+  - desenlace: Anemia severa Grado ≥ 3 (toxicidad hematológica limitante)
+    criticidad: importante
+    efecto: 'Incidencia de anemia grado ≥ 3 del 21.9 % con olaparib frente al 1.5 % con placebo (RRA -20.4 %, manejada con transfusiones y reducciones de dosis)'
+    rra: '20.4%'
+    rrr: '93.2%'
+    nnt: 5
+    horizonte_nnt: a 3 años
+    diseno: eca
+    estudio: SOLO-1 (NEJM 2018)
+    comparador: Placebo oral
+    n: 391
+    certeza: alta
+    razones_descenso: []
+    ref: 'pmid:30345884'
+
+balance:
+  efectos_deseables: grande
+  efectos_indeseables: moderado
+  certeza_global: alta
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda olaparib oral (300 mg dos veces al día en monoterapia de mantenimiento durante 2 años)
+    en mujeres adultas con cáncer de ovario epitelial avanzado portadoras de mutación deletérea germinal o somática en BRCA1/2
+    que se encuentren en respuesta completa o parcial tras quimioterapia de primera línea con platino,
+    por su prolongación masiva y sostenida de la supervivencia libre de progresión (NNT 3 a 3 años) con toxicidad manejable.
+  ref: 'pmid:30345884'
+
+conclusion: >-
+  Olaparib ha establecido un hito terapéutico en la oncología ginecológica mediante la explotación de la letalidad sintética en tumores con mutación BRCA:
+  triplica la supervivencia libre de progresión a largo plazo en mantenimiento de primera línea y redefine el estándar curativo/paliativo de la enfermedad.
+
+guias:
+  - organizacion: ESMO / ASCO / NCCN
+    anio: 2023
+    titulo: 'Newly Diagnosed and Relapsed Epithelial Ovarian Cancer: ESMO Clinical Practice Guidelines'
+    posicion: 'Olaparib en monoterapia de mantenimiento es la recomendación preferente de categoría 1 para cáncer de ovario avanzado con mutación en BRCA en respuesta a platino.'
+    cita: 'Ann Oncol 2023'
+
+refs:
+  - 'pmid:30345884'
+  - 'fda:label'

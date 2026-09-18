@@ -8,6 +8,7 @@
 id: 'FT:0036'
 tipo: ficha
 farmaco: 'FS:0034'
+seleccion: 'SEL:0024'
 
 titulo: Hidroclorotiazida en la hipertensión arterial del adulto
 titulo_en: Hydrochlorothiazide in adult arterial hypertension

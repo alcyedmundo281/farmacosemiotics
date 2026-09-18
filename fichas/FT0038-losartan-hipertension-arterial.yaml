@@ -9,6 +9,7 @@
 id: 'FT:0038'
 tipo: ficha
 farmaco: 'FS:0035'
+seleccion: 'SEL:0024'
 
 titulo: Losartán en la hipertensión arterial con hipertrofia ventricular izquierda
 titulo_en: Losartan in hypertension with left ventricular hypertrophy

@@ -153,12 +153,16 @@ motor lo superpone solo si se lo pides.
 
 | capa | registros |
 |---|---|
-| fármacos | 10 |
-| selecciones (Parte I) | 4 |
-| farmacoterapias (Parte II) | 10 |
-| guías fármaco × indicación | 11 |
-| referencias verificadas | 32 |
-| cobertura LME | 6 fármacos · 3 de 30 secciones |
+| fármacos | 33 |
+| selecciones (Parte I) | 23 |
+| farmacoterapias (Parte II) | 33 |
+| guías fármaco × indicación | 35 |
+| referencias verificadas | 62 |
+| cobertura LME | 14 fármacos · 5 de 30 secciones |
+
+De las 33 farmacoterapias, **17 no declaran ningún hueco** y 16 declaran cuál
+les falta. Ninguna calla lo que le falta, que es la única de las tres cifras
+que señalaría un descuido. 28 traen ya cronograma y umbrales.
 
 Ver [mapa-maestro-farmacosemiotics.md](mapa-maestro-farmacosemiotics.md).
 

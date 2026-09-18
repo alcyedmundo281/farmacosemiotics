@@ -16,8 +16,8 @@ abstract: >-
   EPUB. La meta de contenido es la Lista Modelo de Medicamentos Esenciales de
   la OMS, 24.ª lista (2025).
 type: dataset
-version: v0.1.0
-date-released: '2026-09-11'
+version: v0.2.0
+date-released: '2026-09-18'
 authors:
   - family-names: Torres Guerrero
     given-names: Alcy Edmundo

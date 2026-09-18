@@ -1,11 +1,19 @@
 # Depósito en Zenodo: cómo se acuña el DOI
 
-El repositorio **ya está depositado**. La `v0.1.0` se publicó el 11 de
-septiembre de 2026 y su DOI de concepto es
+El repositorio **ya está depositado**, desde el 11 de septiembre de 2026. Su
+DOI de concepto —el único que no cambia nunca— es
 [`10.5281/zenodo.22700661`](https://doi.org/10.5281/zenodo.22700661).
 
-Lo que sigue documenta cómo se hizo —porque el orden no se puede invertir y el
-error se paga caro— y sirve de procedimiento para cada versión siguiente.
+Qué versiones hay publicadas y cuál es el DOI de cada una **no se cuenta aquí**:
+vive en [`CITATION.cff`](CITATION.cff), que es donde lo leen las máquinas. Una
+lista de versiones escrita en prosa envejece sola —ya pasó en holonmed, cuyo
+README siguió citando la v0.4.0 dos semanas después de publicar la v0.5.0— y
+un DOI de versión desactualizado manda a quien lo copie a un estado del
+repositorio que no es el que cree estar citando.
+
+Lo que sigue documenta cómo se hizo el primer depósito —porque el orden no se
+puede invertir y el error se paga caro— y sirve de procedimiento para cada
+versión siguiente.
 
 ## La trampa, primero
 

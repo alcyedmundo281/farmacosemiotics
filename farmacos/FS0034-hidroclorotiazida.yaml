@@ -1,0 +1,148 @@
+# Principio activo. Lo que NO depende de la indicación.
+
+id: 'FS:0034'
+tipo: farmaco
+dci: Hidroclorotiazida
+dci_en: Hydrochlorothiazide
+sinonimos:
+  - HCTZ
+  - hydrochlorothiazide
+
+atc: C03AA03
+clase_farmacologica: Diurético tiazídico
+clase_farmacologica_en: Thiazide diuretic
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: borrador
+fecha: '2026-08-24'
+actualizado: '2026-09-18'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '5487'
+  fuente_rxcui: 'rxnav:rxcui'
+  atc_nivel4: C03AA
+  fuente_atc: 'who:eml24'
+  consultado: '2026-08-24'
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '12.3'
+  seccion_titulo_en: Antihypertensive medicines
+  categoria: core
+  secciones_adicionales: ['12.4', '16']
+  formulaciones:
+    - 'Oral liquid: 50 mg/5 mL'
+    - 'Solid oral dosage form: 12.5 mg; 25 mg'
+  alternativas_terapeuticas:
+    - tipo: medicamento
+      dci: Clortalidona
+      dci_en: chlorthalidone
+    - tipo: medicamento
+      dci: Clorotiazida
+      dci_en: chlorothiazide
+    - tipo: medicamento
+      dci: Indapamida
+      dci_en: indapamide
+  nota_alternativas: >-
+    Que la clortalidona figure como alternativa terapéutica de la
+    hidroclorotiazida no es un detalle de catálogo: el ensayo que sostiene la
+    superioridad de las tiazidas —ALLHAT— usó clortalidona, no
+    hidroclorotiazida. Lo que la Lista Modelo declara intercambiable es lo que
+    permite leer esa evidencia sobre este fármaco, y lo que obliga a decirlo en
+    voz alta.
+  fuente: 'who:eml24'
+  url: https://www.who.int/publications/i/item/B09474
+  consultado: '2026-08-24'
+
+mecanismo: >-
+  Inhibe la reabsorción de sodio y cloro en el túbulo contorneado distal. El
+  efecto hipotensor sostenido no se explica solo por la depleción de volumen
+  inicial: a largo plazo predomina un descenso de las resistencias periféricas.
+mecanismo_en: >-
+  Inhibits sodium and chloride reabsorption in the distal convoluted tubule;
+  the sustained antihypertensive effect involves a fall in peripheral vascular
+  resistance beyond the initial volume depletion.
+mecanismo_ref: 'fda:label'
+
+formas:
+  - forma: comprimido
+    concentraciones: ['12,5 mg', '25 mg', '50 mg']
+    via: oral
+  - forma: solución oral
+    concentraciones: ['50 mg/5 mL']
+    via: oral
+
+seguridad:
+  reacciones:
+    - evento: Hipopotasemia
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Dependiente de la dosis. Es la razón por la que la Lista Modelo lista
+        12,5 y 25 mg: por encima de esas dosis crece el daño metabólico sin
+        ganancia proporcional de descenso tensional.
+      ref: 'fda:label'
+    - evento: Hiponatremia
+      frecuencia: frecuente
+      gravedad: grave
+      nota: Más frecuente y más peligrosa en personas mayores.
+      ref: 'fda:label'
+    - evento: Hiperuricemia y precipitación de gota
+      frecuencia: frecuente
+      gravedad: moderada
+      ref: 'fda:label'
+    - evento: Hiperglucemia y alteración del perfil lipídico
+      frecuencia: frecuente
+      gravedad: leve
+      ref: 'fda:label'
+
+  contraindicaciones:
+    - motivo: Anuria
+      ref: 'fda:label'
+    - motivo: >-
+        Hipersensibilidad a la hidroclorotiazida o a otros fármacos derivados de
+        sulfonamida
+      ref: 'fda:label'
+
+alertas: []
+
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1959-02-24'
+    solicitud: NDA011835
+    marca_original: HYDRODIURIL
+    solicitudes:
+      nda: 11
+      anda: 89
+      bla: 0
+    primera_aprobacion_nota: >-
+      Anterior a las enmiendas Kefauver-Harris de 1962, que introdujeron la
+      exigencia de demostrar eficacia. La cobertura de openFDA para solicitudes
+      de esa época es parcial: la fecha es la más antigua que la base expone
+      para HYDRODIURIL, no necesariamente la primera comercialización.
+    fuente: 'openfda:drugsfda'
+    consulta: 'products.brand_name:"HYDRODIURIL"'
+    consultado: '2026-08-24'
+
+etiqueta_fda:
+  set_id: '0789baef-3424-43ab-a3fb-4908172da565'
+  vigencia: '2026-07-24'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0789baef-3424-43ab-a3fb-4908172da565
+  clase_epc: 'Thiazide Diuretic [EPC]'
+  nota: >-
+    Etiqueta de hidroclorotiazida sola. Es el único de los cuatro
+    antihipertensivos de esta oleada cuya etiqueta declara clase EPC, lo que la
+    hace fácil de distinguir de las más de ochenta combinaciones que openFDA
+    indexa bajo el mismo nombre genérico.
+  fuente: 'openfda:label'
+  consultado: '2026-08-24'
+
+fichas: ['FT:0036']

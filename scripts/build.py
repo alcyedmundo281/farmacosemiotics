@@ -51,6 +51,12 @@ CERTEZAS = {"alta", "moderada", "baja", "muy_baja"}
 # mismo motivo se escriba de tres maneras y deje de agregarse en el índice.
 RAZONES_DESCENSO = {"riesgo_de_sesgo", "inconsistencia", "evidencia_indirecta",
                     "imprecision", "sesgo_de_publicacion", "caracter_secundario"}
+# De quién es el juicio de certeza. No es burocracia: una revisión Cochrane
+# suele publicar la certeza sin detallar en el resumen por qué la bajó. Exigir
+# ahí `razones_descenso` obligaría a inventarle a la fuente un razonamiento que
+# no dio. Cuando la certeza es suya, se dice y se pide en cambio `certeza_nota`;
+# cuando es nuestra, hay que argumentarla.
+CERTEZA_FUENTES = {"ficha", "revision"}
 MAGNITUDES = {"grande", "moderado", "pequeno", "trivial", "no_se_sabe"}
 DIRECCIONES = {"a_favor", "en_contra", "ninguna"}
 FUERZAS = {"fuerte", "condicional"}
@@ -396,9 +402,17 @@ def revisar_ficha(ident, reg, archivo, estado, inf):
                       + "` no está en la lista. Sin diseño no se puede leer el "
                         "peso de la cifra.")
         certeza = e.get("certeza")
+        origen = e.get("certeza_fuente", "ficha")
+        if origen not in CERTEZA_FUENTES:
+            inf.error(archivo, eti + " `certeza_fuente` debe ser "
+                      + " o ".join(sorted(CERTEZA_FUENTES)))
         if certeza not in CERTEZAS:
             inf.error(archivo, eti + " `certeza` debe ser uno de "
                       + ", ".join(sorted(CERTEZAS)))
+        elif origen == "revision":
+            if not e.get("certeza_nota"):
+                inf.error(archivo, eti + " la certeza es de la revisión y falta "
+                          "`certeza_nota` que diga de quién es el juicio")
         elif certeza != "alta" and not e.get("razones_descenso"):
             inf.error(archivo, eti + " certeza `" + certeza + "` sin "
                       "`razones_descenso`: es un juicio GRADE sin argumento")

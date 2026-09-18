@@ -1,0 +1,30 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:33933205"
+clave_bibtex: blood2021
+tipo: metaanalisis
+titulo: "Pharmacological blood pressure lowering for primary and secondary prevention of cardiovascular disease across different levels of blood pressure: an individual participant-level data meta-analysis"
+autores:
+  - "Blood Pressure Lowering Treatment Trialists' Collaboration"
+publicacion: "Lancet"
+anio: 2021
+volumen: "397"
+numero: "10285"
+paginas: "1625-1636"
+
+identificadores:
+  pmid: 33933205
+  doi: "10.1016/S0140-6736(21)00590-0"
+  pmc: "PMC8102467"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

@@ -1,0 +1,257 @@
+# Ficha: fármaco × indicación.
+#
+# Todas las cifras se transcriben del resumen que PubMed publica. Las de
+# pmid:37439548 leen SIEMPRE con la tiazida como intervención y la otra clase
+# como comparador: es la dirección de la revisión, y darle la vuelta para que
+# «quede mejor» sería reescribir el resultado.
+
+id: 'FT:0036'
+tipo: ficha
+farmaco: 'FS:0034'
+
+titulo: Hidroclorotiazida en la hipertensión arterial del adulto
+titulo_en: Hydrochlorothiazide in adult arterial hypertension
+indicacion: Hipertensión arterial esencial
+indicacion_en: Essential hypertension
+poblacion: >-
+  Adultos de 50 a 75 años con hipertensión arterial y comorbilidad frecuente,
+  incluida diabetes tipo 2, que inician tratamiento farmacológico.
+poblacion_en: >-
+  Older adults (50 to 75) with hypertension and multiple co-morbidities,
+  including type 2 diabetes, starting antihypertensive treatment.
+cie11: BA00
+
+estado: borrador
+fecha: '2026-08-24'
+actualizado: '2026-09-18'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+pico:
+  p: Adultos con hipertensión arterial esencial que inician tratamiento
+  i: Diurético tiazídico o similar como primer fármaco
+  c: Betabloqueante, antagonista del calcio, IECA o bloqueante alfa como primer fármaco
+  o: >-
+    Mortalidad total, eventos cardiovasculares totales, ictus, cardiopatía
+    isquémica, insuficiencia cardiaca, abandonos por efectos adversos
+
+estrategia:
+  - base: PubMed
+    consulta: 'first-line[Title] AND hypertension[Title] AND (thiazide OR diuretic)[Title] AND Cochrane Database Syst Rev[Journal]'
+    fecha: '2026-08-24'
+    nota: >-
+      La ficha se ancla en la revisión sistemática de comparaciones directas y en
+      el ensayo pivotal que la domina. No es una revisión de novo.
+
+posologia:
+  inicio: 12,5 mg al día
+  mantenimiento: 12,5 a 25 mg al día en una toma matutina
+  maxima: >-
+    25 mg al día para la indicación antihipertensiva. Subir de ahí añade daño
+    metabólico sin ganancia proporcional de descenso tensional, y es la razón de
+    que la Lista Modelo liste 12,5 y 25 mg.
+  vigilancia: >-
+    Sodio, potasio y función renal antes de iniciar y a las dos a cuatro semanas.
+    La hiponatremia del anciano es el desenlace que más veces obliga a suspender.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0789baef-3424-43ab-a3fb-4908172da565
+  consultado: '2026-08-24'
+
+evidencia:
+  - desenlace: Mortalidad total, frente a betabloqueante
+    criticidad: critico
+    diseno: revision_sistematica
+    estudio: Cochrane, 20 ensayos y más de 90 000 asignados en total
+    comparador: betabloqueante como primer fármaco
+    n: 18241
+    efecto: RR 0,96 (IC95 % 0,84–1,10); poca o ninguna diferencia
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: >-
+      Certeza asignada por los autores de la revisión, no por esta ficha. El
+      resumen publica la calificación sin detallar el motivo del descenso.
+    ref: 'pmid:37439548'
+
+  - desenlace: Eventos cardiovasculares totales, frente a betabloqueante
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: betabloqueante como primer fármaco
+    n: 18135
+    efecto: >-
+      5,4 % frente a 4,8 %; RR 0,88 (IC95 % 0,78–1,00); reducción absoluta del
+      riesgo 0,6 %, a favor de la tiazida
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
+
+  - desenlace: Abandonos por efectos adversos, frente a betabloqueante
+    criticidad: importante
+    diseno: revision_sistematica
+    comparador: betabloqueante como primer fármaco
+    n: 18501
+    efecto: >-
+      10,1 % frente a 7,9 %; RR 0,78 (IC95 % 0,71–0,85); reducción absoluta 2,2 %,
+      a favor de la tiazida
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
+
+  - desenlace: Eventos cardiovasculares totales, frente a antagonista del calcio
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: antagonista del calcio como primer fármaco
+    n: 35217
+    efecto: >-
+      14,3 % frente a 13,3 %; RR 0,93 (IC95 % 0,89–0,98); reducción absoluta 1,0 %,
+      a favor de la tiazida
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
+
+  - desenlace: Insuficiencia cardiaca, frente a antagonista del calcio
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: antagonista del calcio como primer fármaco
+    n: 35217
+    efecto: >-
+      4,4 % frente a 3,2 %; RR 0,74 (IC95 % 0,66–0,82); reducción absoluta 1,2 %,
+      a favor de la tiazida
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
+
+  - desenlace: Ictus, frente a IECA
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: inhibidor de la enzima convertidora de angiotensina
+    n: 30900
+    efecto: >-
+      4,7 % frente a 4,1 %; RR 0,89 (IC95 % 0,80–0,99); reducción absoluta 0,6 %,
+      a favor de la tiazida
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
+
+  - desenlace: Mortalidad total, frente a IECA
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: inhibidor de la enzima convertidora de angiotensina
+    n: 30961
+    efecto: RR 1,00 (IC95 % 0,95–1,07); poca o ninguna diferencia
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
+
+  - desenlace: >-
+      Desenlace primario (cardiopatía isquémica mortal o infarto no mortal), con
+      clortalidona frente a amlodipino y a lisinopril
+    criticidad: critico
+    diseno: eca
+    estudio: ALLHAT, 33 357 asignados, seguimiento medio 4,9 años
+    comparador: amlodipino o lisinopril
+    n: 33357
+    efecto: >-
+      sin diferencia: tasa a seis años 11,5 % con clortalidona; RR 0,98
+      (IC95 % 0,90–1,07) para amlodipino y 0,99 (IC95 % 0,91–1,08) para lisinopril
+    certeza: alta
+    ref: 'pmid:12479763'
+    nota: >-
+      ALLHAT usó CLORTALIDONA, no hidroclorotiazida. Que este ensayo pueda leerse
+      sobre esta ficha depende de que la Lista Modelo declare la clortalidona
+      alternativa terapéutica de la hidroclorotiazida; no de que sean el mismo
+      fármaco. No lo son: difieren en potencia y en semivida.
+
+  - desenlace: >-
+      Insuficiencia cardiaca a seis años, con clortalidona frente a amlodipino
+    criticidad: critico
+    diseno: eca
+    estudio: ALLHAT
+    comparador: amlodipino
+    n: 24303
+    efecto: >-
+      7,7 % con clortalidona frente a 10,2 % con amlodipino; RR 1,38
+      (IC95 % 1,25–1,52) para amlodipino
+    certeza: alta
+    ref: 'pmid:12479763'
+
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: pequeno
+  certeza_global: moderada
+  valores_preferencias: >-
+    Las diferencias absolutas entre clases son de uno a tres puntos porcentuales
+    a varios años. Un paciente que ya tolera bien otra clase no gana nada
+    cambiándose; uno que empieza de cero y paga de su bolsillo sí.
+  equidad: >-
+    Muy favorable. Genérico antiguo, oral, de una toma diaria y entre los
+    antihipertensivos más baratos que existen.
+  aceptabilidad: alta
+  factibilidad: >-
+    Alta, con una condición que no es trivial donde escasea el laboratorio: exige
+    controlar sodio, potasio y función renal al inicio y en el seguimiento.
+
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda un diurético tiazídico o similar como primer fármaco en el
+    adulto con hipertensión arterial esencial sin una indicación imperiosa de
+    otra clase, vigilando el sodio y el potasio.
+  enunciado_en: >-
+    A thiazide or thiazide-like diuretic is recommended as first-line therapy in
+    adults with essential hypertension without a compelling indication for
+    another class, with monitoring of sodium and potassium.
+  ref: 'pmid:37439548'
+  nota_clase: >-
+    La conclusión de la revisión no es que la tiazida gane por mucho, sino que
+    «ninguna clase de antihipertensivo demostró ventaja clínicamente importante
+    sobre las tiazidas de primera línea». La recomendación es fuerte por eso y
+    por el coste, no por un efecto grande.
+
+alternativas:
+  - dci: Clortalidona
+    lme: true
+    lme_seccion: '12.3'
+    nota: >-
+      Alternativa terapéutica en la Lista Modelo, y el fármaco realmente usado en
+      ALLHAT. Más potente y de semivida más larga que la hidroclorotiazida.
+  - dci: Indapamida
+    lme: true
+    lme_seccion: '12.3'
+    nota: Alternativa terapéutica listada; entra además en la triple combinación con perindopril y amlodipino.
+  - dci: Amlodipino
+    atc: C08CA01
+    lme: true
+    lme_seccion: '12.3'
+    nota: >-
+      Ficha propia en FT:0008. Menos insuficiencia cardiaca con la tiazida, sin
+      diferencia en mortalidad.
+  - dci: Enalapril
+    atc: C09AA02
+    lme: true
+    lme_seccion: '12.3'
+    nota: Ficha propia en FT:0037. Menos ictus con la tiazida, sin diferencia en mortalidad.
+
+conclusion: >-
+  En comparaciones directas de más de 90 000 personas, ninguna otra clase superó
+  a las tiazidas como primer fármaco: la mortalidad total fue indistinguible
+  frente a betabloqueantes, antagonistas del calcio e IECA, y las tiazidas
+  redujeron algo los eventos cardiovasculares, la insuficiencia cardiaca frente a
+  los antagonistas del calcio, el ictus frente a los IECA y los abandonos por
+  efectos adversos. Las diferencias absolutas son pequeñas. Lo que inclina la
+  recomendación no es la magnitud del efecto sino que, a igualdad de resultados,
+  este es el fármaco más barato y disponible. La salvedad honesta: el ensayo que
+  más pesa usó clortalidona, y la lectura sobre hidroclorotiazida se apoya en que
+  la propia Lista Modelo las declara intercambiables.
+
+refs:
+  - 'pmid:37439548'
+  - 'pmid:12479763'
+  - 'pmid:33933205'

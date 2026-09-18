@@ -40,7 +40,7 @@ poblacion: Adultos con hipertensión arterial primaria (estadio 1 o 2), con o si
 cie11: BA00
 estado: revisado
 fecha: '2026-08-25'
-actualizado: '2026-08-25'
+actualizado: '2026-09-18'
 autores:
   - nombre: Dr. Alcy Edmundo Torres Guerrero
 licencia: CC BY-SA 4.0
@@ -125,6 +125,51 @@ evidencia:
     certeza: alta
     razones_descenso: []
     ref: 'pmid:12479763'
+
+  # Comparaciones directas de primera línea de la revisión Cochrane. Esa
+  # revisión lee SIEMPRE con la tiazida como intervención: aquí la intervención
+  # es el antagonista del calcio, así que un RR menor que 1 favorece al
+  # COMPARADOR. Se transcribe tal cual; invertir el cociente sería fabricar un
+  # número que la fuente no publicó.
+  - desenlace: Insuficiencia cardiaca, tiazida frente a antagonista del calcio
+    criticidad: critico
+    diseno: revision_sistematica
+    estudio: Cochrane, comparaciones directas de primera línea
+    comparador: la tiazida es la intervención en esta revisión
+    n: 35217
+    efecto: >-
+      4,4 % con tiazida frente a 3,2 %; RR 0,74 (IC95 % 0,66–0,82) a favor de la
+      tiazida, reducción absoluta 1,2 %
+    direccion_del_efecto: desfavorable
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: >-
+      Certeza asignada por los autores de la revisión. La dirección está leída
+      desde la tiazida: el resultado desfavorece al antagonista del calcio, que es
+      el fármaco de esta ficha.
+    ref: 'pmid:37439548'
+
+  - desenlace: Mortalidad total, tiazida frente a antagonista del calcio
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: la tiazida es la intervención en esta revisión
+    n: 35417
+    efecto: RR 1,02 (IC95 % 0,96–1,08); poca o ninguna diferencia
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
+
+  - desenlace: Ictus, tiazida frente a antagonista del calcio
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: la tiazida es la intervención en esta revisión
+    n: 35217
+    efecto: RR 1,06 (IC95 % 0,95–1,18); poca o ninguna diferencia
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión.
+    ref: 'pmid:37439548'
 
 # ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
 seguridad_cuantitativa:
@@ -212,5 +257,6 @@ conclusion: >-
 refs:
   - 'pmid:12479763'
   - 'pmid:16154016'
+  - 'pmid:37439548'
   - 'fda:label'
 

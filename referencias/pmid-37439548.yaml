@@ -1,0 +1,33 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:37439548"
+clave_bibtex: reinhart2023
+tipo: revision
+titulo: "First-line diuretics versus other classes of antihypertensive drugs for hypertension"
+autores:
+  - "Reinhart M"
+  - "Puil L"
+  - "Salzwedel DM"
+  - "Wright JM"
+publicacion: "Cochrane Database Syst Rev"
+anio: 2023
+volumen: "7"
+numero: "7"
+paginas: "CD008161"
+
+identificadores:
+  pmid: 37439548
+  doi: "10.1002/14651858.CD008161.pub3"
+  pmc: "PMC10339786"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Review"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

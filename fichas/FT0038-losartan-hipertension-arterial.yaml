@@ -1,0 +1,231 @@
+# Ficha: fármaco × indicación.
+#
+# El nudo de esta ficha es el comparador. LIFE ganó frente a atenolol, y la
+# propia Lista Modelo advierte hoy que el atenolol no debe usarse como fármaco
+# de primera línea en hipertensión no complicada por encima de los 60 años. Un
+# resultado positivo frente a un comparador que ya no se recomienda no se puede
+# leer como si fuese positivo frente a lo que sí se recomienda.
+
+id: 'FT:0038'
+tipo: ficha
+farmaco: 'FS:0035'
+
+titulo: Losartán en la hipertensión arterial con hipertrofia ventricular izquierda
+titulo_en: Losartan in hypertension with left ventricular hypertrophy
+indicacion: Hipertensión arterial esencial con hipertrofia ventricular izquierda
+indicacion_en: Essential hypertension with left ventricular hypertrophy
+poblacion: >-
+  Adultos de 55 a 80 años con hipertensión esencial (160–200/95–115 mmHg
+  sentado) e hipertrofia ventricular izquierda confirmada por electrocardiograma.
+poblacion_en: >-
+  Adults aged 55 to 80 with essential hypertension (sitting blood pressure
+  160-200/95-115 mmHg) and electrocardiographically ascertained left ventricular
+  hypertrophy.
+cie11: BA00
+
+estado: borrador
+fecha: '2026-08-24'
+actualizado: '2026-09-18'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+pico:
+  p: >-
+    Adultos de 55 a 80 años con hipertensión esencial e hipertrofia ventricular
+    izquierda electrocardiográfica
+  i: Tratamiento basado en losartán
+  c: Tratamiento basado en atenolol
+  o: >-
+    Muerte cardiovascular, infarto de miocardio o ictus (compuesto); ictus mortal
+    o no mortal; muerte cardiovascular; infarto de miocardio; diabetes de nueva
+    aparición
+
+estrategia:
+  - base: PubMed
+    consulta: 'losartan[Title] AND hypertension[Title] AND randomized[pt]'
+    fecha: '2026-08-24'
+    nota: >-
+      La indicación de esta ficha es deliberadamente más estrecha que
+      «hipertensión arterial»: es la población en la que se midió el efecto.
+
+posologia:
+  inicio: 50 mg al día en una toma
+  mantenimiento: 50 a 100 mg al día
+  maxima: 100 mg al día
+  ajuste_renal: >-
+    Vigilar potasio y creatinina al iniciar y al subir la dosis. Precaución en
+    depleción de volumen y en estenosis bilateral de la arteria renal.
+  advertencia: >-
+    Contraindicado en el embarazo por toxicidad fetal, igual que los IECA y por la
+    misma razón de mecanismo.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1843ee4b-1afc-4992-993a-4b0e03e785fc
+  consultado: '2026-08-24'
+
+evidencia:
+  - desenlace: >-
+      Compuesto primario: muerte cardiovascular, infarto de miocardio o ictus
+    criticidad: critico
+    diseno: eca
+    estudio: LIFE, doble ciego, seguimiento de al menos 4 años
+    comparador: tratamiento basado en atenolol
+    n: 9193
+    efecto: >-
+      23,8 frente a 27,9 por 1000 personas-año; RR 0,87 (IC95 % 0,77–0,98),
+      p = 0,021
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta   # el comparador ya no se recomienda de primera línea
+    ref: 'pmid:11937178'
+
+  - desenlace: Ictus mortal o no mortal
+    criticidad: critico
+    diseno: eca
+    estudio: LIFE
+    comparador: tratamiento basado en atenolol
+    n: 9193
+    efecto: 232 frente a 309 eventos; RR 0,75 (IC95 % 0,63–0,89), p = 0,001
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    ref: 'pmid:11937178'
+    nota: >-
+      Es el desenlace que arrastra el compuesto: la ventaja del losartán en LIFE
+      es esencialmente una ventaja en ictus.
+
+  - desenlace: Muerte cardiovascular
+    criticidad: critico
+    diseno: eca
+    estudio: LIFE
+    comparador: tratamiento basado en atenolol
+    n: 9193
+    efecto: 204 frente a 234 muertes; RR 0,89 (IC95 % 0,73–1,07), p = 0,206
+    certeza: moderada
+    razones_descenso:
+      - imprecision
+    ref: 'pmid:11937178'
+
+  - desenlace: Infarto de miocardio mortal o no mortal
+    criticidad: critico
+    diseno: eca
+    estudio: LIFE
+    comparador: tratamiento basado en atenolol
+    n: 9193
+    efecto: 198 frente a 188 eventos; RR 1,07 (IC95 % 0,88–1,31), p = 0,491
+    certeza: moderada
+    razones_descenso:
+      - imprecision
+    ref: 'pmid:11937178'
+    nota: >-
+      Sin diferencia, y con el punto estimado del lado desfavorable. Lo que LIFE
+      demuestra no es un beneficio cardiovascular general.
+
+  - desenlace: Descenso de la presión arterial
+    criticidad: no_importante
+    diseno: eca
+    estudio: LIFE
+    comparador: tratamiento basado en atenolol
+    n: 9193
+    efecto: >-
+      30,2/16,6 mmHg con losartán frente a 29,1/16,8 mmHg con atenolol
+    certeza: alta
+    ref: 'pmid:11937178'
+    nota: >-
+      Incluido porque es la premisa del argumento de los autores: con un descenso
+      tensional prácticamente igual, la diferencia en ictus tiene que venir de
+      otra parte.
+
+  - desenlace: Mortalidad total, tiazida frente a betabloqueante
+    criticidad: critico
+    diseno: revision_sistematica
+    estudio: Cochrane, comparaciones directas de primera línea
+    comparador: la tiazida es la intervención en esta revisión
+    n: 18241
+    efecto: RR 0,96 (IC95 % 0,84–1,10); poca o ninguna diferencia
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: >-
+      Certeza de la revisión. No compara losartán con nada: se incluye para situar
+      al comparador de LIFE, que es un betabloqueante.
+    ref: 'pmid:37439548'
+
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: pequeno
+  certeza_global: moderada
+  valores_preferencias: >-
+    Poca variabilidad en esta población concreta: buena tolerancia, una toma
+    diaria y sin tos. En mujeres en edad fértil la toxicidad fetal domina la
+    decisión.
+  equidad: >-
+    Favorable hoy, con genéricos disponibles y precio bajo, aunque menos que el de
+    una tiazida.
+  aceptabilidad: alta
+  factibilidad: >-
+    Alta, pero la indicación exige un electrocardiograma para identificar la
+    hipertrofia ventricular: sin él, esta ficha no aplica y hay que leer la de la
+    hipertensión no complicada.
+
+recomendacion:
+  direccion: a_favor
+  fuerza: condicional
+  enunciado: >-
+    En el adulto de 55 a 80 años con hipertensión arterial e hipertrofia
+    ventricular izquierda electrocardiográfica, el losartán es preferible a un
+    tratamiento basado en atenolol, sobre todo por la reducción de ictus. Fuera de
+    esa población, y frente a una tiazida o un antagonista del calcio, la evidencia
+    de esta ficha no sostiene ninguna preferencia. Contraindicado en el embarazo.
+  enunciado_en: >-
+    In adults aged 55 to 80 with hypertension and electrocardiographic left
+    ventricular hypertrophy, losartan is preferable to atenolol-based treatment,
+    chiefly through stroke reduction; outside that population, and against a
+    thiazide or calcium channel blocker, this evidence supports no preference.
+    Contraindicated in pregnancy.
+  ref: 'pmid:11937178'
+  justificacion_fuerza: >-
+    Condicional por el comparador. La Lista Modelo advierte hoy que el atenolol no
+    debe usarse de primera línea en hipertensión no complicada por encima de los
+    60 años, y la población de LIFE tenía entre 55 y 80. Superar a un fármaco que
+    el propio marco de referencia desaconseja no equivale a superar a la
+    alternativa que sí se recomienda.
+
+alternativas:
+  - dci: Hidroclorotiazida
+    atc: C03AA03
+    lme: true
+    lme_seccion: '12.3'
+    nota: >-
+      Ficha propia en FT:0036. Nunca se comparó con losartán en un ensayo de este
+      tamaño en esta población.
+  - dci: Enalapril
+    atc: C09AA02
+    lme: true
+    lme_seccion: '12.3'
+    nota: >-
+      Ficha propia en FT:0037. Mismo eje, misma contraindicación en el embarazo,
+      con tos como diferencia práctica.
+  - dci: Bisoprolol
+    atc: C07AB07
+    lme: true
+    lme_seccion: '12.3'
+    nota: >-
+      El betabloqueante que la Lista Modelo sí lista, con atenolol solo como
+      alternativa y con la advertencia de no usarlo de primera línea por encima de
+      los 60 años en hipertensión no complicada.
+
+conclusion: >-
+  En 9193 personas de 55 a 80 años con hipertensión e hipertrofia ventricular
+  izquierda, el losartán redujo el compuesto de muerte cardiovascular, infarto e
+  ictus frente al atenolol, con un descenso tensional prácticamente idéntico. La
+  ventaja se concentra en el ictus; ni la muerte cardiovascular ni el infarto
+  alcanzaron diferencia, y el punto estimado del infarto quedó del lado
+  desfavorable. El límite de la ficha es el comparador: la Lista Modelo advierte
+  hoy que el atenolol no debe emplearse de primera línea en hipertensión no
+  complicada por encima de los 60 años, de modo que LIFE demuestra superioridad
+  sobre un fármaco que el propio marco desaconseja, no sobre una tiazida ni sobre
+  un antagonista del calcio.
+
+refs:
+  - 'pmid:11937178'
+  - 'pmid:37439548'

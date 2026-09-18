@@ -9,6 +9,7 @@
 id: 'FT:0037'
 tipo: ficha
 farmaco: 'FS:0006'
+seleccion: 'SEL:0024'
 
 titulo: Enalapril en la hipertensión arterial del adulto
 titulo_en: Enalapril in adult arterial hypertension
@@ -143,7 +144,7 @@ evidencia:
     comparador: la tiazida es la intervención en esta revisión
     n: 30900
     efecto: >-
-      4,7 % con tiazida frente a 4,1 %; RR 0,89 (IC95 % 0,80–0,99) a favor de la
+      4,7 % frente a 4,1 %; RR 0,89 (IC95 % 0,80–0,99) a favor de la
       tiazida, reducción absoluta 0,6 %
     direccion_del_efecto: desfavorable
     certeza: moderada
@@ -157,7 +158,7 @@ evidencia:
     comparador: la tiazida es la intervención en esta revisión
     n: 25254
     efecto: >-
-      3,9 % con tiazida frente a 2,9 %; RR 0,73 (IC95 % 0,64–0,84) a favor de la
+      3,9 % frente a 2,9 %; RR 0,73 (IC95 % 0,64–0,84) a favor de la
       tiazida, reducción absoluta 1,0 %
     direccion_del_efecto: desfavorable
     certeza: moderada

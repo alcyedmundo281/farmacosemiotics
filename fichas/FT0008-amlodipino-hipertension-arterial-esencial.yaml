@@ -33,6 +33,7 @@
 id: 'FT:0008'
 tipo: ficha
 farmaco: 'FS:0008'
+seleccion: 'SEL:0024'
 titulo: Amlodipino en la hipertensión arterial esencial
 indicacion: Hipertensión arterial esencial del adulto
 indicacion_en: Essential hypertension in adults
@@ -138,7 +139,7 @@ evidencia:
     comparador: la tiazida es la intervención en esta revisión
     n: 35217
     efecto: >-
-      4,4 % con tiazida frente a 3,2 %; RR 0,74 (IC95 % 0,66–0,82) a favor de la
+      4,4 % frente a 3,2 %; RR 0,74 (IC95 % 0,66–0,82) a favor de la
       tiazida, reducción absoluta 1,2 %
     direccion_del_efecto: desfavorable
     certeza: moderada

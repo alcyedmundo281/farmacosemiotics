@@ -1,0 +1,263 @@
+# PARTE I — Informe de selección: qué fármaco se elige en la hipertensión
+# arterial esencial del adulto sin indicación imperiosa de otra clase.
+#
+# BORRADOR. Los juicios por eje y los veredictos son una PROPUESTA pendiente
+# del juicio clínico del autor. Toda cifra sale de un fichero de
+# referencias/. Casi todas estaban ya en las fichas (FT:0008, FT:0036,
+# FT:0037, FT:0038); las únicas nuevas son los abandonos y los eventos
+# adversos graves de la tiazida frente al antagonista del calcio, leídos del
+# resumen de pmid:37439548 en PubMed el 2026-09-18.
+#
+# Esa revisión publica los porcentajes como «X % frente a Y %» sin asignar
+# cada uno a un brazo; se transcriben igual. Con RR < 1, la tasa menor es la
+# de la tiazida.
+#
+# Dos cautelas que atraviesan todo el informe:
+#   1. La evidencia de desenlaces duros de la tiazida es de CLORTALIDONA
+#      (ALLHAT). Leerla sobre hidroclorotiazida depende de que la Lista Modelo
+#      las declare alternativas terapéuticas.
+#   2. La de enalapril es de LISINOPRIL (ALLHAT) y de la clase IECA (Cochrane):
+#      evidencia indirecta, registrada como tal en FT:0037.
+#
+# pmid:37439548 lee siempre con la tiazida como intervención: un RR menor que
+# 1 favorece a la tiazida, no al candidato de la fila.
+
+id: 'SEL:0024'
+tipo: seleccion
+problema: Hipertensión arterial esencial del adulto
+problema_en: Essential hypertension in adults
+cie11: BA00
+
+poblacion: >-
+  Adultos con hipertensión arterial esencial que inician tratamiento
+  farmacológico, sin una indicación imperiosa de otra clase (insuficiencia
+  cardiaca con fracción de eyección reducida, enfermedad renal crónica
+  proteinúrica, diabetes con albuminuria) y sin embarazo ni deseo gestacional.
+
+pregunta: >-
+  En adultos con hipertensión arterial esencial no complicada que inician
+  tratamiento, ¿qué fármaco se selecciona como primera línea en monoterapia
+  —hidroclorotiazida, amlodipino, enalapril o losartán— según eficacia,
+  seguridad, conveniencia y costo?
+
+estado: borrador
+fecha: '2026-09-18'
+actualizado: '2026-09-18'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Las cuatro moléculas son de la sección 12.3 de la Lista Modelo y las cuatro
+  son genéricos orales, de una toma diaria salvo el enalapril, que admite una o
+  dos. La diferencia entre clases en
+  mortalidad total es indistinguible en las comparaciones directas; lo que las
+  separa son desenlaces concretos —insuficiencia cardiaca, ictus, eventos
+  cardiovasculares totales—, la necesidad de control analítico y el embarazo.
+
+estrategia:
+  - base: PubMed
+    consulta: 'first-line[Title] AND hypertension[Title] AND (thiazide OR diuretic)[Title] AND Cochrane Database Syst Rev[Journal]'
+    fecha: '2026-08-24'
+    nota: >-
+      Revisión Cochrane de comparaciones directas de primera línea
+      (pmid:37439548) y el ensayo que la domina, ALLHAT (pmid:12479763).
+  - base: PubMed
+    consulta: 'losartan[Title] AND hypertension[Title] AND randomized[pt]'
+    fecha: '2026-08-24'
+    nota: >-
+      LIFE (pmid:11937178), el único ensayo de desenlaces del losartán en
+      hipertensión, frente a atenolol.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+# El juicio es COMPARATIVO: superior o inferior *a los otros de esta tabla*.
+candidatos:
+  - dci: Hidroclorotiazida
+    atc: C03AA03
+    clase: Diurético tiazídico
+    farmaco: 'FS:0034'
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Ninguna clase la superó como primer fármaco en las comparaciones
+        directas de la revisión Cochrane. Frente al antagonista del calcio,
+        menos eventos cardiovasculares totales (14,3 % frente a 13,3 %; RR 0,93,
+        IC95 % 0,89–0,98) y menos insuficiencia cardiaca (4,4 % frente a 3,2 %;
+        RR 0,74, IC95 % 0,66–0,82); frente al IECA, menos ictus (4,7 % frente a
+        4,1 %; RR 0,89, IC95 % 0,80–0,99). Mortalidad total sin diferencia
+        frente a ambos. Superioridad pequeña en términos absolutos (0,6 a 1,2
+        puntos) y leída en parte desde clortalidona.
+      ref: 'pmid:37439548'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Menos abandonos por efectos adversos que los dos comparadores de esta
+        tabla con comparación directa: frente al IECA, 3,9 % frente a 2,9 %
+        (RR 0,73, IC95 % 0,64–0,84; reducción absoluta 1,0 %; certeza
+        moderada); frente al antagonista del calcio, 7,6 % frente a 6,2 %
+        (RR 0,81, IC95 % 0,75–0,88; reducción absoluta 1,4 %; certeza baja).
+        El abandono es la medida que integra la tolerancia; no borra la
+        hipopotasemia, la hiponatremia —más peligrosa en el anciano— ni la
+        hiperuricemia dependientes de la dosis, recogidas en FS:0034 con
+        `fda:label`, que obligan al control analítico.
+      ref: 'pmid:37439548'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Una toma diaria, pero exige sodio, potasio y función renal antes de
+        iniciar y a las dos a cuatro semanas: la misma carga analítica que el
+        IECA y el ARA-II, y más que el amlodipino.
+      ref: 'fda:label'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente muy antiguo, entre los antihipertensivos de
+        menor costo de adquisición.
+    veredicto: seleccionado
+    nota: >-
+      Primera línea en la hipertensión no complicada. Dosis de 12,5 a 25 mg:
+      por encima se gana daño metabólico sin ganancia tensional proporcional.
+
+  - dci: Amlodipino
+    atc: C08CA01
+    clase: Antagonista del calcio dihidropiridínico
+    farmaco: 'FS:0008'
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Igual que la clortalidona en el desenlace coronario primario de ALLHAT
+        (11,3 % frente a 11,5 % a seis años; RR 0,98, IC95 % 0,90–1,07) y en
+        mortalidad total, pero más insuficiencia cardiaca a seis años (10,2 %
+        frente a 7,7 %; RR 1,38, IC95 % 1,25–1,52). La revisión Cochrane lo
+        confirma en la misma dirección. Inferior a la tiazida por ese
+        desenlace; frente a la pauta de atenolol redujo ictus (ASCOT-BPLA), pero
+        ese comparador no está en esta tabla.
+      ref: 'pmid:12479763'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Más abandonos por efectos adversos que la tiazida en comparación directa
+        de clase: 7,6 % frente a 6,2 %, RR 0,81 (IC95 % 0,75–0,88) a favor de la
+        tiazida, reducción absoluta 1,4 %, certeza baja. Sin diferencia en
+        eventos adversos graves (RR 1,09, IC95 % 0,97–1,24; dos ensayos, certeza
+        baja). El edema maleolar, su reacción característica, sigue sin
+        cuantificar en FT:0008.
+      ref: 'pmid:37439548'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Una toma diaria, sin ajuste renal y sin control analítico obligatorio:
+        el único de los cuatro que puede usarse donde falta el laboratorio.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: Genérico oral multifuente de bajo costo.
+    veredicto: alternativa
+    nota: >-
+      Preferible cuando la tiazida no se tolera o no puede vigilarse. Evitarlo
+      como primera opción en quien ya tiene riesgo de insuficiencia cardiaca.
+
+  - dci: Enalapril
+    atc: C09AA02
+    clase: Inhibidor de la enzima convertidora de angiotensina
+    farmaco: 'FS:0006'
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Con lisinopril frente a clortalidona en ALLHAT: sin diferencia en el
+        desenlace coronario primario (RR 0,99, IC95 % 0,91–1,08), pero más ictus
+        (6,3 % frente a 5,6 %; RR 1,15, IC95 % 1,02–1,30), más insuficiencia
+        cardiaca (RR 1,19, IC95 % 1,07–1,31) y más enfermedad cardiovascular
+        combinada (RR 1,10, IC95 % 1,05–1,16). Evidencia indirecta: otro IECA, y
+        con 2 mmHg de sistólica menos controlados que podrían explicar parte
+        del ictus.
+      ref: 'pmid:12479763'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Más abandonos por efectos adversos que la tiazida en comparación directa
+        de clase: 3,9 % frente a 2,9 %, RR 0,73 (IC95 % 0,64–0,84) a favor de la
+        tiazida, reducción absoluta 1,0 %, certeza moderada. Además, toxicidad
+        fetal con advertencia en recuadro.
+      ref: 'pmid:37439548'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Una o dos tomas diarias; creatinina y potasio a la una o dos semanas de
+        iniciar o subir la dosis, como la tiazida.
+      ref: 'fda:label'
+    costo:
+      juicio: equivalente
+      sustento: Genérico oral multifuente de bajo costo.
+    veredicto: alternativa
+    nota: >-
+      No preferente en la hipertensión no complicada, que es la población de
+      este informe. Pasa a ser de elección con proteinuria, diabetes con
+      albuminuria o disfunción ventricular izquierda: son otras indicaciones.
+      Contraindicado en el embarazo.
+
+  - dci: Losartán
+    atc: C09CA01
+    clase: Antagonista del receptor de angiotensina II
+    farmaco: 'FS:0035'
+    eficacia:
+      juicio: sin_datos
+      sustento: >-
+        No se ha comparado con ninguno de los otros tres candidatos en un ensayo
+        de desenlaces incluido aquí. Su única evidencia, LIFE, es frente a
+        atenolol y en una población más estrecha —55 a 80 años con hipertrofia
+        ventricular izquierda electrocardiográfica—: menos ictus (RR 0,75,
+        IC95 % 0,63–0,89), sin diferencia en muerte cardiovascular ni en infarto.
+      ref: 'pmid:11937178'
+    seguridad:
+      juicio: sin_datos
+      sustento: >-
+        Sin comparación de abandonos ni de eventos adversos frente a los otros
+        candidatos en referencias/. Comparte con el enalapril la toxicidad fetal.
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Una toma diaria; potasio y creatinina al iniciar y al subir la dosis.
+      ref: 'fda:label'
+    costo:
+      juicio: inferior
+      sustento: >-
+        Genérico multifuente disponible, pero de mayor costo de adquisición que
+        la tiazida.
+    veredicto: reservado
+    nota: >-
+      Para la población de LIFE (hipertrofia ventricular izquierda en el ECG) y
+      para quien necesita bloquear el eje renina-angiotensina y no tolera el
+      IECA. Contraindicado en el embarazo.
+
+criterio_decisorio: >-
+  Decidió la eficacia. En mortalidad total ningún candidato se separa, pero la
+  tiazida es la única que no pierde en ningún desenlace duro en comparación
+  directa: el amlodipino pierde en insuficiencia cardiaca y el IECA en ictus,
+  insuficiencia cardiaca y enfermedad cardiovascular combinada. Las
+  diferencias son pequeñas en términos absolutos, y por eso el costo —el más
+  bajo de los cuatro— refuerza la elección en lugar de ser un desempate. La
+  conveniencia fue el único eje que apuntó a otro candidato: el amlodipino no
+  necesita control analítico. No bastó para mover la elección en la población
+  general, pero es la razón por la que queda como alternativa de primer orden
+  donde el laboratorio no está disponible.
+
+conclusion: >-
+  Se selecciona la hidroclorotiazida, a 12,5–25 mg al día, como primer fármaco
+  en el adulto con hipertensión arterial esencial no complicada. El amlodipino
+  y el enalapril quedan como alternativas: el primero cuando la tiazida no se
+  tolera o no puede vigilarse, y evitándolo en quien tiene riesgo de
+  insuficiencia cardiaca; el segundo cuando aparece una indicación imperiosa
+  del eje renina-angiotensina. El losartán queda reservado para la hipertrofia
+  ventricular izquierda y la intolerancia al IECA. Huecos que el informe
+  declara: la evidencia de desenlaces duros de la tiazida es de clortalidona y
+  la del IECA es de lisinopril; el losartán nunca se comparó con los otros tres
+  en un ensayo de desenlaces; y el edema maleolar del amlodipino, su reacción
+  más visible, queda sin cuantificar.
+
+refs:
+  - 'pmid:37439548'
+  - 'pmid:12479763'
+  - 'pmid:11937178'
+  - 'fda:label'

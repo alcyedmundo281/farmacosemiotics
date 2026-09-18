@@ -1,0 +1,139 @@
+# Principio activo. Lo que NO depende de la indicación.
+
+id: 'FS:0035'
+tipo: farmaco
+dci: Losartán
+dci_en: Losartan
+sinonimos:
+  - losartán potásico
+  - losartan potassium
+
+atc: C09CA01
+clase_farmacologica: Antagonista del receptor de angiotensina II
+clase_farmacologica_en: Angiotensin II receptor blocker
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: borrador
+fecha: '2026-08-24'
+actualizado: '2026-09-18'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+codigos:
+  rxcui: '52175'
+  fuente_rxcui: 'rxnav:rxcui'
+  atc_nivel4: C09CA
+  fuente_atc: 'who:eml24'
+  consultado: '2026-08-24'
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '12.3'
+  seccion_titulo_en: Antihypertensive medicines
+  categoria: core
+  secciones_adicionales: ['12.4']
+  formulaciones:
+    - 'Tablet: 25 mg; 50 mg; 100 mg'
+  alternativas_terapeuticas:
+    - tipo: subgrupo_atc_nivel4
+      codigo: C09CA
+      titulo_en: Angiotensin II receptor blockers (ARBs), plain
+  fuente: 'who:eml24'
+  url: https://www.who.int/publications/i/item/B09474
+  consultado: '2026-08-24'
+
+mecanismo: >-
+  El losartán y su metabolito activo principal bloquean el receptor de la
+  angiotensina II, la hormona vasoactiva primaria del sistema renina-angiotensina
+  y estímulo de la secreción de aldosterona. A diferencia de los IECA no
+  interfiere con la degradación de bradicinina, lo que explica que no produzca la
+  tos característica de aquéllos.
+mecanismo_en: >-
+  Losartan and its principal active metabolite block the angiotensin II
+  receptor; angiotensin II is the primary vasoactive hormone of the
+  renin-angiotensin system and also stimulates aldosterone secretion.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  metabolito_activo: >-
+    Buena parte del efecto la aporta el metabolito carboxílico E-3174, más
+    potente y de vida media más larga que el propio losartán.
+  ref: 'fda:label'
+
+formas:
+  - forma: comprimido
+    concentraciones: ['25 mg', '50 mg', '100 mg']
+    via: oral
+
+seguridad:
+  reacciones:
+    - evento: Hiperpotasemia
+      frecuencia: frecuente
+      gravedad: moderada
+      ref: 'fda:label'
+    - evento: Deterioro de la función renal
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Sobre todo en estenosis bilateral de la arteria renal o en situaciones de
+        depleción de volumen.
+      ref: 'fda:label'
+    - evento: Angioedema
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Menos frecuente que con los IECA, pero descrito. No es un fármaco seguro
+        por definición en quien lo tuvo con un IECA.
+      ref: 'fda:label'
+
+  contraindicaciones:
+    - motivo: Hipersensibilidad a cualquier componente del producto
+      ref: 'fda:label'
+    - motivo: Uso conjunto con aliskiren en pacientes con diabetes
+      ref: 'fda:label'
+
+alertas:
+  - agencia: FDA
+    tipo: recuadro
+    asunto: >-
+      Toxicidad fetal. Los fármacos que actúan directamente sobre el sistema
+      renina-angiotensina pueden causar daño y muerte al feto. Cuando se detecta
+      un embarazo, el losartán se suspende cuanto antes.
+    url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1843ee4b-1afc-4992-993a-4b0e03e785fc
+    fuente: 'openfda:label'
+    consultado: '2026-08-24'
+    implicacion: >-
+      La misma advertencia que lleva el enalapril, y por la misma razón de
+      mecanismo. Cambiar de un IECA a un ARA II por la tos no elimina este
+      riesgo.
+
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1995-04-14'
+    solicitud: NDA020386
+    marca_original: COZAAR
+    solicitudes:
+      nda: 3
+      anda: 22
+      bla: 0
+    fuente: 'openfda:drugsfda'
+    consulta: 'products.brand_name:"COZAAR"'
+    consultado: '2026-08-24'
+
+etiqueta_fda:
+  set_id: '1843ee4b-1afc-4992-993a-4b0e03e785fc'
+  vigencia: '2026-07-07'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1843ee4b-1afc-4992-993a-4b0e03e785fc
+  nota: >-
+    Etiqueta de losartán solo. HYZAAR (losartán + hidroclorotiazida) comparte
+    nombre genérico en openFDA y no es este registro.
+  fuente: 'openfda:label'
+  consultado: '2026-08-24'
+
+fichas: ['FT:0038']

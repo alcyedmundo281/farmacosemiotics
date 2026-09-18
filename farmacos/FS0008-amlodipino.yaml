@@ -40,7 +40,7 @@ clase_farmacologica_en: Dihydropyridine calcium channel blocker (DHP-CCB)
 # último que lo tocó.
 estado: revisado
 fecha: '2026-08-24'
-actualizado: '2026-08-24'
+actualizado: '2026-09-18'
 idioma: es
 autores:
   - nombre: Dr. Alcy Edmundo Torres Guerrero
@@ -96,4 +96,44 @@ seguridad:
         Más común en pacientes de edad avanzada o con estenosis aórtica severa.
       ref: 'fda:label'
 
+# ── Traído del trabajo local de hipertensión (2026-08-24) ──────────────
+mecanismo_en: >-
+  Dihydropyridine calcium antagonist that inhibits the transmembrane influx of
+  calcium ions into vascular smooth muscle and cardiac muscle.
 
+codigos:
+  rxcui: '17767'
+  fuente_rxcui: 'rxnav:rxcui'
+  atc_nivel4: C08CA
+  fuente_atc: 'who:eml24'
+  consultado: '2026-08-24'
+
+formas:
+  - forma: comprimido
+    concentraciones: ['2,5 mg', '5 mg', '10 mg']
+    via: oral
+
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1992-07-31'
+    solicitud: NDA019787
+    marca_original: NORVASC
+    solicitudes:
+      nda: 5
+      anda: 25
+      bla: 0
+    fuente: 'openfda:drugsfda'
+    consulta: 'products.brand_name:"NORVASC"'
+    consultado: '2026-08-24'
+
+etiqueta_fda:
+  set_id: '1080fcea-a5da-499d-a855-690c13559071'
+  vigencia: '2026-07-17'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1080fcea-a5da-499d-a855-690c13559071
+  nota: >-
+    Etiqueta de amlodipino solo. La consulta por nombre genérico devuelve además
+    seis combinaciones —con olmesartán, atorvastatina, benazepril, valsartán e
+    hidroclorotiazida—, que no son este registro.
+  fuente: 'openfda:label'
+  consultado: '2026-08-24'

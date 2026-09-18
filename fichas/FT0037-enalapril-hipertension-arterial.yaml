@@ -1,0 +1,242 @@
+# Ficha: fármaco × indicación.
+#
+# El problema de esta ficha en una frase: el ensayo comparativo grande usó
+# LISINOPRIL, no enalapril. Toda su evidencia entra aquí como evidencia
+# indirecta —de clase—, y eso baja la certeza. La Lista Modelo lo permite porque
+# su recuadro declara intercambiable el subgrupo C09AA; permitirlo no es lo
+# mismo que disimularlo.
+
+id: 'FT:0037'
+tipo: ficha
+farmaco: 'FS:0006'
+
+titulo: Enalapril en la hipertensión arterial del adulto
+titulo_en: Enalapril in adult arterial hypertension
+indicacion: Hipertensión arterial esencial
+indicacion_en: Essential hypertension
+poblacion: >-
+  Adultos con hipertensión arterial esencial. La evidencia comparativa procede de
+  personas de 55 años o más con al menos otro factor de riesgo coronario.
+poblacion_en: >-
+  Adults with essential hypertension; comparative evidence comes from people aged
+  55 or older with at least one other coronary risk factor.
+cie11: BA00
+
+estado: borrador
+fecha: '2026-08-24'
+actualizado: '2026-09-18'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+pico:
+  p: Adultos con hipertensión arterial esencial que inician tratamiento
+  i: Inhibidor de la enzima convertidora de angiotensina como primer fármaco
+  c: Diurético tiazídico o similar como primer fármaco
+  o: >-
+    Mortalidad total, ictus, cardiopatía isquémica, insuficiencia cardiaca,
+    eventos cardiovasculares combinados, abandonos por efectos adversos
+
+estrategia:
+  - base: PubMed
+    consulta: 'first-line[Title] AND hypertension[Title] AND (thiazide OR diuretic)[Title] AND Cochrane Database Syst Rev[Journal]'
+    fecha: '2026-08-24'
+    nota: >-
+      No se localizó un ensayo de desenlaces duros con enalapril como primer
+      fármaco en hipertensión no complicada de tamaño comparable a ALLHAT. Esa
+      ausencia es el hecho que estructura la ficha.
+
+posologia:
+  inicio: 5 mg al día; 2,5 mg si hay depleción de volumen o diurético previo
+  mantenimiento: 10 a 20 mg al día en una o dos tomas
+  maxima: 40 mg al día
+  ajuste_renal: >-
+    Reducir la dosis inicial con filtrado glomerular bajo. Comprobar creatinina y
+    potasio a la una o dos semanas de iniciar o de subir la dosis.
+  advertencia: >-
+    Antes de prescribir a una mujer en edad fértil hay que hablar de gestación, no
+    solo preguntar si está embarazada hoy: la advertencia con recuadro es por
+    toxicidad fetal.
+  ref: 'fda:label'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b464099-491d-473b-836e-9d86b2b1eeec
+  consultado: '2026-08-24'
+
+evidencia:
+  - desenlace: >-
+      Cardiopatía isquémica mortal o infarto no mortal, con lisinopril frente a
+      clortalidona
+    criticidad: critico
+    diseno: eca
+    estudio: ALLHAT, doble ciego, 33 357 asignados, seguimiento medio 4,9 años
+    comparador: clortalidona
+    n: 24309
+    efecto: >-
+      tasa a seis años 11,4 % con lisinopril frente a 11,5 % con clortalidona;
+      RR 0,99 (IC95 % 0,91–1,08)
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta   # el ensayo usó lisinopril, no enalapril
+    ref: 'pmid:12479763'
+
+  - desenlace: >-
+      Enfermedad cardiovascular combinada a seis años, con lisinopril frente a
+      clortalidona
+    criticidad: critico
+    diseno: eca
+    estudio: ALLHAT
+    comparador: clortalidona
+    n: 24309
+    efecto: 33,3 % frente a 30,9 %; RR 1,10 (IC95 % 1,05–1,16)
+    direccion_del_efecto: desfavorable
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    ref: 'pmid:12479763'
+
+  - desenlace: Ictus a seis años, con lisinopril frente a clortalidona
+    criticidad: critico
+    diseno: eca
+    estudio: ALLHAT
+    comparador: clortalidona
+    n: 24309
+    efecto: 6,3 % frente a 5,6 %; RR 1,15 (IC95 % 1,02–1,30)
+    direccion_del_efecto: desfavorable
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    ref: 'pmid:12479763'
+    nota: >-
+      La presión sistólica a los cinco años fue 2 mmHg más alta con lisinopril
+      (p < 0,001). Parte de la diferencia en ictus puede venir de ahí y no de la
+      clase: es la lectura que hicieron los propios autores del ensayo.
+
+  - desenlace: Insuficiencia cardiaca a seis años, con lisinopril frente a clortalidona
+    criticidad: critico
+    diseno: eca
+    estudio: ALLHAT
+    comparador: clortalidona
+    n: 24309
+    efecto: 8,7 % frente a 7,7 %; RR 1,19 (IC95 % 1,07–1,31)
+    direccion_del_efecto: desfavorable
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    ref: 'pmid:12479763'
+
+  - desenlace: Mortalidad total, tiazida frente a IECA
+    criticidad: critico
+    diseno: revision_sistematica
+    estudio: Cochrane, comparaciones directas de primera línea
+    comparador: la tiazida es la intervención en esta revisión
+    n: 30961
+    efecto: RR 1,00 (IC95 % 0,95–1,07); poca o ninguna diferencia
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: >-
+      Certeza asignada por los autores de la revisión. La dirección está leída
+      desde la tiazida.
+    ref: 'pmid:37439548'
+
+  - desenlace: Ictus, tiazida frente a IECA
+    criticidad: critico
+    diseno: revision_sistematica
+    comparador: la tiazida es la intervención en esta revisión
+    n: 30900
+    efecto: >-
+      4,7 % con tiazida frente a 4,1 %; RR 0,89 (IC95 % 0,80–0,99) a favor de la
+      tiazida, reducción absoluta 0,6 %
+    direccion_del_efecto: desfavorable
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión, leída desde la tiazida.
+    ref: 'pmid:37439548'
+
+  - desenlace: Abandonos por efectos adversos, tiazida frente a IECA
+    criticidad: importante
+    diseno: revision_sistematica
+    comparador: la tiazida es la intervención en esta revisión
+    n: 25254
+    efecto: >-
+      3,9 % con tiazida frente a 2,9 %; RR 0,73 (IC95 % 0,64–0,84) a favor de la
+      tiazida, reducción absoluta 1,0 %
+    direccion_del_efecto: desfavorable
+    certeza: moderada
+    certeza_fuente: revision
+    certeza_nota: Certeza de la revisión, leída desde la tiazida.
+    ref: 'pmid:37439548'
+    nota: >-
+      Es el resultado que más choca con la intuición clínica: se suele suponer que
+      el IECA se abandona menos que el diurético, y la tos hace lo contrario.
+
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: moderado
+  certeza_global: moderada
+  valores_preferencias: >-
+    La tos seca es el factor que más decide, y es imprevisible: quien no la tiene
+    suele quedarse con el fármaco años; quien la tiene rara vez lo tolera. En
+    mujeres en edad fértil la toxicidad fetal cambia por completo la conversación.
+  equidad: Favorable. Genérico antiguo, oral, barato y ampliamente disponible.
+  aceptabilidad: alta
+  factibilidad: >-
+    Alta, con la condición de poder medir creatinina y potasio al iniciar y al
+    subir la dosis.
+
+recomendacion:
+  direccion: a_favor
+  fuerza: condicional
+  enunciado: >-
+    El enalapril es una opción razonable de primer fármaco en el adulto con
+    hipertensión arterial esencial, y la preferible cuando coexisten diabetes con
+    albuminuria, enfermedad renal crónica proteinúrica o disfunción ventricular
+    izquierda. En hipertensión no complicada no hay razón para preferirlo a una
+    tiazida. Está contraindicado en el embarazo.
+  enunciado_en: >-
+    Enalapril is a reasonable first-line option in adults with essential
+    hypertension and preferable when diabetes with albuminuria, proteinuric
+    chronic kidney disease or left ventricular dysfunction coexist; in
+    uncomplicated hypertension there is no reason to prefer it over a thiazide.
+    Contraindicated in pregnancy.
+  ref: 'pmid:37439548'
+  justificacion_fuerza: >-
+    Condicional porque toda la evidencia comparativa que la sostiene es de clase y
+    no de este fármaco, y porque la elección depende de comorbilidades que están
+    fuera de la indicación evaluada aquí.
+
+alternativas:
+  - dci: Hidroclorotiazida
+    atc: C03AA03
+    lme: true
+    lme_seccion: '12.3'
+    nota: Ficha propia en FT:0036. Menos ictus y menos abandonos en comparación directa.
+  - dci: Losartán
+    atc: C09CA01
+    lme: true
+    lme_seccion: '12.3'
+    nota: >-
+      Ficha propia en FT:0038. Bloquea el mismo eje sin producir tos, pero comparte
+      la toxicidad fetal.
+  - tipo: subgrupo_atc_nivel4
+    dci: Otros IECA del subgrupo C09AA
+    lme: true
+    lme_seccion: '12.3'
+    nota: >-
+      La Lista Modelo declara intercambiable el subgrupo. Es lo que permite leer
+      el brazo de lisinopril de ALLHAT sobre esta ficha, y también lo que obliga a
+      registrarlo como evidencia indirecta.
+
+conclusion: >-
+  No hay un ensayo de desenlaces duros con enalapril como primer fármaco en
+  hipertensión no complicada. Lo que hay es el brazo de lisinopril de ALLHAT y las
+  comparaciones directas por clases de la revisión Cochrane, y ambos apuntan en la
+  misma dirección: mortalidad indistinguible frente a la tiazida, y algo peor en
+  ictus, insuficiencia cardiaca, enfermedad cardiovascular combinada y abandonos
+  por efectos adversos. Parte de la diferencia en ictus podría explicarse por los
+  2 mmHg de más que quedaron sin controlar. Eso deja al enalapril como una opción
+  correcta pero no preferente en hipertensión no complicada, y como la opción de
+  elección cuando hay proteinuria, diabetes con albuminuria o disfunción
+  ventricular, que son indicaciones distintas de la evaluada aquí.
+
+refs:
+  - 'pmid:12479763'
+  - 'pmid:37439548'

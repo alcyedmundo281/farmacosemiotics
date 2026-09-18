@@ -36,6 +36,7 @@ import json
 import re
 import sys
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -64,7 +65,11 @@ def texto(nodo):
 
 
 def slug_bibtex(apellido, anio, existentes):
-    base = re.sub(r"[^a-z]", "", (apellido or "anon").lower()) or "anon"
+    # Transliterar antes de filtrar: sin esto «Dahlöf» pierde la o y sale
+    # «dahlf», que no se parece a nada que alguien vaya a buscar.
+    plano = unicodedata.normalize("NFKD", apellido or "")
+    plano = "".join(c for c in plano if not unicodedata.combining(c))
+    base = re.sub(r"[^a-z]", "", plano.lower()) or "anon"
     clave = base + str(anio)
     if clave not in existentes:
         return clave

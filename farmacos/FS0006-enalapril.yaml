@@ -16,7 +16,7 @@ clase_farmacologica_en: Angiotensin-converting enzyme inhibitor (ACEi)
 # último que lo tocó.
 estado: revisado
 fecha: '2026-08-24'
-actualizado: '2026-08-24'
+actualizado: '2026-09-18'
 idioma: es
 autores:
   - nombre: Dr. Alcy Edmundo Torres Guerrero
@@ -65,4 +65,52 @@ seguridad:
         Requiere suspensión inmediata y permanente; contraindicación absoluta para cualquier IECA.
       ref: 'fda:label'
 
+# ── Traído del trabajo local de hipertensión (2026-08-24) ──────────────
+mecanismo_en: >-
+  After hydrolysis to enalaprilat, inhibits angiotensin-converting enzyme, which
+  catalyses conversion of angiotensin I to the vasoconstrictor angiotensin II;
+  angiotensin II also stimulates aldosterone secretion.
 
+codigos:
+  rxcui: '3827'
+  fuente_rxcui: 'rxnav:rxcui'
+  atc_nivel4: C09AA
+  fuente_atc: 'who:eml24'
+  nota_atc: >-
+    El código de 7 caracteres sale del índice ATC del propio informe de la OMS y
+    coincide con el nivel 4 que devuelve RxClass de forma independiente. La
+    columna de sección de ese índice, en cambio, viene desplazada en el PDF y no
+    se usa: la sección se lee del cuerpo de la lista.
+  consultado: '2026-08-24'
+
+formas:
+  - forma: comprimido
+    concentraciones: ['2,5 mg', '5 mg', '10 mg', '20 mg']
+    via: oral
+  - forma: solución oral
+    concentraciones: ['1 mg/mL']
+    via: oral
+
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1985-12-24'
+    solicitud: NDA018998
+    marca_original: VASOTEC
+    solicitudes:
+      nda: 3
+      anda: 14
+      bla: 0
+    fuente: 'openfda:drugsfda'
+    consulta: 'products.brand_name:"VASOTEC"'
+    consultado: '2026-08-24'
+
+etiqueta_fda:
+  set_id: '1b464099-491d-473b-836e-9d86b2b1eeec'
+  vigencia: '2026-08-11'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b464099-491d-473b-836e-9d86b2b1eeec
+  nota: >-
+    Etiqueta de enalapril solo. openFDA indexa también VASERETIC (enalapril +
+    hidroclorotiazida) bajo el mismo nombre genérico.
+  fuente: 'openfda:label'
+  consultado: '2026-08-24'

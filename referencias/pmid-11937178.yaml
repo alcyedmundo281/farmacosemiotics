@@ -1,0 +1,47 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:11937178"
+clave_bibtex: dahlof2002
+tipo: eca
+titulo: "Cardiovascular morbidity and mortality in the Losartan Intervention For Endpoint reduction in hypertension study (LIFE): a randomised trial against atenolol"
+autores:
+  - "Dahlöf B"
+  - "Devereux RB"
+  - "Kjeldsen SE"
+  - "Julius S"
+  - "Beevers G"
+  - "de Faire U"
+  - "Fyhrquist F"
+  - "Ibsen H"
+  - "Kristiansson K"
+  - "Lederballe-Pedersen O"
+  - "Lindholm LH"
+  - "Nieminen MS"
+  - "Omvik P"
+  - "Oparil S"
+  - "Wedel H"
+  - "LIFE Study Group"
+publicacion: "Lancet"
+anio: 2002
+volumen: "359"
+numero: "9311"
+paginas: "995-1003"
+
+identificadores:
+  pmid: 11937178
+  doi: "10.1016/S0140-6736(02)08089-3"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Comparative Study"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

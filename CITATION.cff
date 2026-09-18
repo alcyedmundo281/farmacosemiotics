@@ -31,6 +31,9 @@ identifiers:
     value: 10.5281/zenodo.22700661
     description: DOI de concepto, apunta a todas las versiones
   - type: doi
+    value: 10.5281/zenodo.22836793
+    description: DOI de la versión v0.2.0
+  - type: doi
     value: 10.5281/zenodo.22700662
     description: DOI de la versión v0.1.0
 repository-code: https://github.com/alcyedmundo281/farmacosemiotics

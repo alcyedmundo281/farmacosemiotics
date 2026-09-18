@@ -181,7 +181,11 @@ y es el que se usa cuando hay que reproducir un resultado.
 | DOI | Qué identifica | Cuándo usarlo |
 |---|---|---|
 | [`10.5281/zenodo.22700661`](https://doi.org/10.5281/zenodo.22700661) | Todas las versiones | Por defecto. Resuelve siempre a la última |
-| [`10.5281/zenodo.22700662`](https://doi.org/10.5281/zenodo.22700662) | Sólo v0.1.0 | Cuando importe reproducir este estado exacto del corpus |
+| [`10.5281/zenodo.22836793`](https://doi.org/10.5281/zenodo.22836793) | Sólo v0.2.0, la vigente | Cuando importe reproducir este estado exacto del corpus |
+
+El DOI de cada versión anterior está en [`CITATION.cff`](CITATION.cff), que
+es donde lo leen las máquinas. Aquí sólo la vigente: una tabla que crece una
+fila por release envejece sola.
 
 > Torres Guerrero, A. E. (2026). *farmacosemiotics: guías de práctica clínica
 > farmacoterapéuticas ancladas a PubMed*. Zenodo.

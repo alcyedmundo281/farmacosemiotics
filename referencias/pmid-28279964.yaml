@@ -1,0 +1,33 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:28279964"
+clave_bibtex: schmidt2017a
+tipo: articulo
+titulo: "Serum creatinine elevation after renin-angiotensin system blockade and long term cardiorenal risks: cohort study"
+autores:
+  - "Schmidt M"
+  - "Mansfield KE"
+  - "Bhaskaran K"
+  - "Nitsch D"
+  - "Sørensen HT"
+  - "Smeeth L"
+  - "Tomlinson LA"
+publicacion: "BMJ"
+anio: 2017
+volumen: "356"
+paginas: "j791"
+
+identificadores:
+  pmid: 28279964
+  doi: "10.1136/bmj.j791"
+  pmc: "PMC5421447"
+
+tipos_pubmed:
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

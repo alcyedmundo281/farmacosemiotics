@@ -1,0 +1,35 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:28069618"
+clave_bibtex: schmidt2017
+tipo: articulo
+titulo: "Adherence to guidelines for creatinine and potassium monitoring and discontinuation following renin-angiotensin system blockade: a UK general practice-based cohort study"
+autores:
+  - "Schmidt M"
+  - "Mansfield KE"
+  - "Bhaskaran K"
+  - "Nitsch D"
+  - "Sørensen HT"
+  - "Smeeth L"
+  - "Tomlinson LA"
+publicacion: "BMJ Open"
+anio: 2017
+volumen: "7"
+numero: "1"
+paginas: "e012818"
+
+identificadores:
+  pmid: 28069618
+  doi: "10.1136/bmjopen-2016-012818"
+  pmc: "PMC5223644"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

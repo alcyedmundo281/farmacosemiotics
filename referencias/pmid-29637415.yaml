@@ -1,0 +1,34 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:29637415"
+clave_bibtex: nadal2018
+tipo: revision
+titulo: "Clinical and Molecular Features of Thiazide-Induced Hyponatremia"
+autores:
+  - "Nadal J"
+  - "Channavajjhala SK"
+  - "Jia W"
+  - "Clayton J"
+  - "Hall IP"
+  - "Glover M"
+publicacion: "Curr Hypertens Rep"
+anio: 2018
+volumen: "20"
+numero: "4"
+paginas: "31"
+
+identificadores:
+  pmid: 29637415
+  doi: "10.1007/s11906-018-0826-6"
+  pmc: "PMC5893690"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

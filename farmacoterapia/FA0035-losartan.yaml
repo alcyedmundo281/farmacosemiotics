@@ -1,0 +1,282 @@
+# PARTE II — Farmacoterapia: cómo se usa el losartán con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# De dónde sale cada cosa:
+#   - La etiqueta de la FDA (`fda:label`, set_id 1843ee4b-1afc-4992-993a-
+#     4b0e03e785fc, vigencia 2026-07-07, consultada en openFDA el 2026-09-18)
+#     sostiene la toxicidad fetal con recuadro, la lactancia, las interacciones
+#     y la corrección de la volemia antes de empezar.
+#   - Los puntos de corte de creatinina y potasio NO se leyeron en la guía que
+#     los fija. Son las recomendaciones del NICE tal como las recoge y
+#     referencia un estudio de cohortes en atención primaria del Reino Unido
+#     (Schmidt 2017, BMJ Open, texto completo leído en PMC). Se citan por esa
+#     vía y se dice así. Cuando se abra la guía NICE, conviene confirmarlos
+#     contra ella.
+#   - El mismo grupo (Schmidt 2017, BMJ) matiza el umbral del 30 %: se apoya en
+#     una sola revisión de 12 ensayos, y el riesgo cardiorrenal crece de forma
+#     graduada ya por debajo de ese umbral. Se recoge junto al umbral, no en
+#     lugar de él.
+#
+# Una salvedad de alcance: las recomendaciones que Schmidt atribuye al NICE son
+# para los inhibidores de la enzima convertidora de angiotensina y los
+# antagonistas del receptor de angiotensina II juntos, y el control a las dos
+# semanas lo pide el NICE en insuficiencia cardiaca, infarto y enfermedad renal
+# crónica; en hipertensión, la guía que lo pide con carácter general es la de
+# la UK Renal Association.
+
+id: 'FA:0035'
+tipo: farmacoterapia
+farmaco: 'FS:0035'
+
+titulo: Farmacoterapia con losartán
+titulo_en: Losartan pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación del losartán como antagonista del receptor de
+  angiotensina II: qué se mide antes de empezar, cuándo se repite, con qué
+  subida de creatinina o de potasio se retira, qué combinaciones se evitan y qué
+  hacer ante un embarazo. Los puntos de corte proceden de las recomendaciones
+  del NICE para IECA y ARA-II recogidas en un estudio de cohortes, no de la
+  guía leída directamente. El cronograma de mantenimiento no tiene intervalo:
+  la etiqueta pide vigilancia «periódica» y ninguna fuente abierta en esta
+  sesión fija cada cuánto en hipertensión. La dosis, la línea de tratamiento y
+  el balance dependen de la indicación y están en la ficha.
+
+estado: borrador
+fecha: '2026-09-18'
+actualizado: '2026-09-18'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Creatinina sérica
+    motivo: >-
+      El efecto sobre la función renal se valora comparando la creatinina
+      anterior y posterior al inicio: sin la basal, la subida que obliga a
+      retirar el fármaco no se puede medir. El NICE pide esta determinación
+      basal al iniciar un IECA o un ARA-II en la hipertensión.
+    responsable: seguimiento
+    ref: 'pmid:28069618'
+
+  - prueba: Potasio sérico
+    motivo: >-
+      El NICE recomienda no iniciar un IECA o un ARA-II con un potasio basal por
+      encima de 5 mmol/L.
+    responsable: seguimiento
+    ref: 'pmid:28069618'
+
+  - prueba: Volemia y depleción de sal
+    motivo: >-
+      Con el sistema renina-angiotensina activado —depleción de volumen o de
+      sal, dosis altas de diurético— puede aparecer hipotensión sintomática al
+      iniciar. Hay que corregir la depleción antes de la primera dosis.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+monitorizacion:
+  - fase: basal
+    pruebas: [creatinina, potasio]
+    responsable: seguimiento
+    ref: 'pmid:28069618'
+
+  - fase: induccion
+    pruebas: [creatinina, potasio]
+    frecuencia: >-
+      Dentro de las dos semanas siguientes al inicio. Así lo recomiendan la UK
+      Renal Association y, para la insuficiencia cardiaca, el infarto y la
+      enfermedad renal crónica, el NICE. En la práctica se cumple poco: en la
+      cohorte de atención primaria que lo recoge, menos del 10 % tuvo el
+      control en ese plazo.
+    responsable: seguimiento
+    ref: 'pmid:28069618'
+
+  - fase: induccion
+    pruebas: [potasio, filtrado glomerular estimado]
+    frecuencia: >-
+      En quien tiene factores de riesgo de hiperpotasemia —potasio basal alto,
+      filtrado bajo, diabetes, diurético no ahorrador de potasio o suplementos
+      de potasio—, a los pocos días y no más tarde de una semana. En pacientes
+      hospitalizados que iniciaban un ARA-II, el 52 % de las hiperpotasemias
+      apareció en la primera semana. Es una cohorte hospitalaria: la cifra no se
+      traslada sin más al paciente ambulatorio.
+    responsable: seguimiento
+    ref: 'pmid:24262001'
+
+  - fase: mantenimiento
+    pruebas: [potasio, creatinina]
+    frecuencia: >-
+      Periódica, según la etiqueta, que no fija intervalo. Más estrecha en quien
+      depende del sistema renina-angiotensina para su función renal —estenosis
+      de la arteria renal, enfermedad renal crónica, insuficiencia cardiaca
+      grave, depleción de volumen— y al añadir fármacos que suben el potasio o
+      antiinflamatorios no esteroideos.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+# ── Qué hacer cuando el cuadro aparece ──────────────────────────────────
+umbrales_accion:
+  - parametro: Creatinina sérica tras el inicio
+    umbral: Aumento del 30 % o más sobre la basal
+    accion: >-
+      Suspender el tratamiento, según la recomendación del NICE para IECA y
+      ARA-II. En la cohorte que lo recoge, el 80 % de quienes cumplían este
+      criterio siguió con el fármaco.
+    ref: 'pmid:28069618'
+
+  - parametro: Creatinina sérica tras el inicio, por debajo del umbral
+    umbral: Cualquier aumento, también menor del 30 %
+    accion: >-
+      No retirar por sistema, pero no darlo por irrelevante: el riesgo de
+      enfermedad renal terminal, infarto, insuficiencia cardiaca y muerte creció
+      de forma graduada con cada 10 % de aumento, incluso por debajo del 30 %.
+      Quien sube la creatinina tras iniciar es un paciente de alto riesgo que
+      necesita vigilancia estrecha y una revisión del balance del fármaco para
+      su indicación concreta. El umbral del 30 % se apoya en una sola revisión
+      de 12 ensayos en diabetes e insuficiencia cardiaca.
+    ref: 'pmid:28279964'
+
+  - parametro: Potasio sérico basal
+    umbral: Mayor de 5 mmol/L
+    accion: No iniciar el losartán, según la recomendación del NICE para IECA y ARA-II.
+    ref: 'pmid:28069618'
+
+  - parametro: Potasio sérico durante el tratamiento
+    umbral: Mayor de 6 mmol/L
+    accion: >-
+      Suspender el tratamiento, según la recomendación del NICE para IECA y
+      ARA-II.
+    ref: 'pmid:28069618'
+
+  - parametro: Embarazo
+    umbral: Embarazo detectado
+    accion: >-
+      Suspender el losartán lo antes posible. Si se hubiera mantenido,
+      ecografías seriadas del líquido amniótico, y suspender ante un
+      oligohidramnios salvo que el fármaco sea vital para la madre, sabiendo que
+      el oligohidramnios puede aparecer cuando el daño fetal ya es irreversible.
+      Vigilar al recién nacido expuesto por hipotensión, oliguria e
+      hiperpotasemia.
+    ref: 'fda:label'
+
+# ── Interacciones que cambian la conducta ───────────────────────────────
+interacciones:
+  - con: Aliskiren, en pacientes con diabetes
+    gravedad: contraindicada
+    efecto: >-
+      Doble bloqueo del sistema renina-angiotensina, con más hipotensión,
+      síncope, hiperpotasemia y deterioro renal.
+    conducta: >-
+      No asociarlos en el diabético. Evitar también la asociación con un
+      filtrado glomerular por debajo de 60 mL/min.
+    ref: 'fda:label'
+
+  - con: IECA u otro ARA-II (doble bloqueo del sistema renina-angiotensina)
+    gravedad: mayor
+    efecto: >-
+      Más hipotensión, síncope, hiperpotasemia y deterioro de la función renal
+      que con un solo fármaco, sin beneficio añadido en la mayoría. En el
+      ensayo VA NEPHRON-D, añadir lisinopril al losartán en diabetes tipo 2 con
+      albuminuria no mejoró el desenlace renal combinado y aumentó la
+      hiperpotasemia y la lesión renal aguda.
+    conducta: >-
+      Evitar la combinación. Si por algún motivo se mantiene, vigilar de cerca
+      presión arterial, función renal y electrolitos.
+    ref: 'fda:label'
+
+  - con: Otros fármacos que elevan el potasio sérico
+    gravedad: mayor
+    efecto: Riesgo de hiperpotasemia.
+    conducta: Vigilar el potasio mientras dure la asociación.
+    ref: 'fda:label'
+
+  - con: Litio
+    gravedad: mayor
+    efecto: >-
+      Se han descrito aumentos de la litemia y toxicidad por litio con los
+      ARA-II.
+    conducta: Vigilar la litemia durante la asociación.
+    ref: 'fda:label'
+
+  - con: Antiinflamatorios no esteroideos, incluidos los inhibidores de la COX-2
+    gravedad: moderada
+    efecto: >-
+      En el anciano, con depleción de volumen —diuréticos incluidos— o con la
+      función renal comprometida, pueden deteriorar la función renal hasta el
+      fracaso renal agudo, por lo general reversible. También atenúan el efecto
+      antihipertensivo.
+    conducta: Vigilar periódicamente la función renal durante la asociación.
+    ref: 'fda:label'
+
+# ── Seguridad reproductiva ──────────────────────────────────────────────
+reproductivo:
+  gestacion:
+    # La etiqueta no lo incluye entre las contraindicaciones formales de su
+    # sección 4, pero lo lleva en una advertencia con recuadro. `evitar` es la
+    # traducción fiel de «suspender en cuanto se detecte»; si el autor prefiere
+    # `contraindicado`, es un juicio suyo, no de la fuente.
+    compatibilidad: evitar
+    enunciado: >-
+      Advertencia con recuadro por toxicidad fetal. Los fármacos que actúan
+      sobre el sistema renina-angiotensina en el segundo y el tercer trimestre
+      reducen la función renal fetal y aumentan la morbilidad y la mortalidad
+      fetal y neonatal: oligohidramnios, hipoplasia pulmonar, deformidades
+      esqueléticas, hipoplasia craneal, anuria, hipotensión, insuficiencia
+      renal y muerte. Se suspende en cuanto se detecta el embarazo. La
+      etiqueta advierte que los estudios del primer trimestre no han separado
+      estos fármacos de otros antihipertensivos.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: evitar
+    enunciado: >-
+      Se desconoce si pasa a la leche humana; el losartán y su metabolito
+      activo alcanzan niveles importantes en la leche de rata. Por el riesgo
+      para el lactante, la etiqueta pide elegir entre suspender la lactancia o
+      suspender el fármaco.
+    ref: 'fda:label'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+# En hipertensión el fármaco lo inicia y lo sigue el médico de seguimiento. Lo
+# que falla, según la fuente, no es el reparto sino el cumplimiento del
+# control: por eso las tareas van escritas como tales.
+atencion_compartida:
+  seguimiento:
+    - >-
+      Pedir creatinina y potasio antes de la primera dosis, y no iniciar con un
+      potasio por encima de 5 mmol/L
+    - >-
+      Repetir creatinina y potasio dentro de las dos semanas siguientes al
+      inicio, y antes si hay factores de riesgo de hiperpotasemia
+    - >-
+      Comparar la creatinina de control con la basal: un aumento del 30 % o más
+      obliga a retirar, y uno menor obliga a vigilar
+  suspension_inmediata: >-
+    Embarazo detectado, potasio por encima de 6 mmol/L o aumento de la
+    creatinina del 30 % o más sobre la basal. Se retira sin esperar a otra
+    valoración.
+  ref: 'pmid:28069618'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que fije una dosis de losartán guiada por genotipo,
+      ni guía CPIC o DPWG para esta molécula. La búsqueda devolvió solo
+      estudios de métodos de fenotipado de citocromos, que no sostienen ninguna
+      conducta clínica.
+    buscado_en: >-
+      PubMed, «losartan AND (CYP2C9 OR pharmacogen*) AND (guideline OR CPIC OR
+      DPWG)», 2026-09-18: tres resultados, ninguno una guía.
+    refs:
+      - 'pmid:28069618'
+
+refs:
+  - 'pmid:28069618'
+  - 'pmid:28279964'
+  - 'pmid:24262001'
+  - 'fda:label'

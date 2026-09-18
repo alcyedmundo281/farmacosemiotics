@@ -1,0 +1,295 @@
+# PARTE II — Farmacoterapia: cómo se usa la hidroclorotiazida con seguridad.
+#
+# Es el CONCEPTO y va por molécula. El código FA: va 1:1 con su FS: y la ficha
+# no lo enlaza, lo deduce.
+#
+# De dónde sale cada cosa, porque las fuentes no pesan lo mismo:
+#   - La etiqueta de la FDA (`fda:label`, set_id 0789baef-3424-43ab-a3fb-
+#     4908172da565, vigencia 2026-07-24, consultada en openFDA el 2026-09-18)
+#     sostiene las contraindicaciones, las interacciones, el reproductivo y la
+#     retirada por glaucoma agudo. Es una etiqueta de formato antiguo y dice
+#     «periódicamente» donde una guía daría un intervalo.
+#   - El cronograma de la fase de inducción y la conducta ante la hiponatremia
+#     salen de revisiones narrativas (Nadal 2018, con texto completo leído en
+#     PMC; Liamis 2016, Filippone 2020 y Beckmann 2025, por su resumen en
+#     PubMed). No hay aquí una guía de sociedad: la guía NICE de hipertensión y
+#     la de la ESH no se abrieron en esta sesión. Nadal lo dice sin rodeos: no
+#     hay consenso sobre cuándo hacer el ionograma de control.
+#
+# El dato que decide la fase de inducción: la hiponatremia por tiazida se
+# presentó de media a los 19 días (IC95 % 8–30) del inicio en la revisión
+# sistemática que resume Nadal. Por eso el primer ionograma de control no puede
+# esperar a la revisión trimestral.
+
+id: 'FA:0034'
+tipo: farmacoterapia
+farmaco: 'FS:0034'
+
+titulo: Farmacoterapia con hidroclorotiazida
+titulo_en: Hydrochlorothiazide pharmacotherapy
+
+alcance: >-
+  Sirve a cualquier indicación de la hidroclorotiazida como diurético tiazídico
+  a dosis antihipertensivas. Lo que cubre es lo que no cambia con la indicación:
+  qué se mide antes de empezar, cuándo se hace el primer ionograma, qué hacer
+  ante una hiponatremia o un glaucoma agudo, qué fármacos cambian la conducta y
+  qué se sabe en el embarazo y la lactancia. Dos límites que conviene saber
+  antes de leer. Primero, el cronograma de mantenimiento no tiene intervalo: la
+  etiqueta pide electrolitos «periódicos» en quien tiene riesgo y ninguna fuente
+  abierta en esta sesión fija cada cuánto. Segundo, la hiponatremia no tiene un
+  punto de corte de retirada escrito como cifra: las fuentes piden retirar la
+  tiazida ante la hiponatremia que se le atribuye, y clasifican su gravedad,
+  pero no dicen «por debajo de X se suspende». No se ha inventado esa cifra. La
+  dosis, la línea de tratamiento y el balance dependen de la indicación y están
+  en la ficha.
+
+estado: borrador
+fecha: '2026-09-18'
+actualizado: '2026-09-18'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Cribado antes de la primera dosis ───────────────────────────────────
+cribado_basal:
+  - prueba: Sodio y potasio séricos
+    motivo: >-
+      La hiponatremia por tiazida es más frecuente en quien parte de un sodio y
+      un potasio en el límite bajo de la normalidad. La cifra basal sirve para
+      reconocer a ese paciente antes de exponerlo y para interpretar el
+      ionograma de control.
+    responsable: seguimiento
+    ref: 'pmid:41130861'
+
+  - prueba: Creatinina sérica y filtrado glomerular estimado
+    motivo: >-
+      Contraindicada en la anuria. En la insuficiencia renal sus efectos se
+      acumulan y puede precipitar azoemia, de modo que la función renal de
+      partida decide si procede y con qué vigilancia.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Antecedente de hiponatremia con un diurético
+    motivo: >-
+      Se desaconseja prescribir una tiazida a quien ya tuvo una hiponatremia
+      asociada a diurético.
+    responsable: seguimiento
+    ref: 'pmid:27168745'
+
+  - prueba: Alergia a sulfonamidas o a penicilina
+    motivo: >-
+      La hipersensibilidad a otros fármacos derivados de sulfonamida es
+      contraindicación, y el antecedente de alergia a sulfonamidas o a
+      penicilina figura como posible factor de riesgo del glaucoma agudo de
+      ángulo cerrado.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+# ── Cronograma de monitorización ────────────────────────────────────────
+monitorizacion:
+  - fase: basal
+    pruebas: [sodio, potasio, creatinina]
+    responsable: seguimiento
+    ref: 'pmid:41130861'
+
+  - fase: induccion
+    pruebas: [sodio, potasio, urea, creatinina]
+    frecuencia: >-
+      Al menos un ionograma en las primeras semanas; en la práctica suele
+      hacerse en la primera o la segunda semana. La fuente reconoce que no hay
+      consenso sobre el momento óptimo, porque la presentación clínica fue de
+      media a los 19 días (IC95 % 8–30) del inicio, y deja abierto si dos
+      controles —a los pocos días y a las 2–4 semanas— detectarían más casos
+      antes de que se hagan graves. Control adicional ante cualquier síntoma
+      compatible, antes o después del programado.
+    responsable: seguimiento
+    ref: 'pmid:29637415'
+
+  - fase: mantenimiento
+    pruebas: [sodio, potasio]
+    frecuencia: >-
+      Periódica en quien tiene riesgo de hipopotasemia, según la etiqueta, que
+      no fija intervalo.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - fase: estable
+    pruebas: [sodio]
+    frecuencia: >-
+      Sin calendario: de inmediato ante síntomas que sugieran hiponatremia.
+      Aunque suele aparecer pronto, muchos casos se presentan tras meses o años
+      de tratamiento, y los que se instauran de forma aguda pueden llegar a
+      convulsiones o coma.
+    responsable: seguimiento
+    ref: 'pmid:31606239'
+
+# ── Qué hacer cuando el cuadro aparece ──────────────────────────────────
+umbrales_accion:
+  - parametro: Sodio sérico
+    umbral: >-
+      Hiponatremia atribuible a la tiazida. Las fuentes no fijan una cifra de
+      retirada; como orientación de gravedad se suele llamar leve a 130–134
+      mmol/L, moderada a 125–130 y grave a menos de 125, con la advertencia de
+      que la clasificación no es uniforme.
+    accion: >-
+      Suspender la tiazida y evitar la ingesta excesiva de agua: con eso la
+      mayoría recupera el sodio a un ritmo aceptable de pocos mmol/L al día.
+      Reservar la infusión parenteral de suero salino, con vigilancia estrecha,
+      para los casos con rasgos graves o que amenazan la vida; las estrategias
+      más agresivas se asociaron a más correcciones demasiado rápidas. En la
+      hiponatremia crónica, no corregir demasiado deprisa: los autores proponen no subir el sodio más de 10
+      mmol/L en las primeras 24 horas ni más de 8 mmol/L en cada 24 horas
+      siguientes, y ser aún más prudentes en el paciente frágil o desnutrido.
+      Repetir el ionograma tras la recuperación; si la hiponatremia persiste
+      sin la tiazida, buscar otra causa.
+    ref: 'pmid:29637415'
+
+  - parametro: Reintroducción tras una hiponatremia por tiazida
+    umbral: Cualquier episodio previo de hiponatremia asociada a diurético
+    accion: >-
+      No volver a prescribir una tiazida. Si hay factores de riesgo pero no ese
+      antecedente, preferir la dosis baja.
+    ref: 'pmid:27168745'
+
+  - parametro: Visión y dolor ocular
+    umbral: >-
+      Pérdida aguda de agudeza visual o dolor ocular, típicamente de horas a
+      semanas tras iniciar el fármaco
+    accion: >-
+      Suspender la hidroclorotiazida lo antes posible: es una reacción
+      idiosincrásica que produce miopía transitoria y glaucoma agudo de ángulo
+      cerrado, y el glaucoma no tratado puede dejar pérdida visual permanente.
+      Si la presión intraocular no se controla, valorar tratamiento médico o
+      quirúrgico urgente.
+    ref: 'fda:label'
+
+# ── Interacciones que cambian la conducta ───────────────────────────────
+interacciones:
+  - con: Litio
+    gravedad: mayor
+    efecto: >-
+      Los diuréticos reducen el aclaramiento renal del litio y aumentan mucho el
+      riesgo de toxicidad.
+    conducta: >-
+      En general no se asocian. Si no hay alternativa, consultar la información
+      del litio antes de combinarlos.
+    ref: 'fda:label'
+
+  - con: Glucósidos digitálicos
+    gravedad: mayor
+    efecto: >-
+      La hipopotasemia y la hipomagnesemia que produce la tiazida pueden
+      provocar arritmias ventriculares y sensibilizan el corazón a la toxicidad
+      digitálica.
+    conducta: >-
+      Vigilar potasio y magnesio y corregir la hipopotasemia con suplementos o
+      con dieta rica en potasio.
+    ref: 'fda:label'
+
+  - con: Corticoides o ACTH
+    gravedad: moderada
+    efecto: Intensifican la pérdida de electrolitos, sobre todo la hipopotasemia.
+    conducta: Vigilar el potasio mientras dure la asociación.
+    ref: 'fda:label'
+
+  - con: Colestiramina o colestipol
+    gravedad: moderada
+    efecto: >-
+      Fijan la hidroclorotiazida en el intestino y reducen su absorción hasta en
+      un 85 % y un 43 %, respectivamente.
+    conducta: >-
+      Tenerlo en cuenta si el control tensional se pierde al añadir la resina.
+    ref: 'fda:label'
+
+  - con: Antiinflamatorios no esteroideos
+    gravedad: moderada
+    efecto: >-
+      En algunos pacientes reducen el efecto diurético, natriurético y
+      antihipertensivo de la tiazida.
+    conducta: >-
+      Observar de cerca si se mantiene el efecto buscado durante la asociación.
+    ref: 'fda:label'
+
+  - con: >-
+      Otros fármacos que producen hiponatremia (inhibidores selectivos de la
+      recaptación de serotonina, antidepresivos tricíclicos)
+    gravedad: moderada
+    efecto: >-
+      Figuran entre los factores de riesgo de hiponatremia asociada a tiazida,
+      junto con la edad avanzada, la dosis alta y la comorbilidad.
+    conducta: >-
+      Preferir la dosis baja de tiazida y medir el sodio en quien acumula estos
+      factores.
+    ref: 'pmid:27168745'
+
+  - con: Antidiabéticos orales e insulina
+    gravedad: menor
+    efecto: >-
+      La tiazida puede hacer manifiesta una diabetes latente y alterar el
+      control glucémico del diabético.
+    conducta: Puede hacer falta ajustar la dosis del antidiabético.
+    ref: 'fda:label'
+
+# ── Seguridad reproductiva ──────────────────────────────────────────────
+# Las dos compatibilidades traducen el lenguaje de una etiqueta de formato
+# antiguo a la escala del repositorio. Son un juicio y conviene revisarlo.
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Sin ensayos adecuados en embarazadas; los estudios en animales no
+      mostraron daño fetal. La etiqueta limita su uso en el embarazo a cuando
+      sea claramente necesario. Las tiazidas atraviesan la placenta y se
+      describe riesgo de ictericia y trombocitopenia fetal o neonatal.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: evitar
+    enunciado: >-
+      Las tiazidas pasan a la leche materna. Por el riesgo de reacciones graves
+      en el lactante, la etiqueta pide elegir entre suspender la lactancia o
+      suspender el fármaco, según lo que este importe a la madre.
+    ref: 'fda:label'
+
+# ── Atención compartida ─────────────────────────────────────────────────
+# En hipertensión casi todo el acto es del médico de seguimiento; no hay un
+# especialista que inicie el fármaco. Por eso solo se reparte el seguimiento.
+atencion_compartida:
+  seguimiento:
+    - >-
+      Pedir sodio y potasio antes de la primera dosis y al menos un ionograma
+      en las primeras semanas, sin esperar a la revisión trimestral
+    - >-
+      Repetir el ionograma ante cualquier síntoma compatible con hiponatremia,
+      esté o no programado, también tras meses o años de tratamiento
+    - >-
+      Anotar en la historia cualquier hiponatremia por tiazida, para que nadie
+      vuelva a prescribirla
+  suspension_inmediata: >-
+    Hiponatremia atribuida a la tiazida y pérdida aguda de visión o dolor ocular
+    tras iniciarla. En ambos casos se suspende sin esperar a otra valoración, y
+    tras una hiponatremia no se reintroduce.
+  ref: 'pmid:29637415'
+
+# ── Huecos declarados ───────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: farmacogenetica
+    motivo: >-
+      No se localizó fuente que fije una dosis de hidroclorotiazida guiada por
+      genotipo, ni guía CPIC o DPWG para esta molécula. Hay una variante del
+      transportador de prostaglandina E2 asociada a la hiponatremia por tiazida
+      en un estudio de asociación genómica, pero es un hallazgo de
+      investigación: no sostiene ninguna conducta clínica.
+    buscado_en: >-
+      PubMed, «hydrochlorothiazide AND pharmacogen* AND (guideline OR CPIC OR
+      DPWG)», 2026-09-18: dos resultados, ninguno una guía; revisión de Nadal
+      (2018) para la asociación genética.
+    refs:
+      - 'pmid:29637415'
+
+refs:
+  - 'pmid:29637415'
+  - 'pmid:27168745'
+  - 'pmid:31606239'
+  - 'pmid:41130861'
+  - 'fda:label'

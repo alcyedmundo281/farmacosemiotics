@@ -1,0 +1,35 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:24262001"
+clave_bibtex: park2014
+tipo: articulo
+titulo: "Onset time of hyperkalaemia after angiotensin receptor blocker initiation: when should we start serum potassium monitoring?"
+autores:
+  - "Park IW"
+  - "Sheen SS"
+  - "Yoon D"
+  - "Lee SH"
+  - "Shin GT"
+  - "Kim H"
+  - "Park RW"
+publicacion: "J Clin Pharm Ther"
+anio: 2014
+volumen: "39"
+numero: "1"
+paginas: "61-8"
+
+identificadores:
+  pmid: 24262001
+  doi: "10.1111/jcpt.12109"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

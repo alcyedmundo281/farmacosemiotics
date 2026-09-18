@@ -1,0 +1,33 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:41130861"
+clave_bibtex: beckmann2026
+tipo: revision
+titulo: "Thiazide-induced hyponatremia"
+autores:
+  - "Beckmann SB"
+  - "Rudolphi CF"
+  - "Silva PHI"
+  - "Fenton RA"
+  - "Hoorn EJ"
+publicacion: "Best Pract Res Clin Endocrinol Metab"
+anio: 2026
+volumen: "40"
+numero: "1"
+paginas: "102063"
+
+identificadores:
+  pmid: 41130861
+  doi: "10.1016/j.beem.2025.102063"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

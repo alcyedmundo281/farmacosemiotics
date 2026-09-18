@@ -1,0 +1,31 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:31606239"
+clave_bibtex: filippone2020
+tipo: revision
+titulo: "Thiazide-Associated Hyponatremia: Clinical Manifestations and Pathophysiology"
+autores:
+  - "Filippone EJ"
+  - "Ruzieh M"
+  - "Foy A"
+publicacion: "Am J Kidney Dis"
+anio: 2020
+volumen: "75"
+numero: "2"
+paginas: "256-264"
+
+identificadores:
+  pmid: 31606239
+  doi: "10.1053/j.ajkd.2019.07.011"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: true

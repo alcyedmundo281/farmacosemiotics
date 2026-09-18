@@ -1,0 +1,31 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:27168745"
+clave_bibtex: liamis2016
+tipo: revision
+titulo: "Thiazide-associated hyponatremia in the elderly: what the clinician needs to know"
+autores:
+  - "Liamis G"
+  - "Filippatos TD"
+  - "Elisaf MS"
+publicacion: "J Geriatr Cardiol"
+anio: 2016
+volumen: "13"
+numero: "2"
+paginas: "175-82"
+
+identificadores:
+  pmid: 27168745
+  doi: "10.11909/j.issn.1671-5411.2016.02.001"
+  pmc: "PMC4854958"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-09-18'
+  retractado: false
+  crossref: false

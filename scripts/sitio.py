@@ -1498,9 +1498,9 @@ def panel_izquierdo():
     <h3 class="panel-title"><span>📚</span> Módulos Terapéuticos</h3>
     <p class="panel-desc">Guías estructuradas por área clínica con algoritmos de escalamiento:</p>
     <div class="panel-nav">
-      <a href="https://powersemiotics.com/farmacosemiotics/espondilitis_anquilosante/" class="panel-nav-item">
+      <a href="javascript:void(0)" onclick="document.getElementById('q').value='artritis';document.getElementById('q').dispatchEvent(new Event('input'))" class="panel-nav-item">
         <strong>🦴 Reumatología</strong>
-        <span>Espondilitis, Psoriasis & JAKi</span>
+        <span>Artritis reumatoide, psoriásica, JAKi</span>
       </a>
       <a href="javascript:void(0)" onclick="document.getElementById('q').value='insuficiencia cardiaca';document.getElementById('q').dispatchEvent(new Event('input'))" class="panel-nav-item">
         <strong>🩸 Cardiometabólico</strong>

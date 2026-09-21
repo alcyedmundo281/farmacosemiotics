@@ -13,9 +13,9 @@ clase_farmacologica: Antagonista del receptor de angiotensina II
 clase_farmacologica_en: Angiotensin II receptor blocker
 
 # ── Metadatos editoriales ───────────────────────────────────────────────
-estado: borrador
+estado: revisado
 fecha: '2026-08-24'
-actualizado: '2026-09-18'
+actualizado: '2026-09-21'
 idioma: es
 autores:
   - nombre: Dr. Alcy Edmundo Torres Guerrero

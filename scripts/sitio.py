@@ -1548,12 +1548,12 @@ def panel_derecho():
     <h3 class="panel-title"><span>💊</span> Medicamentos Crónicos</h3>
     <p class="panel-desc">Monografías de uso continuado, farmacocinética y farmacoeconomía:</p>
     <div class="panel-links">
-      <a href="https://powersemiotics.com/farmacosemiotics/medicamentos_cronicos.html" class="panel-link"><strong>Ficha Global de Crónicos →</strong></a>
-      <a href="apixaban.html" class="panel-link">• Apixabán (DOAC)</a>
-      <a href="paliperidona.html" class="panel-link">• Paliperidona LAI</a>
-      <a href="tofacitinib.html" class="panel-link">• Tofacitinib (JAKi)</a>
-      <a href="secukinumab.html" class="panel-link">• Secukinumab (IL-17A)</a>
-      <a href="guselkumab.html" class="panel-link">• Guselkumab (IL-23)</a>
+      <a href="blog.html" class="panel-link"><strong>Índice completo de monografías →</strong></a>
+      <a href="farmacos/FS0002-apixaban.html" class="panel-link">• Apixabán (DOAC)</a>
+      <a href="farmacos/FS0017-paliperidona.html" class="panel-link">• Paliperidona LAI</a>
+      <a href="farmacos/FS0018-tofacitinib.html" class="panel-link">• Tofacitinib (JAKi)</a>
+      <a href="farmacos/FS0013-secukinumab.html" class="panel-link">• Secukinumab (IL-17A)</a>
+      <a href="farmacos/FS0004-guselkumab.html" class="panel-link">• Guselkumab (IL-23)</a>
     </div>
   </div>
 
@@ -1562,11 +1562,11 @@ def panel_derecho():
     <h3 class="panel-title"><span>🎗️</span> Terapias Oncológicas</h3>
     <p class="panel-desc">Evaluación tecnológica, impacto presupuestario e inmunoterapia:</p>
     <div class="panel-links">
-      <a href="https://powersemiotics.com/farmacosemiotics/medicamentos_oncologicos.html" class="panel-link"><strong>Ficha Global Oncológica →</strong></a>
-      <a href="pembrolizumab.html" class="panel-link">• Pembrolizumab (CPCNP)</a>
-      <a href="nivolumab.html" class="panel-link">• Nivolumab (Melanoma/Renal)</a>
-      <a href="ibrutinib.html" class="panel-link">• Ibrutinib (BTKi)</a>
-      <a href="pomalidomida.html" class="panel-link">• Pomalidomida (Mieloma)</a>
+      <a href="blog.html" class="panel-link"><strong>Índice completo de monografías →</strong></a>
+      <a href="farmacos/FS0003-pembrolizumab.html" class="panel-link">• Pembrolizumab (CPCNP)</a>
+      <a href="farmacos/FS0015-osimertinib.html" class="panel-link">• Osimertinib (EGFR)</a>
+      <a href="farmacos/FS0005-ibrutinib.html" class="panel-link">• Ibrutinib (BTKi)</a>
+      <a href="farmacos/FS0027-olaparib.html" class="panel-link">• Olaparib (PARP/BRCA)</a>
     </div>
   </div>
 

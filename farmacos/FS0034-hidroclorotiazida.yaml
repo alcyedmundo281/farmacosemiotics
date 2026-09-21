@@ -13,9 +13,9 @@ clase_farmacologica: Diurético tiazídico
 clase_farmacologica_en: Thiazide diuretic
 
 # ── Metadatos editoriales ───────────────────────────────────────────────
-estado: borrador
+estado: revisado
 fecha: '2026-08-24'
-actualizado: '2026-09-18'
+actualizado: '2026-09-21'
 idioma: es
 autores:
   - nombre: Dr. Alcy Edmundo Torres Guerrero

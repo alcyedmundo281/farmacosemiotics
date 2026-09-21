@@ -1,9 +1,8 @@
 # PARTE I — Informe de selección: qué fármaco se elige en la hipertensión
 # arterial esencial del adulto sin indicación imperiosa de otra clase.
 #
-# BORRADOR. Los juicios por eje y los veredictos son una PROPUESTA pendiente
-# del juicio clínico del autor. Toda cifra sale de un fichero de
-# referencias/. Casi todas estaban ya en las fichas (FT:0008, FT:0036,
+# Revisado por el autor el 2026-09-21: los juicios por eje y los veredictos
+# son ya su juicio clínico. Toda cifra sale de un fichero de referencias/. Casi todas estaban ya en las fichas (FT:0008, FT:0036,
 # FT:0037, FT:0038); las únicas nuevas son los abandonos y los eventos
 # adversos graves de la tiazida frente al antagonista del calcio, leídos del
 # resumen de pmid:37439548 en PubMed el 2026-09-18.
@@ -40,9 +39,9 @@ pregunta: >-
   —hidroclorotiazida, amlodipino, enalapril o losartán— según eficacia,
   seguridad, conveniencia y costo?
 
-estado: borrador
+estado: revisado
 fecha: '2026-09-18'
-actualizado: '2026-09-18'
+actualizado: '2026-09-21'
 idioma: es
 autores:
   - nombre: Dr. Alcy Edmundo Torres Guerrero

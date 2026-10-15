@@ -199,7 +199,8 @@ candidatos:
         1.24 a 3.30), lo que equivale a 47 muertes cardiovasculares añadidas por millón de ciclos y
         a 245 por millón en el decil de mayor riesgo cardiovascular basal. El riesgo absoluto es
         pequeño y se concentra en quien ya tiene el corazón enfermo, pero se paga por una curación
-        que no es mayor.
+        que no es mayor. La misma cohorte midió también el levofloxacino y no halló diferencia
+        significativa con la azitromicina, de modo que la fluoroquinolona no escapa a este exceso.
       ref: 'pmid:22591294'
     conveniencia:
       juicio: superior
@@ -238,9 +239,9 @@ candidatos:
         Lleva advertencia de recuadro negro por tendinitis y rotura tendinosa, neuropatía periférica
         y efectos adversos del sistema nervioso central, con advertencias adicionales por disección y
         aneurisma de aorta, disglucemia y exacerbación de la miastenia grave: daño potencialmente
-        irreversible en una neumonía que se trata en casa. En la cohorte de mortalidad
-        cardiovascular, el riesgo del levofloxacino no se diferenció significativamente del de la
-        azitromicina, de modo que tampoco escapa a ese exceso.
+        irreversible en una neumonía que se trata en casa. Comparte además con la azitromicina el
+        exceso de mortalidad cardiovascular que la cohorte citada en el eje de seguridad de ese
+        candidato midió para las dos clases por igual.
       ref: 'fda:label'
     conveniencia:
       juicio: superior

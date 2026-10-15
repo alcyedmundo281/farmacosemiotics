@@ -114,9 +114,13 @@ evidencia:
     rra: '0.0%'
     rrr: '0.0%'
     diseno: metaanalisis
-    estudio: Konwar et al., J Chemother 2022
+    # Sin `n`: el metaanálisis no publica el total de pacientes agrupados. No tiene PMCID, así que
+    # no hay texto completo en PMC, y su resumen solo da los 663 estudios cribados y los 4
+    # incluidos. El número de ensayos va en `estudio`, que el sitio sí renderiza; inventar un
+    # total sumando por nuestra cuenta los cuatro ensayos sería publicar una cifra que el
+    # metaanálisis nunca agregó.
+    estudio: Konwar et al., J Chemother 2022 (metaanálisis de 4 ensayos aleatorizados)
     comparador: Nitrofurantoína 100 mg durante 5 días
-    estudios_incluidos: 4
     certeza: baja
     razones_descenso:
       - riesgo_de_sesgo
@@ -126,7 +130,9 @@ evidencia:
       desciende por dos motivos: de 663 estudios cribados solo cuatro cumplieron los criterios, y
       uno de ellos estudiaba bacteriuria asintomática en el embarazo y no cistitis, lo que mezcla
       dos poblaciones distintas; y los intervalos de confianza son compatibles tanto con una
-      ventaja del 19 % como con una desventaja del 12 % en curación clínica.
+      ventaja del 19 % como con una desventaja del 12 % en curación clínica. El resumen tampoco
+      publica el total de pacientes agrupados, de modo que la precisión de la estimación no puede
+      juzgarse por su tamaño: es otra razón para no leer esta equivalencia como firme.
     ref: 'pmid:34151754'
 
 # ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────

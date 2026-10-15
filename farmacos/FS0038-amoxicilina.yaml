@@ -36,12 +36,13 @@ mecanismo: >-
   (PBP), las transpeptidasas que entrecruzan las cadenas de peptidoglicano, y detiene la síntesis
   de la pared en la fase de división. El grupo amino en posición para del anillo fenólico, que es
   lo único que la separa de la ampicilina, le da dos propiedades que deciden su uso ambulatorio:
-  biodisponibilidad oral del 75-90 % —frente a cerca del 40 % de la ampicilina— y actividad
-  conservada frente a Streptococcus pneumoniae, incluidas la mayoría de las cepas con resistencia
+  es estable en presencia de ácido gástrico y se absorbe por vía oral de forma rápida y mucho más
+  completa que la ampicilina, lo que la hace utilizable por boca donde aquella obligaba a la vía
+  parenteral; y conserva actividad frente a Streptococcus pneumoniae, incluidas la mayoría de las cepas con resistencia
   intermedia a penicilina, que se superan elevando la dosis en vez de cambiando de familia. Carece
   de actividad frente a los productores de betalactamasas y frente a los patógenos atípicos sin
   pared peptidoglicánica convencional, como Mycoplasma pneumoniae y Legionella.
-mecanismo_ref: 'pmid:31573350'
+mecanismo_ref: 'fda:label'
 
 farmacocinetica:
   eliminacion: >-
@@ -113,13 +114,16 @@ seguridad:
       nota: Favorecidas por la dosis alta y la diuresis escasa; mantener la hidratación.
       ref: 'fda:label'
 
-contraindicaciones:
-  - enunciado: Antecedente de reacción anafiláctica o reacción cutánea grave a cualquier betalactámico
-    motivo: Riesgo de reacción mortal en la reexposición.
-    ref: 'fda:label'
-  - enunciado: Antecedente de ictericia o disfunción hepática atribuida a amoxicilina
-    motivo: La reexposición reproduce el daño hepático.
-    ref: 'fda:label'
+  contraindicaciones:
+    - motivo: >-
+        Antecedente de reacción anafiláctica o de reacción cutánea grave (síndrome de
+        Stevens-Johnson, necrólisis epidérmica tóxica, pustulosis exantemática generalizada
+        aguda) a cualquier betalactámico: riesgo de reacción mortal en la reexposición.
+      ref: 'fda:label'
+    - motivo: >-
+        Antecedente de ictericia o disfunción hepática atribuida a amoxicilina: la reexposición
+        reproduce el daño hepático.
+      ref: 'fda:label'
 
 # ── Regulatorio ─────────────────────────────────────────────────────────
 # Generado por scripts/openfda.py, con una salvedad que hay que leer antes de

@@ -44,7 +44,7 @@ mecanismo: >-
   farmacocinética y no química: eleva la biodisponibilidad oral lo suficiente para que una sola
   dosis de 3 g mantenga concentraciones urinarias por encima de la CMI de Escherichia coli
   durante dos o tres días, que es el fundamento entero de la pauta monodosis.
-mecanismo_ref: 'pmid:21292654'
+mecanismo_ref: 'fda:label'
 
 farmacocinetica:
   eliminacion: >-
@@ -103,15 +103,16 @@ seguridad:
         ciclos prolongados; debe considerarse ante diarrea que persiste o empeora tras el tratamiento.
       ref: 'fda:label'
 
-contraindicaciones:
-  - enunciado: Hipersensibilidad conocida a la fosfomicina
-    motivo: Riesgo de reacción anafiláctica en la reexposición.
-    ref: 'fda:label'
-  - enunciado: Pielonefritis aguda o absceso perinéfrico
-    motivo: >-
-      La pauta oral monodosis está estudiada y autorizada para la cistitis no complicada; una
-      infección del tracto urinario superior exige un régimen con penetración tisular sostenida.
-    ref: 'pmid:21292654'
+  contraindicaciones:
+    - motivo: >-
+        Hipersensibilidad conocida a la fosfomicina: riesgo de reacción anafiláctica en la
+        reexposición.
+      ref: 'fda:label'
+    - motivo: >-
+        Pielonefritis aguda o absceso perinéfrico: la pauta oral monodosis está estudiada y
+        autorizada para la cistitis no complicada, y una infección del tracto urinario superior
+        exige un régimen con penetración tisular sostenida.
+      ref: 'pmid:21292654'
 
 # ── Regulatorio ─────────────────────────────────────────────────────────
 # Generado por scripts/openfda.py. La consulta se estrechó a

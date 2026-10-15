@@ -43,7 +43,7 @@ mecanismo: >-
   concentra en la orina pero no alcanza concentraciones terapéuticas en el parénquima renal
   ni en la sangre, de modo que trata la vejiga y no sirve para la pielonefritis ni para
   ninguna infección fuera de la vía urinaria baja.
-mecanismo_ref: 'pmid:21292654'
+mecanismo_ref: 'fda:label'
 
 farmacocinetica:
   eliminacion: >-
@@ -113,26 +113,30 @@ seguridad:
         y déficit de vitamina B. Puede ser grave e irreversible.
       ref: 'fda:label'
 
-contraindicaciones:
-  - enunciado: Tasa de filtrado glomerular estimada inferior a 30 mL/min/1.73 m²
-    motivo: >-
-      No se alcanza la concentración urinaria bactericida y aumenta la exposición sistémica
-      tóxica. El fracaso y el daño van en la misma dirección.
-    ref: 'fda:label'
-  - enunciado: Embarazo a término, entre las 38 y 42 semanas, y durante el parto
-    motivo: Riesgo de anemia hemolítica neonatal por inmadurez de los sistemas enzimáticos eritrocitarios.
-    ref: 'fda:label'
-  - enunciado: Lactante menor de un mes
-    motivo: Riesgo de anemia hemolítica por la misma inmadurez enzimática.
-    ref: 'fda:label'
-  - enunciado: Antecedente de ictericia colestásica o disfunción hepática por nitrofurantoína
-    motivo: La reexposición reproduce el daño y puede agravarlo.
-    ref: 'fda:label'
-  - enunciado: Pielonefritis aguda, absceso perinéfrico o cualquier infección fuera de la vía urinaria baja
-    motivo: >-
-      El fármaco no alcanza concentraciones terapéuticas en el parénquima renal ni en el plasma.
-      Usarlo ahí es tratar una infección tisular con un antibiótico que solo actúa en la orina.
-    ref: 'pmid:21292654'
+  contraindicaciones:
+    - motivo: >-
+        Tasa de filtrado glomerular estimada inferior a 30 mL/min/1.73 m²: no se alcanza la
+        concentración urinaria bactericida y aumenta la exposición sistémica tóxica. El fracaso
+        terapéutico y el daño apuntan en la misma dirección, y por eso es contraindicación y no
+        ajuste de dosis.
+      ref: 'fda:label'
+    - motivo: >-
+        Embarazo a término, entre las semanas 38 y 42, y durante el parto: riesgo de anemia
+        hemolítica neonatal por inmadurez de los sistemas enzimáticos eritrocitarios.
+      ref: 'fda:label'
+    - motivo: >-
+        Lactante menor de un mes: riesgo de anemia hemolítica por la misma inmadurez enzimática.
+      ref: 'fda:label'
+    - motivo: >-
+        Antecedente de ictericia colestásica o disfunción hepática por nitrofurantoína: la
+        reexposición reproduce el daño y puede agravarlo.
+      ref: 'fda:label'
+    - motivo: >-
+        Pielonefritis aguda, absceso perinéfrico o cualquier infección fuera de la vía urinaria
+        baja: el fármaco no alcanza concentraciones terapéuticas en el parénquima renal ni en el
+        plasma. Usarlo ahí es tratar una infección tisular con un antibiótico que solo actúa en
+        la orina.
+      ref: 'pmid:21292654'
 
 # ── Regulatorio ─────────────────────────────────────────────────────────
 # Generado por scripts/openfda.py. Marcas devueltas por la consulta:

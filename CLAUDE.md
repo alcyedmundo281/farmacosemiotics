@@ -178,6 +178,21 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
   retractación; CrossRef solo confirma que el DOI resuelve.
 - **Un artículo retractado no sostiene un enunciado.** `pubmed.py` marca
   `retractado: true` y `build.py` lo convierte en error.
+- **El recuento manda sobre el porcentaje impreso.** Cuando la fuente publica a
+  la vez un recuento y un porcentaje que no concuerdan, se escribe el valor
+  aritmético que sale del recuento, y el recuento entero —numerador y
+  denominador— se cita al lado para que el lector pueda rehacer la cuenta. Un
+  porcentaje no es un hallazgo: es una división, y la fuente puede haberla
+  redondeado de dos maneras distintas en la misma frase. Pasó con el ensayo de
+  nitrofurantoína frente a fosfomicina (`pmid:29710295`), que imprime el mismo
+  `5/247` como «2 %» para las náuseas y como «1 %» para la diarrea; `FT:0039` y
+  `FT:0040` consignan 2.0 % en los dos casos, con el recuento delante.
+  Esto alcanza **solo** al porcentaje que es la división directa de un recuento
+  publicado. No autoriza a recalcular un efecto: un HR, un intervalo de
+  confianza, una RRA o un NNT se reproducen tal como los da la fuente aunque no
+  sean recíprocos entre sí, y la discrepancia se explica en vez de corregirse.
+  Ajustar la cifra de la fuente para que cuadre con otra cifra de la fuente es
+  publicar un número que nadie midió.
 - **Nada de precios en el núcleo.** Si aparece una cifra en dólares dentro de
   `farmacos/`, `farmacoterapia/`, `selecciones/` o `fichas/`, está en el sitio
   equivocado: va a `costos/`. El eje `costo` de un informe de selección emite

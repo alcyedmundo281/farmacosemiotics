@@ -1,0 +1,331 @@
+id: 'FT:0041'
+tipo: ficha
+farmaco: 'FS:0038'
+seleccion: 'SEL:0026'
+titulo: Amoxicilina en la neumonía adquirida en la comunidad de manejo ambulatorio
+indicacion: Neumonía adquirida en la comunidad de gravedad baja, tratada de forma ambulatoria, en el adulto sin comorbilidad
+indicacion_en: Low-severity outpatient community-acquired pneumonia in adults without comorbidity
+poblacion: >-
+  Adultos con neumonía adquirida en la comunidad confirmada clínica y radiológicamente, de gravedad
+  baja (índice de gravedad de la neumonía de clase I o II, o CURB-65 de 0 a 1), sin comorbilidad
+  crónica significativa, sin antibioterapia en los 90 días previos y sin factores de riesgo de
+  Staphylococcus aureus resistente a meticilina ni de Pseudomonas aeruginosa
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    1 g por vía oral cada 8 horas, 5 días, y puede bastar menos en quien mejora pronto. No hace
+    falta añadir macrólido: la estrategia de betalactámico en monoterapia no fue inferior a la
+    combinación ni a la fluoroquinolona en mortalidad a 90 días. La resistencia intermedia del
+    neumococo se vence subiendo la dosis, no cambiando de familia, y por eso la pauta correcta es
+    1 g y no 500 mg.
+  alerta_seguridad_inmediata: >-
+    Antes de la primera dosis, caracterizar la alergia referida a betalactámicos: una reacción
+    inmediata con urticaria, angioedema o broncoespasmo la contraindica; un exantema tardío al
+    quinto o séptimo día no es alergia mediada por IgE y no debe registrarse como tal, porque la
+    etiqueta falsa persiste de por vida y empuja a cada infección futura hacia antibióticos de
+    espectro más amplio.
+
+# ── Pregunta PICO ────────────────────────────────────────────────────────────
+pico:
+  p: 'Adultos con neumonía adquirida en la comunidad de gravedad baja (N = 2283 en el ensayo de estrategias; N = 119 en el ensayo de duración)'
+  i: 'Amoxicilina oral en monoterapia, 1 g cada 8 horas'
+  c: 'Betalactámico más macrólido, fluoroquinolona en monoterapia, y amoxicilina de 8 días frente a 3 días'
+  o: 'Mortalidad por todas las causas a 90 días, éxito clínico a día 10 y a día 28, éxito radiológico y efectos adversos'
+
+# ── Posología Práctica ───────────────────────────────────────────────────────
+posologia:
+  inicio: '1 g por vía oral cada 8 horas; la dosis alta es lo que mantiene la concentración por encima de la CMI del neumococo con resistencia intermedia'
+  escalado: 'No se titula: la dosis inicial es la terapéutica desde la primera toma'
+  mantenimiento: '1 g cada 8 horas durante 5 días en el curso habitual; puede suspenderse antes en quien ha mejorado claramente y lleva al menos 3 días de tratamiento'
+  maxima: '3 g al día por vía oral en esta indicación'
+  ajuste_renal: 'Reducir la dosis y espaciar el intervalo con TFGe inferior a 30 mL/min/1.73 m²; en hemodiálisis, administrar una dosis adicional al final de la sesión'
+  ajuste_hepatico: 'No requiere ajuste; el antecedente de ictericia por amoxicilina es contraindicación'
+  ref: 'fda:label'
+
+# ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
+evidencia:
+  - desenlace: Mortalidad por todas las causas a 90 días, betalactámico en monoterapia frente a añadir macrólido o a fluoroquinolona
+    criticidad: critico
+    efecto: >-
+      No inferioridad confirmada en los dos sentidos: mortalidad a 90 días del 9.0 % (59/656) con la
+      estrategia de betalactámico, 11.1 % (82/739) con betalactámico más macrólido y 8.8 % (78/888)
+      con fluoroquinolona. El riesgo de muerte fue 1.9 puntos porcentuales mayor con la combinación
+      (IC 90 % -0.6 a 4.4) y 0.6 puntos menor con la fluoroquinolona (IC 90 % -2.8 a 1.9), ambos
+      dentro del margen preespecificado de 3 puntos. La lectura que cambia la prescripción es la
+      primera: añadir cobertura atípica de entrada no compró supervivencia, de modo que el
+      betalactámico solo no es una renuncia sino la opción suficiente.
+    rra: '0.0%'
+    rrr: '0.0%'
+    nnt: 1
+    horizonte_nnt: a 90 días, por no inferioridad
+    diseno: eca
+    estudio: CAP-START, Postma et al., N Engl J Med 2015 (NCT01660204)
+    comparador: Betalactámico más macrólido, y fluoroquinolona en monoterapia
+    n: 2283
+    certeza: baja
+    razones_descenso:
+      - evidencia_indirecta
+      - riesgo_de_sesgo
+    certeza_nota: >-
+      Dos descensos, y el primero importa más que el segundo. La población del ensayo son pacientes
+      ingresados en planta —mediana de edad 70 años—, no el adulto sano que esta ficha trata en su
+      casa, de modo que la evidencia es indirecta por población y por gravedad. Y el diseño es de
+      estrategia aleatorizada por conglomerados y cruzada, con desviaciones permitidas por criterio
+      médico y adherencia a la estrategia del 88 al 93 %, lo que diluye el contraste entre ramas.
+      Se conserva porque es la única comparación aleatorizada de las tres estrategias y porque su
+      dirección —no hay beneficio en ampliar— es la que sostiene la recomendación de la guía.
+    ref: 'pmid:25830421'
+
+  - desenlace: Éxito clínico a día 10 y a día 28 con 3 días de amoxicilina frente a 8 días
+    criticidad: critico
+    efecto: >-
+      No inferioridad: éxito clínico a día 10 del 93 % en ambos brazos (diferencia 0.1 %;
+      IC 95 % -9 a 10) y a día 28 del 90 % frente al 88 % (diferencia 2.0 %; IC 95 % -9 a 15), con
+      éxito radiológico del 86 % frente al 83 % a día 10 y del 86 % frente al 79 % a día 28, y
+      resolución sintomática superponible. En quien ya ha mejorado sustancialmente tras tres días,
+      prolongar el tratamiento no añade curación.
+    rra: '0.0%'
+    rrr: '0.0%'
+    nnt: 1
+    horizonte_nnt: a día 10, por no inferioridad
+    diseno: eca
+    estudio: el Moussaoui et al., BMJ 2006
+    comparador: Amoxicilina oral durante 5 días adicionales (8 días en total)
+    n: 119
+    certeza: baja
+    razones_descenso:
+      - imprecision
+      - evidencia_indirecta
+    certeza_nota: >-
+      Se desciende por imprecisión —119 pacientes aleatorizados y un intervalo de confianza de
+      ±10 puntos porcentuales, que es compatible con una pérdida de eficacia clínicamente
+      relevante— y por evidencia indirecta: los pacientes estaban hospitalizados y habían recibido
+      los tres primeros días de amoxicilina por vía intravenosa, no oral, de modo que la pauta
+      estudiada no es exactamente la ambulatoria. El diseño, en cambio, es sólido: aleatorizado,
+      doble ciego y controlado con placebo, que es lo que permite atribuir al fármaco los efectos
+      adversos del brazo largo.
+    ref: 'pmid:16763247'
+
+  - desenlace: Síntomas nuevos o en empeoramiento frente a placebo, cuando la neumonía NO se sospecha clínicamente
+    criticidad: importante
+    efecto: >-
+      Beneficio pequeño y, sobre todo, en la indicación equivocada: en 2061 pacientes con infección
+      respiratoria baja aguda en atención primaria y sin sospecha de neumonía, los síntomas nuevos
+      o en empeoramiento fueron menos frecuentes con amoxicilina que con placebo —15.9 % (162/1021)
+      frente a 19.3 % (194/1006); p = 0.043, NNT 30— pero la duración de los síntomas calificados
+      de moderadamente malos o peores no se acortó (HR 1.06; IC 95 % 0.96 a 1.18; p = 0.229), ni
+      hubo beneficio selectivo en los mayores de 60 años. Esta fila no mide la eficacia de la
+      amoxicilina en la neumonía: mide lo que queda de ella cuando no hay neumonía, y es el
+      argumento cuantitativo de por qué esta ficha exige confirmación radiológica antes de
+      prescribir. Con un NNT de 30 para un beneficio marginal y un NNH de 21 para efectos adversos,
+      el balance se invierte en cuanto el diagnóstico se afloja.
+    rra: '3.4%'
+    rrr: '17.6%'
+    nnt: 30
+    horizonte_nnt: a 4 semanas, en infección respiratoria baja sin sospecha de neumonía
+    diseno: eca
+    estudio: Little et al., Lancet Infect Dis 2013 (12 países; EudraCT 2007-001586-15)
+    comparador: Placebo
+    n: 2061
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    certeza_nota: >-
+      El descenso es íntegramente por población: el ensayo excluyó la sospecha de neumonía, que es
+      precisamente la indicación de esta ficha, de modo que su resultado no se traslada al paciente
+      con infiltrado radiológico. La calidad interna es alta —aleatorizado, doble ciego,
+      multinacional y con 2061 pacientes—, y por eso la cifra sirve para lo contrario de lo
+      habitual: no para apoyar la indicación, sino para delimitarla.
+    ref: 'pmid:23265995'
+
+# ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Náuseas, exantema o diarrea
+    gravedad: leve
+    nnh: 21
+    horizonte_nnh: a 4 semanas, frente a placebo
+    conducta: >-
+      Número necesario para dañar de 21 (IC 95 % 11 a 174; p = 0.025) frente a placebo. Son daños
+      leves y reversibles que no obligan a suspender, y conviene anticiparlos al paciente: el
+      exantema advertido de antemano no se convierte en una etiqueta de alergia. El intervalo de
+      confianza es ancho —el daño puede ser de 1 por cada 11 tratados o de 1 por cada 174— pero su
+      límite inferior es el que hay que tener en mente al decidir si la indicación está clara.
+    ref: 'pmid:23265995'
+
+  - evento: Efectos adversos por prolongar el ciclo de 3 a 8 días
+    gravedad: leve
+    tasa_intervencion: '20.6 %'
+    tasa_control: '10.7 %'
+    ria: '9.9%'
+    nnh: 10
+    horizonte_nnh: a 28 días, por extender el ciclo de 3 a 8 días
+    conducta: >-
+      En el ensayo doble ciego de duración, 13 de 63 pacientes (21 %) del brazo de 8 días
+      comunicaron efectos adversos frente a 6 de 56 (11 %) del de 3 días (p = 0.1). Dado que la
+      eficacia fue idéntica, es la cifra que sostiene no prolongar el tratamiento por inercia:
+      cada diez ciclos innecesariamente largos producen un paciente dañado y ninguno curado de más.
+      La diferencia no alcanzó significación estadística, de modo que el NNH de 10 es una
+      estimación puntual y no un dato firme.
+    ref: 'pmid:16763247'
+
+  - evento: Reacción anafiláctica
+    gravedad: letal
+    tasa_intervencion: '0.1 %'
+    tasa_control: '0.0 %'
+    nnh: 1038
+    horizonte_nnh: por ciclo de tratamiento, frente a placebo
+    conducta: >-
+      Un caso entre 1038 pacientes tratados en el ensayo frente a placebo, y ninguno entre 1023 con
+      placebo. Suspender de inmediato, tratar la anafilaxia y registrar la contraindicación a
+      betalactámicos. Es el daño que justifica caracterizar la alergia referida antes de prescribir,
+      no simplemente preguntar por ella.
+    ref: 'pmid:23265995'
+
+  - evento: Exantema morbiliforme tardío no mediado por IgE, y la etiqueta falsa de alergia que genera
+    gravedad: leve
+    conducta: >-
+      Aparece hacia el quinto a séptimo día y es más probable con infección vírica concomitante,
+      sobre todo mononucleosis infecciosa. El evento es banal; su consecuencia no lo es, y es el
+      daño peor contabilizado de este fármaco: registrado como alergia a penicilina, condena al
+      paciente a antibióticos de espectro más amplio, más caros y peor tolerados en cada infección
+      del resto de su vida. Valorar completar el ciclo con vigilancia y remitir a alergología para
+      estudio diferido en vez de etiquetar. No se consigna NNH porque lo que se cuenta aquí no es
+      un evento biológico sino una decisión de registro, y ninguna fuente consultada la cuantifica.
+    ref: 'fda:label'
+
+  - evento: Colitis asociada a Clostridioides difficile
+    gravedad: grave
+    conducta: >-
+      Puede aparecer hasta dos meses después del tratamiento. Ante diarrea que persiste o empeora,
+      no administrar antiperistálticos y estudiar la toxina. Sin denominador publicado en las
+      fuentes consultadas para esta indicación y esta duración, no se consigna NNH.
+    ref: 'fda:label'
+
+# ── Posicionamiento en esta indicación ───────────────────────────────────────
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Primera línea, por recomendación fuerte de la guía ATS/IDSA de 2019 en el adulto ambulatorio
+    sin comorbilidad, y por tres razones que convergen: cubre al patógeno que determina la
+    mortalidad, ampliar la cobertura de entrada no mejoró la supervivencia en el único ensayo
+    aleatorizado de estrategias, y su daño es leve, reversible y medido contra placebo. El eje en
+    que pierde —tres tomas diarias frente a la toma única de la alternativa— es el tercero del
+    orden de la decisión y no mueve el veredicto.
+  escalonado:
+    - linea: primera
+      opciones: 'Amoxicilina 1 g por vía oral cada 8 horas durante 5 días'
+      nota: 'Adulto sin comorbilidad y sin factores de riesgo de patógeno resistente; se puede suspender antes en quien ha mejorado claramente tras 3 días'
+    - linea: segunda
+      opciones: 'Doxiciclina 100 mg cada 12 horas, o macrólido en monoterapia donde la resistencia neumocócica local documentada sea inferior al 25 %'
+      nota: 'Ante alergia verdadera a betalactámicos o sospecha clínica fundada de patógeno atípico; el macrólido con cautela en el paciente con riesgo cardiovascular alto'
+    - linea: rescate
+      opciones: 'Amoxicilina con ácido clavulánico, cefalosporina de tercera generación o fluoroquinolona respiratoria, según foco, comorbilidad y resultado microbiológico'
+      nota: 'Tras fracaso del tratamiento empírico inicial, reevaluando antes el diagnóstico y la gravedad'
+  desescalamiento:
+    enunciado: >-
+      El desescalamiento de esta indicación es temporal y no de espectro: en quien ha mejorado
+      sustancialmente tras tres días, suspender en ese momento no fue inferior a completar ocho
+      días —éxito clínico del 93 % en ambos brazos a día 10— y evitó daño, con un 11 % de efectos
+      adversos frente al 21 % del ciclo largo. La decisión de parar se toma sobre la respuesta
+      clínica, no sobre el calendario, y requiere al menos 48 a 72 horas de apirexia y estabilidad.
+    ref: 'pmid:16763247'
+  ref: 'pmid:31573350'
+
+# ── Juicio de Balance GRADE ──────────────────────────────────────────────────
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: pequeno
+  certeza_global: baja
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+# ── Recomendación Formal ─────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda amoxicilina 1 g por vía oral cada 8 horas como tratamiento empírico de primera
+    línea de la neumonía adquirida en la comunidad de gravedad baja en el adulto sin comorbilidad
+    tratado de forma ambulatoria, con una duración de 5 días que puede acortarse en quien ha
+    mejorado claramente tras 3 días. No se recomienda añadir macrólido de entrada en esta
+    población, porque la estrategia combinada no mejoró la mortalidad a 90 días y el macrólido
+    aporta su propio exceso de mortalidad cardiovascular.
+  justificacion_fuerza: >-
+    La recomendación es fuerte sobre certeza global baja, que en GRADE es una excepción y exige
+    argumento. Concurren tres de las situaciones que lo permiten. Primera: la certeza se degradó por
+    evidencia indirecta —los ensayos se hicieron en pacientes hospitalizados y de más edad—, y esa
+    indirección sesga hacia poblaciones más graves, en las que el betalactámico solo tendría más
+    probabilidad de fallar, no menos; el resultado favorable en el escenario desfavorable refuerza
+    la recomendación en el ambulatorio en lugar de debilitarla. Segunda: la alternativa no es una
+    opción neutra, porque el macrólido añade un exceso de mortalidad cardiovascular medido
+    en una cohorte de más de 1.6 millones de ciclos (HR 2.49 frente a amoxicilina; Ray et al.,
+    N Engl J Med 2012, `pmid:22591294`) y la fluoroquinolona una toxicidad potencialmente irreversible,
+    de modo que la incertidumbre no se reparte por igual entre las ramas. Tercera: la guía ATS/IDSA
+    de 2019 emite esta misma recomendación con fuerza en la población de esta ficha. Lo que
+    seguiría siendo frágil es la duración exacta del ciclo, y por eso la pauta se formula como 5
+    días con posibilidad de acortar, y no como un número fijo.
+  ref: 'pmid:31573350'
+
+# ── Alternativas Terapéuticas ────────────────────────────────────────────────
+alternativas:
+  - dci: 'Doxiciclina'
+    atc: 'J01AA02'
+    lme: true
+    lme_seccion: '6.2.1'
+    nota: 'Alternativa de primera línea: curación del 87.2 % frente al 82.6 % de macrólidos y fluoroquinolonas en metaanálisis, dos tomas diarias, y la elección natural ante alergia a betalactámicos'
+  - dci: 'Azitromicina'
+    atc: 'J01FA10'
+    lme: true
+    lme_seccion: '6.2.2'
+    nota: 'Reservada a entornos con resistencia neumocócica local inferior al 25 %, y a evitar con riesgo cardiovascular alto: HR 2.49 de muerte cardiovascular frente a amoxicilina'
+  - dci: 'Levofloxacino'
+    atc: 'J01MA12'
+    lme: true
+    lme_seccion: '6.2.2'
+    nota: 'No recomendado en el adulto sano de esta indicación, por preservación de clase y toxicidad evitable, aunque su eficacia sea equivalente'
+
+conclusion: >-
+  La amoxicilina gana esta indicación por lo que no hace falta hacer. No hace falta añadir
+  macrólido, porque la estrategia combinada no mejoró la mortalidad a 90 días y el 11.1 % de la
+  rama con macrólido frente al 9.0 % de la monoterapia apunta, si acaso, en contra. No hace falta
+  prolongar el ciclo, porque tres días bastaron en quien había mejorado —93 % de éxito clínico en
+  ambos brazos a día 10— y cada diez ciclos largos de más produjeron un paciente dañado sin curar a
+  ninguno. Y no hace falta cambiar de familia ante resistencia intermedia del neumococo, porque se
+  resuelve con el gramo en lugar de los 500 mg. El daño atribuible es el mejor medido del informe
+  de selección y es modesto: NNH 21 para náuseas, exantema o diarrea, y un caso de anafilaxia por
+  cada 1038 tratados. Quedan dos exigencias que esta ficha no relaja, y las dos son previas a la
+  prescripción y no posteriores. La primera es diagnóstica: sin neumonía confirmada, el beneficio
+  cae a un NNT de 30 contra un NNH de 21, es decir, el balance se invierte. La segunda es la
+  anamnesis de alergia bien hecha, porque los dos errores con consecuencia duradera de este fármaco
+  —dar un betalactámico a quien tuvo anafilaxia, y etiquetar de alérgico a quien solo tuvo un
+  exantema tardío— se cometen antes de la primera dosis y no se corrigen después.
+
+guias:
+  - organizacion: ATS / IDSA
+    anio: 2019
+    titulo: 'Diagnosis and Treatment of Adults with Community-acquired Pneumonia. An Official Clinical Practice Guideline of the American Thoracic Society and Infectious Diseases Society of America'
+    posicion: >-
+      Recomienda la amoxicilina en monoterapia como tratamiento empírico de elección en el adulto
+      ambulatorio sin comorbilidad, con recomendación fuerte, y admite la doxiciclina con
+      recomendación condicional; limita el macrólido en monoterapia a los entornos donde la
+      resistencia local de Streptococcus pneumoniae sea inferior al 25 %.
+    cita: 'Am J Respir Crit Care Med 2019;200(7):e45-e67'
+    ref: 'pmid:31573350'
+
+refs:
+  - 'pmid:25830421'
+  - 'pmid:16763247'
+  - 'pmid:23265995'
+  - 'pmid:31573350'
+  - 'pmid:22591294'
+  - 'fda:label'

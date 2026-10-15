@@ -1,0 +1,155 @@
+# Principio activo. Lo que NO depende de la indicación.
+
+id: 'FS:0037'
+tipo: farmaco
+dci: Fosfomicina trometamol
+dci_en: Fosfomycin trometamol
+sinonimos:
+  - fosfomicina trometamina
+  - fosfomycin tromethamine
+  - Monurol
+
+atc: J01XX01
+clase_farmacologica: Antibacteriano fosfónico, análogo del fosfoenolpiruvato
+clase_farmacologica_en: Phosphonic acid antibacterial, phosphoenolpyruvate analogue
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  # `null` significa «no comprobado», no «ausente». La formulación oral de
+  # trometamol para cistitis y la intravenosa de disodio se tramitan por
+  # separado en la Lista Modelo, y no se verificó cuál de las dos consta en la
+  # 24.ª edición. eml.py lo contará fuera, que es el sesgo conservador
+  # correcto: poner `false` para silenciar el aviso afirmaría algo que no se sabe.
+  presente: null
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: null
+  categoria: null
+
+mecanismo: >-
+  Análogo estructural del fosfoenolpiruvato que inhibe de forma irreversible la
+  MurA (UDP-N-acetilglucosamina enolpiruvil transferasa), la enzima que cataliza el primer paso
+  citoplasmático de la síntesis de peptidoglicano. Al bloquear un paso anterior al que atacan los
+  betalactámicos, no comparte diana con ellos y conserva actividad frente a cepas productoras de
+  betalactamasas de espectro extendido. La sal de trometamol existe por una razón
+  farmacocinética y no química: eleva la biodisponibilidad oral lo suficiente para que una sola
+  dosis de 3 g mantenga concentraciones urinarias por encima de la CMI de Escherichia coli
+  durante dos o tres días, que es el fundamento entero de la pauta monodosis.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: >-
+    Excreción renal del fármaco inalterado por filtración glomerular, sin metabolismo previo;
+    la concentración urinaria se mantiene elevada durante 24 a 48 horas tras la dosis única
+  vida_media: 'Aproximadamente 4 a 8 horas en plasma, con persistencia urinaria muy superior'
+  implicacion: >-
+    La pauta de 3 g en dosis única disuelta en agua y tomada con el estómago vacío —preferentemente
+    al acostarse y tras vaciar la vejiga— nace de esa persistencia urinaria. La misma dependencia
+    de la filtración glomerular hace que la insuficiencia renal avanzada reduzca la concentración
+    urinaria alcanzada y comprometa la eficacia.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Diarrea
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Es la reacción más habitual de la dosis única. En el ensayo cara a cara frente a
+        nitrofurantoína apareció en 5 de 247 pacientes (1 %), y las náuseas en 5 de 247 (2 %);
+        el perfil global de efectos adversos fue escaso en ambas ramas.
+      ref: 'pmid:29710295'
+
+    - evento: Náuseas, dispepsia y dolor abdominal
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Autolimitadas. La administración con el estómago vacío mejora la absorción pero puede
+        acentuar la molestia digestiva.
+      ref: 'pmid:29710295'
+
+    - evento: Cefalea y mareo
+      frecuencia: frecuente
+      gravedad: leve
+      nota: Transitorios y sin repercusión clínica en la pauta de dosis única.
+      ref: 'fda:label'
+
+    - evento: Vaginitis
+      frecuencia: frecuente
+      gravedad: leve
+      nota: Comunicada en los ensayos de registro; no obliga a cambiar de antibiótico.
+      ref: 'fda:label'
+
+    - evento: Reacción de hipersensibilidad, incluida angioedema y anafilaxia
+      frecuencia: rara
+      gravedad: grave
+      nota: Obliga a suspender y contraindica la reexposición.
+      ref: 'fda:label'
+
+    - evento: Colitis asociada a Clostridioides difficile
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Riesgo compartido por todos los antibacterianos y menor con una dosis única que con
+        ciclos prolongados; debe considerarse ante diarrea que persiste o empeora tras el tratamiento.
+      ref: 'fda:label'
+
+  contraindicaciones:
+    - motivo: >-
+        Hipersensibilidad conocida a la fosfomicina: riesgo de reacción anafiláctica en la
+        reexposición.
+      ref: 'fda:label'
+    - motivo: >-
+        Pielonefritis aguda o absceso perinéfrico: la pauta oral monodosis está estudiada y
+        autorizada para la cistitis no complicada, y una infección del tracto urinario superior
+        exige un régimen con penetración tisular sostenida.
+      ref: 'pmid:21292654'
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+# Generado por scripts/openfda.py. La consulta se estrechó a
+# "fosfomycin tromethamine" a propósito: la consulta genérica por
+# "fosfomycin" devolvía también CONTEPO, que es la formulación intravenosa de
+# fosfomicina disódica y a efectos prácticos otro fármaco —otra vía, otras
+# dosis, otras indicaciones y otra carga de sodio—. Este registro es el de la
+# sal de trometamol oral.
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '2021-10-21'
+    primera_aprobacion_nota: >-
+      Derivada de la submission ORIG/AP más antigua que openFDA devuelve para esta consulta, no de
+      un campo oficial de primera aprobación, y por eso NO debe leerse como la fecha en que el
+      principio activo llegó al mercado estadounidense: la consulta estrechada solo recoge ANDA
+      —genéricos—, y la fecha corresponde al más antiguo de ellos, no a la aprobación original de
+      la marca. La aprobación de la especialidad original no se consigna aquí porque no se verificó
+      en una fuente que la fije.
+    solicitudes:
+      nda: 0
+      anda: 6
+      bla: 0
+    fuente: 'openfda:drugsfda'
+    consulta: 'openfda.generic_name:"fosfomycin tromethamine"'
+    consultado: '2026-10-15'
+
+etiqueta_fda:
+  set_id: '4f206750-8126-99a3-e063-6294a90ade4c'
+  vigencia: '2026-04-09'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4f206750-8126-99a3-e063-6294a90ade4c
+  fuente: 'openfda:label'
+  consultado: '2026-10-15'
+  nota: >-
+    Es la fuente de las referencias `fda:label` de este fármaco y de su farmacoterapia FA:0037.
+
+refs:
+  - 'pmid:21292654'
+  - 'pmid:29710295'
+  - 'fda:label'

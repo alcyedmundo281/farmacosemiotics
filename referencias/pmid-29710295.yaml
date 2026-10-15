@@ -1,0 +1,48 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:29710295"
+clave_bibtex: huttner2018
+tipo: eca
+titulo: "Effect of 5-Day Nitrofurantoin vs Single-Dose Fosfomycin on Clinical Resolution of Uncomplicated Lower Urinary Tract Infection in Women: A Randomized Clinical Trial"
+autores:
+  - "Huttner A"
+  - "Kowalczyk A"
+  - "Turjeman A"
+  - "Babich T"
+  - "Brossier C"
+  - "Eliakim-Raz N"
+  - "Kosiek K"
+  - "Martinez de Tejada B"
+  - "Roux X"
+  - "Shiber S"
+  - "Theuretzbacher U"
+  - "von Dach E"
+  - "Yahav D"
+  - "Leibovici L"
+  - "Godycki-Cwirko M"
+  - "Mouton JW"
+  - "Harbarth S"
+publicacion: "JAMA"
+anio: 2018
+volumen: "319"
+numero: "17"
+paginas: "1781-1789"
+
+identificadores:
+  pmid: 29710295
+  doi: "10.1001/jama.2018.3627"
+  pmc: "PMC6134435"
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

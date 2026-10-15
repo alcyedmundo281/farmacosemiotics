@@ -158,7 +158,7 @@ su informe de selección dice cómo usar un fármaco sin decir por qué se eligi
 |---|---|---|---|---|---|
 | **0. Piloto** | Fármaco modelo y validación de contrato | — *(precede al híbrido)* | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
 | **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `SEL0004` (FA no valvular)<br>`SEL0005` (ERC en DM2)<br>`SEL0006` (IC-FEr)<br>`SEL0019` (Estatinas alta potencia)<br>`SEL0020` (AAS prevención 2ª) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino)<br>`FS0011` (Finerenona)<br>`FS0012` (Dapagliflozina)<br>`FS0028` (Atorvastatina)<br>`FS0029` (AAS) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA)<br>`FT0012` (Finerenona en ERC-DM2)<br>`FT0013` (Dapagliflozina en IC-FEr)<br>`FT0030` (Atorvastatina prevención 2ª)<br>`FT0031` (AAS prevención 2ª) | **Completada (8/8)** |
-| **2. Antiinfecciosos AWaRe** | Sección 6.2 (Antibacterianos Access / Watch / Reserve) | `SEL0017` (Enterobacterias KPC/BLEE) | `FS0026` (Ceftazidima / Avibactam) | `FT0028` (Ceftazidima/Avibactam en BLEE/KPC) | **Iniciada (1/6)** |
+| **2. Antiinfecciosos AWaRe** | Sección 6.2 (Antibacterianos Access / Watch / Reserve) | `SEL0017` (Enterobacterias KPC/BLEE)<br>`SEL0025` (Cistitis no complicada)<br>`SEL0026` (NAC ambulatoria) | `FS0026` (Ceftazidima / Avibactam)<br>`FS0036` (Nitrofurantoína)<br>`FS0037` (Fosfomicina trometamol)<br>`FS0038` (Amoxicilina) | `FT0028` (Ceftazidima/Avibactam en BLEE/KPC)<br>`FT0039` (Nitrofurantoína en cistitis)<br>`FT0040` (Fosfomicina en cistitis)<br>`FT0041` (Amoxicilina en NAC) | **Iniciada (3/8)** |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | — | Pendiente |
 | **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | `SEL0010` (Esquizofrenia LAI)<br>`SEL0021` (Depresión mayor)<br>`SEL0022` (Psicosis aguda) | `FS0017` (Paliperidona)<br>`FS0030` (Sertralina)<br>`FS0031` (Risperidona) | `FT0018` (Paliperidona en Esquizofrenia)<br>`FT0032` (Sertralina en Depresión)<br>`FT0033` (Risperidona en Psicosis) | **Completada (3/3)** |
 | **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato)<br>`FS0018` (Tofacitinib)<br>`FS0024` (Rituximab)<br>`FS0032` (Micofenolato) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs)<br>`FT0019` (Tofacitinib en AR)<br>`FT0026` (Rituximab en pénfigo)<br>`FT0034` (Micofenolato en pénfigo) | **Completada (6/6)** |
@@ -185,9 +185,23 @@ guía en la oleada que le corresponde por coste y por vía.
 
 ### Oleada 2 — Antiinfecciosos AWaRe (Access, Watch & Reserve)
 - [x] **`FT0028` Ceftazidima / Avibactam en Enterobacterias Resistentes (KPC / BLEE)** (Grupo Reserve: NNT 1 no-inferioridad clínica vs carbapenémicos en REPRISE, ahorro de nefrotoxicidad por colistina).
-- [ ] **Amoxicilina en Neumonía Adquirida en la Comunidad y Faringitis Estreptocócica**.
+- [x] **`FT0041` Amoxicilina en Neumonía Adquirida en la Comunidad de manejo ambulatorio**
+  (Grupo Access: no inferioridad del betalactámico en monoterapia frente a la combinación con
+  macrólido y a la fluoroquinolona en mortalidad a 90 días —9.0 % frente a 11.1 % y 8.8 %—, éxito
+  clínico del 93 % con tres días igual que con ocho, NNH 21 frente a placebo y NNH 10 por
+  prolongar el ciclo. El tema original se partió en dos: la faringitis estreptocócica es otro
+  problema de salud y pide su propio `SEL:`, de modo que queda abierta abajo).
+- [ ] **Amoxicilina o penicilina V en Faringitis Estreptocócica** (misma `FA0038`, nueva ficha y
+  nuevo informe de selección; es el segundo caso, tras el metotrexato, de una farmacoterapia que
+  sirve a dos indicaciones sin reescribirse).
 - [ ] **Amoxicilina + Ácido Clavulánico en Infecciones Polimicrobianas / Mordeduras**.
-- [ ] **Nitrofurantoína / Fosfomicina en Infección del Tracto Urinario no Complicada**.
+- [x] **`FT0039` Nitrofurantoína y `FT0040` Fosfomicina trometamol en la Cistitis Aguda no
+  Complicada de la mujer** (`SEL0025` compara los dos de primera línea más cotrimoxazol y
+  ciprofloxacino. Es el informe que demuestra para qué sirve la Parte I: dos fármacos que las
+  guías trataron como intercambiables durante una década quedan separados por el único ensayo que
+  los compara de frente —resolución clínica del 70 % frente al 58 % a 28 días, NNT 9—, y la
+  fluoroquinolona cae sin perder el eje de eficacia, solo por daño colateral. Huecos declarados en
+  ambas farmacoterapias: no hay cronograma de monitorización que escribir, y se explica por qué).
 - [ ] **Cefalexina / Cefazolina en Infecciones de Piel y Partes Blandas**.
 - [ ] **Doxiciclina en Neumonía Atípica e Infecciones Transmitidas por Vectores**.
 - [ ] **Metronidazol en Infecciones Anaerobias y Giardiasis**.

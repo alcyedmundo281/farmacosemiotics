@@ -1,0 +1,43 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:25830421"
+clave_bibtex: postma2015
+tipo: eca
+titulo: "Antibiotic treatment strategies for community-acquired pneumonia in adults"
+autores:
+  - "Postma DF"
+  - "van Werkhoven CH"
+  - "van Elden LJ"
+  - "Thijsen SF"
+  - "Hoepelman AI"
+  - "Kluytmans JA"
+  - "Boersma WG"
+  - "Compaijen CJ"
+  - "van der Wall E"
+  - "Prins JM"
+  - "Oosterheert JJ"
+  - "Bonten MJ"
+  - "CAP-START Study Group"
+publicacion: "N Engl J Med"
+anio: 2015
+volumen: "372"
+numero: "14"
+paginas: "1312-23"
+
+identificadores:
+  pmid: 25830421
+  doi: "10.1056/NEJMoa1406330"
+  pmc: null
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

@@ -1,0 +1,238 @@
+# PARTE II — Farmacoterapia: cómo se usa la nitrofurantoína con seguridad.
+id: 'FA:0036'
+tipo: farmacoterapia
+farmaco: 'FS:0036'
+
+titulo: Farmacoterapia con nitrofurantoína en la infección urinaria baja
+titulo_en: Nitrofurantoin pharmacotherapy in lower urinary tract infection
+
+alcance: >-
+  Fija lo que no cambia entre las indicaciones de la nitrofurantoína: la comprobación de función
+  renal y de edad gestacional antes de la primera dosis, los puntos de corte que obligan a no
+  empezar o a suspender, las dos interacciones que reducen la concentración urinaria activa, el
+  perfil reproductivo y el reparto de actos entre la atención primaria y el especialista. Queda
+  fuera, porque depende de la indicación, la dosis diana, la duración del ciclo y el balance entre
+  beneficio y daño, que viven en cada ficha. Queda fuera también, por definición del fármaco,
+  cualquier uso ajeno a la vía urinaria baja: la nitrofurantoína no alcanza concentraciones
+  terapéuticas en el parénquima renal ni en el plasma.
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Tasa de filtrado glomerular estimada o aclaramiento de creatinina
+    motivo: >-
+      Es el único dato que decide si este fármaco puede usarse, y decide dos cosas a la vez: por
+      debajo de 30 mL/min/1.73 m² no se alcanza la concentración urinaria bactericida —fracaso
+      terapéutico— y aumenta la exposición sistémica responsable de la toxicidad pulmonar,
+      hepática y neurológica. El fracaso y el daño apuntan en la misma dirección, lo que convierte
+      el umbral en una contraindicación y no en un ajuste de dosis.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Edad gestacional, si la paciente está o puede estar embarazada
+    motivo: >-
+      Entre las 38 y las 42 semanas y durante el parto está contraindicada por riesgo de anemia
+      hemolítica neonatal: los sistemas enzimáticos eritrocitarios del recién nacido son inmaduros
+      y no neutralizan el estrés oxidativo del fármaco. Antes de ese plazo es utilizable, de modo
+      que el dato que hay que tener delante no es «embarazo sí o no», sino la semana.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Antecedente de ictericia colestásica o disfunción hepática por nitrofurantoína
+    motivo: >-
+      La reexposición reproduce el daño hepático y puede agravarlo. Es una contraindicación
+      absoluta que solo se detecta preguntando, porque no deja huella en ninguna analítica basal.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Antecedente personal o familiar de déficit de glucosa-6-fosfato deshidrogenasa
+    motivo: >-
+      El fármaco actúa por estrés oxidativo y puede desencadenar anemia hemolítica en el déficit
+      enzimático. No se pide un cribado poblacional: se pregunta, y se estudia solo si el
+      antecedente o el origen geográfico lo hacen probable.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Descarte clínico de afectación del tracto urinario superior (fiebre, dolor en flanco, puñopercusión positiva)
+    motivo: >-
+      No es una prueba de laboratorio sino la exploración que delimita la indicación: con
+      pielonefritis, la nitrofurantoína es el antibiótico equivocado porque no penetra en el
+      parénquima. Prescribirla ahí no es una dosis insuficiente, es un fármaco inaplicable.
+    responsable: seguimiento
+    ref: 'pmid:21292654'
+
+umbrales_accion:
+  - parametro: Tasa de filtrado glomerular estimada
+    umbral: Inferior a 30 mL/min/1.73 m²
+    accion: >-
+      No iniciar, y suspender si el deterioro aparece durante el tratamiento. Elegir otro
+      antibiótico según el antibiograma. No existe pauta reducida que rescate la indicación: el
+      problema no es la dosis, es que el fármaco necesita la filtración glomerular para llegar
+      adonde actúa.
+    ref: 'fda:label'
+
+  - parametro: Síntoma respiratorio de nueva aparición (disnea, tos, fiebre, dolor torácico)
+    umbral: Cualquier aparición durante el tratamiento
+    accion: >-
+      Suspender de inmediato, sin esperar confirmación radiológica. La reacción pulmonar aguda es
+      de hipersensibilidad, remite al retirar el fármaco y contraindica la reexposición de por
+      vida. Registrarla como contraindicación en la historia, no como intolerancia.
+    ref: 'fda:label'
+
+  - parametro: Ictericia, coluria o elevación sintomática de transaminasas
+    umbral: Cualquier aparición durante el tratamiento
+    accion: >-
+      Suspender de inmediato y no reexponer. La hepatitis por nitrofurantoína puede progresar a
+      necrosis hepática si el fármaco se mantiene.
+    ref: 'fda:label'
+
+  - parametro: Parestesias, hipoestesia o debilidad distal simétrica
+    umbral: Cualquier aparición durante el tratamiento
+    accion: >-
+      Suspender de inmediato. La polineuropatía puede ser grave e irreversible si el tratamiento
+      continúa, y el riesgo se concentra en insuficiencia renal, anemia, diabetes y déficit de
+      vitamina B, que es donde conviene estar más atento.
+    ref: 'fda:label'
+
+  - parametro: Edad gestacional
+    umbral: 38 semanas cumplidas
+    accion: >-
+      Suspender y cambiar de antibiótico hasta después del parto, por riesgo de anemia hemolítica
+      neonatal.
+    ref: 'fda:label'
+
+  - parametro: Caída brusca de hemoglobina con ictericia o coluria
+    umbral: Cualquier aparición, en especial con déficit de G6PD conocido o probable
+    accion: >-
+      Suspender de inmediato por sospecha de anemia hemolítica y estudiar la actividad de la
+      glucosa-6-fosfato deshidrogenasa.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Antiácidos que contienen trisilicato de magnesio
+    gravedad: moderada
+    efecto: >-
+      Adsorben la nitrofurantoína en la luz intestinal y reducen tanto la cantidad absorbida como
+      la velocidad de absorción, lo que baja la concentración urinaria alcanzada.
+    conducta: >-
+      Separar las tomas o sustituir el antiácido durante el ciclo. Es una interacción que se
+      manifiesta como fracaso terapéutico sin ningún síntoma de alarma, y por eso conviene
+      preguntar activamente por antiácidos de venta libre.
+    ref: 'fda:label'
+
+  - con: Probenecid y sulfinpirazona
+    gravedad: moderada
+    efecto: >-
+      Inhiben la secreción tubular renal de nitrofurantoína: elevan su concentración plasmática
+      —y con ella la toxicidad sistémica— y reducen la urinaria, que es la que cura.
+    conducta: >-
+      Evitar la asociación. Empeora los dos lados del balance a la vez.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Utilizable durante la mayor parte del embarazo, y es uno de los antibióticos con más
+      experiencia acumulada en la bacteriuria y la cistitis de la gestante. La precaución es un
+      plazo y no una incertidumbre: está contraindicada desde las 38 semanas hasta el parto por
+      riesgo de anemia hemolítica neonatal. La pregunta correcta ante una gestante no es si puede
+      tomarla, sino en qué semana está.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Se excreta en la leche materna en cantidades pequeñas. Compatible salvo en dos situaciones
+      que la contraindican: lactante menor de un mes, por inmadurez de sus sistemas enzimáticos
+      eritrocitarios, y lactante con déficit conocido o sospechado de glucosa-6-fosfato
+      deshidrogenasa.
+    ref: 'fda:label'
+
+atencion_compartida:
+  seguimiento: >-
+    Médico de atención primaria: indica el tratamiento, comprueba la función renal y la semana
+    gestacional antes de la primera dosis, instruye sobre la toma con alimento y sobre los
+    síntomas que obligan a suspender sin esperar consulta, y reevalúa si no hay mejoría en 48 a 72
+    horas. En este fármaco el prescriptor habitual es el médico de primera línea, y el reparto de
+    actos refleja eso: la mayor parte de la guía es suya.
+  especialista: >-
+    Urología o infectología: interviene ante recurrencia frecuente, sospecha de anomalía
+    estructural, fracaso del tratamiento con urocultivo resistente, o cuando se plantea profilaxis
+    prolongada, que es el escenario en que aparecen la fibrosis pulmonar y la hepatitis crónica y
+    el único que exige vigilancia específica.
+  checklist_preinicio:
+    - Tasa de filtrado glomerular estimada igual o superior a 30 mL/min/1.73 m²
+    - Semana gestacional inferior a 38, si procede
+    - Sin antecedente de hepatopatía ni de reacción pulmonar por nitrofurantoína
+    - Sin fiebre ni dolor en flanco que sugieran afectación del tracto superior
+  suspension_inmediata:
+    - Disnea, tos o fiebre de nueva aparición
+    - Ictericia o coluria
+    - Parestesias o debilidad distal
+    - Caída brusca de hemoglobina
+    - Semana 38 de gestación cumplida
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Es el fármaco de primera línea de la infección urinaria baja no complicada por el único ensayo
+    aleatorizado que lo compara de frente con el otro candidato de primera línea, y por una
+    propiedad que ningún competidor tiene: sesenta años de uso masivo sin resistencia clínicamente
+    relevante en Escherichia coli, consecuencia de atacar varias dianas bacterianas a la vez.
+  escalonado:
+    - linea: primera
+      opciones: 'Nitrofurantoína oral, 5 días, en la cistitis aguda no complicada de la mujer no gestante'
+      nota: 'Siempre que la TFGe sea igual o superior a 30 mL/min/1.73 m² y no haya datos de afectación del tracto superior'
+    - linea: segunda
+      opciones: 'Fosfomicina trometamol en dosis única, o cotrimoxazol 3 días donde la resistencia local documentada sea inferior al 20 %'
+      nota: 'Fosfomicina pasa a primera opción cuando la adherencia es el factor limitante o la función renal excluye la nitrofurantoína'
+    - linea: rescate
+      opciones: 'Antibiótico dirigido por antibiograma; fluoroquinolona o betalactámico según sensibilidad'
+      nota: 'Tras fracaso documentado con urocultivo, nunca de forma empírica en el mismo episodio'
+  ref: 'pmid:29710295'
+
+# ── Huecos declarados ────────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No se escribe cronograma porque ninguna de las fuentes consultadas fija uno, y las dos
+      situaciones de uso del fármaco explican por qué. En el ciclo de cinco días de la cistitis
+      aguda —que es prácticamente todo su uso— no hay analítica que repetir: el tratamiento acaba
+      antes de que una toxicidad acumulativa pueda instalarse, y la guía internacional no prescribe
+      ningún control intermedio. En el uso profiláctico prolongado sí existe el riesgo que
+      justificaría vigilar la función pulmonar y hepática, pero la ficha técnica advierte de la
+      toxicidad sin fijar qué prueba, con qué periodicidad ni en qué fase, y rellenar esos tres
+      huecos con un intervalo verosímil sería exactamente el fallo que este repositorio existe para
+      impedir. Lo que sí tiene fuente son los puntos de corte y la conducta ante la anomalía, y
+      están escritos en `umbrales_accion`: la vigilancia de este fármaco es clínica y de síntomas,
+      no analítica y de calendario.
+    buscado_en: >-
+      Guía internacional IDSA/ESCMID de cistitis aguda y pielonefritis en la mujer, y ficha técnica
+      de la FDA en sus apartados de advertencias y precauciones
+    refs:
+      - 'pmid:21292654'
+      - 'fda:label'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No hay dosis de inicio que dependa de un genotipo. El déficit de glucosa-6-fosfato
+      deshidrogenasa modifica el riesgo de hemólisis y por eso figura en el cribado basal y en los
+      umbrales de acción, pero no define un escalón de dosis como el TPMT en la azatioprina: ante
+      déficit conocido el fármaco se evita, no se reduce. No existe recomendación CPIC de
+      dosificación por genotipo para la nitrofurantoína.
+    buscado_en: 'Ficha técnica de la FDA y guía internacional IDSA/ESCMID'
+    refs:
+      - 'fda:label'
+      - 'pmid:21292654'
+
+refs:
+  - 'pmid:29710295'
+  - 'pmid:21292654'
+  - 'fda:label'

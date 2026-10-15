@@ -1,0 +1,177 @@
+# Principio activo. Lo que NO depende de la indicación.
+
+id: 'FS:0036'
+tipo: farmaco
+dci: Nitrofurantoína
+dci_en: Nitrofurantoin
+sinonimos:
+  - nitrofurantoína macrocristales
+  - nitrofurantoína monohidrato/macrocristales
+  - Macrobid
+  - Macrodantin
+
+atc: J01XE01
+clase_farmacologica: Antibacteriano nitrofuránico de uso urinario exclusivo
+clase_farmacologica_en: Nitrofuran urinary antibacterial
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '6.2.1'
+  seccion_titulo_en: Access group antibiotics
+  categoria: core
+
+mecanismo: >-
+  Profármaco que las flavoproteínas bacterianas reducen dentro de la célula a intermediarios
+  electrofílicos muy reactivos, los cuales atacan simultáneamente los ribosomas, el ADN, el
+  metabolismo del piruvato y varias enzimas del ciclo de Krebs. Esa multiplicidad de dianas
+  —en lugar de una sola proteína, como en los betalactámicos o las quinolonas— explica la
+  característica que decide su posición terapéutica: sesenta años de uso masivo en cistitis
+  no han generado resistencia clínicamente relevante en Escherichia coli, porque un
+  uropatógeno tendría que mutar varios sistemas a la vez. En contrapartida, el fármaco se
+  concentra en la orina pero no alcanza concentraciones terapéuticas en el parénquima renal
+  ni en la sangre, de modo que trata la vejiga y no sirve para la pielonefritis ni para
+  ninguna infección fuera de la vía urinaria baja.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: >-
+    Absorción oral rápida con alimento, metabolismo tisular extenso y excreción renal del
+    20-25 % de la dosis como fármaco inalterado, que es la fracción activa: el efecto depende
+    de la concentración urinaria, no de la plasmática
+  vida_media: 'Aproximadamente 20 a 60 minutos en plasma, por eliminación y metabolismo muy rápidos'
+  implicacion: >-
+    La dependencia absoluta de la filtración glomerular para concentrar el fármaco en la orina
+    convierte la insuficiencia renal en un problema doble y no en uno de sobredosis: con
+    aclaramiento bajo no se alcanza la concentración urinaria bactericida —fracaso terapéutico—
+    mientras aumenta la exposición sistémica responsable de la toxicidad pulmonar y hepática.
+    Por eso está contraindicada con TFGe inferior a 30 mL/min/1.73 m². La toma con alimento
+    mejora la absorción y reduce la intolerancia digestiva.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Náuseas, vómitos y molestia epigástrica
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Es la reacción que más condiciona la adherencia. En el ensayo cara a cara frente a
+        fosfomicina aparecieron náuseas en 7 de 248 pacientes (3 %) y diarrea en 3 de 248 (1 %)
+        con el ciclo de cinco días. Se mitiga tomando el fármaco con comida.
+      ref: 'pmid:29710295'
+
+    - evento: Reacción pulmonar aguda (fiebre, disnea, tos, infiltrados, eosinofilia)
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Reacción de hipersensibilidad que aparece en las primeras horas o días y remite al
+        suspender. Obliga a suspender de inmediato y a no volver a exponer al paciente.
+      ref: 'fda:label'
+
+    - evento: Fibrosis pulmonar intersticial subaguda o crónica
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Propia del tratamiento prolongado o profiláctico durante meses, no del ciclo de cinco
+        días de la cistitis aguda. Puede ser irreversible si no se reconoce pronto; es el
+        argumento principal contra la profilaxis indefinida sin vigilancia.
+      ref: 'fda:label'
+
+    - evento: Hepatotoxicidad (hepatitis colestásica, hepatitis crónica activa, necrosis hepática)
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Igualmente asociada al uso prolongado. Obliga a suspender ante ictericia o elevación
+        sintomática de transaminasas.
+      ref: 'fda:label'
+
+    - evento: Anemia hemolítica en déficit de glucosa-6-fosfato deshidrogenasa
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Mecanismo oxidativo directo. Es también la razón de la contraindicación al final del
+        embarazo y en el neonato menor de un mes, cuyos sistemas enzimáticos eritrocitarios
+        son inmaduros.
+      ref: 'fda:label'
+
+    - evento: Polineuropatía periférica sensitivomotora
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Riesgo concentrado en insuficiencia renal, anemia, diabetes, desequilibrio electrolítico
+        y déficit de vitamina B. Puede ser grave e irreversible.
+      ref: 'fda:label'
+
+  contraindicaciones:
+    - motivo: >-
+        Tasa de filtrado glomerular estimada inferior a 30 mL/min/1.73 m²: no se alcanza la
+        concentración urinaria bactericida y aumenta la exposición sistémica tóxica. El fracaso
+        terapéutico y el daño apuntan en la misma dirección, y por eso es contraindicación y no
+        ajuste de dosis.
+      ref: 'fda:label'
+    - motivo: >-
+        Embarazo a término, entre las semanas 38 y 42, y durante el parto: riesgo de anemia
+        hemolítica neonatal por inmadurez de los sistemas enzimáticos eritrocitarios.
+      ref: 'fda:label'
+    - motivo: >-
+        Lactante menor de un mes: riesgo de anemia hemolítica por la misma inmadurez enzimática.
+      ref: 'fda:label'
+    - motivo: >-
+        Antecedente de ictericia colestásica o disfunción hepática por nitrofurantoína: la
+        reexposición reproduce el daño y puede agravarlo.
+      ref: 'fda:label'
+    - motivo: >-
+        Pielonefritis aguda, absceso perinéfrico o cualquier infección fuera de la vía urinaria
+        baja: el fármaco no alcanza concentraciones terapéuticas en el parénquima renal ni en el
+        plasma. Usarlo ahí es tratar una infección tisular con un antibiótico que solo actúa en
+        la orina.
+      ref: 'pmid:21292654'
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+# Generado por scripts/openfda.py. Marcas devueltas por la consulta:
+# FURADANTIN, MACROBID, NITROFURANTOIN y NITROFURANTOIN
+# (MONOHYDRATE/MACROCRYSTALS). Ninguna es una combinación, de modo que el
+# recuento de solicitudes corresponde al principio activo solo.
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1953-12-23'
+    primera_aprobacion_nota: >-
+      Derivada de la submission ORIG/AP más antigua de openFDA, no de un campo oficial de primera
+      aprobación. Sitúa al fármaco entre los antibacterianos más antiguos en uso continuado, que es
+      el dato relevante aquí: setenta años de exposición sin resistencia clínicamente relevante en
+      Escherichia coli.
+    marca_original: FURADANTIN
+    solicitudes:
+      nda: 2
+      anda: 23
+      bla: 0
+    fuente: 'openfda:drugsfda'
+    consulta: 'openfda.generic_name:"nitrofurantoin"'
+    consultado: '2026-10-15'
+
+etiqueta_fda:
+  set_id: '10e2503d-a250-996f-e063-6294a90abd61'
+  vigencia: '2026-08-19'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=10e2503d-a250-996f-e063-6294a90abd61
+  fuente: 'openfda:label'
+  consultado: '2026-10-15'
+  nota: >-
+    Es la fuente de las referencias `fda:label` de este fármaco y de su farmacoterapia FA:0036. Se
+    enlaza y se resume; no se copia, porque el texto de la ficha técnica es obra ajena.
+
+refs:
+  - 'pmid:21292654'
+  - 'pmid:29710295'
+  - 'fda:label'

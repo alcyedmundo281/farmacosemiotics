@@ -1,0 +1,34 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:17998493"
+clave_bibtex: gupta2007
+tipo: eca
+titulo: "Short-course nitrofurantoin for the treatment of acute uncomplicated cystitis in women"
+autores:
+  - "Gupta K"
+  - "Hooton TM"
+  - "Roberts PL"
+  - "Stamm WE"
+publicacion: "Arch Intern Med"
+anio: 2007
+volumen: "167"
+numero: "20"
+paginas: "2207-12"
+
+identificadores:
+  pmid: 17998493
+  doi: "10.1001/archinte.167.20.2207"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Randomized Controlled Trial"
+  - "Research Support, N.I.H., Extramural"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

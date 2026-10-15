@@ -1,0 +1,38 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:38023546"
+clave_bibtex: grant2023
+tipo: articulo
+titulo: "Impact of the 2019 Food and Drug Administration Guidance for Uncomplicated Urinary Tract Infection on Treatment Response Rates: A Reanalysis of a Clinical Trial of Nitrofurantoin vs Fosfomycin"
+autores:
+  - "Grant R"
+  - "Büchler A"
+  - "Flight W"
+  - "Huang C"
+  - "Ferrinho D"
+  - "Janmohamed S"
+  - "Mulgirigama A"
+  - "Godycki-Cwirko M"
+  - "Leibovici L"
+  - "Huttner A"
+  - "Harbarth S"
+publicacion: "Open Forum Infect Dis"
+anio: 2023
+volumen: "10"
+numero: "11"
+paginas: "ofad557"
+
+identificadores:
+  pmid: 38023546
+  doi: "10.1093/ofid/ofad557"
+  pmc: "PMC10661658"
+
+tipos_pubmed:
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

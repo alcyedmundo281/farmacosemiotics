@@ -1,0 +1,35 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:22591294"
+clave_bibtex: ray2012
+tipo: articulo
+titulo: "Azithromycin and the risk of cardiovascular death"
+autores:
+  - "Ray WA"
+  - "Murray KT"
+  - "Hall K"
+  - "Arbogast PG"
+  - "Stein CM"
+publicacion: "N Engl J Med"
+anio: 2012
+volumen: "366"
+numero: "20"
+paginas: "1881-90"
+
+identificadores:
+  pmid: 22591294
+  doi: "10.1056/NEJMoa1003833"
+  pmc: "PMC3374857"
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Research Support, N.I.H., Extramural"
+  - "Research Support, U.S. Gov't, P.H.S."
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

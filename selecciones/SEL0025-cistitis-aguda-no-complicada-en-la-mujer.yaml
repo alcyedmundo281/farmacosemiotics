@@ -1,0 +1,257 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0025'
+tipo: seleccion
+problema: Cistitis aguda no complicada en la mujer
+problema_en: Acute uncomplicated cystitis in women
+
+poblacion: >-
+  Mujeres adultas no gestantes con síntomas de infección del tracto urinario inferior —disuria,
+  urgencia, polaquiuria o dolor suprapúbico—, sin fiebre, sin dolor en flanco y sin anomalías
+  urológicas, inmunosupresión ni comorbilidad que convierta el cuadro en complicado. Queda
+  expresamente fuera la pielonefritis aguda, que es un problema de salud distinto y exige
+  antibióticos con penetración en el parénquima renal.
+
+pregunta: >-
+  En mujeres adultas no gestantes con cistitis aguda no complicada, ¿qué antibiótico oral se
+  selecciona como tratamiento empírico de primera línea según eficacia, seguridad, conveniencia
+  y costo, cuando el objetivo incluye además preservar las clases antibióticas de reserva?
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  La cistitis aguda no complicada es la infección bacteriana más frecuente de la mujer adulta y,
+  por su volumen, el mayor consumidor de antibióticos de la atención primaria. Eso convierte la
+  decisión en un problema doble: hay que curar a esta paciente y hay que no gastar en ella las
+  clases que harán falta en infecciones graves. El concepto de daño colateral —la presión
+  selectiva que un antibiótico ejerce sobre la flora que no era su diana— es lo que desplazó a las
+  fluoroquinolonas de la primera línea de un cuadro que casi nunca se complica, y lo que dejó en
+  pie a dos fármacos antiguos de espectro estrecho y uso urinario exclusivo: nitrofurantoína y
+  fosfomicina trometamol. Durante una década las guías los presentaron como intercambiables, sin
+  que existiera un ensayo que los comparara de frente. Ese ensayo se publicó en 2018 y los separó.
+
+estrategia:
+  - base: PubMed
+    consulta: 'nitrofurantoin AND fosfomycin AND uncomplicated urinary tract infection AND randomized controlled trial[pt]'
+    fecha: '2026-10-15'
+    nota: >-
+      Se priorizó el único ensayo aleatorizado de comparación directa entre los dos fármacos de
+      primera línea (Huttner et al., JAMA 2018; PMID 29710295), su reanálisis con el desenlace
+      compuesto exigido por la FDA (PMID 38023546) y el metaanálisis previo que no disponía de él
+      (PMID 34151754). Para el comparador clásico se usó el ensayo de equivalencia frente a
+      cotrimoxazol (PMID 17998493) y, para el marco de daño colateral, la guía internacional
+      IDSA/ESCMID (PMID 21292654).
+
+criterio_decisorio: >-
+  Dado que los cuatro candidatos curan a la mayoría de las pacientes y que ninguno tiene coste
+  prohibitivo, el eje que decide es la eficacia cuando existe comparación directa, y el daño
+  colateral —dentro del eje de seguridad— cuando no existe. La eficacia separó a nitrofurantoína
+  de fosfomicina en el único ensayo cara a cara; el daño colateral separó a las dos de la
+  fluoroquinolona, que no pierde por eficacia sino por lo que cuesta en resistencia y en toxicidad
+  evitable; y la resistencia local separó al cotrimoxazol, cuya eficacia depende de un dato
+  —la susceptibilidad del aislado— que el médico no tiene delante cuando prescribe.
+
+conclusion: >-
+  Se selecciona nitrofurantoína 100 mg cada 8 o 12 horas durante 5 días como tratamiento empírico
+  de primera línea: es el único de los cuatro candidatos con superioridad demostrada en una
+  comparación directa —resolución clínica del 70 % frente al 58 % de fosfomicina a los 28 días,
+  diferencia de 12 puntos (IC 95 % 4 a 21), NNT 9—, no ha desarrollado resistencia relevante en
+  Escherichia coli tras sesenta años de uso y su espectro estrecho no toca la flora que importa
+  preservar. Fosfomicina trometamol queda como alternativa de pleno derecho y es la elección
+  preferente cuando la adherencia manda, porque una dosis única tomada en la consulta no se
+  olvida; su desventaja de eficacia, además, se atenúa hasta casi desaparecer cuando el desenlace
+  se mide con el criterio compuesto de la FDA (59 % frente a 57 %). Cotrimoxazol queda reservado a
+  los entornos donde la resistencia local documentada de E. coli sea inferior al 20 % o se conozca
+  la susceptibilidad del aislado, porque con un uropatógeno no sensible la curación cae del 84 %
+  al 41 %. Ciprofloxacino no se selecciona: su eficacia es al menos equivalente y aun así no
+  procede en primera línea, porque gasta en el cuadro urinario más banal una clase con
+  advertencia de recuadro negro por tendinopatía, neuropatía y efectos neuropsiquiátricos, y con
+  un daño colateral sobre la flora que ningún otro candidato ejerce. El informe deja un hueco
+  explícito: no evalúa el tratamiento diferido con analgesia, que en una parte de las cistitis
+  resuelve sin antibiótico, porque la pregunta formulada es la de la elección del antibiótico.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+candidatos:
+  - dci: Nitrofurantoína
+    atc: J01XE01
+    clase: Antibacteriano nitrofuránico de uso urinario exclusivo
+    farmaco: 'FS:0036'
+    veredicto: seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Único candidato con superioridad en una comparación directa: en el ensayo aleatorizado
+        multinacional de 513 mujeres, la resolución clínica a los 28 días del fin del tratamiento
+        fue del 70 % (171/244) con nitrofurantoína 5 días frente al 58 % (139/241) con fosfomicina
+        en dosis única —diferencia de 12 puntos porcentuales (IC 95 % 4 a 21; p = 0.004), NNT 9—, y
+        la resolución microbiológica del 74 % (129/175) frente al 63 % (103/163), diferencia de 11
+        puntos (IC 95 % 1 a 20). Frente a cotrimoxazol es equivalente: 84 % de curación clínica a
+        los 30 días con 5 días de nitrofurantoína contra el 79 % con 3 días de cotrimoxazol
+        (diferencia -5 %; IC 95 % -13 a 4).
+      ref: 'pmid:29710295'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        En el ensayo cara a cara los efectos adversos fueron escasos y digestivos en ambas ramas
+        (náuseas en 7 de 248, 3 %; diarrea en 3 de 248, 1 %). Las toxicidades que dan mala fama al
+        fármaco —fibrosis pulmonar, hepatitis crónica, polineuropatía— pertenecen al uso prolongado
+        o profiláctico, no al ciclo de cinco días. Su espectro estrecho y de uso urinario exclusivo
+        es además lo que hace que no ejerza el daño colateral de las clases sistémicas.
+      ref: 'pmid:29710295'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Es el candidato más exigente para la paciente: dos o tres tomas diarias durante cinco días,
+        con alimento para tolerarlo. La guía internacional la acepta en esa pauta precisamente
+        porque la eficacia la justifica. Queda además excluida si la tasa de filtrado glomerular
+        estimada es inferior a 30 mL/min/1.73 m² y no sirve si hay sospecha de afectación del
+        tracto superior.
+      ref: 'pmid:21292654'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente de síntesis antigua, sin patente y con producción amplia; el ciclo
+        completo es de los más baratos del arsenal antibacteriano.
+    nota: >-
+      Que un fármaco de los años cincuenta gane el eje de eficacia en 2018 no es nostalgia: es la
+      consecuencia de atacar varias dianas bacterianas a la vez, que es lo que ha impedido la
+      resistencia.
+
+  - dci: Fosfomicina trometamol
+    atc: J01XX01
+    clase: Antibacteriano fosfónico, análogo del fosfoenolpiruvato
+    farmaco: 'FS:0037'
+    veredicto: alternativa
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Inferior a nitrofurantoína en la única comparación directa: resolución clínica del 58 %
+        frente al 70 % a los 28 días (diferencia -12 %; IC 95 % -21 a -4) y microbiológica del 63 %
+        frente al 74 %. La desventaja debe matizarse por dos hallazgos que apuntan en sentido
+        contrario y que este informe no esconde: el metaanálisis de cuatro ensayos previo al estudio
+        cara a cara no halló diferencia en curación clínica (RR 0.95; IC 95 % 0.81 a 1.12) ni
+        microbiológica (RR 0.96; IC 95 % 0.84 a 1.08), y el reanálisis del propio ensayo con el
+        desenlace compuesto que hoy exige la FDA —resolución clínica más reducción microbiológica a
+        día 14— redujo la separación a 59 % frente a 57 %. La inferioridad es, por tanto, real pero
+        dependiente del desenlace con que se mida.
+      ref: 'pmid:29710295'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Perfil de efectos adversos superponible al de nitrofurantoína en el ensayo cara a cara
+        (diarrea en 5 de 247, 2 %; náuseas en 5 de 247, 2 %), y el metaanálisis no detectó
+        diferencia (RR 1.05; IC 95 % 0.59 a 1.87). Comparte con nitrofurantoína la ventaja
+        ecológica del espectro estrecho y de la diana que no solapa con los betalactámicos.
+      ref: 'pmid:29710295'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Es el candidato más conveniente del informe y por un margen que no admite discusión: 3 g en
+        dosis oral única, que puede administrarse en la propia consulta. La adherencia deja de ser
+        una variable, lo que en una infección de alta frecuencia y resolución rápida —donde el
+        abandono al tercer día es la norma cuando los síntomas ceden— compensa parte de la
+        desventaja de eficacia medida en condiciones de ensayo.
+      ref: 'pmid:21292654'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Genérico oral de dosis única, con disponibilidad multifuente desigual según el mercado: el
+        precio por sobre es superior al del ciclo de nitrofurantoína en algunos entornos e inferior
+        en otros, y la dosis única ahorra el coste indirecto del abandono.
+    nota: >-
+      Preferente cuando la adherencia es el factor limitante, cuando se necesita tratamiento
+      observado o cuando la nitrofurantoína está contraindicada por función renal.
+
+  - dci: Trimetoprima / sulfametoxazol (cotrimoxazol)
+    atc: J01EE01
+    clase: Inhibidor secuencial de la síntesis bacteriana de folato
+    veredicto: reservado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        Equivalente a nitrofurantoína mientras el uropatógeno sea sensible: 79 % de curación clínica
+        a los 30 días con 3 días de tratamiento frente al 84 % de nitrofurantoína (diferencia -5 %;
+        IC 95 % -13 a 4) en el ensayo aleatorizado de 338 mujeres. La equivalencia se desploma con
+        resistencia: dentro de la misma rama, la curación fue del 41 % (7 de 17) cuando el aislado
+        no era sensible frente al 84 % cuando lo era (p < 0.001), es decir 43 puntos porcentuales de
+        curación perdidos por un dato que el prescriptor no tiene delante en el momento de decidir.
+      ref: 'pmid:17998493'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Es el único de los cuatro candidatos con toxicidad sistémica relevante en un ciclo corto:
+        exantema y reacciones cutáneas graves —síndrome de Stevens-Johnson y necrólisis epidérmica
+        tóxica—, hiperpotasemia, mielosupresión y potenciación de los antagonistas de la vitamina K.
+        A diferencia de los dos primeros candidatos, su espectro es sistémico y ejerce presión
+        selectiva sobre flora que no era la diana.
+      ref: 'fda:label'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Pauta de un comprimido de doble concentración cada 12 horas durante 3 días: la más corta de
+        las de dosis múltiple y sin requisito de toma con alimento. La guía internacional la acepta
+        como tratamiento apropiado de primera línea solo si la resistencia local de Escherichia coli
+        es inferior al 20 %, condición que convierte la conveniencia en irrelevante allí donde no se
+        cumple.
+      ref: 'pmid:21292654'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente muy barato y de ciclo corto; junto con nitrofurantoína, el de menor
+        coste de adquisición del informe.
+    nota: >-
+      Reservado, no descartado: sigue siendo la elección correcta donde la vigilancia local
+      documenta resistencia por debajo del 20 % o cuando se conoce el antibiograma.
+
+  - dci: Ciprofloxacino
+    atc: J01MA02
+    clase: Fluoroquinolona de segunda generación
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: superior
+      sustento: >-
+        La guía internacional reconoce que las fluoroquinolonas son muy eficaces en pautas de tres
+        días en la cistitis aguda no complicada y las sitúa entre los regímenes de mayor tasa de
+        curación disponible. Importa decirlo así: este candidato no queda fuera por no funcionar, y
+        presentarlo como ineficaz falsearía el informe.
+      ref: 'pmid:21292654'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Es el peor del informe por un margen amplio, y en dos planos. En el individual, lleva
+        advertencia de recuadro negro por tendinitis y rotura tendinosa, neuropatía periférica y
+        efectos adversos del sistema nervioso central, además de advertencias por disección y
+        aneurisma de aorta, disglucemia y exacerbación de la miastenia grave: toxicidad
+        potencialmente irreversible en una infección que casi nunca se complica. En el colectivo, es
+        la clase cuyo daño colateral —selección de resistencias en flora ajena a la diana— motivó
+        expresamente que la guía internacional la relegara de la primera línea de este cuadro.
+      ref: 'fda:label'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Pauta de 250 mg cada 12 horas durante 3 días, comparable al cotrimoxazol y más cómoda que la
+        nitrofurantoína. La guía la admite expresamente, pero recomendando reservarla para
+        indicaciones distintas de la cistitis no complicada.
+      ref: 'pmid:21292654'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente de bajo coste de adquisición. Es justamente el caso que demuestra
+        por qué el eje de costo va en cuarto lugar: ser barato no rescata a un candidato al que la
+        seguridad descarta.
+    nota: >-
+      No seleccionado por daño colateral y toxicidad evitable, no por eficacia. Queda para la
+      pielonefritis aguda y para la infección urinaria complicada, que son otros problemas de salud.
+
+refs:
+  - 'pmid:29710295'
+  - 'pmid:17998493'
+  - 'pmid:21292654'
+  - 'pmid:34151754'
+  - 'pmid:38023546'
+  - 'fda:label'

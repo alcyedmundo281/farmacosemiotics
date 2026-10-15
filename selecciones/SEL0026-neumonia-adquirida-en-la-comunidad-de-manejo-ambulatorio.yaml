@@ -1,0 +1,270 @@
+# PARTE I — Informe de selección del medicamento.
+id: 'SEL:0026'
+tipo: seleccion
+problema: Neumonía adquirida en la comunidad de manejo ambulatorio
+problema_en: Outpatient community-acquired pneumonia
+
+poblacion: >-
+  Adultos con neumonía adquirida en la comunidad confirmada clínica y radiológicamente, de
+  gravedad baja según la regla de predicción empleada (índice de gravedad de la neumonía de clase
+  I o II, o CURB-65 de 0 a 1), sin comorbilidad crónica significativa —enfermedad
+  cardiovascular, pulmonar, hepática o renal crónica, diabetes, alcoholismo, neoplasia activa o
+  asplenia—, sin antibioterapia en los 90 días previos y sin factores de riesgo de
+  Staphylococcus aureus resistente a meticilina ni de Pseudomonas aeruginosa. Es la población que
+  se trata en casa y por vía oral desde la primera dosis.
+
+pregunta: >-
+  En adultos previamente sanos con neumonía adquirida en la comunidad de gravedad baja tratada de
+  forma ambulatoria, ¿qué antibiótico oral se selecciona como tratamiento empírico de primera
+  línea según eficacia, seguridad, conveniencia y costo?
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  La elección empírica en la neumonía ambulatoria arrastra una pregunta no resuelta de fondo: si
+  hay que cubrir desde el principio a los patógenos atípicos —Mycoplasma pneumoniae, Chlamydia
+  pneumoniae, Legionella— o si basta cubrir a Streptococcus pneumoniae, que sigue siendo el agente
+  que mata. Quien cubre lo atípico elige macrólido o doxiciclina; quien cubre al neumococo elige
+  un betalactámico. El ensayo aleatorizado por conglomerados que comparó las tres estrategias en
+  pacientes hospitalizados fuera de cuidados intensivos no encontró que añadir el macrólido al
+  betalactámico salvara vidas, y las guías actuales reservan el macrólido en monoterapia a los
+  entornos donde la resistencia del neumococo sea baja. El problema, por tanto, ya no es de
+  eficacia: es de a quién se expone a qué daño para obtener la misma curación.
+
+estrategia:
+  - base: PubMed
+    consulta: 'community-acquired pneumonia AND (amoxicillin OR doxycycline OR azithromycin) AND (randomized controlled trial[pt] OR meta-analysis[pt] OR practice guideline[pt])'
+    fecha: '2026-10-15'
+    nota: >-
+      Se priorizaron la guía conjunta ATS/IDSA de 2019 (PMID 31573350), el ensayo aleatorizado por
+      conglomerados de estrategias antibióticas CAP-START (PMID 25830421), el ensayo doble ciego de
+      duración de amoxicilina (PMID 16763247), el metaanálisis de doxiciclina en neumonía leve a
+      moderada (PMID 35903011), el ensayo multinacional frente a placebo que cuantifica el daño
+      atribuible a la amoxicilina (PMID 23265995) y la cohorte que midió la mortalidad
+      cardiovascular de la azitromicina frente a la amoxicilina (PMID 22591294).
+
+criterio_decisorio: >-
+  Ninguno de los cuatro candidatos es inferior en eficacia de forma demostrada, y los cuatro son
+  genéricos orales baratos. Eso deja la decisión en el eje de seguridad, y dentro de él en una
+  comparación que sí tiene cifra: frente al mismo desenlace de curación, la azitromicina multiplica
+  por 2.49 el riesgo de muerte cardiovascular respecto de la amoxicilina, y la fluoroquinolona
+  añade la toxicidad irreversible de su advertencia de recuadro negro más el daño colateral de la
+  clase. La amoxicilina paga ese bien en el eje de conveniencia —tres tomas diarias, la peor pauta
+  del informe— y es el único eje en que pierde. Que la conveniencia no mueva el veredicto es
+  deliberado: es el tercer eje del orden de la decisión, y no rescata a un candidato cuyo coste en
+  seguridad es mayor.
+
+conclusion: >-
+  Se selecciona amoxicilina 1 g por vía oral cada 8 horas como tratamiento empírico de primera
+  línea del adulto previamente sano con neumonía adquirida en la comunidad de manejo ambulatorio,
+  tal como la recomienda con fuerza la guía ATS/IDSA de 2019. La estrategia de betalactámico en
+  monoterapia resultó no inferior a la combinación con macrólido y a la fluoroquinolona en
+  mortalidad a 90 días (9.0 % frente a 11.1 % y 8.8 %), de modo que añadir cobertura atípica de
+  entrada no compra supervivencia; y la duración puede ser corta, porque suspender a los tres días
+  en quien ya mejoró fue no inferior a los ocho días (éxito clínico del 93 % en ambos brazos a día
+  10). Su daño atribuible está cuantificado y es modesto: NNH 21 para náuseas, exantema o diarrea
+  frente a placebo. Doxiciclina queda como alternativa de pleno derecho —curación del 87.2 %
+  frente al 82.6 % de macrólidos y fluoroquinolonas en metaanálisis, con ventaja en el subgrupo de
+  ensayos de bajo riesgo de sesgo (OR 1.92; IC 95 % 1.15 a 3.21)— y es la elección natural ante
+  alergia a betalactámicos o sospecha clínica de patógeno atípico. Azitromicina queda reservada a
+  los entornos con resistencia neumocócica local a macrólidos inferior al 25 %, y aun allí con la
+  cautela de su exceso de muerte cardiovascular frente a amoxicilina (HR 2.49; IC 95 % 1.38 a 4.50;
+  47 muertes cardiovasculares añadidas por millón de ciclos, y 245 por millón en el decil de mayor
+  riesgo cardiovascular). Levofloxacino no se selecciona en este escenario: su eficacia es
+  equivalente, pero es la última reserva oral con actividad antineumocócica fiable y gastarla en la
+  neumonía que se trata en casa la inutiliza para la que no. El informe deja dos huecos explícitos:
+  no compara duraciones de tratamiento entre candidatos distintos, y no evalúa la amoxicilina con
+  ácido clavulánico, que corresponde a la población con comorbilidad excluida de esta pregunta.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+candidatos:
+  - dci: Amoxicilina
+    atc: J01CA04
+    clase: Penicilina semisintética de amplio espectro (aminopenicilina)
+    farmaco: 'FS:0038'
+    veredicto: seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        La estrategia de betalactámico en monoterapia fue no inferior a la combinación con macrólido
+        y a la fluoroquinolona en el ensayo aleatorizado por conglomerados y cruzado de 2283
+        pacientes ingresados fuera de cuidados intensivos: mortalidad a 90 días del 9.0 % (59/656)
+        con betalactámico, 11.1 % (82/739) con betalactámico más macrólido y 8.8 % (78/888) con
+        fluoroquinolona, con un riesgo de muerte 1.9 puntos porcentuales mayor en la rama del
+        macrólido (IC 90 % -0.6 a 4.4) y 0.6 puntos menor en la de la fluoroquinolona (IC 90 % -2.8 a
+        1.9), ambos dentro del margen de no inferioridad de 3 puntos. En el ensayo doble ciego de
+        duración, el éxito clínico a día 10 con amoxicilina fue del 93 % tanto con tres días como con
+        ocho (diferencia 0.1 %; IC 95 % -9 a 10), y del 90 % frente al 88 % a día 28. La guía
+        ATS/IDSA la recomienda con fuerza como monoterapia de primera elección en esta población.
+      ref: 'pmid:25830421'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Es el único candidato cuyo daño atribuible está medido contra placebo: en el ensayo
+        multinacional de 2061 pacientes con infección respiratoria baja aguda, las náuseas, el
+        exantema o la diarrea aparecieron con un número necesario para dañar de 21 (IC 95 % 11 a
+        174), con un caso de anafilaxia entre 1038 tratados. Son daños leves y reversibles, frente a
+        la mortalidad cardiovascular del macrólido y a la toxicidad tendinosa y neurológica
+        potencialmente irreversible de la fluoroquinolona. En la cohorte de 1.35 millones de ciclos
+        de amoxicilina no se detectó exceso alguno de mortalidad durante el tratamiento, que fue el
+        comparador contra el que se midió el riesgo de la azitromicina.
+      ref: 'pmid:23265995'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Es el único eje en que pierde, y pierde claro: 1 g cada 8 horas, tres tomas diarias, frente
+        a las dos de doxiciclina y la única de azitromicina y levofloxacino. La pauta de tres tomas
+        viene impuesta por la farmacocinética —el efecto depende del tiempo por encima de la
+        concentración mínima inhibitoria y la vida media es de hora y media—, no por costumbre. La
+        posibilidad de acortar el ciclo a cinco días, o a tres en quien ya ha mejorado, compensa
+        parcialmente la carga de tomas.
+      ref: 'pmid:16763247'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente, sin patente desde hace décadas y de los antibacterianos más
+        baratos y disponibles del mundo; pertenece al grupo Access de la clasificación AWaRe, que es
+        el que la OMS quiere que concentre el consumo.
+    nota: >-
+      El candidato que gana sin ganar el eje de la comodidad: cubre al patógeno que mata, no gasta
+      reserva y su daño es leve y conocido.
+
+  - dci: Doxiciclina
+    atc: J01AA02
+    clase: Tetraciclina de acción prolongada
+    veredicto: alternativa
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        En el metaanálisis de seis ensayos aleatorizados con 834 pacientes evaluables, la curación
+        clínica fue del 87.2 % (381/437) con doxiciclina frente al 82.6 % (328/397) con el
+        comparador —macrólidos o fluoroquinolonas—, sin diferencia significativa (OR 1.29; IC 95 %
+        0.73 a 2.28; I² = 30 %), y en el subgrupo de los dos ensayos con bajo riesgo de sesgo la
+        curación fue superior con doxiciclina (87.1 % frente a 77.8 %; OR 1.92; IC 95 % 1.15 a 3.21;
+        p = 0.01). Los autores califican la certeza global de baja porque los ensayos se realizaron
+        entre 1984 y 2004 y cuatro de los seis tenían alto riesgo de sesgo.
+      ref: 'pmid:35903011'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Las tasas de efectos adversos fueron comparables a las de macrólidos y fluoroquinolonas en
+        el mismo metaanálisis. Su perfil propio —fotosensibilidad, esofagitis si se toma acostado o
+        sin agua, molestia digestiva— es de daño leve y evitable con instrucciones de administración,
+        pero añade dos exclusiones de población que la amoxicilina no tiene: el embarazo y la
+        infancia por debajo de los ocho años.
+      ref: 'pmid:35903011'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        100 mg cada 12 horas, dos tomas diarias y sin requisito de ajuste renal, con la advertencia
+        de tomarla erguido y con abundante agua. La guía ATS/IDSA la admite como monoterapia
+        alternativa en esta misma población, con recomendación condicional.
+      ref: 'pmid:31573350'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente de coste muy bajo, también del grupo Access de la clasificación
+        AWaRe.
+    nota: >-
+      Primera opción cuando hay alergia documentada a betalactámicos o sospecha clínica fundada de
+      patógeno atípico, y cuando la pauta de tres tomas compromete la adherencia.
+
+  - dci: Azitromicina
+    atc: J01FA10
+    clase: Macrólido de quince miembros (azálido)
+    veredicto: reservado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        La guía ATS/IDSA mantiene la monoterapia con macrólido como opción en el adulto
+        ambulatorio sano, pero solo con recomendación condicional y certeza baja, y únicamente donde
+        la resistencia local de Streptococcus pneumoniae a macrólidos sea inferior al 25 %. En el
+        ensayo de estrategias, añadir el macrólido al betalactámico no mejoró la mortalidad a 90
+        días: 11.1 % frente al 9.0 % de la monoterapia con betalactámico, con una diferencia de 1.9
+        puntos en contra de la combinación.
+      ref: 'pmid:31573350'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Es el único candidato con un exceso de mortalidad cuantificado frente al seleccionado: en la
+        cohorte de 347 795 ciclos de azitromicina comparada con 1 348 672 de amoxicilina, los cinco
+        días de tratamiento se asociaron a un riesgo de muerte cardiovascular 2.49 veces mayor
+        (IC 95 % 1.38 a 4.50; p = 0.002) y de muerte por cualquier causa 2.02 veces mayor (IC 95 %
+        1.24 a 3.30), lo que equivale a 47 muertes cardiovasculares añadidas por millón de ciclos y
+        a 245 por millón en el decil de mayor riesgo cardiovascular basal. El riesgo absoluto es
+        pequeño y se concentra en quien ya tiene el corazón enfermo, pero se paga por una curación
+        que no es mayor. La misma cohorte midió también el levofloxacino y no halló diferencia
+        significativa con la azitromicina, de modo que la fluoroquinolona no escapa a este exceso.
+      ref: 'pmid:22591294'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        La mejor del informe junto con levofloxacino: una toma diaria durante tres a cinco días,
+        aprovechando una vida media tisular que mantiene concentraciones activas días después de la
+        última dosis. Esa misma cola farmacocinética es, sin embargo, lo que prolonga la presión
+        selectiva sobre la flora tras acabar el tratamiento.
+      ref: 'pmid:31573350'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Genérico oral multifuente de coste bajo y ciclo corto, algo por encima de la amoxicilina y
+        la doxiciclina en la mayoría de los mercados.
+    nota: >-
+      Reservada: apropiada donde la resistencia neumocócica local documentada sea baja, y a evitar
+      en el paciente con riesgo cardiovascular alto, que es justo donde el exceso de mortalidad se
+      concentra.
+
+  - dci: Levofloxacino
+    atc: J01MA12
+    clase: Fluoroquinolona respiratoria de tercera generación
+    veredicto: no_seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        La estrategia de fluoroquinolona en monoterapia obtuvo la mortalidad a 90 días más baja del
+        ensayo de estrategias en términos absolutos —8.8 % (78/888) frente al 9.0 % del
+        betalactámico—, sin diferencia significativa (0.6 puntos porcentuales menos; IC 90 % -2.8 a
+        1.9). No queda fuera por eficacia, y conviene dejarlo escrito para que el veredicto no se
+        lea como un juicio clínico que la evidencia no sostiene.
+      ref: 'pmid:25830421'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Lleva advertencia de recuadro negro por tendinitis y rotura tendinosa, neuropatía periférica
+        y efectos adversos del sistema nervioso central, con advertencias adicionales por disección y
+        aneurisma de aorta, disglucemia y exacerbación de la miastenia grave: daño potencialmente
+        irreversible en una neumonía que se trata en casa. Comparte además con la azitromicina el
+        exceso de mortalidad cardiovascular que la cohorte citada en el eje de seguridad de ese
+        candidato midió para las dos clases por igual.
+      ref: 'fda:label'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        Una toma diaria de 750 mg durante cinco días, con excelente biodisponibilidad oral y
+        actividad frente a neumococo y atípicos a la vez. Es la razón por la que se prescribe de más,
+        y por la que la guía la sitúa como alternativa y no como primera elección en el adulto sano.
+      ref: 'pmid:31573350'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Genérico oral multifuente de coste bajo. El argumento de reserva no es económico: es que el
+        recurso que se agota no es el presupuesto, sino la actividad de la clase.
+    nota: >-
+      No seleccionado por preservación de clase y toxicidad evitable. Su sitio es la neumonía con
+      comorbilidad, el fracaso del tratamiento inicial y la alergia que excluye también a la
+      doxiciclina, no el primer episodio del adulto sano.
+
+refs:
+  - 'pmid:31573350'
+  - 'pmid:25830421'
+  - 'pmid:16763247'
+  - 'pmid:35903011'
+  - 'pmid:23265995'
+  - 'pmid:22591294'
+  - 'fda:label'

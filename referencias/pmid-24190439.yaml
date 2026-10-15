@@ -1,0 +1,33 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:24190439"
+clave_bibtex: spinks2013
+tipo: metaanalisis
+titulo: "Antibiotics for sore throat"
+autores:
+  - "Spinks A"
+  - "Glasziou PP"
+  - "Del Mar CB"
+publicacion: "Cochrane Database Syst Rev"
+anio: 2013
+volumen: "2013"
+numero: "11"
+paginas: "CD000023"
+
+identificadores:
+  pmid: 24190439
+  doi: "10.1002/14651858.CD000023.pub4"
+  pmc: "PMC6457983"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+  - "Research Support, Non-U.S. Gov't"
+  - "Systematic Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

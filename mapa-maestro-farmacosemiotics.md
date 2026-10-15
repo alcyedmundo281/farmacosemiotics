@@ -158,7 +158,7 @@ su informe de selección dice cómo usar un fármaco sin decir por qué se eligi
 |---|---|---|---|---|---|
 | **0. Piloto** | Fármaco modelo y validación de contrato | — *(precede al híbrido)* | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
 | **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `SEL0004` (FA no valvular)<br>`SEL0005` (ERC en DM2)<br>`SEL0006` (IC-FEr)<br>`SEL0019` (Estatinas alta potencia)<br>`SEL0020` (AAS prevención 2ª) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino)<br>`FS0011` (Finerenona)<br>`FS0012` (Dapagliflozina)<br>`FS0028` (Atorvastatina)<br>`FS0029` (AAS) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA)<br>`FT0012` (Finerenona en ERC-DM2)<br>`FT0013` (Dapagliflozina en IC-FEr)<br>`FT0030` (Atorvastatina prevención 2ª)<br>`FT0031` (AAS prevención 2ª) | **Completada (8/8)** |
-| **2. Antiinfecciosos AWaRe** | Sección 6.2 (Antibacterianos Access / Watch / Reserve) | `SEL0017` (Enterobacterias KPC/BLEE)<br>`SEL0025` (Cistitis no complicada)<br>`SEL0026` (NAC ambulatoria) | `FS0026` (Ceftazidima / Avibactam)<br>`FS0036` (Nitrofurantoína)<br>`FS0037` (Fosfomicina trometamol)<br>`FS0038` (Amoxicilina) | `FT0028` (Ceftazidima/Avibactam en BLEE/KPC)<br>`FT0039` (Nitrofurantoína en cistitis)<br>`FT0040` (Fosfomicina en cistitis)<br>`FT0041` (Amoxicilina en NAC) | **Iniciada (3/8)** |
+| **2. Antiinfecciosos AWaRe** | Sección 6.2 (Antibacterianos Access / Watch / Reserve) | `SEL0017` (Enterobacterias KPC/BLEE)<br>`SEL0025` (Cistitis no complicada)<br>`SEL0026` (NAC ambulatoria)<br>`SEL0027` (Faringitis estreptocócica) | `FS0026` (Ceftazidima / Avibactam)<br>`FS0036` (Nitrofurantoína)<br>`FS0037` (Fosfomicina trometamol)<br>`FS0038` (Amoxicilina) | `FT0028` (Ceftazidima/Avibactam en BLEE/KPC)<br>`FT0039` (Nitrofurantoína en cistitis)<br>`FT0040` (Fosfomicina en cistitis)<br>`FT0041` (Amoxicilina en NAC)<br>`FT0042` (Amoxicilina en faringitis) | **Iniciada (4/8)** |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | — | Pendiente |
 | **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | `SEL0010` (Esquizofrenia LAI)<br>`SEL0021` (Depresión mayor)<br>`SEL0022` (Psicosis aguda) | `FS0017` (Paliperidona)<br>`FS0030` (Sertralina)<br>`FS0031` (Risperidona) | `FT0018` (Paliperidona en Esquizofrenia)<br>`FT0032` (Sertralina en Depresión)<br>`FT0033` (Risperidona en Psicosis) | **Completada (3/3)** |
 | **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato)<br>`FS0018` (Tofacitinib)<br>`FS0024` (Rituximab)<br>`FS0032` (Micofenolato) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs)<br>`FT0019` (Tofacitinib en AR)<br>`FT0026` (Rituximab en pénfigo)<br>`FT0034` (Micofenolato en pénfigo) | **Completada (6/6)** |
@@ -191,9 +191,23 @@ guía en la oleada que le corresponde por coste y por vía.
   clínico del 93 % con tres días igual que con ocho, NNH 21 frente a placebo y NNH 10 por
   prolongar el ciclo. El tema original se partió en dos: la faringitis estreptocócica es otro
   problema de salud y pide su propio `SEL:`, de modo que queda abierta abajo).
-- [ ] **Amoxicilina o penicilina V en Faringitis Estreptocócica** (misma `FA0038`, nueva ficha y
-  nuevo informe de selección; es el segundo caso, tras el metotrexato, de una farmacoterapia que
-  sirve a dos indicaciones sin reescribirse).
+- [x] **`FT0042` Amoxicilina en la Faringoamigdalitis Estreptocócica del grupo A** (`SEL0027`
+  compara amoxicilina en toma única, penicilina V, cefalexina y azitromicina. Es el segundo caso,
+  tras el metotrexato de `FT0010` y `FT0011`, de una farmacoterapia —`FA0038`— que sirve a dos
+  indicaciones sin reescribirse: la ficha la hereda del fármaco y declara en `variaciones` lo poco
+  que cambia. Y lo que cambia es el punto del tema: en la neumonía el ciclo se puede acortar y aquí
+  son diez días fijos, porque allí se cura y aquí se previene una fiebre reumática que llega
+  semanas después de que la garganta esté bien. No inferioridad en erradicación faríngea —límite
+  superior del intervalo del 4.9 %, 6.5 % y 8.5 % frente a un margen del 10 %—, NNT 53 para fiebre
+  reumática frente a no tratar y 60 en el subgrupo de penicilina, y recurrencia bacteriológica
+  tardía peor con los ciclos cortos, con razón de odds 1.31. Es además el único informe del
+  repositorio en que el tercer eje mueve el veredicto, y `criterio_decisorio` argumenta por qué eso
+  no rompe el orden de la decisión: con los dos primeros ejes empatados, la conveniencia deja de
+  medir comodidad y mide adherencia, que es el mecanismo de la prevención. Queda un cabo suelto que
+  no es un hueco del tema: la penicilina V y la cefalexina quedan comparadas sin `farmaco:` propio,
+  que es legítimo en un informe de selección, y darles `FS:` y `FA:` convertiría a la primera en la
+  alternativa equivalente de pleno derecho que el informe dice que es y a la segunda en la pieza
+  que el tema de piel y partes blandas de más abajo va a necesitar de todos modos).
 - [ ] **Amoxicilina + Ácido Clavulánico en Infecciones Polimicrobianas / Mordeduras**.
 - [x] **`FT0039` Nitrofurantoína y `FT0040` Fosfomicina trometamol en la Cistitis Aguda no
   Complicada de la mujer** (`SEL0025` compara los dos de primera línea más cotrimoxazol y

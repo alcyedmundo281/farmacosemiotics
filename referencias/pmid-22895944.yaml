@@ -1,0 +1,36 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:22895944"
+clave_bibtex: altamimi2012
+tipo: metaanalisis
+titulo: "Short-term late-generation antibiotics versus longer term penicillin for acute streptococcal pharyngitis in children"
+autores:
+  - "Altamimi S"
+  - "Khalil A"
+  - "Khalaiwi KA"
+  - "Milner RA"
+  - "Pusic MV"
+  - "Al Othman MA"
+publicacion: "Cochrane Database Syst Rev"
+anio: 2012
+volumen: "2012"
+numero: "8"
+paginas: "CD004872"
+
+identificadores:
+  pmid: 22895944
+  doi: "10.1002/14651858.CD004872.pub3"
+  pmc: "PMC11984625"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+  - "Research Support, Non-U.S. Gov't"
+  - "Systematic Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

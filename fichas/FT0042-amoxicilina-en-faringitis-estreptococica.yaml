@@ -1,0 +1,526 @@
+# Segunda indicación de FS:0038, y segundo caso del repositorio —tras el
+# metotrexato de FT:0010 y FT:0011— de una molécula que sirve a dos problemas de
+# salud con UNA sola farmacoterapia. FA:0038 no se duplica ni se enlaza: se
+# hereda del fármaco. Lo poco que esta indicación cambia de ella va en
+# `variaciones`, y es poco pero decisivo: en la neumonía de FT:0041 el ciclo se
+# puede acortar, y aquí no, porque allí se trataba de curar y aquí de prevenir
+# una fiebre reumática que llega semanas después de que la garganta ya esté bien.
+
+id: 'FT:0042'
+tipo: ficha
+farmaco: 'FS:0038'
+seleccion: 'SEL:0027'
+titulo: Amoxicilina en la faringoamigdalitis estreptocócica del grupo A
+titulo_en: Amoxicillin in group A streptococcal pharyngotonsillitis
+indicacion: Faringoamigdalitis aguda por Streptococcus pyogenes confirmada
+indicacion_en: Confirmed acute Streptococcus pyogenes pharyngotonsillitis
+poblacion: >-
+  Niños, adolescentes y adultos con faringoamigdalitis aguda y confirmación microbiológica de
+  Streptococcus pyogenes por cultivo faríngeo o por prueba rápida de detección antigénica. La
+  confirmación forma parte de la población y no es un refinamiento diagnóstico: la mayoría de las
+  faringitis agudas son víricas y en ellas no hay fiebre reumática que prevenir, de modo que sin
+  confirmación el balance de esta guía no se aplica. Quedan fuera el portador faríngeo asintomático,
+  que no se trata; el absceso periamigdalino y las demás complicaciones supurativas establecidas, y
+  el paciente con fiebre reumática previa, cuya profilaxis secundaria es otra pregunta.
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    Una sola toma diaria, diez días completos. En el ensayo de no inferioridad la pauta fue de
+    1500 mg al día, o 750 mg si el peso era de 30 kg o menos. Los diez días no son por la garganta
+    —que estará bien al tercer o cuarto día con tratamiento o sin él— sino por la fiebre reumática,
+    que aparece dos a cuatro semanas después. Es el punto exacto en que esta indicación se aparta de
+    la neumonía de FT:0041: allí el ciclo se puede acortar en quien ha mejorado, y aquí no.
+  alerta_seguridad_inmediata: >-
+    Antes de la primera dosis, dos preguntas. La primera es la caracterización de la alergia
+    referida a betalactámicos, igual que en cualquier indicación de este fármaco: una reacción
+    inmediata con urticaria, angioedema o broncoespasmo la contraindica; un exantema tardío no es
+    alergia mediada por IgE. La segunda es propia de aquí: ¿puede ser esta faringitis una
+    mononucleosis infecciosa? En las demás indicaciones de la amoxicilina la infección por virus de
+    Epstein-Barr es una coincidencia desafortunada; en esta es el principal diagnóstico diferencial
+    del cuadro que se tiene delante, y el exantema morbiliforme que seguirá dejará al paciente
+    etiquetado de alérgico a la penicilina de por vida si nadie lo había previsto.
+
+# ── Pregunta PICO ────────────────────────────────────────────────────────────
+pico:
+  p: 'Niños con faringitis y cultivo faríngeo positivo para estreptococo del grupo A (N = 353 en el ensayo de no inferioridad); pacientes con dolor de garganta en atención primaria (N = 12 835 en la revisión Cochrane); niños con faringitis estreptocócica aguda (N = 13 102 en la revisión de duración)'
+  i: 'Amoxicilina oral en toma única diaria durante 10 días'
+  c: 'Penicilina V oral en dos tomas durante 10 días; no tratar o placebo; y ciclos de 3 a 6 días de antibióticos más nuevos frente a 10 días de penicilina'
+  o: 'Erradicación faríngea a los días 3-6, 12-16 y 26-36; resolución de los síntomas; fiebre reumática aguda; complicaciones supurativas; y recurrencia bacteriológica tardía'
+
+# ── Posología Práctica ───────────────────────────────────────────────────────
+posologia:
+  inicio: >-
+    Toma única diaria. La pauta documentada en el ensayo de no inferioridad fue de 1500 mg al día,
+    o 750 mg si el peso era de 30 kg o menos. En el adulto no hay ensayo de toma única y la dosis se
+    extrapola de esa, lo que esta guía declara en vez de presentarlo como establecido.
+  escalado: 'No se titula: la dosis inicial es la terapéutica desde la primera toma'
+  mantenimiento: >-
+    La misma dosis durante 10 días completos, sin acortar el ciclo aunque los síntomas hayan
+    desaparecido, porque la duración responde a la prevención de la fiebre reumática y no a la
+    curación de la faringitis
+  maxima: 'No se requiere sobrepasar la dosis del ensayo: el estreptococo del grupo A no tiene resistencia a penicilina que obligue a subirla, a diferencia del neumococo de FT:0041'
+  ajuste_renal: 'Reducir la dosis y espaciar el intervalo con TFGe inferior a 30 mL/min/1.73 m²; en hemodiálisis, administrar una dosis adicional al final de la sesión'
+  ajuste_hepatico: 'No requiere ajuste; el antecedente de ictericia por amoxicilina es contraindicación'
+  ref: 'pmid:18337284'
+
+# ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
+evidencia:
+  - desenlace: Erradicación faríngea del estreptococo del grupo A con amoxicilina en toma única frente a penicilina V en dos tomas
+    criticidad: critico
+    efecto: >-
+      No inferioridad confirmada en las tres visitas de control. El límite superior del intervalo de
+      confianza del 95 % para la diferencia en cultivos positivos entre ambos antibióticos fue del
+      4.9 % a los días 3 a 6, del 6.5 % a los días 12 a 16 y del 8.5 % a los días 26 a 36, todos por
+      debajo del margen preespecificado del 10 %. Los fracasos terapéuticos, incluidas las recaídas,
+      fueron del 5.8 %, 12.7 % y 10.7 % con amoxicilina frente al 6.2 %, 11.9 % y 11.3 % con
+      penicilina V, y no hubo diferencias en la resolución de los síntomas. Los aislados se
+      serotiparon para separar el fracaso bacteriológico verdadero de la adquisición nueva, que es
+      la precaución sin la cual un contagio posterior se cuenta como recaída.
+    rra: '0.0%'
+    rrr: '0.0%'
+    nnt: 1
+    horizonte_nnt: a los días 26 a 36, por no inferioridad
+    diseno: eca
+    estudio: Lennon et al., Arch Dis Child 2008 (clínica escolar, Nueva Zelanda)
+    comparador: Penicilina V 500 mg cada 12 horas, o 250 mg si el peso era de 20 kg o menos, durante 10 días
+    n: 353
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    certeza_nota: >-
+      Un solo descenso, y es por población. El diseño es sólido para lo que se le pide: ensayo
+      aleatorizado de no inferioridad con margen preespecificado, adherencia verificada por
+      medicación observada y diarios, serotipado de los aislados y potencia suficiente según sus
+      autores. Lo que no cubre es el adulto: los 353 participantes eran niños de una clínica escolar
+      neozelandesa, y no existe ensayo equivalente de toma única en adultos, de modo que la pauta
+      del adulto es una extrapolación. Se conserva en certeza moderada y no baja porque el límite
+      superior del intervalo quedó por debajo del margen en los tres controles, incluido el más
+      tardío, que es el que mide la recaída.
+    ref: 'pmid:18337284'
+
+  - desenlace: Fiebre reumática aguda con antibiótico frente a no tratar, en la faringitis de presentación estreptocócica
+    criticidad: critico
+    efecto: >-
+      Es el desenlace por el que existe el tratamiento, y el único de esta ficha que mide algo
+      permanente. En el metaanálisis de diez ensayos y 7665 pacientes, el antibiótico redujo la
+      incidencia de fiebre reumática aguda en un 70 % (riesgo relativo 0.32; IC 95 % 0.21 a 0.48),
+      con una reducción absoluta del riesgo del 1.67 % y un número necesario para tratar de 53.
+      Restringido a los ensayos de penicilina, el efecto protector fue del 80 % (riesgo relativo
+      0.20; IC 95 % 0.11 a 0.36) y el número necesario para tratar de 60. La cifra no es de
+      amoxicilina: es de la clase de la penicilina, y la amoxicilina la hereda por pertenencia de
+      clase y por la no inferioridad en erradicación de la fila anterior. Decirlo importa, porque es
+      la única cadena de inferencia que sostiene toda la indicación.
+    rrr: '70%'
+    nnt: 53
+    horizonte_nnt: por episodio tratado, con 60 en el subgrupo de penicilina
+    diseno: metaanalisis
+    estudio: Robertson, Volmink y Mayosi, BMC Cardiovasc Disord 2005
+    comparador: No tratar
+    n: 7665
+    certeza: baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - evidencia_indirecta
+    certeza_nota: >-
+      Dos descensos, y los dos son de los que no se arreglan. Riesgo de sesgo: los diez ensayos se
+      realizaron entre 1950 y 1961 y sus propios autores califican de pobre la calidad metodológica
+      general. Evidencia indirecta por dos vías independientes: la población —en ocho de los diez
+      ensayos eran varones adultos jóvenes en bases militares estadounidenses, con una incidencia
+      basal de fiebre reumática que no se parece a la de una consulta pediátrica actual de ingreso
+      alto— y el fármaco, porque lo que se ensayó fue penicilina y no amoxicilina. La certeza es
+      baja y así se queda: estos ensayos no se van a repetir, porque aleatorizar a no tratar una
+      faringitis estreptocócica confirmada ya no es admisible. Es la situación en que la mejor
+      evidencia disponible es definitivamente mala, y conviene que se lea así en vez de acabar
+      citada como si fuera firme. Una advertencia de lectura sobre las cifras: la fuente publica una
+      reducción absoluta del riesgo del 1.67 % junto a un número necesario para tratar de 53, y los
+      dos no son recíprocos exactos, porque 1 dividido por 1.67 % da 60. Aquí se reproducen los dos
+      tal como el metaanálisis los da y no se recalcula ninguno, y por eso la reducción absoluta
+      consta en el texto del efecto y no como campo estructurado: inventarle a la fuente el valor
+      que la haría cuadrar sería corregirla sin fundamento.
+    ref: 'pmid:15927077'
+
+  - desenlace: Fiebre reumática, complicaciones supurativas y síntomas con antibiótico frente a control en el dolor de garganta
+    criticidad: critico
+    efecto: >-
+      La revisión de 27 ensayos y 12 835 casos de dolor de garganta separa con claridad lo que el
+      antibiótico previene de lo que alivia. Previene: fiebre reumática a un mes reducida en más de
+      dos tercios (riesgo relativo 0.27; IC 95 % 0.12 a 0.60), absceso periamigdalino a dos meses
+      (0.15; IC 95 % 0.05 a 0.47) y otitis media aguda a catorce días (0.30; IC 95 % 0.15 a 0.58).
+      Alivia poco: el acortamiento medio de los síntomas es de unas dieciséis horas, y el número
+      necesario para tratar para que un paciente no tenga dolor de garganta es inferior a 6 al tercer
+      día pero de 21 a la semana. El antibiótico fue más eficaz sobre los síntomas al tercer día si
+      el frotis era positivo (0.58; IC 95 % 0.48 a 0.71) que si era negativo (0.78; IC 95 % 0.63 a
+      0.97), que es el dato que convierte la confirmación microbiológica en parte del tratamiento y
+      no en un trámite. La lectura que esta ficha extrae es una sola: si se prescribe por el
+      síntoma, el balance no se sostiene; se prescribe por la complicación.
+    rra: '—'
+    rrr: '73%'
+    nnt: 21
+    horizonte_nnt: a una semana para el síntoma; el beneficio que justifica el tratamiento es la complicación, no el síntoma
+    diseno: revision_sistematica
+    estudio: Spinks, Glasziou y Del Mar, Cochrane Database Syst Rev 2013
+    comparador: Placebo o no tratar
+    n: 12835
+    certeza: baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - evidencia_indirecta
+    certeza_nota: >-
+      Se desciende por riesgo de sesgo, porque el grueso de los ensayos es antiguo y de calidad
+      heterogénea, y por evidencia indirecta, porque la población es el dolor de garganta en general
+      y no la faringitis estreptocócica confirmada que es la de esta ficha: eso diluye el efecto
+      hacia abajo en los desenlaces infecciosos, de modo que la indirección aquí es conservadora. El
+      juicio de certeza es de esta guía y no de la revisión, que no publica graduación GRADE en su
+      resumen. La advertencia que los propios autores subrayan y que esta ficha hace suya es que el
+      beneficio absoluto depende de la incidencia basal de fiebre reumática, y por tanto del lugar:
+      el número necesario para tratar puede ser mucho menor donde la enfermedad sigue siendo
+      frecuente.
+    ref: 'pmid:24190439'
+
+  - desenlace: Recurrencia bacteriológica tardía con ciclos de 3 a 6 días frente a los 10 días clásicos
+    criticidad: critico
+    efecto: >-
+      Es la fila que fija la duración, y la única de esta ficha que contradice directamente lo que
+      FA:0038 autoriza en la neumonía. En 20 estudios y 13 102 casos de faringitis estreptocócica
+      aguda infantil, los ciclos de tres a seis días de antibióticos más nuevos fueron mejores en lo
+      inmediato —menos días de fiebre (diferencia de medias -0.30; IC 95 % -0.45 a -0.14), menos días
+      de dolor de garganta (-0.50; IC 95 % -0.78 a -0.22) y menor fracaso clínico precoz (razón de
+      odds 0.80; IC 95 % 0.67 a 0.94)— e indistinguibles en fracaso bacteriológico precoz (1.08;
+      IC 95 % 0.97 a 1.20) y en recurrencia clínica tardía (0.95; IC 95 % 0.83 a 1.08). Pero fueron
+      peores en lo que esta indicación mide: la recurrencia bacteriológica tardía (1.31; IC 95 %
+      1.16 a 1.48), diferencia que desaparecía al excluir los ensayos de azitromicina a dosis baja
+      de 10 mg/kg (1.06; IC 95 % 0.92 a 1.22). Sobre complicaciones a largo plazo el poder no
+      alcanza: 6 casos en el ciclo corto frente a 8 en el estándar entre 8135 pacientes (0.53;
+      IC 95 % 0.17 a 1.64). La conclusión de los autores es que los ciclos cortos son comparables,
+      con una salvedad que ellos mismos ponen por delante y que esta ficha adopta como regla: el
+      resultado debe interpretarse con cautela allí donde la cardiopatía reumática siga siendo
+      prevalente.
+    rra: '—'
+    rrr: '—'
+    nnt: 1
+    horizonte_nnt: 'no procede, porque el resultado relevante es el daño del ciclo corto y no un beneficio'
+    diseno: revision_sistematica
+    estudio: Altamimi et al., Cochrane Database Syst Rev 2012
+    comparador: 10 días de penicilina oral
+    n: 13102
+    certeza: baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - inconsistencia
+    certeza_nota: >-
+      Riesgo de sesgo porque la mayoría de los estudios incluidos lo tenía alto, según la propia
+      revisión. Inconsistencia porque el hallazgo central no es estable: la diferencia en recurrencia
+      bacteriológica tardía se desvanece en cuanto se retiran los ensayos de azitromicina a dosis
+      baja, lo que significa que el resultado agregado estaba midiendo en buena parte un fármaco y
+      una dosis concretos más que la duración en sí. Esa inestabilidad es, paradójicamente, lo que
+      hace la fila útil para esta guía: el ciclo corto no es intrínsecamente peor, pero no está
+      demostrado que sea seguro con amoxicilina en esta indicación, y el desenlace que se arriesga
+      es cardíaco y permanente. Mantener los diez días es la decisión conservadora cuando la
+      evidencia de poder acortarlos no existe para el fármaco que se prescribe.
+    ref: 'pmid:22895944'
+
+  - desenlace: Recaída sintomática en los 5 días siguientes a terminar el tratamiento, por antibiótico
+    criticidad: importante
+    efecto: >-
+      En 1080 pacientes pediátricos con amigdalofaringitis estreptocócica, la frecuencia de recaída
+      sintomática dentro de los cinco días posteriores a completar el tratamiento siguió un orden
+      que no es el que suele suponerse: la penicilina recayó más que la amoxicilina, esta más que las
+      cefalosporinas de primera generación y estas más que las cefalosporinas estables frente a
+      betalactamasas y la amoxicilina con clavulánico (p = 0.005). El retratamiento de los fracasos
+      sintomáticos volvió a recaer con más frecuencia con penicilina que con cefalosporina
+      (p = 0.02). La fila matiza —no contradice— la no inferioridad en erradicación del ensayo
+      aleatorizado: en el desenlace sintomático y en una serie grande, la amoxicilina quedó por
+      delante de la penicilina V, lo que apoya la dirección de la elección de esta ficha sin
+      aportarle una magnitud utilizable.
+    rra: '—'
+    rrr: '—'
+    diseno: cohorte
+    estudio: Casey y Pichichero, Clin Pediatr 2007 (serie retrospectiva de una consulta pediátrica)
+    comparador: Penicilina, cefalosporinas de primera generación, cefalosporinas estables frente a betalactamasas y amoxicilina-clavulánico
+    n: 1080
+    certeza: muy_baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - imprecision
+    certeza_nota: >-
+      Dos descensos y la certeza más baja de la ficha, por razones que conviene dejar escritas para
+      que nadie use esta fila como si pesara lo que pesa el ensayo aleatorizado. Riesgo de sesgo: es
+      una serie retrospectiva de una sola consulta, sin asignación aleatoria, de modo que la elección
+      del antibiótico pudo depender de características del paciente que también predicen la recaída,
+      y los autores del trabajo son los mismos que firman el metaanálisis de cefalosporinas que esta
+      ficha cita con la misma reserva. Imprecisión: la fuente publica el orden de los fracasos y su
+      significación, no las proporciones de cada grupo ni intervalos de confianza, y por eso aquí no
+      se consigna ninguna cifra de efecto: no se dispone de ella y no se va a estimar. Sirve como
+      evidencia de dirección y para nada más.
+    ref: 'pmid:17475987'
+
+  - desenlace: Ausencia de resistencia de Streptococcus pyogenes a la penicilina, frente a la resistencia a macrólidos
+    criticidad: importante
+    efecto: >-
+      En 1885 aislados clínicos de Streptococcus pyogenes recogidos en 45 centros estadounidenses,
+      el 85 % de ellos faríngeos, se detectó resistencia a azitromicina en el 6.9 %, a eritromicina
+      en el 6.8 %, a claritromicina en el 6.6 %, a clindamicina en el 0.5 %, a telitromicina en el
+      0.2 % y a levofloxacino en el 0.05 %; no se detectó resistencia a penicilina ni a cefdinir. El
+      44 % de los resistentes a macrólidos tenía fenotipo M y el 56 % fenotipo MLSB, y el conjunto
+      resistente se agrupaba en unos pocos clones con capacidad de expansión. El dato es el
+      fundamento silencioso de toda la ficha: no hace falta antibiograma antes de prescribir
+      amoxicilina en esta indicación, y sí haría falta antes de prescribir un macrólido.
+    rra: '—'
+    rrr: '—'
+    diseno: transversal
+    estudio: Richter et al., Clin Infect Dis 2005 (45 centros de Estados Unidos, 2002-2003)
+    comparador: Resistencia a macrólidos, clindamicina y levofloxacino en la misma colección de aislados
+    n: 1885
+    certeza: moderada
+    razones_descenso:
+      - evidencia_indirecta
+    certeza_nota: >-
+      Un descenso por indirección temporal y geográfica: la colección es estadounidense y de 2002 a
+      2003, y las cifras de resistencia a macrólidos se mueven, como muestra la serie portuguesa de
+      2014 a 2019 citada en SEL:0027, donde el pico llegó al 9 % en un solo año por expansión de un
+      linaje nuevo. Lo que no se ha movido en ninguna serie publicada, ni en esa ni en esta, es la
+      sensibilidad universal a penicilina, y es la parte del hallazgo que esta ficha usa. El diseño
+      es transversal y eso basta para medir prevalencia de resistencia, que es lo que se le pide.
+    ref: 'pmid:16080080'
+
+# ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Náuseas, exantema o diarrea
+    gravedad: leve
+    nnh: 21
+    horizonte_nnh: a 4 semanas, frente a placebo, medido en infección respiratoria baja aguda
+    conducta: >-
+      Número necesario para dañar de 21 (IC 95 % 11 a 174) frente a placebo. La cifra procede de un
+      ensayo en infección respiratoria baja aguda y no en faringitis, de modo que acota el orden de
+      magnitud del daño atribuible del fármaco pero no es específica de esta indicación; se consigna
+      porque es la única cuantificación de la amoxicilina contra placebo. Son daños leves y
+      reversibles que no obligan a suspender, y anticiparlos tiene aquí un valor añadido: el ciclo
+      es de diez días y la garganta estará bien al cuarto, de modo que una molestia digestiva no
+      advertida es un motivo frecuente de abandono justo cuando ya no se nota el beneficio.
+    ref: 'pmid:23265995'
+
+  - evento: Exantema morbiliforme tardío sobre una mononucleosis infecciosa tomada por faringitis estreptocócica, y la etiqueta falsa de alergia que deja
+    gravedad: leve
+    conducta: >-
+      Es el daño característico de esta indicación y no de las demás de la amoxicilina, porque aquí
+      la mononucleosis infecciosa no es una coincidencia sino el principal diagnóstico diferencial
+      del cuadro que motivó la receta. El exantema aparece hacia el quinto a séptimo día, no es
+      mediado por IgE y es banal en sí mismo; su consecuencia no lo es. Registrado como alergia a
+      penicilina, condena al paciente a antibióticos de espectro más amplio, más caros y peor
+      tolerados en cada infección del resto de su vida, y en esta indicación concreta le quita
+      además el fármaco de elección para los episodios futuros, que son frecuentes. Valorar
+      completar el ciclo con vigilancia y remitir a alergología para estudio diferido en vez de
+      etiquetar. No se consigna NNH porque lo que se cuenta no es un evento biológico sino una
+      decisión de registro, y ninguna fuente consultada la cuantifica.
+    ref: 'fda:label'
+
+  - evento: Reacción anafiláctica
+    gravedad: letal
+    tasa_intervencion: '0.1 %'
+    tasa_control: '0.0 %'
+    nnh: 1038
+    horizonte_nnh: por ciclo de tratamiento, frente a placebo
+    conducta: >-
+      Un caso entre 1038 pacientes tratados en el ensayo frente a placebo, y ninguno entre 1023 con
+      placebo. Suspender de inmediato, tratar la anafilaxia y registrar la contraindicación a
+      betalactámicos. Es el daño que obliga a caracterizar la alergia referida antes de prescribir,
+      y adquiere más peso aquí que en la neumonía porque la enfermedad que se trata es benigna y
+      autolimitada: el beneficio se cobra en una complicación que la mayoría no iba a tener, lo que
+      hace que un daño mortal raro pese proporcionalmente más en el balance.
+    ref: 'pmid:23265995'
+
+  - evento: Colitis asociada a Clostridioides difficile
+    gravedad: grave
+    conducta: >-
+      Puede aparecer hasta dos meses después del tratamiento. Ante diarrea que persiste o empeora,
+      no administrar antiperistálticos y estudiar la toxina. Sin denominador publicado en las fuentes
+      consultadas para esta indicación y esta duración, no se consigna NNH.
+    ref: 'fda:label'
+
+# ── Posicionamiento en esta indicación ───────────────────────────────────────
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Primera línea en la faringoamigdalitis estreptocócica confirmada, con la penicilina V como
+    alternativa de pleno derecho y no como segunda opción: la guía IDSA de 2012 nombra a las dos
+    como tratamiento de elección y no prefiere ninguna. Lo que coloca a la amoxicilina delante en
+    este informe es la adherencia, no la potencia: no fue inferior en erradicación faríngea en los
+    tres controles del ensayo y se administra en una sola toma diaria frente a dos o cuatro, y en una
+    indicación cuyo ciclo dura diez días y cuyos síntomas desaparecen al cuarto, la toma única es el
+    factor que decide si la prevención se completa.
+  escalonado:
+    - linea: primera
+      opciones: 'Amoxicilina oral en toma única diaria durante 10 días, o penicilina V oral durante 10 días'
+      nota: 'Las dos son de elección; la amoxicilina se prefiere cuando la adherencia es el factor limitante, y la penicilina V cuando está garantizada, por su espectro más estrecho'
+    - linea: segunda
+      opciones: 'Cefalosporina oral de primera generación durante 10 días'
+      nota: 'Alergia a penicilina que no fue inmediata ni grave, y fracaso bacteriológico documentado tras un ciclo correcto de betalactámico; contraindicada si hubo anafilaxia o reacción cutánea grave'
+    - linea: rescate
+      opciones: 'Clindamicina o macrólido, según sensibilidad local documentada'
+      nota: 'Alergia verdadera a betalactámicos: la actualización de la guía IDSA de 2012 añadió la clindamicina como opción para el paciente alérgico a la penicilina, y el macrólido queda condicionado a la resistencia local, que llegó al 9 % en un solo año en la serie portuguesa de SEL:0027'
+  desescalamiento:
+    enunciado: >-
+      No hay desescalamiento en esta indicación, y decirlo expresamente es parte de la guía, porque
+      la farmacoterapia de la que depende autoriza lo contrario en la otra. En la neumonía de
+      FT:0041 el ciclo se puede acortar en quien ha mejorado; aquí la mejoría clínica no autoriza
+      nada, porque llega mucho antes que el desenlace que se está previniendo. Los ciclos de tres a
+      seis días de antibióticos más nuevos empeoraron la recurrencia bacteriológica tardía (razón de
+      odds 1.31; IC 95 % 1.16 a 1.48), y sus autores advierten de que el resultado se lea con
+      cautela donde la cardiopatía reumática siga siendo prevalente. Lo único que se retira al mejorar
+      es el analgésico.
+    ref: 'pmid:22895944'
+  ref: 'pmid:22965026'
+
+# ── Lo que esta indicación cambia de FA:0038 ─────────────────────────────────
+# Tres variaciones y ni una copia. El cronograma, los umbrales, las
+# interacciones y el reproductivo de la amoxicilina están en FA:0038 y sirven
+# igual aquí; lo que cambia es poco y está abajo.
+variaciones:
+  - bloque: posicionamiento
+    cambio: >-
+      La duración se invierte respecto de lo que autoriza FA:0038. Allí el desescalamiento consiste
+      en poder acortar el ciclo —tres días no fueron inferiores a ocho en la neumonía de gravedad
+      baja a moderada—, y aquí son diez días fijos que no se acortan por mejoría clínica. La razón no
+      es que la faringitis sea más difícil de curar, sino que el ciclo no está dimensionado para
+      curarla: está dimensionado para prevenir una fiebre reumática que se manifiesta dos a cuatro
+      semanas después de que la garganta ya esté bien. Los ciclos de tres a seis días empeoraron la
+      recurrencia bacteriológica tardía (razón de odds 1.31; IC 95 % 1.16 a 1.48) y la propia
+      revisión pide cautela donde la cardiopatía reumática siga siendo prevalente.
+    ref: 'pmid:22895944'
+
+  - bloque: cribado_basal
+    cambio: >-
+      La anamnesis de alergia que exige FA:0038 se cumple igual, pero se le añade una pregunta que
+      en las demás indicaciones de la amoxicilina no venía al caso: si la faringitis puede ser una
+      mononucleosis infecciosa. FA:0038 ya recoge la sospecha de mononucleosis como cribado basal,
+      y la diferencia es de probabilidad previa, no de contenido: allí es una infección vírica
+      concomitante improbable, y aquí es el diagnóstico diferencial principal del síntoma que trajo
+      al paciente. Eso convierte una advertencia general en una verificación rutinaria antes de
+      prescribir.
+    ref: 'fda:label'
+
+  - bloque: umbrales_accion
+    cambio: >-
+      El umbral del exantema morbiliforme tardío de FA:0038 dice valorar completar el tratamiento
+      con vigilancia estrecha en vez de suspender y etiquetar. Aquí ese «valorar» se inclina más
+      hacia completar, y por un motivo que no es de seguridad sino de eficacia: suspender el ciclo a
+      mitad de camino no solo deja al paciente con una etiqueta falsa de alergia, sino sin la
+      prevención de la fiebre reumática, que es el único beneficio por el que se aceptó el
+      tratamiento. En las indicaciones curativas de la molécula, suspender cuesta parte de la
+      curación de una infección que ya estaba mejorando; aquí cuesta el desenlace entero.
+    ref: 'pmid:22895944'
+
+# ── Juicio de Balance GRADE ──────────────────────────────────────────────────
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: pequeno
+  certeza_global: baja
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+# ── Recomendación Formal ─────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda amoxicilina oral en toma única diaria durante diez días completos como tratamiento
+    de primera línea de la faringoamigdalitis por Streptococcus pyogenes confirmada
+    microbiológicamente, con penicilina V oral durante diez días como alternativa equivalente. No se
+    recomienda acortar el ciclo por mejoría clínica, ni tratar la faringitis aguda sin confirmación
+    microbiológica, ni tratar al portador faríngeo asintomático.
+  justificacion_fuerza: >-
+    La recomendación es fuerte sobre certeza global baja, que en GRADE es la excepción y exige
+    argumento. Concurren cuatro razones. Primera: el desenlace crítico es una cardiopatía
+    permanente y el daño que se arriesga es leve y reversible, de modo que la asimetría de
+    consecuencias es extrema y empuja a tratar incluso con certeza baja. Segunda: la certeza baja
+    procede de que los ensayos de prevención de la fiebre reumática son de 1950 a 1961 y
+    metodológicamente pobres, pero no van a mejorar nunca, porque aleatorizar a no tratar una
+    faringitis estreptocócica confirmada ya no es admisible; esperar mejor evidencia no es una opción
+    disponible. Tercera: la indirección de la revisión Cochrane es conservadora, porque su población
+    es el dolor de garganta en general y eso diluye el efecto hacia abajo en la población confirmada
+    de esta ficha. Cuarta: la guía IDSA de 2012 mantiene la penicilina y la amoxicilina como
+    tratamiento de elección. Lo que queda frágil no es si tratar, sino la pauta exacta en el adulto,
+    para quien no hay ensayo de toma única, y por eso la posología la declara como extrapolación en
+    vez de afirmarla.
+  ref: 'pmid:22965026'
+
+# ── Alternativas Terapéuticas ────────────────────────────────────────────────
+alternativas:
+  - dci: 'Fenoximetilpenicilina (penicilina V)'
+    atc: 'J01CE02'
+    lme: true
+    lme_seccion: '6.2.1'
+    nota: 'Alternativa equivalente y no segunda opción: es el fármaco con el que está medida la prevención de la fiebre reumática (riesgo relativo 0.20; número necesario para tratar 60) y el de espectro más estrecho; pierde solo en número de tomas'
+  - dci: 'Cefalexina'
+    atc: 'J01DB01'
+    lme: true
+    lme_seccion: '6.2.1'
+    nota: 'Alternativa en la alergia a penicilina que no fue inmediata ni grave; superior en curación bacteriológica en metaanálisis (razón de odds 2.70 a 4.27) pero en un desenlace sustituto y a costa de un espectro más amplio'
+  - dci: 'Azitromicina'
+    atc: 'J01FA10'
+    lme: true
+    lme_seccion: '6.2.2'
+    nota: 'Reservada a la alergia verdadera a betalactámicos y condicionada a la resistencia local: 6.9 % de los aislados estadounidenses y hasta el 9 % de los faríngeos portugueses en 2019'
+
+conclusion: >-
+  Esta ficha se lee bien si se tiene presente que no trata la garganta. El antibiótico acorta los
+  síntomas unas dieciséis horas y hace falta tratar a 21 pacientes para que uno esté sin dolor a la
+  semana; si el desenlace fuera ese, el balance no justificaría prescribir nada. Lo que justifica
+  prescribir es la fiebre reumática aguda, que reduce en un 70 % frente a no tratar y en un 80 % en
+  los ensayos de penicilina, con un número necesario para tratar de 53 y de 60 respectivamente, y
+  con ella la cardiopatía reumática. De ese desplazamiento del desenlace salen las tres reglas de la
+  guía, y las tres se incumplen a diario. La primera es confirmar: sin cultivo ni prueba rápida no
+  hay nada que prevenir, porque la mayoría de las faringitis agudas son víricas, y el propio efecto
+  sintomático fue menor con frotis negativo (riesgo relativo 0.78) que positivo (0.58). La segunda
+  es completar los diez días, aunque el paciente esté bien al cuarto: los ciclos de tres a seis días
+  empeoraron la recurrencia bacteriológica tardía (razón de odds 1.31; IC 95 % 1.16 a 1.48) y la
+  revisión que los estudió pide cautela expresa donde la cardiopatía reumática siga siendo
+  prevalente. La tercera es elegir la pauta por la adherencia, que es lo que hace a la amoxicilina
+  preferible a la penicilina V sin ser mejor que ella: no fue inferior en erradicación faríngea en
+  los tres controles —límite superior del intervalo del 4.9 %, 6.5 % y 8.5 % frente a un margen del
+  10 %— y se toma una vez al día en lugar de dos o cuatro. El daño es leve y conocido, con un número
+  necesario para dañar de 21 para náuseas, exantema o diarrea y un caso de anafilaxia por cada 1038
+  tratados, y tiene aquí una trampa que no tiene en ninguna otra indicación de la molécula: la
+  faringitis que se está tratando puede ser una mononucleosis infecciosa, y el exantema que seguirá
+  dejará al paciente etiquetado de alérgico a la penicilina para siempre si nadie lo había previsto.
+  Lo que esta guía no puede afirmar queda dicho: no hay ensayo de toma única en adultos, el texto
+  completo de la guía IDSA no fue accesible desde el entorno de compilación y de ella solo se cita
+  lo que afirma su resumen, y ninguna comparación directa entre candidatos ha usado la fiebre
+  reumática como desenlace, de modo que toda la elección se dirime en sustitutos.
+
+guias:
+  - organizacion: IDSA
+    anio: 2012
+    titulo: 'Clinical practice guideline for the diagnosis and management of group A streptococcal pharyngitis: 2012 update by the Infectious Diseases Society of America'
+    posicion: >-
+      Mantiene la penicilina y la amoxicilina como tratamiento de elección de la faringitis
+      estreptocócica del grupo A, y su actualización respecto de la versión de 2002 incorpora la
+      clindamicina entre las opciones para el paciente alérgico a la penicilina. Advertencia de
+      verificabilidad: el texto completo no fue accesible desde este entorno de compilación —solo el
+      resumen—, de modo que la tabla de dosificación de la guía y la graduación de fuerza y calidad
+      de cada una de sus recomendaciones no pudieron comprobarse, y aquí no se le atribuye nada que
+      su resumen no afirme. La posología de esta ficha se ancla por eso en el ensayo de no
+      inferioridad y en la ficha técnica, no en la guía.
+    cita: 'Clin Infect Dis 2012;55(10):e86-e102'
+    ref: 'pmid:22965026'
+
+refs:
+  - 'pmid:18337284'
+  - 'pmid:15927077'
+  - 'pmid:24190439'
+  - 'pmid:22895944'
+  - 'pmid:17475987'
+  - 'pmid:16080080'
+  - 'pmid:22965026'
+  - 'pmid:23265995'
+  - 'fda:label'

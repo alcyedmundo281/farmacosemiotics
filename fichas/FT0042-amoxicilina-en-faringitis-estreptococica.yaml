@@ -141,10 +141,14 @@ evidencia:
       evidencia disponible es definitivamente mala, y conviene que se lea así en vez de acabar
       citada como si fuera firme. Una advertencia de lectura sobre las cifras: la fuente publica una
       reducción absoluta del riesgo del 1.67 % junto a un número necesario para tratar de 53, y los
-      dos no son recíprocos exactos, porque 1 dividido por 1.67 % da 60. Aquí se reproducen los dos
-      tal como el metaanálisis los da y no se recalcula ninguno, y por eso la reducción absoluta
-      consta en el texto del efecto y no como campo estructurado: inventarle a la fuente el valor
-      que la haría cuadrar sería corregirla sin fundamento.
+      dos no son recíprocos exactos, porque 1 dividido por 1.67 % da 60. Se reproducen los dos tal
+      como el metaanálisis los da y no se recalcula ninguno, que es lo que manda la regla del
+      repositorio: el recuento manda sobre el porcentaje impreso cuando el porcentaje es su división
+      directa, pero eso no alcanza a un efecto, y una RRA y un NNT se reproducen aunque no cuadren
+      entre sí. Por eso la reducción absoluta consta en el texto del efecto y no como campo
+      estructurado, donde la auditoría de `scripts/nnt.py` la enfrentaría al NNT: ajustar una cifra
+      de la fuente para que cuadre con otra cifra de la fuente es publicar un número que nadie
+      midió.
     ref: 'pmid:15927077'
 
   - desenlace: Fiebre reumática, complicaciones supurativas y síntomas con antibiótico frente a control en el dolor de garganta
@@ -267,8 +271,10 @@ evidencia:
     efecto: >-
       En 1885 aislados clínicos de Streptococcus pyogenes recogidos en 45 centros estadounidenses,
       el 85 % de ellos faríngeos, se detectó resistencia a azitromicina en el 6.9 %, a eritromicina
-      en el 6.8 %, a claritromicina en el 6.6 %, a clindamicina en el 0.5 %, a telitromicina en el
-      0.2 % y a levofloxacino en el 0.05 %; no se detectó resistencia a penicilina ni a cefdinir. El
+      en el 6.8 % —129 de 1885 aislados, que es el único recuento que la fuente publica de los seis
+      y permite rehacer la división—, a claritromicina en el 6.6 %, a clindamicina en el 0.5 %, a
+      telitromicina en el 0.2 % y a levofloxacino en el 0.05 %; no se detectó resistencia a
+      penicilina ni a cefdinir. El
       44 % de los resistentes a macrólidos tenía fenotipo M y el 56 % fenotipo MLSB, y el conjunto
       resistente se agrupaba en unos pocos clones con capacidad de expansión. El dato es el
       fundamento silencioso de toda la ficha: no hace falta antibiograma antes de prescribir
@@ -353,7 +359,8 @@ posicionamiento:
     alternativa de pleno derecho y no como segunda opción: la guía IDSA de 2012 nombra a las dos
     como tratamiento de elección y no prefiere ninguna. Lo que coloca a la amoxicilina delante en
     este informe es la adherencia, no la potencia: no fue inferior en erradicación faríngea en los
-    tres controles del ensayo y se administra en una sola toma diaria frente a dos o cuatro, y en una
+    tres controles del ensayo de no inferioridad (`pmid:18337284`, que no es el `ref` de este
+    bloque) y se administra en una sola toma diaria frente a dos o cuatro, y en una
     indicación cuyo ciclo dura diez días y cuyos síntomas desaparecen al cuarto, la toma única es el
     factor que decide si la prevención se completa.
   escalonado:
@@ -444,11 +451,13 @@ recomendacion:
     permanente y el daño que se arriesga es leve y reversible, de modo que la asimetría de
     consecuencias es extrema y empuja a tratar incluso con certeza baja. Segunda: la certeza baja
     procede de que los ensayos de prevención de la fiebre reumática son de 1950 a 1961 y
-    metodológicamente pobres, pero no van a mejorar nunca, porque aleatorizar a no tratar una
-    faringitis estreptocócica confirmada ya no es admisible; esperar mejor evidencia no es una opción
-    disponible. Tercera: la indirección de la revisión Cochrane es conservadora, porque su población
-    es el dolor de garganta en general y eso diluye el efecto hacia abajo en la población confirmada
-    de esta ficha. Cuarta: la guía IDSA de 2012 mantiene la penicilina y la amoxicilina como
+    metodológicamente pobres —así los califica el propio metaanálisis que los reúne,
+    `pmid:15927077`—, pero no van a mejorar nunca, porque aleatorizar a no tratar una faringitis
+    estreptocócica confirmada ya no es admisible; esperar mejor evidencia no es una opción
+    disponible. Tercera: la indirección de la revisión Cochrane de antibióticos para el dolor de
+    garganta (`pmid:24190439`) es conservadora, porque su población es el dolor de garganta en
+    general y eso diluye el efecto hacia abajo en la población confirmada de esta ficha. Cuarta: la
+    guía IDSA de 2012, que es el `ref` de este bloque, mantiene la penicilina y la amoxicilina como
     tratamiento de elección. Lo que queda frágil no es si tratar, sino la pauta exacta en el adulto,
     para quien no hay ensayo de toma única, y por eso la posología la declara como extrapolación en
     vez de afirmarla.
@@ -460,17 +469,17 @@ alternativas:
     atc: 'J01CE02'
     lme: true
     lme_seccion: '6.2.1'
-    nota: 'Alternativa equivalente y no segunda opción: es el fármaco con el que está medida la prevención de la fiebre reumática (riesgo relativo 0.20; número necesario para tratar 60) y el de espectro más estrecho; pierde solo en número de tomas'
+    nota: 'Alternativa equivalente y no segunda opción: es el fármaco con el que está medida la prevención de la fiebre reumática (riesgo relativo 0.20; número necesario para tratar 60, en pmid:15927077) y el de espectro más estrecho; pierde solo en número de tomas'
   - dci: 'Cefalexina'
     atc: 'J01DB01'
     lme: true
     lme_seccion: '6.2.1'
-    nota: 'Alternativa en la alergia a penicilina que no fue inmediata ni grave; superior en curación bacteriológica en metaanálisis (razón de odds 2.70 a 4.27) pero en un desenlace sustituto y a costa de un espectro más amplio'
+    nota: 'Alternativa en la alergia a penicilina que no fue inmediata ni grave; superior en curación bacteriológica en metaanálisis (razón de odds 2.70 a 4.27, en pmid:16767482) pero en un desenlace sustituto y a costa de un espectro más amplio'
   - dci: 'Azitromicina'
     atc: 'J01FA10'
     lme: true
     lme_seccion: '6.2.2'
-    nota: 'Reservada a la alergia verdadera a betalactámicos y condicionada a la resistencia local: 6.9 % de los aislados estadounidenses y hasta el 9 % de los faríngeos portugueses en 2019'
+    nota: 'Reservada a la alergia verdadera a betalactámicos y condicionada a la resistencia local: 6.9 % de los aislados estadounidenses (pmid:16080080) y hasta el 9 % de los faríngeos portugueses en 2019 (pmid:41071123)'
 
 conclusion: >-
   Esta ficha se lee bien si se tiene presente que no trata la garganta. El antibiótico acorta los

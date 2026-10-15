@@ -107,8 +107,9 @@ conclusion: >-
   la propia guía IDSA, revisando esa misma literatura, no movió a las cefalosporinas a la primera
   línea. La azitromicina queda reservada a la alergia verdadera a betalactámicos y solo con
   resistencia local comprobada: en 2002 aislados faríngeos de un hospital portugués entre 2014 y
-  2019 la resistencia a eritromicina fue del 4 % global y alcanzó el 9 % en 2019 por expansión de un
-  linaje nuevo, frente a una resistencia a penicilina que no se ha detectado nunca. La duración no se
+  2019 la resistencia a eritromicina fue del 4 % global —84 de 2002 aislados— y alcanzó el 9 % en
+  2019 por expansión de un linaje nuevo, frente a una resistencia a penicilina que no se ha
+  detectado nunca. La duración no se
   negocia en los diez días por una razón que no es la curación: la revisión Cochrane de 20 estudios
   y 13 102 casos encontró que tres a seis días de antibióticos más nuevos igualan a los diez días de
   penicilina en fracaso clínico precoz y en recurrencia clínica tardía, pero empeoran la recurrencia
@@ -293,8 +294,10 @@ candidatos:
       sustento: >-
         Es el único candidato cuya eficacia depende de una resistencia que existe y se mueve. En
         2002 aislados faríngeos de Streptococcus pyogenes recogidos en un hospital portugués entre
-        2014 y 2019, la resistencia fue del 4 % a eritromicina, del 4 % a clindamicina y del 3 % a
-        tetraciclina, con un pico del 9 % en 2019 por la expansión rápida de un linaje nuevo que
+        2014 y 2019, la resistencia fue del 4 % a eritromicina (84 aislados), del 4 % a clindamicina
+        (77) y del 3 % a tetraciclina (52) —los recuentos van al lado porque el porcentaje es su
+        división y el lector tiene derecho a rehacerla—, con un pico del 9 % en 2019 por la
+        expansión rápida de un linaje nuevo que
         desplazó a los anteriores. Esa asimetría es el argumento: la eficacia del betalactámico no
         depende de la epidemiología local y la del macrólido sí, lo que en un tratamiento empírico
         equivale a una eficacia inferior aunque el aislado concreto resulte sensible.

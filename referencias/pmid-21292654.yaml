@@ -1,0 +1,43 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:21292654"
+clave_bibtex: gupta2011
+tipo: guia
+titulo: "International clinical practice guidelines for the treatment of acute uncomplicated cystitis and pyelonephritis in women: A 2010 update by the Infectious Diseases Society of America and the European Society for Microbiology and Infectious Diseases"
+autores:
+  - "Gupta K"
+  - "Hooton TM"
+  - "Naber KG"
+  - "Wullt B"
+  - "Colgan R"
+  - "Miller LG"
+  - "Moran GJ"
+  - "Nicolle LE"
+  - "Raz R"
+  - "Schaeffer AJ"
+  - "Soper DE"
+  - "Infectious Diseases Society of America"
+  - "European Society for Microbiology and Infectious Diseases"
+publicacion: "Clin Infect Dis"
+anio: 2011
+volumen: "52"
+numero: "5"
+paginas: "e103-20"
+
+identificadores:
+  pmid: 21292654
+  doi: "10.1093/cid/ciq257"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Practice Guideline"
+  - "Research Support, Non-U.S. Gov't"
+  - "Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

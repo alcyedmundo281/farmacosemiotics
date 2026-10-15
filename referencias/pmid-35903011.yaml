@@ -1,0 +1,35 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:35903011"
+clave_bibtex: choi2023
+tipo: metaanalisis
+titulo: "Efficacy of Doxycycline for Mild-to-Moderate Community-Acquired Pneumonia in Adults: A Systematic Review and Meta-Analysis of Randomized Controlled Trials"
+autores:
+  - "Choi SH"
+  - "Cesar A"
+  - "Snow TAC"
+  - "Saleem N"
+  - "Arulkumaran N"
+  - "Singer M"
+publicacion: "Clin Infect Dis"
+anio: 2023
+volumen: "76"
+numero: "4"
+paginas: "683-691"
+
+identificadores:
+  pmid: 35903011
+  doi: "10.1093/cid/ciac615"
+  pmc: null
+
+tipos_pubmed:
+  - "Meta-Analysis"
+  - "Systematic Review"
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

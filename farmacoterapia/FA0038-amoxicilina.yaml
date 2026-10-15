@@ -1,0 +1,275 @@
+# PARTE II — Farmacoterapia: cómo se usa la amoxicilina con seguridad.
+id: 'FA:0038'
+tipo: farmacoterapia
+farmaco: 'FS:0038'
+
+titulo: Farmacoterapia con amoxicilina
+titulo_en: Amoxicillin pharmacotherapy
+
+alcance: >-
+  Fija lo que no cambia entre las indicaciones de la amoxicilina: la verificación de la alergia
+  antes de la primera dosis —que en este fármaco es la decisión de seguridad central y la que más
+  se hace mal—, el ajuste por función renal, la conducta ante el exantema y ante la diarrea
+  posantibiótica, las interacciones que modifican la dosis del otro fármaco, el perfil reproductivo
+  y el reparto de actos. Sirve igual a la neumonía adquirida en la comunidad, a la faringitis
+  estreptocócica, a la otitis media y a la erradicación de Helicobacter pylori, porque nada de lo
+  anterior depende de la indicación. Queda fuera, por depender de ella, la dosis diana, la duración
+  del ciclo y la línea de tratamiento. Queda fuera también la combinación con ácido clavulánico,
+  que tiene otro perfil hepático y otra posición terapéutica.
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Caracterización de la alergia referida a betalactámicos
+    motivo: >-
+      No basta con preguntar si el paciente es alérgico: hay que averiguar qué pasó, cuándo y
+      cuánto tardó. Una reacción inmediata con urticaria, angioedema, broncoespasmo o hipotensión
+      contraindica el fármaco; un exantema morbiliforme tardío al quinto o séptimo día, sobre todo
+      si coincidió con una infección vírica, no es alergia mediada por IgE y no lo contraindica.
+      La distinción importa porque la etiqueta mal puesta persiste toda la vida y empuja al
+      paciente, en cada infección futura, hacia antibióticos de espectro más amplio, más caros y
+      peor tolerados. El cribado basal de la amoxicilina es, sobre todo, una anamnesis bien hecha.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Antecedente de reacción cutánea grave (Stevens-Johnson, necrólisis epidérmica tóxica, pustulosis exantemática generalizada aguda)
+    motivo: >-
+      Contraindica de forma absoluta y definitiva cualquier reexposición, también a otros
+      betalactámicos, y debe constar en la historia con ese nombre y no como «alergia».
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Antecedente de ictericia o disfunción hepática atribuida a amoxicilina
+    motivo: >-
+      La reexposición reproduce el daño. Conviene precisar si el episodio fue con amoxicilina sola
+      o con amoxicilina-clavulánico, porque la hepatotoxicidad es mucho más propia de la
+      combinación y, si fue así, la amoxicilina sola puede seguir siendo utilizable.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Tasa de filtrado glomerular estimada o aclaramiento de creatinina
+    motivo: >-
+      La eliminación es renal en un 60 a 70 % como fármaco inalterado. Por debajo de
+      30 mL/min/1.73 m² hay que reducir la dosis y espaciar el intervalo, y en diálisis administrar
+      una dosis adicional tras la sesión. A diferencia de la nitrofurantoína, aquí la insuficiencia
+      renal es un problema de acumulación y se resuelve ajustando, no una contraindicación.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Sospecha clínica de mononucleosis infecciosa
+    motivo: >-
+      La probabilidad de exantema morbiliforme es muy alta en la infección por virus de
+      Epstein-Barr. No es peligroso, pero genera una etiqueta falsa de alergia a penicilina que
+      acompañará al paciente de por vida; identificar el contexto antes permite advertirlo y
+      evitar ese daño diferido.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+umbrales_accion:
+  - parametro: Reacción inmediata (urticaria, angioedema, broncoespasmo, hipotensión) en minutos u horas
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender de inmediato, tratar la anafilaxia y registrar en la historia la contraindicación
+      a betalactámicos. Derivar a alergología para estudio: confirmar o descartar la alergia tiene
+      valor terapéutico durante el resto de la vida del paciente.
+    ref: 'fda:label'
+
+  - parametro: Exantema morbiliforme no urticarial al quinto a séptimo día, sin afectación mucosa ni sistémica
+    umbral: Aparición tardía durante el ciclo
+    accion: >-
+      Valorar completar el tratamiento con vigilancia estrecha y no registrar alergia a
+      betalactámicos: la mayoría de estos exantemas no son mediados por IgE. Remitir a alergología
+      para estudio diferido si la distinción clínica no es clara. Es el umbral de este fármaco donde
+      la conducta por defecto —suspender y etiquetar— causa más daño acumulado que el propio evento.
+    ref: 'fda:label'
+
+  - parametro: Lesiones cutáneas con afectación mucosa, despegamiento, pústulas o fiebre alta
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender de inmediato por sospecha de reacción cutánea grave, derivar a urgencias y
+      contraindicar la reexposición de por vida.
+    ref: 'fda:label'
+
+  - parametro: Diarrea que persiste o empeora, durante el tratamiento o hasta dos meses después
+    umbral: Más de 48 horas, o con sangre, fiebre o dolor abdominal
+    accion: >-
+      Suspender el antibacteriano si es prescindible, no administrar antiperistálticos y estudiar
+      la toxina de Clostridioides difficile.
+    ref: 'fda:label'
+
+  - parametro: Tasa de filtrado glomerular estimada
+    umbral: Inferior a 30 mL/min/1.73 m²
+    accion: >-
+      Reducir la dosis y espaciar el intervalo según la ficha técnica; en hemodiálisis, añadir una
+      dosis al final de la sesión. No suspender: el fármaco sigue siendo utilizable con la pauta
+      corregida.
+    ref: 'fda:label'
+
+  - parametro: Ictericia, coluria o elevación sintomática de transaminasas
+    umbral: Cualquier aparición
+    accion: 'Suspender y no reexponer; vigilar hasta la normalización.'
+    ref: 'fda:label'
+
+interacciones:
+  - con: Alopurinol
+    gravedad: moderada
+    efecto: >-
+      Aumenta de forma marcada la incidencia de exantema cutáneo respecto de la amoxicilina sola.
+    conducta: >-
+      Preferir otro antibiótico si es posible; si se mantiene, advertir al paciente de que el
+      exantema es esperable y no equivale a alergia a la penicilina, para que no quede etiquetado.
+    ref: 'fda:label'
+
+  - con: Metotrexato
+    gravedad: mayor
+    efecto: >-
+      Las penicilinas reducen el aclaramiento renal del metotrexato y elevan su concentración
+      plasmática, con riesgo de mucositis, mielosupresión y toxicidad hepática.
+    conducta: >-
+      Vigilar estrechamente la toxicidad del metotrexato durante la antibioterapia y considerar
+      ajustar su dosis o diferirla. El fármaco cuya dosis cambia no es la amoxicilina.
+    ref: 'fda:label'
+
+  - con: Anticoagulantes antagonistas de la vitamina K (warfarina, acenocumarol)
+    gravedad: moderada
+    efecto: >-
+      Prolongación del tiempo de protrombina y elevación del INR, por alteración de la flora
+      intestinal productora de vitamina K.
+    conducta: 'Controlar el INR durante el ciclo y poco después, y ajustar la dosis del anticoagulante.'
+    ref: 'fda:label'
+
+  - con: Probenecid
+    gravedad: menor
+    efecto: >-
+      Inhibe la secreción tubular de amoxicilina y eleva y prolonga sus concentraciones
+      plasmáticas.
+    conducta: >-
+      No es una asociación peligrosa y en algún momento se usó deliberadamente para potenciar la
+      exposición; vigilar si hay insuficiencia renal concomitante.
+    ref: 'fda:label'
+
+  - con: Anticonceptivos orales combinados
+    gravedad: menor
+    efecto: >-
+      Posible reducción de la eficacia anticonceptiva, descrita de forma inconsistente, por
+      alteración de la circulación enterohepática de los estrógenos.
+    conducta: >-
+      Informar y recomendar un método de barrera adicional durante el ciclo, que es una precaución
+      de bajo coste ante una incertidumbre que la propia ficha técnica no resuelve.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: compatible
+    enunciado: >-
+      Es uno de los antibióticos con mayor experiencia acumulada en el embarazo y la elección de
+      referencia en muchas infecciones de la gestante. Los estudios de reproducción en animales no
+      han mostrado daño fetal y no se dispone de señal de teratogenicidad en humanos. No requiere
+      ajuste por el embarazo.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: compatible
+    enunciado: >-
+      Se excreta en la leche materna en cantidades pequeñas. Compatible con la lactancia; cabe
+      vigilar diarrea, candidiasis oral o exantema en el lactante, que son las manifestaciones
+      esperables y transitorias de la alteración de su microbiota.
+    ref: 'fda:label'
+
+atencion_compartida:
+  seguimiento: >-
+    Médico de atención primaria: caracteriza la alergia referida antes de prescribir, ajusta por
+    función renal, explica que el ciclo puede ser corto y por qué eso no es una infradosificación,
+    e instruye sobre la diferencia entre el exantema tardío y la reacción inmediata. Es el
+    prescriptor habitual de este fármaco y le corresponde la mayor parte de la guía, incluida la
+    decisión de no etiquetar de alérgico a quien no lo es.
+  especialista: >-
+    Alergología: estudia la alergia referida y, cuando procede, la descarta formalmente, que es
+    una intervención con beneficio terapéutico de por vida. Infectología o neumología: intervienen
+    ante fracaso del tratamiento empírico, sospecha de patógeno resistente o necesidad de ampliar
+    cobertura.
+  checklist_preinicio:
+    - Alergia a betalactámicos caracterizada, no solo preguntada
+    - Sin antecedente de reacción cutánea grave ni de hepatopatía por amoxicilina
+    - Dosis e intervalo ajustados si la TFGe es inferior a 30 mL/min/1.73 m²
+    - Advertencia dada sobre el exantema tardío y sobre la diarrea que obliga a consultar
+  suspension_inmediata:
+    - Urticaria, angioedema, broncoespasmo o hipotensión
+    - Lesiones cutáneas con afectación mucosa, despegamiento o pústulas
+    - Diarrea con sangre, fiebre o dolor abdominal intenso
+    - Ictericia o coluria
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Betalactámico de primera línea en las infecciones respiratorias y otorrinolaringológicas
+    adquiridas en la comunidad del paciente sin comorbilidad, por tres razones que se sostienen
+    entre sí: cubre al patógeno que determina la mortalidad en la neumonía, la estrategia de
+    betalactámico en monoterapia no fue inferior a añadir macrólido ni a la fluoroquinolona en
+    mortalidad a 90 días, y su daño atribuible es leve, reversible y cuantificado. Pertenece al
+    grupo Access de la clasificación AWaRe, que es donde la OMS quiere que se concentre el consumo
+    antibiótico.
+  escalonado:
+    - linea: primera
+      opciones: 'Amoxicilina oral en monoterapia, a dosis alta cuando el patógeno diana es Streptococcus pneumoniae'
+      nota: 'La resistencia intermedia del neumococo se vence subiendo la dosis, no cambiando de familia'
+    - linea: segunda
+      opciones: 'Doxiciclina o macrólido ante alergia verdadera a betalactámicos o sospecha fundada de patógeno atípico'
+      nota: 'El macrólido en monoterapia solo donde la resistencia neumocócica local documentada sea inferior al 25 %'
+    - linea: rescate
+      opciones: 'Amoxicilina con ácido clavulánico, cefalosporina o fluoroquinolona respiratoria, según foco, comorbilidad y antibiograma'
+      nota: 'Tras fracaso del tratamiento empírico inicial o en la población con comorbilidad significativa'
+  desescalamiento:
+    enunciado: >-
+      La duración puede acortarse en quien ha mejorado claramente. En el ensayo doble ciego de
+      pacientes con neumonía adquirida en la comunidad de gravedad baja a moderada que habían
+      mejorado sustancialmente tras tres días, suspender en ese momento no fue inferior a completar
+      ocho días: éxito clínico del 93 % en ambos brazos a día 10 y del 90 % frente al 88 % a día 28.
+      Prolongar el ciclo no añadió curación y sí añadió daño: 21 % de efectos adversos en la rama
+      de ocho días frente al 11 % en la de tres.
+    ref: 'pmid:16763247'
+  ref: 'pmid:25830421'
+
+# ── Huecos declarados ────────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No se escribe cronograma porque ninguna de las fuentes consultadas fija uno para los ciclos
+      cortos, que son la práctica totalidad del uso de la amoxicilina. La guía ATS/IDSA de neumonía
+      adquirida en la comunidad no prescribe analítica de control durante el tratamiento
+      ambulatorio, y la ficha técnica recomienda vigilar periódicamente la función renal,
+      hematológica y hepática solo en el tratamiento prolongado, sin especificar qué prueba, con
+      qué periodicidad ni en qué fase. Escribir un intervalo verosímil para rellenar el apartado
+      sería el fallo que este repositorio existe para impedir. La vigilancia de este fármaco es
+      clínica —exantema, diarrea, ictericia— y está escrita en `umbrales_accion`.
+    buscado_en: >-
+      Guía ATS/IDSA de diagnóstico y tratamiento de la neumonía adquirida en la comunidad del
+      adulto, y ficha técnica de la FDA en sus apartados de advertencias y precauciones
+    refs:
+      - 'pmid:31573350'
+      - 'fda:label'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No hay dosis de inicio que dependa de un genotipo. Existe asociación conocida entre alelos
+      HLA y algunas reacciones de hipersensibilidad a betalactámicos, pero no hay recomendación
+      CPIC ni ninguna otra que convierta ese dato en un umbral de dosificación o en un cribado
+      previo exigible, y no se dispone de fuente que fije qué alelo, con qué prueba y con qué
+      conducta. Mientras eso no exista, la prevención de la reacción grave es una anamnesis, no un
+      genotipo.
+    buscado_en: 'Ficha técnica de la FDA y guía ATS/IDSA de neumonía adquirida en la comunidad'
+    refs:
+      - 'fda:label'
+      - 'pmid:31573350'
+
+refs:
+  - 'pmid:25830421'
+  - 'pmid:16763247'
+  - 'pmid:31573350'
+  - 'fda:label'

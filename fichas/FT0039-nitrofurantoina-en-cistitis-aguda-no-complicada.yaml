@@ -1,0 +1,304 @@
+id: 'FT:0039'
+tipo: ficha
+farmaco: 'FS:0036'
+seleccion: 'SEL:0025'
+titulo: Nitrofurantoína en la cistitis aguda no complicada de la mujer
+indicacion: Cistitis aguda no complicada en la mujer adulta no gestante
+indicacion_en: Acute uncomplicated cystitis in adult non-pregnant women
+poblacion: >-
+  Mujeres adultas no gestantes con síntomas de infección del tracto urinario inferior —disuria,
+  urgencia, polaquiuria o dolor suprapúbico—, sin fiebre ni dolor en flanco, sin anomalía
+  urológica conocida y con tasa de filtrado glomerular estimada igual o superior a
+  30 mL/min/1.73 m²
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+# ── Decisión Rápida en Punto de Atención ────────────────────────────────────
+decision_clinica:
+  semaforo: verde
+  perla_prescripcion: >-
+    100 mg por vía oral cada 8 horas durante 5 días, con alimento. Es el único antibiótico de
+    primera línea de la cistitis con superioridad demostrada en una comparación directa: resolución
+    clínica del 70 % frente al 58 % de la fosfomicina en dosis única a los 28 días, NNT 9. Antes de
+    prescribir hacen falta dos datos y solo dos: el filtrado glomerular y, si procede, la semana de
+    gestación.
+  alerta_seguridad_inmediata: >-
+    Contraindicada con TFGe inferior a 30 mL/min/1.73 m², porque no alcanza la concentración
+    urinaria que cura y sí la plasmática que daña. Contraindicada entre las semanas 38 y 42 de
+    gestación por anemia hemolítica neonatal. Inútil en la pielonefritis: no penetra en el
+    parénquima renal, de modo que ante fiebre o dolor en flanco es el fármaco equivocado y no una
+    dosis insuficiente.
+
+# ── Pregunta PICO ────────────────────────────────────────────────────────────
+pico:
+  p: 'Mujeres adultas no gestantes con cistitis aguda no complicada (N = 513 en la comparación frente a fosfomicina; N = 338 frente a cotrimoxazol)'
+  i: 'Nitrofurantoína 100 mg por vía oral cada 8 horas durante 5 días'
+  c: 'Fosfomicina trometamol 3 g en dosis oral única; y, en el segundo ensayo, cotrimoxazol de doble concentración cada 12 horas durante 3 días'
+  o: 'Resolución clínica a los 28 días del fin del tratamiento, resolución microbiológica, curación clínica a los 30 días y efectos adversos'
+
+# ── Posología Práctica ───────────────────────────────────────────────────────
+posologia:
+  inicio: '100 mg por vía oral cada 8 horas, con alimento (pauta del ensayo de comparación directa); la formulación de monohidrato y macrocristales permite 100 mg cada 12 horas'
+  escalado: 'No se titula: la dosis eficaz es la inicial y no se escala'
+  mantenimiento: '100 mg cada 8 o 12 horas hasta completar 5 días; no prolongar el ciclo en la cistitis aguda'
+  maxima: '400 mg al día en el tratamiento del episodio agudo'
+  ajuste_renal: 'Contraindicada si la TFGe es inferior a 30 mL/min/1.73 m². No existe pauta reducida que rescate la indicación: por debajo de ese umbral el problema no es la dosis, es que el fármaco no llega adonde actúa'
+  ajuste_hepatico: 'No se define ajuste; el antecedente de hepatopatía por nitrofurantoína es contraindicación absoluta'
+  ref: 'fda:label'
+
+# ── Evidencia Clínica Cuantitativa (Eficacia & NNT) ──────────────────────────
+evidencia:
+  - desenlace: Resolución clínica a los 28 días del fin del tratamiento, frente a fosfomicina en dosis única
+    criticidad: critico
+    efecto: >-
+      Resolución clínica en 171 de 244 pacientes (70 %) con nitrofurantoína frente a 139 de 241
+      (58 %) con fosfomicina trometamol: diferencia absoluta de 12 puntos porcentuales
+      (IC 95 % 4 a 21; p = 0.004). Leído como fracaso, el riesgo baja del 42 % al 30 %, una
+      reducción relativa del 29 %.
+    rra: '12.0%'
+    rrr: '28.6%'
+    nnt: 9
+    horizonte_nnt: a 28 días del fin del tratamiento
+    diseno: eca
+    estudio: Huttner et al., JAMA 2018 (NCT01966653)
+    comparador: Fosfomicina trometamol 3 g en dosis oral única
+    n: 513
+    certeza: moderada
+    razones_descenso:
+      - riesgo_de_sesgo
+    certeza_nota: >-
+      Se desciende un nivel por diseño abierto: aunque el analista estaba ciego, pacientes e
+      investigadores conocían la asignación, y el desenlace primario es la resolución de síntomas
+      referidos por la paciente, que es justo el tipo de desenlace que el desconocimiento de la
+      rama protege. No se desciende por imprecisión: el intervalo de confianza excluye el cero en
+      todo su recorrido.
+    ref: 'pmid:29710295'
+
+  - desenlace: Resolución microbiológica a los 28 días, frente a fosfomicina en dosis única
+    criticidad: importante
+    efecto: >-
+      Resolución microbiológica en 129 de 175 pacientes (74 %) frente a 103 de 163 (63 %):
+      diferencia absoluta de 11 puntos porcentuales (IC 95 % 1 a 20; p = 0.04).
+    rra: '11.0%'
+    rrr: '29.7%'
+    nnt: 10
+    horizonte_nnt: a 28 días del fin del tratamiento
+    diseno: eca
+    estudio: Huttner et al., JAMA 2018
+    comparador: Fosfomicina trometamol 3 g en dosis oral única
+    n: 338
+    certeza: baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - imprecision
+    certeza_nota: >-
+      Se desciende por el diseño abierto y, además, por imprecisión: el límite inferior del
+      intervalo roza el 1 %, de modo que el dato es compatible con una ventaja microbiológica
+      clínicamente irrelevante. La dirección es consistente con el desenlace clínico, pero la
+      magnitud no está bien delimitada.
+    ref: 'pmid:29710295'
+
+  - desenlace: Curación clínica a los 30 días, frente a cotrimoxazol de 3 días
+    criticidad: critico
+    efecto: >-
+      Equivalencia: curación clínica en el 84 % con 5 días de nitrofurantoína frente al 79 % con 3
+      días de cotrimoxazol (diferencia -5 %; IC 95 % -13 a 4), con tasas de curación clínica y
+      microbiológica también equivalentes en la primera visita de seguimiento. El ensayo se diseñó
+      para demostrar equivalencia y la demostró, lo que establece a la nitrofurantoína como
+      alternativa eficaz ahorradora de fluoroquinolonas.
+    rra: '0.0%'
+    rrr: '0.0%'
+    nnt: 1
+    horizonte_nnt: a 30 días, por equivalencia
+    diseno: eca
+    estudio: Gupta et al., Arch Intern Med 2007
+    comparador: Trimetoprima / sulfametoxazol de doble concentración cada 12 horas durante 3 días
+    n: 338
+    certeza: moderada
+    razones_descenso:
+      - riesgo_de_sesgo
+    certeza_nota: >-
+      Se desciende un nivel por el diseño abierto del ensayo. La población —mujeres de 18 a 45
+      años— es además más estrecha que la de la indicación, lo que limita la extrapolación a la
+      mujer posmenopáusica.
+    ref: 'pmid:17998493'
+
+  - desenlace: Fracaso del comparador cotrimoxazol según la susceptibilidad del uropatógeno (análisis de subgrupo)
+    criticidad: importante
+    efecto: >-
+      Dentro de la rama de cotrimoxazol, la curación clínica fue del 41 % (7 de 17) cuando el
+      aislado no era sensible, frente al 84 % cuando lo era (p < 0.001): 43 puntos porcentuales de
+      curación perdidos por un dato que el prescriptor no tiene delante cuando elige de forma
+      empírica. Leído como fracaso, el riesgo sube del 16 % al 59 %, una reducción relativa del
+      73 % en el fracaso cuando el aislado sí es sensible. Es el argumento cuantitativo de por qué
+      la nitrofurantoína se prefiere en el tratamiento empírico: su eficacia no depende de una
+      susceptibilidad que nadie conoce todavía.
+    rra: '43.0%'
+    rrr: '72.9%'
+    nnt: 3
+    horizonte_nnt: a 30 días, frente a cotrimoxazol empírico con aislado no sensible
+    diseno: eca
+    estudio: Gupta et al., Arch Intern Med 2007 (análisis de subgrupo preespecificado)
+    comparador: Cotrimoxazol en pacientes con uropatógeno no sensible
+    n: 17
+    certeza: muy_baja
+    razones_descenso:
+      - caracter_secundario
+      - imprecision
+      - riesgo_de_sesgo
+    certeza_nota: >-
+      No era la comparación principal del ensayo, el subgrupo lo componen 17 pacientes y el diseño
+      era abierto. La cifra se conserva porque su dirección es mecanísticamente inevitable —un
+      antibiótico no cura una bacteria resistente a él— y porque orienta la decisión empírica, no
+      porque su magnitud esté establecida.
+    ref: 'pmid:17998493'
+
+# ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
+seguridad_cuantitativa:
+  - evento: Náuseas
+    gravedad: leve
+    tasa_intervencion: '2.8 %'
+    tasa_control: '2.0 %'
+    ria: '0.8%'
+    nnh: 125
+    horizonte_nnh: a 28 días, frente a fosfomicina en dosis única
+    conducta: >-
+      Tomar el fármaco con alimento, que mejora además la absorción. No suspender: el exceso sobre
+      el comparador es de menos de un punto porcentual y no fue estadísticamente significativo.
+    ref: 'pmid:29710295'
+
+  - evento: Diarrea
+    gravedad: leve
+    tasa_intervencion: '1.2 %'
+    tasa_control: '2.0 %'
+    conducta: >-
+      No se detectó exceso frente a fosfomicina —de hecho fue menos frecuente con nitrofurantoína,
+      3 de 248 frente a 5 de 247—, de modo que no se calcula NNH. Vigilar la diarrea que persiste o
+      empeora, que obliga a descartar infección por Clostridioides difficile.
+    ref: 'pmid:29710295'
+
+  - evento: Reacción pulmonar aguda por hipersensibilidad (fiebre, disnea, tos, infiltrados, eosinofilia)
+    gravedad: grave
+    conducta: >-
+      Suspender de inmediato ante cualquier síntoma respiratorio nuevo, sin esperar confirmación
+      radiológica, y registrar la contraindicación de por vida. No se calcula NNH porque ninguna de
+      las fuentes consultadas aporta un denominador: la ficha técnica la describe sin tasa y el
+      ensayo de comparación directa, con 248 pacientes expuestos cinco días, no tiene potencia para
+      un evento de esta frecuencia. Escribir una incidencia aquí sería inventarla.
+    ref: 'fda:label'
+
+  - evento: Fibrosis pulmonar intersticial, hepatitis crónica activa y polineuropatía periférica
+    gravedad: grave
+    conducta: >-
+      Son las toxicidades que dan al fármaco su mala fama y pertenecen al uso prolongado o
+      profiláctico durante meses, no al ciclo de cinco días que esta indicación prescribe. Esa
+      distinción es el dato de seguridad más útil de la ficha: el riesgo que se teme no es el
+      riesgo que se corre aquí. Suspender ante disnea de esfuerzo progresiva, ictericia o
+      parestesias distales.
+    ref: 'fda:label'
+
+  - evento: Anemia hemolítica en déficit de glucosa-6-fosfato deshidrogenasa y en el neonato
+    gravedad: grave
+    conducta: >-
+      Preguntar por el antecedente antes de prescribir y no usar entre las semanas 38 y 42 de
+      gestación ni durante la lactancia de un menor de un mes. Ante caída brusca de hemoglobina con
+      ictericia, suspender y estudiar la actividad enzimática.
+    ref: 'fda:label'
+
+# ── Posicionamiento en esta indicación ───────────────────────────────────────
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Primera línea del tratamiento empírico, y en esta indicación la posición está sostenida por la
+    única comparación directa disponible entre los dos candidatos de primera línea. Dos propiedades
+    la refuerzan: la eficacia no depende de una susceptibilidad que el prescriptor desconoce en el
+    momento de decidir, y el espectro estrecho de uso urinario exclusivo no ejerce el daño colateral
+    que desplazó a las fluoroquinolonas de este cuadro.
+  escalonado:
+    - linea: primera
+      opciones: 'Nitrofurantoína 100 mg cada 8 o 12 horas durante 5 días'
+      nota: 'Con TFGe igual o superior a 30 mL/min/1.73 m² y sin datos de afectación del tracto superior'
+    - linea: segunda
+      opciones: 'Fosfomicina trometamol 3 g en dosis única, o cotrimoxazol 3 días donde la resistencia local documentada sea inferior al 20 %'
+      nota: 'Fosfomicina pasa al primer lugar cuando la adherencia es el factor limitante o la función renal excluye la nitrofurantoína'
+    - linea: rescate
+      opciones: 'Antibiótico dirigido por urocultivo y antibiograma'
+      nota: 'Tras fracaso documentado; nunca repetir el empírico a ciegas en el mismo episodio'
+  desescalamiento:
+    enunciado: >-
+      No hay desescalamiento posológico: el ciclo es de cinco días a dosis fija y termina. Lo que sí
+      se desescala es la intervención diagnóstica —no se precisa urocultivo de control tras la
+      resolución clínica en la cistitis no complicada—, y el fármaco no se prolonga ni se repite
+      como profilaxis sin una indicación propia, que es otro escenario con otro balance de daño.
+    ref: 'pmid:21292654'
+  ref: 'pmid:29710295'
+
+# ── Juicio de Balance GRADE ──────────────────────────────────────────────────
+balance:
+  efectos_deseables: moderado
+  efectos_indeseables: trivial
+  certeza_global: moderada
+  valores_preferencias: no_hay_incertidumbre_importante
+  equidad: probablemente_aumenta
+  aceptabilidad: si
+  factibilidad: si
+
+# ── Recomendación Formal ─────────────────────────────────────────────────────
+recomendacion:
+  direccion: a_favor
+  fuerza: fuerte
+  enunciado: >-
+    Se recomienda nitrofurantoína 100 mg por vía oral cada 8 o 12 horas durante 5 días, con
+    alimento, como tratamiento empírico de primera línea de la cistitis aguda no complicada en la
+    mujer adulta no gestante con tasa de filtrado glomerular estimada igual o superior a
+    30 mL/min/1.73 m². La recomendación es fuerte pese a una certeza global moderada porque los
+    tres elementos que GRADE pide para ello concurren: el beneficio es consistente en el único
+    ensayo de comparación directa, el daño en un ciclo de cinco días es trivial y reversible, y la
+    alternativa de igual eficacia —la fluoroquinolona— impone un coste colectivo de resistencia
+    que ningún beneficio individual en este cuadro justifica.
+  justificacion_fuerza: >-
+    La certeza se degradó por el diseño abierto del ensayo, no por inconsistencia ni por
+    imprecisión, y el desenlace afectado por ese sesgo —síntomas referidos— es el mismo en ambas
+    ramas. El balance entre beneficio y daño no se invierte bajo ningún supuesto razonable.
+  ref: 'pmid:29710295'
+
+# ── Alternativas Terapéuticas ────────────────────────────────────────────────
+alternativas:
+  - dci: 'Fosfomicina trometamol'
+    atc: 'J01XX01'
+    nota: 'Alternativa de primera línea y preferente cuando la adherencia manda: dosis oral única de 3 g, a cambio de 12 puntos porcentuales menos de resolución clínica a 28 días'
+  - dci: 'Trimetoprima / sulfametoxazol'
+    atc: 'J01EE01'
+    lme: true
+    lme_seccion: '6.2.1'
+    nota: 'Reservado a entornos con resistencia local documentada de Escherichia coli inferior al 20 %, o cuando se conoce el antibiograma'
+  - dci: 'Ciprofloxacino'
+    atc: 'J01MA02'
+    lme: true
+    lme_seccion: '6.2.2'
+    nota: 'No recomendado en esta indicación por daño colateral y toxicidad evitable, aunque su eficacia sea al menos equivalente; queda para la pielonefritis y la infección urinaria complicada'
+
+conclusion: >-
+  El balance de esta indicación es inusualmente claro y por una razón doble. En el lado del
+  beneficio, la nitrofurantoína es el único de los cuatro candidatos de la selección con
+  superioridad demostrada en una comparación directa: NNT 9 para resolución clínica frente a la
+  fosfomicina en dosis única, y equivalencia frente al cotrimoxazol en un ensayo diseñado para
+  medirla. En el lado del daño, el único efecto adverso cuantificado en el ciclo de cinco días son
+  las náuseas, con NNH 125 y sin significación estadística, mientras que las toxicidades graves que
+  arrastran su reputación —fibrosis pulmonar, hepatitis crónica, polineuropatía— pertenecen al uso
+  prolongado y no a esta pauta. Un NNT de 9 contra un NNH de 125 en daño leve y reversible deja
+  poco que pesar. Lo que decide el acto clínico, por tanto, no es el balance sino la puerta de
+  entrada: dos comprobaciones previas —el filtrado glomerular y la semana de gestación— y la
+  exploración que descarta la afectación del tracto superior, porque los tres errores con
+  consecuencia en este fármaco consisten en prescribirlo a quien no debía recibirlo, no en haberlo
+  elegido mal.
+
+refs:
+  - 'pmid:29710295'
+  - 'pmid:17998493'
+  - 'pmid:21292654'
+  - 'fda:label'

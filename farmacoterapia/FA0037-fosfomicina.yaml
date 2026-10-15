@@ -1,0 +1,196 @@
+# PARTE II — Farmacoterapia: cómo se usa la fosfomicina trometamol con seguridad.
+id: 'FA:0037'
+tipo: farmacoterapia
+farmaco: 'FS:0037'
+
+titulo: Farmacoterapia con fosfomicina trometamol en la infección urinaria baja
+titulo_en: Fosfomycin trometamol pharmacotherapy in lower urinary tract infection
+
+alcance: >-
+  Fija lo que no cambia entre las indicaciones de la fosfomicina trometamol oral: la delimitación
+  de la indicación antes de la dosis única, la técnica de administración —que en este fármaco no
+  es un detalle de enfermería sino la condición de su eficacia—, las interacciones que reducen la
+  concentración urinaria alcanzada, el perfil reproductivo y el reparto de actos. Queda fuera, por
+  depender de la indicación, el balance entre beneficio y daño y la posición frente a los otros
+  candidatos. Queda fuera también la formulación intravenosa de fosfomicina disódica, que es otro
+  fármaco a efectos prácticos: otra vía, otras dosis, otras indicaciones y otro perfil de sodio.
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Descarte clínico de afectación del tracto urinario superior (fiebre, dolor en flanco, puñopercusión positiva, afectación del estado general)
+    motivo: >-
+      Es la comprobación que delimita la indicación y la más importante de este fármaco, porque la
+      dosis única es cómoda y por eso tentadora en cuadros que no le corresponden. La pauta oral
+      monodosis está estudiada y autorizada para la cistitis no complicada; una pielonefritis exige
+      concentraciones tisulares sostenidas que una sola dosis no da.
+    responsable: seguimiento
+    ref: 'pmid:21292654'
+
+  - prueba: Tasa de filtrado glomerular estimada o aclaramiento de creatinina
+    motivo: >-
+      El fármaco se excreta inalterado por filtración glomerular y su efecto depende de la
+      concentración que alcance en la orina. Con insuficiencia renal avanzada esa concentración
+      cae y la dosis única pierde el fundamento farmacocinético que la sostiene.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Antecedente de hipersensibilidad a la fosfomicina
+    motivo: >-
+      Hay reacciones anafilácticas y angioedema descritos. Al administrarse en dosis única, a
+      menudo en la propia consulta, el antecedente debe preguntarse antes y no después.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Comprobación del embarazo cuando proceda, y de la indicación concreta
+    motivo: >-
+      Modifica la elección pero no la prohíbe: la fosfomicina es una de las opciones con mejor
+      perfil en la gestante, y conocer el dato permite preferirla sobre alternativas peor situadas.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+umbrales_accion:
+  - parametro: Persistencia o empeoramiento de los síntomas urinarios
+    umbral: 48 a 72 horas después de la dosis única
+    accion: >-
+      Reevaluar con urocultivo y antibiograma antes de repetir o cambiar de antibiótico. Repetir la
+      dosis única a ciegas es el error característico de este fármaco: la pauta monodosis no
+      autoriza a reintentar, y lo que suele haber detrás es una infección del tracto superior que
+      se clasificó mal al principio.
+    ref: 'pmid:21292654'
+
+  - parametro: Aparición de fiebre, dolor en flanco o afectación del estado general
+    umbral: Cualquier aparición tras la dosis
+    accion: >-
+      Tratar como infección del tracto urinario superior: la fosfomicina oral en dosis única no es
+      el tratamiento de ese cuadro. Iniciar un régimen con penetración tisular y obtener cultivo.
+    ref: 'pmid:21292654'
+
+  - parametro: Diarrea que persiste o empeora durante o después del tratamiento
+    umbral: Más de 48 horas, o con sangre, fiebre o dolor abdominal
+    accion: >-
+      Suspender cualquier antibacteriano no imprescindible y estudiar la toxina de Clostridioides
+      difficile. Puede aparecer hasta dos meses después, incluso tras una sola dosis.
+    ref: 'fda:label'
+
+  - parametro: Angioedema, urticaria generalizada, broncoespasmo o hipotensión
+    umbral: Cualquier aparición
+    accion: >-
+      Tratar como reacción anafiláctica y contraindicar la reexposición de por vida en la historia
+      clínica.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Metoclopramida y otros procinéticos gastrointestinales
+    gravedad: moderada
+    efecto: >-
+      Al acelerar el tránsito reducen la absorción de fosfomicina y bajan sus concentraciones
+      séricas y urinarias, que son las que determinan el efecto de la dosis única.
+    conducta: >-
+      Evitar la administración conjunta. Es una interacción que no produce ningún síntoma: se
+      manifiesta como fracaso terapéutico y se confunde con resistencia.
+    ref: 'fda:label'
+
+  - con: Antiácidos y suplementos de calcio
+    gravedad: menor
+    efecto: >-
+      Pueden reducir la absorción del fármaco por quelación o por elevación del pH gástrico, con el
+      mismo resultado de concentración urinaria insuficiente.
+    conducta: 'Separar la toma del sobre de cualquier antiácido o suplemento de calcio.'
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Los estudios de reproducción en animales no han mostrado daño fetal y la experiencia clínica
+      en la bacteriuria y la cistitis de la gestante es favorable, pero los datos controlados en
+      humanos siguen siendo limitados, de modo que se emplea cuando el beneficio lo justifica. La
+      dosis única es además la ventaja práctica que suele decidir su uso en el embarazo: minimiza
+      la exposición total y resuelve el problema de la adherencia.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Pasa a la leche materna en cantidades pequeñas tras la dosis única. Puede usarse vigilando
+      diarrea o candidiasis oral en el lactante, que son las dos manifestaciones esperables de la
+      alteración transitoria de su microbiota.
+    ref: 'fda:label'
+
+atencion_compartida:
+  seguimiento: >-
+    Médico de atención primaria: confirma que el cuadro es una cistitis no complicada, entrega o
+    administra el sobre y explica la técnica —3 g disueltos en un vaso de agua fría, con el
+    estómago vacío, preferentemente al acostarse y después de vaciar la vejiga—, que en este
+    fármaco es parte del tratamiento y no una indicación accesoria. Instruye además sobre los
+    síntomas que obligan a volver antes de 72 horas.
+  especialista: >-
+    Urología o infectología: interviene ante recurrencia, fracaso con cultivo positivo, sospecha de
+    anomalía estructural o cuando se valora su uso dirigido frente a enterobacterias productoras de
+    betalactamasas de espectro extendido, que es una indicación distinta y exige antibiograma.
+  checklist_preinicio:
+    - Cuadro limitado al tracto urinario inferior, sin fiebre ni dolor en flanco
+    - Sin antecedente de hipersensibilidad a la fosfomicina
+    - Instrucción de administración explicada y comprendida
+  suspension_inmediata:
+    - Angioedema, urticaria generalizada o broncoespasmo
+    - Diarrea con sangre, fiebre o dolor abdominal intenso
+  ref: 'pmid:21292654'
+
+posicionamiento:
+  linea: segunda
+  justificacion: >-
+    Alternativa de primera línea y no primera elección, por el único ensayo que la compara de
+    frente con la nitrofurantoína, donde quedó 12 puntos porcentuales por debajo en resolución
+    clínica a los 28 días. La inferioridad, sin embargo, depende del desenlace con que se mida
+    —casi desaparece con el criterio compuesto que hoy exige la FDA— y no pesa igual en todos los
+    pacientes: cuando la adherencia es el factor limitante, la dosis única puede rendir en la
+    práctica lo que el ensayo no le concedió.
+  escalonado:
+    - linea: primera
+      opciones: 'Fosfomicina trometamol 3 g en dosis única cuando la nitrofurantoína está contraindicada por función renal, cuando se necesita tratamiento observado o cuando la adherencia es el factor limitante'
+      nota: 'En esos tres escenarios la ventaja de conveniencia domina la desventaja de eficacia'
+    - linea: segunda
+      opciones: 'Fosfomicina trometamol como alternativa a la nitrofurantoína en la cistitis aguda no complicada de la mujer no gestante'
+      nota: 'Posición por defecto en el resto de los casos'
+    - linea: rescate
+      opciones: 'Antibiótico dirigido por antibiograma'
+      nota: 'Nunca repetir la dosis única a ciegas tras un fracaso'
+  ref: 'pmid:29710295'
+
+# ── Huecos declarados ────────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No hay cronograma que escribir y la razón es estructural, no documental: el tratamiento es
+      una dosis única, de modo que no existen fases de inducción, mantenimiento ni estabilidad que
+      puedan repartir unas pruebas a lo largo del tiempo. Ni la guía internacional ni la ficha
+      técnica fijan analítica de control para la pauta monodosis. Lo que existe es un punto de
+      reevaluación clínica a las 48 a 72 horas, y está escrito en `umbrales_accion` porque es una
+      conducta ante un hallazgo y no un calendario de pruebas.
+    buscado_en: >-
+      Guía internacional IDSA/ESCMID de cistitis aguda y pielonefritis en la mujer, y ficha técnica
+      de la FDA
+    refs:
+      - 'pmid:21292654'
+      - 'fda:label'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No existe gen cuyo genotipo modifique la dosis de inicio de la fosfomicina, ni recomendación
+      CPIC al respecto. La dosis es única y fija para todos los fenotipos conocidos.
+    buscado_en: 'Ficha técnica de la FDA y guía internacional IDSA/ESCMID'
+    refs:
+      - 'fda:label'
+      - 'pmid:21292654'
+
+refs:
+  - 'pmid:29710295'
+  - 'pmid:21292654'
+  - 'fda:label'

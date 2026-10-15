@@ -1,0 +1,34 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:34151754"
+clave_bibtex: konwar2022
+tipo: metaanalisis
+titulo: "Evaluation of efficacy and safety of fosfomycin versus nitrofurantoin for the treatment of uncomplicated lower urinary tract infection (UTI) in women - A systematic review and meta-analysis"
+autores:
+  - "Konwar M"
+  - "Gogtay NJ"
+  - "Ravi R"
+  - "Thatte UM"
+  - "Bose D"
+publicacion: "J Chemother"
+anio: 2022
+volumen: "34"
+numero: "3"
+paginas: "139-148"
+
+identificadores:
+  pmid: 34151754
+  doi: "10.1080/1120009X.2021.1938949"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+  - "Systematic Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

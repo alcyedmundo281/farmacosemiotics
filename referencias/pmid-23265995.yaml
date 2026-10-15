@@ -1,0 +1,55 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:23265995"
+clave_bibtex: little2013
+tipo: eca
+titulo: "Amoxicillin for acute lower-respiratory-tract infection in primary care when pneumonia is not suspected: a 12-country, randomised, placebo-controlled trial"
+autores:
+  - "Little P"
+  - "Stuart B"
+  - "Moore M"
+  - "Coenen S"
+  - "Butler CC"
+  - "Godycki-Cwirko M"
+  - "Mierzecki A"
+  - "Chlabicz S"
+  - "Torres A"
+  - "Almirall J"
+  - "Davies M"
+  - "Schaberg T"
+  - "Mölstad S"
+  - "Blasi F"
+  - "De Sutter A"
+  - "Kersnik J"
+  - "Hupkova H"
+  - "Touboul P"
+  - "Hood K"
+  - "Mullee M"
+  - "O'Reilly G"
+  - "Brugman C"
+  - "Goossens H"
+  - "Verheij T"
+  - "GRACE consortium"
+publicacion: "Lancet Infect Dis"
+anio: 2013
+volumen: "13"
+numero: "2"
+paginas: "123-9"
+
+identificadores:
+  pmid: 23265995
+  doi: "10.1016/S1473-3099(12)70300-6"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

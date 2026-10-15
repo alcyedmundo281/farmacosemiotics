@@ -1,0 +1,164 @@
+# Principio activo. Lo que NO depende de la indicación.
+
+id: 'FS:0038'
+tipo: farmaco
+dci: Amoxicilina
+dci_en: Amoxicillin
+sinonimos:
+  - amoxicilina trihidrato
+  - amoxycillin
+  - Amoxil
+
+atc: J01CA04
+clase_farmacologica: Penicilina semisintética de amplio espectro (aminopenicilina)
+clase_farmacologica_en: Broad-spectrum semisynthetic penicillin (aminopenicillin)
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '6.2.1'
+  seccion_titulo_en: Access group antibiotics
+  categoria: core
+
+mecanismo: >-
+  Betalactámico bactericida que acila el sitio activo de las proteínas fijadoras de penicilina
+  (PBP), las transpeptidasas que entrecruzan las cadenas de peptidoglicano, y detiene la síntesis
+  de la pared en la fase de división. El grupo amino en posición para del anillo fenólico, que es
+  lo único que la separa de la ampicilina, le da dos propiedades que deciden su uso ambulatorio:
+  biodisponibilidad oral del 75-90 % —frente a cerca del 40 % de la ampicilina— y actividad
+  conservada frente a Streptococcus pneumoniae, incluidas la mayoría de las cepas con resistencia
+  intermedia a penicilina, que se superan elevando la dosis en vez de cambiando de familia. Carece
+  de actividad frente a los productores de betalactamasas y frente a los patógenos atípicos sin
+  pared peptidoglicánica convencional, como Mycoplasma pneumoniae y Legionella.
+mecanismo_ref: 'pmid:31573350'
+
+farmacocinetica:
+  eliminacion: >-
+    Excreción renal del 60-70 % de la dosis como fármaco inalterado por filtración glomerular y
+    secreción tubular activa, con metabolismo hepático menor
+  vida_media: 'Aproximadamente 1 a 1.5 horas en adultos con función renal normal'
+  implicacion: >-
+    La vida media corta y el efecto dependiente del tiempo por encima de la CMI son la razón de
+    las tres tomas diarias y de que la dosis alta de 1 g cada 8 horas sea lo que vence a la
+    resistencia intermedia del neumococo: no se gana subiendo el pico, se gana manteniendo la
+    concentración. Con TFGe inferior a 30 mL/min/1.73 m² hay que espaciar el intervalo.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Diarrea, náuseas y exantema cutáneo
+      frecuencia: muy_frecuente
+      gravedad: leve
+      nota: >-
+        Es el conjunto que mide el daño atribuible del fármaco: en el ensayo multinacional frente
+        a placebo en infección respiratoria baja aguda, náuseas, exantema o diarrea aparecieron
+        con un número necesario para dañar de 21 (IC 95 % 11 a 174).
+      ref: 'pmid:23265995'
+
+    - evento: Exantema morbiliforme tardío no alérgico
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Aparece hacia el quinto a séptimo día, es más probable en infección vírica concomitante
+        —sobre todo mononucleosis infecciosa— y no es mediado por IgE. Distinguirlo de la alergia
+        verdadera importa: etiquetar de alérgico a penicilina a quien no lo es empuja de por vida
+        hacia antibióticos de espectro más amplio y peor perfil.
+      ref: 'fda:label'
+
+    - evento: Reacción anafiláctica y otras reacciones de hipersensibilidad mediadas por IgE
+      frecuencia: rara
+      gravedad: letal
+      nota: >-
+        Puede ser mortal. En el mismo ensayo frente a placebo se registró un caso con amoxicilina
+        entre 1038 pacientes tratados. Contraindica la reexposición a cualquier betalactámico sin
+        estudio alergológico previo.
+      ref: 'pmid:23265995'
+
+    - evento: Colitis asociada a Clostridioides difficile
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Puede aparecer hasta dos meses después del tratamiento. Ante diarrea que persiste o
+        empeora, suspender y estudiar la toxina.
+      ref: 'fda:label'
+
+    - evento: Reacciones cutáneas graves (síndrome de Stevens-Johnson, necrólisis epidérmica tóxica, pustulosis exantemática generalizada aguda)
+      frecuencia: rara
+      gravedad: grave
+      nota: Obligan a suspender de inmediato y contraindican la reexposición de por vida.
+      ref: 'fda:label'
+
+    - evento: Hepatitis colestásica e ictericia
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Mucho más frecuente con la combinación amoxicilina-clavulánico que con la amoxicilina sola,
+        lo que es en sí un argumento para no asociar el inhibidor sin indicación.
+      ref: 'fda:label'
+
+    - evento: Nefritis intersticial y cristaluria
+      frecuencia: rara
+      gravedad: grave
+      nota: Favorecidas por la dosis alta y la diuresis escasa; mantener la hidratación.
+      ref: 'fda:label'
+
+contraindicaciones:
+  - enunciado: Antecedente de reacción anafiláctica o reacción cutánea grave a cualquier betalactámico
+    motivo: Riesgo de reacción mortal en la reexposición.
+    ref: 'fda:label'
+  - enunciado: Antecedente de ictericia o disfunción hepática atribuida a amoxicilina
+    motivo: La reexposición reproduce el daño hepático.
+    ref: 'fda:label'
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+# Generado por scripts/openfda.py, con una salvedad que hay que leer antes de
+# usar las cifras: la consulta por generic_name "amoxicillin" devolvió también
+# las marcas de la COMBINACIÓN con clavulanato (AUGMENTIN '125', AUGMENTIN
+# '250', AUGMENTIN ES-600, AUGMENTIN XR y AMOXICILLIN AND CLAVULANATE
+# POTASSIUM). El recuento de solicitudes incluye, por tanto, productos que no
+# son este principio activo solo. La combinación tiene otro perfil hepático y
+# otra posición terapéutica, y no se cubre aquí ni en FA:0038.
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1976-02-09'
+    primera_aprobacion_nota: >-
+      Derivada de la submission ORIG/AP más antigua de openFDA, no de un campo oficial de primera
+      aprobación.
+    marca_original: AMOXIL
+    solicitudes:
+      nda: 7
+      anda: 49
+      bla: 0
+    solicitudes_nota: >-
+      Cifras infladas por las solicitudes de amoxicilina con clavulanato que la consulta arrastró;
+      sirven como orden de magnitud de la disponibilidad multifuente, no como recuento exacto del
+      principio activo solo.
+    fuente: 'openfda:drugsfda'
+    consulta: 'openfda.generic_name:"amoxicillin"'
+    consultado: '2026-10-15'
+
+etiqueta_fda:
+  set_id: '00b86913-50c8-443f-8467-f4f499d358af'
+  vigencia: '2026-07-23'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00b86913-50c8-443f-8467-f4f499d358af
+  fuente: 'openfda:label'
+  consultado: '2026-10-15'
+  nota: >-
+    Es la fuente de las referencias `fda:label` de este fármaco y de su farmacoterapia FA:0038.
+
+refs:
+  - 'pmid:31573350'
+  - 'pmid:23265995'
+  - 'fda:label'

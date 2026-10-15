@@ -1,0 +1,46 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:16763247"
+clave_bibtex: elmoussaoui2006
+tipo: eca
+titulo: "Effectiveness of discontinuing antibiotic treatment after three days versus eight days in mild to moderate-severe community acquired pneumonia: randomised, double blind study"
+autores:
+  - "el Moussaoui R"
+  - "de Borgie CA"
+  - "van den Broek P"
+  - "Hustinx WN"
+  - "Bresser P"
+  - "van den Berk GE"
+  - "Poley JW"
+  - "van den Berg B"
+  - "Krouwels FH"
+  - "Bonten MJ"
+  - "Weenink C"
+  - "Bossuyt PM"
+  - "Speelman P"
+  - "Opmeer BC"
+  - "Prins JM"
+publicacion: "BMJ"
+anio: 2006
+volumen: "332"
+numero: "7554"
+paginas: "1355"
+
+identificadores:
+  pmid: 16763247
+  doi: "10.1136/bmj.332.7554.1355"
+  pmc: "PMC1479094"
+
+tipos_pubmed:
+  - "Comparative Study"
+  - "Journal Article"
+  - "Multicenter Study"
+  - "Randomized Controlled Trial"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

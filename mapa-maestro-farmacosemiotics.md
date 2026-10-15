@@ -192,10 +192,12 @@ guía en la oleada que le corresponde por coste y por vía.
   prolongar el ciclo. El tema original se partió en dos: la faringitis estreptocócica es otro
   problema de salud y pide su propio `SEL:`, de modo que queda abierta abajo).
 - [x] **`FT0042` Amoxicilina en la Faringoamigdalitis Estreptocócica del grupo A** (`SEL0027`
-  compara amoxicilina en toma única, penicilina V, cefalexina y azitromicina. Es el segundo caso,
-  tras el metotrexato de `FT0010` y `FT0011`, de una farmacoterapia —`FA0038`— que sirve a dos
-  indicaciones sin reescribirse: la ficha la hereda del fármaco y declara en `variaciones` lo poco
-  que cambia. Y lo que cambia es el punto del tema: en la neumonía el ciclo se puede acortar y aquí
+  compara amoxicilina en toma única, penicilina V, cefalexina y azitromicina. Es el cuarto caso de
+  una farmacoterapia —`FA0038`— que sirve a dos indicaciones sin reescribirse: la ficha la hereda
+  del fármaco y declara en `variaciones` lo poco que cambia. Los tres anteriores son el guselkumab
+  de `FA0004` (`FT0004` y `FT0021`), el enalapril de `FA0006` (`FT0006` y `FT0037`) y el
+  metotrexato de `FA0010` (`FT0010` y `FT0011`); el metotrexato es el que motivó el desdoblamiento,
+  pero no el primero en darse, y conviene no confundir una cosa con la otra. Y lo que cambia es el punto del tema: en la neumonía el ciclo se puede acortar y aquí
   son diez días fijos, porque allí se cura y aquí se previene una fiebre reumática que llega
   semanas después de que la garganta esté bien. No inferioridad en erradicación faríngea —límite
   superior del intervalo del 4.9 %, 6.5 % y 8.5 % frente a un margen del 10 %—, NNT 53 para fiebre

@@ -1,6 +1,12 @@
-# Segunda indicación de FS:0038, y segundo caso del repositorio —tras el
-# metotrexato de FT:0010 y FT:0011— de una molécula que sirve a dos problemas de
-# salud con UNA sola farmacoterapia. FA:0038 no se duplica ni se enlaza: se
+# Segunda indicación de FS:0038, y cuarto caso del repositorio de una molécula
+# que sirve a dos problemas de salud con UNA sola farmacoterapia. Los tres
+# anteriores son el guselkumab de FA:0004 (FT:0004 artritis psoriásica y
+# FT:0021 psoriasis en placas), el enalapril de FA:0006 (FT:0006 insuficiencia
+# cardiaca y FT:0037 hipertensión) y el metotrexato de FA:0010 (FT:0010 artritis
+# reumatoide y FT:0011 artritis psoriásica). El metotrexato se cita aparte
+# porque es el que MOTIVÓ desdoblar la farmacoterapia de la ficha, no porque
+# fuera el primero en darse: eso es del guselkumab. FA:0038 no se duplica ni se
+# enlaza: se
 # hereda del fármaco. Lo poco que esta indicación cambia de ella va en
 # `variaciones`, y es poco pero decisivo: en la neumonía de FT:0041 el ciclo se
 # puede acortar, y aquí no, porque allí se trataba de curar y aquí de prevenir
@@ -66,7 +72,11 @@ posologia:
     La misma dosis durante 10 días completos, sin acortar el ciclo aunque los síntomas hayan
     desaparecido, porque la duración responde a la prevención de la fiebre reumática y no a la
     curación de la faringitis
-  maxima: 'No se requiere sobrepasar la dosis del ensayo: el estreptococo del grupo A no tiene resistencia a penicilina que obligue a subirla, a diferencia del neumococo de FT:0041'
+  maxima: >-
+    1500 mg al día, que es la dosis más alta documentada en esta indicación y la del brazo de
+    amoxicilina del ensayo de no inferioridad. No hay razón para sobrepasarla: a diferencia del
+    neumococo de FT:0041, el estreptococo del grupo A no presenta resistencia a penicilina que
+    obligue a subir la dosis. En el adulto no existe ensayo de toma única que fije un techo propio.
   ajuste_renal: 'Reducir la dosis y espaciar el intervalo con TFGe inferior a 30 mL/min/1.73 m²; en hemodiálisis, administrar una dosis adicional al final de la sesión'
   ajuste_hepatico: 'No requiere ajuste; el antecedente de ictericia por amoxicilina es contraindicación'
   ref: 'pmid:18337284'
@@ -151,24 +161,22 @@ evidencia:
       midió.
     ref: 'pmid:15927077'
 
-  - desenlace: Fiebre reumática, complicaciones supurativas y síntomas con antibiótico frente a control en el dolor de garganta
+  # Las dos filas que siguen salen de la MISMA revisión y se separan a propósito.
+  # Mezclarlas obligaba a emparejar en una sola fila la reducción relativa de la
+  # fiebre reumática con el NNT del síntoma, que son desenlaces distintos, y esta
+  # ficha sostiene justamente que confundirlos es el error central de la
+  # indicación. Un campo estructurado no puede decir «esto es de otro desenlace».
+  - desenlace: Fiebre reumática y complicaciones supurativas con antibiótico frente a control en el dolor de garganta
     criticidad: critico
     efecto: >-
-      La revisión de 27 ensayos y 12 835 casos de dolor de garganta separa con claridad lo que el
-      antibiótico previene de lo que alivia. Previene: fiebre reumática a un mes reducida en más de
-      dos tercios (riesgo relativo 0.27; IC 95 % 0.12 a 0.60), absceso periamigdalino a dos meses
-      (0.15; IC 95 % 0.05 a 0.47) y otitis media aguda a catorce días (0.30; IC 95 % 0.15 a 0.58).
-      Alivia poco: el acortamiento medio de los síntomas es de unas dieciséis horas, y el número
-      necesario para tratar para que un paciente no tenga dolor de garganta es inferior a 6 al tercer
-      día pero de 21 a la semana. El antibiótico fue más eficaz sobre los síntomas al tercer día si
-      el frotis era positivo (0.58; IC 95 % 0.48 a 0.71) que si era negativo (0.78; IC 95 % 0.63 a
-      0.97), que es el dato que convierte la confirmación microbiológica en parte del tratamiento y
-      no en un trámite. La lectura que esta ficha extrae es una sola: si se prescribe por el
-      síntoma, el balance no se sostiene; se prescribe por la complicación.
-    rra: '—'
+      Es lo que el antibiótico previene, y la razón por la que se prescribe. En la revisión de 27
+      ensayos y 12 835 casos de dolor de garganta, la fiebre reumática a un mes se redujo en más de
+      dos tercios (riesgo relativo 0.27; IC 95 % 0.12 a 0.60), el absceso periamigdalino a dos meses
+      en un 85 % (0.15; IC 95 % 0.05 a 0.47) y la otitis media aguda a catorce días en un 70 %
+      (0.30; IC 95 % 0.15 a 0.58). La revisión no publica número necesario para tratar para ninguno
+      de los tres, y aquí no se calcula: el beneficio absoluto depende de la incidencia basal, que
+      cambia por completo según el lugar, de modo que un NNT único sería una cifra sin población.
     rrr: '73%'
-    nnt: 21
-    horizonte_nnt: a una semana para el síntoma; el beneficio que justifica el tratamiento es la complicación, no el síntoma
     diseno: revision_sistematica
     estudio: Spinks, Glasziou y Del Mar, Cochrane Database Syst Rev 2013
     comparador: Placebo o no tratar
@@ -185,8 +193,40 @@ evidencia:
       juicio de certeza es de esta guía y no de la revisión, que no publica graduación GRADE en su
       resumen. La advertencia que los propios autores subrayan y que esta ficha hace suya es que el
       beneficio absoluto depende de la incidencia basal de fiebre reumática, y por tanto del lugar:
-      el número necesario para tratar puede ser mucho menor donde la enfermedad sigue siendo
-      frecuente.
+      el beneficio puede ser mucho mayor donde la enfermedad sigue siendo frecuente.
+    ref: 'pmid:24190439'
+
+  - desenlace: Alivio del síntoma con antibiótico frente a control en el dolor de garganta
+    criticidad: importante
+    efecto: >-
+      Es lo que el antibiótico NO compra, y va en fila aparte para que no se lea junto al anterior.
+      El acortamiento medio de los síntomas es de unas dieciséis horas, y el número necesario para
+      tratar para que un paciente no tenga dolor de garganta es inferior a 6 al tercer día pero de
+      21 a la semana. El efecto sobre los síntomas al tercer día fue mayor si el frotis era positivo
+      (riesgo relativo 0.58; IC 95 % 0.48 a 0.71) que si era negativo (0.78; IC 95 % 0.63 a 0.97),
+      que es el dato que convierte la confirmación microbiológica en parte del tratamiento y no en un
+      trámite. La lectura que esta ficha extrae es una sola: si se prescribe por el síntoma, el
+      balance no se sostiene, porque un NNT de 21 para dejar de tener dolor de garganta no paga un
+      número necesario para dañar del mismo orden. Se prescribe por la complicación de la fila
+      anterior.
+    nnt: 21
+    horizonte_nnt: a una semana, para el síntoma; inferior a 6 al tercer día
+    diseno: revision_sistematica
+    estudio: Spinks, Glasziou y Del Mar, Cochrane Database Syst Rev 2013
+    comparador: Placebo o no tratar
+    n: 12835
+    certeza: baja
+    razones_descenso:
+      - riesgo_de_sesgo
+      - evidencia_indirecta
+    certeza_nota: >-
+      Mismos dos descensos que la fila anterior y por los mismos motivos, con una diferencia de
+      dirección que importa: en el desenlace sintomático la indirección NO es conservadora. La
+      población es el dolor de garganta en general, donde la mayoría de los casos son víricos, y eso
+      hace que el efecto medido sea menor que el que cabría esperar en la faringitis estreptocócica
+      confirmada de esta ficha. El NNT de 21 es, por tanto, un límite pesimista para esta población,
+      y la propia revisión lo muestra al separar por frotis. Aun así no se corrige hacia arriba,
+      porque la revisión no publica un NNT para el subgrupo confirmado.
     ref: 'pmid:24190439'
 
   - desenlace: Recurrencia bacteriológica tardía con ciclos de 3 a 6 días frente a los 10 días clásicos
@@ -207,10 +247,10 @@ evidencia:
       con una salvedad que ellos mismos ponen por delante y que esta ficha adopta como regla: el
       resultado debe interpretarse con cautela allí donde la cardiopatía reumática siga siendo
       prevalente.
-    rra: '—'
-    rrr: '—'
-    nnt: 1
-    horizonte_nnt: 'no procede, porque el resultado relevante es el daño del ciclo corto y no un beneficio'
+    # Sin `nnt` ni `horizonte_nnt` a propósito: lo que esta fila mide es el DAÑO
+    # de acortar el ciclo, no un beneficio, y el campo es opcional en el contrato.
+    # Rellenarlo con un 1 —como estaba— publicaba en el índice y en el banco de
+    # reto el beneficio más fuerte posible para un hallazgo que va en contra.
     diseno: revision_sistematica
     estudio: Altamimi et al., Cochrane Database Syst Rev 2012
     comparador: 10 días de penicilina oral
@@ -263,22 +303,34 @@ evidencia:
       ficha cita con la misma reserva. Imprecisión: la fuente publica el orden de los fracasos y su
       significación, no las proporciones de cada grupo ni intervalos de confianza, y por eso aquí no
       se consigna ninguna cifra de efecto: no se dispone de ella y no se va a estimar. Sirve como
-      evidencia de dirección y para nada más.
+      evidencia de dirección y para nada más. Nota sobre el diseño, porque el índice publica dos
+      clasificaciones del mismo trabajo y conviene que no parezca un descuido: el registro
+      `referencias/pmid-17475987.yaml` dice `tipo: ensayo_clinico`, porque `pubmed.py` lo deriva de
+      la etiqueta «Clinical Trial» que PubMed asigna al artículo, mientras los términos MeSH de ese
+      mismo registro incluyen «Retrospective Studies». Esta fila adopta `diseno: cohorte`, que es lo
+      que el trabajo es: una serie retrospectiva de una consulta, sin asignación aleatoria. La
+      divergencia se deja a la vista y no se corrige en la referencia, que se genera y no se edita a
+      mano.
     ref: 'pmid:17475987'
 
   - desenlace: Ausencia de resistencia de Streptococcus pyogenes a la penicilina, frente a la resistencia a macrólidos
     criticidad: importante
     efecto: >-
-      En 1885 aislados clínicos de Streptococcus pyogenes recogidos en 45 centros estadounidenses,
+      En una colección de 1885 aislados clínicos de Streptococcus pyogenes recogidos en 45 centros estadounidenses,
       el 85 % de ellos faríngeos, se detectó resistencia a azitromicina en el 6.9 %, a eritromicina
       en el 6.8 % —129 de 1885 aislados, que es el único recuento que la fuente publica de los seis
       y permite rehacer la división—, a claritromicina en el 6.6 %, a clindamicina en el 0.5 %, a
-      telitromicina en el 0.2 % y a levofloxacino en el 0.05 %; no se detectó resistencia a
-      penicilina ni a cefdinir. El
+      telitromicina en el 0.2 % y a levofloxacino en el 0.05 %. El
       44 % de los resistentes a macrólidos tenía fenotipo M y el 56 % fenotipo MLSB, y el conjunto
-      resistente se agrupaba en unos pocos clones con capacidad de expansión. El dato es el
-      fundamento silencioso de toda la ficha: no hace falta antibiograma antes de prescribir
-      amoxicilina en esta indicación, y sí haría falta antes de prescribir un macrólido.
+      resistente se agrupaba en unos pocos clones con capacidad de expansión. Sobre la penicilina
+      hay que ser preciso con lo que la fuente dice y lo que no: declara haber determinado la
+      sensibilidad a penicilina y a cefdinir, y luego no las incluye en su enumeración de
+      resistencias detectadas, de donde se sigue —por omisión y no por enunciado expreso— que no se
+      detectó ninguna. La lectura es la natural y concuerda con que no exista serie publicada que
+      documente resistencia de Streptococcus pyogenes a penicilina, pero es una inferencia, y
+      conviene que conste como tal antes de apoyar nada en ella. Apoyada con esa cautela, sostiene
+      el hecho práctico de que no haga falta antibiograma antes de prescribir amoxicilina en esta
+      indicación, mientras sí haría falta antes de prescribir un macrólido.
     rra: '—'
     rrr: '—'
     diseno: transversal
@@ -293,21 +345,29 @@ evidencia:
       2003, y las cifras de resistencia a macrólidos se mueven, como muestra la serie portuguesa de
       2014 a 2019 citada en SEL:0027, donde el pico llegó al 9 % en un solo año por expansión de un
       linaje nuevo. Lo que no se ha movido en ninguna serie publicada, ni en esa ni en esta, es la
-      sensibilidad universal a penicilina, y es la parte del hallazgo que esta ficha usa. El diseño
-      es transversal y eso basta para medir prevalencia de resistencia, que es lo que se le pide.
+      sensibilidad a penicilina, y es la parte del hallazgo que esta ficha usa; con la advertencia,
+      hecha arriba, de que en esta fuente esa sensibilidad se infiere de que la penicilina no figure
+      entre las resistencias enumeradas y no de una frase que la afirme. El diseño es transversal y
+      eso basta para medir prevalencia de resistencia, que es lo que se le pide.
     ref: 'pmid:16080080'
 
 # ── Seguridad Cuantitativa (Toxicidad & NNH) ─────────────────────────────────
 seguridad_cuantitativa:
+  # Sin `nnh` estructurado a propósito. La única cuantificación de la amoxicilina
+  # contra placebo se midió en infección respiratoria baja aguda, no en
+  # faringitis, y `seguridad_cuantitativa` es un bloque que SÍ depende de la
+  # indicación: un NNH estructurado aquí viajaría al índice, al sitio y al banco
+  # de reto como si estuviera medido en esta población. La cifra se da en prosa
+  # con su procedencia, igual que se hizo con la RRA de Robertson más arriba.
   - evento: Náuseas, exantema o diarrea
     gravedad: leve
-    nnh: 21
-    horizonte_nnh: a 4 semanas, frente a placebo, medido en infección respiratoria baja aguda
     conducta: >-
-      Número necesario para dañar de 21 (IC 95 % 11 a 174) frente a placebo. La cifra procede de un
-      ensayo en infección respiratoria baja aguda y no en faringitis, de modo que acota el orden de
-      magnitud del daño atribuible del fármaco pero no es específica de esta indicación; se consigna
-      porque es la única cuantificación de la amoxicilina contra placebo. Son daños leves y
+      Número necesario para dañar de 21 (IC 95 % 11 a 174) frente a placebo, a cuatro semanas. La
+      cifra procede de un ensayo en infección respiratoria baja aguda y no en faringitis, y su
+      población era en buena parte adulta mientras esta indicación es mayoritariamente pediátrica,
+      de modo que acota el orden de magnitud del daño atribuible del fármaco pero no es específica
+      de esta indicación y no se consigna como campo estructurado; se da porque es la única
+      cuantificación de la amoxicilina contra placebo. Son daños leves y
       reversibles que no obligan a suspender, y anticiparlos tiene aquí un valor añadido: el ciclo
       es de diez días y la garganta estará bien al cuarto, de modo que una molestia digestiva no
       advertida es un motivo frecuente de abandono justo cuando ya no se nota el beneficio.
@@ -336,7 +396,11 @@ seguridad_cuantitativa:
     horizonte_nnh: por ciclo de tratamiento, frente a placebo
     conducta: >-
       Un caso entre 1038 pacientes tratados en el ensayo frente a placebo, y ninguno entre 1023 con
-      placebo. Suspender de inmediato, tratar la anafilaxia y registrar la contraindicación a
+      placebo. Procede del mismo ensayo en infección respiratoria baja que la fila anterior, pero
+      aquí sí se consigna el NNH estructurado, y por una razón: la reacción de hipersensibilidad
+      depende del fármaco y de la exposición, no del motivo por el que se prescribió, de modo que su
+      tasa por ciclo se traslada entre indicaciones como no se traslada la molestia digestiva.
+      Suspender de inmediato, tratar la anafilaxia y registrar la contraindicación a
       betalactámicos. Es el daño que obliga a caracterizar la alergia referida antes de prescribir,
       y adquiere más peso aquí que en la neumonía porque la enfermedad que se trata es benigna y
       autolimitada: el beneficio se cobra en una complicación que la mayoría no iba a tener, lo que

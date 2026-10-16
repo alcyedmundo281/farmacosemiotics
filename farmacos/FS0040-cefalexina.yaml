@@ -1,0 +1,250 @@
+# Principio activo. Lo que NO depende de la indicación.
+#
+# Entra en el repositorio por SEL:0027, donde es el único de los cuatro
+# candidatos con superioridad publicada —y conviene saber en qué: en curación
+# bacteriológica, que es un desenlace sustituto— y donde pierde el eje de la
+# seguridad por espectro. Pero se escribe pensando en dos indicaciones, no en
+# una: la infección de piel y partes blandas es el tema siguiente de la oleada
+# 2 y va a necesitar esta misma molécula. De ahí el `alcance` de FA:0040.
+
+id: 'FS:0040'
+tipo: farmaco
+dci: Cefalexina
+dci_en: Cefalexin
+sinonimos:
+  - cefalexina monohidrato
+  - cephalexin
+  - Keflex
+
+atc: J01DB01
+clase_farmacologica: Cefalosporina de primera generación de administración oral
+clase_farmacologica_en: First-generation oral cephalosporin
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  # `null` significa «no comprobado», no «ausente», y como en la
+  # fenoximetilpenicilina de FS:0039 conviene decir qué se comprobó. La
+  # cefalexina SÍ consta en la Lista Modelo electrónica de la OMS, en la
+  # sección 6.2.1 «Access group antibiotics», consultada en
+  # list.essentialmeds.org el 2026-10-15; su historial cita TRS 958 (añadida en
+  # 2009) y TRS 1006 (modificada en 2017). Lo que no se pudo verificar es la
+  # `categoria` core o complementary que `build.py` exige junto a
+  # `presente: true`, ni que la entrada corresponda a la 24.ª edición de 2025
+  # que declara este bloque. Nótese además que la pertenencia al grupo Access
+  # de la clasificación AWaRe NO equivale a constar en la Lista Modelo: la
+  # página del grupo Access enumera 94 moléculas, muchas de las cuales
+  # —cefaloridina, meticilina— no están en la lista. Confundir ambas cosas sería
+  # el camino fácil para poner `true` sin comprobarlo.
+  presente: null
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: null
+  categoria: null
+
+mecanismo: >-
+  Cefalosporina bactericida que actúa por inhibición de la síntesis de la pared bacteriana. Lo que
+  decide su posición en SEL:0027 no es el mecanismo, que comparte con las dos penicilinas, sino la
+  anchura del espectro: cubre Staphylococcus aureus sensible a meticilina, Streptococcus pyogenes y
+  el neumococo sensible a penicilina, y además Escherichia coli, Klebsiella pneumoniae, Proteus
+  mirabilis, Haemophilus influenzae y Moraxella catarrhalis, que es cobertura gramnegativa que la
+  penicilina V no tiene y que en la faringitis no hace falta. Carece de actividad frente a
+  Pseudomonas y Acinetobacter calcoaceticus, frente a la mayoría de los Enterobacter, Morganella
+  morganii y Proteus vulgaris, y frente al estafilococo resistente a meticilina y la mayoría de los
+  enterococos; el neumococo resistente a penicilina es habitualmente resistente de forma cruzada a
+  los betalactámicos, de modo que la cefalexina no es la salida ante esa resistencia.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: >-
+    Excreción renal por filtración glomerular y secreción tubular: más del 90 % de la dosis se
+    elimina inalterada por la orina en las primeras 8 horas
+  vida_media: >-
+    No consta como cifra en la etiqueta; las concentraciones séricas máximas se alcanzan a la hora y
+    siguen siendo detectables a las 6 horas
+  implicacion: >-
+    Es estable en medio ácido y puede administrarse con o sin alimentos, y la unión a proteínas
+    plasmáticas es baja —del 10 al 15 %—. La eliminación renal casi completa tiene dos consecuencias
+    que gobiernan su uso seguro y que están escritas en FA:0040: la insuficiencia renal obliga a
+    ajustar por una tabla que la etiqueta sí publica, a diferencia de lo que ocurre con la
+    penicilina V de FS:0039, y varias cefalosporinas se han implicado en desencadenar crisis
+    convulsivas precisamente en el paciente con deterioro renal al que no se le redujo la dosis. Las
+    concentraciones urinarias que alcanza —del orden de 1000 a 5000 microgramos por mililitro según
+    la dosis— son la razón de su utilidad en la infección urinaria.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Diarrea, náuseas, vómitos, dispepsia y dolor abdominal
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Son las reacciones adversas más comunes según la etiqueta, y en los ensayos clínicos la más
+        frecuente fue la diarrea. La etiqueta no publica incidencias, de modo que no hay número
+        necesario para dañar que oponer al de la amoxicilina de FS:0038. Esa ausencia de
+        cuantificación es parte de por qué SEL:0027 resuelve el eje de la seguridad por el
+        argumento de espectro y no por una comparación de daño medido.
+      ref: 'fda:label'
+
+    - evento: Reacciones de hipersensibilidad, desde exantema y urticaria hasta angioedema y anafilaxia
+      frecuencia: frecuente
+      gravedad: letal
+      nota: >-
+        La etiqueta advierte de que puede existir hipersensibilidad cruzada entre betalactámicos en
+        hasta el 10 % de los pacientes con antecedente de alergia a penicilina. Esa cifra es la que
+        matiza el papel que SEL:0027 le asigna —la alergia a la penicilina que no fue inmediata ni
+        grave—: es baja, pero no es cero, y por eso esta molécula no es la salida automática del
+        alérgico a penicilina que a veces se supone. La etiqueta de la penicilina V de FS:0039 trae
+        el aviso recíproco.
+      ref: 'fda:label'
+
+    - evento: Eritema multiforme, síndrome de Stevens-Johnson y necrólisis epidérmica tóxica
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Obligan a suspender de inmediato y contraindican la reexposición a cefalosporinas de por
+        vida.
+      ref: 'fda:label'
+
+    - evento: Colitis asociada a Clostridioides difficile
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Con gravedad que va de la diarrea leve a la colitis mortal, y puede aparecer hasta más de
+        dos meses después de la última dosis. En esta molécula el riesgo ecológico no es un detalle
+        accesorio: es el contenido del juicio de seguridad `inferior` que le da SEL:0027.
+      ref: 'fda:label'
+
+    - evento: Seroconversión del test de Coombs directo y hemólisis intravascular aguda
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Se han descrito tests de Coombs directos positivos durante el tratamiento con cefalosporinas
+        incluida la cefalexina, y también hemólisis intravascular aguda inducida por ella. Si
+        aparece anemia durante o después del tratamiento, hay que estudiar la anemia hemolítica
+        inducida por fármacos, suspender la cefalexina e instaurar el tratamiento apropiado. Es una
+        toxicidad propia de la clase que no tienen las penicilinas de FS:0038 ni FS:0039.
+      ref: 'fda:label'
+
+    - evento: Crisis convulsivas
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Varias cefalosporinas se han implicado en desencadenar crisis, particularmente en el
+        paciente con deterioro renal cuando no se redujo la dosis. Es la razón clínica por la que el
+        ajuste renal de esta molécula no es un refinamiento farmacocinético: si ocurren crisis, hay
+        que suspender la cefalexina y puede administrarse tratamiento anticonvulsivo si está
+        clínicamente indicado.
+      ref: 'fda:label'
+
+    - evento: Prolongación del tiempo de protrombina
+      frecuencia: infrecuente
+      gravedad: moderada
+      nota: >-
+        Las cefalosporinas pueden asociarse a prolongación del tiempo de protrombina. La etiqueta
+        nombra a quién afecta, y por eso es un dato utilizable: el paciente con deterioro renal o
+        hepático, el de mal estado nutricional, el que recibe un curso prolongado de antibióticos y
+        el que recibe anticoagulantes.
+      ref: 'fda:label'
+
+    - evento: Hepatitis transitoria e ictericia colestásica
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        Descritas, como con las penicilinas y otras cefalosporinas, junto a elevaciones ligeras de
+        AST y ALT.
+      ref: 'fda:label'
+
+    - evento: Nefritis intersticial reversible
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        La etiqueta la describe como reversible, y añade para la clase la disfunción renal y la
+        nefropatía tóxica.
+      ref: 'fda:label'
+
+    - evento: Eosinofilia, neutropenia, trombocitopenia y anemia hemolítica
+      frecuencia: infrecuente
+      gravedad: moderada
+      nota: >-
+        Para la clase de las cefalosporinas la etiqueta añade además pancitopenia, leucopenia,
+        agranulocitosis y anemia aplásica, sin atribuirlas a la cefalexina en particular.
+      ref: 'fda:label'
+
+    - evento: Candidiasis genital, vaginitis y prurito genital o anal
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Es la manifestación esperable de la alteración de la flora por un antibiótico de espectro
+        más amplio, y la que el paciente suele no relacionar con el tratamiento.
+      ref: 'fda:label'
+
+    - evento: Mareo, cefalea, fatiga, agitación, confusión y alucinaciones
+      frecuencia: infrecuente
+      gravedad: leve
+      nota: >-
+        Descritas en los ensayos clínicos. La confusión y las alucinaciones merecen atención en el
+        paciente anciano con función renal reducida, que es donde la acumulación es esperable.
+      ref: 'fda:label'
+
+  contraindicaciones:
+    - motivo: >-
+        Hipersensibilidad conocida a la cefalexina o a otros miembros de la clase de las
+        cefalosporinas: es la única contraindicación que declara la etiqueta.
+      ref: 'fda:label'
+    - motivo: >-
+        No es contraindicación formal, pero el antecedente de reacción cutánea grave —síndrome de
+        Stevens-Johnson, necrólisis epidérmica tóxica— o de anafilaxia a un betalactámico
+        desaconseja la reexposición: la propia etiqueta cifra en hasta el 10 % la hipersensibilidad
+        cruzada entre betalactámicos en quien refiere alergia a penicilina.
+      ref: 'fda:label'
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+# Generado por scripts/openfda.py el 2026-10-15. La consulta por generic_name
+# "cephalexin" devolvió una sola marca (CEPHALEXIN), sin combinaciones ni
+# asociaciones: el recuento corresponde al principio activo solo.
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1987-02-13'
+    primera_aprobacion_nota: >-
+      Derivada de la submission ORIG/AP más antigua de openFDA, no de un campo oficial de primera
+      aprobación. Es posterior a la comercialización real de la molécula, que es de los años setenta:
+      lo que fecha es el registro electrónico del primer genérico, no la entrada del fármaco en el
+      mercado.
+    marca_original: CEPHALEXIN
+    solicitudes:
+      nda: 0
+      anda: 12
+      bla: 0
+    solicitudes_nota: >-
+      Doce ANDA y ninguna NDA vigente: es el perfil de disponibilidad multifuente que sostiene el
+      juicio `equivalente` del eje de costo en SEL:0027.
+    fuente: 'openfda:drugsfda'
+    consulta: 'openfda.generic_name:"cephalexin"'
+    consultado: '2026-10-15'
+
+etiqueta_fda:
+  set_id: '1d3e6d33-5dc2-498e-8efa-e3c4fca15dff'
+  vigencia: '2026-08-24'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1d3e6d33-5dc2-498e-8efa-e3c4fca15dff
+  fuente: 'openfda:label'
+  consultado: '2026-10-15'
+  nota: >-
+    Es la fuente de las referencias `fda:label` de este fármaco y de su farmacoterapia FA:0040. A
+    diferencia de la etiqueta de la penicilina V de FS:0039, es de formato moderno y trae
+    advertencias y precauciones numeradas, interacciones, embarazo y lactancia por resumen de riesgo
+    y tabla de ajuste por función renal. Esa asimetría entre dos moléculas comparadas en el mismo
+    informe explica por qué FA:0040 escribe apartados que FA:0039 declara como huecos.
+
+refs:
+  - 'pmid:16767482'
+  - 'fda:label'

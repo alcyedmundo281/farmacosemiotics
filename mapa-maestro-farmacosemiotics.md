@@ -158,7 +158,7 @@ su informe de selección dice cómo usar un fármaco sin decir por qué se eligi
 |---|---|---|---|---|---|
 | **0. Piloto** | Fármaco modelo y validación de contrato | — *(precede al híbrido)* | `FS0001` (Metformina) | `FT0001` (Metformina en DM2) | **Completada** |
 | **1. Cardiometabólico & Trombosis** | Sección 12 (Cardiovascular) y 18.5 (Diabetes) | `SEL0004` (FA no valvular)<br>`SEL0005` (ERC en DM2)<br>`SEL0006` (IC-FEr)<br>`SEL0019` (Estatinas alta potencia)<br>`SEL0020` (AAS prevención 2ª) | `FS0002` (Apixabán)<br>`FS0006` (Enalapril)<br>`FS0007` (Empagliflozina)<br>`FS0008` (Amlodipino)<br>`FS0011` (Finerenona)<br>`FS0012` (Dapagliflozina)<br>`FS0028` (Atorvastatina)<br>`FS0029` (AAS) | `FT0002` (Apixabán en FA)<br>`FT0006` (Enalapril en IC-FEr)<br>`FT0007` (Empagliflozina en IC)<br>`FT0008` (Amlodipino en HTA)<br>`FT0012` (Finerenona en ERC-DM2)<br>`FT0013` (Dapagliflozina en IC-FEr)<br>`FT0030` (Atorvastatina prevención 2ª)<br>`FT0031` (AAS prevención 2ª) | **Completada (8/8)** |
-| **2. Antiinfecciosos AWaRe** | Sección 6.2 (Antibacterianos Access / Watch / Reserve) | `SEL0017` (Enterobacterias KPC/BLEE)<br>`SEL0025` (Cistitis no complicada)<br>`SEL0026` (NAC ambulatoria)<br>`SEL0027` (Faringitis estreptocócica) | `FS0026` (Ceftazidima / Avibactam)<br>`FS0036` (Nitrofurantoína)<br>`FS0037` (Fosfomicina trometamol)<br>`FS0038` (Amoxicilina) | `FT0028` (Ceftazidima/Avibactam en BLEE/KPC)<br>`FT0039` (Nitrofurantoína en cistitis)<br>`FT0040` (Fosfomicina en cistitis)<br>`FT0041` (Amoxicilina en NAC)<br>`FT0042` (Amoxicilina en faringitis) | **Iniciada (4/8)** |
+| **2. Antiinfecciosos AWaRe** | Sección 6.2 (Antibacterianos Access / Watch / Reserve) | `SEL0017` (Enterobacterias KPC/BLEE)<br>`SEL0025` (Cistitis no complicada)<br>`SEL0026` (NAC ambulatoria)<br>`SEL0027` (Faringitis estreptocócica) | `FS0026` (Ceftazidima / Avibactam)<br>`FS0036` (Nitrofurantoína)<br>`FS0037` (Fosfomicina trometamol)<br>`FS0038` (Amoxicilina)<br>`FS0039` (Fenoximetilpenicilina)<br>`FS0040` (Cefalexina) | `FT0028` (Ceftazidima/Avibactam en BLEE/KPC)<br>`FT0039` (Nitrofurantoína en cistitis)<br>`FT0040` (Fosfomicina en cistitis)<br>`FT0041` (Amoxicilina en NAC)<br>`FT0042` (Amoxicilina en faringitis) | **Iniciada (4/8)** |
 | **3. Dolor & Paliativos** | Sección 2 (Analgésicos, AINEs, Opioides) | — | — | — | Pendiente |
 | **4. Salud Mental & Neuro** | Sección 24 (Antidepresivos, Antipsicóticos) | `SEL0010` (Esquizofrenia LAI)<br>`SEL0021` (Depresión mayor)<br>`SEL0022` (Psicosis aguda) | `FS0017` (Paliperidona)<br>`FS0030` (Sertralina)<br>`FS0031` (Risperidona) | `FT0018` (Paliperidona en Esquizofrenia)<br>`FT0032` (Sertralina en Depresión)<br>`FT0033` (Risperidona en Psicosis) | **Completada (3/3)** |
 | **6. Inmunosupresión & Dermatosis Autoinmunes** | Sección 8.1 (Inmunomoduladores para enfermedad no maligna) | `SEL0001` (Pénfigo vulgar)<br>`SEL0002` (Artritis reumatoide)<br>`SEL0003` (Artritis psoriásica) | `FS0009` (Azatioprina)<br>`FS0010` (Metotrexato)<br>`FS0018` (Tofacitinib)<br>`FS0024` (Rituximab)<br>`FS0032` (Micofenolato) | `FT0009` (Azatioprina en pénfigo)<br>`FT0010` (Metotrexato en AR)<br>`FT0011` (Metotrexato en APs)<br>`FT0019` (Tofacitinib en AR)<br>`FT0026` (Rituximab en pénfigo)<br>`FT0034` (Micofenolato en pénfigo) | **Completada (6/6)** |
@@ -205,11 +205,10 @@ guía en la oleada que le corresponde por coste y por vía.
   tardía peor con los ciclos cortos, con razón de odds 1.31. Es además el único informe del
   repositorio en que el tercer eje mueve el veredicto, y `criterio_decisorio` argumenta por qué eso
   no rompe el orden de la decisión: con los dos primeros ejes empatados, la conveniencia deja de
-  medir comodidad y mide adherencia, que es el mecanismo de la prevención. Queda un cabo suelto que
-  no es un hueco del tema: la penicilina V y la cefalexina quedan comparadas sin `farmaco:` propio,
-  que es legítimo en un informe de selección, y darles `FS:` y `FA:` convertiría a la primera en la
-  alternativa equivalente de pleno derecho que el informe dice que es y a la segunda en la pieza
-  que el tema de piel y partes blandas de más abajo va a necesitar de todos modos).
+  medir comodidad y mide adherencia, que es el mecanismo de la prevención. El cabo suelto que este tema dejó
+  —la penicilina V y la cefalexina comparadas sin `farmaco:` propio, que es legítimo en un informe
+  de selección pero las deja a medias— quedó cerrado después con `FS0039`/`FA0039` y
+  `FS0040`/`FA0040`, y los dos candidatos de `SEL0027` ya enlazan a su ficha de fármaco).
 - [ ] **Amoxicilina + Ácido Clavulánico en Infecciones Polimicrobianas / Mordeduras**.
 - [x] **`FT0039` Nitrofurantoína y `FT0040` Fosfomicina trometamol en la Cistitis Aguda no
   Complicada de la mujer** (`SEL0025` compara los dos de primera línea más cotrimoxazol y
@@ -218,7 +217,24 @@ guía en la oleada que le corresponde por coste y por vía.
   los compara de frente —resolución clínica del 70 % frente al 58 % a 28 días, NNT 9—, y la
   fluoroquinolona cae sin perder el eje de eficacia, solo por daño colateral. Huecos declarados en
   ambas farmacoterapias: no hay cronograma de monitorización que escribir, y se explica por qué).
-- [ ] **Cefalexina / Cefazolina en Infecciones de Piel y Partes Blandas**.
+- [x] **`FS0039` Fenoximetilpenicilina y `FS0040` Cefalexina como candidatos plenos**
+  (Los dos candidatos que `SEL0027` comparaba sin fármaco propio. No traen ficha, y es deliberado:
+  una `FT:` de penicilina V o de cefalexina en faringitis repetiría a `FT0042` sin cambiar el
+  veredicto, y la decisión situada de cada una ya está escrita en los cuatro ejes de `SEL0027`. Lo
+  que sí aportan es el uso seguro de dos moléculas que el informe recomendaba sin decir cómo se
+  usan. Las dos farmacoterapias son el caso más claro del repositorio de que la fuente, y no el
+  autor, decide hasta dónde llega una guía: la etiqueta de la penicilina V es de formato antiguo y
+  no trae interacciones ni lactancia —comprobado en las 20 etiquetas de `penicillin v potassium`
+  indexadas en openFDA, no supuesto—, de modo que `FA0039` declara esos dos huecos y no escribe
+  umbral renal numérico, mientras `FA0040` sí publica la tabla de ajuste por aclaramiento de
+  creatinina entera. `FA0039` es además la primera farmacoterapia cuyo cronograma es
+  microbiológico y no analítico: lo único que la fuente fija es un cultivo faríngeo al terminar el
+  ciclo, porque lo que previene la fiebre reumática es la erradicación y no el alivio. `FA0040` se
+  escribió una sola vez para dos temas, con el `alcance` puesto ya en la infección de piel y partes
+  blandas de más abajo, que es la molécula que va a necesitar).
+- [ ] **Cefalexina / Cefazolina en Infecciones de Piel y Partes Blandas** (la farmacoterapia
+  `FA0040` ya está escrita y le sirve tal cual: este tema necesita su `SEL:` y su `FT:`, no una
+  segunda copia del cronograma).
 - [ ] **Doxiciclina en Neumonía Atípica e Infecciones Transmitidas por Vectores**.
 - [ ] **Metronidazol en Infecciones Anaerobias y Giardiasis**.
 

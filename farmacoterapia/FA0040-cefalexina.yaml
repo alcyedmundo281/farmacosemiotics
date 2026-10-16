@@ -1,0 +1,351 @@
+# PARTE II — Farmacoterapia: cómo se usa la cefalexina con seguridad.
+#
+# Se escribe una sola vez y para dos temas, que es el desdoblamiento
+# funcionando: la faringoamigdalitis estreptocócica de SEL:0027, donde esta
+# molécula queda como alternativa, y la infección de piel y partes blandas, que
+# es el tema siguiente de la oleada 2 y va a necesitar exactamente este mismo
+# cribado, esta misma tabla de ajuste renal, estos mismos umbrales y este mismo
+# perfil reproductivo. Nada de eso cambia entre una garganta y una celulitis.
+# Lo que cambie —la línea de tratamiento, la dosis diana, el balance— irá en la
+# ficha de cada indicación, y lo poco que una indicación aparte del cronograma
+# común, en su apartado `variaciones`.
+
+id: 'FA:0040'
+tipo: farmacoterapia
+farmaco: 'FS:0040'
+
+titulo: Farmacoterapia con cefalexina
+titulo_en: Cefalexin pharmacotherapy
+
+alcance: >-
+  Fija lo que no cambia entre las indicaciones de la cefalexina: la caracterización de la alergia a
+  betalactámicos —que en esta molécula tiene una vuelta propia, porque es la que se le ofrece al
+  alérgico a penicilina y no está libre de reactividad cruzada—, el ajuste de dosis por aclaramiento
+  de creatinina, la vigilancia del paciente en riesgo de prolongación del tiempo de protrombina, la
+  conducta ante la anemia, ante la crisis convulsiva, ante la reacción cutánea y ante la diarrea
+  posantibiótica, las dos interacciones que la etiqueta documenta, el perfil reproductivo y el
+  reparto de actos. Sirve igual a la faringoamigdalitis estreptocócica del grupo A de SEL:0027, a la
+  infección de piel y partes blandas por Staphylococcus aureus sensible a meticilina o por
+  Streptococcus pyogenes, a la otitis media, a la infección respiratoria, a la ósea y a la
+  genitourinaria, que son las indicaciones que la etiqueta reconoce, porque nada de lo anterior
+  depende de la indicación. Queda fuera, por depender de ella, la dosis diana, la duración del ciclo
+  y la línea de tratamiento; y queda fuera la cefazolina, que es otra molécula con otra vía y otra
+  ficha por escribir.
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Caracterización de la alergia referida a betalactámicos, incluida la penicilina
+    motivo: >-
+      La etiqueta exige preguntar, antes de instaurar el tratamiento, si el paciente tiene
+      antecedente de reacciones de hipersensibilidad a la cefalexina, a cefalosporinas, a
+      penicilinas o a otros fármacos, y advierte de que la hipersensibilidad cruzada entre
+      betalactámicos puede ocurrir en hasta el 10 % de los pacientes con antecedente de alergia a
+      penicilina. Ese 10 % es el motivo de este cribado y la corrección de un hábito: la cefalexina
+      se prescribe con frecuencia precisamente porque el paciente «es alérgico a la penicilina», y
+      la pregunta que hay que hacer no es si lo es, sino qué reacción tuvo. Una reacción inmediata o
+      una reacción cutánea grave previa desaconsejan esta molécula igual que la penicilina; un
+      exantema tardío mal etiquetado es lo que la hace razonable.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Aclaramiento de creatinina
+    motivo: >-
+      No es una precaución genérica: es el dato con el que se elige la dosis. Más del 90 % del
+      fármaco se elimina inalterado por la orina en ocho horas, la etiqueta publica una tabla de
+      ajuste por aclaramiento de creatinina —que está escrita con sus cifras en `umbrales_accion`— y
+      varias cefalosporinas se han implicado en desencadenar crisis convulsivas precisamente en el
+      paciente con deterioro renal al que no se le redujo la dosis. En el anciano el cribado es
+      obligado por la misma razón: la etiqueta recuerda que es más probable que tenga la función
+      renal disminuida y pide cuidado en la selección de la dosis.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Identificación del paciente en riesgo de prolongación del tiempo de protrombina
+    motivo: >-
+      La etiqueta no pide un tiempo de protrombina a todo el mundo: nombra a quién hay que
+      vigilarlo, y por eso el cribado es útil. Son el paciente con deterioro renal o hepático, el de
+      mal estado nutricional, el que va a recibir un curso prolongado de antibióticos y el que
+      recibe tratamiento anticoagulante. En esos casos la etiqueta indica monitorizar el tiempo de
+      protrombina y actuar según proceda.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Edad del paciente, cuando es menor de un año
+    motivo: >-
+      La seguridad y la eficacia de la cefalexina no están establecidas en el paciente pediátrico
+      menor de un año. No es una contraindicación: es un límite de lo que la fuente sostiene, y
+      conviene saberlo antes de prescribir en el lactante.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Confirmación de infección bacteriana probada o fuertemente sospechada
+    motivo: >-
+      La etiqueta advierte de que prescribir cefalexina sin infección bacteriana probada o
+      fuertemente sospechada no beneficia al paciente y aumenta el riesgo de desarrollo de bacterias
+      resistentes. En esta molécula la advertencia pesa más que en una penicilina, porque el espectro
+      que se paga es más ancho: es el contenido del juicio de seguridad `inferior` que le da
+      SEL:0027.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+umbrales_accion:
+  - parametro: Aclaramiento de creatinina igual o superior a 60 mL/min
+    umbral: 60 mL/min o más
+    accion: 'No requiere ajuste de dosis.'
+    ref: 'fda:label'
+
+  - parametro: Aclaramiento de creatinina de 30 a 59 mL/min
+    umbral: 'De 30 a 59 mL/min'
+    accion: >-
+      No requiere ajustar la pauta, pero la dosis diaria total no debe exceder 1 g.
+    ref: 'fda:label'
+
+  - parametro: Aclaramiento de creatinina de 15 a 29 mL/min
+    umbral: 'De 15 a 29 mL/min'
+    accion: '250 mg cada 8 horas o cada 12 horas.'
+    ref: 'fda:label'
+
+  - parametro: Aclaramiento de creatinina de 5 a 14 mL/min, sin diálisis todavía
+    umbral: 'De 5 a 14 mL/min y sin diálisis'
+    accion: >-
+      250 mg cada 24 horas. Para el paciente en hemodiálisis la etiqueta declara que no hay
+      información suficiente para recomendar un ajuste, y eso se dice en vez de extrapolar esta
+      cifra.
+    ref: 'fda:label'
+
+  - parametro: Aclaramiento de creatinina de 1 a 4 mL/min, sin diálisis todavía
+    umbral: 'De 1 a 4 mL/min y sin diálisis'
+    accion: >-
+      250 mg cada 48 horas o cada 60 horas. En el paciente menor de 15 años con deterioro renal la
+      etiqueta declara que no hay información suficiente para recomendar ajuste alguno, de modo que
+      esta tabla no se le aplica.
+    ref: 'fda:label'
+
+  - parametro: Crisis convulsiva durante el tratamiento
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender la cefalexina. Puede administrarse tratamiento anticonvulsivo si está clínicamente
+      indicado. Antes de atribuirla a otra causa, revisar si la dosis estaba ajustada a la función
+      renal: es el escenario que la etiqueta señala expresamente.
+    ref: 'fda:label'
+
+  - parametro: Anemia de nueva aparición, durante o después del tratamiento
+    umbral: Cualquier descenso de hemoglobina no explicado
+    accion: >-
+      Hacer el estudio diagnóstico de anemia hemolítica inducida por fármacos, suspender la
+      cefalexina e instaurar el tratamiento apropiado. Se han descrito tests de Coombs directos
+      positivos con las cefalosporinas y hemólisis intravascular aguda inducida por esta molécula.
+    ref: 'fda:label'
+
+  - parametro: Tiempo de protrombina en el paciente en riesgo
+    umbral: Prolongación respecto del basal
+    accion: >-
+      Manejar según proceda, y revisar la causa que puso al paciente en riesgo: deterioro renal o
+      hepático, mal estado nutricional, curso prolongado de antibióticos o tratamiento
+      anticoagulante concomitante. Es el umbral que convierte en conducta el cribado de riesgo
+      hemorrágico.
+    ref: 'fda:label'
+
+  - parametro: Reacción alérgica (exantema, urticaria, angioedema, anafilaxia)
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender el fármaco e instaurar el tratamiento apropiado. Registrar la reacción en la
+      historia con su descripción y no solo como «alergia», porque de esa descripción depende si al
+      paciente le quedan betalactámicos disponibles.
+    ref: 'fda:label'
+
+  - parametro: Eritema multiforme, lesiones con afectación mucosa o despegamiento cutáneo
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender de inmediato por sospecha de síndrome de Stevens-Johnson o necrólisis epidérmica
+      tóxica, derivar a urgencias y contraindicar la reexposición a cefalosporinas de por vida.
+    ref: 'fda:label'
+
+  - parametro: Diarrea, durante el tratamiento o hasta más de dos meses después de la última dosis
+    umbral: Deposiciones acuosas o sanguinolentas, con o sin fiebre ni dolor abdominal
+    accion: >-
+      Considerar la colitis por Clostridioides difficile en todo paciente con diarrea tras el uso de
+      antibióticos. Si se sospecha o se confirma, suspender el antibacteriano que no vaya dirigido
+      contra C. difficile, manejar líquidos y electrólitos, aportar proteínas, tratar el C. difficile
+      y pedir valoración quirúrgica según la clínica.
+    ref: 'fda:label'
+
+interacciones:
+  - con: Metformina
+    gravedad: moderada
+    efecto: >-
+      Eleva las concentraciones plasmáticas de metformina y reduce su aclaramiento renal. En sujetos
+      sanos a los que se administró una dosis única de 500 mg de cada fármaco, la concentración
+      máxima media de metformina aumentó un 34 % y el área bajo la curva un 24 %, y su aclaramiento
+      renal medio descendió un 14 %. No hay información sobre la interacción con dosis múltiples de
+      ninguno de los dos.
+    conducta: >-
+      Vigilar estrechamente al paciente y ajustar la dosis de metformina si procede, con atención a
+      la hipoglucemia. El fármaco cuya dosis cambia no es la cefalexina. Es una interacción que toca
+      de lleno al fármaco piloto de este repositorio, la metformina de FS:0001, y que importa porque
+      el paciente diabético con una celulitis o una infección urinaria es un encuentro frecuente, no
+      excepcional.
+    ref: 'fda:label'
+
+  - con: Probenecid
+    gravedad: moderada
+    efecto: 'Inhibe la excreción renal de la cefalexina.'
+    conducta: >-
+      La etiqueta no recomienda la administración conjunta. Es la misma interacción farmacocinética
+      que la amoxicilina de FA:0038 tiene con el probenecid, pero la conducta que fija la fuente es
+      más estricta aquí: allí se vigila, aquí no se asocia.
+    ref: 'fda:label'
+
+  - con: Determinación de glucosa en orina por el método de Benedict o de Fehling
+    gravedad: menor
+    efecto: >-
+      Puede producir una reacción falsamente positiva de glucosa en la orina.
+    conducta: >-
+      No cambia la pauta antibiótica: cambia la lectura de la prueba. Si durante el ciclo aparece
+      glucosuria por uno de esos métodos en un paciente diabético o en estudio, confirmarla por un
+      método enzimático antes de tomar cualquier decisión sobre el control glucémico.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: compatible
+    enunciado: >-
+      Los datos disponibles de estudios epidemiológicos publicados y de notificaciones de
+      farmacovigilancia a lo largo de varias décadas de uso de cefalexina en gestantes no han
+      establecido riesgos asociados al fármaco de malformaciones congénitas mayores, de aborto ni de
+      desenlaces maternos o fetales adversos; la propia etiqueta advierte de que esos estudios tienen
+      limitaciones metodológicas —tamaño pequeño, recogida retrospectiva de datos y grupos de
+      comparación inconsistentes— y que el riesgo de base en esta población es desconocido. En
+      estudios de reproducción animal, ratones y ratas tratados por vía oral durante la
+      organogénesis con dosis equivalentes a 0.6 y 1.2 veces la máxima recomendada en humanos
+      ajustada por superficie corporal no mostraron efectos adversos sobre el desarrollo
+      embriofetal, y en el estudio de toxicidad del desarrollo pre y posnatal no hubo efectos sobre
+      el parto, el tamaño de la camada ni el crecimiento de las crías. Es, a diferencia de la
+      penicilina V de FA:0039, un dato propio de la molécula y no una premisa heredada de su clase.
+    ref: 'fda:label'
+  lactancia:
+    compatibilidad: compatible
+    enunciado: >-
+      Un estudio de lactancia publicado indica que la cefalexina está presente en la leche materna,
+      con una dosis relativa al lactante considerada inferior al 1 % de la dosis materna ajustada
+      por peso. Los datos sobre sus efectos en el lactante son limitados y no hay datos sobre la
+      producción de leche, de modo que la decisión pondera el beneficio de la lactancia frente a la
+      necesidad clínica de la madre y los posibles efectos en el lactante. Esa dosis relativa por
+      debajo del 1 % es el dato que permite escribir aquí una compatibilidad y no un `sin_datos`
+      como el que le corresponde a la penicilina V.
+    ref: 'fda:label'
+
+atencion_compartida:
+  seguimiento: >-
+    Médico de atención primaria: caracteriza la alergia referida —y en esta molécula eso significa
+    averiguar qué reacción tuvo el paciente con la penicilina, no darla por buena—, calcula el
+    aclaramiento de creatinina y elige la dosis en la tabla, identifica al paciente en riesgo de
+    prolongación del tiempo de protrombina, revisa si hay metformina o anticoagulante en el
+    tratamiento habitual e instruye sobre la diarrea que obliga a consultar hasta dos meses después.
+    Es el prescriptor habitual de este fármaco en las dos indicaciones que esta farmacoterapia
+    sirve.
+  especialista: >-
+    Alergología: estudia la alergia referida a betalactámicos y la confirma o la descarta, que es la
+    intervención que decide si a este paciente le quedan penicilinas y cefalosporinas para el resto
+    de su vida. Nefrología: interviene cuando el deterioro renal es avanzado o el paciente está en
+    hemodiálisis, situación para la que la etiqueta declara no tener información de ajuste
+    suficiente. Infectología o cirugía: ante infección de piel y partes blandas con sospecha de
+    absceso, de fascitis o de estafilococo resistente a meticilina, que esta molécula no cubre.
+  checklist_preinicio:
+    - Alergia a betalactámicos caracterizada, con la reacción descrita y no solo la etiqueta
+    - Aclaramiento de creatinina calculado y dosis elegida en la tabla si es inferior a 60 mL/min
+    - Riesgo de prolongación del tiempo de protrombina valorado, y basal pedido si lo hay
+    - Metformina y anticoagulantes revisados en el tratamiento habitual
+    - Advertencia dada sobre la diarrea que obliga a consultar, hasta dos meses después
+  suspension_inmediata:
+    - Urticaria, angioedema, broncoespasmo o hipotensión
+    - Eritema multiforme, afectación mucosa o despegamiento cutáneo
+    - Crisis convulsiva
+    - Anemia de nueva aparición no explicada
+    - Diarrea acuosa o sanguinolenta con fiebre o dolor abdominal
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: segunda
+  justificacion: >-
+    El alcance de este juicio hay que decirlo antes que el juicio, porque esta molécula sirve a dos
+    temas y hoy solo uno está evaluado. Para la única indicación que este repositorio ha evaluado
+    —la faringoamigdalitis estreptocócica del grupo A de SEL:0027— la cefalexina es segunda línea, y
+    lo es a pesar de ganar el eje de la eficacia: en el metaanálisis de 47 ensayos y 11 426
+    pacientes, diez días de cefalosporina frente a diez de penicilina dieron una razón de odds de
+    curación bacteriológica de 4.27 en los ensayos europeos y de 2.70 en los estadounidenses. Esa
+    superioridad es en un desenlace sustituto —la erradicación bacteriológica— y no en la fiebre
+    reumática, para la que no existe comparación directa; la guía de la IDSA de 2012, revisando esa
+    misma literatura, no movió a las cefalosporinas a la primera línea; y el coste de espectro que
+    se paga es seguro mientras el beneficio es incierto. Su sitio preciso es la alergia a la
+    penicilina que no fue inmediata ni grave, y el fracaso bacteriológico documentado tras un ciclo
+    correcto de betalactámico. Para la infección de piel y partes blandas, que es el tema siguiente
+    de la oleada 2, esta línea no está decidida aquí: la fijará su propio informe de selección, y
+    este campo se revisará entonces.
+  escalonado:
+    - linea: primera
+      opciones: 'Penicilina V o amoxicilina en la faringoamigdalitis estreptocócica, durante diez días'
+      nota: 'No es esta molécula: es la primera línea frente a la que la cefalexina se compara'
+    - linea: segunda
+      opciones: 'Cefalexina oral ante alergia a la penicilina que no fue inmediata ni grave'
+      nota: 'La hipersensibilidad cruzada entre betalactámicos alcanza hasta el 10 % de quienes refieren alergia a penicilina, de modo que no es una salida automática'
+    - linea: rescate
+      opciones: 'Cefalexina oral tras fracaso bacteriológico documentado después de un ciclo correcto de penicilina'
+      nota: 'Es donde la ventaja en erradicación del metaanálisis deja de ser un sustituto y pasa a responder a la pregunta que se tiene delante'
+  desescalamiento:
+    enunciado: >-
+      El mismo metaanálisis sugiere que un ciclo de cuatro a cinco días de cefalosporina rinde al
+      menos lo que diez días de penicilina en curación bacteriológica —razón de odds de 1.30 en
+      Europa y 2.41 en Estados Unidos—, lo que parece una ventaja de conveniencia y en la faringitis
+      estreptocócica no se toma como tal. La razón es la misma que gobierna FA:0039: acortar el ciclo
+      es justamente lo que el argumento de la prevención de la fiebre reumática resiste, y la
+      etiqueta de esta molécula recomienda, para las infecciones estreptocócicas betahemolíticas,
+      una duración de al menos diez días. En las demás indicaciones la etiqueta fija la duración
+      entre siete y catorce días según el tipo y la gravedad de la infección, y ese margen es
+      decisión de la indicación y no de la molécula.
+    ref: 'pmid:16767482'
+  ref: 'pmid:22965026'
+
+# ── Huecos declarados ────────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No se escribe cronograma porque la fuente no fija ninguno, y la distinción importa: la
+      etiqueta pide vigilancia, pero no dice cada cuánto, y «monitorizar» sin periodicidad no es una
+      instrucción. Para el paciente con deterioro renal pide observación clínica cuidadosa y
+      estudios de laboratorio que incluyan la función renal, y vigilarlo durante más tiempo por el
+      aclaramiento retardado; para el paciente en riesgo pide monitorizar el tiempo de protrombina.
+      En ninguno de los dos casos especifica con qué frecuencia, en qué fase ni durante cuánto
+      tiempo después del ciclo, y en un tratamiento de siete a catorce días inventar ese intervalo
+      sería escribir un número que nadie publicó. Lo que sí está fijado está escrito donde
+      corresponde: lo que se pide antes de la primera dosis, en `cribado_basal`, y la conducta ante
+      cada anomalía, en `umbrales_accion`.
+    buscado_en: >-
+      Etiqueta de la FDA de la cefalexina, apartados 5.4 y 5.5 de advertencias y precauciones, 8.5
+      de uso geriátrico y 8.6 de insuficiencia renal
+    refs:
+      - 'fda:label'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No hay dosis de inicio que dependa de un genotipo. Como en las dos penicilinas vecinas de este
+      informe, FA:0038 y FA:0039, existe asociación conocida entre alelos HLA y algunas reacciones
+      de hipersensibilidad a betalactámicos, pero no hay recomendación CPIC ni ninguna otra que
+      convierta ese dato en un umbral de dosificación o en un cribado previo exigible. Lo que
+      gobierna el riesgo de reacción grave a esta molécula es la anamnesis de alergia, y está en
+      `cribado_basal`.
+    buscado_en: 'Etiqueta de la FDA de la cefalexina, apartados de advertencias y precauciones y de farmacología clínica'
+    refs:
+      - 'fda:label'
+
+refs:
+  - 'pmid:16767482'
+  - 'pmid:22965026'
+  - 'fda:label'

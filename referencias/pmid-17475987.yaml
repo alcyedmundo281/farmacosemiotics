@@ -1,0 +1,30 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:17475987"
+clave_bibtex: casey2007
+tipo: ensayo_clinico
+titulo: "Symptomatic relapse of group A beta-hemolytic streptococcal tonsillopharyngitis in children"
+autores:
+  - "Casey JR"
+  - "Pichichero ME"
+publicacion: "Clin Pediatr (Phila)"
+anio: 2007
+volumen: "46"
+numero: "4"
+paginas: "307-10"
+
+identificadores:
+  pmid: 17475987
+  doi: "10.1177/0009922806293919"
+  pmc: null
+
+tipos_pubmed:
+  - "Clinical Trial"
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

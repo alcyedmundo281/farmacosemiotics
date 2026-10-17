@@ -1,0 +1,33 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:41071123"
+clave_bibtex: friaes2025
+tipo: articulo
+titulo: "Increase of macrolide resistance among Streptococcus pyogenes pharyngitis driven by a mef(A)-msr(D)/emm2-ST55 lineage in Portugal (2014-2019)"
+autores:
+  - "Friães A"
+  - "Mamede R"
+  - "Santos B"
+  - "Marrão G"
+  - "Melo-Cristino J"
+  - "Ramirez M"
+publicacion: "Antimicrob Agents Chemother"
+anio: 2025
+volumen: "69"
+numero: "11"
+paginas: "e0096825"
+
+identificadores:
+  pmid: 41071123
+  doi: "10.1128/aac.00968-25"
+  pmc: "PMC12587576"
+
+tipos_pubmed:
+  - "Journal Article"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

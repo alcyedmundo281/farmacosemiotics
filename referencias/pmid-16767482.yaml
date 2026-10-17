@@ -1,0 +1,31 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:16767482"
+clave_bibtex: pichichero2006
+tipo: metaanalisis
+titulo: "Comparison of European and U.S. results for cephalosporin versus penicillin treatment of group A streptococcal tonsillopharyngitis"
+autores:
+  - "Pichichero M"
+  - "Casey J"
+publicacion: "Eur J Clin Microbiol Infect Dis"
+anio: 2006
+volumen: "25"
+numero: "6"
+paginas: "354-64"
+
+identificadores:
+  pmid: 16767482
+  doi: "10.1007/s10096-006-0154-7"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+  - "Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

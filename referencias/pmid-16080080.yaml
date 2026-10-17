@@ -1,0 +1,37 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:16080080"
+clave_bibtex: richter2005
+tipo: articulo
+titulo: "Macrolide-resistant Streptococcus pyogenes in the United States, 2002-2003"
+autores:
+  - "Richter SS"
+  - "Heilmann KP"
+  - "Beekmann SE"
+  - "Miller NJ"
+  - "Miller AL"
+  - "Rice CL"
+  - "Doern CD"
+  - "Reid SD"
+  - "Doern GV"
+publicacion: "Clin Infect Dis"
+anio: 2005
+volumen: "41"
+numero: "5"
+paginas: "599-608"
+
+identificadores:
+  pmid: 16080080
+  doi: "10.1086/432473"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

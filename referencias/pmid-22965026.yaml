@@ -1,0 +1,38 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:22965026"
+clave_bibtex: shulman2012
+tipo: guia
+titulo: "Clinical practice guideline for the diagnosis and management of group A streptococcal pharyngitis: 2012 update by the Infectious Diseases Society of America"
+autores:
+  - "Shulman ST"
+  - "Bisno AL"
+  - "Clegg HW"
+  - "Gerber MA"
+  - "Kaplan EL"
+  - "Lee G"
+  - "Martin JM"
+  - "Van Beneden C"
+  - "Infectious Diseases Society of America"
+publicacion: "Clin Infect Dis"
+anio: 2012
+volumen: "55"
+numero: "10"
+paginas: "e86-102"
+
+identificadores:
+  pmid: 22965026
+  doi: "10.1093/cid/cis629"
+  pmc: "PMC7108032"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Practice Guideline"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

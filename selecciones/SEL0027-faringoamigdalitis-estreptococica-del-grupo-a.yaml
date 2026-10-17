@@ -1,0 +1,352 @@
+# PARTE I — Informe de selección del medicamento.
+#
+# Es el segundo problema de salud que se apoya en FS:0038 y FA:0038, tras la
+# neumonía adquirida en la comunidad de SEL:0026. El tema del mapa maestro decía
+# «Amoxicilina en Neumonía Adquirida en la Comunidad y Faringitis
+# Estreptocócica» y se partió en dos deliberadamente: son dos problemas de
+# salud, el conjunto de candidatos no se solapa y el desenlace crítico no es el
+# mismo. Allí el desenlace era la mortalidad; aquí es la fiebre reumática.
+id: 'SEL:0027'
+tipo: seleccion
+problema: Faringoamigdalitis estreptocócica del grupo A
+problema_en: Group A streptococcal pharyngotonsillitis
+
+poblacion: >-
+  Niños, adolescentes y adultos con faringoamigdalitis aguda y confirmación microbiológica de
+  Streptococcus pyogenes por cultivo faríngeo o por prueba rápida de detección antigénica. La
+  confirmación no es un refinamiento del diagnóstico: es parte de la definición de la población,
+  porque la mayoría de las faringitis agudas son víricas y en ellas el antibiótico no tiene nada
+  que prevenir. Quedan fuera el portador faríngeo asintomático —que no se trata—, la faringitis
+  sin confirmación microbiológica, el absceso periamigdalino y otras complicaciones supurativas ya
+  establecidas, que son un problema quirúrgico antes que de selección de antibiótico, y el
+  paciente con fiebre reumática previa, cuya profilaxis secundaria es otra pregunta con otra
+  evidencia.
+
+pregunta: >-
+  En el paciente con faringoamigdalitis aguda por Streptococcus pyogenes confirmada, ¿qué
+  antibiótico oral se selecciona como tratamiento de primera línea según eficacia, seguridad,
+  conveniencia y costo?
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+contexto: >-
+  Es el informe en que más fácil resulta elegir mal el desenlace. La faringitis estreptocócica se
+  cura sola: la revisión Cochrane de 27 ensayos y 12 835 casos cifra en unas dieciséis horas el
+  acortamiento medio de los síntomas que aporta el antibiótico, y en 21 el número necesario para
+  tratar si lo que se quiere es un paciente sin dolor de garganta a la semana. Si el desenlace fuera
+  el síntoma, la respuesta razonable sería no tratar. El antibiótico se da por otra cosa: porque
+  entre dos y cuatro semanas después de la infección puede aparecer una fiebre reumática aguda, y
+  con ella una cardiopatía reumática que sigue siendo la primera causa mundial de enfermedad
+  cardiovascular por debajo de los 25 años. Ese es el desenlace crítico, y de él se derivan las dos
+  propiedades que gobiernan toda la selección: hace falta erradicar la bacteria de la faringe —no
+  solo aliviar la garganta— y hace falta completar un ciclo de diez días. Un antibiótico que alivia
+  antes y erradica peor es, en esta indicación, peor; y la comodidad de la pauta deja de ser
+  comodidad y se convierte en la probabilidad de que los diez días se tomen de verdad.
+  Streptococcus pyogenes, por su parte, no ha desarrollado resistencia a la penicilina en setenta
+  años de uso, de modo que la pregunta no es qué antibiótico sigue funcionando, sino cuál de los que
+  funcionan se prescribe.
+
+estrategia:
+  - base: PubMed
+    consulta: 'streptococcal pharyngitis AND (amoxicillin OR penicillin V OR cephalosporin OR azithromycin) AND (randomized controlled trial[pt] OR meta-analysis[pt] OR practice guideline[pt])'
+    fecha: '2026-10-15'
+    nota: >-
+      Se priorizaron la guía IDSA de faringitis estreptocócica de 2012 (PMID 22965026), el ensayo
+      aleatorizado de no inferioridad de amoxicilina en toma única frente a penicilina V (PMID
+      18337284), el metaanálisis de antibióticos para la prevención primaria de la fiebre reumática
+      aguda (PMID 15927077), la revisión Cochrane de antibióticos para el dolor de garganta (PMID
+      24190439), la revisión Cochrane de ciclos cortos frente a los diez días clásicos (PMID
+      22895944), el metaanálisis de cefalosporina frente a penicilina (PMID 16767482) y la serie
+      reciente de vigilancia de resistencia en aislados faríngeos de un hospital portugués (PMID
+      41071123). La serie estadounidense de 1885 aislados (PMID 16080080) se localizó en la misma
+      búsqueda y se cita en la ficha FT:0042, donde sostiene la ausencia de resistencia a penicilina.
+
+criterio_decisorio: >-
+  Decidió la conveniencia, y es el único informe del repositorio en que el tercer eje mueve el
+  veredicto. Conviene decir por qué eso no contradice el orden de la decisión, porque en SEL:0026
+  —la otra indicación de esta misma molécula— se razonó exactamente al contrario: allí la
+  amoxicilina perdía la conveniencia y ganaba igual, porque la seguridad separaba a los candidatos.
+  Aquí los dos primeros ejes empatan de verdad. En eficacia, la amoxicilina en toma única resultó no
+  inferior a la penicilina V en erradicación faríngea con un margen holgado, y la guía IDSA nombra a
+  las dos como tratamiento de elección sin preferir ninguna. En seguridad, la penicilina V tiene a
+  su favor el espectro más estrecho de los cuatro candidatos, pero esa ventaja es ecológica y no de
+  daño al paciente que se tiene delante: son el mismo betalactámico, con el mismo perfil de
+  hipersensibilidad, y ninguna fuente consultada las separa en daño individual. Con los dos
+  primeros ejes empatados, la decisión recae en el tercero, y aquí el tercero no mide comodidad:
+  mide adherencia. Una toma al día durante diez días frente a dos o cuatro es la diferencia entre
+  completar el ciclo y no completarlo, y completar el ciclo es el mecanismo por el que se previene
+  la fiebre reumática, que es el único desenlace crítico de este informe. La cefalosporina queda
+  fuera pese a ganar el eje de la eficacia, y eso también exige argumento: su superioridad está
+  medida en erradicación bacteriológica, que es un desenlace sustituto, y ninguna comparación con
+  penicilina la ha medido en fiebre reumática; mientras tanto, el coste de espectro que paga es
+  seguro. Se prefiere una ventaja segura en adherencia sobre una ventaja incierta en un sustituto.
+
+conclusion: >-
+  Se selecciona amoxicilina por vía oral en toma única diaria durante diez días como tratamiento de
+  primera línea de la faringoamigdalitis por Streptococcus pyogenes confirmada. En el ensayo
+  aleatorizado de no inferioridad de 353 niños con cultivo faríngeo positivo, la amoxicilina en una
+  toma diaria no fue inferior a la penicilina V en dos tomas: el límite superior del intervalo de
+  confianza del 95 % para la diferencia en cultivos positivos fue del 4.9 % a los días 3 a 6, del
+  6.5 % a los días 12 a 16 y del 8.5 % a los días 26 a 36, por debajo del margen preespecificado del
+  10 %, con fracasos terapéuticos y recaídas del 5.8 %, 12.7 % y 10.7 % con amoxicilina frente al
+  6.2 %, 11.9 % y 11.3 % con penicilina V, y sin diferencias en la resolución de los síntomas. La
+  penicilina V queda como alternativa de pleno derecho y no como segunda opción: es el fármaco con
+  el que está medida la prevención de la fiebre reumática —riesgo relativo 0.20 (IC 95 % 0.11 a
+  0.36) y número necesario para tratar de 60 en el metaanálisis de los ensayos de prevención
+  primaria— y el de espectro más estrecho, y donde la adherencia esté garantizada es la elección más
+  parsimoniosa. La cefalosporina de primera generación queda como alternativa, señaladamente en la
+  alergia no grave a la penicilina: el metaanálisis de 47 ensayos y 11 426 pacientes le atribuye una
+  razón de odds de curación bacteriológica de 4.27 en los ensayos europeos y de 2.70 en los
+  estadounidenses frente a diez días de penicilina, pero esa ventaja es en un desenlace sustituto, y
+  la propia guía IDSA, revisando esa misma literatura, no movió a las cefalosporinas a la primera
+  línea. La azitromicina queda reservada a la alergia verdadera a betalactámicos y solo con
+  resistencia local comprobada: en una serie de 2002 aislados faríngeos de un hospital portugués recogidos entre 2014 y
+  2019, la resistencia a eritromicina fue del 4 % global —84 de los 2002 aislados— y alcanzó el 9 % en
+  2019 por expansión de un linaje nuevo, frente a una resistencia a penicilina que no se ha
+  detectado nunca. La duración no se
+  negocia en los diez días por una razón que no es la curación: la revisión Cochrane de 20 estudios
+  y 13 102 casos encontró que tres a seis días de antibióticos más nuevos igualan a los diez días de
+  penicilina en fracaso clínico precoz y en recurrencia clínica tardía, pero empeoran la recurrencia
+  bacteriológica tardía (razón de odds 1.31; IC 95 % 1.16 a 1.48), y sus autores advierten
+  expresamente de que el resultado debe leerse con cautela donde la cardiopatía reumática siga
+  siendo prevalente. El informe deja tres huecos explícitos. El primero: el texto completo de la
+  guía IDSA de 2012 no fue accesible desde este entorno de compilación, de modo que su tabla de
+  dosificación y la graduación de fuerza y calidad de sus recomendaciones no pudieron verificarse, y
+  de ella solo se cita lo que afirma su resumen. El segundo: no existe comparación directa de
+  ninguno de los cuatro candidatos con la fiebre reumática como desenlace, de modo que todo el
+  informe compara sustitutos y se apoya en que la prevención está demostrada para la clase de la
+  penicilina. El tercero: la evidencia de no inferioridad de la toma única es pediátrica y
+  neozelandesa, y no hay un ensayo equivalente en adultos.
+
+# ── Los candidatos ──────────────────────────────────────────────────────
+candidatos:
+  - dci: Amoxicilina
+    atc: J01CA04
+    clase: Penicilina semisintética de amplio espectro (aminopenicilina)
+    farmaco: 'FS:0038'
+    veredicto: seleccionado
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        No inferior a la penicilina V en el desenlace que importa en esta indicación, que es la
+        erradicación faríngea y no el alivio del dolor. En el ensayo aleatorizado de no
+        inferioridad de 353 niños con cultivo faríngeo positivo, aleatorizados a amoxicilina
+        1500 mg en una toma diaria —750 mg si el peso era de 30 kg o menos— o a penicilina V 500 mg
+        en dos tomas —250 mg si el peso era de 20 kg o menos—, ambas durante diez días, el límite
+        superior del intervalo de confianza del 95 % para la diferencia en cultivos positivos fue
+        del 4.9 % a los días 3 a 6, del 6.5 % a los días 12 a 16 y del 8.5 % a los días 26 a 36,
+        todos por debajo del margen preespecificado del 10 %. Los fracasos terapéuticos, incluidas
+        las recaídas, fueron del 5.8 %, 12.7 % y 10.7 % con amoxicilina y del 6.2 %, 11.9 % y
+        11.3 % con penicilina V en las tres visitas, y no hubo diferencias en la resolución de los
+        síntomas. Los aislados se serotiparon para distinguir el fracaso bacteriológico de la nueva
+        adquisición, que es la precaución metodológica que separa un fracaso real de un contagio
+        posterior.
+      ref: 'pmid:18337284'
+    seguridad:
+      juicio: equivalente
+      sustento: >-
+        Mismo betalactámico y mismo perfil de hipersensibilidad que la penicilina V, con el daño
+        atribuible mejor medido de los cuatro candidatos, aunque medido en otra indicación: en el
+        ensayo multinacional frente a placebo de 2061 pacientes con infección respiratoria baja
+        aguda, las náuseas, el exantema o la diarrea aparecieron con un número necesario para dañar
+        de 21 (IC 95 % 11 a 174) y hubo un caso de anafilaxia entre 1038 tratados. La cifra no
+        procede de faringitis y por eso no se traslada sin reservas, pero es la única cuantificación
+        de la amoxicilina contra placebo y acota el orden de magnitud: daño leve, reversible y
+        frecuente, frente a un desenlace prevenido que es cardíaco y permanente. Su peculiaridad en
+        esta indicación es el exantema morbiliforme tardío, más probable cuando la faringitis era en
+        realidad una mononucleosis infecciosa, que no es alergia mediada por IgE y que etiquetado
+        como tal condena al paciente de por vida a antibióticos de espectro más amplio.
+      ref: 'pmid:23265995'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        La mejor del informe, y en esta indicación la conveniencia no es comodidad: es la
+        probabilidad de que los diez días se completen, que es el mecanismo de la prevención de la
+        fiebre reumática. Una sola toma diaria durante diez días frente a las dos de la penicilina V
+        en el mismo ensayo, con adherencia verificada por medicación observada y diarios de fin de
+        semana, que es lo que permite atribuir el resultado a los fármacos y no a la toma irregular.
+        Añade una suspensión oral palatable, que en una enfermedad mayoritariamente pediátrica no es
+        un detalle menor.
+      ref: 'pmid:18337284'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente, sin patente desde hace décadas y de los antibacterianos más
+        baratos y disponibles del mundo; pertenece al grupo Access de la clasificación AWaRe, que es
+        el que la OMS quiere que concentre el consumo.
+    nota: >-
+      Gana sin ganar los dos primeros ejes, porque en ellos empata, y gana en el tercero porque aquí
+      el tercero mide adherencia y no confort.
+
+  - dci: Fenoximetilpenicilina (penicilina V)
+    atc: J01CE02
+    clase: Penicilina natural de administración oral
+    veredicto: alternativa
+    eficacia:
+      juicio: equivalente
+      sustento: >-
+        Es el fármaco con el que está medida la prevención del desenlace crítico, y eso le da una
+        posición que ningún otro candidato tiene. En el metaanálisis de diez ensayos y 7665
+        pacientes con faringitis de presentación sugestiva de estreptococo, el antibiótico redujo la
+        incidencia de fiebre reumática aguda en un 70 % frente a no tratar (riesgo relativo 0.32;
+        IC 95 % 0.21 a 0.48), con una reducción absoluta del riesgo del 1.67 % y un número necesario
+        para tratar de 53; restringido a los ensayos de penicilina, el efecto protector fue del 80 %
+        (riesgo relativo 0.20; IC 95 % 0.11 a 0.36) y el número necesario para tratar de 60. Es un
+        empate de alto valor, no un empate por falta de datos: la amoxicilina hereda la prevención
+        por pertenencia de clase y por no inferioridad en erradicación, mientras la penicilina la
+        tiene medida de forma directa. Lo que debilita la cifra es su procedencia: todos los ensayos
+        se hicieron entre 1950 y 1961 y en ocho de los diez la población era de varones adultos
+        jóvenes en bases militares estadounidenses, con una calidad metodológica que los propios
+        autores califican de pobre.
+      ref: 'pmid:15927077'
+    seguridad:
+      juicio: superior
+      sustento: >-
+        Tiene el espectro más estrecho de los cuatro candidatos, lo que significa el menor daño
+        colateral sobre la flora del paciente y la menor presión selectiva sobre el resto de su
+        ecología bacteriana. La guía IDSA de 2012 mantiene la penicilina y la amoxicilina como
+        tratamiento de elección y su actualización no amplió la primera línea: lo que añadió fue la
+        clindamicina como opción para el paciente alérgico a la penicilina. Esa ventaja de espectro
+        es real y es la razón por la que este candidato no queda relegado, pero es ecológica: no se
+        dispone de fuente que separe a la penicilina V de la amoxicilina en daño al paciente
+        individual, y por eso no decide el informe.
+      ref: 'pmid:22965026'
+    conveniencia:
+      juicio: inferior
+      sustento: >-
+        Es el eje en que pierde y el que la desplaza. En el ensayo de no inferioridad se administró
+        en dos tomas diarias durante diez días frente a la toma única de la amoxicilina, y en el
+        adulto las pautas habituales llegan a cuatro tomas. Multiplicar las tomas durante diez días
+        en una enfermedad cuyos síntomas desaparecen al tercer o cuarto día es exactamente la
+        situación en que un ciclo se abandona a medias, y abandonarlo a medias es perder la
+        prevención sin dejar de pagar el daño.
+      ref: 'pmid:18337284'
+    costo:
+      juicio: superior
+      sustento: >-
+        Genérico oral multifuente y uno de los antibacterianos más baratos que existen, del grupo
+        Access de la clasificación AWaRe.
+    nota: >-
+      Alternativa de pleno derecho y no segunda opción: donde la adherencia esté garantizada —un
+      adulto fiable, una administración supervisada— es la elección más parsimoniosa, porque obtiene
+      el mismo resultado con el espectro más estrecho.
+
+  - dci: Cefalexina
+    atc: J01DB01
+    clase: Cefalosporina de primera generación de administración oral
+    veredicto: alternativa
+    eficacia:
+      juicio: superior
+      sustento: >-
+        Es el único candidato con superioridad publicada, y conviene decir en qué. En el
+        metaanálisis de 47 ensayos y 11 426 pacientes, diez días de cefalosporina frente a diez días
+        de penicilina dieron una razón de odds de curación bacteriológica de 4.27 en los ensayos
+        europeos (p inferior a 0.00001) y de 2.70 en los estadounidenses (p inferior a 0.00001),
+        todos pediátricos; y cuatro a cinco días de cefalosporina frente a diez de penicilina dieron
+        1.30 en Europa (p = 0.03) y 2.41 en Estados Unidos (p inferior a 0.00001), con diferencias
+        más marcadas en niños que en adultos. La superioridad es, por tanto, en erradicación
+        bacteriológica —un desenlace sustituto— y no en fiebre reumática, que es el desenlace
+        crítico y para el que no existe ninguna comparación directa. Pesa además que la guía IDSA,
+        revisando esta misma literatura, no movió a las cefalosporinas a la primera línea.
+      ref: 'pmid:16767482'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Paga un espectro apreciablemente más amplio que las dos penicilinas por un beneficio medido
+        en un sustituto, y ese es el motivo por el que la guía IDSA de 2012 conserva la penicilina y
+        la amoxicilina como tratamiento de elección en vez de ascender la cefalosporina. Añade un
+        problema propio en el paciente al que más se le ofrece: en la alergia referida a penicilina
+        hay reactividad cruzada posible entre betalactámicos, baja pero no nula, y el antecedente de
+        reacción cutánea grave o de anafilaxia la contraindica igual que a las penicilinas, de modo
+        que no es la salida automática del alérgico que a veces se supone.
+      ref: 'pmid:22965026'
+    conveniencia:
+      juicio: equivalente
+      sustento: >-
+        Dos tomas diarias, mejor que la penicilina V y peor que la amoxicilina. El mismo
+        metaanálisis sugiere que un ciclo de cuatro a cinco días de cefalosporina rinde al menos lo
+        que diez días de penicilina en curación bacteriológica, lo que sería una ventaja real de
+        conveniencia; pero acortar el ciclo es justamente lo que el argumento de la fiebre reumática
+        resiste, y por eso no se cuenta como ventaja en este informe.
+      ref: 'pmid:16767482'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Genérico oral multifuente de coste bajo, algo por encima de la penicilina V y la amoxicilina
+        en la mayoría de los mercados, y de un grupo de la clasificación AWaRe que la OMS no quiere
+        que concentre el consumo ambulatorio.
+    nota: >-
+      Alternativa con un sitio preciso: la alergia a la penicilina que no fue inmediata ni grave, y
+      el fracaso bacteriológico documentado tras un ciclo correcto de betalactámico.
+
+  - dci: Azitromicina
+    atc: J01FA10
+    clase: Macrólido de quince miembros (azálido)
+    veredicto: reservado
+    eficacia:
+      juicio: inferior
+      sustento: >-
+        Es el único candidato cuya eficacia depende de una resistencia que existe y se mueve. En
+        una serie de 2002 aislados faríngeos de Streptococcus pyogenes recogidos en un hospital portugués entre
+        2014 y 2019, la resistencia fue del 4 % a eritromicina (84 aislados), del 4 % a clindamicina
+        (77) y del 3 % a tetraciclina (52) —los recuentos van al lado porque el porcentaje es su
+        división y el lector tiene derecho a rehacerla—, con un pico del 9 % en 2019 por la
+        expansión rápida de un linaje nuevo que
+        desplazó a los anteriores. Esa asimetría es el argumento: la eficacia del betalactámico no
+        depende de la epidemiología local y la del macrólido sí, lo que en un tratamiento empírico
+        equivale a una eficacia inferior aunque el aislado concreto resulte sensible.
+      ref: 'pmid:41071123'
+    seguridad:
+      juicio: inferior
+      sustento: >-
+        Arrastra el único exceso de mortalidad cuantificado de los cuatro candidatos, con una
+        reserva de población que hay que decir antes que la cifra: en la cohorte de 347 795 ciclos
+        de azitromicina frente a 1 348 672 de amoxicilina, los cinco días de tratamiento se
+        asociaron a un riesgo de muerte cardiovascular 2.49 veces mayor (IC 95 % 1.38 a 4.50) y de
+        muerte por cualquier causa 2.02 veces mayor (IC 95 % 1.24 a 3.30), lo que equivale a 47
+        muertes cardiovasculares añadidas por millón de ciclos. La cohorte es de adultos y esta
+        indicación es mayoritariamente pediátrica, de modo que el riesgo absoluto en la población de
+        este informe será muy inferior y probablemente despreciable; se consigna porque la
+        faringitis estreptocócica también se trata en adultos y porque el exceso se concentraba en
+        quien ya tenía el corazón enfermo. A ello se suma el daño ecológico que es propio de la
+        clase: su uso es lo que produce la resistencia que la inutiliza.
+      ref: 'pmid:22591294'
+    conveniencia:
+      juicio: superior
+      sustento: >-
+        La mejor del informe en términos brutos: una toma diaria y un ciclo de tres a cinco días en
+        vez de diez. Pero en esta indicación esa ventaja está en tensión con el desenlace crítico, y
+        la revisión Cochrane que la cuantifica lo muestra: los ciclos de tres a seis días de
+        antibióticos más nuevos acortaron la fiebre (diferencia de medias -0.30 días) y el dolor de
+        garganta (-0.50 días) y redujeron el fracaso clínico precoz (razón de odds 0.80; IC 95 %
+        0.67 a 0.94), pero empeoraron la recurrencia bacteriológica tardía (1.31; IC 95 % 1.16 a
+        1.48), y esa diferencia desaparecía al excluir los ensayos de azitromicina a dosis baja
+        (1.06; IC 95 % 0.92 a 1.22). Es decir: la comodidad del ciclo corto la aporta el macrólido y
+        el deterioro bacteriológico también.
+      ref: 'pmid:22895944'
+    costo:
+      juicio: equivalente
+      sustento: >-
+        Genérico oral multifuente de coste bajo y ciclo corto, algo por encima de las penicilinas en
+        la mayoría de los mercados. Pertenece al grupo Watch de la clasificación AWaRe.
+    nota: >-
+      Reservada a la alergia verdadera a betalactámicos, y aun ahí condicionada a la resistencia
+      local documentada; la guía IDSA de 2012 añadió precisamente la clindamicina como opción para
+      el paciente alérgico a la penicilina.
+
+refs:
+  - 'pmid:18337284'
+  - 'pmid:22965026'
+  - 'pmid:15927077'
+  - 'pmid:24190439'
+  - 'pmid:22895944'
+  - 'pmid:16767482'
+  - 'pmid:41071123'
+  - 'pmid:23265995'
+  - 'pmid:22591294'

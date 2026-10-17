@@ -1,0 +1,33 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:15927077"
+clave_bibtex: robertson2005
+tipo: metaanalisis
+titulo: "Antibiotics for the primary prevention of acute rheumatic fever: a meta-analysis"
+autores:
+  - "Robertson KA"
+  - "Volmink JA"
+  - "Mayosi BM"
+publicacion: "BMC Cardiovasc Disord"
+anio: 2005
+volumen: "5"
+numero: "1"
+paginas: "11"
+
+identificadores:
+  pmid: 15927077
+  doi: "10.1186/1471-2261-5-11"
+  pmc: "PMC1164408"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Meta-Analysis"
+  - "Research Support, Non-U.S. Gov't"
+  - "Systematic Review"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

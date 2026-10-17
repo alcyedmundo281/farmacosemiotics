@@ -1,24 +1,23 @@
 # PARTE II — Farmacoterapia: cómo se usa la fenoximetilpenicilina con seguridad.
 #
-# Dos cosas de esta farmacoterapia se apartan del patrón del repositorio y
-# conviene decirlas antes de leerla.
+# Esta farmacoterapia se apoya en una fuente limitada, y eso gobierna su forma:
+# la etiqueta estadounidense de la penicilina V potásica es de formato antiguo y
+# no trae apartados de interacciones, de lactancia ni de ajuste renal. No es
+# cosa de la etiqueta elegida: se revisaron las 20 etiquetas de
+# `penicillin v potassium` indexadas en openFDA el 2026-10-15 y ninguna los
+# trae. De ahí que `interacciones` quede declarado como hueco y que no se
+# escriba umbral renal numérico.
 #
-# La primera: su cronograma de monitorización no es analítico, es
-# microbiológico. Donde las demás farmacoterapias vigilan hemogramas, aquí lo
-# único que la fuente fija es un cultivo faríngeo al terminar el ciclo, porque
-# lo que hay que comprobar no es que el fármaco no haya dañado al paciente sino
-# que haya erradicado la bacteria: es la erradicación, y no el alivio, lo que
-# previene la fiebre reumática. Por eso el apartado no tiene fase de inducción
-# y `build.py` avisa de ello; el aviso está pensado para los inmunosupresores
-# que producen citopenia en las primeras semanas y no alcanza a un ciclo oral
-# de diez días.
+# El tercer hueco, el de `monitorizacion`, tiene otra historia y está contada
+# en su `motivo`: el apartado estuvo escrito, con un cultivo faríngeo de control
+# al terminar el ciclo derivado de una frase de la etiqueta, y se retiró porque
+# un cultivo de control universal convierte al portador asintomático en un
+# fracaso aparente y genera retratamientos que no hacen falta. La frase de la
+# etiqueta no bastaba para fijar a quién sí.
 #
-# La segunda: dos apartados quedan declarados como huecos por una limitación de
-# la fuente que se verificó y no se supuso. La etiqueta estadounidense de la
-# penicilina V potásica es de formato antiguo y no trae apartados de
-# interacciones ni de lactancia, y no es cosa de la etiqueta elegida: se
-# revisaron las 20 etiquetas de `penicillin v potassium` indexadas en openFDA
-# el 2026-10-15 y ninguna los trae.
+# La lactancia sí tiene dato propio de la molécula, y llegó tarde: la primera
+# versión de este fichero la dejó en `sin_datos` por no haber buscado un estudio
+# de transferencia a la leche de esta molécula en concreto. Existe.
 
 id: 'FA:0039'
 tipo: farmacoterapia
@@ -31,8 +30,7 @@ alcance: >-
   Fija lo que no cambia entre las indicaciones de la penicilina V: la caracterización de la alergia
   a betalactámicos antes de la primera dosis, la comprobación de que la vía oral es fiable en este
   paciente —que en esta molécula no es una obviedad y la etiqueta lo advierte—, la conducta ante la
-  erupción, ante la fiebre aislada y ante la diarrea posantibiótica, la comprobación
-  microbiológica al terminar el ciclo en la infección estreptocócica y el reparto de actos. Sirve
+  erupción, ante la fiebre aislada y ante la diarrea posantibiótica, y el reparto de actos. Sirve
   igual a la faringoamigdalitis estreptocócica del grupo A, que es la indicación por la que esta
   molécula entra en el repositorio a través de SEL:0027, a la escarlatina y la erisipela leve, a la
   infección respiratoria neumocócica leve a moderada, a la fusoespiroquetosis del orofaringe y a la
@@ -103,24 +101,6 @@ cribado_basal:
       es parte de la definición de la población de SEL:0027: la mayoría son víricas, y en ellas no
       hay fiebre reumática que prevenir.
     responsable: seguimiento
-    ref: 'fda:label'
-
-# ── Cronograma: aquí lo que se vigila es la bacteria, no la analítica ────
-monitorizacion:
-  - fase: post_suspension
-    pruebas:
-      - Cultivo faríngeo de control
-    frecuencia: >-
-      Una sola vez, al completar el ciclo de diez días, en la infección estreptocócica
-    responsable: seguimiento
-    nota: >-
-      Es el único acto de vigilancia que la fuente fija para esta molécula, y es microbiológico. La
-      etiqueta dice que en las infecciones estreptocócicas el tratamiento debe bastar para eliminar
-      el microorganismo —con un mínimo de diez días— porque de lo contrario pueden aparecer las
-      secuelas de la enfermedad estreptocócica, y que deben tomarse cultivos tras completar el
-      tratamiento para determinar si los estreptococos han sido erradicados. No hay fase basal ni de
-      inducción que escribir: no existe analítica previa ni intercurrente que la fuente exija en un
-      ciclo oral de diez días, y la vigilancia del daño es clínica y está en `umbrales_accion`.
     ref: 'fda:label'
 
 umbrales_accion:
@@ -209,24 +189,35 @@ reproductivo:
       que hay para esta molécula, pero se consigna como premisa y no como medida.
     ref: 'pmid:31260651'
   lactancia:
-    compatibilidad: sin_datos
+    compatibilidad: compatible_con_precaucion
     enunciado: >-
-      No se escribe enunciado de compatibilidad porque no hay fuente que lo sostenga para esta
-      molécula. Ninguna de las 20 etiquetas de penicilina V potásica indexadas en openFDA el
-      2026-10-15 trae apartado de lactancia, y no se localizó estudio de lactancia de esta molécula
-      en concreto. Lo que sí tienen medido son las otras dos moléculas vecinas de este repositorio:
-      la amoxicilina de FA:0038, compatible, y la cefalexina de FA:0040, con una dosis relativa al
-      lactante inferior al 1 %. Extender ese dato a la penicilina V sería una inferencia de clase, y
-      aquí no se hace.
-    ref: 'fda:label'
+      Sí hay dato propio de la molécula, y conviene decir exactamente cuál, porque es más estrecho
+      de lo que suele citarse. En el estudio de transferencia a la leche durante la mastitis
+      puerperal, 12 pacientes con mastitis y 4 controles sanas recibieron una dosis oral única de
+      1320 mg de fenoximetilpenicilina y se midió la concentración en leche de ambas mamas a las 0,
+      1, 2, 3, 4, 6 y 8 horas por difusión en agar: el fármaco pasa a la leche de forma medible, la
+      concentración máxima fue mayor en la mama con mastitis que en la contralateral y esta mayor
+      que en las controles sanas, con el máximo a las 2 horas y descenso rápido después, mientras el
+      área bajo la curva de 0 a 8 horas no difirió entre mamas ni frente a las controles. Lo que ese
+      estudio NO publica es una dosis relativa al lactante, y no observó lactantes: los 12 son las
+      pacientes con mastitis, no niños seguidos. De modo que lo demostrado es el paso a la leche, no
+      la inocuidad medida en el niño, y por eso la compatibilidad se declara con precaución y no
+      lisa. La precaución es vigilar al lactante —diarrea, candidiasis oral, exantema, que son las
+      manifestaciones esperables y transitorias de la alteración de su microbiota—, no evitar el
+      fármaco: la penicilina V no se retira por la lactancia. Para la cefalexina de FA:0040 sí
+      existe una dosis relativa al lactante inferior al 1 %, y allí la compatibilidad se escribe
+      sin reservas.
+    ref: 'pmid:3130891'
 
 atencion_compartida:
   seguimiento: >-
     Médico de atención primaria: caracteriza la alergia referida antes de prescribir, confirma el
     estreptococo antes de tratar una faringitis, comprueba que la vía oral sea fiable, explica por
-    qué los diez días no se negocian aunque la garganta esté bien al tercero, toma el cultivo de
-    control al terminar el ciclo e instruye sobre la diarrea que obliga a consultar hasta dos meses
-    después. Es el prescriptor habitual de este fármaco y le corresponde la guía casi entera.
+    qué los diez días no se negocian aunque la garganta esté bien al tercero e instruye sobre la
+    diarrea que obliga a consultar hasta dos meses después. No toma cultivo de control de rutina:
+    si la faringitis recurre, reevalúa entonces, en vez de dar por fracasado un ciclo que pudo
+    dejar un portador asintomático. Es el prescriptor habitual de este fármaco y le corresponde la
+    guía casi entera.
   especialista: >-
     Alergología: estudia la alergia referida a penicilina y, cuando procede, la descarta
     formalmente, que en esta clase es una intervención con beneficio de por vida y la que devuelve
@@ -289,6 +280,34 @@ posicionamiento:
 
 # ── Huecos declarados ────────────────────────────────────────────────────
 huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No se escribe cronograma, y la razón merece contarse porque este apartado estuvo escrito y se
+      retiró. La etiqueta dice que en las infecciones estreptocócicas deben tomarse cultivos tras
+      completar el tratamiento para determinar si los estreptococos han sido erradicados, y de ahí
+      se había derivado un cultivo faríngeo de control para todo paciente tratado. Eso era un error
+      de alcance con consecuencia clínica: la etiqueta no restringe esa frase a ningún subgrupo, y
+      un cultivo de control universal convierte al portador faríngeo asintomático —que no se trata,
+      y así lo define la población de SEL:0027— en un fracaso terapéutico aparente, de modo que la
+      vigilancia que pretendía confirmar la prevención acaba generando retratamientos que no hacen
+      falta. Hay motivo para pensar que existe una indicación selectiva de cultivo de control —la
+      recurrencia, o el riesgo especialmente alto de fiebre reumática—, pero ninguna fuente
+      alcanzable desde este entorno la fija: el documento que aborda la cuestión es la guía de la
+      IDSA de 2012, cuyo texto completo no es accesible aquí —`get_full_text_article` sobre
+      PMC7108032 devuelve vacío—, y de ella solo puede citarse lo que afirma su resumen, que no
+      dice nada de cultivos postratamiento. Es la misma limitación que SEL:0027 y FT:0042 ya
+      declaran. Escribir a qué pacientes y con qué conducta sería inventar el criterio, que es
+      precisamente el fallo que este repositorio existe para impedir. Mientras tanto no hay
+      analítica previa ni intercurrente que la fuente exija en un ciclo oral de diez días, y la
+      vigilancia del daño es clínica y está entera en `umbrales_accion`.
+    buscado_en: >-
+      Etiqueta de la FDA de la penicilina V potásica, apartado de precauciones generales, y guía de
+      la IDSA de faringitis estreptocócica de 2012, cuyo texto completo no es accesible desde este
+      entorno
+    refs:
+      - 'fda:label'
+      - 'pmid:22965026'
+
   - bloque: interacciones
     motivo: >-
       No se escribe tabla de interacciones porque la fuente de esta molécula no tiene apartado de
@@ -326,4 +345,5 @@ refs:
   - 'pmid:22895944'
   - 'pmid:22965026'
   - 'pmid:31260651'
+  - 'pmid:3130891'
   - 'fda:label'

@@ -1,0 +1,33 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:3130891"
+clave_bibtex: matheson1988
+tipo: articulo
+titulo: "Milk transfer of phenoxymethylpenicillin during puerperal mastitis"
+autores:
+  - "Matheson I"
+  - "Samseth M"
+  - "Løberg R"
+  - "Faegri A"
+  - "Prentice A"
+publicacion: "Br J Clin Pharmacol"
+anio: 1988
+volumen: "25"
+numero: "1"
+paginas: "33-40"
+
+identificadores:
+  pmid: 3130891
+  doi: "10.1111/j.1365-2125.1988.tb03279.x"
+  pmc: "PMC1386612"
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-16'
+  retractado: false
+  crossref: true

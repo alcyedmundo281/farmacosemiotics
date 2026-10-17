@@ -30,25 +30,28 @@ autores:
 licencia: CC BY-SA 4.0
 
 lme:
-  # `null` significa «no comprobado», no «ausente», y como en la
-  # fenoximetilpenicilina de FS:0039 conviene decir qué se comprobó. La
-  # cefalexina SÍ consta en la Lista Modelo electrónica de la OMS, en la
-  # sección 6.2.1 «Access group antibiotics», consultada en
-  # list.essentialmeds.org el 2026-10-15; su historial cita TRS 958 (añadida en
-  # 2009) y TRS 1006 (modificada en 2017). Lo que no se pudo verificar es la
-  # `categoria` core o complementary que `build.py` exige junto a
-  # `presente: true`, ni que la entrada corresponda a la 24.ª edición de 2025
-  # que declara este bloque. Nótese además que la pertenencia al grupo Access
-  # de la clasificación AWaRe NO equivale a constar en la Lista Modelo: la
-  # página del grupo Access enumera 94 moléculas, muchas de las cuales
-  # —cefaloridina, meticilina— no están en la lista. Confundir ambas cosas sería
-  # el camino fácil para poner `true` sin comprobarlo.
-  presente: null
+  # Comprobado en la ficha de recomendación de la Lista Modelo electrónica de
+  # la OMS (list.essentialmeds.org/recommendations/556), consultada el
+  # 2026-10-16: sección 6.2.1 «Access group antibiotics», «List type: Core»,
+  # con los comprimidos orales de 250 y 500 mg marcados (EML) y los
+  # dispersables de 125 y 250 mg marcados (EMLc). El historial cita TRS 1006
+  # (2017), TRS 1035 (2021) y TRS 1049 (2023), que es la revisión más reciente
+  # que la ficha imprime.
+  #
+  # Como en la fenoximetilpenicilina de FS:0039, esto estuvo primero en `null`
+  # por buscar la categoría en la página equivocada: está en
+  # `/recommendations/`, no en `/medicines/`.
+  #
+  # Y como allí, lo que sigue siendo cierto: pertenecer al grupo Access de la
+  # clasificación AWaRe NO equivale a constar en la Lista Modelo. La página del
+  # grupo Access enumera 94 moléculas, varias fuera de la lista.
+  presente: true
   lista: EML
   edicion: 24
   anio: 2025
-  seccion: null
-  categoria: null
+  seccion: '6.2.1'
+  seccion_titulo_en: Access group antibiotics
+  categoria: core
 
 mecanismo: >-
   Cefalosporina bactericida que actúa por inhibición de la síntesis de la pared bacteriana. Lo que

@@ -39,24 +39,33 @@ autores:
 licencia: CC BY-SA 4.0
 
 lme:
-  # `null` significa «no comprobado», no «ausente», y aquí conviene decir con
-  # precisión qué se comprobó y qué no. La fenoximetilpenicilina SÍ consta en
-  # la Lista Modelo electrónica de la OMS, en la sección 6.2.1 «Access group
-  # antibiotics», consultada en list.essentialmeds.org el 2026-10-15; su
-  # historial de la lista cita TRS 1006 (2017, añadida para faringitis aguda y
-  # neumonía bacteriana) y TRS 1021 (2019). Lo que no se pudo verificar es la
-  # `categoria` core o complementary que `build.py` exige junto a
-  # `presente: true`, ni que la entrada corresponda a la 24.ª edición de 2025
-  # que declara este bloque: ninguna de las páginas alcanzables la imprime.
-  # Poner `true` obligaría a afirmar una categoría que nadie comprobó, de modo
-  # que se deja `null` y eml.py lo cuenta fuera, que es el sesgo conservador
-  # correcto. Se cierra cuando el anexo de la 24.ª edición sea legible.
-  presente: null
+  # Comprobado en la ficha de recomendación de la Lista Modelo electrónica de
+  # la OMS (list.essentialmeds.org/recommendations/875), consultada el
+  # 2026-10-16: sección 6.2.1 «Access group antibiotics», «List type: Core»,
+  # con los comprimidos orales de 250 y 500 mg marcados (EML) y presencia
+  # también en la EMLc. El historial cita TRS 1021 (2019) y TRS 1035 (2021),
+  # que es la revisión más reciente que la ficha imprime: no llega a nombrar la
+  # 24.ª edición que declara este bloque, y conviene saberlo si algún día hay
+  # que recomprobarlo contra el anexo de 2025.
+  #
+  # Esto estuvo primero como `presente: null` por no haber encontrado la
+  # categoría, y el error fue de búsqueda, no de criterio: la categoría está en
+  # las páginas `/recommendations/`, no en las de `/medicines/`, que son las que
+  # se consultaron. Queda anotado porque el camino equivocado es fácil de
+  # repetir.
+  #
+  # Lo que sigue siendo cierto y conviene no perder: pertenecer al grupo Access
+  # de la clasificación AWaRe NO equivale a constar en la Lista Modelo. La
+  # página del grupo Access enumera 94 moléculas, varias de ellas
+  # —cefaloridina, meticilina— fuera de la lista. La pertenencia se comprueba en
+  # la ficha del medicamento, no en la del grupo.
+  presente: true
   lista: EML
   edicion: 24
   anio: 2025
-  seccion: null
-  categoria: null
+  seccion: '6.2.1'
+  seccion_titulo_en: Access group antibiotics
+  categoria: core
 
 mecanismo: >-
   Betalactámico bactericida que detiene la biosíntesis del mucopéptido de la pared celular durante

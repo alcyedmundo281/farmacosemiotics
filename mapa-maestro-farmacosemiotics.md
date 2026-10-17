@@ -224,12 +224,21 @@ guía en la oleada que le corresponde por coste y por vía.
   que sí aportan es el uso seguro de dos moléculas que el informe recomendaba sin decir cómo se
   usan. Las dos farmacoterapias son el caso más claro del repositorio de que la fuente, y no el
   autor, decide hasta dónde llega una guía: la etiqueta de la penicilina V es de formato antiguo y
-  no trae interacciones ni lactancia —comprobado en las 20 etiquetas de `penicillin v potassium`
-  indexadas en openFDA, no supuesto—, de modo que `FA0039` declara esos dos huecos y no escribe
-  umbral renal numérico, mientras `FA0040` sí publica la tabla de ajuste por aclaramiento de
-  creatinina entera. `FA0039` es además la primera farmacoterapia cuyo cronograma es
-  microbiológico y no analítico: lo único que la fuente fija es un cultivo faríngeo al terminar el
-  ciclo, porque lo que previene la fiebre reumática es la erradicación y no el alivio. `FA0040` se
+  no trae interacciones ni ajuste renal —comprobado en las 20 etiquetas de `penicillin v potassium`
+  indexadas en openFDA, no supuesto—, de modo que `FA0039` declara ese hueco y no escribe umbral
+  renal numérico, mientras `FA0040` sí publica la tabla de ajuste por aclaramiento de creatinina
+  entera. `FA0039` declara además un tercer hueco que enseña algo del oficio, y conviene dejarlo
+  escrito porque el error es repetible: su cronograma estuvo puesto como un cultivo faríngeo de
+  control al terminar el ciclo, derivado de una frase de la etiqueta, y se retiró en la revisión
+  del PR porque un cultivo de control universal convierte al portador faríngeo asintomático —que
+  no se trata— en un fracaso terapéutico aparente, y de ahí salen retratamientos que no hacen
+  falta. La etiqueta sostenía la frase pero no el alcance que se le dio, y el documento que fijaría
+  a qué pacientes sí —la guía de la IDSA— sigue sin texto completo accesible desde este entorno.
+  Una fuente puede sostener un enunciado y no sostener el alcance que uno le da. La lactancia de la
+  penicilina V también llegó en esa revisión: estaba en `sin_datos` por no haberse buscado un
+  estudio de transferencia a la leche de esta molécula, y existe (`pmid:3130891`), aunque mide el
+  paso a la leche y no la inocuidad en el lactante, de modo que la compatibilidad queda con
+  precaución y no lisa. `FA0040` se
   escribió una sola vez para dos temas, con el `alcance` puesto ya en la infección de piel y partes
   blandas de más abajo, que es la molécula que va a necesitar).
 - [ ] **Cefalexina / Cefazolina en Infecciones de Piel y Partes Blandas** (la farmacoterapia

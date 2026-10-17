@@ -1,0 +1,216 @@
+# Principio activo. Lo que NO depende de la indicación.
+#
+# Es la penicilina con la que está medida la prevención de la fiebre reumática,
+# y de ahí viene su sitio en el repositorio: SEL:0027 la compara como
+# alternativa de pleno derecho frente a la amoxicilina de FS:0038, con la
+# seguridad a su favor —es el de espectro más estrecho de los cuatro
+# candidatos— y la conveniencia en contra.
+#
+# Advertencia sobre la procedencia de los datos de esta ficha: la etiqueta
+# estadounidense de la penicilina V potásica es de formato anterior a la regla
+# de etiquetado moderna, y por eso no trae apartados de embarazo, lactancia,
+# interacciones ni ajuste renal numérico. No es un olvido de quien escribe esta
+# ficha: se comprobaron las 20 etiquetas de `penicillin v potassium` indexadas
+# en openFDA el 2026-10-15 y ninguna de ellas los trae. Lo que falta por eso
+# queda declarado en los `huecos_declarados` de FA:0039, no rellenado.
+
+id: 'FS:0039'
+tipo: farmaco
+dci: Fenoximetilpenicilina
+dci_en: Phenoxymethylpenicillin
+sinonimos:
+  - penicilina V
+  - penicilina V potásica
+  - fenoximetilpenicilina potásica
+  - penicillin V potassium
+  - Penicillin-VK
+
+atc: J01CE02
+clase_farmacologica: Penicilina natural de administración oral
+clase_farmacologica_en: Oral natural penicillin
+
+# ── Metadatos editoriales ───────────────────────────────────────────────
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+lme:
+  # Comprobado en la ficha de recomendación de la Lista Modelo electrónica de
+  # la OMS (list.essentialmeds.org/recommendations/875), consultada el
+  # 2026-10-16: sección 6.2.1 «Access group antibiotics», «List type: Core»,
+  # con los comprimidos orales de 250 y 500 mg marcados (EML) y presencia
+  # también en la EMLc. El historial cita TRS 1021 (2019) y TRS 1035 (2021),
+  # que es la revisión más reciente que la ficha imprime: no llega a nombrar la
+  # 24.ª edición que declara este bloque, y conviene saberlo si algún día hay
+  # que recomprobarlo contra el anexo de 2025.
+  #
+  # Esto estuvo primero como `presente: null` por no haber encontrado la
+  # categoría, y el error fue de búsqueda, no de criterio: la categoría está en
+  # las páginas `/recommendations/`, no en las de `/medicines/`, que son las que
+  # se consultaron. Queda anotado porque el camino equivocado es fácil de
+  # repetir.
+  #
+  # Lo que sigue siendo cierto y conviene no perder: pertenecer al grupo Access
+  # de la clasificación AWaRe NO equivale a constar en la Lista Modelo. La
+  # página del grupo Access enumera 94 moléculas, varias de ellas
+  # —cefaloridina, meticilina— fuera de la lista. La pertenencia se comprueba en
+  # la ficha del medicamento, no en la del grupo.
+  presente: true
+  lista: EML
+  edicion: 24
+  anio: 2025
+  seccion: '6.2.1'
+  seccion_titulo_en: Access group antibiotics
+  categoria: core
+
+mecanismo: >-
+  Betalactámico bactericida que detiene la biosíntesis del mucopéptido de la pared celular durante
+  la fase de multiplicación activa. Es el espectro más estrecho de los cuatro candidatos que compara
+  SEL:0027, y esa estrechez es la propiedad que la define: conserva actividad alta in vitro frente a
+  los estreptococos de los grupos A, C, G, H, L y M —Streptococcus pyogenes entre ellos—, frente al
+  neumococo y frente a los estafilococos que no producen penicilinasa, y carece de actividad frente
+  a los productores de betalactamasas, que incluyen muchas cepas de estafilococo, y frente al grupo
+  D enterocócico. La sal potásica tiene sobre la penicilina G oral una ventaja que es la razón de
+  que exista: resiste la inactivación por el ácido gástrico, de modo que las concentraciones
+  plasmáticas son dos a cinco veces mayores que las de la misma dosis de penicilina G por boca y con
+  mucha menos variación individual.
+mecanismo_ref: 'fda:label'
+
+farmacocinetica:
+  eliminacion: >-
+    Excreción renal rápida del fármaco inalterado; la recuperación urinaria indica que solo se
+    absorbe en torno al 25 % de la dosis administrada por boca
+  vida_media: >-
+    No consta en la etiqueta: lo que esta afirma es que en el paciente con función renal normal el
+    fármaco se excreta tan rápido como se absorbe
+  implicacion: >-
+    La eliminación tan rápida como la absorción es la razón farmacocinética de que la pauta sean
+    tres o cuatro tomas al día, y por tanto la raíz del único eje que SEL:0027 le adjudica como
+    inferior: la conveniencia. Mantener la concentración por encima de la CMI durante diez días
+    exige repetir la toma, y repetirla cuatro veces al día en una enfermedad cuyos síntomas ceden al
+    tercer día es la situación en que el ciclo se abandona a medias. En el neonato, en el lactante
+    pequeño y en el paciente con función renal deteriorada la excreción se retrasa de forma
+    considerable; la etiqueta lo afirma así, sin dar punto de corte ni dosis corregida, y por eso
+    FA:0039 no escribe un umbral numérico de TFGe que la fuente no fija.
+  ref: 'fda:label'
+
+seguridad:
+  reacciones:
+    - evento: Náuseas, vómitos, molestia epigástrica y diarrea
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Son las reacciones más comunes de la penicilina oral según la etiqueta, que no las
+        cuantifica. A diferencia de la amoxicilina de FS:0038, cuyo daño atribuible está medido
+        contra placebo con un número necesario para dañar de 21, aquí no se dispone de cifra: la
+        etiqueta enumera los eventos sin frecuencias y ninguna de las fuentes de SEL:0027 separa a
+        la penicilina V de la amoxicilina en daño al paciente individual. Por eso el informe las
+        juzga equivalentes en seguridad individual y le reserva la ventaja en el plano ecológico.
+      ref: 'fda:label'
+
+    - evento: Lengua negra vellosa
+      frecuencia: frecuente
+      gravedad: leve
+      nota: >-
+        Sobrecrecimiento de la flora lingual, reversible al terminar el ciclo. Importa porque
+        alarma y porque no es motivo de suspensión.
+      ref: 'fda:label'
+
+    - evento: Erupciones cutáneas, desde maculopapulares hasta dermatitis exfoliativa, urticaria y reacciones de tipo enfermedad del suero
+      frecuencia: frecuente
+      gravedad: moderada
+      nota: >-
+        Son las manifestaciones de hipersensibilidad de la penicilina oral. La fiebre y la
+        eosinofilia pueden ser con frecuencia la única reacción observada, que es la advertencia más
+        fácil de pasar por alto de toda la etiqueta: un paciente con fiebre bajo antibiótico se
+        interpreta como infección que no responde antes que como reacción al fármaco.
+      ref: 'fda:label'
+
+    - evento: Edema laríngeo y reacción anafiláctica
+      frecuencia: rara
+      gravedad: letal
+      nota: >-
+        Se han descrito reacciones de hipersensibilidad graves y ocasionalmente mortales, incluida
+        la anafilaxia fatal, con la penicilina por vía oral, aunque con mucha menos frecuencia que
+        con la parenteral. Son más probables en quien tiene antecedente de hipersensibilidad a
+        penicilina o de sensibilidad a múltiples alérgenos. Exigen adrenalina inmediata.
+      ref: 'fda:label'
+
+    - evento: Colitis asociada a Clostridioides difficile
+      frecuencia: infrecuente
+      gravedad: grave
+      nota: >-
+        Descrita con casi todos los antibacterianos, con gravedad que va de la diarrea leve a la
+        colitis mortal, y puede aparecer hasta más de dos meses después de la última dosis. Ese
+        plazo es la razón de que la anamnesis tenga que preguntar por antibióticos recientes ante
+        una diarrea que no se explica.
+      ref: 'fda:label'
+
+    - evento: Anemia hemolítica, leucopenia, trombocitopenia, neuropatía y nefropatía
+      frecuencia: rara
+      gravedad: grave
+      nota: >-
+        La etiqueta las describe como infrecuentes y asociadas habitualmente a dosis altas de
+        penicilina parenteral, no a la pauta oral de esta ficha. Se consignan porque son el techo de
+        toxicidad de la clase y porque acotan lo que no cabe esperar del ciclo oral de diez días.
+      ref: 'fda:label'
+
+  contraindicaciones:
+    - motivo: >-
+        Antecedente de reacción de hipersensibilidad a cualquier penicilina. La etiqueta lo formula
+        así, sin graduar: es la única contraindicación que declara.
+      ref: 'fda:label'
+    - motivo: >-
+        No es contraindicación formal, pero la etiqueta advierte expresamente de que se han descrito
+        reacciones graves al tratar con cefalosporinas a individuos con antecedente de
+        hipersensibilidad a penicilina. Es el mismo aviso por el lado contrario que trae la etiqueta
+        de la cefalexina de FS:0040, y la razón de que esa molécula no sea la salida automática del
+        alérgico a penicilina que a veces se supone.
+      ref: 'fda:label'
+
+# ── Regulatorio ─────────────────────────────────────────────────────────
+# Generado por scripts/openfda.py el 2026-10-15. La consulta por generic_name
+# "penicillin v potassium" devolvió solo marcas de este principio activo
+# (PENICILLIN V POTASSIUM y PENICILLIN-VK), sin combinaciones: el recuento no
+# está inflado, a diferencia de lo que ocurrió con la amoxicilina de FS:0038.
+regulatorio:
+  - agencia: FDA
+    estado: aprobado
+    primera_aprobacion: '1968-07-03'
+    primera_aprobacion_nota: >-
+      Derivada de la submission ORIG/AP más antigua de openFDA, no de un campo oficial de primera
+      aprobación.
+    marca_original: PENICILLIN-VK
+    solicitudes:
+      nda: 0
+      anda: 4
+      bla: 0
+    solicitudes_nota: >-
+      Cero NDA y cuatro ANDA es el perfil regulatorio de una molécula cuya aprobación original
+      precede al registro electrónico: hoy solo quedan genéricos. Es la forma que toma en openFDA la
+      propiedad que SEL:0027 le atribuye en el eje del costo.
+    fuente: 'openfda:drugsfda'
+    consulta: 'openfda.generic_name:"penicillin v potassium"'
+    consultado: '2026-10-15'
+
+etiqueta_fda:
+  set_id: '58e6fd2f-e595-f788-e063-6394a90a0ea2'
+  vigencia: '2026-08-13'
+  url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58e6fd2f-e595-f788-e063-6394a90a0ea2
+  fuente: 'openfda:label'
+  consultado: '2026-10-15'
+  nota: >-
+    Es la fuente de las referencias `fda:label` de este fármaco y de su farmacoterapia FA:0039. Es
+    una etiqueta de formato antiguo: trae indicaciones, posología, contraindicaciones, advertencias,
+    precauciones y reacciones adversas, y no trae embarazo, lactancia, interacciones ni tabla de
+    ajuste renal. Las 20 etiquetas de penicilina V potásica indexadas en openFDA comparten ese
+    formato, de modo que el hueco es de la fuente y no de esta elección de etiqueta.
+
+refs:
+  - 'pmid:15927077'
+  - 'pmid:18337284'
+  - 'fda:label'

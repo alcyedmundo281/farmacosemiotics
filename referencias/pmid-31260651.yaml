@@ -1,0 +1,32 @@
+# Registro de referencia. Generado por scripts/pubmed.py contra PubMed.
+# No se edita a mano: para corregirlo, vuelve a generarlo con --forzar.
+
+id: "pmid:31260651"
+clave_bibtex: damkier2019
+tipo: articulo
+titulo: "In utero exposure to antibiotics and risk of congenital malformations: a population-based study"
+autores:
+  - "Damkier P"
+  - "Brønniche LMS"
+  - "Korch-Frandsen JFB"
+  - "Broe A"
+publicacion: "Am J Obstet Gynecol"
+anio: 2019
+volumen: "221"
+numero: "6"
+paginas: "648.e1-648.e15"
+
+identificadores:
+  pmid: 31260651
+  doi: "10.1016/j.ajog.2019.06.050"
+  pmc: null
+
+tipos_pubmed:
+  - "Journal Article"
+  - "Research Support, Non-U.S. Gov't"
+
+verificacion:
+  pubmed: true
+  fecha: '2026-10-15'
+  retractado: false
+  crossref: true

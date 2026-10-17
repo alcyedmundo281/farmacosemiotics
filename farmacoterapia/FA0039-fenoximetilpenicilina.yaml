@@ -1,0 +1,349 @@
+# PARTE II — Farmacoterapia: cómo se usa la fenoximetilpenicilina con seguridad.
+#
+# Esta farmacoterapia se apoya en una fuente limitada, y eso gobierna su forma:
+# la etiqueta estadounidense de la penicilina V potásica es de formato antiguo y
+# no trae apartados de interacciones, de lactancia ni de ajuste renal. No es
+# cosa de la etiqueta elegida: se revisaron las 20 etiquetas de
+# `penicillin v potassium` indexadas en openFDA el 2026-10-15 y ninguna los
+# trae. De ahí que `interacciones` quede declarado como hueco y que no se
+# escriba umbral renal numérico.
+#
+# El tercer hueco, el de `monitorizacion`, tiene otra historia y está contada
+# en su `motivo`: el apartado estuvo escrito, con un cultivo faríngeo de control
+# al terminar el ciclo derivado de una frase de la etiqueta, y se retiró porque
+# un cultivo de control universal convierte al portador asintomático en un
+# fracaso aparente y genera retratamientos que no hacen falta. La frase de la
+# etiqueta no bastaba para fijar a quién sí.
+#
+# La lactancia sí tiene dato propio de la molécula, y llegó tarde: la primera
+# versión de este fichero la dejó en `sin_datos` por no haber buscado un estudio
+# de transferencia a la leche de esta molécula en concreto. Existe.
+
+id: 'FA:0039'
+tipo: farmacoterapia
+farmaco: 'FS:0039'
+
+titulo: Farmacoterapia con fenoximetilpenicilina
+titulo_en: Phenoxymethylpenicillin pharmacotherapy
+
+alcance: >-
+  Fija lo que no cambia entre las indicaciones de la penicilina V: la caracterización de la alergia
+  a betalactámicos antes de la primera dosis, la comprobación de que la vía oral es fiable en este
+  paciente —que en esta molécula no es una obviedad y la etiqueta lo advierte—, la conducta ante la
+  erupción, ante la fiebre aislada y ante la diarrea posantibiótica, y el reparto de actos. Sirve
+  igual a la faringoamigdalitis estreptocócica del grupo A, que es la indicación por la que esta
+  molécula entra en el repositorio a través de SEL:0027, a la escarlatina y la erisipela leve, a la
+  infección respiratoria neumocócica leve a moderada, a la fusoespiroquetosis del orofaringe y a la
+  profilaxis secundaria continuada tras una fiebre reumática, porque nada de lo anterior depende de
+  la indicación. Queda fuera, por depender de ella, la dosis diana, la duración del ciclo y la línea
+  de tratamiento, con una salvedad que no es una excepción sino el punto de este fármaco: el mínimo
+  de diez días en la infección estreptocócica no es una decisión de la indicación sino una
+  propiedad del uso seguro de la molécula, y por eso se dice aquí.
+
+estado: revisado
+fecha: '2026-10-15'
+actualizado: '2026-10-15'
+idioma: es
+autores:
+  - nombre: Dr. Alcy Edmundo Torres Guerrero
+licencia: CC BY-SA 4.0
+
+cribado_basal:
+  - prueba: Caracterización de la alergia referida a betalactámicos
+    motivo: >-
+      La etiqueta exige indagar con cuidado, antes de iniciar el tratamiento, sobre reacciones
+      previas de hipersensibilidad a penicilinas, a cefalosporinas o a otros alérgenos, y declara el
+      antecedente de hipersensibilidad a cualquier penicilina como su única contraindicación. No
+      basta con preguntar si el paciente es alérgico: hay que averiguar qué pasó y cuánto tardó,
+      porque una reacción inmediata con urticaria, angioedema, broncoespasmo o hipotensión
+      contraindica el fármaco y la etiqueta mal puesta persiste de por vida y empuja al paciente
+      hacia antibióticos de espectro más amplio. El cribado basal de esta molécula es, como el de
+      la amoxicilina de FA:0038, sobre todo una anamnesis bien hecha.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Antecedente de sensibilidad a múltiples alérgenos, de alergia significativa o de asma
+    motivo: >-
+      La etiqueta señala que las reacciones graves y ocasionalmente mortales son más probables en
+      quien tiene antecedente de hipersensibilidad a penicilina o de sensibilidad a múltiples
+      alérgenos, y recomienda usar la penicilina con precaución en el paciente con historia de
+      alergias significativas o de asma. No contraindica: identifica a quién hay que tratar con la
+      adrenalina al alcance.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Comprobación de que la vía oral es fiable en este paciente
+    motivo: >-
+      Es el cribado propio de esta molécula y el que no tiene equivalente en las demás
+      farmacoterapias del repositorio. La etiqueta advierte de que no debe confiarse en la vía oral
+      en la enfermedad grave ni en presencia de náuseas, vómitos, dilatación gástrica, cardioespasmo
+      o hipermotilidad intestinal, y de que ocasionalmente hay pacientes que no absorben cantidades
+      terapéuticas de penicilina administrada por boca. Con una absorción que la propia etiqueta
+      cifra en torno al 25 % de la dosis, la pregunta de si el fármaco va a llegar no es retórica.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Valoración de la función renal
+    motivo: >-
+      La etiqueta afirma que en el neonato, en el lactante pequeño y en el paciente con función
+      renal deteriorada la excreción se retrasa de forma considerable, y no da punto de corte ni
+      dosis corregida. La valoración sirve, por tanto, para saber a quién hay que vigilar más de
+      cerca, no para aplicar una tabla de ajuste que la fuente no publica; el umbral numérico
+      correspondiente queda sin escribir en `umbrales_accion` por esa misma razón.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+  - prueba: Confirmación microbiológica de Streptococcus pyogenes antes de tratar una faringitis
+    motivo: >-
+      La etiqueta advierte de que prescribir penicilina V en ausencia de una infección bacteriana
+      probada o fuertemente sospechada no beneficia al paciente y aumenta el riesgo de desarrollo de
+      bacterias resistentes. En la faringitis aguda esa advertencia tiene consecuencia inmediata y
+      es parte de la definición de la población de SEL:0027: la mayoría son víricas, y en ellas no
+      hay fiebre reumática que prevenir.
+    responsable: seguimiento
+    ref: 'fda:label'
+
+umbrales_accion:
+  - parametro: Urticaria, angioedema, broncoespasmo o hipotensión en minutos u horas
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender de inmediato. La reacción anafiláctica grave exige tratamiento de urgencia inmediato
+      con adrenalina, y además oxígeno, corticoides intravenosos y manejo de la vía aérea —incluida
+      la intubación— según esté indicado. Registrar en la historia la contraindicación a penicilinas
+      y derivar a alergología: confirmar o descartar la alergia tiene valor terapéutico durante el
+      resto de la vida del paciente.
+    ref: 'fda:label'
+
+  - parametro: Fiebre o eosinofilia sin otra manifestación
+    umbral: Aparición durante el ciclo, sin foco que la explique
+    accion: >-
+      Considerar la reacción de hipersensibilidad al fármaco y no solo el fracaso del tratamiento:
+      la etiqueta advierte de que la fiebre y la eosinofilia pueden ser con frecuencia la única
+      reacción observada. Es el umbral de esta molécula que más fácilmente se interpreta al revés,
+      porque la conducta instintiva ante la fiebre bajo antibiótico es cambiar de antibiótico por
+      más amplio, cuando lo que hay que hacer es preguntarse si el fármaco es la causa.
+    ref: 'fda:label'
+
+  - parametro: Erupción cutánea maculopapular, urticaria o reacción de tipo enfermedad del suero
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender el fármaco e instaurar el tratamiento apropiado, que es lo que la etiqueta indica
+      ante la reacción alérgica. A diferencia de la amoxicilina de FA:0038, aquí no hay fuente que
+      autorice a distinguir un exantema tardío benigno que permita completar el ciclo: la etiqueta
+      de la penicilina V no describe ese exantema morbiliforme no alérgico y no se escribe la
+      excepción por analogía con el otro betalactámico.
+    ref: 'fda:label'
+
+  - parametro: Lesiones cutáneas con despegamiento o progresión a dermatitis exfoliativa
+    umbral: Cualquier aparición
+    accion: >-
+      Suspender de inmediato, derivar a urgencias y contraindicar la reexposición a penicilinas de
+      por vida.
+    ref: 'fda:label'
+
+  - parametro: Diarrea, durante el tratamiento o hasta más de dos meses después de la última dosis
+    umbral: Deposiciones acuosas o sanguinolentas, con o sin dolor abdominal ni fiebre
+    accion: >-
+      Considerar la colitis por Clostridioides difficile en todo paciente con diarrea tras el uso de
+      antibióticos, y preguntar por antibióticos recibidos en los dos meses previos. Si se sospecha
+      o se confirma, suspender el antibacteriano que no vaya dirigido contra C. difficile, manejar
+      líquidos y electrólitos, aportar proteínas, tratar el C. difficile y pedir valoración
+      quirúrgica según la clínica. No administrar antiperistálticos.
+    ref: 'fda:label'
+
+  - parametro: Vómitos, enfermedad grave o cualquier causa que comprometa la absorción oral
+    umbral: Aparición en cualquier momento del ciclo
+    accion: >-
+      No confiar en la vía oral y replantear la vía de administración: la etiqueta lo advierte
+      expresamente para la enfermedad grave, las náuseas, los vómitos, la dilatación gástrica, el
+      cardioespasmo y la hipermotilidad intestinal. En la faringoamigdalitis esto no es teórico,
+      porque la odinofagia intensa es ella misma un motivo para no tragar.
+    ref: 'fda:label'
+
+  - parametro: Deterioro de la función renal
+    umbral: >-
+      Sin punto de corte: la fuente afirma que en la función renal deteriorada la excreción se
+      retrasa de forma considerable y no publica cifra ni dosis corregida
+    accion: >-
+      Vigilar más estrechamente la aparición de toxicidad y no dar por supuesta la pauta habitual.
+      Deliberadamente no se escribe aquí un umbral de TFGe: ninguna de las etiquetas de penicilina V
+      consultadas lo fija, y un punto de corte inventado «porque es el habitual» llega directo a una
+      decisión de dosificación. Para la cefalexina de FA:0040 sí existe esa tabla, y allí está
+      escrita con sus cifras.
+    ref: 'fda:label'
+
+reproductivo:
+  gestacion:
+    compatibilidad: compatible
+    enunciado: >-
+      Conviene decir con exactitud de qué clase de dato se trata, porque es inhabitual. La etiqueta
+      de la penicilina V no tiene apartado de embarazo. Lo que sostiene la compatibilidad es la
+      posición que esta molécula ocupa en la literatura: en el estudio poblacional danés de todos
+      los nacidos vivos únicos entre 2000 y 2015, la fenoximetilpenicilina es uno de los cuatro
+      penicilinas —con la ampicilina, la pivampicilina y la bencilpenicilina— que los autores
+      consideran seguras en el embarazo y que por eso emplean como cohorte de comparación frente a
+      la que se midieron los diez antibióticos más prescritos, sin que ninguno mostrara exceso de
+      malformaciones congénitas. Es decir: la seguridad de esta molécula en la gestación es la
+      premisa del estudio y no su hallazgo, y el estudio no mide su riesgo absoluto frente a la no
+      exposición. Es una premisa que la literatura obstétrica sostiene desde hace décadas y la mejor
+      que hay para esta molécula, pero se consigna como premisa y no como medida.
+    ref: 'pmid:31260651'
+  lactancia:
+    compatibilidad: compatible_con_precaucion
+    enunciado: >-
+      Sí hay dato propio de la molécula, y conviene decir exactamente cuál, porque es más estrecho
+      de lo que suele citarse. En el estudio de transferencia a la leche durante la mastitis
+      puerperal, 12 pacientes con mastitis y 4 controles sanas recibieron una dosis oral única de
+      1320 mg de fenoximetilpenicilina y se midió la concentración en leche de ambas mamas a las 0,
+      1, 2, 3, 4, 6 y 8 horas por difusión en agar: el fármaco pasa a la leche de forma medible, la
+      concentración máxima fue mayor en la mama con mastitis que en la contralateral y esta mayor
+      que en las controles sanas, con el máximo a las 2 horas y descenso rápido después, mientras el
+      área bajo la curva de 0 a 8 horas no difirió entre mamas ni frente a las controles. Lo que ese
+      estudio NO publica es una dosis relativa al lactante, y no observó lactantes: los 12 son las
+      pacientes con mastitis, no niños seguidos. De modo que lo demostrado es el paso a la leche, no
+      la inocuidad medida en el niño, y por eso la compatibilidad se declara con precaución y no
+      lisa. La precaución es vigilar al lactante —diarrea, candidiasis oral, exantema, que son las
+      manifestaciones esperables y transitorias de la alteración de su microbiota—, no evitar el
+      fármaco: la penicilina V no se retira por la lactancia. Para la cefalexina de FA:0040 sí
+      existe una dosis relativa al lactante inferior al 1 %, y allí la compatibilidad se escribe
+      sin reservas.
+    ref: 'pmid:3130891'
+
+atencion_compartida:
+  seguimiento: >-
+    Médico de atención primaria: caracteriza la alergia referida antes de prescribir, confirma el
+    estreptococo antes de tratar una faringitis, comprueba que la vía oral sea fiable, explica por
+    qué los diez días no se negocian aunque la garganta esté bien al tercero e instruye sobre la
+    diarrea que obliga a consultar hasta dos meses después. No toma cultivo de control de rutina:
+    si la faringitis recurre, reevalúa entonces, en vez de dar por fracasado un ciclo que pudo
+    dejar un portador asintomático. Es el prescriptor habitual de este fármaco y le corresponde la
+    guía casi entera.
+  especialista: >-
+    Alergología: estudia la alergia referida a penicilina y, cuando procede, la descarta
+    formalmente, que en esta clase es una intervención con beneficio de por vida y la que devuelve
+    al paciente el betalactámico de espectro más estrecho. Cardiología: asume la indicación y el
+    seguimiento de la profilaxis secundaria continuada tras una fiebre reumática, que es una
+    decisión de años y no de un ciclo. Infectología: interviene ante fracaso microbiológico
+    documentado tras un ciclo correcto.
+  checklist_preinicio:
+    - Alergia a penicilinas caracterizada, no solo preguntada
+    - Estreptococo del grupo A confirmado si la indicación es una faringitis
+    - Vía oral viable: sin vómitos, sin enfermedad grave, capaz de tragar
+    - Advertencia dada de que el ciclo es de diez días completos aunque los síntomas cedan antes
+    - Advertencia dada sobre la diarrea que obliga a consultar, hasta dos meses después
+  suspension_inmediata:
+    - Urticaria, angioedema, broncoespasmo o hipotensión
+    - Lesiones cutáneas con despegamiento o dermatitis exfoliativa
+    - Diarrea acuosa o sanguinolenta con dolor abdominal o fiebre
+  ref: 'fda:label'
+
+posicionamiento:
+  linea: primera
+  justificacion: >-
+    Betalactámico de primera línea en la faringoamigdalitis estreptocócica del grupo A: la guía de
+    la IDSA de 2012 mantiene la penicilina y la amoxicilina como tratamiento de elección y su
+    actualización no amplió esa primera línea. Dos propiedades la sostienen y conviene no
+    confundirlas. Una es histórica y sigue siendo cierta: Streptococcus pyogenes no ha desarrollado
+    resistencia a la penicilina en setenta años de uso. La otra es que es la molécula con la que
+    está medida la prevención del desenlace crítico: en el metaanálisis de los ensayos de prevención
+    primaria, restringido a los ensayos de penicilina, el efecto protector frente a la fiebre
+    reumática aguda fue del 80 % (riesgo relativo 0.20; IC 95 % 0.11 a 0.36) con un número necesario
+    para tratar de 60. SEL:0027 la deja como alternativa y no como seleccionada, y el motivo no está
+    en este apartado sino en el tercer eje: pierde la conveniencia frente a la toma única de la
+    amoxicilina, y en esta indicación la conveniencia mide adherencia. Donde la adherencia esté
+    garantizada es la elección más parsimoniosa, porque obtiene el mismo resultado con el espectro
+    más estrecho.
+  escalonado:
+    - linea: primera
+      opciones: 'Penicilina V oral, o amoxicilina, durante diez días completos'
+      nota: 'La guía de la IDSA nombra a las dos como tratamiento de elección sin preferir ninguna'
+    - linea: segunda
+      opciones: 'Cefalosporina oral de primera generación ante alergia a la penicilina que no fue inmediata ni grave'
+      nota: 'Es la posición que SEL:0027 le da a la cefalexina de FS:0040; la reactividad cruzada entre betalactámicos es baja pero no nula'
+    - linea: rescate
+      opciones: 'Clindamicina, o macrólido con resistencia local documentada, ante alergia verdadera a betalactámicos'
+      nota: 'La actualización de la guía de la IDSA de 2012 añadió precisamente la clindamicina para el paciente alérgico a la penicilina'
+  desescalamiento:
+    enunciado: >-
+      No hay desescalamiento que ofrecer, y decirlo es el punto. Es la diferencia con la amoxicilina
+      de FA:0038, cuyo ciclo puede acortarse en la neumonía de quien ha mejorado: aquí la etiqueta
+      exige un mínimo de diez días en la infección estreptocócica porque de lo contrario pueden
+      aparecer las secuelas de la enfermedad estreptocócica. La revisión Cochrane de ciclos cortos
+      lo cuantifica desde el otro lado: tres a seis días de antibióticos más nuevos igualan a los
+      diez días de penicilina en fracaso clínico precoz y en recurrencia clínica tardía, pero
+      empeoran la recurrencia bacteriológica tardía, con una razón de odds de 1.31 (IC 95 % 1.16 a
+      1.48), y sus autores advierten expresamente de que el resultado debe leerse con cautela donde
+      la cardiopatía reumática siga siendo prevalente. Lo que se acorta no es la curación: es la
+      erradicación, que es el mecanismo de la prevención.
+    ref: 'pmid:22895944'
+  ref: 'pmid:22965026'
+
+# ── Huecos declarados ────────────────────────────────────────────────────
+huecos_declarados:
+  - bloque: monitorizacion
+    motivo: >-
+      No se escribe cronograma, y la razón merece contarse porque este apartado estuvo escrito y se
+      retiró. La etiqueta dice que en las infecciones estreptocócicas deben tomarse cultivos tras
+      completar el tratamiento para determinar si los estreptococos han sido erradicados, y de ahí
+      se había derivado un cultivo faríngeo de control para todo paciente tratado. Eso era un error
+      de alcance con consecuencia clínica: la etiqueta no restringe esa frase a ningún subgrupo, y
+      un cultivo de control universal convierte al portador faríngeo asintomático —que no se trata,
+      y así lo define la población de SEL:0027— en un fracaso terapéutico aparente, de modo que la
+      vigilancia que pretendía confirmar la prevención acaba generando retratamientos que no hacen
+      falta. Hay motivo para pensar que existe una indicación selectiva de cultivo de control —la
+      recurrencia, o el riesgo especialmente alto de fiebre reumática—, pero ninguna fuente
+      alcanzable desde este entorno la fija: el documento que aborda la cuestión es la guía de la
+      IDSA de 2012, cuyo texto completo no es accesible aquí —`get_full_text_article` sobre
+      PMC7108032 devuelve vacío—, y de ella solo puede citarse lo que afirma su resumen, que no
+      dice nada de cultivos postratamiento. Es la misma limitación que SEL:0027 y FT:0042 ya
+      declaran. Escribir a qué pacientes y con qué conducta sería inventar el criterio, que es
+      precisamente el fallo que este repositorio existe para impedir. Mientras tanto no hay
+      analítica previa ni intercurrente que la fuente exija en un ciclo oral de diez días, y la
+      vigilancia del daño es clínica y está entera en `umbrales_accion`.
+    buscado_en: >-
+      Etiqueta de la FDA de la penicilina V potásica, apartado de precauciones generales, y guía de
+      la IDSA de faringitis estreptocócica de 2012, cuyo texto completo no es accesible desde este
+      entorno
+    refs:
+      - 'fda:label'
+      - 'pmid:22965026'
+
+  - bloque: interacciones
+    motivo: >-
+      No se escribe tabla de interacciones porque la fuente de esta molécula no tiene apartado de
+      interacciones, y eso se comprobó en vez de suponerse: las 20 etiquetas de `penicillin v
+      potassium` indexadas en openFDA el 2026-10-15 son todas de formato antiguo y ninguna trae
+      `drug_interactions`. Lo que sí consta, en la etiqueta de la amoxicilina que sostiene FA:0038,
+      son tres interacciones atribuidas a las penicilinas como clase: el metotrexato, cuyo
+      aclaramiento renal reducen y cuya dosis es la que cambia; los antagonistas de la vitamina K,
+      con elevación del INR; y el probenecid, que inhibe su secreción tubular. Es razonable esperar
+      que la penicilina V las comparta, y por eso mismo no se escriben aquí: esperarlo es una
+      inferencia de clase, no un dato de esta molécula, y este repositorio no publica inferencias
+      como si fueran hallazgos. Hasta que haya fuente propia, el prescriptor que asocie penicilina V
+      a metotrexato o a un anticoagulante oral debe consultar la farmacoterapia del otro fármaco,
+      que es donde la interacción está documentada.
+    buscado_en: >-
+      Las 20 etiquetas de penicilina V potásica indexadas en openFDA, consultadas el 2026-10-15, y
+      la etiqueta de la FDA que sostiene FA:0038
+    refs:
+      - 'fda:label'
+
+  - bloque: farmacogenetica
+    motivo: >-
+      No hay dosis de inicio que dependa de un genotipo. Como en la amoxicilina de FA:0038, existe
+      asociación conocida entre alelos HLA y algunas reacciones de hipersensibilidad a
+      betalactámicos, pero no hay recomendación CPIC ni ninguna otra que convierta ese dato en un
+      umbral de dosificación o en un cribado previo exigible, y no se dispone de fuente que fije qué
+      alelo, con qué prueba y con qué conducta. La prevención de la reacción grave a esta molécula
+      es una anamnesis, y está escrita en `cribado_basal`.
+    buscado_en: 'Etiqueta de la FDA de la penicilina V potásica, apartados de advertencias y precauciones'
+    refs:
+      - 'fda:label'
+
+refs:
+  - 'pmid:15927077'
+  - 'pmid:22895944'
+  - 'pmid:22965026'
+  - 'pmid:31260651'
+  - 'pmid:3130891'
+  - 'fda:label'

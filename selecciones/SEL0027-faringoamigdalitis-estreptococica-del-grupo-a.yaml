@@ -187,6 +187,7 @@ candidatos:
   - dci: Fenoximetilpenicilina (penicilina V)
     atc: J01CE02
     clase: Penicilina natural de administración oral
+    farmaco: 'FS:0039'
     veredicto: alternativa
     eficacia:
       juicio: equivalente
@@ -240,6 +241,7 @@ candidatos:
   - dci: Cefalexina
     atc: J01DB01
     clase: Cefalosporina de primera generación de administración oral
+    farmaco: 'FS:0040'
     veredicto: alternativa
     eficacia:
       juicio: superior

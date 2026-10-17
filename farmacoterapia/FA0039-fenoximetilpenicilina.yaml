@@ -8,12 +8,14 @@
 # trae. De ahí que `interacciones` quede declarado como hueco y que no se
 # escriba umbral renal numérico.
 #
-# El tercer hueco, el de `monitorizacion`, tiene otra historia y está contada
-# en su `motivo`: el apartado estuvo escrito, con un cultivo faríngeo de control
-# al terminar el ciclo derivado de una frase de la etiqueta, y se retiró porque
-# un cultivo de control universal convierte al portador asintomático en un
-# fracaso aparente y genera retratamientos que no hacen falta. La frase de la
-# etiqueta no bastaba para fijar a quién sí.
+# Son tres los huecos declarados, y el de `monitorizacion` —el primero de la
+# lista— tiene otra historia, contada en su `motivo`: el apartado estuvo
+# escrito, con un cultivo faríngeo de control al terminar el ciclo derivado de
+# una frase de la etiqueta, y se retiró porque un cultivo de control universal
+# convierte al portador asintomático en un fracaso aparente y genera
+# retratamientos que no hacen falta. La frase de la etiqueta no bastaba para
+# fijar a quién sí. El tercero, `farmacogenetica`, es el ordinario de esta
+# clase: no hay genotipo que cambie la dosis de un betalactámico.
 #
 # La lactancia sí tiene dato propio de la molécula, y llegó tarde: la primera
 # versión de este fichero la dejó en `sin_datos` por no haber buscado un estudio
@@ -197,8 +199,12 @@ reproductivo:
       1320 mg de fenoximetilpenicilina y se midió la concentración en leche de ambas mamas a las 0,
       1, 2, 3, 4, 6 y 8 horas por difusión en agar: el fármaco pasa a la leche de forma medible, la
       concentración máxima fue mayor en la mama con mastitis que en la contralateral y esta mayor
-      que en las controles sanas, con el máximo a las 2 horas y descenso rápido después, mientras el
-      área bajo la curva de 0 a 8 horas no difirió entre mamas ni frente a las controles. Lo que ese
+      que en las controles sanas. El curso temporal difiere entre los dos grupos, y conviene no
+      fundirlos: en las pacientes con mastitis —en ambas mamas— el máximo se alcanzó a las 2 horas
+      con descenso rápido después, mientras en las controles sanas la concentración llegó a una
+      meseta a partir de las 4 horas. El área bajo la curva de 0 a 8 horas no difirió entre mamas ni
+      frente a las controles, lo que los autores atribuyen a una aparición y una desaparición más
+      rápidas en la leche de la mama con mastitis. Lo que ese
       estudio NO publica es una dosis relativa al lactante, y no observó lactantes: los 12 son las
       pacientes con mastitis, no niños seguidos. De modo que lo demostrado es el paso a la leche, no
       la inocuidad medida en el niño, y por eso la compatibilidad se declara con precaución y no

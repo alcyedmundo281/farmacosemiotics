@@ -11,8 +11,16 @@
 # de etiquetado moderna, y por eso no trae apartados de embarazo, lactancia,
 # interacciones ni ajuste renal numérico. No es un olvido de quien escribe esta
 # ficha: se comprobaron las 20 etiquetas de `penicillin v potassium` indexadas
-# en openFDA el 2026-10-15 y ninguna de ellas los trae. Lo que falta por eso
-# queda declarado en los `huecos_declarados` de FA:0039, no rellenado.
+# en openFDA el 2026-10-15 y ninguna de ellas los trae.
+#
+# De ese silencio de la etiqueta no se sigue que todo quede sin escribir, y
+# conviene decir qué pasó con cada parte. El embarazo y la lactancia SÍ están
+# escritos en FA:0039, porque hay literatura propia de la molécula que la
+# etiqueta no recoge: la cohorte danesa `pmid:31260651` y el estudio de
+# transferencia a la leche `pmid:3130891`. Lo que queda declarado como hueco es
+# `interacciones`, que no tiene ni etiqueta ni fuente propia, y el ajuste renal
+# se queda sin umbral numérico porque la etiqueta afirma el retraso de la
+# excreción sin dar cifra.
 
 id: 'FS:0039'
 tipo: farmaco

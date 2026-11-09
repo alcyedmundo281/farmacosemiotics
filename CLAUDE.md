@@ -7,37 +7,42 @@ repositorio. **Léelo completo al arrancar.** No improvises el flujo.
 
 ## Qué es este proyecto
 
-**Guías de práctica clínica farmacoterapéuticas** en YAML, con el índice, el
-sitio y el libro derivados de ellas. **Publicador, no proveedor**: a diferencia
-de medsemiotics-db —que solo guarda hechos y prohíbe la prosa—, aquí el YAML
-*es* el texto completo. Ese es el equivalente a PMC; `build/index.json` es el
-equivalente a PubMed.
+**El conocimiento terapéutico de holonmed.** holonmed diagnostica con
+medsemiotics-db; cuando confirma una condición `HM:`, llega aquí para saber qué
+fármaco se elige, cómo se dosifica y cómo se usa con seguridad.
 
-El repositorio es un **híbrido de dos partes**, y en ese orden, porque es el de
-la decisión:
+El ecosistema Powersemiotics orbita entero alrededor de holonmed, y este
+repositorio se reescribió el 09/11/2026 para servirle (decisión del responsable
+clínico). Lo que existía para publicar —sitio, reto, índice JSON-LD y JATS,
+libro EPUB, cobertura frente a la Lista Modelo, overlay de costos, depósito en
+Zenodo— se borró. Queda en el historial de git, y el depósito de Zenodo
+(DOI 10.5281/zenodo.22700661) archiva la versión anterior. Si algún día se
+vuelve a publicar, será desde otra arquitectura que lea estos YAML, no desde
+este repositorio.
 
-**Parte I — Selección** (`selecciones/`). Antes de usar un fármaco hay que
-elegirlo. Un informe por problema de salud compara los candidatos en los
-**cuatro ejes** —eficacia, seguridad, conveniencia y costo— y emite un
-veredicto. El juicio de cada eje es comparativo: superior o inferior *a los
-otros candidatos de esa misma tabla*, nunca en abstracto.
+Las cuatro entidades se conservan, en el orden de la decisión:
+
+**Parte I — Selección** (`selecciones/`). Un informe por problema de salud
+compara los candidatos en los **cuatro ejes** —eficacia, seguridad,
+conveniencia y costo— y emite un veredicto. Cada selección declara la
+**condición `HM:`** que trata: es el enlace por el que holonmed llega a ella.
 
 **Parte II — Farmacoterapia** (`farmacoterapia/` y `fichas/`). Elegido el
-fármaco, cómo se usa: qué se pide antes de la primera dosis, cada cuánto se
-repite, qué se hace cuando el análisis se tuerce, qué se le dice a quien quiere
-quedarse embarazada y de quién es cada acto entre el especialista y el médico de
-seguimiento. El estándar de forma son las guías de las sociedades europeas y
-británicas (BSR, BAD, EDF/EADV) y la guía CPIC para lo farmacogenético.
+fármaco, cómo se usa: cribado previo, cronograma, umbrales de acción,
+interacciones, reproductivo, atención compartida, posología por indicación.
 
-**Una fuente, muchas salidas.** El YAML es la única fuente y es obligatoria.
-De ahí salen `build/index.json`, el sitio, el JATS y —en un solo `.qmd`— el
-EPUB con todas las guías. Nada de eso se edita a mano: se regenera.
+**En camino — Manejo** (`manejo/`, `MAN:`). Una entrada por condición `HM:`
+con las acciones estructuradas de manejo —farmacológicas (que apuntan a
+`SEL:`), no farmacológicas, procedimiento, ingreso, derivación, educación,
+seguimiento—. Todavía no existe: el primer `MAN:` es la faringitis
+estreptocócica (`HM:6009`), en su propio ciclo. El diseño está en el proyecto
+HolonMed (`farmacosemiotics-reescritura-y-man.md`).
 
-Alcance **internacional**. Lo que dependa de un país va en `costos/`, nunca en
-`farmacos/` ni en `fichas/`.
+Alcance **internacional**. Las adaptaciones institucionales (el HECAM, el
+CNMB) no son publicables y **no entran en este repositorio público**.
 
-Autor y responsable clínico: **Dr. Alcy Edmundo Torres Guerrero** ([powersemiotics.com](https://powersemiotics.com/)). Toda decisión clínica final es
-suya.
+Autor y responsable clínico: **Dr. Alcy Edmundo Torres Guerrero**. Toda
+decisión clínica final es suya.
 
 ## Regla de oro
 
@@ -53,19 +58,18 @@ fichero de `referencias/` del que sale?* Si no, no se escribe.
 ## Lo primero al arrancar una sesión
 
 1. `git status` y reporta el estado.
-2. Lee `mapa-maestro-farmacosemiotics.md` y di **qué oleada toca**.
-3. `python scripts/build.py` y reporta las alertas actuales. El contador de
+2. Lee `mapa-maestro-farmacosemiotics.md` y di **qué toca**.
+3. Comprueba que hay un clon de medsemiotics-db al lado (o en
+   `MEDSEMIOTICS_DB`) con la revisión fijada en `dependencias.yaml`.
+4. `python scripts/build.py` y reporta las alertas actuales. El contador de
    farmacoterapias da tres cifras, y son tres preguntas distintas: cuántas **sin
    huecos** (no falta nada), cuántas **con huecos declarados** (falta algo y se
    dice cuál) y cuántas **sin declarar qué les falta** (falta algo y nadie lo ha
-   dicho). Esa tercera cifra es la única que señala un descuido; las otras dos
-   miden la distancia real que le queda al repositorio.
+   dicho). Esa tercera cifra es la única que señala un descuido.
 
-   La cuarta línea —«N de M traen ya cronograma y umbrales»— responde a otra
-   pregunta y no reparte el total: es el **formato**, no el contenido. Una
-   farmacoterapia puede traer los dos apartados enteros y declarar tres huecos
-   en otros, y entonces cuenta en las dos. Confundir ambas cosas fue un fallo
-   real del contador: daba por «completas» a guías con huecos declarados.
+   La cuarta línea —«N de M traen ya cronograma y umbrales»— es el **formato**,
+   no el contenido, y no reparte el total. Confundir ambas cosas fue un fallo
+   real del contador.
 
 ## Mapa del repositorio
 
@@ -73,30 +77,19 @@ fichero de `referencias/` del que sale?* Si no, no se escribe.
 farmacosemiotics/
 ├── CLAUDE.md                          ← este archivo
 ├── mapa-maestro-farmacosemiotics.md   ← QUÉ poblar y en qué orden (léelo siempre)
+├── dependencias.yaml                  ← medsemiotics-db FIJADO por revisión
 ├── farmacos/*.yaml                    ← principio activo: identidad, ATC, LME, seguridad
-├── selecciones/*.yaml                 ← PARTE I: qué fármaco gana, por problema de salud
+├── selecciones/*.yaml                 ← PARTE I: qué fármaco gana, y para qué HM:
 ├── farmacoterapia/*.yaml              ← PARTE II: cómo se usa la molécula (el concepto)
-├── fichas/*.yaml                      ← fármaco × indicación: Semáforo, NNT, NNH, GRADE
+├── fichas/*.yaml                      ← fármaco × indicación: posología, NNT, NNH, GRADE
 ├── referencias/*.yaml                 ← artículos con PMID y DOI verificados
-├── catalogo/lme-oms-2025.yaml         ← la meta de contenido
-├── costos/<pais>.yaml                 ← overlay opcional, fuera del núcleo
-├── scripts/nuevo.py                   ← crea plantillas estandarizadas de fármaco o ficha
+├── catalogo/lme-oms-2025.yaml         ← secciones de la LME, para validar `lme.seccion`
+├── scripts/nuevo.py                   ← crea plantillas de fármaco, selección o ficha
 ├── scripts/build.py                   ← valida; NO modifica nada
 ├── scripts/pubmed.py                  ← crea referencias/ desde un PMID
 ├── scripts/openfda.py                 ← bloque regulatorio desde openFDA
-├── scripts/eml.py                     ← cobertura frente a la LME
-├── scripts/indice.py                  ← build/index.json + jsonld/ + jats/
-├── scripts/sitio.py                   ← build/sitio/ (Ghost Casper: index, blog/Indice, reto)
-├── scripts/reto.py                    ← build/reto.json, URL relativas
-├── scripts/qmd.py                     ← proyecta UN solo .qmd con todas las guías
-├── scripts/epub.py                    ← lo encuaderna con Quarto → build/*.epub
-├── scripts/pipeline.py                ← ejecuta el ciclo entero y cronometra
-└── build/                             ← GENERADO, no se versiona
+└── scripts/nnt.py                     ← audita NNT/NNH
 ```
-
-El libro se compila en dos pasos y por una razón: `qmd.py` solo necesita Python
-y entra en el pipeline; `epub.py` necesita Quarto instalado y por eso queda
-fuera, para que el pipeline siga corriendo en cualquier máquina.
 
 ## El desdoblamiento: tres respuestas, no dos
 
@@ -152,8 +145,8 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
 
 ## Códigos
 
-- **`FS:`, `SEL:`, `FA:` y `FT:` son permanentes.** No se renumeran, no se
-  reutilizan, no se reasignan. El índice, el reto y las URL del sitio los citan.
+- **`FS:`, `SEL:`, `FA:`, `FT:` (y `MAN:`, cuando exista) son permanentes.** No se renumeran, no se
+  reutilizan, no se reasignan. holonmed los cita en cada tic.
   `FA:` comparte número con su `FS:` porque van 1:1 (FS:0009 ↔ FA:0009); los
   otros dos numeran por su cuenta.
 - Cuatro dígitos, secuenciales por tipo. El nombre del fichero es
@@ -193,9 +186,8 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
   sean recíprocos entre sí, y la discrepancia se explica en vez de corregirse.
   Ajustar la cifra de la fuente para que cuadre con otra cifra de la fuente es
   publicar un número que nadie midió.
-- **Nada de precios en el núcleo.** Si aparece una cifra en dólares dentro de
-  `farmacos/`, `farmacoterapia/`, `selecciones/` o `fichas/`, está en el sitio
-  equivocado: va a `costos/`. El eje `costo` de un informe de selección emite
+- **Nada de precios.** Una cifra en moneda no va en ningún registro: caduca y
+  no cruza fronteras. El eje `costo` de un informe de selección emite
   un **juicio comparativo** —«genérico oral multifuente» frente a «biológico de
   marca de administración hospitalaria»—, que es internacional y no caduca. Es
   el único de los cuatro ejes que no exige `ref` a un artículo, porque su
@@ -213,8 +205,13 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
   fecha no se puede citar, sin autoría no tiene responsable clínico y sin
   licencia no se puede reutilizar. `actualizado` nunca es anterior a `fecha`:
   cuando lo es, casi siempre se copió de otra entrada.
-- **Nada de contexto ecuatoriano.** Sin CNMB, sin ARCSA, sin RPIS, sin IESS,
-  sin MSP. Ecuador es un overlay de `costos/`, como cualquier otro país.
+- **Nada de contexto institucional ni nacional.** Sin CNMB, sin ARCSA, sin
+  RPIS, sin IESS, sin MSP. Las adaptaciones del HECAM no son publicables y no
+  entran en este repositorio.
+- **Toda `condicion:` resuelve en el índice fijado.** `HM:NNNN` y existente en
+  medsemiotics-db en la revisión de `dependencias.yaml`. Un código que no
+  resuelve no falla en ninguna parte: deja un diagnóstico sin tratamiento.
+  `build.py --exigir-indice` lo convierte en error, y así corre en CI.
 - **La certeza GRADE necesita razón.** Una certeza distinta de `alta` sin
   `razones_descenso` es un juicio sin argumento.
 - **Fecha de consulta obligatoria** en todo dato traído de una API externa
@@ -222,13 +219,11 @@ síndrome de ovario poliquístico, con evidencia y recomendación distintas.
 - **Un hueco se declara, no se rellena.** Si no hay fuente que fije un
   cronograma o un punto de corte, el apartado NO se escribe: se anota en
   `huecos_declarados` con su `motivo` y las `refs` de lo que se consultó sin
-  éxito. Un apartado ausente y uno olvidado se leen igual en el EPUB, y no son
+  éxito. Un apartado ausente y uno olvidado se leen igual para holonmed, y no son
   lo mismo. `build.py` exige el motivo y falla si el hueco declara vacío un
   bloque que en realidad tiene contenido.
 - **Tres estados, no dos, en lo que no se ha podido comprobar.** `lme.presente`
-  admite `null` además de `true` y `false`. `null` significa «no comprobado» y
-  `eml.py` lo cuenta fuera de la Lista Modelo, que es el sesgo conservador
-  correcto. Poner `false` para quitarse el aviso de encima es afirmar algo que
+  admite `null` además de `true` y `false`. `null` significa «no comprobado». Poner `false` para quitarse el aviso de encima es afirmar algo que
   no se sabe.
 
 ## Flujo para añadir una guía
@@ -242,10 +237,11 @@ python scripts/nuevo.py farmacoterapia FA0010  "metotrexato" --farmaco FS0010
 python scripts/nuevo.py ficha          FT0010  "Metotrexato en artritis reumatoide" --farmaco FS0010
 ```
 
-1. **Ubica la indicación en el mapa maestro.** Copia su sección de la LME y su
-   oleada.
-2. **Escribe primero el informe de selección** (Parte I): los candidatos, los
-   cuatro ejes de cada uno y el veredicto. Si la ficha se escribe antes, la
+1. **Ubica la condición en el mapa maestro** y comprueba que existe en
+   medsemiotics-db (en la revisión fijada). Si no existe, se propone allí.
+2. **Escribe primero el informe de selección** (Parte I), con su
+   `condicion: HM:NNNN`: los candidatos, los cuatro ejes de cada uno y el
+   veredicto. Si la ficha se escribe antes, la
    elección del fármaco queda sin justificar y `build.py` lo avisa.
 3. **Comprueba que el fármaco existe** en `farmacos/`. Si no, créalo primero:
    una ficha que apunta a un `FS:` inexistente falla la validación.
@@ -262,10 +258,8 @@ python scripts/nuevo.py ficha          FT0010  "Metotrexato en artritis reumatoi
 7. **Refresca el regulatorio**: `python scripts/openfda.py <nombre>`.
 8. Lo que no tenga fuente publicada va a `huecos_declarados`, con su motivo y
    las `refs` de lo que se consultó sin éxito. Nunca escrito de memoria.
-9. `python scripts/build.py`. **No continúes con errores.**
-10. `python scripts/pipeline.py` genera índice, reto, sitio y la proyección del
-    libro, y pasa las pruebas de contrato.
-11. `python scripts/epub.py` encuaderna el EPUB, si tienes Quarto instalado.
+9. `python scripts/build.py --exigir-indice`. **No continúes con errores.**
+10. `python -m unittest discover -s tests -v`.
 
 ## Qué NO hacer
 
@@ -273,10 +267,6 @@ python scripts/nuevo.py ficha          FT0010  "Metotrexato en artritis reumatoi
   no lo da, el campo se omite.
 - No conviertas una asociación observacional en un enunciado de eficacia. El
   campo `diseno` existe para eso y `build.py` lo exige.
-- No edites `build/` a mano: se regenera y se pierde. Eso incluye
-  `build/quarto/guias-farmacoterapeuticas.qmd`, que parece un documento
-  editable y es una salida: corregir ahí una cifra la deja sin arreglar en el
-  YAML y sin arreglar en la siguiente compilación.
 - No metas el cronograma, los umbrales ni el reproductivo dentro de una ficha.
   `build.py` lo rechaza con un error que dice adónde va, porque es el fallo que
   ya se cometió una vez y duplica el mismo dato en cada indicación.
@@ -285,39 +275,18 @@ python scripts/nuevo.py ficha          FT0010  "Metotrexato en artritis reumatoi
   directo a una decisión: alguien suspende un fármaco por ese número.
 - No metas el texto de la ficha técnica de la FDA en el YAML. Se enlaza y se
   resume; copiarlo lo convierte en una obra derivada que no controlamos.
-- No hagas que el sitio consulte APIs en tiempo de ejecución. Todo se resuelve
-  en el build, como en biosemiotics: el frontend solo lee `index.json`.
+- No leas medsemiotics-db en vivo ni desde el árbol de trabajo de un clon: la
+  revisión que vale es la de `dependencias.yaml`.
 
-## El dominio: se hereda, no se pide
+## La relación con medsemiotics-db y con holonmed
 
-El sitio se publica en **https://powersemiotics.com/farmacosemiotics/**.
+**medsemiotics-db, fijado.** Este repositorio lee los códigos de condición del
+índice clínico en la revisión exacta de `dependencias.yaml`, del historial de
+git y no del árbol de trabajo. Nunca un `fetch` en vivo. Cambiar la revisión es
+un PR propio. Los hechos que pertenezcan al índice —una condición que falta, un
+código— se proponen allí como pull request; aquí no se acuñan `HM:`.
 
-No porque este repositorio lo configure, sino porque el sitio de usuario
-`alcyedmundo281.github.io` tiene `powersemiotics.com` como dominio propio, y
-**todos los sitios de proyecto de la cuenta lo heredan** como
-`powersemiotics.com/<repo>/`. Por eso `gh api repos/.../pages` devuelve
-`cname: null` para este repositorio: es lo correcto, no un olvido.
-
-> **Nunca generes ni versiones un fichero `CNAME` aquí.** Un `CNAME` con
-> `powersemiotics.com` en un sitio de proyecto reclama el vértice del dominio
-> para ese proyecto y tumba el sitio principal —y con él a biosemiotics y a
-> medsemiotics, que cuelgan del mismo dominio—. Es el error que parece un
-> arreglo: alguien ve `cname: null`, lo toma por un fallo y lo «corrige».
-
-Lo que sí pertenece a este repositorio:
-
-- `BASE` en `scripts/indice.py`, que es el prefijo de las URL absolutas del
-  JSON-LD. Debe coincidir con el dominio publicado; hay una prueba que lo
-  comprueba.
-- Todo lo demás es relativo, y por eso el mismo build funciona en Pages, en un
-  dominio distinto y abierto desde el disco.
-
-La cuenta tiene HTTPS forzado en el vértice y en este repositorio, y el
-certificado cubre `powersemiotics.com` y `www.powersemiotics.com`.
-
-## La asimetría con el resto del ecosistema
-
-farmacosemiotics **lee** identidad clínica de medsemiotics-db cuando le hace
-falta (por ejemplo, la condición que trata una indicación), pero **no escribe**
-en él. Los hechos que pertenezcan al índice compartido —un umbral, un código—
-se proponen allí como pull request. Aquí vive la terapéutica, no el vocabulario.
+**holonmed, consumidor.** holonmed fija este repositorio igual que fija el
+índice, y cada tic registra con qué revisión razonó. Por eso un campo que
+holonmed lee no cambia de forma en silencio: cambiar el esquema de una
+entidad es un cambio de contrato y se anuncia en el PR.

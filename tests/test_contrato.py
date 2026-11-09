@@ -13,15 +13,12 @@ Dos clases de prueba, y la segunda es la que de verdad importa:
     en una prueba no es un validador, es un adorno: pasaría igual de limpio
     sobre un repositorio con las cifras inventadas.
 """
-import json
 import re
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
-import xml.etree.ElementTree as ET
-import zipfile
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -139,168 +136,6 @@ class ElRepositorioReal(unittest.TestCase):
                 self.assertIn(str(lme["seccion"]).split(".")[0], secciones,
                               ident + " cita una sección que no existe")
 
-
-class LasSalidas(unittest.TestCase):
-    """Se generan una sola vez para toda la clase: son tres subprocesos."""
-
-    @classmethod
-    def setUpClass(cls):
-        for script in ("indice.py", "reto.py", "sitio.py"):
-            r = correr(RAIZ / "scripts" / script)
-            if r.returncode != 0:
-                raise unittest.SkipTest(script + " falló: " + r.stderr)
-        cls.sitio = RAIZ / "build" / "sitio"
-        cls.indice = json.loads(
-            (RAIZ / "build" / "index.json").read_text(encoding="utf-8"))
-
-    def test_existen_index_blog_y_reto(self):
-        for pagina in ("index.html", "blog.html", "reto.html"):
-            self.assertTrue((self.sitio / pagina).exists(),
-                            pagina + " debe existir en el sitio generado")
-
-    def test_toda_url_del_indice_existe_en_el_sitio(self):
-        for r in self.indice["registros"]:
-            self.assertTrue((self.sitio / r["url"]).exists(),
-                            r["id"] + " apunta a " + r["url"] + ", que no existe")
-
-    def test_las_urls_son_relativas(self):
-        # Si una URL se vuelve absoluta, el sitio deja de funcionar bajo el
-        # subdirectorio de Pages y el reto deja de enlazar con su ficha.
-        for r in self.indice["registros"]:
-            self.assertFalse(r["url"].startswith(("/", "http")),
-                             r["id"] + " tiene una URL no relativa")
-
-    def test_el_reto_enlaza_solo_con_paginas_que_existen(self):
-        reto = json.loads((RAIZ / "build" / "reto.json").read_text(encoding="utf-8"))
-        self.assertGreater(reto["total"], 0)
-        for p in reto["preguntas"]:
-            self.assertTrue((self.sitio / p["url"]).exists(),
-                            p["id"] + " enlaza con " + p["url"])
-
-    def test_cada_pregunta_tiene_una_sola_respuesta_correcta(self):
-        reto = json.loads((RAIZ / "build" / "reto.json").read_text(encoding="utf-8"))
-        for p in reto["preguntas"]:
-            correctas = [o for o in p["opciones"] if o["correcta"]]
-            self.assertEqual(len(correctas), 1, p["id"])
-
-    def test_el_jats_esta_bien_formado(self):
-        for x in (RAIZ / "build" / "jats").glob("*.xml"):
-            ET.parse(x)
-
-    def test_el_sitio_no_lleva_cname(self):
-        # Un CNAME en un sitio de PROYECTO reclama el vértice del dominio y
-        # tumbaría powersemiotics.com y todo lo que cuelga de él. El dominio se
-        # hereda del sitio de usuario; aquí no se pide.
-        self.assertEqual(list(self.sitio.rglob("CNAME")), [],
-                         "el sitio generó un CNAME: eso secuestra el dominio")
-
-    def test_la_base_del_jsonld_es_el_dominio_publicado(self):
-        import indice
-        self.assertEqual(indice.BASE,
-                         "https://powersemiotics.com/farmacosemiotics/",
-                         "las URL absolutas del JSON-LD apuntarían fuera del sitio")
-        for j in (RAIZ / "build" / "jsonld").glob("*.json"):
-            ld = json.loads(j.read_text(encoding="utf-8"))
-            self.assertTrue(str(ld.get("url", "")).startswith(indice.BASE), j.name)
-
-    def test_el_jsonld_declara_contexto_y_tipo(self):
-        for j in (RAIZ / "build" / "jsonld").glob("*.json"):
-            ld = json.loads(j.read_text(encoding="utf-8"))
-            self.assertEqual(ld.get("@context"), "https://schema.org", j.name)
-            self.assertIn(ld.get("@type"),
-                          ("Drug", "MedicalScholarlyArticle", "MedicalGuideline"),
-                          j.name)
-
-
-class LaCapaDeGuia(unittest.TestCase):
-    """La proyección a Quarto y lo que el índice publica de ella.
-
-    El libro se compila en otra máquina, con Quarto instalado, así que aquí no
-    se renderiza: se comprueba lo que sí puede romperse en silencio y llegaría
-    roto al EPUB —una cita sin entrada en la bibliografía, un hueco declarado
-    sobre un apartado que en realidad tiene contenido—.
-    """
-
-    @classmethod
-    def setUpClass(cls):
-        cls.tmp = Path(tempfile.mkdtemp())
-        r = correr(RAIZ / "scripts" / "qmd.py", "--salida", cls.tmp)
-        assert r.returncode == 0, r.stdout + r.stderr
-        cls.qmd = (cls.tmp / "guias-farmacoterapeuticas.qmd").read_text(
-            encoding="utf-8")
-        cls.bib = (cls.tmp / "referencias.bib").read_text(encoding="utf-8")
-
-    @classmethod
-    def tearDownClass(cls):
-        shutil.rmtree(cls.tmp, ignore_errors=True)
-
-    def test_el_libro_es_un_solo_fichero_con_todas_las_guias(self):
-        estado = build.cargar()
-        for ident, reg in estado["fichas"].items():
-            self.assertIn(reg["titulo"], self.qmd,
-                          ident + " no aparece en el libro")
-
-    def test_ninguna_cita_del_libro_falta_en_la_bibliografia(self):
-        # Es el fallo que Quarto no siempre grita y que deja un «[?]» en el
-        # EPUB publicado: la cifra pierde su procedencia justo en la salida
-        # que más gente va a leer.
-        claves_bib = set(re.findall(r"^@article\{([^,]+),", self.bib,
-                                    flags=re.MULTILINE))
-        citadas = set(re.findall(r"@([A-Za-z][A-Za-z0-9_:-]*)", self.qmd))
-        huerfanas = citadas - claves_bib
-        self.assertFalse(huerfanas,
-                         "citas sin entrada en referencias.bib: "
-                         + ", ".join(sorted(huerfanas)))
-
-    def test_toda_entrada_de_la_bibliografia_lleva_su_pmid(self):
-        entradas = re.findall(r"@article\{([^,]+),(.*?)\n\}", self.bib,
-                              flags=re.DOTALL)
-        self.assertTrue(entradas, "la bibliografía salió vacía")
-        for clave, cuerpo in entradas:
-            self.assertIn("eprint = {", cuerpo,
-                          clave + " no lleva PMID: el vínculo con PubMed se "
-                                  "pierde al encuadernar")
-
-    def test_el_libro_declara_la_regla_de_oro(self):
-        self.assertIn("sin PMID resoluble", self.qmd)
-
-    def test_el_indice_expone_las_cuatro_entidades(self):
-        indice = json.loads((RAIZ / "build" / "index.json").read_text(
-            encoding="utf-8"))
-        tipos = {r["tipo"] for r in indice["registros"]}
-        for esperado in ("farmaco", "seleccion", "farmacoterapia", "ficha"):
-            self.assertIn(esperado, tipos, "el índice no publica " + esperado)
-        # La capa de guía la lleva la farmacoterapia, que es de la molécula.
-        for r in indice["registros"]:
-            if r["tipo"] == "farmacoterapia":
-                self.assertIn("gpc", r, r["id"] + " sin la marca `gpc`")
-        for faceta in ("linea", "gestacion", "huecos", "fases_monitorizacion",
-                       "seleccionados", "ejes_sin_datos"):
-            self.assertIn(faceta, indice["facetas"], "falta la faceta " + faceta)
-
-    def test_todo_registro_del_indice_trae_sus_metadatos(self):
-        """El buscador filtra por metadatos, así que ningún tipo puede
-        publicarlos a su manera: si uno se queda sin `actualizado`, «lo último
-        que cambió» deja de devolverlo y nadie se entera."""
-        indice = json.loads((RAIZ / "build" / "index.json").read_text(
-            encoding="utf-8"))
-        for r in indice["registros"]:
-            for campo in ("estado", "fecha", "actualizado", "idioma",
-                          "licencia", "autores"):
-                self.assertIn(campo, r, r["id"] + " sin `" + campo + "`")
-
-    def test_la_ficha_hereda_la_capa_de_su_farmacoterapia(self):
-        estado = build.cargar()
-        for ident, reg in estado["fichas"].items():
-            fa = build.farmacoterapia_de(reg.get("farmaco"), estado)
-            if not fa:
-                continue
-            registro = [r for r in json.loads(
-                (RAIZ / "build" / "index.json").read_text(encoding="utf-8")
-            )["registros"] if r["id"] == ident][0]
-            self.assertEqual(registro.get("farmacoterapia"), fa["id"],
-                             ident + " no hereda su farmacoterapia")
-
     def test_el_informe_de_seleccion_compara_y_decide(self):
         estado = build.cargar()
         for ident, reg in estado["selecciones"].items():
@@ -333,27 +168,6 @@ class LaCapaDeGuia(unittest.TestCase):
                                  ident + " declara vacío `" + str(bloque)
                                  + "` y tiene contenido")
 
-    def test_quarto_encuaderna_el_libro(self):
-        """Si Quarto está instalado, se renderiza de verdad.
-
-        Existe por un fallo concreto: el front-matter llevaba `css: ""`, que
-        Quarto lee como un fichero de estilos vacío e intenta abrir. Pandoc no
-        lo veía y las pruebas pasaban con un libro que no compilaba. Un
-        generador de documentos que nunca ha renderizado no está probado.
-        """
-        if not shutil.which("quarto"):
-            self.skipTest("Quarto no está instalado en esta máquina")
-        r = correr(RAIZ / "scripts" / "epub.py", "--solo-render")
-        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
-        libro = RAIZ / "build" / "guias-farmacoterapeuticas.epub"
-        self.assertTrue(libro.exists(), "Quarto terminó sin dejar el EPUB")
-        with zipfile.ZipFile(libro) as z:
-            paginas = [n for n in z.namelist() if n.endswith((".xhtml", ".html"))]
-            texto = "".join(z.read(n).decode("utf-8", "ignore") for n in paginas)
-        self.assertNotRegex(texto, r"\[@[a-z]",
-                            "el EPUB salió con citas sin resolver")
-        self.assertIn("Bibliograf", texto, "el EPUB salió sin bibliografía")
-
     def test_todo_umbral_de_accion_trae_conducta(self):
         # Un punto de corte sin qué hacer deja al clínico con un número y sin
         # decisión, que es exactamente donde se falla.
@@ -364,6 +178,21 @@ class LaCapaDeGuia(unittest.TestCase):
                                 ident + ": umbral sin `accion`")
                 self.assertTrue(u.get("ref"),
                                 ident + ": umbral sin `ref`")
+
+    def test_las_condiciones_resuelven_en_el_indice_fijado(self):
+        """El enlace por el que holonmed llega a una selección. Exige el clon
+        de medsemiotics-db: sin él no hay nada que comprobar y se salta."""
+        if build.localizar_indice() is None:
+            self.skipTest("no hay clon de medsemiotics-db al lado")
+        inf = build.Informe()
+        indice = build.condiciones_del_indice(inf, exigir=True)
+        self.assertIsNotNone(indice, inf.errores)
+        estado = build.cargar()
+        enlazadas = {i: r["condicion"] for i, r in estado["selecciones"].items()
+                     if r.get("condicion")}
+        self.assertTrue(enlazadas, "ninguna selección declara su condición")
+        for ident, cond in enlazadas.items():
+            self.assertIn(cond, indice, ident + ": " + cond + " no existe")
 
 
 class ElValidadorFalla(unittest.TestCase):
@@ -429,7 +258,7 @@ class ElValidadorFalla(unittest.TestCase):
                        "cie11: 5A11\nprecio_mes: USD 4.20")
         r = self.validar(repo)
         self.assertEqual(r.returncode, 1)
-        self.assertIn("costos/", r.stdout)
+        self.assertIn("se juzga", r.stdout)
 
     def test_detecta_una_ficha_sin_farmaco(self):
         repo = self.preparar()
@@ -500,99 +329,60 @@ class ElValidadorFalla(unittest.TestCase):
         self.assertEqual(r.returncode, 1)
         self.assertIn("lista cerrada", r.stdout)
 
+    def _con_indice(self, repo, *extra):
+        clon = build.localizar_indice()
+        if clon is None:
+            self.skipTest("no hay clon de medsemiotics-db al lado")
+        import os
+        entorno = dict(os.environ, MEDSEMIOTICS_DB=str(clon))
+        return subprocess.run([sys.executable, str(repo / "scripts" / "build.py")]
+                              + list(extra), capture_output=True, text=True,
+                              encoding="utf-8", cwd=repo, env=entorno)
 
-class LosMetadatosDeCita(unittest.TestCase):
-    """
-    Lo que se deposita en Zenodo queda citable para siempre, así que los dos
-    ficheros que lo describen tienen que decir lo mismo. Se desincronizan por el
-    camino de siempre: se sube la versión en uno y se olvida el otro, y entonces
-    el DOI archiva un estado que no es el que su propia cita anuncia.
-    """
+    def test_detecta_una_condicion_que_no_existe_en_el_indice(self):
+        repo = self.preparar()
+        self.estropear(repo, "condicion: 'HM:6009'", "condicion: 'HM:6999'",
+                       "selecciones/SEL0027-faringoamigdalitis-estreptococica-del-grupo-a.yaml")
+        r = self._con_indice(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("no existe en medsemiotics-db", r.stdout)
 
-    @classmethod
-    def setUpClass(cls):
+    def test_detecta_una_condicion_mal_formada(self):
+        repo = self.preparar()
+        self.estropear(repo, "condicion: 'HM:6009'", "condicion: 'faringitis'",
+                       "selecciones/SEL0027-faringoamigdalitis-estreptococica-del-grupo-a.yaml")
+        r = self.validar(repo)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("HM:NNNN", r.stdout)
+
+    def test_sin_indice_y_exigido_es_error(self):
+        repo = self.preparar()
+        import os
+        entorno = {k: v for k, v in os.environ.items() if k != "MEDSEMIOTICS_DB"}
+        r = subprocess.run([sys.executable, str(repo / "scripts" / "build.py"),
+                            "--exigir-indice"], capture_output=True, text=True,
+                           encoding="utf-8", cwd=repo, env=entorno)
+        # El temporal no tiene medsemiotics-db al lado.
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("no encuentro medsemiotics-db", r.stdout)
+
+
+class LaCita(unittest.TestCase):
+    """CITATION.cff es la única descripción de autoría que queda. El depósito
+    de Zenodo archiva la versión anterior a la reescritura y no se toca."""
+
+    def test_el_orcid_supera_su_digito_de_control(self):
+        # Un ORCID mal copiado apunta a otra persona, o a nadie. ISO 7064 MOD 11-2.
         import yaml
-        cls.zen = json.loads((RAIZ / ".zenodo.json").read_text(encoding="utf-8"))
-        cls.cff = yaml.safe_load((RAIZ / "CITATION.cff").read_text(encoding="utf-8"))
-
-    def test_ambos_ficheros_declaran_la_misma_version(self):
-        self.assertEqual(self.zen["version"], self.cff["version"],
-                         ".zenodo.json y CITATION.cff no coinciden en la versión")
-
-    def test_ambos_ficheros_declaran_la_misma_licencia(self):
-        # Zenodo la quiere en minúsculas y CITATION.cff en SPDX, así que no se
-        # comparan en crudo: se comparan normalizadas, y además se fija cuál es.
-        self.assertEqual(self.zen["license"].lower(), self.cff["license"].lower(),
-                         "la licencia del depósito no es la del repositorio")
-        self.assertEqual(self.cff["license"], "CC-BY-SA-4.0")
-
-    def test_la_autoria_es_la_misma_en_los_dos(self):
-        autor_cff = self.cff["authors"][0]
-        esperado = f"{autor_cff['family-names']}, {autor_cff['given-names']}"
-        self.assertEqual(self.zen["creators"][0]["name"], esperado,
-                         "el nombre del depósito no es el de la cita")
-
-    def test_el_orcid_es_el_mismo_y_su_digito_de_control_cuadra(self):
-        # Un ORCID mal copiado apunta a otra persona, o a nadie. Se comprueba
-        # como se comprueba un PMID: que el identificador sea válido, no que
-        # tenga forma de identificador. El dígito de control es ISO 7064 MOD 11-2.
-        suelto = self.zen["creators"][0]["orcid"]
-        self.assertEqual(self.cff["authors"][0]["orcid"],
-                         f"https://orcid.org/{suelto}",
-                         "el ORCID de la cita no es el del depósito")
+        cff = yaml.safe_load((RAIZ / "CITATION.cff").read_text(encoding="utf-8"))
+        suelto = cff["authors"][0]["orcid"].rsplit("/", 1)[-1]
         self.assertRegex(suelto, r"^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$")
-
         digitos = suelto.replace("-", "")
         total = 0
         for d in digitos[:15]:
             total = (total + int(d)) * 2
         control = (12 - total % 11) % 11
-        self.assertEqual("X" if control == 10 else str(control), digitos[15],
-                         f"el ORCID {suelto} no supera su propio dígito de control")
-
-    def test_el_deposito_apunta_a_la_comunidad_powersemiotics(self):
-        ids = [c["identifier"] for c in self.zen.get("communities", [])]
-        self.assertIn("powersemiotics", ids,
-                      "el depósito no reclama su comunidad de Zenodo")
-
-    def test_el_doi_de_concepto_manda_en_la_cita_y_en_la_insignia(self):
-        # Zenodo acuña dos DOI por depósito y van consecutivos, así que
-        # confundirlos es fácil y no se nota: el de concepto sigue a la última
-        # versión y el de versión congela una. Ya se etiquetó mal una vez —el
-        # `22700662` se anunció como de concepto siendo el de la v0.1.0—, y
-        # quien citara por esa etiqueta habría citado algo distinto de lo que
-        # prometía. `doi` y la insignia han de ser el de concepto.
-        concepto = self.cff.get("doi")
-        self.assertIsNotNone(concepto, "CITATION.cff no declara el DOI del depósito")
-        self.assertEqual(self.cff["identifiers"][0]["value"], concepto,
-                         "el primer `identifiers` no es el DOI de concepto")
-        self.assertIn("concepto", self.cff["identifiers"][0]["description"].lower())
-
-        readme = (RAIZ / "README.md").read_text(encoding="utf-8")
-        declarados = {i["value"] for i in self.cff["identifiers"]}
-        anunciados = set(re.findall(r"10\.5281/zenodo\.\d+", readme))
-        self.assertTrue(anunciados, "el README no anuncia ningún DOI")
-        self.assertLessEqual(anunciados, declarados,
-                             f"el README anuncia DOI que CITATION.cff no declara: "
-                             f"{anunciados - declarados}")
-
-        insignia = re.search(r"zenodo\.org/badge/DOI/(10\.5281/zenodo\.\d+)", readme)
-        self.assertIsNotNone(insignia, "el README no lleva insignia de DOI")
-        self.assertEqual(insignia.group(1), concepto,
-                         "la insignia apunta a una versión, no al DOI de concepto")
-
-    def test_el_readme_no_anuncia_un_doi_de_plantilla(self):
-        # Un DOI con las equis de la plantilla es un identificador con formato
-        # científico que no resuelve: el mismo fallo que un HR sin PMID.
-        # \w+ y no \S+: el sufijo de la insignia (`.svg`) no forma parte del
-        # identificador, y tomarlo por parte de él hacía fallar la prueba sobre
-        # un DOI perfectamente válido.
-        readme = (RAIZ / "README.md").read_text(encoding="utf-8")
-        sufijos = re.findall(r"10\.5281/zenodo\.(\w+)", readme)
-        self.assertTrue(sufijos, "el README no anuncia ningún DOI")
-        for doi in sufijos:
-            self.assertRegex(doi, r"^\d+$",
-                             f"el README anuncia un DOI sin acuñar: {doi}")
+        self.assertEqual("X" if control == 10 else str(control), digitos[15])
 
 
 if __name__ == "__main__":

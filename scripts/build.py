@@ -5,15 +5,20 @@ VALIDADOR. Lee todo el repositorio y dice qué falta. **No modifica nada.**
     python scripts/build.py
     python scripts/build.py --solo-errores
 
-Expone `cargar()` para que indice.py, sitio.py, reto.py y eml.py trabajen sobre
-el mismo estado validado y no cada uno con su propia idea de qué hay dentro.
+Expone `cargar()` para que las pruebas y cualquier consumidor trabajen sobre el
+mismo estado validado y no cada uno con su propia idea de qué hay dentro.
+
+Con `--exigir-indice` (lo usa CI), no encontrar medsemiotics-db en la revisión
+fijada en `dependencias.yaml` es error y no aviso.
 
 La regla que más importa está en `regla_de_oro()`: ningún enunciado de eficacia
 o seguridad sin PMID resoluble. Es error, no advertencia. Un `HR 0.62` sin
 procedencia es un número inventado con formato científico.
 """
 import argparse
+import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -34,6 +39,7 @@ RE_ARCHIVO_FT = re.compile(r"^FT(\d{4})-[a-z0-9-]+\.yaml$")
 # por molécula. Son permanentes igual que FS y FT.
 RE_SEL = re.compile(r"^SEL:\d{4}$")
 RE_FA = re.compile(r"^FA:\d{4}$")
+RE_HM = re.compile(r"^HM:\d{4}$")
 RE_ARCHIVO_SEL = re.compile(r"^SEL(\d{4})-[a-z0-9-]+\.yaml$")
 RE_ARCHIVO_FA = re.compile(r"^FA(\d{4})-[a-z0-9-]+\.yaml$")
 
@@ -119,8 +125,9 @@ BLOQUES_GPC = {"cribado_basal", "farmacogenetica", "monitorizacion",
                "atencion_compartida", "posicionamiento"}
 
 # El repositorio es internacional. Estos términos delatan que se coló contexto
-# de un país concreto —el origen de este proyecto fue ecuatoriano— y eso
-# pertenece a costos/, no al núcleo.
+# de un país o una institución concretos —el origen de este proyecto fue
+# ecuatoriano—. Las adaptaciones institucionales (HECAM, CNMB) no son
+# publicables y viven fuera de este repositorio público.
 RE_LOCAL = re.compile(r"\b(CNMB|ARCSA|RPIS|CONAMEI|IESS|MSP)\b")
 # Un precio dentro de farmacos/ o fichas/ está en el sitio equivocado.
 RE_PRECIO = re.compile(r"(?:USD|EUR|US\$|\$)\s?\d")
@@ -216,9 +223,98 @@ def cargar(inf=None):
     if cat.exists():
         estado["catalogo"] = leer_yaml(cat, inf)
     else:
-        inf.aviso("catalogo/", "no hay catálogo de la LME: eml.py no podrá "
-                               "medir la cobertura")
+        inf.aviso("catalogo/", "no hay catálogo de la LME: `lme.seccion` no "
+                               "podrá comprobarse")
     return estado
+
+
+# ─────────────────── el índice clínico, fijado ───────────────────
+
+def localizar_indice():
+    """El clon de medsemiotics-db: `MEDSEMIOTICS_DB` o el directorio hermano."""
+    env = os.environ.get("MEDSEMIOTICS_DB")
+    for ruta in ([Path(env)] if env else []) + [RAIZ.parent / "medsemiotics-db"]:
+        if (ruta / ".git").exists():
+            return ruta
+    return None
+
+
+def condiciones_del_indice(inf, exigir=False):
+    """Los `HM:` de condición que existen en la revisión FIJADA del índice.
+
+    Se leen del historial de git (`git ls-tree` y `git show` sobre `ref`), no
+    del árbol de trabajo: un clon local en otra rama o por delante de la
+    revisión fijada daría por buenas condiciones que holonmed todavía no ve.
+    Devuelve None si no se puede comprobar.
+    """
+    reportar = inf.error if exigir else inf.aviso
+    dep = RAIZ / "dependencias.yaml"
+    if not dep.exists():
+        inf.error("dependencias.yaml", "no existe: no hay revisión fijada del índice")
+        return None
+    fijado = (yaml.safe_load(dep.read_text(encoding="utf-8")) or {}).get(
+        "medsemiotics-db") or {}
+    ref = fijado.get("ref")
+    if not ref:
+        inf.error("dependencias.yaml", "`medsemiotics-db.ref` vacío")
+        return None
+    clon = localizar_indice()
+    if clon is None:
+        reportar("dependencias.yaml", "no encuentro medsemiotics-db (ni en "
+                 "MEDSEMIOTICS_DB ni como directorio hermano): los `condicion: "
+                 "HM:` no se han comprobado")
+        return None
+
+    def git(*args):
+        return subprocess.run(["git", "-C", str(clon)] + list(args),
+                              capture_output=True, text=True, encoding="utf-8")
+
+    r = git("ls-tree", "--name-only", ref, "condiciones/")
+    if r.returncode != 0:
+        reportar("dependencias.yaml", "el clon de medsemiotics-db no tiene la "
+                 "revisión " + ref[:12] + " (haz `git fetch` en él)")
+        return None
+    codigos = {}
+    for nombre in r.stdout.split():
+        if not nombre.endswith(".yaml"):
+            continue
+        contenido = git("show", ref + ":" + nombre)
+        try:
+            reg = yaml.safe_load(contenido.stdout) or {}
+        except yaml.YAMLError:
+            continue
+        if reg.get("id"):
+            codigos[str(reg["id"])] = reg.get("termino") or nombre
+    return codigos
+
+
+def revisar_condiciones(estado, inf, exigir=False):
+    """Cada selección declara la condición `HM:` que trata, y esa condición
+    existe en el índice fijado. Es el enlace por el que holonmed llega aquí:
+    un código que no resuelve no falla en ninguna parte, simplemente deja al
+    diagnóstico sin tratamiento."""
+    declaradas = {}
+    for ident, reg in estado["selecciones"].items():
+        archivo = estado["archivos"][ident]
+        cond = reg.get("condicion")
+        if cond is None:
+            inf.aviso(archivo, "sin `condicion: HM:`: holonmed no puede llegar "
+                               "a esta selección desde un diagnóstico")
+            continue
+        if not RE_HM.match(str(cond)):
+            inf.error(archivo, "`condicion: " + str(cond) + "` no tiene la "
+                               "forma HM:NNNN")
+            continue
+        declaradas[archivo] = str(cond)
+    if not declaradas:
+        return
+    indice = condiciones_del_indice(inf, exigir)
+    if indice is None:
+        return
+    for archivo, cond in declaradas.items():
+        if cond not in indice:
+            inf.error(archivo, "`condicion: " + cond + "` no existe en "
+                      "medsemiotics-db en la revisión fijada")
 
 
 # ─────────────────────────── chequeos ───────────────────────────
@@ -280,8 +376,7 @@ def revisar_farmaco(ident, reg, archivo, estado, inf):
     lme = reg.get("lme")
     if isinstance(lme, dict) and lme.get("presente") is None:
         inf.aviso(archivo, "`lme.presente` sin comprobar: el fármaco no consta "
-                           "ni dentro ni fuera de la Lista Modelo, y eml.py lo "
-                           "contará como fuera")
+                           "ni dentro ni fuera de la Lista Modelo")
     if not isinstance(lme, dict):
         inf.error(archivo, "falta el bloque `lme` (aunque el fármaco no esté "
                            "en la Lista Modelo: entonces `presente: false`)")
@@ -797,8 +892,8 @@ def revisar_seleccion(ident, reg, archivo, inf):
                                            "argumento no se puede discutir")
             # El costo es el único eje que no exige `ref` a un artículo: su
             # sustento es una propiedad del mercado (genérico multifuente,
-            # biológico de marca), no un hallazgo publicado. Las cifras viven
-            # en costos/ y no aquí.
+            # biológico de marca), no un hallazgo publicado. Las cifras no se
+            # escriben en ninguna parte.
             if eje != "costo" and bloque.get("juicio") != "sin_datos" \
                     and not bloque.get("ref"):
                 inf.error(archivo, eti_e + " sin `ref`")
@@ -867,12 +962,12 @@ def revisar_higiene(estado, inf):
                 m = RE_LOCAL.search(valor)
                 if m:
                     inf.error(archivo, ruta + ": menciona `" + m.group(1)
-                              + "`. El núcleo es internacional; lo de un país "
-                                "concreto va en costos/.")
+                              + "`. El núcleo es internacional; lo de una "
+                                "institución o un país no se publica aquí.")
                 if RE_PRECIO.search(valor):
-                    inf.error(archivo, ruta + ": lleva un precio. Los precios "
-                              "viven en costos/<pais>.yaml, con su moneda y su "
-                              "fecha.")
+                    inf.error(archivo, ruta + ": lleva un precio. El costo se "
+                              "juzga, no se cifra: la cifra caduca y no cruza "
+                              "fronteras.")
 
 
 def revisar_huerfanos(estado, inf):
@@ -917,6 +1012,8 @@ def main():
     ap = argparse.ArgumentParser(description="Valida el repositorio. No modifica nada.")
     ap.add_argument("--solo-errores", action="store_true",
                     help="calla las advertencias")
+    ap.add_argument("--exigir-indice", action="store_true",
+                    help="error si no se puede comprobar medsemiotics-db (CI)")
     args = ap.parse_args()
 
     inf = Informe()
@@ -943,6 +1040,7 @@ def main():
     for ident, reg in estado["fichas"].items():
         revisar_ficha(ident, reg, estado["archivos"][ident], estado, inf)
 
+    revisar_condiciones(estado, inf, args.exigir_indice)
     regla_de_oro(estado, inf)
     revisar_higiene(estado, inf)
     revisar_huerfanos(estado, inf)

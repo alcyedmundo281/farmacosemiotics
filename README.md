@@ -1,131 +1,60 @@
 # farmacosemiotics
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22700661.svg)](https://doi.org/10.5281/zenodo.22700661)
-
-**Uso racional de medicamentos, en fuente abierta y verificable.** Fichas
-terapéuticas en YAML, cada enunciado de eficacia o seguridad anclado a un PMID
-que resuelve. Motor en Python. Índice JSON-LD.
-
-→ **[powersemiotics.com/farmacosemiotics](https://powersemiotics.com/farmacosemiotics/)**
-
-Parte de **[Powersemiotics](https://powersemiotics.com/)**, del que también
-cuelgan [biosemiotics](https://powersemiotics.com/biosemiotics/) (atlas POCUS) y
-[medsemiotics](https://powersemiotics.com/medsemiotics/) (plataforma educativa).
-Fuera del dominio, el ecosistema lo completan
-[medsemiotics-db](https://github.com/alcyedmundo281/medsemiotics-db) (índice
-clínico) y [holonmed](https://github.com/alcyedmundo281/holonmed)
-(razonamiento local).
-
-El dominio **se hereda**: `powersemiotics.com` está configurado en el sitio de
-usuario de la cuenta, y cada repositorio de proyecto se sirve bajo
-`powersemiotics.com/<repo>/`. Por eso este repositorio **no lleva ni genera un
-fichero `CNAME`** —un `CNAME` en un sitio de proyecto reclamaría el vértice del
-dominio y tumbaría el sitio principal—. Hay una prueba que lo vigila.
-
-La meta de contenido es la **Lista Modelo de Medicamentos Esenciales de la OMS**
-—24.ª lista, 2025, y la 10.ª LME para niños—. No es un catálogo nacional: es
-internacional por diseño, y lo que depende del país vive en `costos/`, aparte.
-
-## Primero se elige, luego se usa
-
-El repositorio son dos cosas encadenadas en el orden de la decisión. **Parte I:**
-un informe de selección por problema de salud, que compara los candidatos en
-eficacia, seguridad, conveniencia y costo y dice cuál se elige. **Parte II:** la
-farmacoterapia de la molécula elegida —cribado, cronograma, umbrales,
-interacciones, reproductivo, atención compartida—, escrita una sola vez y
-servida a todas sus indicaciones.
-
-## El libro
-
-Las dos partes se proyectan a **un solo `.qmd`** y de ahí sale un EPUB con
-Quarto. Cada cifra viaja con su cita, y cada entrada de la bibliografía lleva
-su PMID, así que el vínculo con PubMed sobrevive a la encuadernación: quien lea
-el libro puede seguir cualquier número hasta el artículo del que sale.
-
-```bash
-python scripts/epub.py      # build/guias-farmacoterapeuticas.epub
-```
-
-## La arquitectura, en una frase
-
-> **El índice es PubMed. Los YAML son PubMed Central.**
-
-`build/index.json` lleva metadatos —el registro que se busca y se filtra—. Los
-YAML llevan el texto estructurado completo. Es el mismo reparto que usa
-biosemiotics, y es lo que hace posible a la vez un buscador con facetas, un
-reto de preguntas con URL relativas y un depósito JATS.
-
-## El desdoblamiento
+**El conocimiento terapéutico de [holonmed](https://github.com/alcyedmundo281/holonmed).**
+Cuando holonmed confirma un diagnóstico —una condición `HM:` de
+[medsemiotics-db](https://github.com/alcyedmundo281/medsemiotics-db)—, llega
+aquí para saber qué fármaco se elige, cómo se dosifica y cómo se usa con
+seguridad. Fichas en YAML, cada enunciado de eficacia o seguridad anclado a un
+PMID que resuelve.
 
 ```
-farmacos/   un YAML por principio activo    identidad, ATC, LME, regulatorio, seguridad
-fichas/     un YAML por fármaco × indicación   PICO, evidencia, GRADE, balance, recomendación
+medsemiotics-db  ──(HM:, fijado)──►  farmacosemiotics  ──(fijado)──►  holonmed
+   qué tiene                          qué se hace                    el residente
 ```
 
-No es burocracia de carpetas. Es la misma lógica por la que medsemiotics-db
-pone el cociente de verosimilitud en la arista concepto→condición y no en el
-concepto suelto:
+## La reescritura de noviembre de 2026
+
+El ecosistema Powersemiotics orbita entero alrededor de holonmed, y este
+repositorio se reescribió para servirle. Se borró todo lo que existía para
+publicar: el sitio, el reto, el índice JSON-LD y JATS, el libro EPUB, la
+cobertura frente a la Lista Modelo de la OMS, el overlay de costos y la
+maquinaria de depósito. Sigue en el historial de git.
+
+La versión publicada anterior está archivada en Zenodo y sigue siendo citable:
+[`10.5281/zenodo.22700661`](https://doi.org/10.5281/zenodo.22700661).
+
+## Las entidades
+
+| carpeta | código | depende de… | qué responde |
+|---|---|---|---|
+| `selecciones/` | `SEL:` | el problema de salud (`condicion: HM:`) | qué fármaco se elige, en eficacia, seguridad, conveniencia y costo |
+| `farmacos/` | `FS:` | la molécula | identidad, ATC, regulatorio |
+| `farmacoterapia/` | `FA:` | la molécula | cribado, monitorización, umbrales, reproductivo |
+| `fichas/` | `FT:` | fármaco × indicación | posología, evidencia, GRADE, NNT/NNH |
+| `manejo/` | `MAN:` | la condición `HM:` | **en camino**: el plan de manejo completo |
 
 > **La eficacia no es del fármaco en abstracto. Es del fármaco PARA una
 > indicación, en una población, frente a un comparador.**
 
-La metformina no «funciona»: reduce desenlaces en diabetes tipo 2 del adulto
-comparada con dieta sola. Ese enunciado pertenece a la ficha, no al fármaco.
-El mecanismo de acción, el ATC y la contraindicación por filtrado glomerular
-sí pertenecen al fármaco, y valen para todas sus indicaciones.
-
 ## Regla de oro
 
 > **Ningún enunciado de eficacia o seguridad sin PMID resoluble.**
-> Un `HR 0.62 (IC95% 0.51–0.75)` sin procedencia es un número inventado con
-> formato científico, y mueve la decisión de un clínico.
 
-`scripts/build.py` la hace cumplir: una `ref` que no resuelve a un fichero de
-`referencias/` es un error, no una advertencia.
-
-## Mapa
-
-```
-farmacosemiotics/
-├── CLAUDE.md                          manual de operación de la sesión
-├── mapa-maestro-farmacosemiotics.md   QUÉ poblar y en qué orden
-├── deposito-zenodo.md                 cómo se acuña el DOI y en qué orden
-├── farmacos/      FS0001-metformina.yaml
-├── fichas/        FT0001-metformina-diabetes-tipo-2.yaml
-├── referencias/   pmid-9742977.yaml            verificadas contra PubMed
-├── catalogo/      lme-oms-2025.yaml            la meta de contenido
-├── costos/        <pais>.yaml                  overlay opcional, nunca el núcleo
-├── selecciones/   PARTE I: qué fármaco gana, por problema de salud (SEL:)
-├── farmacoterapia/ PARTE II: cómo se usa la molécula (FA:)
-├── scripts/       build · pubmed · openfda · eml · indice · sitio · reto · qmd · epub
-├── sitio/         plantillas del frontend
-└── build/         GENERADO — no se versiona
-```
+`build.py` lo trata como error, no como advertencia.
 
 ## Uso
 
 ```bash
 pip install -r requirements.txt
-python scripts/build.py          # valida; no modifica nada
-python scripts/indice.py         # build/index.json + build/jsonld/ + build/jats/
-python scripts/sitio.py          # build/sitio/ listo para Pages
-python scripts/eml.py            # cobertura frente a la Lista Modelo de la OMS
-python scripts/pipeline.py       # todo lo anterior, más el reto y las pruebas
-python scripts/epub.py           # el libro con todas las guías (necesita Quarto)
+git clone https://github.com/alcyedmundo281/medsemiotics-db ../medsemiotics-db
+python scripts/build.py --exigir-indice     # valida; no modifica nada
+python -m unittest discover -s tests -v
 ```
 
-Añadir una referencia (no se escriben a mano):
-
-```bash
-python scripts/pubmed.py 9742977
-```
-
-Refrescar el bloque regulatorio desde openFDA (imprime el YAML; lo pega una
-persona, que es quien responde por lo que entra):
-
-```bash
-python scripts/openfda.py "metformin hydrochloride"
-```
+`build.py` lee medsemiotics-db en la revisión fijada en
+[`dependencias.yaml`](dependencias.yaml), del historial de git y no del árbol de
+trabajo: da igual en qué rama esté el clon. Si el clon no está al lado, indica
+su ruta con `MEDSEMIOTICS_DB`.
 
 ## Fuentes
 
@@ -133,78 +62,20 @@ python scripts/openfda.py "metformin hydrochloride"
 |---|---|---|
 | eficacia y seguridad | **PubMed** (E-utilities) | autoridad para título, año y retractación |
 | identidad y normalización | **RxNav / RxNorm** (NLM) | DCI ↔ RxCUI ↔ ATC |
-| regulatorio y etiqueta | **openFDA** (`drugsfda`, `label`) | API pública, sin clave, versionable en CI |
-| meta de contenido | **LME OMS 24.ª lista, 2025** (TRS 1064) | sembrada en `catalogo/` |
-| costos | overlay por país en `costos/` | no hay fuente internacional libre y comparable |
+| regulatorio y etiqueta | **openFDA** (`drugsfda`, `label`) | API pública, sin clave, con fecha de consulta |
+| condiciones | **medsemiotics-db**, fijado | el código `HM:` por el que holonmed llega aquí |
 
-No usamos un MCP para la FDA a propósito: ataría la generación a una sesión
-interactiva. `scripts/openfda.py` corre en CI, es reproducible y deja huella
-auditable con la fecha de consulta en el propio registro.
-
-## Costos: por qué no están en el núcleo
-
-No existe una fuente de precios internacional libre, comparable y actualizada.
-Meter un precio en la ficha internacional la volvería falsa en cuanto cruza una
-frontera, y la haría envejecer mal. Por eso el precio vive en
-`costos/<pais>.yaml`, cada dato con fuente, moneda y fecha de consulta, y el
-motor lo superpone solo si se lo pides.
-
-## Estado
-
-| capa | registros |
-|---|---|
-| fármacos | 33 |
-| selecciones (Parte I) | 23 |
-| farmacoterapias (Parte II) | 33 |
-| guías fármaco × indicación | 35 |
-| referencias verificadas | 62 |
-| cobertura LME | 14 fármacos · 5 de 30 secciones |
-
-De las 33 farmacoterapias, **17 no declaran ningún hueco** y 16 declaran cuál
-les falta. Ninguna calla lo que le falta, que es la única de las tres cifras
-que señalaría un descuido. 28 traen ya cronograma y umbrales.
-
-Ver [mapa-maestro-farmacosemiotics.md](mapa-maestro-farmacosemiotics.md).
-
-## Cómo citar
-
-Los metadatos de cita viven en [`CITATION.cff`](CITATION.cff) —GitHub los lee y
-ofrece «Cite this repository» en la barra lateral— y los de depósito en
-[`.zenodo.json`](.zenodo.json).
-
-El repositorio se archiva en **Zenodo**, dentro de la comunidad
-**powersemiotics**, y cada release acuña su DOI. Se citan dos cosas distintas:
-el **DOI de concepto**, que resuelve siempre a la última versión y es el que se
-cita por defecto, y el **DOI de versión**, que fija un estado exacto del corpus
-y es el que se usa cuando hay que reproducir un resultado.
-
-| DOI | Qué identifica | Cuándo usarlo |
-|---|---|---|
-| [`10.5281/zenodo.22700661`](https://doi.org/10.5281/zenodo.22700661) | Todas las versiones | Por defecto. Resuelve siempre a la última |
-| [`10.5281/zenodo.22836793`](https://doi.org/10.5281/zenodo.22836793) | Sólo v0.2.0, la vigente | Cuando importe reproducir este estado exacto del corpus |
-
-El DOI de cada versión anterior está en [`CITATION.cff`](CITATION.cff), que
-es donde lo leen las máquinas. Aquí sólo la vigente: una tabla que crece una
-fila por release envejece sola.
-
-> Torres Guerrero, A. E. (2026). *farmacosemiotics: guías de práctica clínica
-> farmacoterapéuticas ancladas a PubMed*. Zenodo.
-> <https://doi.org/10.5281/zenodo.22700661>
-
-El procedimiento —y la trampa de orden que deja una release sin DOI para
-siempre— está en [deposito-zenodo.md](deposito-zenodo.md).
+Alcance internacional. Las adaptaciones institucionales no son publicables y no
+entran en este repositorio.
 
 ## Aviso
 
 **Plataforma independiente.** El contenido no implica aval ni representación
-de ninguna institución sanitaria ni académica.
-
-Material educativo. No sustituye el juicio clínico ni la ficha técnica
-aprobada por la agencia reguladora que corresponda al lugar de uso. Autor y
-responsable clínico: Dr. Alcy Torres.
+de ninguna institución sanitaria ni académica. No sustituye el juicio clínico
+ni la ficha técnica aprobada por la agencia reguladora que corresponda al lugar
+de uso. Autor y responsable clínico: Dr. Alcy Torres.
 
 ## Licencia
 
-Contenido —fichas, fármacos, catálogo— bajo
-[CC BY-SA 4.0](LICENSE). Código de `scripts/` y `sitio/` bajo
+Contenido bajo [CC BY-SA 4.0](LICENSE). Código de `scripts/` bajo
 [MIT](LICENSE-CODIGO).

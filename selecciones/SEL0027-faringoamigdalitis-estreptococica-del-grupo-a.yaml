@@ -10,6 +10,7 @@ id: 'SEL:0027'
 tipo: seleccion
 problema: Faringoamigdalitis estreptocócica del grupo A
 problema_en: Group A streptococcal pharyngotonsillitis
+condicion: 'HM:6009'   # medsemiotics-db: Faringitis estreptocócica
 
 poblacion: >-
   Niños, adolescentes y adultos con faringoamigdalitis aguda y confirmación microbiológica de

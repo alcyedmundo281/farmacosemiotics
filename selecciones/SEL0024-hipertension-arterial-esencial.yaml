@@ -25,6 +25,7 @@ id: 'SEL:0024'
 tipo: seleccion
 problema: Hipertensión arterial esencial del adulto
 problema_en: Essential hypertension in adults
+condicion: 'HM:6029'   # medsemiotics-db: Hipertensión arterial en adultos
 cie11: BA00
 
 poblacion: >-

@@ -1,15 +1,47 @@
 # Mapa maestro de farmacosemiotics
 
 **Qué poblar y en qué orden.** Léelo al arrancar cualquier sesión y di en voz
-alta qué oleada toca antes de escribir nada.
+alta qué toca antes de escribir nada.
 
-La meta es la **Lista Modelo de Medicamentos Esenciales de la OMS, 24.ª lista
-(2025)**, sembrada en [`catalogo/lme-oms-2025.yaml`](catalogo/lme-oms-2025.yaml)
-con sus 30 secciones, complementada con el catálogo de terapias dirigidas e
-inmunooncología de alto impacto. `python scripts/eml.py` mide la cobertura
-frente a la LME.
+## Desde el 09/11/2026: el orden lo pone holonmed
+
+La meta ya no es la Lista Modelo de la OMS. Es **cubrir las condiciones que
+holonmed diagnostica**: las de medsemiotics-db, en la revisión fijada en
+`dependencias.yaml`. Una condición diagnosticada sin selección ni manejo es un
+diagnóstico que holonmed confirma y no sabe tratar.
+
+El criterio de prioridad, en este orden:
+
+1. **Condiciones que ya tienen selección**: basta con declarar su `condicion:`
+   y verificar que la población coincide. Es el enlace más barato.
+2. **El primer `MAN:`**, que estrena el tipo de manejo.
+3. Condiciones del índice con tratamiento farmacológico y sin selección.
+4. Las selecciones heredadas cuyo problema **no existe** en medsemiotics-db
+   (pénfigo, cistitis, oncología…): se proponen allí como condición, o se
+   quedan sin enlazar con su aviso. Lo decide el responsable clínico, una a una.
+
+### Estado del enlace
+
+| condición `HM:` | medsemiotics-db | `SEL:` | `MAN:` | estado |
+|---|---|---|---|---|
+| `HM:6009` | Faringitis estreptocócica | `SEL:0027` | — | enlazada; **primer `MAN:` en el ciclo siguiente** |
+| `HM:6029` | Hipertensión arterial en adultos | `SEL:0024` | — | enlazada |
+
+`SEL:0026` (NAC del adulto ambulatorio) **no** se enlaza a `HM:6036` (neumonía
+infantil): son poblaciones distintas, y un enlace por nombre parecido es el
+modo de fallo que esta tabla existe para evitar.
+
+Las otras 25 selecciones no tienen condición en el índice y `build.py` las
+señala con un aviso.
 
 ---
+
+## Registro: las oleadas de la etapa de publicación
+
+Lo que sigue es el mapa de cuando la meta era la Lista Modelo de la OMS. Se
+conserva como registro de lo que ya está escrito; **ya no fija el orden**. Las
+menciones a `eml.py`, al sitio, a Ghost, al reto y al EPUB son de herramientas
+que se borraron en la reescritura.
 
 ## El híbrido: primero se elige, luego se usa
 

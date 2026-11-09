@@ -276,6 +276,9 @@ id: '{ident_id}'
 tipo: seleccion
 problema: {problema}
 problema_en: TODO
+# La condición de medsemiotics-db que trata (HM:NNNN). Es el enlace por el que
+# holonmed llega aquí; build.py comprueba que exista en el índice fijado.
+condicion: null
 cie11: TODO
 
 poblacion: >-
@@ -321,7 +324,7 @@ candidatos:
       ref: 'pmid:00000000'
     costo:
       # El único eje sin `ref` a un artículo: su sustento es una propiedad del
-      # mercado. Las cifras en moneda van a costos/<pais>.yaml, nunca aquí.
+      # mercado. Las cifras en moneda no se escriben en ningún registro.
       juicio: equivalente
       sustento: 'TODO: genérico oral multifuente / biológico de marca / …'
     veredicto: seleccionado

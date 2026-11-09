@@ -1,0 +1,16 @@
+# Conocimiento del que depende este repositorio, FIJADO. Nunca se lee en vivo.
+#
+# farmacosemiotics sirve a holonmed. holonmed llega a una selección (y, desde
+# ahí, al fármaco y a su uso seguro) por el código HM: de la condición que
+# diagnosticó. Ese código vive en medsemiotics-db, así que `build.py` comprueba
+# que cada `condicion: HM:NNNN` exista en el índice **en esta revisión exacta**,
+# leyéndola del historial de git y no del árbol de trabajo: da igual en qué
+# rama esté el clon local.
+#
+# Cambiar `ref` es una decisión, no un mantenimiento: va en su propio PR.
+# Mientras medsemiotics-db no publique una etiqueta que contenga las
+# condiciones enlazadas (v0.1.1 es anterior a HM:6029), se fija por commit.
+
+medsemiotics-db:
+  repo: https://github.com/alcyedmundo281/medsemiotics-db
+  ref: b350650cec28d16c26e33be7118c3699eba404c3   # main tras el PR #81, 2026-11-09
